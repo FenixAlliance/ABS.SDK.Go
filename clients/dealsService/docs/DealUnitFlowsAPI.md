@@ -4,92 +4,26 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2DealsServiceDealUnitFlowsCountGet**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsCountGet) | **Get** /api/v2/DealsService/DealUnitFlows/Count | 
-[**ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete) | **Delete** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | 
-[**ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet) | **Get** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | 
-[**ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut) | **Put** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | 
-[**ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet) | **Get** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/Count | 
-[**ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete) | **Delete** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | 
-[**ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet) | **Get** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | 
-[**ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut) | **Put** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | 
-[**ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet) | **Get** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages | 
-[**ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost) | **Post** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages | 
-[**ApiV2DealsServiceDealUnitFlowsGet**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsGet) | **Get** /api/v2/DealsService/DealUnitFlows | 
-[**ApiV2DealsServiceDealUnitFlowsPost**](DealUnitFlowsAPI.md#ApiV2DealsServiceDealUnitFlowsPost) | **Post** /api/v2/DealsService/DealUnitFlows | 
+[**CreateDealUnitFlowAsync**](DealUnitFlowsAPI.md#CreateDealUnitFlowAsync) | **Post** /api/v2/DealsService/DealUnitFlows | Create a deal unit flow
+[**CreateDealUnitFlowStageAsync**](DealUnitFlowsAPI.md#CreateDealUnitFlowStageAsync) | **Post** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages | Create a deal unit flow stage
+[**DeleteDealUnitFlowAsync**](DealUnitFlowsAPI.md#DeleteDealUnitFlowAsync) | **Delete** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Delete a deal unit flow
+[**DeleteDealUnitFlowStageAsync**](DealUnitFlowsAPI.md#DeleteDealUnitFlowStageAsync) | **Delete** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Delete a deal unit flow stage
+[**GetDealUnitFlowAsync**](DealUnitFlowsAPI.md#GetDealUnitFlowAsync) | **Get** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Get deal unit flow by ID
+[**GetDealUnitFlowStageAsync**](DealUnitFlowsAPI.md#GetDealUnitFlowStageAsync) | **Get** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Get a deal unit flow stage by ID
+[**GetDealUnitFlowStagesAsync**](DealUnitFlowsAPI.md#GetDealUnitFlowStagesAsync) | **Get** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages | Get stages for a deal unit flow
+[**GetDealUnitFlowStagesCountAsync**](DealUnitFlowsAPI.md#GetDealUnitFlowStagesCountAsync) | **Get** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/Count | Get stages count for a deal unit flow
+[**GetDealUnitFlowsAsync**](DealUnitFlowsAPI.md#GetDealUnitFlowsAsync) | **Get** /api/v2/DealsService/DealUnitFlows | Get deal unit flows
+[**GetDealUnitFlowsCountAsync**](DealUnitFlowsAPI.md#GetDealUnitFlowsCountAsync) | **Get** /api/v2/DealsService/DealUnitFlows/Count | Get deal unit flows count
+[**UpdateDealUnitFlowAsync**](DealUnitFlowsAPI.md#UpdateDealUnitFlowAsync) | **Put** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Update a deal unit flow
+[**UpdateDealUnitFlowStageAsync**](DealUnitFlowsAPI.md#UpdateDealUnitFlowStageAsync) | **Put** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Update a deal unit flow stage
 
 
 
-## ApiV2DealsServiceDealUnitFlowsCountGet
+## CreateDealUnitFlowAsync
 
-> Int32Envelope ApiV2DealsServiceDealUnitFlowsCountGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope CreateDealUnitFlowAsync(ctx).TenantId(tenantId).DealUnitFlowCreateDto(dealUnitFlowCreateDto).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsCountGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsCountGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsCountGet`: Int32Envelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsCountGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsCountGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete
-
-> EmptyEnvelope ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete(ctx, dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+Create a deal unit flow
 
 
 
@@ -107,768 +41,17 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete(context.Background(), dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**dealUnitFlowId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet
-
-> DealUnitFlowDtoEnvelope ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet(ctx, dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet(context.Background(), dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet`: DealUnitFlowDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**dealUnitFlowId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**DealUnitFlowDtoEnvelope**](DealUnitFlowDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut
-
-> EmptyEnvelope ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut(ctx, dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).DealUnitFlowUpdateDto(dealUnitFlowUpdateDto).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-	dealUnitFlowUpdateDto := *openapiclient.NewDealUnitFlowUpdateDto() // DealUnitFlowUpdateDto |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut(context.Background(), dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).DealUnitFlowUpdateDto(dealUnitFlowUpdateDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**dealUnitFlowId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
- **dealUnitFlowUpdateDto** | [**DealUnitFlowUpdateDto**](DealUnitFlowUpdateDto.md) |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet
-
-> Int32Envelope ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet(ctx, dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet(context.Background(), dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet`: Int32Envelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**dealUnitFlowId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete
-
-> EmptyEnvelope ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete(ctx, dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowStageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete(context.Background(), dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**dealUnitFlowId** | **string** |  | 
-**dealUnitFlowStageId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet
-
-> DealUnitFlowStageDtoEnvelope ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet(ctx, dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowStageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet(context.Background(), dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet`: DealUnitFlowStageDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**dealUnitFlowId** | **string** |  | 
-**dealUnitFlowStageId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**DealUnitFlowStageDtoEnvelope**](DealUnitFlowStageDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut
-
-> EmptyEnvelope ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut(ctx, dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).DealUnitFlowStageUpdateDto(dealUnitFlowStageUpdateDto).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowStageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-	dealUnitFlowStageUpdateDto := *openapiclient.NewDealUnitFlowStageUpdateDto() // DealUnitFlowStageUpdateDto |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut(context.Background(), dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).DealUnitFlowStageUpdateDto(dealUnitFlowStageUpdateDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**dealUnitFlowId** | **string** |  | 
-**dealUnitFlowStageId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
- **dealUnitFlowStageUpdateDto** | [**DealUnitFlowStageUpdateDto**](DealUnitFlowStageUpdateDto.md) |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet
-
-> DealUnitFlowStageDtoListEnvelope ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet(ctx, dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet(context.Background(), dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet`: DealUnitFlowStageDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**dealUnitFlowId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**DealUnitFlowStageDtoListEnvelope**](DealUnitFlowStageDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost
-
-> EmptyEnvelope ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost(ctx, dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).DealUnitFlowStageCreateDto(dealUnitFlowStageCreateDto).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-	dealUnitFlowStageCreateDto := *openapiclient.NewDealUnitFlowStageCreateDto() // DealUnitFlowStageCreateDto |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost(context.Background(), dealUnitFlowId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).DealUnitFlowStageCreateDto(dealUnitFlowStageCreateDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**dealUnitFlowId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
- **dealUnitFlowStageCreateDto** | [**DealUnitFlowStageCreateDto**](DealUnitFlowStageCreateDto.md) |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsGet
-
-> DealUnitFlowDtoListEnvelope ApiV2DealsServiceDealUnitFlowsGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2DealsServiceDealUnitFlowsGet`: DealUnitFlowDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**DealUnitFlowDtoListEnvelope**](DealUnitFlowDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2DealsServiceDealUnitFlowsPost
-
-> EmptyEnvelope ApiV2DealsServiceDealUnitFlowsPost(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).DealUnitFlowCreateDto(dealUnitFlowCreateDto).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 	dealUnitFlowCreateDto := *openapiclient.NewDealUnitFlowCreateDto() // DealUnitFlowCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsPost(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).DealUnitFlowCreateDto(dealUnitFlowCreateDto).Execute()
+	resp, r, err := apiClient.DealUnitFlowsAPI.CreateDealUnitFlowAsync(context.Background()).TenantId(tenantId).DealUnitFlowCreateDto(dealUnitFlowCreateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.CreateDealUnitFlowAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2DealsServiceDealUnitFlowsPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsPost`: %v\n", resp)
+	// response from `CreateDealUnitFlowAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.CreateDealUnitFlowAsync`: %v\n", resp)
 }
 ```
 
@@ -878,14 +61,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2DealsServiceDealUnitFlowsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateDealUnitFlowAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
  **dealUnitFlowCreateDto** | [**DealUnitFlowCreateDto**](DealUnitFlowCreateDto.md) |  | 
 
 ### Return type
@@ -894,7 +75,802 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateDealUnitFlowStageAsync
+
+> EmptyEnvelope CreateDealUnitFlowStageAsync(ctx, dealUnitFlowId).TenantId(tenantId).DealUnitFlowStageCreateDto(dealUnitFlowStageCreateDto).Execute()
+
+Create a deal unit flow stage
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowStageCreateDto := *openapiclient.NewDealUnitFlowStageCreateDto() // DealUnitFlowStageCreateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.CreateDealUnitFlowStageAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).DealUnitFlowStageCreateDto(dealUnitFlowStageCreateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.CreateDealUnitFlowStageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateDealUnitFlowStageAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.CreateDealUnitFlowStageAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateDealUnitFlowStageAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **dealUnitFlowStageCreateDto** | [**DealUnitFlowStageCreateDto**](DealUnitFlowStageCreateDto.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteDealUnitFlowAsync
+
+> EmptyEnvelope DeleteDealUnitFlowAsync(ctx, dealUnitFlowId).TenantId(tenantId).Execute()
+
+Delete a deal unit flow
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.DeleteDealUnitFlowAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.DeleteDealUnitFlowAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteDealUnitFlowAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.DeleteDealUnitFlowAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteDealUnitFlowAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteDealUnitFlowStageAsync
+
+> EmptyEnvelope DeleteDealUnitFlowStageAsync(ctx, dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).Execute()
+
+Delete a deal unit flow stage
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowStageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.DeleteDealUnitFlowStageAsync(context.Background(), dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.DeleteDealUnitFlowStageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteDealUnitFlowStageAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.DeleteDealUnitFlowStageAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+**dealUnitFlowStageId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteDealUnitFlowStageAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDealUnitFlowAsync
+
+> DealUnitFlowDtoEnvelope GetDealUnitFlowAsync(ctx, dealUnitFlowId).TenantId(tenantId).Execute()
+
+Get deal unit flow by ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.GetDealUnitFlowAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDealUnitFlowAsync`: DealUnitFlowDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.GetDealUnitFlowAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDealUnitFlowAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+### Return type
+
+[**DealUnitFlowDtoEnvelope**](DealUnitFlowDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDealUnitFlowStageAsync
+
+> DealUnitFlowStageDtoEnvelope GetDealUnitFlowStageAsync(ctx, dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).Execute()
+
+Get a deal unit flow stage by ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowStageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowStageAsync(context.Background(), dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.GetDealUnitFlowStageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDealUnitFlowStageAsync`: DealUnitFlowStageDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.GetDealUnitFlowStageAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+**dealUnitFlowStageId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDealUnitFlowStageAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+
+### Return type
+
+[**DealUnitFlowStageDtoEnvelope**](DealUnitFlowStageDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDealUnitFlowStagesAsync
+
+> DealUnitFlowStageDtoListEnvelope GetDealUnitFlowStagesAsync(ctx, dealUnitFlowId).TenantId(tenantId).Execute()
+
+Get stages for a deal unit flow
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowStagesAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.GetDealUnitFlowStagesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDealUnitFlowStagesAsync`: DealUnitFlowStageDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.GetDealUnitFlowStagesAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDealUnitFlowStagesAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+### Return type
+
+[**DealUnitFlowStageDtoListEnvelope**](DealUnitFlowStageDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDealUnitFlowStagesCountAsync
+
+> Int32Envelope GetDealUnitFlowStagesCountAsync(ctx, dealUnitFlowId).TenantId(tenantId).Execute()
+
+Get stages count for a deal unit flow
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowStagesCountAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.GetDealUnitFlowStagesCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDealUnitFlowStagesCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.GetDealUnitFlowStagesCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDealUnitFlowStagesCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDealUnitFlowsAsync
+
+> DealUnitFlowDtoListEnvelope GetDealUnitFlowsAsync(ctx).TenantId(tenantId).Execute()
+
+Get deal unit flows
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowsAsync(context.Background()).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.GetDealUnitFlowsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDealUnitFlowsAsync`: DealUnitFlowDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.GetDealUnitFlowsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDealUnitFlowsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+### Return type
+
+[**DealUnitFlowDtoListEnvelope**](DealUnitFlowDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDealUnitFlowsCountAsync
+
+> Int32Envelope GetDealUnitFlowsCountAsync(ctx).TenantId(tenantId).Execute()
+
+Get deal unit flows count
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowsCountAsync(context.Background()).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.GetDealUnitFlowsCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDealUnitFlowsCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.GetDealUnitFlowsCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDealUnitFlowsCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateDealUnitFlowAsync
+
+> EmptyEnvelope UpdateDealUnitFlowAsync(ctx, dealUnitFlowId).TenantId(tenantId).DealUnitFlowUpdateDto(dealUnitFlowUpdateDto).Execute()
+
+Update a deal unit flow
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowUpdateDto := *openapiclient.NewDealUnitFlowUpdateDto() // DealUnitFlowUpdateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.UpdateDealUnitFlowAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).DealUnitFlowUpdateDto(dealUnitFlowUpdateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.UpdateDealUnitFlowAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateDealUnitFlowAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.UpdateDealUnitFlowAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateDealUnitFlowAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **dealUnitFlowUpdateDto** | [**DealUnitFlowUpdateDto**](DealUnitFlowUpdateDto.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateDealUnitFlowStageAsync
+
+> EmptyEnvelope UpdateDealUnitFlowStageAsync(ctx, dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).DealUnitFlowStageUpdateDto(dealUnitFlowStageUpdateDto).Execute()
+
+Update a deal unit flow stage
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowStageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowStageUpdateDto := *openapiclient.NewDealUnitFlowStageUpdateDto() // DealUnitFlowStageUpdateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.UpdateDealUnitFlowStageAsync(context.Background(), dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).DealUnitFlowStageUpdateDto(dealUnitFlowStageUpdateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.UpdateDealUnitFlowStageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateDealUnitFlowStageAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.UpdateDealUnitFlowStageAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+**dealUnitFlowStageId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateDealUnitFlowStageAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **dealUnitFlowStageUpdateDto** | [**DealUnitFlowStageUpdateDto**](DealUnitFlowStageUpdateDto.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

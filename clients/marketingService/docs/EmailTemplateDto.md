@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
+**CodeType** | Pointer to **NullableString** |  | [optional] 
 **Order** | Pointer to **int32** |  | [optional] 
 **Slug** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **HighlightImage** | Pointer to **NullableString** |  | [optional] 
 **CanonicalUrl** | Pointer to **NullableString** |  | [optional] 
+**EmitResult** | Pointer to **interface{}** |  | [optional] 
 **SeoTitle** | Pointer to **NullableString** |  | [optional] 
 **SeoKeyWords** | Pointer to **NullableString** |  | [optional] 
 **SeoKeyPhrases** | Pointer to **NullableString** |  | [optional] 
@@ -153,6 +155,41 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *EmailTemplateDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+### GetCodeType
+
+`func (o *EmailTemplateDto) GetCodeType() string`
+
+GetCodeType returns the CodeType field if non-nil, zero value otherwise.
+
+### GetCodeTypeOk
+
+`func (o *EmailTemplateDto) GetCodeTypeOk() (*string, bool)`
+
+GetCodeTypeOk returns a tuple with the CodeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCodeType
+
+`func (o *EmailTemplateDto) SetCodeType(v string)`
+
+SetCodeType sets CodeType field to given value.
+
+### HasCodeType
+
+`func (o *EmailTemplateDto) HasCodeType() bool`
+
+HasCodeType returns a boolean if a field has been set.
+
+### SetCodeTypeNil
+
+`func (o *EmailTemplateDto) SetCodeTypeNil(b bool)`
+
+ SetCodeTypeNil sets the value for CodeType to be an explicit nil
+
+### UnsetCodeType
+`func (o *EmailTemplateDto) UnsetCodeType()`
+
+UnsetCodeType ensures that no value is present for CodeType, not even an explicit nil
 ### GetOrder
 
 `func (o *EmailTemplateDto) GetOrder() int32`
@@ -458,6 +495,41 @@ HasCanonicalUrl returns a boolean if a field has been set.
 `func (o *EmailTemplateDto) UnsetCanonicalUrl()`
 
 UnsetCanonicalUrl ensures that no value is present for CanonicalUrl, not even an explicit nil
+### GetEmitResult
+
+`func (o *EmailTemplateDto) GetEmitResult() interface{}`
+
+GetEmitResult returns the EmitResult field if non-nil, zero value otherwise.
+
+### GetEmitResultOk
+
+`func (o *EmailTemplateDto) GetEmitResultOk() (*interface{}, bool)`
+
+GetEmitResultOk returns a tuple with the EmitResult field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmitResult
+
+`func (o *EmailTemplateDto) SetEmitResult(v interface{})`
+
+SetEmitResult sets EmitResult field to given value.
+
+### HasEmitResult
+
+`func (o *EmailTemplateDto) HasEmitResult() bool`
+
+HasEmitResult returns a boolean if a field has been set.
+
+### SetEmitResultNil
+
+`func (o *EmailTemplateDto) SetEmitResultNil(b bool)`
+
+ SetEmitResultNil sets the value for EmitResult to be an explicit nil
+
+### UnsetEmitResult
+`func (o *EmailTemplateDto) UnsetEmitResult()`
+
+UnsetEmitResult ensures that no value is present for EmitResult, not even an explicit nil
 ### GetSeoTitle
 
 `func (o *EmailTemplateDto) GetSeoTitle() string`

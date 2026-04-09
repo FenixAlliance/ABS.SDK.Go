@@ -22,13 +22,11 @@ func Test_openapi_CountriesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test CountriesAPIService ApiV2GlobeServiceCountriesCountryIdCallingCodesGet", func(t *testing.T) {
+	t.Run("Test CountriesAPIService CountCountries", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var countryId string
-
-		resp, httpRes, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdCallingCodesGet(context.Background(), countryId).Execute()
+		resp, httpRes, err := apiClient.CountriesAPI.CountCountries(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +34,11 @@ func Test_openapi_CountriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CountriesAPIService ApiV2GlobeServiceCountriesCountryIdCurrenciesGet", func(t *testing.T) {
+	t.Run("Test CountriesAPIService GetAllCountries", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var countryId string
-
-		resp, httpRes, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdCurrenciesGet(context.Background(), countryId).Execute()
+		resp, httpRes, err := apiClient.CountriesAPI.GetAllCountries(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,13 +46,13 @@ func Test_openapi_CountriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CountriesAPIService ApiV2GlobeServiceCountriesCountryIdGet", func(t *testing.T) {
+	t.Run("Test CountriesAPIService GetCallingCodesByCountryIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var countryId string
 
-		resp, httpRes, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdGet(context.Background(), countryId).Execute()
+		resp, httpRes, err := apiClient.CountriesAPI.GetCallingCodesByCountryIdAsync(context.Background(), countryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,14 +60,14 @@ func Test_openapi_CountriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CountriesAPIService ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet", func(t *testing.T) {
+	t.Run("Test CountriesAPIService GetCitiesByCountryStateIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var countryStateId string
 		var countryId string
 
-		resp, httpRes, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet(context.Background(), countryStateId, countryId).Execute()
+		resp, httpRes, err := apiClient.CountriesAPI.GetCitiesByCountryStateIdAsync(context.Background(), countryStateId, countryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -79,14 +75,28 @@ func Test_openapi_CountriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CountriesAPIService ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet", func(t *testing.T) {
+	t.Run("Test CountriesAPIService GetCountryById", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var countryId string
+
+		resp, httpRes, err := apiClient.CountriesAPI.GetCountryById(context.Background(), countryId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CountriesAPIService GetCountryStateByIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var countryStateId string
 		var countryId string
 
-		resp, httpRes, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet(context.Background(), countryStateId, countryId).Execute()
+		resp, httpRes, err := apiClient.CountriesAPI.GetCountryStateByIdAsync(context.Background(), countryStateId, countryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -94,13 +104,13 @@ func Test_openapi_CountriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CountriesAPIService ApiV2GlobeServiceCountriesCountryIdStatesGet", func(t *testing.T) {
+	t.Run("Test CountriesAPIService GetCountryStatesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var countryId string
 
-		resp, httpRes, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesGet(context.Background(), countryId).Execute()
+		resp, httpRes, err := apiClient.CountriesAPI.GetCountryStatesAsync(context.Background(), countryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -108,13 +118,13 @@ func Test_openapi_CountriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CountriesAPIService ApiV2GlobeServiceCountriesCountryIdTimezonesGet", func(t *testing.T) {
+	t.Run("Test CountriesAPIService GetEnabledCurrenciesByCountryIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var countryId string
 
-		resp, httpRes, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdTimezonesGet(context.Background(), countryId).Execute()
+		resp, httpRes, err := apiClient.CountriesAPI.GetEnabledCurrenciesByCountryIdAsync(context.Background(), countryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -122,13 +132,13 @@ func Test_openapi_CountriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CountriesAPIService ApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet", func(t *testing.T) {
+	t.Run("Test CountriesAPIService GetTimeZonesByCountryIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var countryId string
 
-		resp, httpRes, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet(context.Background(), countryId).Execute()
+		resp, httpRes, err := apiClient.CountriesAPI.GetTimeZonesByCountryIdAsync(context.Background(), countryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -136,11 +146,13 @@ func Test_openapi_CountriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CountriesAPIService ApiV2GlobeServiceCountriesGet", func(t *testing.T) {
+	t.Run("Test CountriesAPIService GetTopLevelDomainsByCountryIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesGet(context.Background()).Execute()
+		var countryId string
+
+		resp, httpRes, err := apiClient.CountriesAPI.GetTopLevelDomainsByCountryIdAsync(context.Background(), countryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -148,11 +160,11 @@ func Test_openapi_CountriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CountriesAPIService ApiV2GlobeServiceCountriesSearchGet", func(t *testing.T) {
+	t.Run("Test CountriesAPIService SearchCountriesByNameAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesSearchGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.CountriesAPI.SearchCountriesByNameAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

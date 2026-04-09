@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **FullName** | Pointer to **NullableString** |  | [optional] [readonly] 
 **QualifiedName** | Pointer to **NullableString** |  | [optional] 
 **PublicName** | Pointer to **NullableString** |  | [optional] 
+**Handler** | Pointer to **NullableString** |  | [optional] 
 **LastName** | Pointer to **NullableString** |  | [optional] 
 **FirstName** | Pointer to **NullableString** |  | [optional] 
 **CoverUrl** | Pointer to **NullableString** |  | [optional] 
@@ -218,6 +219,41 @@ HasPublicName returns a boolean if a field has been set.
 `func (o *SimpleUserDto) UnsetPublicName()`
 
 UnsetPublicName ensures that no value is present for PublicName, not even an explicit nil
+### GetHandler
+
+`func (o *SimpleUserDto) GetHandler() string`
+
+GetHandler returns the Handler field if non-nil, zero value otherwise.
+
+### GetHandlerOk
+
+`func (o *SimpleUserDto) GetHandlerOk() (*string, bool)`
+
+GetHandlerOk returns a tuple with the Handler field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHandler
+
+`func (o *SimpleUserDto) SetHandler(v string)`
+
+SetHandler sets Handler field to given value.
+
+### HasHandler
+
+`func (o *SimpleUserDto) HasHandler() bool`
+
+HasHandler returns a boolean if a field has been set.
+
+### SetHandlerNil
+
+`func (o *SimpleUserDto) SetHandlerNil(b bool)`
+
+ SetHandlerNil sets the value for Handler to be an explicit nil
+
+### UnsetHandler
+`func (o *SimpleUserDto) UnsetHandler()`
+
+UnsetHandler ensures that no value is present for Handler, not even an explicit nil
 ### GetLastName
 
 `func (o *SimpleUserDto) GetLastName() string`

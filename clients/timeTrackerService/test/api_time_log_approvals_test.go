@@ -22,37 +22,37 @@ func Test_openapi_TimeLogApprovalsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TimeLogApprovalsAPIService ApiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut", func(t *testing.T) {
+	t.Run("Test TimeLogApprovalsAPIService RequestProjectHoursApprovalAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var approvalId string
-
-		httpRes, err := apiClient.TimeLogApprovalsAPI.ApiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut(context.Background(), approvalId).Execute()
+		httpRes, err := apiClient.TimeLogApprovalsAPI.RequestProjectHoursApprovalAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test TimeLogApprovalsAPIService ApiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut", func(t *testing.T) {
+	t.Run("Test TimeLogApprovalsAPIService UpdateProjectHoursApprovalApproverAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var approvalId string
 
-		httpRes, err := apiClient.TimeLogApprovalsAPI.ApiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut(context.Background(), approvalId).Execute()
+		httpRes, err := apiClient.TimeLogApprovalsAPI.UpdateProjectHoursApprovalApproverAsync(context.Background(), approvalId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test TimeLogApprovalsAPIService ApiV2TimeTrackerServiceTimeLogApprovalsPost", func(t *testing.T) {
+	t.Run("Test TimeLogApprovalsAPIService UpdateProjectHoursApprovalStatusAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.TimeLogApprovalsAPI.ApiV2TimeTrackerServiceTimeLogApprovalsPost(context.Background()).Execute()
+		var approvalId string
+
+		httpRes, err := apiClient.TimeLogApprovalsAPI.UpdateProjectHoursApprovalStatusAsync(context.Background(), approvalId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

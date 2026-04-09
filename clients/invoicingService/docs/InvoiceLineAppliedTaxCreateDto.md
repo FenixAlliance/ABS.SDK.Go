@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **InvoiceId** | Pointer to **NullableString** |  | [optional] 
 **TaxPolicyId** | Pointer to **NullableString** |  | [optional] 

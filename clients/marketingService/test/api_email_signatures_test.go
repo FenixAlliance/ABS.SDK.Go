@@ -22,11 +22,11 @@ func Test_openapi_EmailSignaturesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test EmailSignaturesAPIService ApiV2MarketingServiceEmailSignaturesCountGet", func(t *testing.T) {
+	t.Run("Test EmailSignaturesAPIService CreateEmailSignatureAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.EmailSignaturesAPI.CreateEmailSignatureAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_openapi_EmailSignaturesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailSignaturesAPIService ApiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete", func(t *testing.T) {
+	t.Run("Test EmailSignaturesAPIService DeleteEmailSignatureAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var emailsignatureId string
 
-		resp, httpRes, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete(context.Background(), emailsignatureId).Execute()
+		resp, httpRes, err := apiClient.EmailSignaturesAPI.DeleteEmailSignatureAsync(context.Background(), emailsignatureId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_openapi_EmailSignaturesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailSignaturesAPIService ApiV2MarketingServiceEmailSignaturesEmailsignatureIdGet", func(t *testing.T) {
+	t.Run("Test EmailSignaturesAPIService GetEmailSignatureDetailsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var emailsignatureId string
 
-		resp, httpRes, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdGet(context.Background(), emailsignatureId).Execute()
+		resp, httpRes, err := apiClient.EmailSignaturesAPI.GetEmailSignatureDetailsAsync(context.Background(), emailsignatureId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,37 +62,37 @@ func Test_openapi_EmailSignaturesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailSignaturesAPIService ApiV2MarketingServiceEmailSignaturesEmailsignatureIdPut", func(t *testing.T) {
+	t.Run("Test EmailSignaturesAPIService GetEmailSignaturesCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.EmailSignaturesAPI.GetEmailSignaturesCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test EmailSignaturesAPIService GetEmailSignaturesODataAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.EmailSignaturesAPI.GetEmailSignaturesODataAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test EmailSignaturesAPIService UpdateEmailSignatureAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var emailsignatureId string
 
-		resp, httpRes, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdPut(context.Background(), emailsignatureId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test EmailSignaturesAPIService ApiV2MarketingServiceEmailSignaturesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test EmailSignaturesAPIService ApiV2MarketingServiceEmailSignaturesPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.EmailSignaturesAPI.UpdateEmailSignatureAsync(context.Background(), emailsignatureId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

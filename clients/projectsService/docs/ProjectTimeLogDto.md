@@ -12,8 +12,7 @@ Name | Type | Description | Notes
 **ProjectPeriodId** | Pointer to **NullableString** |  | [optional] 
 **ResponsibleContactId** | Pointer to **NullableString** |  | [optional] 
 **CreatorContactId** | Pointer to **NullableString** |  | [optional] 
-**RecordType** | Pointer to **int32** |  | [optional] 
-**TimeStamp** | Pointer to **time.Time** |  | [optional] 
+**RecordType** | Pointer to **string** |  | [optional] 
 **TimeSpan** | Pointer to **string** |  | [optional] 
 **LogDate** | Pointer to **time.Time** |  | [optional] 
 **Comments** | Pointer to **NullableString** |  | [optional] 
@@ -320,20 +319,20 @@ HasCreatorContactId returns a boolean if a field has been set.
 UnsetCreatorContactId ensures that no value is present for CreatorContactId, not even an explicit nil
 ### GetRecordType
 
-`func (o *ProjectTimeLogDto) GetRecordType() int32`
+`func (o *ProjectTimeLogDto) GetRecordType() string`
 
 GetRecordType returns the RecordType field if non-nil, zero value otherwise.
 
 ### GetRecordTypeOk
 
-`func (o *ProjectTimeLogDto) GetRecordTypeOk() (*int32, bool)`
+`func (o *ProjectTimeLogDto) GetRecordTypeOk() (*string, bool)`
 
 GetRecordTypeOk returns a tuple with the RecordType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecordType
 
-`func (o *ProjectTimeLogDto) SetRecordType(v int32)`
+`func (o *ProjectTimeLogDto) SetRecordType(v string)`
 
 SetRecordType sets RecordType field to given value.
 
@@ -342,31 +341,6 @@ SetRecordType sets RecordType field to given value.
 `func (o *ProjectTimeLogDto) HasRecordType() bool`
 
 HasRecordType returns a boolean if a field has been set.
-
-### GetTimeStamp
-
-`func (o *ProjectTimeLogDto) GetTimeStamp() time.Time`
-
-GetTimeStamp returns the TimeStamp field if non-nil, zero value otherwise.
-
-### GetTimeStampOk
-
-`func (o *ProjectTimeLogDto) GetTimeStampOk() (*time.Time, bool)`
-
-GetTimeStampOk returns a tuple with the TimeStamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimeStamp
-
-`func (o *ProjectTimeLogDto) SetTimeStamp(v time.Time)`
-
-SetTimeStamp sets TimeStamp field to given value.
-
-### HasTimeStamp
-
-`func (o *ProjectTimeLogDto) HasTimeStamp() bool`
-
-HasTimeStamp returns a boolean if a field has been set.
 
 ### GetTimeSpan
 

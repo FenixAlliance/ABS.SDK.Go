@@ -4,13 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2MarketingServiceTrackingPixelsPixelIdGet**](TrackingPixelsAPI.md#ApiV2MarketingServiceTrackingPixelsPixelIdGet) | **Get** /api/v2/MarketingService/TrackingPixels/{pixelId} | 
+[**GetTrackingPixelAsync**](TrackingPixelsAPI.md#GetTrackingPixelAsync) | **Get** /api/v2/MarketingService/TrackingPixels/{pixelId} | Get a tracking pixel
 
 
 
-## ApiV2MarketingServiceTrackingPixelsPixelIdGet
+## GetTrackingPixelAsync
 
-> OrderDtoEnvelope ApiV2MarketingServiceTrackingPixelsPixelIdGet(ctx, pixelId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> OrderDtoEnvelope GetTrackingPixelAsync(ctx, pixelId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get a tracking pixel
 
 
 
@@ -33,13 +35,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TrackingPixelsAPI.ApiV2MarketingServiceTrackingPixelsPixelIdGet(context.Background(), pixelId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TrackingPixelsAPI.GetTrackingPixelAsync(context.Background(), pixelId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TrackingPixelsAPI.ApiV2MarketingServiceTrackingPixelsPixelIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TrackingPixelsAPI.GetTrackingPixelAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2MarketingServiceTrackingPixelsPixelIdGet`: OrderDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `TrackingPixelsAPI.ApiV2MarketingServiceTrackingPixelsPixelIdGet`: %v\n", resp)
+	// response from `GetTrackingPixelAsync`: OrderDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `TrackingPixelsAPI.GetTrackingPixelAsync`: %v\n", resp)
 }
 ```
 
@@ -53,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceTrackingPixelsPixelIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTrackingPixelAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -68,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

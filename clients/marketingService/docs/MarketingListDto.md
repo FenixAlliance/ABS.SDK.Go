@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 **LastUsedOn** | Pointer to **time.Time** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
-**MarketingListType** | Pointer to **int32** |  | [optional] 
-**MarketingListTarget** | Pointer to **int32** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**MarketingListType** | Pointer to **string** |  | [optional] 
+**MarketingListTarget** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -419,57 +419,57 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *MarketingListDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *MarketingListDto) GetEnrolmentId() string`
+`func (o *MarketingListDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *MarketingListDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *MarketingListDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *MarketingListDto) SetEnrolmentId(v string)`
+`func (o *MarketingListDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *MarketingListDto) HasEnrolmentId() bool`
+`func (o *MarketingListDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *MarketingListDto) SetEnrolmentIdNil(b bool)`
+`func (o *MarketingListDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *MarketingListDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *MarketingListDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetMarketingListType
 
-`func (o *MarketingListDto) GetMarketingListType() int32`
+`func (o *MarketingListDto) GetMarketingListType() string`
 
 GetMarketingListType returns the MarketingListType field if non-nil, zero value otherwise.
 
 ### GetMarketingListTypeOk
 
-`func (o *MarketingListDto) GetMarketingListTypeOk() (*int32, bool)`
+`func (o *MarketingListDto) GetMarketingListTypeOk() (*string, bool)`
 
 GetMarketingListTypeOk returns a tuple with the MarketingListType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMarketingListType
 
-`func (o *MarketingListDto) SetMarketingListType(v int32)`
+`func (o *MarketingListDto) SetMarketingListType(v string)`
 
 SetMarketingListType sets MarketingListType field to given value.
 
@@ -481,20 +481,20 @@ HasMarketingListType returns a boolean if a field has been set.
 
 ### GetMarketingListTarget
 
-`func (o *MarketingListDto) GetMarketingListTarget() int32`
+`func (o *MarketingListDto) GetMarketingListTarget() string`
 
 GetMarketingListTarget returns the MarketingListTarget field if non-nil, zero value otherwise.
 
 ### GetMarketingListTargetOk
 
-`func (o *MarketingListDto) GetMarketingListTargetOk() (*int32, bool)`
+`func (o *MarketingListDto) GetMarketingListTargetOk() (*string, bool)`
 
 GetMarketingListTargetOk returns a tuple with the MarketingListTarget field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMarketingListTarget
 
-`func (o *MarketingListDto) SetMarketingListTarget(v int32)`
+`func (o *MarketingListDto) SetMarketingListTarget(v string)`
 
 SetMarketingListTarget sets MarketingListTarget field to given value.
 

@@ -22,13 +22,13 @@ func Test_openapi_PricesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PricesAPIService ApiV2PricingServicePricesItemIdFinalPriceGet", func(t *testing.T) {
+	t.Run("Test PricesAPIService GetFinalPrice", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var itemId string
 
-		resp, httpRes, err := apiClient.PricesAPI.ApiV2PricingServicePricesItemIdFinalPriceGet(context.Background(), itemId).Execute()
+		resp, httpRes, err := apiClient.PricesAPI.GetFinalPrice(context.Background(), itemId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_openapi_PricesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PricesAPIService ApiV2PricingServicePricesItemIdPriceGet", func(t *testing.T) {
+	t.Run("Test PricesAPIService GetPrice", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var itemId string
 
-		resp, httpRes, err := apiClient.PricesAPI.ApiV2PricingServicePricesItemIdPriceGet(context.Background(), itemId).Execute()
+		resp, httpRes, err := apiClient.PricesAPI.GetPrice(context.Background(), itemId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,13 +50,13 @@ func Test_openapi_PricesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PricesAPIService ApiV2PricingServicePricesItemIdTotalSavingsGet", func(t *testing.T) {
+	t.Run("Test PricesAPIService GetTotalSavingsInUsd", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var itemId string
 
-		resp, httpRes, err := apiClient.PricesAPI.ApiV2PricingServicePricesItemIdTotalSavingsGet(context.Background(), itemId).Execute()
+		resp, httpRes, err := apiClient.PricesAPI.GetTotalSavingsInUsd(context.Background(), itemId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,13 +64,13 @@ func Test_openapi_PricesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PricesAPIService ApiV2PricingServicePricesItemIdTotalTaxesGet", func(t *testing.T) {
+	t.Run("Test PricesAPIService GetTotalTaxesInUsd", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var itemId string
 
-		resp, httpRes, err := apiClient.PricesAPI.ApiV2PricingServicePricesItemIdTotalTaxesGet(context.Background(), itemId).Execute()
+		resp, httpRes, err := apiClient.PricesAPI.GetTotalTaxesInUsd(context.Background(), itemId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

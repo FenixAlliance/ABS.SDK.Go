@@ -22,11 +22,11 @@ func Test_openapi_PaymentsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PaymentsAPIService ApiV2PaymentsServicePaymentsGet", func(t *testing.T) {
+	t.Run("Test PaymentsAPIService CreatePaymentAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PaymentsAPI.CreatePaymentAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_openapi_PaymentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PaymentsAPIService ApiV2PaymentsServicePaymentsPaymentIdDelete", func(t *testing.T) {
+	t.Run("Test PaymentsAPIService DeletePaymentAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var paymentId string
 
-		resp, httpRes, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdDelete(context.Background(), paymentId).Execute()
+		resp, httpRes, err := apiClient.PaymentsAPI.DeletePaymentAsync(context.Background(), paymentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_openapi_PaymentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PaymentsAPIService ApiV2PaymentsServicePaymentsPaymentIdDetailsGet", func(t *testing.T) {
+	t.Run("Test PaymentsAPIService GetPaymentAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var paymentId string
 
-		resp, httpRes, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdDetailsGet(context.Background(), paymentId).Execute()
+		resp, httpRes, err := apiClient.PaymentsAPI.GetPaymentAsync(context.Background(), paymentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +62,13 @@ func Test_openapi_PaymentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PaymentsAPIService ApiV2PaymentsServicePaymentsPaymentIdGet", func(t *testing.T) {
+	t.Run("Test PaymentsAPIService GetPaymentAsyncV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var paymentId string
 
-		resp, httpRes, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdGet(context.Background(), paymentId).Execute()
+		resp, httpRes, err := apiClient.PaymentsAPI.GetPaymentAsyncV2(context.Background(), paymentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,25 +76,25 @@ func Test_openapi_PaymentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PaymentsAPIService ApiV2PaymentsServicePaymentsPaymentIdPut", func(t *testing.T) {
+	t.Run("Test PaymentsAPIService GetPaymentsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PaymentsAPI.GetPaymentsAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PaymentsAPIService UpdatePaymentAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var paymentId string
 
-		resp, httpRes, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdPut(context.Background(), paymentId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PaymentsAPIService ApiV2PaymentsServicePaymentsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PaymentsAPI.UpdatePaymentAsync(context.Background(), paymentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

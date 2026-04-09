@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **TenantId** | **string** |  | 
-**Type** | **int32** |  | 
+**Type** | **string** |  | 
 **FirstName** | **string** |  | 
 **LastName** | Pointer to **NullableString** |  | [optional] 
 **Email** | **string** |  | 
@@ -41,17 +41,18 @@ Name | Type | Description | Notes
 **LinkedInUrl** | Pointer to **NullableString** |  | [optional] 
 **InstagramUrl** | Pointer to **NullableString** |  | [optional] 
 **GithubUsername** | Pointer to **NullableString** |  | [optional] 
-**InstagramUsername** | Pointer to **interface{}** |  | [optional] 
-**TikTokUsername** | Pointer to **interface{}** |  | [optional] 
-**StackExchangeUrl** | Pointer to **interface{}** |  | [optional] 
-**StackOverflowUrl** | Pointer to **interface{}** |  | [optional] 
-**ParentContactId** | Pointer to **interface{}** |  | [optional] 
+**InstagramUsername** | Pointer to **NullableString** |  | [optional] 
+**TikTokUsername** | Pointer to **NullableString** |  | [optional] 
+**StackExchangeUrl** | Pointer to **NullableString** |  | [optional] 
+**StackOverflowUrl** | Pointer to **NullableString** |  | [optional] 
+**ParentContactId** | Pointer to **NullableString** |  | [optional] 
+**FaxNumber** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewContactCreateDto
 
-`func NewContactCreateDto(tenantId string, type_ int32, firstName string, email string, ) *ContactCreateDto`
+`func NewContactCreateDto(tenantId string, type_ string, firstName string, email string, ) *ContactCreateDto`
 
 NewContactCreateDto instantiates a new ContactCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -138,20 +139,20 @@ SetTenantId sets TenantId field to given value.
 
 ### GetType
 
-`func (o *ContactCreateDto) GetType() int32`
+`func (o *ContactCreateDto) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ContactCreateDto) GetTypeOk() (*int32, bool)`
+`func (o *ContactCreateDto) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ContactCreateDto) SetType(v int32)`
+`func (o *ContactCreateDto) SetType(v string)`
 
 SetType sets Type field to given value.
 
@@ -1283,20 +1284,20 @@ HasGithubUsername returns a boolean if a field has been set.
 UnsetGithubUsername ensures that no value is present for GithubUsername, not even an explicit nil
 ### GetInstagramUsername
 
-`func (o *ContactCreateDto) GetInstagramUsername() interface{}`
+`func (o *ContactCreateDto) GetInstagramUsername() string`
 
 GetInstagramUsername returns the InstagramUsername field if non-nil, zero value otherwise.
 
 ### GetInstagramUsernameOk
 
-`func (o *ContactCreateDto) GetInstagramUsernameOk() (*interface{}, bool)`
+`func (o *ContactCreateDto) GetInstagramUsernameOk() (*string, bool)`
 
 GetInstagramUsernameOk returns a tuple with the InstagramUsername field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInstagramUsername
 
-`func (o *ContactCreateDto) SetInstagramUsername(v interface{})`
+`func (o *ContactCreateDto) SetInstagramUsername(v string)`
 
 SetInstagramUsername sets InstagramUsername field to given value.
 
@@ -1318,20 +1319,20 @@ HasInstagramUsername returns a boolean if a field has been set.
 UnsetInstagramUsername ensures that no value is present for InstagramUsername, not even an explicit nil
 ### GetTikTokUsername
 
-`func (o *ContactCreateDto) GetTikTokUsername() interface{}`
+`func (o *ContactCreateDto) GetTikTokUsername() string`
 
 GetTikTokUsername returns the TikTokUsername field if non-nil, zero value otherwise.
 
 ### GetTikTokUsernameOk
 
-`func (o *ContactCreateDto) GetTikTokUsernameOk() (*interface{}, bool)`
+`func (o *ContactCreateDto) GetTikTokUsernameOk() (*string, bool)`
 
 GetTikTokUsernameOk returns a tuple with the TikTokUsername field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTikTokUsername
 
-`func (o *ContactCreateDto) SetTikTokUsername(v interface{})`
+`func (o *ContactCreateDto) SetTikTokUsername(v string)`
 
 SetTikTokUsername sets TikTokUsername field to given value.
 
@@ -1353,20 +1354,20 @@ HasTikTokUsername returns a boolean if a field has been set.
 UnsetTikTokUsername ensures that no value is present for TikTokUsername, not even an explicit nil
 ### GetStackExchangeUrl
 
-`func (o *ContactCreateDto) GetStackExchangeUrl() interface{}`
+`func (o *ContactCreateDto) GetStackExchangeUrl() string`
 
 GetStackExchangeUrl returns the StackExchangeUrl field if non-nil, zero value otherwise.
 
 ### GetStackExchangeUrlOk
 
-`func (o *ContactCreateDto) GetStackExchangeUrlOk() (*interface{}, bool)`
+`func (o *ContactCreateDto) GetStackExchangeUrlOk() (*string, bool)`
 
 GetStackExchangeUrlOk returns a tuple with the StackExchangeUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStackExchangeUrl
 
-`func (o *ContactCreateDto) SetStackExchangeUrl(v interface{})`
+`func (o *ContactCreateDto) SetStackExchangeUrl(v string)`
 
 SetStackExchangeUrl sets StackExchangeUrl field to given value.
 
@@ -1388,20 +1389,20 @@ HasStackExchangeUrl returns a boolean if a field has been set.
 UnsetStackExchangeUrl ensures that no value is present for StackExchangeUrl, not even an explicit nil
 ### GetStackOverflowUrl
 
-`func (o *ContactCreateDto) GetStackOverflowUrl() interface{}`
+`func (o *ContactCreateDto) GetStackOverflowUrl() string`
 
 GetStackOverflowUrl returns the StackOverflowUrl field if non-nil, zero value otherwise.
 
 ### GetStackOverflowUrlOk
 
-`func (o *ContactCreateDto) GetStackOverflowUrlOk() (*interface{}, bool)`
+`func (o *ContactCreateDto) GetStackOverflowUrlOk() (*string, bool)`
 
 GetStackOverflowUrlOk returns a tuple with the StackOverflowUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStackOverflowUrl
 
-`func (o *ContactCreateDto) SetStackOverflowUrl(v interface{})`
+`func (o *ContactCreateDto) SetStackOverflowUrl(v string)`
 
 SetStackOverflowUrl sets StackOverflowUrl field to given value.
 
@@ -1423,20 +1424,20 @@ HasStackOverflowUrl returns a boolean if a field has been set.
 UnsetStackOverflowUrl ensures that no value is present for StackOverflowUrl, not even an explicit nil
 ### GetParentContactId
 
-`func (o *ContactCreateDto) GetParentContactId() interface{}`
+`func (o *ContactCreateDto) GetParentContactId() string`
 
 GetParentContactId returns the ParentContactId field if non-nil, zero value otherwise.
 
 ### GetParentContactIdOk
 
-`func (o *ContactCreateDto) GetParentContactIdOk() (*interface{}, bool)`
+`func (o *ContactCreateDto) GetParentContactIdOk() (*string, bool)`
 
 GetParentContactIdOk returns a tuple with the ParentContactId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParentContactId
 
-`func (o *ContactCreateDto) SetParentContactId(v interface{})`
+`func (o *ContactCreateDto) SetParentContactId(v string)`
 
 SetParentContactId sets ParentContactId field to given value.
 
@@ -1456,6 +1457,41 @@ HasParentContactId returns a boolean if a field has been set.
 `func (o *ContactCreateDto) UnsetParentContactId()`
 
 UnsetParentContactId ensures that no value is present for ParentContactId, not even an explicit nil
+### GetFaxNumber
+
+`func (o *ContactCreateDto) GetFaxNumber() string`
+
+GetFaxNumber returns the FaxNumber field if non-nil, zero value otherwise.
+
+### GetFaxNumberOk
+
+`func (o *ContactCreateDto) GetFaxNumberOk() (*string, bool)`
+
+GetFaxNumberOk returns a tuple with the FaxNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFaxNumber
+
+`func (o *ContactCreateDto) SetFaxNumber(v string)`
+
+SetFaxNumber sets FaxNumber field to given value.
+
+### HasFaxNumber
+
+`func (o *ContactCreateDto) HasFaxNumber() bool`
+
+HasFaxNumber returns a boolean if a field has been set.
+
+### SetFaxNumberNil
+
+`func (o *ContactCreateDto) SetFaxNumberNil(b bool)`
+
+ SetFaxNumberNil sets the value for FaxNumber to be an explicit nil
+
+### UnsetFaxNumber
+`func (o *ContactCreateDto) UnsetFaxNumber()`
+
+UnsetFaxNumber ensures that no value is present for FaxNumber, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

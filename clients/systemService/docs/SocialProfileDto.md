@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **NotificationsCount** | Pointer to **NullableInt32** |  | [optional] 
 **UnreadNotificationsCount** | Pointer to **NullableInt32** |  | [optional] 
 **UnreadMessagesCount** | Pointer to **NullableInt32** |  | [optional] 
-**Type** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | Pointer to **NullableString** |  | [optional] 
 **SocialFeedId** | Pointer to **NullableString** |  | [optional] 
 **TwitterUrl** | Pointer to **NullableString** |  | [optional] 
 **FacebookURL** | Pointer to **NullableString** |  | [optional] 
@@ -577,20 +577,20 @@ HasUnreadMessagesCount returns a boolean if a field has been set.
 UnsetUnreadMessagesCount ensures that no value is present for UnreadMessagesCount, not even an explicit nil
 ### GetType
 
-`func (o *SocialProfileDto) GetType() int32`
+`func (o *SocialProfileDto) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *SocialProfileDto) GetTypeOk() (*int32, bool)`
+`func (o *SocialProfileDto) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *SocialProfileDto) SetType(v int32)`
+`func (o *SocialProfileDto) SetType(v string)`
 
 SetType sets Type field to given value.
 

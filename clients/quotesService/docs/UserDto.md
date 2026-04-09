@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **FullName** | Pointer to **NullableString** |  | [optional] [readonly] 
 **QualifiedName** | Pointer to **NullableString** |  | [optional] 
 **PublicName** | Pointer to **NullableString** |  | [optional] 
+**Handler** | Pointer to **NullableString** |  | [optional] 
 **LastName** | Pointer to **NullableString** |  | [optional] 
 **FirstName** | Pointer to **NullableString** |  | [optional] 
 **CoverUrl** | Pointer to **NullableString** |  | [optional] 
@@ -26,7 +27,7 @@ Name | Type | Description | Notes
 **Birthday** | Pointer to **NullableTime** |  | [optional] 
 **IdProvider** | Pointer to **NullableString** |  | [optional] 
 **LanguageId** | Pointer to **NullableString** |  | [optional] 
-**Gender** | Pointer to **NullableInt32** |  | [optional] 
+**Gender** | Pointer to **NullableString** |  | [optional] 
 **CityId** | Pointer to **NullableString** |  | [optional] 
 **StateId** | Pointer to **NullableString** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
@@ -45,11 +46,11 @@ Name | Type | Description | Notes
 **IdentityProvider** | Pointer to **NullableString** |  | [optional] 
 **PhoneNumberConfirmed** | Pointer to **bool** |  | [optional] 
 **EmailConfirmed** | Pointer to **bool** |  | [optional] 
-**Availability** | Pointer to **NullableInt32** |  | [optional] 
+**Availability** | Pointer to **NullableString** |  | [optional] 
 **LockoutEnabled** | Pointer to **bool** |  | [optional] 
 **LockoutEnd** | Pointer to **NullableTime** |  | [optional] 
 **EnrollmentsCount** | Pointer to **NullableInt32** |  | [optional] 
-**SiteTheme** | Pointer to **NullableInt32** |  | [optional] 
+**SiteTheme** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -245,6 +246,41 @@ HasPublicName returns a boolean if a field has been set.
 `func (o *UserDto) UnsetPublicName()`
 
 UnsetPublicName ensures that no value is present for PublicName, not even an explicit nil
+### GetHandler
+
+`func (o *UserDto) GetHandler() string`
+
+GetHandler returns the Handler field if non-nil, zero value otherwise.
+
+### GetHandlerOk
+
+`func (o *UserDto) GetHandlerOk() (*string, bool)`
+
+GetHandlerOk returns a tuple with the Handler field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHandler
+
+`func (o *UserDto) SetHandler(v string)`
+
+SetHandler sets Handler field to given value.
+
+### HasHandler
+
+`func (o *UserDto) HasHandler() bool`
+
+HasHandler returns a boolean if a field has been set.
+
+### SetHandlerNil
+
+`func (o *UserDto) SetHandlerNil(b bool)`
+
+ SetHandlerNil sets the value for Handler to be an explicit nil
+
+### UnsetHandler
+`func (o *UserDto) UnsetHandler()`
+
+UnsetHandler ensures that no value is present for Handler, not even an explicit nil
 ### GetLastName
 
 `func (o *UserDto) GetLastName() string`
@@ -842,20 +878,20 @@ HasLanguageId returns a boolean if a field has been set.
 UnsetLanguageId ensures that no value is present for LanguageId, not even an explicit nil
 ### GetGender
 
-`func (o *UserDto) GetGender() int32`
+`func (o *UserDto) GetGender() string`
 
 GetGender returns the Gender field if non-nil, zero value otherwise.
 
 ### GetGenderOk
 
-`func (o *UserDto) GetGenderOk() (*int32, bool)`
+`func (o *UserDto) GetGenderOk() (*string, bool)`
 
 GetGenderOk returns a tuple with the Gender field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGender
 
-`func (o *UserDto) SetGender(v int32)`
+`func (o *UserDto) SetGender(v string)`
 
 SetGender sets Gender field to given value.
 
@@ -1487,20 +1523,20 @@ HasEmailConfirmed returns a boolean if a field has been set.
 
 ### GetAvailability
 
-`func (o *UserDto) GetAvailability() int32`
+`func (o *UserDto) GetAvailability() string`
 
 GetAvailability returns the Availability field if non-nil, zero value otherwise.
 
 ### GetAvailabilityOk
 
-`func (o *UserDto) GetAvailabilityOk() (*int32, bool)`
+`func (o *UserDto) GetAvailabilityOk() (*string, bool)`
 
 GetAvailabilityOk returns a tuple with the Availability field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAvailability
 
-`func (o *UserDto) SetAvailability(v int32)`
+`func (o *UserDto) SetAvailability(v string)`
 
 SetAvailability sets Availability field to given value.
 
@@ -1617,20 +1653,20 @@ HasEnrollmentsCount returns a boolean if a field has been set.
 UnsetEnrollmentsCount ensures that no value is present for EnrollmentsCount, not even an explicit nil
 ### GetSiteTheme
 
-`func (o *UserDto) GetSiteTheme() int32`
+`func (o *UserDto) GetSiteTheme() string`
 
 GetSiteTheme returns the SiteTheme field if non-nil, zero value otherwise.
 
 ### GetSiteThemeOk
 
-`func (o *UserDto) GetSiteThemeOk() (*int32, bool)`
+`func (o *UserDto) GetSiteThemeOk() (*string, bool)`
 
 GetSiteThemeOk returns a tuple with the SiteTheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSiteTheme
 
-`func (o *UserDto) SetSiteTheme(v int32)`
+`func (o *UserDto) SetSiteTheme(v string)`
 
 SetSiteTheme sets SiteTheme field to given value.
 

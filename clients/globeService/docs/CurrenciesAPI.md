@@ -4,14 +4,85 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2GlobeServiceCurrenciesCurrencyIdGet**](CurrenciesAPI.md#ApiV2GlobeServiceCurrenciesCurrencyIdGet) | **Get** /api/v2/GlobeService/Currencies/{currencyId} | 
-[**ApiV2GlobeServiceCurrenciesGet**](CurrenciesAPI.md#ApiV2GlobeServiceCurrenciesGet) | **Get** /api/v2/GlobeService/Currencies | 
+[**CountCurrenciesAsync**](CurrenciesAPI.md#CountCurrenciesAsync) | **Get** /api/v2/GlobeService/Currencies/Count | Count currencies
+[**GetCurrencyByIdAsync**](CurrenciesAPI.md#GetCurrencyByIdAsync) | **Get** /api/v2/GlobeService/Currencies/{currencyId} | Get currency by ID
+[**GetEnabledCurrenciesAsync**](CurrenciesAPI.md#GetEnabledCurrenciesAsync) | **Get** /api/v2/GlobeService/Currencies | Get all currencies
 
 
 
-## ApiV2GlobeServiceCurrenciesCurrencyIdGet
+## CountCurrenciesAsync
 
-> CurrencyDtoEnvelope ApiV2GlobeServiceCurrenciesCurrencyIdGet(ctx, currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCurrenciesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count currencies
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CurrenciesAPI.CountCurrenciesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CurrenciesAPI.CountCurrenciesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountCurrenciesAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `CurrenciesAPI.CountCurrenciesAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountCurrenciesAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCurrencyByIdAsync
+
+> CurrencyDtoEnvelope GetCurrencyByIdAsync(ctx, currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get currency by ID
 
 
 
@@ -34,13 +105,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CurrenciesAPI.ApiV2GlobeServiceCurrenciesCurrencyIdGet(context.Background(), currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CurrenciesAPI.GetCurrencyByIdAsync(context.Background(), currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CurrenciesAPI.ApiV2GlobeServiceCurrenciesCurrencyIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CurrenciesAPI.GetCurrencyByIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2GlobeServiceCurrenciesCurrencyIdGet`: CurrencyDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CurrenciesAPI.ApiV2GlobeServiceCurrenciesCurrencyIdGet`: %v\n", resp)
+	// response from `GetCurrencyByIdAsync`: CurrencyDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CurrenciesAPI.GetCurrencyByIdAsync`: %v\n", resp)
 }
 ```
 
@@ -54,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCurrenciesCurrencyIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCurrencyByIdAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -69,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -81,9 +152,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2GlobeServiceCurrenciesGet
+## GetEnabledCurrenciesAsync
 
-> CurrencyDtoListEnvelope ApiV2GlobeServiceCurrenciesGet(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CurrencyDtoListEnvelope GetEnabledCurrenciesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get all currencies
 
 
 
@@ -105,13 +178,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CurrenciesAPI.ApiV2GlobeServiceCurrenciesGet(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CurrenciesAPI.GetEnabledCurrenciesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CurrenciesAPI.ApiV2GlobeServiceCurrenciesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CurrenciesAPI.GetEnabledCurrenciesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2GlobeServiceCurrenciesGet`: CurrencyDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CurrenciesAPI.ApiV2GlobeServiceCurrenciesGet`: %v\n", resp)
+	// response from `GetEnabledCurrenciesAsync`: CurrencyDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CurrenciesAPI.GetEnabledCurrenciesAsync`: %v\n", resp)
 }
 ```
 
@@ -121,7 +194,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCurrenciesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetEnabledCurrenciesAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -135,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

@@ -4,21 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Closed** | Pointer to **bool** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
-**UserId** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **PriceListId** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **IndividualId** | Pointer to **NullableString** |  | [optional] 
 **PaymentTermId** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableString** |  | [optional] 
 **ReceiverTenantId** | Pointer to **NullableString** |  | [optional] 
-**CurrencyId** | Pointer to **NullableString** |  | [optional] 
-**ForexRate** | Pointer to **float64** |  | [optional] 
 **FirstName** | Pointer to **NullableString** |  | [optional] 
 **LastName** | Pointer to **NullableString** |  | [optional] 
 **CompanyName** | Pointer to **NullableString** |  | [optional] 
@@ -29,6 +24,34 @@ Name | Type | Description | Notes
 **CountryId** | Pointer to **NullableString** |  | [optional] 
 **StateId** | Pointer to **NullableString** |  | [optional] 
 **CityId** | Pointer to **NullableString** |  | [optional] 
+**ForexRate** | Pointer to **float64** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalDetail** | Pointer to **float64** |  | [optional] 
+**TotalDetailCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalProfit** | Pointer to **float64** |  | [optional] 
+**TotalProfitCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalDiscounts** | Pointer to **float64** |  | [optional] 
+**TotalDiscountsCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalSurcharges** | Pointer to **float64** |  | [optional] 
+**TotalSurchargesCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalShippingCost** | Pointer to **float64** |  | [optional] 
+**TotalShippingCostCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalShippingTax** | Pointer to **float64** |  | [optional] 
+**TotalShippingTaxCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalWithheldTax** | Pointer to **float64** |  | [optional] 
+**TotalWithheldTaxCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalTaxBase** | Pointer to **float64** |  | [optional] 
+**TotalTaxBaseCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalTaxes** | Pointer to **float64** |  | [optional] 
+**TotalTaxesCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalGlobalSurcharges** | Pointer to **float64** |  | [optional] 
+**TotalGlobalSurchargesCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalGlobalDiscounts** | Pointer to **float64** |  | [optional] 
+**TotalGlobalDiscountsCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**Total** | Pointer to **float64** |  | [optional] 
+**TotalCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**CostCalculationMethod** | Pointer to **string** |  | [optional] 
+**TaxCalculationMethod** | Pointer to **string** |  | [optional] 
 **DealUnitFlowId** | Pointer to **NullableString** |  | [optional] 
 **DealUnitFlowStageId** | Pointer to **NullableString** |  | [optional] 
 **PartnerCreated** | Pointer to **bool** |  | [optional] 
@@ -42,10 +65,11 @@ Name | Type | Description | Notes
 **DeliveredDate** | Pointer to **time.Time** |  | [optional] 
 **ClosedTimestamp** | Pointer to **time.Time** |  | [optional] 
 **ExpectedCloseDate** | Pointer to **time.Time** |  | [optional] 
-**DealUnitStatus** | Pointer to **int32** |  | [optional] 
-**DealUnitPurchaseProcess** | Pointer to **int32** |  | [optional] 
-**DealUnitForecastCategory** | Pointer to **int32** |  | [optional] 
-**DealUnitAmountsCalculation** | Pointer to **int32** |  | [optional] 
+**DealUnitStatus** | Pointer to **string** |  | [optional] 
+**DealUnitPurchaseProcess** | Pointer to **string** |  | [optional] 
+**DealUnitForecastCategory** | Pointer to **string** |  | [optional] 
+**DealUnitAmountsCalculation** | Pointer to **string** |  | [optional] 
+**DealUnitLines** | Pointer to [**[]DealUnitLineCreateDto**](DealUnitLineCreateDto.md) |  | [optional] 
 
 ## Methods
 
@@ -176,76 +200,6 @@ HasTitle returns a boolean if a field has been set.
 `func (o *DealUnitCreateDto) UnsetTitle()`
 
 UnsetTitle ensures that no value is present for Title, not even an explicit nil
-### GetUserId
-
-`func (o *DealUnitCreateDto) GetUserId() string`
-
-GetUserId returns the UserId field if non-nil, zero value otherwise.
-
-### GetUserIdOk
-
-`func (o *DealUnitCreateDto) GetUserIdOk() (*string, bool)`
-
-GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUserId
-
-`func (o *DealUnitCreateDto) SetUserId(v string)`
-
-SetUserId sets UserId field to given value.
-
-### HasUserId
-
-`func (o *DealUnitCreateDto) HasUserId() bool`
-
-HasUserId returns a boolean if a field has been set.
-
-### SetUserIdNil
-
-`func (o *DealUnitCreateDto) SetUserIdNil(b bool)`
-
- SetUserIdNil sets the value for UserId to be an explicit nil
-
-### UnsetUserId
-`func (o *DealUnitCreateDto) UnsetUserId()`
-
-UnsetUserId ensures that no value is present for UserId, not even an explicit nil
-### GetTenantId
-
-`func (o *DealUnitCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *DealUnitCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *DealUnitCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *DealUnitCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *DealUnitCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *DealUnitCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetPriceListId
 
 `func (o *DealUnitCreateDto) GetPriceListId() string`
@@ -316,41 +270,6 @@ HasDescription returns a boolean if a field has been set.
 `func (o *DealUnitCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *DealUnitCreateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *DealUnitCreateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *DealUnitCreateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *DealUnitCreateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *DealUnitCreateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *DealUnitCreateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetIndividualId
 
 `func (o *DealUnitCreateDto) GetIndividualId() string`
@@ -491,66 +410,6 @@ HasReceiverTenantId returns a boolean if a field has been set.
 `func (o *DealUnitCreateDto) UnsetReceiverTenantId()`
 
 UnsetReceiverTenantId ensures that no value is present for ReceiverTenantId, not even an explicit nil
-### GetCurrencyId
-
-`func (o *DealUnitCreateDto) GetCurrencyId() string`
-
-GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
-
-### GetCurrencyIdOk
-
-`func (o *DealUnitCreateDto) GetCurrencyIdOk() (*string, bool)`
-
-GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCurrencyId
-
-`func (o *DealUnitCreateDto) SetCurrencyId(v string)`
-
-SetCurrencyId sets CurrencyId field to given value.
-
-### HasCurrencyId
-
-`func (o *DealUnitCreateDto) HasCurrencyId() bool`
-
-HasCurrencyId returns a boolean if a field has been set.
-
-### SetCurrencyIdNil
-
-`func (o *DealUnitCreateDto) SetCurrencyIdNil(b bool)`
-
- SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
-
-### UnsetCurrencyId
-`func (o *DealUnitCreateDto) UnsetCurrencyId()`
-
-UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
-### GetForexRate
-
-`func (o *DealUnitCreateDto) GetForexRate() float64`
-
-GetForexRate returns the ForexRate field if non-nil, zero value otherwise.
-
-### GetForexRateOk
-
-`func (o *DealUnitCreateDto) GetForexRateOk() (*float64, bool)`
-
-GetForexRateOk returns a tuple with the ForexRate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetForexRate
-
-`func (o *DealUnitCreateDto) SetForexRate(v float64)`
-
-SetForexRate sets ForexRate field to given value.
-
-### HasForexRate
-
-`func (o *DealUnitCreateDto) HasForexRate() bool`
-
-HasForexRate returns a boolean if a field has been set.
-
 ### GetFirstName
 
 `func (o *DealUnitCreateDto) GetFirstName() string`
@@ -901,6 +760,836 @@ HasCityId returns a boolean if a field has been set.
 `func (o *DealUnitCreateDto) UnsetCityId()`
 
 UnsetCityId ensures that no value is present for CityId, not even an explicit nil
+### GetForexRate
+
+`func (o *DealUnitCreateDto) GetForexRate() float64`
+
+GetForexRate returns the ForexRate field if non-nil, zero value otherwise.
+
+### GetForexRateOk
+
+`func (o *DealUnitCreateDto) GetForexRateOk() (*float64, bool)`
+
+GetForexRateOk returns a tuple with the ForexRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexRate
+
+`func (o *DealUnitCreateDto) SetForexRate(v float64)`
+
+SetForexRate sets ForexRate field to given value.
+
+### HasForexRate
+
+`func (o *DealUnitCreateDto) HasForexRate() bool`
+
+HasForexRate returns a boolean if a field has been set.
+
+### GetCurrencyId
+
+`func (o *DealUnitCreateDto) GetCurrencyId() string`
+
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
+
+### GetCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetCurrencyIdOk() (*string, bool)`
+
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrencyId
+
+`func (o *DealUnitCreateDto) SetCurrencyId(v string)`
+
+SetCurrencyId sets CurrencyId field to given value.
+
+### HasCurrencyId
+
+`func (o *DealUnitCreateDto) HasCurrencyId() bool`
+
+HasCurrencyId returns a boolean if a field has been set.
+
+### SetCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetCurrencyIdNil(b bool)`
+
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
+
+### UnsetCurrencyId
+`func (o *DealUnitCreateDto) UnsetCurrencyId()`
+
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
+### GetTotalDetail
+
+`func (o *DealUnitCreateDto) GetTotalDetail() float64`
+
+GetTotalDetail returns the TotalDetail field if non-nil, zero value otherwise.
+
+### GetTotalDetailOk
+
+`func (o *DealUnitCreateDto) GetTotalDetailOk() (*float64, bool)`
+
+GetTotalDetailOk returns a tuple with the TotalDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalDetail
+
+`func (o *DealUnitCreateDto) SetTotalDetail(v float64)`
+
+SetTotalDetail sets TotalDetail field to given value.
+
+### HasTotalDetail
+
+`func (o *DealUnitCreateDto) HasTotalDetail() bool`
+
+HasTotalDetail returns a boolean if a field has been set.
+
+### GetTotalDetailCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalDetailCurrencyId() string`
+
+GetTotalDetailCurrencyId returns the TotalDetailCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalDetailCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalDetailCurrencyIdOk() (*string, bool)`
+
+GetTotalDetailCurrencyIdOk returns a tuple with the TotalDetailCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalDetailCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalDetailCurrencyId(v string)`
+
+SetTotalDetailCurrencyId sets TotalDetailCurrencyId field to given value.
+
+### HasTotalDetailCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalDetailCurrencyId() bool`
+
+HasTotalDetailCurrencyId returns a boolean if a field has been set.
+
+### SetTotalDetailCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalDetailCurrencyIdNil(b bool)`
+
+ SetTotalDetailCurrencyIdNil sets the value for TotalDetailCurrencyId to be an explicit nil
+
+### UnsetTotalDetailCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalDetailCurrencyId()`
+
+UnsetTotalDetailCurrencyId ensures that no value is present for TotalDetailCurrencyId, not even an explicit nil
+### GetTotalProfit
+
+`func (o *DealUnitCreateDto) GetTotalProfit() float64`
+
+GetTotalProfit returns the TotalProfit field if non-nil, zero value otherwise.
+
+### GetTotalProfitOk
+
+`func (o *DealUnitCreateDto) GetTotalProfitOk() (*float64, bool)`
+
+GetTotalProfitOk returns a tuple with the TotalProfit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalProfit
+
+`func (o *DealUnitCreateDto) SetTotalProfit(v float64)`
+
+SetTotalProfit sets TotalProfit field to given value.
+
+### HasTotalProfit
+
+`func (o *DealUnitCreateDto) HasTotalProfit() bool`
+
+HasTotalProfit returns a boolean if a field has been set.
+
+### GetTotalProfitCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalProfitCurrencyId() string`
+
+GetTotalProfitCurrencyId returns the TotalProfitCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalProfitCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalProfitCurrencyIdOk() (*string, bool)`
+
+GetTotalProfitCurrencyIdOk returns a tuple with the TotalProfitCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalProfitCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalProfitCurrencyId(v string)`
+
+SetTotalProfitCurrencyId sets TotalProfitCurrencyId field to given value.
+
+### HasTotalProfitCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalProfitCurrencyId() bool`
+
+HasTotalProfitCurrencyId returns a boolean if a field has been set.
+
+### SetTotalProfitCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalProfitCurrencyIdNil(b bool)`
+
+ SetTotalProfitCurrencyIdNil sets the value for TotalProfitCurrencyId to be an explicit nil
+
+### UnsetTotalProfitCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalProfitCurrencyId()`
+
+UnsetTotalProfitCurrencyId ensures that no value is present for TotalProfitCurrencyId, not even an explicit nil
+### GetTotalDiscounts
+
+`func (o *DealUnitCreateDto) GetTotalDiscounts() float64`
+
+GetTotalDiscounts returns the TotalDiscounts field if non-nil, zero value otherwise.
+
+### GetTotalDiscountsOk
+
+`func (o *DealUnitCreateDto) GetTotalDiscountsOk() (*float64, bool)`
+
+GetTotalDiscountsOk returns a tuple with the TotalDiscounts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalDiscounts
+
+`func (o *DealUnitCreateDto) SetTotalDiscounts(v float64)`
+
+SetTotalDiscounts sets TotalDiscounts field to given value.
+
+### HasTotalDiscounts
+
+`func (o *DealUnitCreateDto) HasTotalDiscounts() bool`
+
+HasTotalDiscounts returns a boolean if a field has been set.
+
+### GetTotalDiscountsCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalDiscountsCurrencyId() string`
+
+GetTotalDiscountsCurrencyId returns the TotalDiscountsCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalDiscountsCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalDiscountsCurrencyIdOk() (*string, bool)`
+
+GetTotalDiscountsCurrencyIdOk returns a tuple with the TotalDiscountsCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalDiscountsCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalDiscountsCurrencyId(v string)`
+
+SetTotalDiscountsCurrencyId sets TotalDiscountsCurrencyId field to given value.
+
+### HasTotalDiscountsCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalDiscountsCurrencyId() bool`
+
+HasTotalDiscountsCurrencyId returns a boolean if a field has been set.
+
+### SetTotalDiscountsCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalDiscountsCurrencyIdNil(b bool)`
+
+ SetTotalDiscountsCurrencyIdNil sets the value for TotalDiscountsCurrencyId to be an explicit nil
+
+### UnsetTotalDiscountsCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalDiscountsCurrencyId()`
+
+UnsetTotalDiscountsCurrencyId ensures that no value is present for TotalDiscountsCurrencyId, not even an explicit nil
+### GetTotalSurcharges
+
+`func (o *DealUnitCreateDto) GetTotalSurcharges() float64`
+
+GetTotalSurcharges returns the TotalSurcharges field if non-nil, zero value otherwise.
+
+### GetTotalSurchargesOk
+
+`func (o *DealUnitCreateDto) GetTotalSurchargesOk() (*float64, bool)`
+
+GetTotalSurchargesOk returns a tuple with the TotalSurcharges field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalSurcharges
+
+`func (o *DealUnitCreateDto) SetTotalSurcharges(v float64)`
+
+SetTotalSurcharges sets TotalSurcharges field to given value.
+
+### HasTotalSurcharges
+
+`func (o *DealUnitCreateDto) HasTotalSurcharges() bool`
+
+HasTotalSurcharges returns a boolean if a field has been set.
+
+### GetTotalSurchargesCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalSurchargesCurrencyId() string`
+
+GetTotalSurchargesCurrencyId returns the TotalSurchargesCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalSurchargesCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalSurchargesCurrencyIdOk() (*string, bool)`
+
+GetTotalSurchargesCurrencyIdOk returns a tuple with the TotalSurchargesCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalSurchargesCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalSurchargesCurrencyId(v string)`
+
+SetTotalSurchargesCurrencyId sets TotalSurchargesCurrencyId field to given value.
+
+### HasTotalSurchargesCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalSurchargesCurrencyId() bool`
+
+HasTotalSurchargesCurrencyId returns a boolean if a field has been set.
+
+### SetTotalSurchargesCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalSurchargesCurrencyIdNil(b bool)`
+
+ SetTotalSurchargesCurrencyIdNil sets the value for TotalSurchargesCurrencyId to be an explicit nil
+
+### UnsetTotalSurchargesCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalSurchargesCurrencyId()`
+
+UnsetTotalSurchargesCurrencyId ensures that no value is present for TotalSurchargesCurrencyId, not even an explicit nil
+### GetTotalShippingCost
+
+`func (o *DealUnitCreateDto) GetTotalShippingCost() float64`
+
+GetTotalShippingCost returns the TotalShippingCost field if non-nil, zero value otherwise.
+
+### GetTotalShippingCostOk
+
+`func (o *DealUnitCreateDto) GetTotalShippingCostOk() (*float64, bool)`
+
+GetTotalShippingCostOk returns a tuple with the TotalShippingCost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalShippingCost
+
+`func (o *DealUnitCreateDto) SetTotalShippingCost(v float64)`
+
+SetTotalShippingCost sets TotalShippingCost field to given value.
+
+### HasTotalShippingCost
+
+`func (o *DealUnitCreateDto) HasTotalShippingCost() bool`
+
+HasTotalShippingCost returns a boolean if a field has been set.
+
+### GetTotalShippingCostCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalShippingCostCurrencyId() string`
+
+GetTotalShippingCostCurrencyId returns the TotalShippingCostCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalShippingCostCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalShippingCostCurrencyIdOk() (*string, bool)`
+
+GetTotalShippingCostCurrencyIdOk returns a tuple with the TotalShippingCostCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalShippingCostCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalShippingCostCurrencyId(v string)`
+
+SetTotalShippingCostCurrencyId sets TotalShippingCostCurrencyId field to given value.
+
+### HasTotalShippingCostCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalShippingCostCurrencyId() bool`
+
+HasTotalShippingCostCurrencyId returns a boolean if a field has been set.
+
+### SetTotalShippingCostCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalShippingCostCurrencyIdNil(b bool)`
+
+ SetTotalShippingCostCurrencyIdNil sets the value for TotalShippingCostCurrencyId to be an explicit nil
+
+### UnsetTotalShippingCostCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalShippingCostCurrencyId()`
+
+UnsetTotalShippingCostCurrencyId ensures that no value is present for TotalShippingCostCurrencyId, not even an explicit nil
+### GetTotalShippingTax
+
+`func (o *DealUnitCreateDto) GetTotalShippingTax() float64`
+
+GetTotalShippingTax returns the TotalShippingTax field if non-nil, zero value otherwise.
+
+### GetTotalShippingTaxOk
+
+`func (o *DealUnitCreateDto) GetTotalShippingTaxOk() (*float64, bool)`
+
+GetTotalShippingTaxOk returns a tuple with the TotalShippingTax field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalShippingTax
+
+`func (o *DealUnitCreateDto) SetTotalShippingTax(v float64)`
+
+SetTotalShippingTax sets TotalShippingTax field to given value.
+
+### HasTotalShippingTax
+
+`func (o *DealUnitCreateDto) HasTotalShippingTax() bool`
+
+HasTotalShippingTax returns a boolean if a field has been set.
+
+### GetTotalShippingTaxCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalShippingTaxCurrencyId() string`
+
+GetTotalShippingTaxCurrencyId returns the TotalShippingTaxCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalShippingTaxCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalShippingTaxCurrencyIdOk() (*string, bool)`
+
+GetTotalShippingTaxCurrencyIdOk returns a tuple with the TotalShippingTaxCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalShippingTaxCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalShippingTaxCurrencyId(v string)`
+
+SetTotalShippingTaxCurrencyId sets TotalShippingTaxCurrencyId field to given value.
+
+### HasTotalShippingTaxCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalShippingTaxCurrencyId() bool`
+
+HasTotalShippingTaxCurrencyId returns a boolean if a field has been set.
+
+### SetTotalShippingTaxCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalShippingTaxCurrencyIdNil(b bool)`
+
+ SetTotalShippingTaxCurrencyIdNil sets the value for TotalShippingTaxCurrencyId to be an explicit nil
+
+### UnsetTotalShippingTaxCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalShippingTaxCurrencyId()`
+
+UnsetTotalShippingTaxCurrencyId ensures that no value is present for TotalShippingTaxCurrencyId, not even an explicit nil
+### GetTotalWithheldTax
+
+`func (o *DealUnitCreateDto) GetTotalWithheldTax() float64`
+
+GetTotalWithheldTax returns the TotalWithheldTax field if non-nil, zero value otherwise.
+
+### GetTotalWithheldTaxOk
+
+`func (o *DealUnitCreateDto) GetTotalWithheldTaxOk() (*float64, bool)`
+
+GetTotalWithheldTaxOk returns a tuple with the TotalWithheldTax field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalWithheldTax
+
+`func (o *DealUnitCreateDto) SetTotalWithheldTax(v float64)`
+
+SetTotalWithheldTax sets TotalWithheldTax field to given value.
+
+### HasTotalWithheldTax
+
+`func (o *DealUnitCreateDto) HasTotalWithheldTax() bool`
+
+HasTotalWithheldTax returns a boolean if a field has been set.
+
+### GetTotalWithheldTaxCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalWithheldTaxCurrencyId() string`
+
+GetTotalWithheldTaxCurrencyId returns the TotalWithheldTaxCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalWithheldTaxCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalWithheldTaxCurrencyIdOk() (*string, bool)`
+
+GetTotalWithheldTaxCurrencyIdOk returns a tuple with the TotalWithheldTaxCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalWithheldTaxCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalWithheldTaxCurrencyId(v string)`
+
+SetTotalWithheldTaxCurrencyId sets TotalWithheldTaxCurrencyId field to given value.
+
+### HasTotalWithheldTaxCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalWithheldTaxCurrencyId() bool`
+
+HasTotalWithheldTaxCurrencyId returns a boolean if a field has been set.
+
+### SetTotalWithheldTaxCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalWithheldTaxCurrencyIdNil(b bool)`
+
+ SetTotalWithheldTaxCurrencyIdNil sets the value for TotalWithheldTaxCurrencyId to be an explicit nil
+
+### UnsetTotalWithheldTaxCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalWithheldTaxCurrencyId()`
+
+UnsetTotalWithheldTaxCurrencyId ensures that no value is present for TotalWithheldTaxCurrencyId, not even an explicit nil
+### GetTotalTaxBase
+
+`func (o *DealUnitCreateDto) GetTotalTaxBase() float64`
+
+GetTotalTaxBase returns the TotalTaxBase field if non-nil, zero value otherwise.
+
+### GetTotalTaxBaseOk
+
+`func (o *DealUnitCreateDto) GetTotalTaxBaseOk() (*float64, bool)`
+
+GetTotalTaxBaseOk returns a tuple with the TotalTaxBase field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalTaxBase
+
+`func (o *DealUnitCreateDto) SetTotalTaxBase(v float64)`
+
+SetTotalTaxBase sets TotalTaxBase field to given value.
+
+### HasTotalTaxBase
+
+`func (o *DealUnitCreateDto) HasTotalTaxBase() bool`
+
+HasTotalTaxBase returns a boolean if a field has been set.
+
+### GetTotalTaxBaseCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalTaxBaseCurrencyId() string`
+
+GetTotalTaxBaseCurrencyId returns the TotalTaxBaseCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalTaxBaseCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalTaxBaseCurrencyIdOk() (*string, bool)`
+
+GetTotalTaxBaseCurrencyIdOk returns a tuple with the TotalTaxBaseCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalTaxBaseCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalTaxBaseCurrencyId(v string)`
+
+SetTotalTaxBaseCurrencyId sets TotalTaxBaseCurrencyId field to given value.
+
+### HasTotalTaxBaseCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalTaxBaseCurrencyId() bool`
+
+HasTotalTaxBaseCurrencyId returns a boolean if a field has been set.
+
+### SetTotalTaxBaseCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalTaxBaseCurrencyIdNil(b bool)`
+
+ SetTotalTaxBaseCurrencyIdNil sets the value for TotalTaxBaseCurrencyId to be an explicit nil
+
+### UnsetTotalTaxBaseCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalTaxBaseCurrencyId()`
+
+UnsetTotalTaxBaseCurrencyId ensures that no value is present for TotalTaxBaseCurrencyId, not even an explicit nil
+### GetTotalTaxes
+
+`func (o *DealUnitCreateDto) GetTotalTaxes() float64`
+
+GetTotalTaxes returns the TotalTaxes field if non-nil, zero value otherwise.
+
+### GetTotalTaxesOk
+
+`func (o *DealUnitCreateDto) GetTotalTaxesOk() (*float64, bool)`
+
+GetTotalTaxesOk returns a tuple with the TotalTaxes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalTaxes
+
+`func (o *DealUnitCreateDto) SetTotalTaxes(v float64)`
+
+SetTotalTaxes sets TotalTaxes field to given value.
+
+### HasTotalTaxes
+
+`func (o *DealUnitCreateDto) HasTotalTaxes() bool`
+
+HasTotalTaxes returns a boolean if a field has been set.
+
+### GetTotalTaxesCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalTaxesCurrencyId() string`
+
+GetTotalTaxesCurrencyId returns the TotalTaxesCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalTaxesCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalTaxesCurrencyIdOk() (*string, bool)`
+
+GetTotalTaxesCurrencyIdOk returns a tuple with the TotalTaxesCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalTaxesCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalTaxesCurrencyId(v string)`
+
+SetTotalTaxesCurrencyId sets TotalTaxesCurrencyId field to given value.
+
+### HasTotalTaxesCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalTaxesCurrencyId() bool`
+
+HasTotalTaxesCurrencyId returns a boolean if a field has been set.
+
+### SetTotalTaxesCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalTaxesCurrencyIdNil(b bool)`
+
+ SetTotalTaxesCurrencyIdNil sets the value for TotalTaxesCurrencyId to be an explicit nil
+
+### UnsetTotalTaxesCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalTaxesCurrencyId()`
+
+UnsetTotalTaxesCurrencyId ensures that no value is present for TotalTaxesCurrencyId, not even an explicit nil
+### GetTotalGlobalSurcharges
+
+`func (o *DealUnitCreateDto) GetTotalGlobalSurcharges() float64`
+
+GetTotalGlobalSurcharges returns the TotalGlobalSurcharges field if non-nil, zero value otherwise.
+
+### GetTotalGlobalSurchargesOk
+
+`func (o *DealUnitCreateDto) GetTotalGlobalSurchargesOk() (*float64, bool)`
+
+GetTotalGlobalSurchargesOk returns a tuple with the TotalGlobalSurcharges field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalGlobalSurcharges
+
+`func (o *DealUnitCreateDto) SetTotalGlobalSurcharges(v float64)`
+
+SetTotalGlobalSurcharges sets TotalGlobalSurcharges field to given value.
+
+### HasTotalGlobalSurcharges
+
+`func (o *DealUnitCreateDto) HasTotalGlobalSurcharges() bool`
+
+HasTotalGlobalSurcharges returns a boolean if a field has been set.
+
+### GetTotalGlobalSurchargesCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalGlobalSurchargesCurrencyId() string`
+
+GetTotalGlobalSurchargesCurrencyId returns the TotalGlobalSurchargesCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalGlobalSurchargesCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalGlobalSurchargesCurrencyIdOk() (*string, bool)`
+
+GetTotalGlobalSurchargesCurrencyIdOk returns a tuple with the TotalGlobalSurchargesCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalGlobalSurchargesCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalGlobalSurchargesCurrencyId(v string)`
+
+SetTotalGlobalSurchargesCurrencyId sets TotalGlobalSurchargesCurrencyId field to given value.
+
+### HasTotalGlobalSurchargesCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalGlobalSurchargesCurrencyId() bool`
+
+HasTotalGlobalSurchargesCurrencyId returns a boolean if a field has been set.
+
+### SetTotalGlobalSurchargesCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalGlobalSurchargesCurrencyIdNil(b bool)`
+
+ SetTotalGlobalSurchargesCurrencyIdNil sets the value for TotalGlobalSurchargesCurrencyId to be an explicit nil
+
+### UnsetTotalGlobalSurchargesCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalGlobalSurchargesCurrencyId()`
+
+UnsetTotalGlobalSurchargesCurrencyId ensures that no value is present for TotalGlobalSurchargesCurrencyId, not even an explicit nil
+### GetTotalGlobalDiscounts
+
+`func (o *DealUnitCreateDto) GetTotalGlobalDiscounts() float64`
+
+GetTotalGlobalDiscounts returns the TotalGlobalDiscounts field if non-nil, zero value otherwise.
+
+### GetTotalGlobalDiscountsOk
+
+`func (o *DealUnitCreateDto) GetTotalGlobalDiscountsOk() (*float64, bool)`
+
+GetTotalGlobalDiscountsOk returns a tuple with the TotalGlobalDiscounts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalGlobalDiscounts
+
+`func (o *DealUnitCreateDto) SetTotalGlobalDiscounts(v float64)`
+
+SetTotalGlobalDiscounts sets TotalGlobalDiscounts field to given value.
+
+### HasTotalGlobalDiscounts
+
+`func (o *DealUnitCreateDto) HasTotalGlobalDiscounts() bool`
+
+HasTotalGlobalDiscounts returns a boolean if a field has been set.
+
+### GetTotalGlobalDiscountsCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalGlobalDiscountsCurrencyId() string`
+
+GetTotalGlobalDiscountsCurrencyId returns the TotalGlobalDiscountsCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalGlobalDiscountsCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalGlobalDiscountsCurrencyIdOk() (*string, bool)`
+
+GetTotalGlobalDiscountsCurrencyIdOk returns a tuple with the TotalGlobalDiscountsCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalGlobalDiscountsCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalGlobalDiscountsCurrencyId(v string)`
+
+SetTotalGlobalDiscountsCurrencyId sets TotalGlobalDiscountsCurrencyId field to given value.
+
+### HasTotalGlobalDiscountsCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalGlobalDiscountsCurrencyId() bool`
+
+HasTotalGlobalDiscountsCurrencyId returns a boolean if a field has been set.
+
+### SetTotalGlobalDiscountsCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalGlobalDiscountsCurrencyIdNil(b bool)`
+
+ SetTotalGlobalDiscountsCurrencyIdNil sets the value for TotalGlobalDiscountsCurrencyId to be an explicit nil
+
+### UnsetTotalGlobalDiscountsCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalGlobalDiscountsCurrencyId()`
+
+UnsetTotalGlobalDiscountsCurrencyId ensures that no value is present for TotalGlobalDiscountsCurrencyId, not even an explicit nil
+### GetTotal
+
+`func (o *DealUnitCreateDto) GetTotal() float64`
+
+GetTotal returns the Total field if non-nil, zero value otherwise.
+
+### GetTotalOk
+
+`func (o *DealUnitCreateDto) GetTotalOk() (*float64, bool)`
+
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotal
+
+`func (o *DealUnitCreateDto) SetTotal(v float64)`
+
+SetTotal sets Total field to given value.
+
+### HasTotal
+
+`func (o *DealUnitCreateDto) HasTotal() bool`
+
+HasTotal returns a boolean if a field has been set.
+
+### GetTotalCurrencyId
+
+`func (o *DealUnitCreateDto) GetTotalCurrencyId() string`
+
+GetTotalCurrencyId returns the TotalCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalCurrencyIdOk
+
+`func (o *DealUnitCreateDto) GetTotalCurrencyIdOk() (*string, bool)`
+
+GetTotalCurrencyIdOk returns a tuple with the TotalCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalCurrencyId
+
+`func (o *DealUnitCreateDto) SetTotalCurrencyId(v string)`
+
+SetTotalCurrencyId sets TotalCurrencyId field to given value.
+
+### HasTotalCurrencyId
+
+`func (o *DealUnitCreateDto) HasTotalCurrencyId() bool`
+
+HasTotalCurrencyId returns a boolean if a field has been set.
+
+### SetTotalCurrencyIdNil
+
+`func (o *DealUnitCreateDto) SetTotalCurrencyIdNil(b bool)`
+
+ SetTotalCurrencyIdNil sets the value for TotalCurrencyId to be an explicit nil
+
+### UnsetTotalCurrencyId
+`func (o *DealUnitCreateDto) UnsetTotalCurrencyId()`
+
+UnsetTotalCurrencyId ensures that no value is present for TotalCurrencyId, not even an explicit nil
+### GetCostCalculationMethod
+
+`func (o *DealUnitCreateDto) GetCostCalculationMethod() string`
+
+GetCostCalculationMethod returns the CostCalculationMethod field if non-nil, zero value otherwise.
+
+### GetCostCalculationMethodOk
+
+`func (o *DealUnitCreateDto) GetCostCalculationMethodOk() (*string, bool)`
+
+GetCostCalculationMethodOk returns a tuple with the CostCalculationMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostCalculationMethod
+
+`func (o *DealUnitCreateDto) SetCostCalculationMethod(v string)`
+
+SetCostCalculationMethod sets CostCalculationMethod field to given value.
+
+### HasCostCalculationMethod
+
+`func (o *DealUnitCreateDto) HasCostCalculationMethod() bool`
+
+HasCostCalculationMethod returns a boolean if a field has been set.
+
+### GetTaxCalculationMethod
+
+`func (o *DealUnitCreateDto) GetTaxCalculationMethod() string`
+
+GetTaxCalculationMethod returns the TaxCalculationMethod field if non-nil, zero value otherwise.
+
+### GetTaxCalculationMethodOk
+
+`func (o *DealUnitCreateDto) GetTaxCalculationMethodOk() (*string, bool)`
+
+GetTaxCalculationMethodOk returns a tuple with the TaxCalculationMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaxCalculationMethod
+
+`func (o *DealUnitCreateDto) SetTaxCalculationMethod(v string)`
+
+SetTaxCalculationMethod sets TaxCalculationMethod field to given value.
+
+### HasTaxCalculationMethod
+
+`func (o *DealUnitCreateDto) HasTaxCalculationMethod() bool`
+
+HasTaxCalculationMethod returns a boolean if a field has been set.
+
 ### GetDealUnitFlowId
 
 `func (o *DealUnitCreateDto) GetDealUnitFlowId() string`
@@ -1278,20 +1967,20 @@ HasExpectedCloseDate returns a boolean if a field has been set.
 
 ### GetDealUnitStatus
 
-`func (o *DealUnitCreateDto) GetDealUnitStatus() int32`
+`func (o *DealUnitCreateDto) GetDealUnitStatus() string`
 
 GetDealUnitStatus returns the DealUnitStatus field if non-nil, zero value otherwise.
 
 ### GetDealUnitStatusOk
 
-`func (o *DealUnitCreateDto) GetDealUnitStatusOk() (*int32, bool)`
+`func (o *DealUnitCreateDto) GetDealUnitStatusOk() (*string, bool)`
 
 GetDealUnitStatusOk returns a tuple with the DealUnitStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDealUnitStatus
 
-`func (o *DealUnitCreateDto) SetDealUnitStatus(v int32)`
+`func (o *DealUnitCreateDto) SetDealUnitStatus(v string)`
 
 SetDealUnitStatus sets DealUnitStatus field to given value.
 
@@ -1303,20 +1992,20 @@ HasDealUnitStatus returns a boolean if a field has been set.
 
 ### GetDealUnitPurchaseProcess
 
-`func (o *DealUnitCreateDto) GetDealUnitPurchaseProcess() int32`
+`func (o *DealUnitCreateDto) GetDealUnitPurchaseProcess() string`
 
 GetDealUnitPurchaseProcess returns the DealUnitPurchaseProcess field if non-nil, zero value otherwise.
 
 ### GetDealUnitPurchaseProcessOk
 
-`func (o *DealUnitCreateDto) GetDealUnitPurchaseProcessOk() (*int32, bool)`
+`func (o *DealUnitCreateDto) GetDealUnitPurchaseProcessOk() (*string, bool)`
 
 GetDealUnitPurchaseProcessOk returns a tuple with the DealUnitPurchaseProcess field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDealUnitPurchaseProcess
 
-`func (o *DealUnitCreateDto) SetDealUnitPurchaseProcess(v int32)`
+`func (o *DealUnitCreateDto) SetDealUnitPurchaseProcess(v string)`
 
 SetDealUnitPurchaseProcess sets DealUnitPurchaseProcess field to given value.
 
@@ -1328,20 +2017,20 @@ HasDealUnitPurchaseProcess returns a boolean if a field has been set.
 
 ### GetDealUnitForecastCategory
 
-`func (o *DealUnitCreateDto) GetDealUnitForecastCategory() int32`
+`func (o *DealUnitCreateDto) GetDealUnitForecastCategory() string`
 
 GetDealUnitForecastCategory returns the DealUnitForecastCategory field if non-nil, zero value otherwise.
 
 ### GetDealUnitForecastCategoryOk
 
-`func (o *DealUnitCreateDto) GetDealUnitForecastCategoryOk() (*int32, bool)`
+`func (o *DealUnitCreateDto) GetDealUnitForecastCategoryOk() (*string, bool)`
 
 GetDealUnitForecastCategoryOk returns a tuple with the DealUnitForecastCategory field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDealUnitForecastCategory
 
-`func (o *DealUnitCreateDto) SetDealUnitForecastCategory(v int32)`
+`func (o *DealUnitCreateDto) SetDealUnitForecastCategory(v string)`
 
 SetDealUnitForecastCategory sets DealUnitForecastCategory field to given value.
 
@@ -1353,20 +2042,20 @@ HasDealUnitForecastCategory returns a boolean if a field has been set.
 
 ### GetDealUnitAmountsCalculation
 
-`func (o *DealUnitCreateDto) GetDealUnitAmountsCalculation() int32`
+`func (o *DealUnitCreateDto) GetDealUnitAmountsCalculation() string`
 
 GetDealUnitAmountsCalculation returns the DealUnitAmountsCalculation field if non-nil, zero value otherwise.
 
 ### GetDealUnitAmountsCalculationOk
 
-`func (o *DealUnitCreateDto) GetDealUnitAmountsCalculationOk() (*int32, bool)`
+`func (o *DealUnitCreateDto) GetDealUnitAmountsCalculationOk() (*string, bool)`
 
 GetDealUnitAmountsCalculationOk returns a tuple with the DealUnitAmountsCalculation field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDealUnitAmountsCalculation
 
-`func (o *DealUnitCreateDto) SetDealUnitAmountsCalculation(v int32)`
+`func (o *DealUnitCreateDto) SetDealUnitAmountsCalculation(v string)`
 
 SetDealUnitAmountsCalculation sets DealUnitAmountsCalculation field to given value.
 
@@ -1376,6 +2065,41 @@ SetDealUnitAmountsCalculation sets DealUnitAmountsCalculation field to given val
 
 HasDealUnitAmountsCalculation returns a boolean if a field has been set.
 
+### GetDealUnitLines
+
+`func (o *DealUnitCreateDto) GetDealUnitLines() []DealUnitLineCreateDto`
+
+GetDealUnitLines returns the DealUnitLines field if non-nil, zero value otherwise.
+
+### GetDealUnitLinesOk
+
+`func (o *DealUnitCreateDto) GetDealUnitLinesOk() (*[]DealUnitLineCreateDto, bool)`
+
+GetDealUnitLinesOk returns a tuple with the DealUnitLines field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDealUnitLines
+
+`func (o *DealUnitCreateDto) SetDealUnitLines(v []DealUnitLineCreateDto)`
+
+SetDealUnitLines sets DealUnitLines field to given value.
+
+### HasDealUnitLines
+
+`func (o *DealUnitCreateDto) HasDealUnitLines() bool`
+
+HasDealUnitLines returns a boolean if a field has been set.
+
+### SetDealUnitLinesNil
+
+`func (o *DealUnitCreateDto) SetDealUnitLinesNil(b bool)`
+
+ SetDealUnitLinesNil sets the value for DealUnitLines to be an explicit nil
+
+### UnsetDealUnitLines
+`func (o *DealUnitCreateDto) UnsetDealUnitLines()`
+
+UnsetDealUnitLines ensures that no value is present for DealUnitLines, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

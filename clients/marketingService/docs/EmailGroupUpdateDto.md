@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -159,41 +159,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *EmailGroupUpdateDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *EmailGroupUpdateDto) GetEnrolmentId() string`
+`func (o *EmailGroupUpdateDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *EmailGroupUpdateDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *EmailGroupUpdateDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *EmailGroupUpdateDto) SetEnrolmentId(v string)`
+`func (o *EmailGroupUpdateDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *EmailGroupUpdateDto) HasEnrolmentId() bool`
+`func (o *EmailGroupUpdateDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *EmailGroupUpdateDto) SetEnrolmentIdNil(b bool)`
+`func (o *EmailGroupUpdateDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *EmailGroupUpdateDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *EmailGroupUpdateDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **DiscountAmount** | Pointer to **float64** |  | [optional] 
 **TotalSurcharge** | Pointer to **float64** |  | [optional] 
 **TotalDiscount** | Pointer to **float64** |  | [optional] 
-**Type** | Pointer to **int32** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -435,20 +435,20 @@ HasTotalDiscount returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *InvoiceAdjustmentDto) GetType() int32`
+`func (o *InvoiceAdjustmentDto) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *InvoiceAdjustmentDto) GetTypeOk() (*int32, bool)`
+`func (o *InvoiceAdjustmentDto) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *InvoiceAdjustmentDto) SetType(v int32)`
+`func (o *InvoiceAdjustmentDto) SetType(v string)`
 
 SetType sets Type field to given value.
 

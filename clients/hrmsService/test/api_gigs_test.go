@@ -26,9 +26,10 @@ func Test_openapi_GigsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.GigsAPI.CreateGigAsync(context.Background()).Execute()
+		resp, httpRes, err := apiClient.GigsAPI.CreateGigAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -39,9 +40,10 @@ func Test_openapi_GigsAPIService(t *testing.T) {
 
 		var gigId string
 
-		httpRes, err := apiClient.GigsAPI.DeleteGigAsync(context.Background(), gigId).Execute()
+		resp, httpRes, err := apiClient.GigsAPI.DeleteGigAsync(context.Background(), gigId).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -90,9 +92,10 @@ func Test_openapi_GigsAPIService(t *testing.T) {
 
 		var gigId string
 
-		httpRes, err := apiClient.GigsAPI.UpdateGigAsync(context.Background(), gigId).Execute()
+		resp, httpRes, err := apiClient.GigsAPI.UpdateGigAsync(context.Background(), gigId).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

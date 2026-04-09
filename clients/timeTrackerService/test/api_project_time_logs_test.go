@@ -22,11 +22,11 @@ func Test_openapi_ProjectTimeLogsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ProjectTimeLogsAPIService ApiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet", func(t *testing.T) {
+	t.Run("Test ProjectTimeLogsAPIService CountProjectPeriodTimeLogsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.ApiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.CountProjectPeriodTimeLogsAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,35 @@ func Test_openapi_ProjectTimeLogsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectTimeLogsAPIService ApiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet", func(t *testing.T) {
+	t.Run("Test ProjectTimeLogsAPIService CreateProjectTimeLogAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.ApiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet(context.Background()).Execute()
+		httpRes, err := apiClient.ProjectTimeLogsAPI.CreateProjectTimeLogAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectTimeLogsAPIService DeleteProjectTimeLogAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var timeLogId string
+
+		httpRes, err := apiClient.ProjectTimeLogsAPI.DeleteProjectTimeLogAsync(context.Background(), timeLogId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectTimeLogsAPIService GetProjectPeriodTimeLogsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.GetProjectPeriodTimeLogsAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +70,27 @@ func Test_openapi_ProjectTimeLogsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectTimeLogsAPIService ApiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet", func(t *testing.T) {
+	t.Run("Test ProjectTimeLogsAPIService GetProjectTimeLogByIdAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var timeLogId string
+
+		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.GetProjectTimeLogByIdAsync(context.Background(), timeLogId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectTimeLogsAPIService GetProjectTimeLogsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var projectId string
 
-		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.ApiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet(context.Background(), projectId).Execute()
+		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.GetProjectTimeLogsAsync(context.Background(), projectId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,11 +98,11 @@ func Test_openapi_ProjectTimeLogsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectTimeLogsAPIService ApiV2TimeTrackerServiceProjectTimeLogsGet", func(t *testing.T) {
+	t.Run("Test ProjectTimeLogsAPIService GetProjectTimeLogsByResponsibleContactAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.ApiV2TimeTrackerServiceProjectTimeLogsGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.GetProjectTimeLogsByResponsibleContactAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,37 +110,11 @@ func Test_openapi_ProjectTimeLogsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectTimeLogsAPIService ApiV2TimeTrackerServiceProjectTimeLogsPost", func(t *testing.T) {
+	t.Run("Test ProjectTimeLogsAPIService GetProjectTimeLogsCreatedByContactAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.ProjectTimeLogsAPI.ApiV2TimeTrackerServiceProjectTimeLogsPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectTimeLogsAPIService ApiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var timeLogId string
-
-		httpRes, err := apiClient.ProjectTimeLogsAPI.ApiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete(context.Background(), timeLogId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectTimeLogsAPIService ApiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var timeLogId string
-
-		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.ApiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet(context.Background(), timeLogId).Execute()
+		resp, httpRes, err := apiClient.ProjectTimeLogsAPI.GetProjectTimeLogsCreatedByContactAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -110,13 +122,13 @@ func Test_openapi_ProjectTimeLogsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectTimeLogsAPIService ApiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut", func(t *testing.T) {
+	t.Run("Test ProjectTimeLogsAPIService UpdateProjectTimeLogAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var timeLogId string
 
-		httpRes, err := apiClient.ProjectTimeLogsAPI.ApiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut(context.Background(), timeLogId).Execute()
+		httpRes, err := apiClient.ProjectTimeLogsAPI.UpdateProjectTimeLogAsync(context.Background(), timeLogId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

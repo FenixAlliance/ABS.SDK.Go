@@ -22,11 +22,11 @@ func Test_openapi_ShipmentsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ShipmentsAPIService ApiV2ShipmentsServiceShipmentsGet", func(t *testing.T) {
+	t.Run("Test ShipmentsAPIService GetShipmentsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ShipmentsAPI.ApiV2ShipmentsServiceShipmentsGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ShipmentsAPI.GetShipmentsAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

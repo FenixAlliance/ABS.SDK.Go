@@ -22,11 +22,11 @@ func Test_openapi_TimezonesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TimezonesAPIService ApiV2GlobeServiceTimezonesGet", func(t *testing.T) {
+	t.Run("Test TimezonesAPIService CountTimezonesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TimezonesAPI.ApiV2GlobeServiceTimezonesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TimezonesAPI.CountTimezonesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,25 @@ func Test_openapi_TimezonesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TimezonesAPIService ApiV2GlobeServiceTimezonesTimeZoneIdGet", func(t *testing.T) {
+	t.Run("Test TimezonesAPIService GetTimeZoneByIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var timeZoneId string
 
-		resp, httpRes, err := apiClient.TimezonesAPI.ApiV2GlobeServiceTimezonesTimeZoneIdGet(context.Background(), timeZoneId).Execute()
+		resp, httpRes, err := apiClient.TimezonesAPI.GetTimeZoneByIdAsync(context.Background(), timeZoneId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test TimezonesAPIService GetTimeZonesAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.TimezonesAPI.GetTimeZonesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -4,18 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2SupportServiceSupportTicketTypesCountGet**](SupportTicketTypesAPI.md#ApiV2SupportServiceSupportTicketTypesCountGet) | **Get** /api/v2/SupportService/SupportTicketTypes/Count | 
-[**ApiV2SupportServiceSupportTicketTypesGet**](SupportTicketTypesAPI.md#ApiV2SupportServiceSupportTicketTypesGet) | **Get** /api/v2/SupportService/SupportTicketTypes | 
-[**ApiV2SupportServiceSupportTicketTypesPost**](SupportTicketTypesAPI.md#ApiV2SupportServiceSupportTicketTypesPost) | **Post** /api/v2/SupportService/SupportTicketTypes | 
-[**ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete**](SupportTicketTypesAPI.md#ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete) | **Delete** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | 
-[**ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet**](SupportTicketTypesAPI.md#ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet) | **Get** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | 
-[**ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut**](SupportTicketTypesAPI.md#ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut) | **Put** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | 
+[**CreateSupportTicketTypeAsync**](SupportTicketTypesAPI.md#CreateSupportTicketTypeAsync) | **Post** /api/v2/SupportService/SupportTicketTypes | Create a new support ticket type
+[**DeleteSupportTicketTypeAsync**](SupportTicketTypesAPI.md#DeleteSupportTicketTypeAsync) | **Delete** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Delete a support ticket type
+[**GetSupportTicketTypeAsync**](SupportTicketTypesAPI.md#GetSupportTicketTypeAsync) | **Get** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Retrieve a support ticket type by ID
+[**GetSupportTicketTypesAsync**](SupportTicketTypesAPI.md#GetSupportTicketTypesAsync) | **Get** /api/v2/SupportService/SupportTicketTypes | Retrieve a list of support ticket types
+[**GetSupportTicketTypesCountAsync**](SupportTicketTypesAPI.md#GetSupportTicketTypesCountAsync) | **Get** /api/v2/SupportService/SupportTicketTypes/Count | Get the count of support ticket types
+[**UpdateSupportTicketTypeAsync**](SupportTicketTypesAPI.md#UpdateSupportTicketTypeAsync) | **Put** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Update a support ticket type
 
 
 
-## ApiV2SupportServiceSupportTicketTypesCountGet
+## CreateSupportTicketTypeAsync
 
-> Int32Envelope ApiV2SupportServiceSupportTicketTypesCountGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope CreateSupportTicketTypeAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketTypeCreateDto(supportTicketTypeCreateDto).Execute()
+
+Create a new support ticket type
 
 
 
@@ -32,19 +34,20 @@ import (
 )
 
 func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportTicketTypeCreateDto := *openapiclient.NewSupportTicketTypeCreateDto() // SupportTicketTypeCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesCountGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportTicketTypesAPI.CreateSupportTicketTypeAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketTypeCreateDto(supportTicketTypeCreateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesCountGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.CreateSupportTicketTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SupportServiceSupportTicketTypesCountGet`: Int32Envelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesCountGet`: %v\n", resp)
+	// response from `CreateSupportTicketTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.CreateSupportTicketTypeAsync`: %v\n", resp)
 }
 ```
 
@@ -54,7 +57,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportTicketTypesCountGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateSupportTicketTypeAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -62,14 +65,91 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **supportTicketTypeCreateDto** | [**SupportTicketTypeCreateDto**](SupportTicketTypeCreateDto.md) |  | 
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteSupportTicketTypeAsync
+
+> EmptyEnvelope DeleteSupportTicketTypeAsync(ctx, supportTicketTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete a support ticket type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	supportTicketTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SupportTicketTypesAPI.DeleteSupportTicketTypeAsync(context.Background(), supportTicketTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.DeleteSupportTicketTypeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteSupportTicketTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.DeleteSupportTicketTypeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**supportTicketTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteSupportTicketTypeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -81,9 +161,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SupportServiceSupportTicketTypesGet
+## GetSupportTicketTypeAsync
 
-> SupportTicketTypeDtoListEnvelope ApiV2SupportServiceSupportTicketTypesGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SupportTicketTypeDtoEnvelope GetSupportTicketTypeAsync(ctx, supportTicketTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Retrieve a support ticket type by ID
 
 
 
@@ -100,19 +182,95 @@ import (
 )
 
 func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	supportTicketTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportTicketTypesAPI.GetSupportTicketTypeAsync(context.Background(), supportTicketTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.GetSupportTicketTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SupportServiceSupportTicketTypesGet`: SupportTicketTypeDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesGet`: %v\n", resp)
+	// response from `GetSupportTicketTypeAsync`: SupportTicketTypeDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.GetSupportTicketTypeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**supportTicketTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSupportTicketTypeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SupportTicketTypeDtoEnvelope**](SupportTicketTypeDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSupportTicketTypesAsync
+
+> SupportTicketTypeDtoListEnvelope GetSupportTicketTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Retrieve a list of support ticket types
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SupportTicketTypesAPI.GetSupportTicketTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.GetSupportTicketTypesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSupportTicketTypesAsync`: SupportTicketTypeDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.GetSupportTicketTypesAsync`: %v\n", resp)
 }
 ```
 
@@ -122,7 +280,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportTicketTypesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetSupportTicketTypesAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -137,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -149,9 +307,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SupportServiceSupportTicketTypesPost
+## GetSupportTicketTypesCountAsync
 
-> EmptyEnvelope ApiV2SupportServiceSupportTicketTypesPost(ctx).SupportTicketTypeCreateDto(supportTicketTypeCreateDto).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetSupportTicketTypesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get the count of support ticket types
 
 
 
@@ -168,20 +328,19 @@ import (
 )
 
 func main() {
-	supportTicketTypeCreateDto := *openapiclient.NewSupportTicketTypeCreateDto() // SupportTicketTypeCreateDto | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesPost(context.Background()).SupportTicketTypeCreateDto(supportTicketTypeCreateDto).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportTicketTypesAPI.GetSupportTicketTypesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.GetSupportTicketTypesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SupportServiceSupportTicketTypesPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesPost`: %v\n", resp)
+	// response from `GetSupportTicketTypesCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.GetSupportTicketTypesCountAsync`: %v\n", resp)
 }
 ```
 
@@ -191,27 +350,26 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportTicketTypesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetSupportTicketTypesCountAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **supportTicketTypeCreateDto** | [**SupportTicketTypeCreateDto**](SupportTicketTypeCreateDto.md) |  | 
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md)
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -219,9 +377,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete
+## UpdateSupportTicketTypeAsync
 
-> EmptyEnvelope ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete(ctx, supportTicketTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope UpdateSupportTicketTypeAsync(ctx, supportTicketTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketTypeUpdateDto(supportTicketTypeUpdateDto).Execute()
+
+Update a support ticket type
 
 
 
@@ -238,20 +398,21 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	supportTicketTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportTicketTypeUpdateDto := *openapiclient.NewSupportTicketTypeUpdateDto() // SupportTicketTypeUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete(context.Background(), supportTicketTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportTicketTypesAPI.UpdateSupportTicketTypeAsync(context.Background(), supportTicketTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketTypeUpdateDto(supportTicketTypeUpdateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.UpdateSupportTicketTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete`: %v\n", resp)
+	// response from `UpdateSupportTicketTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.UpdateSupportTicketTypeAsync`: %v\n", resp)
 }
 ```
 
@@ -265,163 +426,16 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateSupportTicketTypeAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet
-
-> SupportTicketTypeDtoEnvelope ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet(ctx, supportTicketTypeId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	supportTicketTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet(context.Background(), supportTicketTypeId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet`: SupportTicketTypeDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**supportTicketTypeId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**SupportTicketTypeDtoEnvelope**](SupportTicketTypeDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut
-
-> EmptyEnvelope ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut(ctx, supportTicketTypeId).SupportTicketTypeUpdateDto(supportTicketTypeUpdateDto).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	supportTicketTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	supportTicketTypeUpdateDto := *openapiclient.NewSupportTicketTypeUpdateDto() // SupportTicketTypeUpdateDto | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut(context.Background(), supportTicketTypeId).SupportTicketTypeUpdateDto(supportTicketTypeUpdateDto).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportTicketTypesAPI.ApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**supportTicketTypeId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
  **supportTicketTypeUpdateDto** | [**SupportTicketTypeUpdateDto**](SupportTicketTypeUpdateDto.md) |  | 
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
 
 ### Return type
 
@@ -429,7 +443,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

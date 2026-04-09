@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **ImageUrl** | Pointer to **NullableString** |  | [optional] 
-**StateID** | Pointer to **NullableString** |  | [optional] 
-**CountryID** | Pointer to **NullableString** |  | [optional] 
+**StateId** | Pointer to **NullableString** |  | [optional] 
+**CountryId** | Pointer to **NullableString** |  | [optional] 
 **Latitude** | Pointer to **NullableString** |  | [optional] 
 **Longitude** | Pointer to **NullableString** |  | [optional] 
 
@@ -172,76 +172,76 @@ HasImageUrl returns a boolean if a field has been set.
 `func (o *CityDto) UnsetImageUrl()`
 
 UnsetImageUrl ensures that no value is present for ImageUrl, not even an explicit nil
-### GetStateID
+### GetStateId
 
-`func (o *CityDto) GetStateID() string`
+`func (o *CityDto) GetStateId() string`
 
-GetStateID returns the StateID field if non-nil, zero value otherwise.
+GetStateId returns the StateId field if non-nil, zero value otherwise.
 
-### GetStateIDOk
+### GetStateIdOk
 
-`func (o *CityDto) GetStateIDOk() (*string, bool)`
+`func (o *CityDto) GetStateIdOk() (*string, bool)`
 
-GetStateIDOk returns a tuple with the StateID field if it's non-nil, zero value otherwise
+GetStateIdOk returns a tuple with the StateId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStateID
+### SetStateId
 
-`func (o *CityDto) SetStateID(v string)`
+`func (o *CityDto) SetStateId(v string)`
 
-SetStateID sets StateID field to given value.
+SetStateId sets StateId field to given value.
 
-### HasStateID
+### HasStateId
 
-`func (o *CityDto) HasStateID() bool`
+`func (o *CityDto) HasStateId() bool`
 
-HasStateID returns a boolean if a field has been set.
+HasStateId returns a boolean if a field has been set.
 
-### SetStateIDNil
+### SetStateIdNil
 
-`func (o *CityDto) SetStateIDNil(b bool)`
+`func (o *CityDto) SetStateIdNil(b bool)`
 
- SetStateIDNil sets the value for StateID to be an explicit nil
+ SetStateIdNil sets the value for StateId to be an explicit nil
 
-### UnsetStateID
-`func (o *CityDto) UnsetStateID()`
+### UnsetStateId
+`func (o *CityDto) UnsetStateId()`
 
-UnsetStateID ensures that no value is present for StateID, not even an explicit nil
-### GetCountryID
+UnsetStateId ensures that no value is present for StateId, not even an explicit nil
+### GetCountryId
 
-`func (o *CityDto) GetCountryID() string`
+`func (o *CityDto) GetCountryId() string`
 
-GetCountryID returns the CountryID field if non-nil, zero value otherwise.
+GetCountryId returns the CountryId field if non-nil, zero value otherwise.
 
-### GetCountryIDOk
+### GetCountryIdOk
 
-`func (o *CityDto) GetCountryIDOk() (*string, bool)`
+`func (o *CityDto) GetCountryIdOk() (*string, bool)`
 
-GetCountryIDOk returns a tuple with the CountryID field if it's non-nil, zero value otherwise
+GetCountryIdOk returns a tuple with the CountryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCountryID
+### SetCountryId
 
-`func (o *CityDto) SetCountryID(v string)`
+`func (o *CityDto) SetCountryId(v string)`
 
-SetCountryID sets CountryID field to given value.
+SetCountryId sets CountryId field to given value.
 
-### HasCountryID
+### HasCountryId
 
-`func (o *CityDto) HasCountryID() bool`
+`func (o *CityDto) HasCountryId() bool`
 
-HasCountryID returns a boolean if a field has been set.
+HasCountryId returns a boolean if a field has been set.
 
-### SetCountryIDNil
+### SetCountryIdNil
 
-`func (o *CityDto) SetCountryIDNil(b bool)`
+`func (o *CityDto) SetCountryIdNil(b bool)`
 
- SetCountryIDNil sets the value for CountryID to be an explicit nil
+ SetCountryIdNil sets the value for CountryId to be an explicit nil
 
-### UnsetCountryID
-`func (o *CityDto) UnsetCountryID()`
+### UnsetCountryId
+`func (o *CityDto) UnsetCountryId()`
 
-UnsetCountryID ensures that no value is present for CountryID, not even an explicit nil
+UnsetCountryId ensures that no value is present for CountryId, not even an explicit nil
 ### GetLatitude
 
 `func (o *CityDto) GetLatitude() string`

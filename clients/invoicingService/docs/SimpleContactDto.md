@@ -8,7 +8,9 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **QualifiedName** | Pointer to **NullableString** |  | [optional] [readonly] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**Type** | Pointer to **int32** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
+**Email** | Pointer to **NullableString** |  | [optional] 
+**Phone** | Pointer to **NullableString** |  | [optional] 
 **PublicName** | Pointer to **NullableString** |  | [optional] 
 **FirstName** | Pointer to **NullableString** |  | [optional] 
 **LastName** | Pointer to **NullableString** |  | [optional] 
@@ -193,20 +195,20 @@ HasTenantId returns a boolean if a field has been set.
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetType
 
-`func (o *SimpleContactDto) GetType() int32`
+`func (o *SimpleContactDto) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *SimpleContactDto) GetTypeOk() (*int32, bool)`
+`func (o *SimpleContactDto) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *SimpleContactDto) SetType(v int32)`
+`func (o *SimpleContactDto) SetType(v string)`
 
 SetType sets Type field to given value.
 
@@ -216,6 +218,76 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### GetEmail
+
+`func (o *SimpleContactDto) GetEmail() string`
+
+GetEmail returns the Email field if non-nil, zero value otherwise.
+
+### GetEmailOk
+
+`func (o *SimpleContactDto) GetEmailOk() (*string, bool)`
+
+GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmail
+
+`func (o *SimpleContactDto) SetEmail(v string)`
+
+SetEmail sets Email field to given value.
+
+### HasEmail
+
+`func (o *SimpleContactDto) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
+
+### SetEmailNil
+
+`func (o *SimpleContactDto) SetEmailNil(b bool)`
+
+ SetEmailNil sets the value for Email to be an explicit nil
+
+### UnsetEmail
+`func (o *SimpleContactDto) UnsetEmail()`
+
+UnsetEmail ensures that no value is present for Email, not even an explicit nil
+### GetPhone
+
+`func (o *SimpleContactDto) GetPhone() string`
+
+GetPhone returns the Phone field if non-nil, zero value otherwise.
+
+### GetPhoneOk
+
+`func (o *SimpleContactDto) GetPhoneOk() (*string, bool)`
+
+GetPhoneOk returns a tuple with the Phone field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPhone
+
+`func (o *SimpleContactDto) SetPhone(v string)`
+
+SetPhone sets Phone field to given value.
+
+### HasPhone
+
+`func (o *SimpleContactDto) HasPhone() bool`
+
+HasPhone returns a boolean if a field has been set.
+
+### SetPhoneNil
+
+`func (o *SimpleContactDto) SetPhoneNil(b bool)`
+
+ SetPhoneNil sets the value for Phone to be an explicit nil
+
+### UnsetPhone
+`func (o *SimpleContactDto) UnsetPhone()`
+
+UnsetPhone ensures that no value is present for Phone, not even an explicit nil
 ### GetPublicName
 
 `func (o *SimpleContactDto) GetPublicName() string`

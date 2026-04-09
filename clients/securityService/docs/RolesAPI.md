@@ -4,25 +4,30 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2SecurityServiceRolesGet**](RolesAPI.md#ApiV2SecurityServiceRolesGet) | **Get** /api/v2/SecurityService/Roles | 
-[**ApiV2SecurityServiceRolesPost**](RolesAPI.md#ApiV2SecurityServiceRolesPost) | **Post** /api/v2/SecurityService/Roles | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost) | **Post** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdDelete**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdDelete) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId} | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost) | **Post** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet) | **Get** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdGet**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdGet) | **Get** /api/v2/SecurityService/Roles/{securityRoleId} | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdPermissionsGet**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdPermissionsGet) | **Get** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost) | **Post** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | 
-[**ApiV2SecurityServiceRolesSecurityRoleIdPut**](RolesAPI.md#ApiV2SecurityServiceRolesSecurityRoleIdPut) | **Put** /api/v2/SecurityService/Roles/{securityRoleId} | 
+[**AssignPermissionToRoleAsync**](RolesAPI.md#AssignPermissionToRoleAsync) | **Post** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Assign a permission to a role
+[**AssignRoleToBusinessApplicationAsync**](RolesAPI.md#AssignRoleToBusinessApplicationAsync) | **Post** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Assign a role to a business application
+[**AssignRoleToEnrollmentAsync**](RolesAPI.md#AssignRoleToEnrollmentAsync) | **Post** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Assign a role to an enrollment
+[**CreateRoleAsync**](RolesAPI.md#CreateRoleAsync) | **Post** /api/v2/SecurityService/Roles | Create a new role
+[**DeleteRoleAsync**](RolesAPI.md#DeleteRoleAsync) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId} | Delete an existing role
+[**GetApplicationsByRoleAsync**](RolesAPI.md#GetApplicationsByRoleAsync) | **Get** /api/v2/SecurityService/Roles/{securityRoleId}/Applications | Get applications by role
+[**GetEnrollmentsByRoleAsync**](RolesAPI.md#GetEnrollmentsByRoleAsync) | **Get** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments | Get enrollments by role
+[**GetRoleAsync**](RolesAPI.md#GetRoleAsync) | **Get** /api/v2/SecurityService/Roles/{securityRoleId} | Get role by ID
+[**GetRolePermissionsAsync**](RolesAPI.md#GetRolePermissionsAsync) | **Get** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions | Get permissions by role
+[**GetRolesAsync**](RolesAPI.md#GetRolesAsync) | **Get** /api/v2/SecurityService/Roles | Get all roles
+[**GetRolesByEnrollmentAsync**](RolesAPI.md#GetRolesByEnrollmentAsync) | **Get** /api/v2/SecurityService/Roles/ByEnrollment/{enrollmentId} | Get roles by enrollment
+[**GetRolesCountAsync**](RolesAPI.md#GetRolesCountAsync) | **Get** /api/v2/SecurityService/Roles/Count | Get roles count
+[**RevokePermissionFromRoleAsync**](RolesAPI.md#RevokePermissionFromRoleAsync) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Revoke a permission from a role
+[**RevokeRoleFromBusinessApplicationAsync**](RolesAPI.md#RevokeRoleFromBusinessApplicationAsync) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Revoke a role from a business application
+[**RevokeRoleFromEnrollmentAsync**](RolesAPI.md#RevokeRoleFromEnrollmentAsync) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Revoke a role from an enrollment
+[**UpdateRoleAsync**](RolesAPI.md#UpdateRoleAsync) | **Put** /api/v2/SecurityService/Roles/{securityRoleId} | Update an existing role
 
 
 
-## ApiV2SecurityServiceRolesGet
+## AssignPermissionToRoleAsync
 
-> SecurityRoleDtoListEnvelope ApiV2SecurityServiceRolesGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope AssignPermissionToRoleAsync(ctx, securityRoleId, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Assign a permission to a role
 
 
 
@@ -40,43 +45,52 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityRoleId := "securityRoleId_example" // string | 
+	securityPermissionId := "securityPermissionId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RolesAPI.AssignPermissionToRoleAsync(context.Background(), securityRoleId, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.AssignPermissionToRoleAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServiceRolesGet`: SecurityRoleDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesGet`: %v\n", resp)
+	// response from `AssignPermissionToRoleAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.AssignPermissionToRoleAsync`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityRoleId** | **string** |  | 
+**securityPermissionId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAssignPermissionToRoleAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+
+
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
 ### Return type
 
-[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,9 +102,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServiceRolesPost
+## AssignRoleToBusinessApplicationAsync
 
-> EmptyEnvelope ApiV2SecurityServiceRolesPost(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityRoleCreateDto(securityRoleCreateDto).Execute()
+> EmptyEnvelope AssignRoleToBusinessApplicationAsync(ctx, securityRoleId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Assign a role to a business application
 
 
 
@@ -108,19 +124,177 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityRoleId := "securityRoleId_example" // string | 
+	applicationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	securityRoleCreateDto := *openapiclient.NewSecurityRoleCreateDto("Name_example", "TenantId_example") // SecurityRoleCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesPost(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityRoleCreateDto(securityRoleCreateDto).Execute()
+	resp, r, err := apiClient.RolesAPI.AssignRoleToBusinessApplicationAsync(context.Background(), securityRoleId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.AssignRoleToBusinessApplicationAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServiceRolesPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesPost`: %v\n", resp)
+	// response from `AssignRoleToBusinessApplicationAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.AssignRoleToBusinessApplicationAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityRoleId** | **string** |  | 
+**applicationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAssignRoleToBusinessApplicationAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AssignRoleToEnrollmentAsync
+
+> EmptyEnvelope AssignRoleToEnrollmentAsync(ctx, securityRoleId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Assign a role to an enrollment
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityRoleId := "securityRoleId_example" // string | 
+	enrollmentId := "enrollmentId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RolesAPI.AssignRoleToEnrollmentAsync(context.Background(), securityRoleId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.AssignRoleToEnrollmentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AssignRoleToEnrollmentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.AssignRoleToEnrollmentAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityRoleId** | **string** |  | 
+**enrollmentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAssignRoleToEnrollmentAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateRoleAsync
+
+> EmptyEnvelope CreateRoleAsync(ctx).TenantId(tenantId).SecurityRoleCreateDto(securityRoleCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Create a new role
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityRoleCreateDto := *openapiclient.NewSecurityRoleCreateDto("Name_example", "TenantId_example") // SecurityRoleCreateDto | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RolesAPI.CreateRoleAsync(context.Background()).TenantId(tenantId).SecurityRoleCreateDto(securityRoleCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.CreateRoleAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateRoleAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.CreateRoleAsync`: %v\n", resp)
 }
 ```
 
@@ -130,15 +304,15 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRoleAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **securityRoleCreateDto** | [**SecurityRoleCreateDto**](SecurityRoleCreateDto.md) |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **securityRoleCreateDto** | [**SecurityRoleCreateDto**](SecurityRoleCreateDto.md) |  | 
 
 ### Return type
 
@@ -146,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -158,163 +332,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete
+## DeleteRoleAsync
 
-> EmptyEnvelope ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete(ctx, securityRoleId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeleteRoleAsync(ctx, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityRoleId := "securityRoleId_example" // string | 
-	applicationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete(context.Background(), securityRoleId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityRoleId** | **string** |  | 
-**applicationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost
-
-> EmptyEnvelope ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost(ctx, securityRoleId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityRoleId := "securityRoleId_example" // string | 
-	applicationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost(context.Background(), securityRoleId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityRoleId** | **string** |  | 
-**applicationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SecurityServiceRolesSecurityRoleIdDelete
-
-> EmptyEnvelope ApiV2SecurityServiceRolesSecurityRoleIdDelete(ctx, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+Delete an existing role
 
 
 
@@ -338,13 +360,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdDelete(context.Background(), securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RolesAPI.DeleteRoleAsync(context.Background(), securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.DeleteRoleAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdDelete`: %v\n", resp)
+	// response from `DeleteRoleAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.DeleteRoleAsync`: %v\n", resp)
 }
 ```
 
@@ -358,7 +380,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteRoleAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -374,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -386,163 +408,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete
+## GetApplicationsByRoleAsync
 
-> EmptyEnvelope ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete(ctx, securityRoleId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BusinessApplicationSimpleDtoListEnvelope GetApplicationsByRoleAsync(ctx, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityRoleId := "securityRoleId_example" // string | 
-	enrollmentId := "enrollmentId_example" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete(context.Background(), securityRoleId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityRoleId** | **string** |  | 
-**enrollmentId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost
-
-> EmptyEnvelope ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost(ctx, securityRoleId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityRoleId := "securityRoleId_example" // string | 
-	enrollmentId := "enrollmentId_example" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost(context.Background(), securityRoleId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityRoleId** | **string** |  | 
-**enrollmentId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet
-
-> TenantEnrolmentDtoListEnvelope ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet(ctx, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+Get applications by role
 
 
 
@@ -566,13 +436,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet(context.Background(), securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RolesAPI.GetApplicationsByRoleAsync(context.Background(), securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetApplicationsByRoleAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet`: TenantEnrolmentDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet`: %v\n", resp)
+	// response from `GetApplicationsByRoleAsync`: BusinessApplicationSimpleDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetApplicationsByRoleAsync`: %v\n", resp)
 }
 ```
 
@@ -586,7 +456,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetApplicationsByRoleAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -598,11 +468,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TenantEnrolmentDtoListEnvelope**](TenantEnrolmentDtoListEnvelope.md)
+[**BusinessApplicationSimpleDtoListEnvelope**](BusinessApplicationSimpleDtoListEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -614,9 +484,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServiceRolesSecurityRoleIdGet
+## GetEnrollmentsByRoleAsync
 
-> SecurityRoleDtoListEnvelope ApiV2SecurityServiceRolesSecurityRoleIdGet(ctx, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TenantEnrollmentDtoListEnvelope GetEnrollmentsByRoleAsync(ctx, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get enrollments by role
 
 
 
@@ -640,13 +512,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdGet(context.Background(), securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RolesAPI.GetEnrollmentsByRoleAsync(context.Background(), securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetEnrollmentsByRoleAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdGet`: SecurityRoleDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdGet`: %v\n", resp)
+	// response from `GetEnrollmentsByRoleAsync`: TenantEnrollmentDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetEnrollmentsByRoleAsync`: %v\n", resp)
 }
 ```
 
@@ -660,7 +532,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetEnrollmentsByRoleAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -672,11 +544,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+[**TenantEnrollmentDtoListEnvelope**](TenantEnrollmentDtoListEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -688,9 +560,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServiceRolesSecurityRoleIdPermissionsGet
+## GetRoleAsync
 
-> SecurityPermissionDtoListEnvelope ApiV2SecurityServiceRolesSecurityRoleIdPermissionsGet(ctx, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SecurityRoleDtoEnvelope GetRoleAsync(ctx, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get role by ID
 
 
 
@@ -714,13 +588,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsGet(context.Background(), securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RolesAPI.GetRoleAsync(context.Background(), securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRoleAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdPermissionsGet`: SecurityPermissionDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsGet`: %v\n", resp)
+	// response from `GetRoleAsync`: SecurityRoleDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetRoleAsync`: %v\n", resp)
 }
 ```
 
@@ -734,7 +608,83 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdPermissionsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetRoleAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SecurityRoleDtoEnvelope**](SecurityRoleDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetRolePermissionsAsync
+
+> SecurityPermissionDtoListEnvelope GetRolePermissionsAsync(ctx, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get permissions by role
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityRoleId := "securityRoleId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RolesAPI.GetRolePermissionsAsync(context.Background(), securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRolePermissionsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetRolePermissionsAsync`: SecurityPermissionDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetRolePermissionsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityRoleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetRolePermissionsAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -750,7 +700,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -762,9 +712,227 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete
+## GetRolesAsync
 
-> EmptyEnvelope ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete(ctx, securityRoleId, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SecurityRoleDtoListEnvelope GetRolesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get all roles
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RolesAPI.GetRolesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRolesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetRolesAsync`: SecurityRoleDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetRolesAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetRolesAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetRolesByEnrollmentAsync
+
+> SecurityRoleDtoListEnvelope GetRolesByEnrollmentAsync(ctx, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get roles by enrollment
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	enrollmentId := "enrollmentId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RolesAPI.GetRolesByEnrollmentAsync(context.Background(), enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRolesByEnrollmentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetRolesByEnrollmentAsync`: SecurityRoleDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetRolesByEnrollmentAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**enrollmentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetRolesByEnrollmentAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetRolesCountAsync
+
+> Int32Envelope GetRolesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get roles count
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RolesAPI.GetRolesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRolesCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetRolesCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetRolesCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetRolesCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RevokePermissionFromRoleAsync
+
+> EmptyEnvelope RevokePermissionFromRoleAsync(ctx, securityRoleId, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Revoke a permission from a role
 
 
 
@@ -789,13 +957,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete(context.Background(), securityRoleId, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RolesAPI.RevokePermissionFromRoleAsync(context.Background(), securityRoleId, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.RevokePermissionFromRoleAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete`: %v\n", resp)
+	// response from `RevokePermissionFromRoleAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.RevokePermissionFromRoleAsync`: %v\n", resp)
 }
 ```
 
@@ -810,7 +978,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRevokePermissionFromRoleAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -827,7 +995,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -839,9 +1007,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost
+## RevokeRoleFromBusinessApplicationAsync
 
-> EmptyEnvelope ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost(ctx, securityRoleId, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope RevokeRoleFromBusinessApplicationAsync(ctx, securityRoleId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Revoke a role from a business application
 
 
 
@@ -860,19 +1030,19 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	securityRoleId := "securityRoleId_example" // string | 
-	securityPermissionId := "securityPermissionId_example" // string | 
+	applicationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost(context.Background(), securityRoleId, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RolesAPI.RevokeRoleFromBusinessApplicationAsync(context.Background(), securityRoleId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.RevokeRoleFromBusinessApplicationAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost`: %v\n", resp)
+	// response from `RevokeRoleFromBusinessApplicationAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.RevokeRoleFromBusinessApplicationAsync`: %v\n", resp)
 }
 ```
 
@@ -883,11 +1053,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **securityRoleId** | **string** |  | 
-**securityPermissionId** | **string** |  | 
+**applicationId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRevokeRoleFromBusinessApplicationAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -904,7 +1074,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -916,9 +1086,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServiceRolesSecurityRoleIdPut
+## RevokeRoleFromEnrollmentAsync
 
-> EmptyEnvelope ApiV2SecurityServiceRolesSecurityRoleIdPut(ctx, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityRoleUpdateDto(securityRoleUpdateDto).Execute()
+> EmptyEnvelope RevokeRoleFromEnrollmentAsync(ctx, securityRoleId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Revoke a role from an enrollment
 
 
 
@@ -937,19 +1109,98 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	securityRoleId := "securityRoleId_example" // string | 
+	enrollmentId := "enrollmentId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	securityRoleUpdateDto := *openapiclient.NewSecurityRoleUpdateDto("Name_example") // SecurityRoleUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPut(context.Background(), securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityRoleUpdateDto(securityRoleUpdateDto).Execute()
+	resp, r, err := apiClient.RolesAPI.RevokeRoleFromEnrollmentAsync(context.Background(), securityRoleId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.RevokeRoleFromEnrollmentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServiceRolesSecurityRoleIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPut`: %v\n", resp)
+	// response from `RevokeRoleFromEnrollmentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.RevokeRoleFromEnrollmentAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityRoleId** | **string** |  | 
+**enrollmentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRevokeRoleFromEnrollmentAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateRoleAsync
+
+> EmptyEnvelope UpdateRoleAsync(ctx, securityRoleId).TenantId(tenantId).SecurityRoleUpdateDto(securityRoleUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Update an existing role
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityRoleId := "securityRoleId_example" // string | 
+	securityRoleUpdateDto := *openapiclient.NewSecurityRoleUpdateDto("Name_example") // SecurityRoleUpdateDto | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RolesAPI.UpdateRoleAsync(context.Background(), securityRoleId).TenantId(tenantId).SecurityRoleUpdateDto(securityRoleUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.UpdateRoleAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateRoleAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.UpdateRoleAsync`: %v\n", resp)
 }
 ```
 
@@ -963,16 +1214,16 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServiceRolesSecurityRoleIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateRoleAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
  **securityRoleUpdateDto** | [**SecurityRoleUpdateDto**](SecurityRoleUpdateDto.md) |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
 
 ### Return type
 
@@ -980,7 +1231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

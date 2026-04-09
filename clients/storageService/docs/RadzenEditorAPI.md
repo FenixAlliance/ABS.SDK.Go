@@ -4,17 +4,159 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2StorageServiceRadzenEditorUploadsIdPost**](RadzenEditorAPI.md#ApiV2StorageServiceRadzenEditorUploadsIdPost) | **Post** /api/v2/StorageService/RadzenEditor/Uploads/{id} | 
-[**ApiV2StorageServiceRadzenEditorUploadsImagePost**](RadzenEditorAPI.md#ApiV2StorageServiceRadzenEditorUploadsImagePost) | **Post** /api/v2/StorageService/RadzenEditor/Uploads/Image | 
-[**ApiV2StorageServiceRadzenEditorUploadsMultiplePost**](RadzenEditorAPI.md#ApiV2StorageServiceRadzenEditorUploadsMultiplePost) | **Post** /api/v2/StorageService/RadzenEditor/Uploads/Multiple | 
-[**ApiV2StorageServiceRadzenEditorUploadsSinglePost**](RadzenEditorAPI.md#ApiV2StorageServiceRadzenEditorUploadsSinglePost) | **Post** /api/v2/StorageService/RadzenEditor/Uploads/Single | 
-[**ApiV2StorageServiceRadzenEditorUploadsSpecificPost**](RadzenEditorAPI.md#ApiV2StorageServiceRadzenEditorUploadsSpecificPost) | **Post** /api/v2/StorageService/RadzenEditor/Uploads/Specific | 
+[**Image**](RadzenEditorAPI.md#Image) | **Post** /api/v2/StorageService/RadzenEditor/Uploads/Image | Upload an image file
+[**Multiple**](RadzenEditorAPI.md#Multiple) | **Post** /api/v2/StorageService/RadzenEditor/Uploads/Multiple | Upload multiple files
+[**Post**](RadzenEditorAPI.md#Post) | **Post** /api/v2/StorageService/RadzenEditor/Uploads/{id} | Upload files by ID
+[**Single**](RadzenEditorAPI.md#Single) | **Post** /api/v2/StorageService/RadzenEditor/Uploads/Single | Upload a single file
+[**Specific**](RadzenEditorAPI.md#Specific) | **Post** /api/v2/StorageService/RadzenEditor/Uploads/Specific | Upload a specific file
 
 
 
-## ApiV2StorageServiceRadzenEditorUploadsIdPost
+## Image
 
-> ApiV2StorageServiceRadzenEditorUploadsIdPost(ctx, id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Files(files).Execute()
+> Image(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
+
+Upload an image file
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	file := os.NewFile(1234, "some_file") // *os.File |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.RadzenEditorAPI.Image(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RadzenEditorAPI.Image``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiImageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **file** | ***os.File** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Multiple
+
+> Multiple(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Files(files).Execute()
+
+Upload multiple files
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	files := []*os.File{"TODO"} // []*os.File |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.RadzenEditorAPI.Multiple(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Files(files).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RadzenEditorAPI.Multiple``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMultipleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **files** | **[]*os.File** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Post
+
+> Post(ctx, id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Files(files).Execute()
+
+Upload files by ID
 
 
 
@@ -39,9 +181,9 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsIdPost(context.Background(), id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Files(files).Execute()
+	r, err := apiClient.RadzenEditorAPI.Post(context.Background(), id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Files(files).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsIdPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RadzenEditorAPI.Post``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -57,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2StorageServiceRadzenEditorUploadsIdPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPostRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -74,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -86,9 +228,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2StorageServiceRadzenEditorUploadsImagePost
+## Single
 
-> ApiV2StorageServiceRadzenEditorUploadsImagePost(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
+> Single(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
+
+Upload a single file
 
 
 
@@ -112,9 +256,9 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsImagePost(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
+	r, err := apiClient.RadzenEditorAPI.Single(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsImagePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RadzenEditorAPI.Single``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -126,7 +270,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2StorageServiceRadzenEditorUploadsImagePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSingleRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -142,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -154,77 +298,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2StorageServiceRadzenEditorUploadsMultiplePost
+## Specific
 
-> ApiV2StorageServiceRadzenEditorUploadsMultiplePost(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Files(files).Execute()
+> Specific(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-	files := []*os.File{"TODO"} // []*os.File |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsMultiplePost(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Files(files).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsMultiplePost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2StorageServiceRadzenEditorUploadsMultiplePostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
- **files** | **[]*os.File** |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: multipart/form-data
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2StorageServiceRadzenEditorUploadsSinglePost
-
-> ApiV2StorageServiceRadzenEditorUploadsSinglePost(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
+Upload a specific file
 
 
 
@@ -248,9 +326,9 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsSinglePost(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
+	r, err := apiClient.RadzenEditorAPI.Specific(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsSinglePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RadzenEditorAPI.Specific``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -262,7 +340,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2StorageServiceRadzenEditorUploadsSinglePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSpecificRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -278,75 +356,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: multipart/form-data
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2StorageServiceRadzenEditorUploadsSpecificPost
-
-> ApiV2StorageServiceRadzenEditorUploadsSpecificPost(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-	file := os.NewFile(1234, "some_file") // *os.File |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsSpecificPost(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsSpecificPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2StorageServiceRadzenEditorUploadsSpecificPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
- **file** | ***os.File** |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

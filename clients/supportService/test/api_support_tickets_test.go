@@ -22,11 +22,11 @@ func Test_openapi_SupportTicketsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsCountGet", func(t *testing.T) {
+	t.Run("Test SupportTicketsAPIService CreateSupportTicketAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SupportTicketsAPI.CreateSupportTicketAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,37 +34,13 @@ func Test_openapi_SupportTicketsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet", func(t *testing.T) {
+	t.Run("Test SupportTicketsAPIService DeleteSupportTicketAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportTicketId string
 
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet(context.Background(), supportTicketId).Execute()
+		resp, httpRes, err := apiClient.SupportTicketsAPI.DeleteSupportTicketAsync(context.Background(), supportTicketId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,28 +48,14 @@ func Test_openapi_SupportTicketsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var supportTicketId string
-
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost(context.Background(), supportTicketId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete", func(t *testing.T) {
+	t.Run("Test SupportTicketsAPIService DeleteSupportTicketConversationAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportTicketId string
 		var supportTicketConversationId string
 
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete(context.Background(), supportTicketId, supportTicketConversationId).Execute()
+		resp, httpRes, err := apiClient.SupportTicketsAPI.DeleteSupportTicketConversationAsync(context.Background(), supportTicketId, supportTicketConversationId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -101,14 +63,28 @@ func Test_openapi_SupportTicketsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet", func(t *testing.T) {
+	t.Run("Test SupportTicketsAPIService GetSupportTicketAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var supportTicketId string
+
+		resp, httpRes, err := apiClient.SupportTicketsAPI.GetSupportTicketAsync(context.Background(), supportTicketId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SupportTicketsAPIService GetSupportTicketConversationAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportTicketId string
 		var supportTicketConversationId string
 
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet(context.Background(), supportTicketId, supportTicketConversationId).Execute()
+		resp, httpRes, err := apiClient.SupportTicketsAPI.GetSupportTicketConversationAsync(context.Background(), supportTicketId, supportTicketConversationId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,28 +92,14 @@ func Test_openapi_SupportTicketsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet", func(t *testing.T) {
+	t.Run("Test SupportTicketsAPIService GetSupportTicketConversationMessagesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
+		var supportTicketId string
 		var supportTicketConversationId string
-		var supportTicketId string
 
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet(context.Background(), supportTicketConversationId, supportTicketId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsSupportTicketIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var supportTicketId string
-
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsSupportTicketIdDelete(context.Background(), supportTicketId).Execute()
+		resp, httpRes, err := apiClient.SupportTicketsAPI.GetSupportTicketConversationMessagesAsync(context.Background(), supportTicketId, supportTicketConversationId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -145,13 +107,13 @@ func Test_openapi_SupportTicketsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsSupportTicketIdGet", func(t *testing.T) {
+	t.Run("Test SupportTicketsAPIService GetSupportTicketConversationsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportTicketId string
 
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsSupportTicketIdGet(context.Background(), supportTicketId).Execute()
+		resp, httpRes, err := apiClient.SupportTicketsAPI.GetSupportTicketConversationsAsync(context.Background(), supportTicketId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -159,13 +121,51 @@ func Test_openapi_SupportTicketsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportTicketsAPIService ApiV2SupportServiceSupportTicketsSupportTicketIdPut", func(t *testing.T) {
+	t.Run("Test SupportTicketsAPIService GetSupportTicketsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SupportTicketsAPI.GetSupportTicketsAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SupportTicketsAPIService GetSupportTicketsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SupportTicketsAPI.GetSupportTicketsCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SupportTicketsAPIService RelateSupportTicketToConversationAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportTicketId string
 
-		resp, httpRes, err := apiClient.SupportTicketsAPI.ApiV2SupportServiceSupportTicketsSupportTicketIdPut(context.Background(), supportTicketId).Execute()
+		resp, httpRes, err := apiClient.SupportTicketsAPI.RelateSupportTicketToConversationAsync(context.Background(), supportTicketId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SupportTicketsAPIService UpdateSupportTicketAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var supportTicketId string
+
+		resp, httpRes, err := apiClient.SupportTicketsAPI.UpdateSupportTicketAsync(context.Background(), supportTicketId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

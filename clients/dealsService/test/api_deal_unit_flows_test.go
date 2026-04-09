@@ -22,11 +22,11 @@ func Test_openapi_DealUnitFlowsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsCountGet", func(t *testing.T) {
+	t.Run("Test DealUnitFlowsAPIService CreateDealUnitFlowAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.CreateDealUnitFlowAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,27 +34,13 @@ func Test_openapi_DealUnitFlowsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitFlowId string
-
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete(context.Background(), dealUnitFlowId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet", func(t *testing.T) {
+	t.Run("Test DealUnitFlowsAPIService CreateDealUnitFlowStageAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var dealUnitFlowId string
 
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet(context.Background(), dealUnitFlowId).Execute()
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.CreateDealUnitFlowStageAsync(context.Background(), dealUnitFlowId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +48,13 @@ func Test_openapi_DealUnitFlowsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut", func(t *testing.T) {
+	t.Run("Test DealUnitFlowsAPIService DeleteDealUnitFlowAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var dealUnitFlowId string
 
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut(context.Background(), dealUnitFlowId).Execute()
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.DeleteDealUnitFlowAsync(context.Background(), dealUnitFlowId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,28 +62,14 @@ func Test_openapi_DealUnitFlowsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitFlowId string
-
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet(context.Background(), dealUnitFlowId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete", func(t *testing.T) {
+	t.Run("Test DealUnitFlowsAPIService DeleteDealUnitFlowStageAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var dealUnitFlowId string
 		var dealUnitFlowStageId string
 
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete(context.Background(), dealUnitFlowId, dealUnitFlowStageId).Execute()
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.DeleteDealUnitFlowStageAsync(context.Background(), dealUnitFlowId, dealUnitFlowStageId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -105,14 +77,28 @@ func Test_openapi_DealUnitFlowsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet", func(t *testing.T) {
+	t.Run("Test DealUnitFlowsAPIService GetDealUnitFlowAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitFlowId string
+
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowAsync(context.Background(), dealUnitFlowId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitFlowsAPIService GetDealUnitFlowStageAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var dealUnitFlowId string
 		var dealUnitFlowStageId string
 
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet(context.Background(), dealUnitFlowId, dealUnitFlowStageId).Execute()
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowStageAsync(context.Background(), dealUnitFlowId, dealUnitFlowStageId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -120,66 +106,80 @@ func Test_openapi_DealUnitFlowsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut", func(t *testing.T) {
+	t.Run("Test DealUnitFlowsAPIService GetDealUnitFlowStagesAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitFlowId string
+
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowStagesAsync(context.Background(), dealUnitFlowId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitFlowsAPIService GetDealUnitFlowStagesCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitFlowId string
+
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowStagesCountAsync(context.Background(), dealUnitFlowId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitFlowsAPIService GetDealUnitFlowsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowsAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitFlowsAPIService GetDealUnitFlowsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowsCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitFlowsAPIService UpdateDealUnitFlowAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitFlowId string
+
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.UpdateDealUnitFlowAsync(context.Background(), dealUnitFlowId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitFlowsAPIService UpdateDealUnitFlowStageAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var dealUnitFlowId string
 		var dealUnitFlowStageId string
 
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut(context.Background(), dealUnitFlowId, dealUnitFlowStageId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitFlowId string
-
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet(context.Background(), dealUnitFlowId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitFlowId string
-
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost(context.Background(), dealUnitFlowId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitFlowsAPIService ApiV2DealsServiceDealUnitFlowsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DealUnitFlowsAPI.ApiV2DealsServiceDealUnitFlowsPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DealUnitFlowsAPI.UpdateDealUnitFlowStageAsync(context.Background(), dealUnitFlowId, dealUnitFlowStageId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

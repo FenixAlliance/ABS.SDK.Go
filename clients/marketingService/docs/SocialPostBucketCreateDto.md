@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -149,41 +149,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *SocialPostBucketCreateDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *SocialPostBucketCreateDto) GetEnrolmentId() string`
+`func (o *SocialPostBucketCreateDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *SocialPostBucketCreateDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *SocialPostBucketCreateDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *SocialPostBucketCreateDto) SetEnrolmentId(v string)`
+`func (o *SocialPostBucketCreateDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *SocialPostBucketCreateDto) HasEnrolmentId() bool`
+`func (o *SocialPostBucketCreateDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *SocialPostBucketCreateDto) SetEnrolmentIdNil(b bool)`
+`func (o *SocialPostBucketCreateDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *SocialPostBucketCreateDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *SocialPostBucketCreateDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

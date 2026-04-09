@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | Pointer to **float64** |  | [optional] 
-**Currency** | Pointer to [**Currency**](Currency.md) |  | [optional] 
+**Currency** | Pointer to [**CurrencyId**](CurrencyId.md) |  | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasAmount returns a boolean if a field has been set.
 
 ### GetCurrency
 
-`func (o *Money) GetCurrency() Currency`
+`func (o *Money) GetCurrency() CurrencyId`
 
 GetCurrency returns the Currency field if non-nil, zero value otherwise.
 
 ### GetCurrencyOk
 
-`func (o *Money) GetCurrencyOk() (*Currency, bool)`
+`func (o *Money) GetCurrencyOk() (*CurrencyId, bool)`
 
 GetCurrencyOk returns a tuple with the Currency field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCurrency
 
-`func (o *Money) SetCurrency(v Currency)`
+`func (o *Money) SetCurrency(v CurrencyId)`
 
 SetCurrency sets Currency field to given value.
 

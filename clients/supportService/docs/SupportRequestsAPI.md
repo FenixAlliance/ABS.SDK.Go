@@ -4,23 +4,25 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2SupportServiceSupportRequestsCountGet**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsCountGet) | **Get** /api/v2/SupportService/SupportRequests/Count | 
-[**ApiV2SupportServiceSupportRequestsGet**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsGet) | **Get** /api/v2/SupportService/SupportRequests | 
-[**ApiV2SupportServiceSupportRequestsPost**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsPost) | **Post** /api/v2/SupportService/SupportRequests | 
-[**ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/{attachmentId} | 
-[**ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/Count | 
-[**ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | 
-[**ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost) | **Post** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | 
-[**ApiV2SupportServiceSupportRequestsSupportRequestIdDelete**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsSupportRequestIdDelete) | **Delete** /api/v2/SupportService/SupportRequests/{supportRequestId} | 
-[**ApiV2SupportServiceSupportRequestsSupportRequestIdGet**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsSupportRequestIdGet) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId} | 
-[**ApiV2SupportServiceSupportRequestsSupportRequestIdPut**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsSupportRequestIdPut) | **Put** /api/v2/SupportService/SupportRequests/{supportRequestId} | 
-[**ApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet**](SupportRequestsAPI.md#ApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId}/Tickets | 
+[**CreateSupportRequestAsync**](SupportRequestsAPI.md#CreateSupportRequestAsync) | **Post** /api/v2/SupportService/SupportRequests | Create a new support request
+[**DeleteSupportRequestAsync**](SupportRequestsAPI.md#DeleteSupportRequestAsync) | **Delete** /api/v2/SupportService/SupportRequests/{supportRequestId} | Delete a support request
+[**GetSupportRequestAsync**](SupportRequestsAPI.md#GetSupportRequestAsync) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId} | Retrieve a support request by ID
+[**GetSupportRequestAttachmentByRequest**](SupportRequestsAPI.md#GetSupportRequestAttachmentByRequest) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/{attachmentId} | Retrieve a specific attachment for a support request
+[**GetSupportRequestAttachmentsByRequest**](SupportRequestsAPI.md#GetSupportRequestAttachmentsByRequest) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | Retrieve attachments for a support request
+[**GetSupportRequestAttachmentsCountByRequest**](SupportRequestsAPI.md#GetSupportRequestAttachmentsCountByRequest) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/Count | Get the count of attachments for a support request
+[**GetSupportRequestTicketsAsync**](SupportRequestsAPI.md#GetSupportRequestTicketsAsync) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId}/Tickets | Retrieve tickets for a support request
+[**GetSupportRequestsAsync**](SupportRequestsAPI.md#GetSupportRequestsAsync) | **Get** /api/v2/SupportService/SupportRequests | Retrieve a list of support requests
+[**GetSupportRequestsCountAsync**](SupportRequestsAPI.md#GetSupportRequestsCountAsync) | **Get** /api/v2/SupportService/SupportRequests/Count | Get the count of support requests
+[**RelateSupportRequestToAttachmentAsync**](SupportRequestsAPI.md#RelateSupportRequestToAttachmentAsync) | **Post** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | Add an attachment to a support request
+[**UpdateSupportRequestAsync**](SupportRequestsAPI.md#UpdateSupportRequestAsync) | **Put** /api/v2/SupportService/SupportRequests/{supportRequestId} | Update a support request
 
 
 
-## ApiV2SupportServiceSupportRequestsCountGet
+## CreateSupportRequestAsync
 
-> Int32Envelope ApiV2SupportServiceSupportRequestsCountGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope CreateSupportRequestAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestCreateDto(supportRequestCreateDto).Execute()
+
+Create a new support request
 
 
 
@@ -37,19 +39,20 @@ import (
 )
 
 func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportRequestCreateDto := *openapiclient.NewSupportRequestCreateDto("Title_example") // SupportRequestCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsCountGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.CreateSupportRequestAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestCreateDto(supportRequestCreateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsCountGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.CreateSupportRequestAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SupportServiceSupportRequestsCountGet`: Int32Envelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsCountGet`: %v\n", resp)
+	// response from `CreateSupportRequestAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.CreateSupportRequestAsync`: %v\n", resp)
 }
 ```
 
@@ -59,7 +62,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsCountGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateSupportRequestAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -67,144 +70,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SupportServiceSupportRequestsGet
-
-> SupportRequestDtoListEnvelope ApiV2SupportServiceSupportRequestsGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SupportServiceSupportRequestsGet`: SupportRequestDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**SupportRequestDtoListEnvelope**](SupportRequestDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SupportServiceSupportRequestsPost
-
-> EmptyEnvelope ApiV2SupportServiceSupportRequestsPost(ctx).SupportRequestCreateDto(supportRequestCreateDto).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	supportRequestCreateDto := *openapiclient.NewSupportRequestCreateDto("Title_example") // SupportRequestCreateDto | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsPost(context.Background()).SupportRequestCreateDto(supportRequestCreateDto).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SupportServiceSupportRequestsPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
  **supportRequestCreateDto** | [**SupportRequestCreateDto**](SupportRequestCreateDto.md) |  | 
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
 
 ### Return type
 
@@ -212,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -224,9 +90,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet
+## DeleteSupportRequestAsync
 
-> SupportRequestAttachmentDtoEnvelope ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet(ctx, supportRequestId, attachmentId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeleteSupportRequestAsync(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete a support request
 
 
 
@@ -243,6 +111,159 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SupportRequestsAPI.DeleteSupportRequestAsync(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.DeleteSupportRequestAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteSupportRequestAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.DeleteSupportRequestAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**supportRequestId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteSupportRequestAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSupportRequestAsync
+
+> SupportRequestDtoEnvelope GetSupportRequestAsync(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Retrieve a support request by ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestAsync(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSupportRequestAsync`: SupportRequestDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.GetSupportRequestAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**supportRequestId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSupportRequestAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SupportRequestDtoEnvelope**](SupportRequestDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSupportRequestAttachmentByRequest
+
+> SupportRequestAttachmentDtoEnvelope GetSupportRequestAttachmentByRequest(ctx, supportRequestId, attachmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Retrieve a specific attachment for a support request
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	attachmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
@@ -250,13 +271,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet(context.Background(), supportRequestId, attachmentId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestAttachmentByRequest(context.Background(), supportRequestId, attachmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestAttachmentByRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet`: SupportRequestAttachmentDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet`: %v\n", resp)
+	// response from `GetSupportRequestAttachmentByRequest`: SupportRequestAttachmentDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.GetSupportRequestAttachmentByRequest`: %v\n", resp)
 }
 ```
 
@@ -271,11 +292,12 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetSupportRequestAttachmentByRequestRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
 
  **apiVersion** | **string** |  | 
@@ -287,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -299,9 +321,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet
+## GetSupportRequestAttachmentsByRequest
 
-> Int32Envelope ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SupportRequestAttachmentDtoListEnvelope GetSupportRequestAttachmentsByRequest(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Retrieve attachments for a support request
 
 
 
@@ -318,20 +342,20 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestAttachmentsByRequest(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestAttachmentsByRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet`: Int32Envelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet`: %v\n", resp)
+	// response from `GetSupportRequestAttachmentsByRequest`: SupportRequestAttachmentDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.GetSupportRequestAttachmentsByRequest`: %v\n", resp)
 }
 ```
 
@@ -345,12 +369,304 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetSupportRequestAttachmentsByRequestRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SupportRequestAttachmentDtoListEnvelope**](SupportRequestAttachmentDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSupportRequestAttachmentsCountByRequest
+
+> Int32Envelope GetSupportRequestAttachmentsCountByRequest(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get the count of attachments for a support request
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestAttachmentsCountByRequest(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestAttachmentsCountByRequest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSupportRequestAttachmentsCountByRequest`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.GetSupportRequestAttachmentsCountByRequest`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**supportRequestId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSupportRequestAttachmentsCountByRequestRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSupportRequestTicketsAsync
+
+> SupportTicketDtoListEnvelope GetSupportRequestTicketsAsync(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Retrieve tickets for a support request
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestTicketsAsync(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestTicketsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSupportRequestTicketsAsync`: SupportTicketDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.GetSupportRequestTicketsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**supportRequestId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSupportRequestTicketsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SupportTicketDtoListEnvelope**](SupportTicketDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSupportRequestsAsync
+
+> SupportRequestDtoListEnvelope GetSupportRequestsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Retrieve a list of support requests
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSupportRequestsAsync`: SupportRequestDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.GetSupportRequestsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSupportRequestsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SupportRequestDtoListEnvelope**](SupportRequestDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSupportRequestsCountAsync
+
+> Int32Envelope GetSupportRequestsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get the count of support requests
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestsCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSupportRequestsCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.GetSupportRequestsCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSupportRequestsCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -361,7 +677,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -373,9 +689,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet
+## RelateSupportRequestToAttachmentAsync
 
-> SupportRequestAttachmentDtoListEnvelope ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope RelateSupportRequestToAttachmentAsync(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestAttachmentCreateDto(supportRequestAttachmentCreateDto).Execute()
+
+Add an attachment to a support request
 
 
 
@@ -392,20 +710,21 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportRequestAttachmentCreateDto := *openapiclient.NewSupportRequestAttachmentCreateDto() // SupportRequestAttachmentCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.RelateSupportRequestToAttachmentAsync(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestAttachmentCreateDto(supportRequestAttachmentCreateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.RelateSupportRequestToAttachmentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet`: SupportRequestAttachmentDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet`: %v\n", resp)
+	// response from `RelateSupportRequestToAttachmentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.RelateSupportRequestToAttachmentAsync`: %v\n", resp)
 }
 ```
 
@@ -419,89 +738,16 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRelateSupportRequestToAttachmentAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**SupportRequestAttachmentDtoListEnvelope**](SupportRequestAttachmentDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost
-
-> EmptyEnvelope ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost(ctx, supportRequestId).SupportRequestAttachmentCreateDto(supportRequestAttachmentCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	supportRequestAttachmentCreateDto := *openapiclient.NewSupportRequestAttachmentCreateDto() // SupportRequestAttachmentCreateDto | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost(context.Background(), supportRequestId).SupportRequestAttachmentCreateDto(supportRequestAttachmentCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**supportRequestId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
  **supportRequestAttachmentCreateDto** | [**SupportRequestAttachmentCreateDto**](SupportRequestAttachmentCreateDto.md) |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
 
 ### Return type
 
@@ -509,7 +755,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -521,9 +767,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SupportServiceSupportRequestsSupportRequestIdDelete
+## UpdateSupportRequestAsync
 
-> EmptyEnvelope ApiV2SupportServiceSupportRequestsSupportRequestIdDelete(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope UpdateSupportRequestAsync(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestUpdateDto(supportRequestUpdateDto).Execute()
+
+Update a support request
 
 
 
@@ -540,20 +788,21 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportRequestUpdateDto := *openapiclient.NewSupportRequestUpdateDto() // SupportRequestUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdDelete(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.UpdateSupportRequestAsync(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestUpdateDto(supportRequestUpdateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.UpdateSupportRequestAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SupportServiceSupportRequestsSupportRequestIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdDelete`: %v\n", resp)
+	// response from `UpdateSupportRequestAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.UpdateSupportRequestAsync`: %v\n", resp)
 }
 ```
 
@@ -567,163 +816,16 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsSupportRequestIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateSupportRequestAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SupportServiceSupportRequestsSupportRequestIdGet
-
-> SupportRequestDtoEnvelope ApiV2SupportServiceSupportRequestsSupportRequestIdGet(ctx, supportRequestId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdGet(context.Background(), supportRequestId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SupportServiceSupportRequestsSupportRequestIdGet`: SupportRequestDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**supportRequestId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsSupportRequestIdGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**SupportRequestDtoEnvelope**](SupportRequestDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SupportServiceSupportRequestsSupportRequestIdPut
-
-> EmptyEnvelope ApiV2SupportServiceSupportRequestsSupportRequestIdPut(ctx, supportRequestId).SupportRequestUpdateDto(supportRequestUpdateDto).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	supportRequestUpdateDto := *openapiclient.NewSupportRequestUpdateDto() // SupportRequestUpdateDto | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdPut(context.Background(), supportRequestId).SupportRequestUpdateDto(supportRequestUpdateDto).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdPut``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SupportServiceSupportRequestsSupportRequestIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdPut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**supportRequestId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsSupportRequestIdPutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
  **supportRequestUpdateDto** | [**SupportRequestUpdateDto**](SupportRequestUpdateDto.md) |  | 
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
 
 ### Return type
 
@@ -731,85 +833,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet
-
-> SupportTicketDtoListEnvelope ApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet`: SupportTicketDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**supportRequestId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**SupportTicketDtoListEnvelope**](SupportTicketDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

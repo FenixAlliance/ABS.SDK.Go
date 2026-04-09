@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Notes** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Author** | Pointer to **NullableString** |  | [optional] 
@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **ValidResponse** | Pointer to **bool** |  | [optional] 
 **ParentFileUploadId** | Pointer to **NullableString** |  | [optional] 
 **FilePath** | Pointer to **NullableString** |  | [optional] 
-**File** | Pointer to **Nullable*os.File** |  | [optional] 
 **BusinessID** | Pointer to **NullableString** |  | [optional] 
 **BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **Metadata** | Pointer to **NullableString** |  | [optional] 
@@ -421,41 +420,6 @@ HasFilePath returns a boolean if a field has been set.
 `func (o *SupportRequestAttachmentCreateDto) UnsetFilePath()`
 
 UnsetFilePath ensures that no value is present for FilePath, not even an explicit nil
-### GetFile
-
-`func (o *SupportRequestAttachmentCreateDto) GetFile() *os.File`
-
-GetFile returns the File field if non-nil, zero value otherwise.
-
-### GetFileOk
-
-`func (o *SupportRequestAttachmentCreateDto) GetFileOk() (**os.File, bool)`
-
-GetFileOk returns a tuple with the File field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFile
-
-`func (o *SupportRequestAttachmentCreateDto) SetFile(v *os.File)`
-
-SetFile sets File field to given value.
-
-### HasFile
-
-`func (o *SupportRequestAttachmentCreateDto) HasFile() bool`
-
-HasFile returns a boolean if a field has been set.
-
-### SetFileNil
-
-`func (o *SupportRequestAttachmentCreateDto) SetFileNil(b bool)`
-
- SetFileNil sets the value for File to be an explicit nil
-
-### UnsetFile
-`func (o *SupportRequestAttachmentCreateDto) UnsetFile()`
-
-UnsetFile ensures that no value is present for File, not even an explicit nil
 ### GetBusinessID
 
 `func (o *SupportRequestAttachmentCreateDto) GetBusinessID() string`

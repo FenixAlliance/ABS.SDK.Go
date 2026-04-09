@@ -22,11 +22,11 @@ func Test_openapi_SyncAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SyncAPIService ApiV2CrmServiceSyncMePost", func(t *testing.T) {
+	t.Run("Test SyncAPIService SyncCurrentHolderToCurrentTenantCrm", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SyncAPI.ApiV2CrmServiceSyncMePost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SyncAPI.SyncCurrentHolderToCurrentTenantCrm(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_openapi_SyncAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SyncAPIService ApiV2CrmServiceSyncPost", func(t *testing.T) {
+	t.Run("Test SyncAPIService SyncCurrentHolderToTenantCrm", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SyncAPI.ApiV2CrmServiceSyncPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SyncAPI.SyncCurrentHolderToTenantCrm(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_openapi_SyncAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SyncAPIService ApiV2CrmServiceSyncTenantPost", func(t *testing.T) {
+	t.Run("Test SyncAPIService SyncHolderToTenantCrmAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SyncAPI.ApiV2CrmServiceSyncTenantPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SyncAPI.SyncHolderToTenantCrmAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_openapi_SyncAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SyncAPIService ApiV2CrmServiceSyncUserPost", func(t *testing.T) {
+	t.Run("Test SyncAPIService SyncTenantToTenantCrm", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SyncAPI.ApiV2CrmServiceSyncUserPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SyncAPI.SyncTenantToTenantCrm(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

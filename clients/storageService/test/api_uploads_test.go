@@ -22,11 +22,11 @@ func Test_openapi_UploadsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test UploadsAPIService ApiV2StorageServiceUploadsPost", func(t *testing.T) {
+	t.Run("Test UploadsAPIService SaveFileAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UploadsAPI.ApiV2StorageServiceUploadsPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UploadsAPI.SaveFileAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

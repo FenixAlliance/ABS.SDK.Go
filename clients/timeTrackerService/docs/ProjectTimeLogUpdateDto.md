@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Comments** | Pointer to **NullableString** |  | [optional] 
 **ProjectTaskID** | Pointer to **NullableString** |  | [optional] 
 **ProjectPeriodID** | Pointer to **NullableString** |  | [optional] 
-**ProjectTimeLogRecordType** | Pointer to **int32** |  | [optional] 
+**ProjectTimeLogRecordType** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -187,20 +187,20 @@ HasProjectPeriodID returns a boolean if a field has been set.
 UnsetProjectPeriodID ensures that no value is present for ProjectPeriodID, not even an explicit nil
 ### GetProjectTimeLogRecordType
 
-`func (o *ProjectTimeLogUpdateDto) GetProjectTimeLogRecordType() int32`
+`func (o *ProjectTimeLogUpdateDto) GetProjectTimeLogRecordType() string`
 
 GetProjectTimeLogRecordType returns the ProjectTimeLogRecordType field if non-nil, zero value otherwise.
 
 ### GetProjectTimeLogRecordTypeOk
 
-`func (o *ProjectTimeLogUpdateDto) GetProjectTimeLogRecordTypeOk() (*int32, bool)`
+`func (o *ProjectTimeLogUpdateDto) GetProjectTimeLogRecordTypeOk() (*string, bool)`
 
 GetProjectTimeLogRecordTypeOk returns a tuple with the ProjectTimeLogRecordType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectTimeLogRecordType
 
-`func (o *ProjectTimeLogUpdateDto) SetProjectTimeLogRecordType(v int32)`
+`func (o *ProjectTimeLogUpdateDto) SetProjectTimeLogRecordType(v string)`
 
 SetProjectTimeLogRecordType sets ProjectTimeLogRecordType field to given value.
 

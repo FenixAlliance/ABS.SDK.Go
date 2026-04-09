@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **TimeSpan** | Pointer to **string** |  | [optional] 
 **LogDate** | Pointer to **time.Time** |  | [optional] 
 **Comments** | Pointer to **NullableString** |  | [optional] 
 **ProjectTaskID** | **string** |  | 
 **ProjectPeriodID** | **string** |  | 
-**ProjectTimeLogRecordType** | Pointer to **int32** |  | [optional] 
+**ProjectTimeLogRecordType** | Pointer to **string** |  | [optional] 
 **ProjectID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -210,20 +210,20 @@ SetProjectPeriodID sets ProjectPeriodID field to given value.
 
 ### GetProjectTimeLogRecordType
 
-`func (o *ProjectTimeLogCreateDto) GetProjectTimeLogRecordType() int32`
+`func (o *ProjectTimeLogCreateDto) GetProjectTimeLogRecordType() string`
 
 GetProjectTimeLogRecordType returns the ProjectTimeLogRecordType field if non-nil, zero value otherwise.
 
 ### GetProjectTimeLogRecordTypeOk
 
-`func (o *ProjectTimeLogCreateDto) GetProjectTimeLogRecordTypeOk() (*int32, bool)`
+`func (o *ProjectTimeLogCreateDto) GetProjectTimeLogRecordTypeOk() (*string, bool)`
 
 GetProjectTimeLogRecordTypeOk returns a tuple with the ProjectTimeLogRecordType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectTimeLogRecordType
 
-`func (o *ProjectTimeLogCreateDto) SetProjectTimeLogRecordType(v int32)`
+`func (o *ProjectTimeLogCreateDto) SetProjectTimeLogRecordType(v string)`
 
 SetProjectTimeLogRecordType sets ProjectTimeLogRecordType field to given value.
 

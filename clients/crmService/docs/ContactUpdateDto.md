@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | **string** |  | 
 **Birthday** | Pointer to **NullableTime** |  | [optional] 
 **Duns** | Pointer to **NullableString** |  | [optional] 
 **TaxId** | Pointer to **NullableString** |  | [optional] 
@@ -19,9 +19,11 @@ Name | Type | Description | Notes
 **JobTitle** | Pointer to **NullableString** |  | [optional] 
 **CountryId** | Pointer to **NullableString** |  | [optional] 
 **ParentContactId** | Pointer to **NullableString** |  | [optional] 
+**AddressLine1** | Pointer to **NullableString** |  | [optional] 
+**AddressLine2** | Pointer to **NullableString** |  | [optional] 
+**PostalCode** | Pointer to **NullableString** |  | [optional] 
 **StateId** | Pointer to **NullableString** |  | [optional] 
 **CityId** | Pointer to **NullableString** |  | [optional] 
-**PostalCode** | Pointer to **NullableString** |  | [optional] 
 **StreetLine1** | Pointer to **NullableString** |  | [optional] 
 **StreetLine2** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
@@ -30,26 +32,26 @@ Name | Type | Description | Notes
 **CoverUrl** | Pointer to **NullableString** |  | [optional] 
 **GithubUsername** | Pointer to **NullableString** |  | [optional] 
 **InstagramUsername** | Pointer to **NullableString** |  | [optional] 
+**WebUrl** | Pointer to **NullableString** |  | [optional] 
 **TwitchUrl** | Pointer to **NullableString** |  | [optional] 
 **RedditUrl** | Pointer to **NullableString** |  | [optional] 
 **GitHubUrl** | Pointer to **NullableString** |  | [optional] 
-**GithubUrl** | Pointer to **NullableString** |  | [optional] 
 **TikTokUrl** | Pointer to **NullableString** |  | [optional] 
 **TwitterUrl** | Pointer to **NullableString** |  | [optional] 
 **YouTubeUrl** | Pointer to **NullableString** |  | [optional] 
-**WebsiteUrl** | Pointer to **NullableString** |  | [optional] 
 **FacebookUrl** | Pointer to **NullableString** |  | [optional] 
 **LinkedInUrl** | Pointer to **NullableString** |  | [optional] 
 **InstagramUrl** | Pointer to **NullableString** |  | [optional] 
 **TikTokUsername** | Pointer to **NullableString** |  | [optional] 
 **StackExchangeUrl** | Pointer to **NullableString** |  | [optional] 
 **StackOverflowUrl** | Pointer to **NullableString** |  | [optional] 
+**FaxNumber** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewContactUpdateDto
 
-`func NewContactUpdateDto(type_ int32, email string, firstName string, ) *ContactUpdateDto`
+`func NewContactUpdateDto(type_ string, email string, firstName string, ) *ContactUpdateDto`
 
 NewContactUpdateDto instantiates a new ContactUpdateDto object
 This constructor will assign default values to properties that have it defined,
@@ -66,20 +68,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ContactUpdateDto) GetType() int32`
+`func (o *ContactUpdateDto) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ContactUpdateDto) GetTypeOk() (*int32, bool)`
+`func (o *ContactUpdateDto) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ContactUpdateDto) SetType(v int32)`
+`func (o *ContactUpdateDto) SetType(v string)`
 
 SetType sets Type field to given value.
 
@@ -544,6 +546,111 @@ HasParentContactId returns a boolean if a field has been set.
 `func (o *ContactUpdateDto) UnsetParentContactId()`
 
 UnsetParentContactId ensures that no value is present for ParentContactId, not even an explicit nil
+### GetAddressLine1
+
+`func (o *ContactUpdateDto) GetAddressLine1() string`
+
+GetAddressLine1 returns the AddressLine1 field if non-nil, zero value otherwise.
+
+### GetAddressLine1Ok
+
+`func (o *ContactUpdateDto) GetAddressLine1Ok() (*string, bool)`
+
+GetAddressLine1Ok returns a tuple with the AddressLine1 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddressLine1
+
+`func (o *ContactUpdateDto) SetAddressLine1(v string)`
+
+SetAddressLine1 sets AddressLine1 field to given value.
+
+### HasAddressLine1
+
+`func (o *ContactUpdateDto) HasAddressLine1() bool`
+
+HasAddressLine1 returns a boolean if a field has been set.
+
+### SetAddressLine1Nil
+
+`func (o *ContactUpdateDto) SetAddressLine1Nil(b bool)`
+
+ SetAddressLine1Nil sets the value for AddressLine1 to be an explicit nil
+
+### UnsetAddressLine1
+`func (o *ContactUpdateDto) UnsetAddressLine1()`
+
+UnsetAddressLine1 ensures that no value is present for AddressLine1, not even an explicit nil
+### GetAddressLine2
+
+`func (o *ContactUpdateDto) GetAddressLine2() string`
+
+GetAddressLine2 returns the AddressLine2 field if non-nil, zero value otherwise.
+
+### GetAddressLine2Ok
+
+`func (o *ContactUpdateDto) GetAddressLine2Ok() (*string, bool)`
+
+GetAddressLine2Ok returns a tuple with the AddressLine2 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddressLine2
+
+`func (o *ContactUpdateDto) SetAddressLine2(v string)`
+
+SetAddressLine2 sets AddressLine2 field to given value.
+
+### HasAddressLine2
+
+`func (o *ContactUpdateDto) HasAddressLine2() bool`
+
+HasAddressLine2 returns a boolean if a field has been set.
+
+### SetAddressLine2Nil
+
+`func (o *ContactUpdateDto) SetAddressLine2Nil(b bool)`
+
+ SetAddressLine2Nil sets the value for AddressLine2 to be an explicit nil
+
+### UnsetAddressLine2
+`func (o *ContactUpdateDto) UnsetAddressLine2()`
+
+UnsetAddressLine2 ensures that no value is present for AddressLine2, not even an explicit nil
+### GetPostalCode
+
+`func (o *ContactUpdateDto) GetPostalCode() string`
+
+GetPostalCode returns the PostalCode field if non-nil, zero value otherwise.
+
+### GetPostalCodeOk
+
+`func (o *ContactUpdateDto) GetPostalCodeOk() (*string, bool)`
+
+GetPostalCodeOk returns a tuple with the PostalCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPostalCode
+
+`func (o *ContactUpdateDto) SetPostalCode(v string)`
+
+SetPostalCode sets PostalCode field to given value.
+
+### HasPostalCode
+
+`func (o *ContactUpdateDto) HasPostalCode() bool`
+
+HasPostalCode returns a boolean if a field has been set.
+
+### SetPostalCodeNil
+
+`func (o *ContactUpdateDto) SetPostalCodeNil(b bool)`
+
+ SetPostalCodeNil sets the value for PostalCode to be an explicit nil
+
+### UnsetPostalCode
+`func (o *ContactUpdateDto) UnsetPostalCode()`
+
+UnsetPostalCode ensures that no value is present for PostalCode, not even an explicit nil
 ### GetStateId
 
 `func (o *ContactUpdateDto) GetStateId() string`
@@ -614,41 +721,6 @@ HasCityId returns a boolean if a field has been set.
 `func (o *ContactUpdateDto) UnsetCityId()`
 
 UnsetCityId ensures that no value is present for CityId, not even an explicit nil
-### GetPostalCode
-
-`func (o *ContactUpdateDto) GetPostalCode() string`
-
-GetPostalCode returns the PostalCode field if non-nil, zero value otherwise.
-
-### GetPostalCodeOk
-
-`func (o *ContactUpdateDto) GetPostalCodeOk() (*string, bool)`
-
-GetPostalCodeOk returns a tuple with the PostalCode field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPostalCode
-
-`func (o *ContactUpdateDto) SetPostalCode(v string)`
-
-SetPostalCode sets PostalCode field to given value.
-
-### HasPostalCode
-
-`func (o *ContactUpdateDto) HasPostalCode() bool`
-
-HasPostalCode returns a boolean if a field has been set.
-
-### SetPostalCodeNil
-
-`func (o *ContactUpdateDto) SetPostalCodeNil(b bool)`
-
- SetPostalCodeNil sets the value for PostalCode to be an explicit nil
-
-### UnsetPostalCode
-`func (o *ContactUpdateDto) UnsetPostalCode()`
-
-UnsetPostalCode ensures that no value is present for PostalCode, not even an explicit nil
 ### GetStreetLine1
 
 `func (o *ContactUpdateDto) GetStreetLine1() string`
@@ -929,6 +1001,41 @@ HasInstagramUsername returns a boolean if a field has been set.
 `func (o *ContactUpdateDto) UnsetInstagramUsername()`
 
 UnsetInstagramUsername ensures that no value is present for InstagramUsername, not even an explicit nil
+### GetWebUrl
+
+`func (o *ContactUpdateDto) GetWebUrl() string`
+
+GetWebUrl returns the WebUrl field if non-nil, zero value otherwise.
+
+### GetWebUrlOk
+
+`func (o *ContactUpdateDto) GetWebUrlOk() (*string, bool)`
+
+GetWebUrlOk returns a tuple with the WebUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWebUrl
+
+`func (o *ContactUpdateDto) SetWebUrl(v string)`
+
+SetWebUrl sets WebUrl field to given value.
+
+### HasWebUrl
+
+`func (o *ContactUpdateDto) HasWebUrl() bool`
+
+HasWebUrl returns a boolean if a field has been set.
+
+### SetWebUrlNil
+
+`func (o *ContactUpdateDto) SetWebUrlNil(b bool)`
+
+ SetWebUrlNil sets the value for WebUrl to be an explicit nil
+
+### UnsetWebUrl
+`func (o *ContactUpdateDto) UnsetWebUrl()`
+
+UnsetWebUrl ensures that no value is present for WebUrl, not even an explicit nil
 ### GetTwitchUrl
 
 `func (o *ContactUpdateDto) GetTwitchUrl() string`
@@ -1034,41 +1141,6 @@ HasGitHubUrl returns a boolean if a field has been set.
 `func (o *ContactUpdateDto) UnsetGitHubUrl()`
 
 UnsetGitHubUrl ensures that no value is present for GitHubUrl, not even an explicit nil
-### GetGithubUrl
-
-`func (o *ContactUpdateDto) GetGithubUrl() string`
-
-GetGithubUrl returns the GithubUrl field if non-nil, zero value otherwise.
-
-### GetGithubUrlOk
-
-`func (o *ContactUpdateDto) GetGithubUrlOk() (*string, bool)`
-
-GetGithubUrlOk returns a tuple with the GithubUrl field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGithubUrl
-
-`func (o *ContactUpdateDto) SetGithubUrl(v string)`
-
-SetGithubUrl sets GithubUrl field to given value.
-
-### HasGithubUrl
-
-`func (o *ContactUpdateDto) HasGithubUrl() bool`
-
-HasGithubUrl returns a boolean if a field has been set.
-
-### SetGithubUrlNil
-
-`func (o *ContactUpdateDto) SetGithubUrlNil(b bool)`
-
- SetGithubUrlNil sets the value for GithubUrl to be an explicit nil
-
-### UnsetGithubUrl
-`func (o *ContactUpdateDto) UnsetGithubUrl()`
-
-UnsetGithubUrl ensures that no value is present for GithubUrl, not even an explicit nil
 ### GetTikTokUrl
 
 `func (o *ContactUpdateDto) GetTikTokUrl() string`
@@ -1174,41 +1246,6 @@ HasYouTubeUrl returns a boolean if a field has been set.
 `func (o *ContactUpdateDto) UnsetYouTubeUrl()`
 
 UnsetYouTubeUrl ensures that no value is present for YouTubeUrl, not even an explicit nil
-### GetWebsiteUrl
-
-`func (o *ContactUpdateDto) GetWebsiteUrl() string`
-
-GetWebsiteUrl returns the WebsiteUrl field if non-nil, zero value otherwise.
-
-### GetWebsiteUrlOk
-
-`func (o *ContactUpdateDto) GetWebsiteUrlOk() (*string, bool)`
-
-GetWebsiteUrlOk returns a tuple with the WebsiteUrl field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetWebsiteUrl
-
-`func (o *ContactUpdateDto) SetWebsiteUrl(v string)`
-
-SetWebsiteUrl sets WebsiteUrl field to given value.
-
-### HasWebsiteUrl
-
-`func (o *ContactUpdateDto) HasWebsiteUrl() bool`
-
-HasWebsiteUrl returns a boolean if a field has been set.
-
-### SetWebsiteUrlNil
-
-`func (o *ContactUpdateDto) SetWebsiteUrlNil(b bool)`
-
- SetWebsiteUrlNil sets the value for WebsiteUrl to be an explicit nil
-
-### UnsetWebsiteUrl
-`func (o *ContactUpdateDto) UnsetWebsiteUrl()`
-
-UnsetWebsiteUrl ensures that no value is present for WebsiteUrl, not even an explicit nil
 ### GetFacebookUrl
 
 `func (o *ContactUpdateDto) GetFacebookUrl() string`
@@ -1419,6 +1456,41 @@ HasStackOverflowUrl returns a boolean if a field has been set.
 `func (o *ContactUpdateDto) UnsetStackOverflowUrl()`
 
 UnsetStackOverflowUrl ensures that no value is present for StackOverflowUrl, not even an explicit nil
+### GetFaxNumber
+
+`func (o *ContactUpdateDto) GetFaxNumber() string`
+
+GetFaxNumber returns the FaxNumber field if non-nil, zero value otherwise.
+
+### GetFaxNumberOk
+
+`func (o *ContactUpdateDto) GetFaxNumberOk() (*string, bool)`
+
+GetFaxNumberOk returns a tuple with the FaxNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFaxNumber
+
+`func (o *ContactUpdateDto) SetFaxNumber(v string)`
+
+SetFaxNumber sets FaxNumber field to given value.
+
+### HasFaxNumber
+
+`func (o *ContactUpdateDto) HasFaxNumber() bool`
+
+HasFaxNumber returns a boolean if a field has been set.
+
+### SetFaxNumberNil
+
+`func (o *ContactUpdateDto) SetFaxNumberNil(b bool)`
+
+ SetFaxNumberNil sets the value for FaxNumber to be an explicit nil
+
+### UnsetFaxNumber
+`func (o *ContactUpdateDto) UnsetFaxNumber()`
+
+UnsetFaxNumber ensures that no value is present for FaxNumber, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

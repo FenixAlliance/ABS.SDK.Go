@@ -4,13 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2SalesServiceMarginsMarginIdDetailsGet**](MarginsAPI.md#ApiV2SalesServiceMarginsMarginIdDetailsGet) | **Get** /api/v2/SalesService/Margins/{marginId}/Details | 
+[**GetQuoteAsync**](MarginsAPI.md#GetQuoteAsync) | **Get** /api/v2/SalesService/Margins/{marginId}/Details | Get margin details by ID
 
 
 
-## ApiV2SalesServiceMarginsMarginIdDetailsGet
+## GetQuoteAsync
 
-> ApiV2SalesServiceMarginsMarginIdDetailsGet(ctx, marginId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> GetQuoteAsync(ctx, marginId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get margin details by ID
 
 
 
@@ -33,9 +35,9 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.MarginsAPI.ApiV2SalesServiceMarginsMarginIdDetailsGet(context.Background(), marginId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	r, err := apiClient.MarginsAPI.GetQuoteAsync(context.Background(), marginId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarginsAPI.ApiV2SalesServiceMarginsMarginIdDetailsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarginsAPI.GetQuoteAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -51,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SalesServiceMarginsMarginIdDetailsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetQuoteAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -66,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

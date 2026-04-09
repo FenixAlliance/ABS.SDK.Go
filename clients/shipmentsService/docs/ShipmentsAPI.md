@@ -4,13 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2ShipmentsServiceShipmentsGet**](ShipmentsAPI.md#ApiV2ShipmentsServiceShipmentsGet) | **Get** /api/v2/ShipmentsService/Shipments | 
+[**GetShipmentsAsync**](ShipmentsAPI.md#GetShipmentsAsync) | **Get** /api/v2/ShipmentsService/Shipments | Retrieve a list of shipments
 
 
 
-## ApiV2ShipmentsServiceShipmentsGet
+## GetShipmentsAsync
 
-> ShipmentDtoListEnvelope ApiV2ShipmentsServiceShipmentsGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ShipmentDtoListEnvelope GetShipmentsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Retrieve a list of shipments
 
 
 
@@ -33,13 +35,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ShipmentsAPI.ApiV2ShipmentsServiceShipmentsGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ShipmentsAPI.GetShipmentsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ShipmentsAPI.ApiV2ShipmentsServiceShipmentsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ShipmentsAPI.GetShipmentsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ShipmentsServiceShipmentsGet`: ShipmentDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ShipmentsAPI.ApiV2ShipmentsServiceShipmentsGet`: %v\n", resp)
+	// response from `GetShipmentsAsync`: ShipmentDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ShipmentsAPI.GetShipmentsAsync`: %v\n", resp)
 }
 ```
 
@@ -49,7 +51,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2ShipmentsServiceShipmentsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetShipmentsAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -64,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

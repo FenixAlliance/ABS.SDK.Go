@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **MarketingAreaId** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -475,41 +475,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *MarketingCampaignUpdateDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *MarketingCampaignUpdateDto) GetEnrolmentId() string`
+`func (o *MarketingCampaignUpdateDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *MarketingCampaignUpdateDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *MarketingCampaignUpdateDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *MarketingCampaignUpdateDto) SetEnrolmentId(v string)`
+`func (o *MarketingCampaignUpdateDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *MarketingCampaignUpdateDto) HasEnrolmentId() bool`
+`func (o *MarketingCampaignUpdateDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *MarketingCampaignUpdateDto) SetEnrolmentIdNil(b bool)`
+`func (o *MarketingCampaignUpdateDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *MarketingCampaignUpdateDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *MarketingCampaignUpdateDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

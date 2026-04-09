@@ -4,91 +4,25 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2PricingServicePriceListsCountGet**](PriceListsAPI.md#ApiV2PricingServicePriceListsCountGet) | **Get** /api/v2/PricingService/PriceLists/Count | 
-[**ApiV2PricingServicePriceListsGet**](PriceListsAPI.md#ApiV2PricingServicePriceListsGet) | **Get** /api/v2/PricingService/PriceLists | 
-[**ApiV2PricingServicePriceListsPost**](PriceListsAPI.md#ApiV2PricingServicePriceListsPost) | **Post** /api/v2/PricingService/PriceLists | 
-[**ApiV2PricingServicePriceListsPriceListIdDelete**](PriceListsAPI.md#ApiV2PricingServicePriceListsPriceListIdDelete) | **Delete** /api/v2/PricingService/PriceLists/{priceListId} | 
-[**ApiV2PricingServicePriceListsPriceListIdPricesPost**](PriceListsAPI.md#ApiV2PricingServicePriceListsPriceListIdPricesPost) | **Post** /api/v2/PricingService/PriceLists/{priceListId}/Prices | 
-[**ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete**](PriceListsAPI.md#ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete) | **Delete** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | 
-[**ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut**](PriceListsAPI.md#ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut) | **Put** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | 
-[**ApiV2PricingServicePriceListsPriceListIdPut**](PriceListsAPI.md#ApiV2PricingServicePriceListsPriceListIdPut) | **Put** /api/v2/PricingService/PriceLists/{priceListId} | 
-[**GetPriceListAsync**](PriceListsAPI.md#GetPriceListAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId} | 
-[**GetPriceListPriceAsync**](PriceListsAPI.md#GetPriceListPriceAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | 
-[**GetPriceListPricesAsync**](PriceListsAPI.md#GetPriceListPricesAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId}/Prices | 
+[**CreatePriceListAsync**](PriceListsAPI.md#CreatePriceListAsync) | **Post** /api/v2/PricingService/PriceLists | Creates a new price list
+[**CreatePriceListPricesAsync**](PriceListsAPI.md#CreatePriceListPricesAsync) | **Post** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Creates a price list entry
+[**DeletePriceListAsync**](PriceListsAPI.md#DeletePriceListAsync) | **Delete** /api/v2/PricingService/PriceLists/{priceListId} | Deletes a price list
+[**DeletePriceListPriceAsync**](PriceListsAPI.md#DeletePriceListPriceAsync) | **Delete** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Deletes a price list entry
+[**GetPriceListAsync**](PriceListsAPI.md#GetPriceListAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId} | Gets a price list by ID
+[**GetPriceListPriceAsync**](PriceListsAPI.md#GetPriceListPriceAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Gets a price list entry by ID
+[**GetPriceListPricesAsync**](PriceListsAPI.md#GetPriceListPricesAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list
+[**GetPriceListsAsync**](PriceListsAPI.md#GetPriceListsAsync) | **Get** /api/v2/PricingService/PriceLists | Retrieves all price lists
+[**GetPriceListsCountAsync**](PriceListsAPI.md#GetPriceListsCountAsync) | **Get** /api/v2/PricingService/PriceLists/Count | Counts price lists
+[**UpdatePriceListAsync**](PriceListsAPI.md#UpdatePriceListAsync) | **Put** /api/v2/PricingService/PriceLists/{priceListId} | Updates a price list
+[**UpdatePriceListPriceAsync**](PriceListsAPI.md#UpdatePriceListPriceAsync) | **Put** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Updates a price list entry
 
 
 
-## ApiV2PricingServicePriceListsCountGet
+## CreatePriceListAsync
 
-> Int32Envelope ApiV2PricingServicePriceListsCountGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope CreatePriceListAsync(ctx).TenantId(tenantId).PriceListCreateDto(priceListCreateDto).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsCountGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.ApiV2PricingServicePriceListsCountGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2PricingServicePriceListsCountGet`: Int32Envelope
-	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.ApiV2PricingServicePriceListsCountGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2PricingServicePriceListsCountGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2PricingServicePriceListsGet
-
-> PriceListDtoListEnvelope ApiV2PricingServicePriceListsGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+Creates a new price list
 
 
 
@@ -106,87 +40,17 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.ApiV2PricingServicePriceListsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2PricingServicePriceListsGet`: PriceListDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.ApiV2PricingServicePriceListsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2PricingServicePriceListsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**PriceListDtoListEnvelope**](PriceListDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2PricingServicePriceListsPost
-
-> EmptyEnvelope ApiV2PricingServicePriceListsPost(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PriceListCreateDto(priceListCreateDto).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 	priceListCreateDto := *openapiclient.NewPriceListCreateDto("Name_example") // PriceListCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPost(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PriceListCreateDto(priceListCreateDto).Execute()
+	resp, r, err := apiClient.PriceListsAPI.CreatePriceListAsync(context.Background()).TenantId(tenantId).PriceListCreateDto(priceListCreateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.ApiV2PricingServicePriceListsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.CreatePriceListAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PricingServicePriceListsPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.ApiV2PricingServicePriceListsPost`: %v\n", resp)
+	// response from `CreatePriceListAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.CreatePriceListAsync`: %v\n", resp)
 }
 ```
 
@@ -196,14 +60,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PricingServicePriceListsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreatePriceListAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
  **priceListCreateDto** | [**PriceListCreateDto**](PriceListCreateDto.md) |  | 
 
 ### Return type
@@ -212,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -224,83 +86,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2PricingServicePriceListsPriceListIdDelete
+## CreatePriceListPricesAsync
 
-> EmptyEnvelope ApiV2PricingServicePriceListsPriceListIdDelete(ctx, priceListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope CreatePriceListPricesAsync(ctx, priceListId).TenantId(tenantId).ItemPriceCreateDto(itemPriceCreateDto).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdDelete(context.Background(), priceListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2PricingServicePriceListsPriceListIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**priceListId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2PricingServicePriceListsPriceListIdDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2PricingServicePriceListsPriceListIdPricesPost
-
-> EmptyEnvelope ApiV2PricingServicePriceListsPriceListIdPricesPost(ctx, priceListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPriceCreateDto(itemPriceCreateDto).Execute()
+Creates a price list entry
 
 
 
@@ -319,19 +109,17 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 	itemPriceCreateDto := *openapiclient.NewItemPriceCreateDto("ItemId_example") // ItemPriceCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPost(context.Background(), priceListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPriceCreateDto(itemPriceCreateDto).Execute()
+	resp, r, err := apiClient.PriceListsAPI.CreatePriceListPricesAsync(context.Background(), priceListId).TenantId(tenantId).ItemPriceCreateDto(itemPriceCreateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.CreatePriceListPricesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PricingServicePriceListsPriceListIdPricesPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPost`: %v\n", resp)
+	// response from `CreatePriceListPricesAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.CreatePriceListPricesAsync`: %v\n", resp)
 }
 ```
 
@@ -345,15 +133,13 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PricingServicePriceListsPriceListIdPricesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreatePriceListPricesAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
  **itemPriceCreateDto** | [**ItemPriceCreateDto**](ItemPriceCreateDto.md) |  | 
 
 ### Return type
@@ -362,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -374,9 +160,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete
+## DeletePriceListAsync
 
-> EmptyEnvelope ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete(ctx, priceListId, priceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeletePriceListAsync(ctx, priceListId).TenantId(tenantId).Execute()
+
+Deletes a price list
 
 
 
@@ -395,19 +183,16 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	priceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete(context.Background(), priceListId, priceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PriceListsAPI.DeletePriceListAsync(context.Background(), priceListId).TenantId(tenantId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.DeletePriceListAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete`: %v\n", resp)
+	// response from `DeletePriceListAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.DeletePriceListAsync`: %v\n", resp)
 }
 ```
 
@@ -418,11 +203,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **priceListId** | **string** |  | 
-**priceId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PricingServicePriceListsPriceListIdPricesPriceIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeletePriceListAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -430,16 +214,13 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
 ### Return type
 
 [**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -451,9 +232,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut
+## DeletePriceListPriceAsync
 
-> EmptyEnvelope ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut(ctx, priceListId, priceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPriceUpdateDto(itemPriceUpdateDto).Execute()
+> EmptyEnvelope DeletePriceListPriceAsync(ctx, priceListId, priceId).TenantId(tenantId).Execute()
+
+Deletes a price list entry
 
 
 
@@ -473,19 +256,16 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-	itemPriceUpdateDto := *openapiclient.NewItemPriceUpdateDto() // ItemPriceUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut(context.Background(), priceListId, priceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPriceUpdateDto(itemPriceUpdateDto).Execute()
+	resp, r, err := apiClient.PriceListsAPI.DeletePriceListPriceAsync(context.Background(), priceListId, priceId).TenantId(tenantId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.DeletePriceListPriceAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut`: %v\n", resp)
+	// response from `DeletePriceListPriceAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.DeletePriceListPriceAsync`: %v\n", resp)
 }
 ```
 
@@ -500,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PricingServicePriceListsPriceListIdPricesPriceIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeletePriceListPriceAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -508,9 +288,6 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
- **itemPriceUpdateDto** | [**ItemPriceUpdateDto**](ItemPriceUpdateDto.md) |  | 
 
 ### Return type
 
@@ -518,87 +295,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2PricingServicePriceListsPriceListIdPut
-
-> EmptyEnvelope ApiV2PricingServicePriceListsPriceListIdPut(ctx, priceListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PriceListUpdateDto(priceListUpdateDto).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-	priceListUpdateDto := *openapiclient.NewPriceListUpdateDto("Name_example") // PriceListUpdateDto |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPut(context.Background(), priceListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PriceListUpdateDto(priceListUpdateDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPut``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2PricingServicePriceListsPriceListIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**priceListId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2PricingServicePriceListsPriceListIdPutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
- **priceListUpdateDto** | [**PriceListUpdateDto**](PriceListUpdateDto.md) |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -608,7 +309,9 @@ Name | Type | Description  | Notes
 
 ## GetPriceListAsync
 
-> PriceListDtoEnvelope GetPriceListAsync(ctx, priceListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> PriceListDtoEnvelope GetPriceListAsync(ctx, priceListId).TenantId(tenantId).Execute()
+
+Gets a price list by ID
 
 
 
@@ -627,12 +330,10 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.GetPriceListAsync(context.Background(), priceListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PriceListsAPI.GetPriceListAsync(context.Background(), priceListId).TenantId(tenantId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.GetPriceListAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -659,8 +360,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
 
 ### Return type
 
@@ -668,7 +367,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -682,7 +381,9 @@ Name | Type | Description  | Notes
 
 ## GetPriceListPriceAsync
 
-> ItemPriceDtoEnvelope GetPriceListPriceAsync(ctx, priceListId, priceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemPriceDtoEnvelope GetPriceListPriceAsync(ctx, priceListId, priceId).TenantId(tenantId).Execute()
+
+Gets a price list entry by ID
 
 
 
@@ -702,12 +403,10 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.GetPriceListPriceAsync(context.Background(), priceListId, priceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PriceListsAPI.GetPriceListPriceAsync(context.Background(), priceListId, priceId).TenantId(tenantId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.GetPriceListPriceAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -736,8 +435,6 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
 
 ### Return type
 
@@ -745,7 +442,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -759,7 +456,9 @@ Name | Type | Description  | Notes
 
 ## GetPriceListPricesAsync
 
-> ItemPriceDtoListEnvelope GetPriceListPricesAsync(ctx, priceListId).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemPriceDtoListEnvelope GetPriceListPricesAsync(ctx, priceListId).TenantId(tenantId).ItemId(itemId).Execute()
+
+Retrieves prices in a price list
 
 
 
@@ -779,12 +478,10 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.GetPriceListPricesAsync(context.Background(), priceListId).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PriceListsAPI.GetPriceListPricesAsync(context.Background(), priceListId).TenantId(tenantId).ItemId(itemId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.GetPriceListPricesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -812,8 +509,6 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
  **itemId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
 
 ### Return type
 
@@ -821,11 +516,294 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPriceListsAsync
+
+> PriceListDtoListEnvelope GetPriceListsAsync(ctx).TenantId(tenantId).Execute()
+
+Retrieves all price lists
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PriceListsAPI.GetPriceListsAsync(context.Background()).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.GetPriceListsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPriceListsAsync`: PriceListDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.GetPriceListsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPriceListsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+### Return type
+
+[**PriceListDtoListEnvelope**](PriceListDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPriceListsCountAsync
+
+> Int32Envelope GetPriceListsCountAsync(ctx).TenantId(tenantId).Execute()
+
+Counts price lists
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PriceListsAPI.GetPriceListsCountAsync(context.Background()).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.GetPriceListsCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPriceListsCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.GetPriceListsCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPriceListsCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdatePriceListAsync
+
+> EmptyEnvelope UpdatePriceListAsync(ctx, priceListId).TenantId(tenantId).PriceListUpdateDto(priceListUpdateDto).Execute()
+
+Updates a price list
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	priceListUpdateDto := *openapiclient.NewPriceListUpdateDto("Name_example") // PriceListUpdateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PriceListsAPI.UpdatePriceListAsync(context.Background(), priceListId).TenantId(tenantId).PriceListUpdateDto(priceListUpdateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.UpdatePriceListAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdatePriceListAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.UpdatePriceListAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**priceListId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdatePriceListAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **priceListUpdateDto** | [**PriceListUpdateDto**](PriceListUpdateDto.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdatePriceListPriceAsync
+
+> EmptyEnvelope UpdatePriceListPriceAsync(ctx, priceListId, priceId).TenantId(tenantId).ItemPriceUpdateDto(itemPriceUpdateDto).Execute()
+
+Updates a price list entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	priceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	itemPriceUpdateDto := *openapiclient.NewItemPriceUpdateDto() // ItemPriceUpdateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PriceListsAPI.UpdatePriceListPriceAsync(context.Background(), priceListId, priceId).TenantId(tenantId).ItemPriceUpdateDto(itemPriceUpdateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.UpdatePriceListPriceAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdatePriceListPriceAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.UpdatePriceListPriceAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**priceListId** | **string** |  | 
+**priceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdatePriceListPriceAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **itemPriceUpdateDto** | [**ItemPriceUpdateDto**](ItemPriceUpdateDto.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

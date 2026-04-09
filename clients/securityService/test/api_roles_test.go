@@ -22,154 +22,14 @@ func Test_openapi_RolesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityRoleId string
-		var applicationId string
-
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete(context.Background(), securityRoleId, applicationId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityRoleId string
-		var applicationId string
-
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost(context.Background(), securityRoleId, applicationId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityRoleId string
-
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdDelete(context.Background(), securityRoleId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityRoleId string
-		var enrollmentId string
-
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete(context.Background(), securityRoleId, enrollmentId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityRoleId string
-		var enrollmentId string
-
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost(context.Background(), securityRoleId, enrollmentId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityRoleId string
-
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet(context.Background(), securityRoleId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityRoleId string
-
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdGet(context.Background(), securityRoleId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdPermissionsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityRoleId string
-
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsGet(context.Background(), securityRoleId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete", func(t *testing.T) {
+	t.Run("Test RolesAPIService AssignPermissionToRoleAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var securityRoleId string
 		var securityPermissionId string
 
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete(context.Background(), securityRoleId, securityPermissionId).Execute()
+		resp, httpRes, err := apiClient.RolesAPI.AssignPermissionToRoleAsync(context.Background(), securityRoleId, securityPermissionId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -177,14 +37,164 @@ func Test_openapi_RolesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost", func(t *testing.T) {
+	t.Run("Test RolesAPIService AssignRoleToBusinessApplicationAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityRoleId string
+		var applicationId string
+
+		resp, httpRes, err := apiClient.RolesAPI.AssignRoleToBusinessApplicationAsync(context.Background(), securityRoleId, applicationId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService AssignRoleToEnrollmentAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityRoleId string
+		var enrollmentId string
+
+		resp, httpRes, err := apiClient.RolesAPI.AssignRoleToEnrollmentAsync(context.Background(), securityRoleId, enrollmentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService CreateRoleAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.RolesAPI.CreateRoleAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService DeleteRoleAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityRoleId string
+
+		resp, httpRes, err := apiClient.RolesAPI.DeleteRoleAsync(context.Background(), securityRoleId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService GetApplicationsByRoleAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityRoleId string
+
+		resp, httpRes, err := apiClient.RolesAPI.GetApplicationsByRoleAsync(context.Background(), securityRoleId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService GetEnrollmentsByRoleAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityRoleId string
+
+		resp, httpRes, err := apiClient.RolesAPI.GetEnrollmentsByRoleAsync(context.Background(), securityRoleId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService GetRoleAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityRoleId string
+
+		resp, httpRes, err := apiClient.RolesAPI.GetRoleAsync(context.Background(), securityRoleId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService GetRolePermissionsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityRoleId string
+
+		resp, httpRes, err := apiClient.RolesAPI.GetRolePermissionsAsync(context.Background(), securityRoleId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService GetRolesAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.RolesAPI.GetRolesAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService GetRolesByEnrollmentAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var enrollmentId string
+
+		resp, httpRes, err := apiClient.RolesAPI.GetRolesByEnrollmentAsync(context.Background(), enrollmentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService GetRolesCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.RolesAPI.GetRolesCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService RevokePermissionFromRoleAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var securityRoleId string
 		var securityPermissionId string
 
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost(context.Background(), securityRoleId, securityPermissionId).Execute()
+		resp, httpRes, err := apiClient.RolesAPI.RevokePermissionFromRoleAsync(context.Background(), securityRoleId, securityPermissionId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -192,13 +202,43 @@ func Test_openapi_RolesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RolesAPIService ApiV2SecurityServiceRolesSecurityRoleIdPut", func(t *testing.T) {
+	t.Run("Test RolesAPIService RevokeRoleFromBusinessApplicationAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityRoleId string
+		var applicationId string
+
+		resp, httpRes, err := apiClient.RolesAPI.RevokeRoleFromBusinessApplicationAsync(context.Background(), securityRoleId, applicationId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService RevokeRoleFromEnrollmentAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityRoleId string
+		var enrollmentId string
+
+		resp, httpRes, err := apiClient.RolesAPI.RevokeRoleFromEnrollmentAsync(context.Background(), securityRoleId, enrollmentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService UpdateRoleAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var securityRoleId string
 
-		resp, httpRes, err := apiClient.RolesAPI.ApiV2SecurityServiceRolesSecurityRoleIdPut(context.Background(), securityRoleId).Execute()
+		resp, httpRes, err := apiClient.RolesAPI.UpdateRoleAsync(context.Background(), securityRoleId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

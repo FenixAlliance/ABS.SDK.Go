@@ -22,11 +22,11 @@ func Test_openapi_ExchangeAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ExchangeAPIService ApiV2ForexServiceExchangeHistoryGet", func(t *testing.T) {
+	t.Run("Test ExchangeAPIService ExchangeAmountAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ExchangeAPI.ApiV2ForexServiceExchangeHistoryGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ExchangeAPI.ExchangeAmountAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_openapi_ExchangeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExchangeAPIService ApiV2ForexServiceExchangeLatestGet", func(t *testing.T) {
+	t.Run("Test ExchangeAPIService ExchangeAmountHistoricalAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ExchangeAPI.ApiV2ForexServiceExchangeLatestGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ExchangeAPI.ExchangeAmountHistoricalAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

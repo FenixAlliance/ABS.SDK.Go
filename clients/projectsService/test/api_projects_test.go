@@ -22,11 +22,11 @@ func Test_openapi_ProjectsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsCountGet", func(t *testing.T) {
+	t.Run("Test ProjectsAPIService CreateProjectAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ProjectsAPI.CreateProjectAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,37 +34,13 @@ func Test_openapi_ProjectsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdDelete", func(t *testing.T) {
+	t.Run("Test ProjectsAPIService CreateProjectPeriodAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var projectId string
 
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdDelete(context.Background(), projectId).Execute()
+		resp, httpRes, err := apiClient.ProjectsAPI.CreateProjectPeriodAsync(context.Background(), projectId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +48,13 @@ func Test_openapi_ProjectsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdGet", func(t *testing.T) {
+	t.Run("Test ProjectsAPIService CreateProjectTaskAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var projectId string
 
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdGet(context.Background(), projectId).Execute()
+		resp, httpRes, err := apiClient.ProjectsAPI.CreateProjectTaskAsync(context.Background(), projectId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -86,13 +62,13 @@ func Test_openapi_ProjectsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdPeriodsGet", func(t *testing.T) {
+	t.Run("Test ProjectsAPIService DeleteProjectAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var projectId string
 
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdPeriodsGet(context.Background(), projectId).Execute()
+		resp, httpRes, err := apiClient.ProjectsAPI.DeleteProjectAsync(context.Background(), projectId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -100,14 +76,14 @@ func Test_openapi_ProjectsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete", func(t *testing.T) {
+	t.Run("Test ProjectsAPIService DeleteProjectPeriodAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var projectId string
 		var projectPeriodId string
 
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete(context.Background(), projectId, projectPeriodId).Execute()
+		resp, httpRes, err := apiClient.ProjectsAPI.DeleteProjectPeriodAsync(context.Background(), projectId, projectPeriodId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -115,14 +91,179 @@ func Test_openapi_ProjectsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut", func(t *testing.T) {
+	t.Run("Test ProjectsAPIService DeleteProjectTaskAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId string
+		var projectTaskId string
+
+		resp, httpRes, err := apiClient.ProjectsAPI.DeleteProjectTaskAsync(context.Background(), projectId, projectTaskId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService GetProjectByIdAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId string
+
+		resp, httpRes, err := apiClient.ProjectsAPI.GetProjectByIdAsync(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService GetProjectPeriodsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId string
+
+		resp, httpRes, err := apiClient.ProjectsAPI.GetProjectPeriodsAsync(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService GetProjectTaskCategoriesAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId string
+
+		resp, httpRes, err := apiClient.ProjectsAPI.GetProjectTaskCategoriesAsync(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService GetProjectTaskCategoriesCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId string
+
+		resp, httpRes, err := apiClient.ProjectsAPI.GetProjectTaskCategoriesCountAsync(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService GetProjectTasksAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId string
+
+		resp, httpRes, err := apiClient.ProjectsAPI.GetProjectTasksAsync(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService GetProjectTasksCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId string
+
+		resp, httpRes, err := apiClient.ProjectsAPI.GetProjectTasksCountAsync(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService GetProjectTimeLogsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId string
+
+		resp, httpRes, err := apiClient.ProjectsAPI.GetProjectTimeLogsAsync(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService GetProjectTimeLogsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId string
+
+		resp, httpRes, err := apiClient.ProjectsAPI.GetProjectTimeLogsCountAsync(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService GetProjectsByTenantIdAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ProjectsAPI.GetProjectsByTenantIdAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService GetProjectsCountByTenantIdAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ProjectsAPI.GetProjectsCountByTenantIdAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService UpdateProjectAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId string
+
+		resp, httpRes, err := apiClient.ProjectsAPI.UpdateProjectAsync(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsAPIService UpdateProjectPeriodAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var projectId string
 		var projectPeriodId string
 
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut(context.Background(), projectId, projectPeriodId).Execute()
+		resp, httpRes, err := apiClient.ProjectsAPI.UpdateProjectPeriodAsync(context.Background(), projectId, projectPeriodId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,141 +271,14 @@ func Test_openapi_ProjectsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var projectId string
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdPut(context.Background(), projectId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var projectId string
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet(context.Background(), projectId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var projectId string
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet(context.Background(), projectId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdTasksCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var projectId string
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdTasksCountGet(context.Background(), projectId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdTasksGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var projectId string
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdTasksGet(context.Background(), projectId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdTasksPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var projectId string
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdTasksPost(context.Background(), projectId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete", func(t *testing.T) {
+	t.Run("Test ProjectsAPIService UpdateProjectTaskAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var projectId string
 		var projectTaskId string
 
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete(context.Background(), projectId, projectTaskId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var projectId string
-		var projectTaskId string
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut(context.Background(), projectId, projectTaskId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var projectId string
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet(context.Background(), projectId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProjectsAPIService ApiV2ProjectsServiceProjectsProjectIdTimeLogsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var projectId string
-
-		resp, httpRes, err := apiClient.ProjectsAPI.ApiV2ProjectsServiceProjectsProjectIdTimeLogsGet(context.Background(), projectId).Execute()
+		resp, httpRes, err := apiClient.ProjectsAPI.UpdateProjectTaskAsync(context.Background(), projectId, projectTaskId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

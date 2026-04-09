@@ -22,13 +22,11 @@ func Test_openapi_CurrenciesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test CurrenciesAPIService ApiV2GlobeServiceCurrenciesCurrencyIdGet", func(t *testing.T) {
+	t.Run("Test CurrenciesAPIService CountCurrenciesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var currencyId string
-
-		resp, httpRes, err := apiClient.CurrenciesAPI.ApiV2GlobeServiceCurrenciesCurrencyIdGet(context.Background(), currencyId).Execute()
+		resp, httpRes, err := apiClient.CurrenciesAPI.CountCurrenciesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +34,25 @@ func Test_openapi_CurrenciesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CurrenciesAPIService ApiV2GlobeServiceCurrenciesGet", func(t *testing.T) {
+	t.Run("Test CurrenciesAPIService GetCurrencyByIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.CurrenciesAPI.ApiV2GlobeServiceCurrenciesGet(context.Background()).Execute()
+		var currencyId string
+
+		resp, httpRes, err := apiClient.CurrenciesAPI.GetCurrencyByIdAsync(context.Background(), currencyId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CurrenciesAPIService GetEnabledCurrenciesAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CurrenciesAPI.GetEnabledCurrenciesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

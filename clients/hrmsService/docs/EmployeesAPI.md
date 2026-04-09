@@ -4,18 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateEmployeeAsync**](EmployeesAPI.md#CreateEmployeeAsync) | **Post** /api/v2/HrmsService/Employees | 
-[**DeleteEmployeeAsync**](EmployeesAPI.md#DeleteEmployeeAsync) | **Delete** /api/v2/HrmsService/Employees/{employeeId} | 
-[**GetEmployeeByIdAsync**](EmployeesAPI.md#GetEmployeeByIdAsync) | **Get** /api/v2/HrmsService/Employees/{employeeId} | 
-[**GetEmployeesAsync**](EmployeesAPI.md#GetEmployeesAsync) | **Get** /api/v2/HrmsService/Employees | 
-[**GetEmployeesCountAsync**](EmployeesAPI.md#GetEmployeesCountAsync) | **Get** /api/v2/HrmsService/Employees/Count | 
-[**UpdateEmployeeAsync**](EmployeesAPI.md#UpdateEmployeeAsync) | **Put** /api/v2/HrmsService/Employees/{employeeId} | 
+[**CreateEmployeeAsync**](EmployeesAPI.md#CreateEmployeeAsync) | **Post** /api/v2/HrmsService/Employees | Create an employee
+[**DeleteEmployeeAsync**](EmployeesAPI.md#DeleteEmployeeAsync) | **Delete** /api/v2/HrmsService/Employees/{employeeId} | Delete an employee
+[**GetEmployeeByIdAsync**](EmployeesAPI.md#GetEmployeeByIdAsync) | **Get** /api/v2/HrmsService/Employees/{employeeId} | Get employee by ID
+[**GetEmployeesAsync**](EmployeesAPI.md#GetEmployeesAsync) | **Get** /api/v2/HrmsService/Employees | Get employees
+[**GetEmployeesCountAsync**](EmployeesAPI.md#GetEmployeesCountAsync) | **Get** /api/v2/HrmsService/Employees/Count | Count employees
+[**UpdateEmployeeAsync**](EmployeesAPI.md#UpdateEmployeeAsync) | **Put** /api/v2/HrmsService/Employees/{employeeId} | Update an employee
 
 
 
 ## CreateEmployeeAsync
 
 > EmptyEnvelope CreateEmployeeAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployeeProfileCreateDto(employeeProfileCreateDto).Execute()
+
+Create an employee
 
 
 
@@ -71,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -86,6 +88,8 @@ Name | Type | Description  | Notes
 ## DeleteEmployeeAsync
 
 > EmptyEnvelope DeleteEmployeeAsync(ctx, employeeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete an employee
 
 
 
@@ -145,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -160,6 +164,8 @@ Name | Type | Description  | Notes
 ## GetEmployeeByIdAsync
 
 > EmployeeProfileDtoEnvelope GetEmployeeByIdAsync(ctx, employeeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get employee by ID
 
 
 
@@ -219,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -234,6 +240,8 @@ Name | Type | Description  | Notes
 ## GetEmployeesAsync
 
 > EmployeeProfileDtoListEnvelope GetEmployeesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get employees
 
 
 
@@ -287,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -302,6 +310,8 @@ Name | Type | Description  | Notes
 ## GetEmployeesCountAsync
 
 > Int32Envelope GetEmployeesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count employees
 
 
 
@@ -355,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -370,6 +380,8 @@ Name | Type | Description  | Notes
 ## UpdateEmployeeAsync
 
 > EmptyEnvelope UpdateEmployeeAsync(ctx, employeeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+
+Update an employee
 
 
 
@@ -431,7 +443,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

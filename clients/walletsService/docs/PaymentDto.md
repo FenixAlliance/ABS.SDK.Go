@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
-**TimeStamp** | Pointer to **time.Time** |  | [optional] 
 **Test** | Pointer to **bool** |  | [optional] 
 **InvoiceId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
@@ -26,9 +25,9 @@ Name | Type | Description | Notes
 **ReferenceCode** | Pointer to **NullableString** |  | [optional] 
 **CorrelationCode** | Pointer to **NullableString** |  | [optional] 
 **LastUpdated** | Pointer to **time.Time** |  | [optional] 
-**OnBehalfOf** | Pointer to **int32** |  | [optional] 
-**PaymentType** | Pointer to **int32** |  | [optional] 
-**PaymentStatus** | Pointer to **int32** |  | [optional] 
+**OnBehalfOf** | Pointer to **string** |  | [optional] 
+**PaymentType** | Pointer to **string** |  | [optional] 
+**PaymentStatus** | Pointer to **string** |  | [optional] 
 **BaseCost** | Pointer to **float64** |  | [optional] 
 **Signature** | Pointer to **NullableString** |  | [optional] 
 **SignatureMismatch** | Pointer to **bool** |  | [optional] 
@@ -61,7 +60,7 @@ Name | Type | Description | Notes
 **AccountingEntryId** | Pointer to **NullableString** |  | [optional] 
 **PaymentGatewayId** | Pointer to **NullableString** |  | [optional] 
 **BankAccountId** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **BankId** | Pointer to **NullableString** |  | [optional] 
 **PaymentTokenId** | Pointer to **NullableString** |  | [optional] 
 
@@ -154,31 +153,6 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *PaymentDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-### GetTimeStamp
-
-`func (o *PaymentDto) GetTimeStamp() time.Time`
-
-GetTimeStamp returns the TimeStamp field if non-nil, zero value otherwise.
-
-### GetTimeStampOk
-
-`func (o *PaymentDto) GetTimeStampOk() (*time.Time, bool)`
-
-GetTimeStampOk returns a tuple with the TimeStamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimeStamp
-
-`func (o *PaymentDto) SetTimeStamp(v time.Time)`
-
-SetTimeStamp sets TimeStamp field to given value.
-
-### HasTimeStamp
-
-`func (o *PaymentDto) HasTimeStamp() bool`
-
-HasTimeStamp returns a boolean if a field has been set.
-
 ### GetTest
 
 `func (o *PaymentDto) GetTest() bool`
@@ -786,20 +760,20 @@ HasLastUpdated returns a boolean if a field has been set.
 
 ### GetOnBehalfOf
 
-`func (o *PaymentDto) GetOnBehalfOf() int32`
+`func (o *PaymentDto) GetOnBehalfOf() string`
 
 GetOnBehalfOf returns the OnBehalfOf field if non-nil, zero value otherwise.
 
 ### GetOnBehalfOfOk
 
-`func (o *PaymentDto) GetOnBehalfOfOk() (*int32, bool)`
+`func (o *PaymentDto) GetOnBehalfOfOk() (*string, bool)`
 
 GetOnBehalfOfOk returns a tuple with the OnBehalfOf field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOnBehalfOf
 
-`func (o *PaymentDto) SetOnBehalfOf(v int32)`
+`func (o *PaymentDto) SetOnBehalfOf(v string)`
 
 SetOnBehalfOf sets OnBehalfOf field to given value.
 
@@ -811,20 +785,20 @@ HasOnBehalfOf returns a boolean if a field has been set.
 
 ### GetPaymentType
 
-`func (o *PaymentDto) GetPaymentType() int32`
+`func (o *PaymentDto) GetPaymentType() string`
 
 GetPaymentType returns the PaymentType field if non-nil, zero value otherwise.
 
 ### GetPaymentTypeOk
 
-`func (o *PaymentDto) GetPaymentTypeOk() (*int32, bool)`
+`func (o *PaymentDto) GetPaymentTypeOk() (*string, bool)`
 
 GetPaymentTypeOk returns a tuple with the PaymentType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPaymentType
 
-`func (o *PaymentDto) SetPaymentType(v int32)`
+`func (o *PaymentDto) SetPaymentType(v string)`
 
 SetPaymentType sets PaymentType field to given value.
 
@@ -836,20 +810,20 @@ HasPaymentType returns a boolean if a field has been set.
 
 ### GetPaymentStatus
 
-`func (o *PaymentDto) GetPaymentStatus() int32`
+`func (o *PaymentDto) GetPaymentStatus() string`
 
 GetPaymentStatus returns the PaymentStatus field if non-nil, zero value otherwise.
 
 ### GetPaymentStatusOk
 
-`func (o *PaymentDto) GetPaymentStatusOk() (*int32, bool)`
+`func (o *PaymentDto) GetPaymentStatusOk() (*string, bool)`
 
 GetPaymentStatusOk returns a tuple with the PaymentStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPaymentStatus
 
-`func (o *PaymentDto) SetPaymentStatus(v int32)`
+`func (o *PaymentDto) SetPaymentStatus(v string)`
 
 SetPaymentStatus sets PaymentStatus field to given value.
 
@@ -1899,41 +1873,41 @@ HasBankAccountId returns a boolean if a field has been set.
 `func (o *PaymentDto) UnsetBankAccountId()`
 
 UnsetBankAccountId ensures that no value is present for BankAccountId, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *PaymentDto) GetEnrolmentId() string`
+`func (o *PaymentDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *PaymentDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *PaymentDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *PaymentDto) SetEnrolmentId(v string)`
+`func (o *PaymentDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *PaymentDto) HasEnrolmentId() bool`
+`func (o *PaymentDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *PaymentDto) SetEnrolmentIdNil(b bool)`
+`func (o *PaymentDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *PaymentDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *PaymentDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetBankId
 
 `func (o *PaymentDto) GetBankId() string`

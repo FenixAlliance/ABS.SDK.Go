@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **DealUnitFlowId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **ParentBusinessProcessStageId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -268,41 +268,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *DealUnitFlowStageDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *DealUnitFlowStageDto) GetEnrolmentId() string`
+`func (o *DealUnitFlowStageDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *DealUnitFlowStageDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *DealUnitFlowStageDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *DealUnitFlowStageDto) SetEnrolmentId(v string)`
+`func (o *DealUnitFlowStageDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *DealUnitFlowStageDto) HasEnrolmentId() bool`
+`func (o *DealUnitFlowStageDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *DealUnitFlowStageDto) SetEnrolmentIdNil(b bool)`
+`func (o *DealUnitFlowStageDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *DealUnitFlowStageDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *DealUnitFlowStageDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetParentBusinessProcessStageId
 
 `func (o *DealUnitFlowStageDto) GetParentBusinessProcessStageId() string`

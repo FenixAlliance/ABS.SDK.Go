@@ -22,13 +22,13 @@ func Test_openapi_TrackingPixelsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TrackingPixelsAPIService ApiV2MarketingServiceTrackingPixelsPixelIdGet", func(t *testing.T) {
+	t.Run("Test TrackingPixelsAPIService GetTrackingPixelAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pixelId string
 
-		resp, httpRes, err := apiClient.TrackingPixelsAPI.ApiV2MarketingServiceTrackingPixelsPixelIdGet(context.Background(), pixelId).Execute()
+		resp, httpRes, err := apiClient.TrackingPixelsAPI.GetTrackingPixelAsync(context.Background(), pixelId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

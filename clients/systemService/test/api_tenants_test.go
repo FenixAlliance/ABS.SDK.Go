@@ -22,6 +22,32 @@ func Test_openapi_TenantsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test TenantsAPIService AdminPreviewTenantEmail", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		httpRes, err := apiClient.TenantsAPI.AdminPreviewTenantEmail(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test TenantsAPIService AdminSendTenantEmail", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		httpRes, err := apiClient.TenantsAPI.AdminSendTenantEmail(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test TenantsAPIService CreateTenant", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

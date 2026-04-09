@@ -4,86 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2MarketingServiceMarketingCampaignsCountGet**](MarketingCampaignsAPI.md#ApiV2MarketingServiceMarketingCampaignsCountGet) | **Get** /api/v2/MarketingService/MarketingCampaigns/Count | 
-[**ApiV2MarketingServiceMarketingCampaignsGet**](MarketingCampaignsAPI.md#ApiV2MarketingServiceMarketingCampaignsGet) | **Get** /api/v2/MarketingService/MarketingCampaigns | 
-[**ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete**](MarketingCampaignsAPI.md#ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete) | **Delete** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | 
-[**ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet**](MarketingCampaignsAPI.md#ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet) | **Get** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | 
-[**ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut**](MarketingCampaignsAPI.md#ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut) | **Put** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | 
-[**ApiV2MarketingServiceMarketingCampaignsPost**](MarketingCampaignsAPI.md#ApiV2MarketingServiceMarketingCampaignsPost) | **Post** /api/v2/MarketingService/MarketingCampaigns | 
+[**CreateMarketingCampaignAsync**](MarketingCampaignsAPI.md#CreateMarketingCampaignAsync) | **Post** /api/v2/MarketingService/MarketingCampaigns | Create a marketing campaign
+[**DeleteMarketingCampaignAsync**](MarketingCampaignsAPI.md#DeleteMarketingCampaignAsync) | **Delete** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | Delete a marketing campaign
+[**GetMarketingCampaignDetailsAsync**](MarketingCampaignsAPI.md#GetMarketingCampaignDetailsAsync) | **Get** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | Get marketing campaign by ID
+[**GetMarketingCampaignODataAsync**](MarketingCampaignsAPI.md#GetMarketingCampaignODataAsync) | **Get** /api/v2/MarketingService/MarketingCampaigns | Get marketing campaigns
+[**GetMarketingCampaignsCountAsync**](MarketingCampaignsAPI.md#GetMarketingCampaignsCountAsync) | **Get** /api/v2/MarketingService/MarketingCampaigns/Count | Get marketing campaigns count
+[**UpdateMarketingCampaignAsync**](MarketingCampaignsAPI.md#UpdateMarketingCampaignAsync) | **Put** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | Update a marketing campaign
 
 
 
-## ApiV2MarketingServiceMarketingCampaignsCountGet
+## CreateMarketingCampaignAsync
 
-> Int32Envelope ApiV2MarketingServiceMarketingCampaignsCountGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope CreateMarketingCampaignAsync(ctx).TenantId(tenantId).MarketingCampaignCreateDto(marketingCampaignCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsCountGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsCountGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2MarketingServiceMarketingCampaignsCountGet`: Int32Envelope
-	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsCountGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceMarketingCampaignsCountGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2MarketingServiceMarketingCampaignsGet
-
-> ApiV2MarketingServiceMarketingCampaignsGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+Create a marketing campaign
 
 
 
@@ -101,16 +35,19 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	marketingCampaignCreateDto := *openapiclient.NewMarketingCampaignCreateDto() // MarketingCampaignCreateDto | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MarketingCampaignsAPI.CreateMarketingCampaignAsync(context.Background()).TenantId(tenantId).MarketingCampaignCreateDto(marketingCampaignCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.CreateMarketingCampaignAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `CreateMarketingCampaignAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.CreateMarketingCampaignAsync`: %v\n", resp)
 }
 ```
 
@@ -120,26 +57,27 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceMarketingCampaignsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateMarketingCampaignAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **marketingCampaignCreateDto** | [**MarketingCampaignCreateDto**](MarketingCampaignCreateDto.md) |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
 ### Return type
 
- (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -147,9 +85,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete
+## DeleteMarketingCampaignAsync
 
-> EmptyEnvelope ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete(ctx, marketingcampaignId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeleteMarketingCampaignAsync(ctx, marketingcampaignId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete a marketing campaign
 
 
 
@@ -173,13 +113,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete(context.Background(), marketingcampaignId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MarketingCampaignsAPI.DeleteMarketingCampaignAsync(context.Background(), marketingcampaignId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.DeleteMarketingCampaignAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete`: %v\n", resp)
+	// response from `DeleteMarketingCampaignAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.DeleteMarketingCampaignAsync`: %v\n", resp)
 }
 ```
 
@@ -193,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteMarketingCampaignAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -209,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -221,9 +161,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet
+## GetMarketingCampaignDetailsAsync
 
-> MarketingCampaignDtoEnvelope ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet(ctx, marketingcampaignId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> MarketingCampaignDtoEnvelope GetMarketingCampaignDetailsAsync(ctx, marketingcampaignId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get marketing campaign by ID
 
 
 
@@ -247,13 +189,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet(context.Background(), marketingcampaignId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MarketingCampaignsAPI.GetMarketingCampaignDetailsAsync(context.Background(), marketingcampaignId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.GetMarketingCampaignDetailsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet`: MarketingCampaignDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet`: %v\n", resp)
+	// response from `GetMarketingCampaignDetailsAsync`: MarketingCampaignDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.GetMarketingCampaignDetailsAsync`: %v\n", resp)
 }
 ```
 
@@ -267,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetMarketingCampaignDetailsAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -283,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -295,9 +237,149 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut
+## GetMarketingCampaignODataAsync
 
-> EmptyEnvelope ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut(ctx, marketingcampaignId).TenantId(tenantId).MarketingCampaignUpdateDto(marketingCampaignUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> GetMarketingCampaignODataAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get marketing campaigns
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.MarketingCampaignsAPI.GetMarketingCampaignODataAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.GetMarketingCampaignODataAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMarketingCampaignODataAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMarketingCampaignsCountAsync
+
+> Int32Envelope GetMarketingCampaignsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get marketing campaigns count
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarketingCampaignsAPI.GetMarketingCampaignsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.GetMarketingCampaignsCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMarketingCampaignsCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.GetMarketingCampaignsCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMarketingCampaignsCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateMarketingCampaignAsync
+
+> EmptyEnvelope UpdateMarketingCampaignAsync(ctx, marketingcampaignId).TenantId(tenantId).MarketingCampaignUpdateDto(marketingCampaignUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Update a marketing campaign
 
 
 
@@ -322,13 +404,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut(context.Background(), marketingcampaignId).TenantId(tenantId).MarketingCampaignUpdateDto(marketingCampaignUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MarketingCampaignsAPI.UpdateMarketingCampaignAsync(context.Background(), marketingcampaignId).TenantId(tenantId).MarketingCampaignUpdateDto(marketingCampaignUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.UpdateMarketingCampaignAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut`: %v\n", resp)
+	// response from `UpdateMarketingCampaignAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.UpdateMarketingCampaignAsync`: %v\n", resp)
 }
 ```
 
@@ -342,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateMarketingCampaignAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -359,77 +441,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2MarketingServiceMarketingCampaignsPost
-
-> EmptyEnvelope ApiV2MarketingServiceMarketingCampaignsPost(ctx).TenantId(tenantId).MarketingCampaignCreateDto(marketingCampaignCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	marketingCampaignCreateDto := *openapiclient.NewMarketingCampaignCreateDto() // MarketingCampaignCreateDto | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsPost(context.Background()).TenantId(tenantId).MarketingCampaignCreateDto(marketingCampaignCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2MarketingServiceMarketingCampaignsPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceMarketingCampaignsPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **marketingCampaignCreateDto** | [**MarketingCampaignCreateDto**](MarketingCampaignCreateDto.md) |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

@@ -22,11 +22,11 @@ func Test_openapi_EmailGroupsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test EmailGroupsAPIService ApiV2MarketingServiceEmailGroupsCountGet", func(t *testing.T) {
+	t.Run("Test EmailGroupsAPIService CreateEmailGroupAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.EmailGroupsAPI.ApiV2MarketingServiceEmailGroupsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.EmailGroupsAPI.CreateEmailGroupAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_openapi_EmailGroupsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailGroupsAPIService ApiV2MarketingServiceEmailGroupsEmailgroupIdDelete", func(t *testing.T) {
+	t.Run("Test EmailGroupsAPIService DeleteEmailGroupAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var emailgroupId string
 
-		resp, httpRes, err := apiClient.EmailGroupsAPI.ApiV2MarketingServiceEmailGroupsEmailgroupIdDelete(context.Background(), emailgroupId).Execute()
+		resp, httpRes, err := apiClient.EmailGroupsAPI.DeleteEmailGroupAsync(context.Background(), emailgroupId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_openapi_EmailGroupsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailGroupsAPIService ApiV2MarketingServiceEmailGroupsEmailgroupIdGet", func(t *testing.T) {
+	t.Run("Test EmailGroupsAPIService GetEmailGroupDetailsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var emailgroupId string
 
-		resp, httpRes, err := apiClient.EmailGroupsAPI.ApiV2MarketingServiceEmailGroupsEmailgroupIdGet(context.Background(), emailgroupId).Execute()
+		resp, httpRes, err := apiClient.EmailGroupsAPI.GetEmailGroupDetailsAsync(context.Background(), emailgroupId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,37 +62,37 @@ func Test_openapi_EmailGroupsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailGroupsAPIService ApiV2MarketingServiceEmailGroupsEmailgroupIdPut", func(t *testing.T) {
+	t.Run("Test EmailGroupsAPIService GetEmailGroupsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.EmailGroupsAPI.GetEmailGroupsCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test EmailGroupsAPIService GetEmailGroupsODataAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.EmailGroupsAPI.GetEmailGroupsODataAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test EmailGroupsAPIService UpdateEmailGroupAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var emailgroupId string
 
-		resp, httpRes, err := apiClient.EmailGroupsAPI.ApiV2MarketingServiceEmailGroupsEmailgroupIdPut(context.Background(), emailgroupId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test EmailGroupsAPIService ApiV2MarketingServiceEmailGroupsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.EmailGroupsAPI.ApiV2MarketingServiceEmailGroupsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test EmailGroupsAPIService ApiV2MarketingServiceEmailGroupsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.EmailGroupsAPI.ApiV2MarketingServiceEmailGroupsPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.EmailGroupsAPI.UpdateEmailGroupAsync(context.Background(), emailgroupId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

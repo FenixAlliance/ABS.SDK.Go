@@ -22,57 +22,57 @@ func Test_openapi_RadzenEditorAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RadzenEditorAPIService ApiV2StorageServiceRadzenEditorUploadsIdPost", func(t *testing.T) {
+	t.Run("Test RadzenEditorAPIService Image", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.RadzenEditorAPI.Image(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RadzenEditorAPIService Multiple", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.RadzenEditorAPI.Multiple(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RadzenEditorAPIService Post", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id int32
 
-		httpRes, err := apiClient.RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsIdPost(context.Background(), id).Execute()
+		httpRes, err := apiClient.RadzenEditorAPI.Post(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test RadzenEditorAPIService ApiV2StorageServiceRadzenEditorUploadsImagePost", func(t *testing.T) {
+	t.Run("Test RadzenEditorAPIService Single", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsImagePost(context.Background()).Execute()
+		httpRes, err := apiClient.RadzenEditorAPI.Single(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test RadzenEditorAPIService ApiV2StorageServiceRadzenEditorUploadsMultiplePost", func(t *testing.T) {
+	t.Run("Test RadzenEditorAPIService Specific", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsMultiplePost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RadzenEditorAPIService ApiV2StorageServiceRadzenEditorUploadsSinglePost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		httpRes, err := apiClient.RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsSinglePost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RadzenEditorAPIService ApiV2StorageServiceRadzenEditorUploadsSpecificPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		httpRes, err := apiClient.RadzenEditorAPI.ApiV2StorageServiceRadzenEditorUploadsSpecificPost(context.Background()).Execute()
+		httpRes, err := apiClient.RadzenEditorAPI.Specific(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

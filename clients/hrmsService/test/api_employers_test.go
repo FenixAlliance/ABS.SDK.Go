@@ -26,9 +26,10 @@ func Test_openapi_EmployersAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.EmployersAPI.CreateEmployerAsync(context.Background()).Execute()
+		resp, httpRes, err := apiClient.EmployersAPI.CreateEmployerAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -39,9 +40,10 @@ func Test_openapi_EmployersAPIService(t *testing.T) {
 
 		var employerId string
 
-		httpRes, err := apiClient.EmployersAPI.DeleteEmployerAsync(context.Background(), employerId).Execute()
+		resp, httpRes, err := apiClient.EmployersAPI.DeleteEmployerAsync(context.Background(), employerId).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -90,9 +92,10 @@ func Test_openapi_EmployersAPIService(t *testing.T) {
 
 		var employerId string
 
-		httpRes, err := apiClient.EmployersAPI.UpdateEmployerAsync(context.Background(), employerId).Execute()
+		resp, httpRes, err := apiClient.EmployersAPI.UpdateEmployerAsync(context.Background(), employerId).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

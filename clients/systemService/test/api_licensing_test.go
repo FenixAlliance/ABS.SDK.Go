@@ -22,25 +22,13 @@ func Test_openapi_LicensingAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test LicensingAPIService ApiV2SystemServiceLicensingLicensesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.LicensingAPI.ApiV2SystemServiceLicensingLicensesGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test LicensingAPIService ApiV2SystemServiceLicensingLicensesLicenseIdAssignmentsGet", func(t *testing.T) {
+	t.Run("Test LicensingAPIService GetLicenseAssignmentsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var licenseId string
 
-		resp, httpRes, err := apiClient.LicensingAPI.ApiV2SystemServiceLicensingLicensesLicenseIdAssignmentsGet(context.Background(), licenseId).Execute()
+		resp, httpRes, err := apiClient.LicensingAPI.GetLicenseAssignmentsAsync(context.Background(), licenseId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +36,13 @@ func Test_openapi_LicensingAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test LicensingAPIService ApiV2SystemServiceLicensingLicensesLicenseIdAttributesGet", func(t *testing.T) {
+	t.Run("Test LicensingAPIService GetLicenseAttributesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var licenseId string
 
-		resp, httpRes, err := apiClient.LicensingAPI.ApiV2SystemServiceLicensingLicensesLicenseIdAttributesGet(context.Background(), licenseId).Execute()
+		resp, httpRes, err := apiClient.LicensingAPI.GetLicenseAttributesAsync(context.Background(), licenseId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +50,13 @@ func Test_openapi_LicensingAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test LicensingAPIService ApiV2SystemServiceLicensingLicensesLicenseIdFeaturesGet", func(t *testing.T) {
+	t.Run("Test LicensingAPIService GetLicenseByIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var licenseId string
 
-		resp, httpRes, err := apiClient.LicensingAPI.ApiV2SystemServiceLicensingLicensesLicenseIdFeaturesGet(context.Background(), licenseId).Execute()
+		resp, httpRes, err := apiClient.LicensingAPI.GetLicenseByIdAsync(context.Background(), licenseId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,13 +64,13 @@ func Test_openapi_LicensingAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test LicensingAPIService ApiV2SystemServiceLicensingLicensesLicenseIdGet", func(t *testing.T) {
+	t.Run("Test LicensingAPIService GetLicenseFeaturesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var licenseId string
 
-		resp, httpRes, err := apiClient.LicensingAPI.ApiV2SystemServiceLicensingLicensesLicenseIdGet(context.Background(), licenseId).Execute()
+		resp, httpRes, err := apiClient.LicensingAPI.GetLicenseFeaturesAsync(context.Background(), licenseId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -90,13 +78,13 @@ func Test_openapi_LicensingAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test LicensingAPIService ApiV2SystemServiceLicensingLicensesLicenseIdQuotaGet", func(t *testing.T) {
+	t.Run("Test LicensingAPIService GetLicenseRecordsQuotaAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var licenseId string
 
-		resp, httpRes, err := apiClient.LicensingAPI.ApiV2SystemServiceLicensingLicensesLicenseIdQuotaGet(context.Background(), licenseId).Execute()
+		resp, httpRes, err := apiClient.LicensingAPI.GetLicenseRecordsQuotaAsync(context.Background(), licenseId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -104,11 +92,11 @@ func Test_openapi_LicensingAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test LicensingAPIService ApiV2SystemServiceLicensingLicensesRedeemPost", func(t *testing.T) {
+	t.Run("Test LicensingAPIService GetLicensesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.LicensingAPI.ApiV2SystemServiceLicensingLicensesRedeemPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.LicensingAPI.GetLicensesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,11 +104,23 @@ func Test_openapi_LicensingAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test LicensingAPIService ApiV2SystemServiceLicensingLicensesValidatePost", func(t *testing.T) {
+	t.Run("Test LicensingAPIService RedeemLicenseAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.LicensingAPI.ApiV2SystemServiceLicensingLicensesValidatePost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.LicensingAPI.RedeemLicenseAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test LicensingAPIService ValidateLicenseAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.LicensingAPI.ValidateLicenseAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

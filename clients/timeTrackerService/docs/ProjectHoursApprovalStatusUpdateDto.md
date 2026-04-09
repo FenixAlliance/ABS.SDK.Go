@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalStatus** | Pointer to **int32** |  | [optional] 
+**ApprovalStatus** | Pointer to **string** |  | [optional] 
 **Comments** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetApprovalStatus
 
-`func (o *ProjectHoursApprovalStatusUpdateDto) GetApprovalStatus() int32`
+`func (o *ProjectHoursApprovalStatusUpdateDto) GetApprovalStatus() string`
 
 GetApprovalStatus returns the ApprovalStatus field if non-nil, zero value otherwise.
 
 ### GetApprovalStatusOk
 
-`func (o *ProjectHoursApprovalStatusUpdateDto) GetApprovalStatusOk() (*int32, bool)`
+`func (o *ProjectHoursApprovalStatusUpdateDto) GetApprovalStatusOk() (*string, bool)`
 
 GetApprovalStatusOk returns a tuple with the ApprovalStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApprovalStatus
 
-`func (o *ProjectHoursApprovalStatusUpdateDto) SetApprovalStatus(v int32)`
+`func (o *ProjectHoursApprovalStatusUpdateDto) SetApprovalStatus(v string)`
 
 SetApprovalStatus sets ApprovalStatus field to given value.
 

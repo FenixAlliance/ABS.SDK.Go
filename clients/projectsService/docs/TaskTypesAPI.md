@@ -4,16 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2ProjectsServiceTaskTypesPost**](TaskTypesAPI.md#ApiV2ProjectsServiceTaskTypesPost) | **Post** /api/v2/ProjectsService/TaskTypes | 
-[**ApiV2ProjectsServiceTaskTypesTaskTypeIdDelete**](TaskTypesAPI.md#ApiV2ProjectsServiceTaskTypesTaskTypeIdDelete) | **Delete** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | 
-[**ApiV2ProjectsServiceTaskTypesTaskTypeIdGet**](TaskTypesAPI.md#ApiV2ProjectsServiceTaskTypesTaskTypeIdGet) | **Get** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | 
-[**ApiV2ProjectsServiceTaskTypesTaskTypeIdPut**](TaskTypesAPI.md#ApiV2ProjectsServiceTaskTypesTaskTypeIdPut) | **Put** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | 
+[**CreateTaskTypeAsync**](TaskTypesAPI.md#CreateTaskTypeAsync) | **Post** /api/v2/ProjectsService/TaskTypes | Creates a new task type
+[**DeleteTaskTypeAsync**](TaskTypesAPI.md#DeleteTaskTypeAsync) | **Delete** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Deletes a task type
+[**GetTaskTypeByIdAsync**](TaskTypesAPI.md#GetTaskTypeByIdAsync) | **Get** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Gets a task type by ID
+[**UpdateTaskTypeAsync**](TaskTypesAPI.md#UpdateTaskTypeAsync) | **Put** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Updates a task type
 
 
 
-## ApiV2ProjectsServiceTaskTypesPost
+## CreateTaskTypeAsync
 
-> TaskTypeDto ApiV2ProjectsServiceTaskTypesPost(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TaskTypeCreateDto(taskTypeCreateDto).Execute()
+> TaskTypeDto CreateTaskTypeAsync(ctx).TenantId(tenantId).TaskTypeCreateDto(taskTypeCreateDto).Execute()
+
+Creates a new task type
 
 
 
@@ -31,19 +33,17 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 	taskTypeCreateDto := *openapiclient.NewTaskTypeCreateDto() // TaskTypeCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaskTypesAPI.ApiV2ProjectsServiceTaskTypesPost(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TaskTypeCreateDto(taskTypeCreateDto).Execute()
+	resp, r, err := apiClient.TaskTypesAPI.CreateTaskTypeAsync(context.Background()).TenantId(tenantId).TaskTypeCreateDto(taskTypeCreateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaskTypesAPI.ApiV2ProjectsServiceTaskTypesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskTypesAPI.CreateTaskTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsServiceTaskTypesPost`: TaskTypeDto
-	fmt.Fprintf(os.Stdout, "Response from `TaskTypesAPI.ApiV2ProjectsServiceTaskTypesPost`: %v\n", resp)
+	// response from `CreateTaskTypeAsync`: TaskTypeDto
+	fmt.Fprintf(os.Stdout, "Response from `TaskTypesAPI.CreateTaskTypeAsync`: %v\n", resp)
 }
 ```
 
@@ -53,14 +53,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2ProjectsServiceTaskTypesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateTaskTypeAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
  **taskTypeCreateDto** | [**TaskTypeCreateDto**](TaskTypeCreateDto.md) |  | 
 
 ### Return type
@@ -69,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -81,9 +79,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2ProjectsServiceTaskTypesTaskTypeIdDelete
+## DeleteTaskTypeAsync
 
-> TaskTypeDto ApiV2ProjectsServiceTaskTypesTaskTypeIdDelete(ctx, taskTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TaskTypeDto DeleteTaskTypeAsync(ctx, taskTypeId).TenantId(tenantId).Execute()
+
+Deletes a task type
 
 
 
@@ -102,18 +102,16 @@ import (
 func main() {
 	taskTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdDelete(context.Background(), taskTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TaskTypesAPI.DeleteTaskTypeAsync(context.Background(), taskTypeId).TenantId(tenantId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskTypesAPI.DeleteTaskTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsServiceTaskTypesTaskTypeIdDelete`: TaskTypeDto
-	fmt.Fprintf(os.Stdout, "Response from `TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdDelete`: %v\n", resp)
+	// response from `DeleteTaskTypeAsync`: TaskTypeDto
+	fmt.Fprintf(os.Stdout, "Response from `TaskTypesAPI.DeleteTaskTypeAsync`: %v\n", resp)
 }
 ```
 
@@ -127,15 +125,13 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2ProjectsServiceTaskTypesTaskTypeIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteTaskTypeAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
 
 ### Return type
 
@@ -143,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -155,9 +151,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2ProjectsServiceTaskTypesTaskTypeIdGet
+## GetTaskTypeByIdAsync
 
-> TaskTypeDto ApiV2ProjectsServiceTaskTypesTaskTypeIdGet(ctx, taskTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TaskTypeDto GetTaskTypeByIdAsync(ctx, taskTypeId).TenantId(tenantId).Execute()
+
+Gets a task type by ID
 
 
 
@@ -176,18 +174,16 @@ import (
 func main() {
 	taskTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdGet(context.Background(), taskTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TaskTypesAPI.GetTaskTypeByIdAsync(context.Background(), taskTypeId).TenantId(tenantId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskTypesAPI.GetTaskTypeByIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsServiceTaskTypesTaskTypeIdGet`: TaskTypeDto
-	fmt.Fprintf(os.Stdout, "Response from `TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdGet`: %v\n", resp)
+	// response from `GetTaskTypeByIdAsync`: TaskTypeDto
+	fmt.Fprintf(os.Stdout, "Response from `TaskTypesAPI.GetTaskTypeByIdAsync`: %v\n", resp)
 }
 ```
 
@@ -201,15 +197,13 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2ProjectsServiceTaskTypesTaskTypeIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTaskTypeByIdAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
 
 ### Return type
 
@@ -217,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -229,9 +223,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2ProjectsServiceTaskTypesTaskTypeIdPut
+## UpdateTaskTypeAsync
 
-> TaskTypeDto ApiV2ProjectsServiceTaskTypesTaskTypeIdPut(ctx, taskTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TaskTypeUpdateDto(taskTypeUpdateDto).Execute()
+> TaskTypeDto UpdateTaskTypeAsync(ctx, taskTypeId).TenantId(tenantId).TaskTypeUpdateDto(taskTypeUpdateDto).Execute()
+
+Updates a task type
 
 
 
@@ -250,19 +246,17 @@ import (
 func main() {
 	taskTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
 	taskTypeUpdateDto := *openapiclient.NewTaskTypeUpdateDto() // TaskTypeUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdPut(context.Background(), taskTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TaskTypeUpdateDto(taskTypeUpdateDto).Execute()
+	resp, r, err := apiClient.TaskTypesAPI.UpdateTaskTypeAsync(context.Background(), taskTypeId).TenantId(tenantId).TaskTypeUpdateDto(taskTypeUpdateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskTypesAPI.UpdateTaskTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsServiceTaskTypesTaskTypeIdPut`: TaskTypeDto
-	fmt.Fprintf(os.Stdout, "Response from `TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdPut`: %v\n", resp)
+	// response from `UpdateTaskTypeAsync`: TaskTypeDto
+	fmt.Fprintf(os.Stdout, "Response from `TaskTypesAPI.UpdateTaskTypeAsync`: %v\n", resp)
 }
 ```
 
@@ -276,15 +270,13 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2ProjectsServiceTaskTypesTaskTypeIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateTaskTypeAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
  **taskTypeUpdateDto** | [**TaskTypeUpdateDto**](TaskTypeUpdateDto.md) |  | 
 
 ### Return type
@@ -293,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

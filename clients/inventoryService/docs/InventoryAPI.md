@@ -4,13 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2InventoryServiceInventoryStockItemIdDetailsGet**](InventoryAPI.md#ApiV2InventoryServiceInventoryStockItemIdDetailsGet) | **Get** /api/v2/InventoryService/Inventory/{stockItemId}/Details | 
+[**GetInventoryDetailsAsync**](InventoryAPI.md#GetInventoryDetailsAsync) | **Get** /api/v2/InventoryService/Inventory/{stockItemId}/Details | Get inventory details for a stock item
 
 
 
-## ApiV2InventoryServiceInventoryStockItemIdDetailsGet
+## GetInventoryDetailsAsync
 
-> ApiV2InventoryServiceInventoryStockItemIdDetailsGet(ctx, stockItemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> GetInventoryDetailsAsync(ctx, stockItemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get inventory details for a stock item
 
 
 
@@ -33,9 +35,9 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryAPI.ApiV2InventoryServiceInventoryStockItemIdDetailsGet(context.Background(), stockItemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	r, err := apiClient.InventoryAPI.GetInventoryDetailsAsync(context.Background(), stockItemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `InventoryAPI.ApiV2InventoryServiceInventoryStockItemIdDetailsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryAPI.GetInventoryDetailsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -51,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2InventoryServiceInventoryStockItemIdDetailsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetInventoryDetailsAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -66,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **ParentBusinessProcessId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**TenantEnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**TenantEnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -241,41 +241,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *DealUnitFlowDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetTenantEnrolmentId
+### GetTenantEnrollmentId
 
-`func (o *DealUnitFlowDto) GetTenantEnrolmentId() string`
+`func (o *DealUnitFlowDto) GetTenantEnrollmentId() string`
 
-GetTenantEnrolmentId returns the TenantEnrolmentId field if non-nil, zero value otherwise.
+GetTenantEnrollmentId returns the TenantEnrollmentId field if non-nil, zero value otherwise.
 
-### GetTenantEnrolmentIdOk
+### GetTenantEnrollmentIdOk
 
-`func (o *DealUnitFlowDto) GetTenantEnrolmentIdOk() (*string, bool)`
+`func (o *DealUnitFlowDto) GetTenantEnrollmentIdOk() (*string, bool)`
 
-GetTenantEnrolmentIdOk returns a tuple with the TenantEnrolmentId field if it's non-nil, zero value otherwise
+GetTenantEnrollmentIdOk returns a tuple with the TenantEnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTenantEnrolmentId
+### SetTenantEnrollmentId
 
-`func (o *DealUnitFlowDto) SetTenantEnrolmentId(v string)`
+`func (o *DealUnitFlowDto) SetTenantEnrollmentId(v string)`
 
-SetTenantEnrolmentId sets TenantEnrolmentId field to given value.
+SetTenantEnrollmentId sets TenantEnrollmentId field to given value.
 
-### HasTenantEnrolmentId
+### HasTenantEnrollmentId
 
-`func (o *DealUnitFlowDto) HasTenantEnrolmentId() bool`
+`func (o *DealUnitFlowDto) HasTenantEnrollmentId() bool`
 
-HasTenantEnrolmentId returns a boolean if a field has been set.
+HasTenantEnrollmentId returns a boolean if a field has been set.
 
-### SetTenantEnrolmentIdNil
+### SetTenantEnrollmentIdNil
 
-`func (o *DealUnitFlowDto) SetTenantEnrolmentIdNil(b bool)`
+`func (o *DealUnitFlowDto) SetTenantEnrollmentIdNil(b bool)`
 
- SetTenantEnrolmentIdNil sets the value for TenantEnrolmentId to be an explicit nil
+ SetTenantEnrollmentIdNil sets the value for TenantEnrollmentId to be an explicit nil
 
-### UnsetTenantEnrolmentId
-`func (o *DealUnitFlowDto) UnsetTenantEnrolmentId()`
+### UnsetTenantEnrollmentId
+`func (o *DealUnitFlowDto) UnsetTenantEnrollmentId()`
 
-UnsetTenantEnrolmentId ensures that no value is present for TenantEnrolmentId, not even an explicit nil
+UnsetTenantEnrollmentId ensures that no value is present for TenantEnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

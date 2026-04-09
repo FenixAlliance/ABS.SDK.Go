@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **ValidResponse** | Pointer to **bool** |  | [optional] 
 **ParentFileUploadID** | Pointer to **NullableString** |  | [optional] 
 **FilePath** | Pointer to **NullableString** |  | [optional] 
-**File** | Pointer to **Nullable*os.File** |  | [optional] 
 **ContentType** | Pointer to **NullableString** |  | [optional] 
 **FileLength** | Pointer to **int64** |  | [optional] 
 
@@ -403,41 +402,6 @@ HasFilePath returns a boolean if a field has been set.
 `func (o *SupportRequestAttachmentUpdateDto) UnsetFilePath()`
 
 UnsetFilePath ensures that no value is present for FilePath, not even an explicit nil
-### GetFile
-
-`func (o *SupportRequestAttachmentUpdateDto) GetFile() *os.File`
-
-GetFile returns the File field if non-nil, zero value otherwise.
-
-### GetFileOk
-
-`func (o *SupportRequestAttachmentUpdateDto) GetFileOk() (**os.File, bool)`
-
-GetFileOk returns a tuple with the File field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFile
-
-`func (o *SupportRequestAttachmentUpdateDto) SetFile(v *os.File)`
-
-SetFile sets File field to given value.
-
-### HasFile
-
-`func (o *SupportRequestAttachmentUpdateDto) HasFile() bool`
-
-HasFile returns a boolean if a field has been set.
-
-### SetFileNil
-
-`func (o *SupportRequestAttachmentUpdateDto) SetFileNil(b bool)`
-
- SetFileNil sets the value for File to be an explicit nil
-
-### UnsetFile
-`func (o *SupportRequestAttachmentUpdateDto) UnsetFile()`
-
-UnsetFile ensures that no value is present for File, not even an explicit nil
 ### GetContentType
 
 `func (o *SupportRequestAttachmentUpdateDto) GetContentType() string`

@@ -4,18 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateEmployerAsync**](EmployersAPI.md#CreateEmployerAsync) | **Post** /api/v2/HrmsService/Employers | 
-[**DeleteEmployerAsync**](EmployersAPI.md#DeleteEmployerAsync) | **Delete** /api/v2/HrmsService/Employers/{employerId} | 
-[**GetEmployerByIdAsync**](EmployersAPI.md#GetEmployerByIdAsync) | **Get** /api/v2/HrmsService/Employers/{employerId} | 
-[**GetEmployersAsync**](EmployersAPI.md#GetEmployersAsync) | **Get** /api/v2/HrmsService/Employers | 
-[**GetEmployersCountAsync**](EmployersAPI.md#GetEmployersCountAsync) | **Get** /api/v2/HrmsService/Employers/Count | 
-[**UpdateEmployerAsync**](EmployersAPI.md#UpdateEmployerAsync) | **Put** /api/v2/HrmsService/Employers/{employerId} | 
+[**CreateEmployerAsync**](EmployersAPI.md#CreateEmployerAsync) | **Post** /api/v2/HrmsService/Employers | Create an employer
+[**DeleteEmployerAsync**](EmployersAPI.md#DeleteEmployerAsync) | **Delete** /api/v2/HrmsService/Employers/{employerId} | Delete an employer
+[**GetEmployerByIdAsync**](EmployersAPI.md#GetEmployerByIdAsync) | **Get** /api/v2/HrmsService/Employers/{employerId} | Get employer by ID
+[**GetEmployersAsync**](EmployersAPI.md#GetEmployersAsync) | **Get** /api/v2/HrmsService/Employers | Get employers
+[**GetEmployersCountAsync**](EmployersAPI.md#GetEmployersCountAsync) | **Get** /api/v2/HrmsService/Employers/Count | Count employers
+[**UpdateEmployerAsync**](EmployersAPI.md#UpdateEmployerAsync) | **Put** /api/v2/HrmsService/Employers/{employerId} | Update an employer
 
 
 
 ## CreateEmployerAsync
 
-> CreateEmployerAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployerProfileCreateDto(employerProfileCreateDto).Execute()
+> EmptyEnvelope CreateEmployerAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployerProfileCreateDto(employerProfileCreateDto).Execute()
+
+Create an employer
 
 
 
@@ -39,11 +41,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.EmployersAPI.CreateEmployerAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployerProfileCreateDto(employerProfileCreateDto).Execute()
+	resp, r, err := apiClient.EmployersAPI.CreateEmployerAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployerProfileCreateDto(employerProfileCreateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmployersAPI.CreateEmployerAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `CreateEmployerAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmployersAPI.CreateEmployerAsync`: %v\n", resp)
 }
 ```
 
@@ -65,11 +69,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -83,7 +87,9 @@ Name | Type | Description  | Notes
 
 ## DeleteEmployerAsync
 
-> DeleteEmployerAsync(ctx, employerId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeleteEmployerAsync(ctx, employerId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete an employer
 
 
 
@@ -107,11 +113,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.EmployersAPI.DeleteEmployerAsync(context.Background(), employerId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.EmployersAPI.DeleteEmployerAsync(context.Background(), employerId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmployersAPI.DeleteEmployerAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `DeleteEmployerAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmployersAPI.DeleteEmployerAsync`: %v\n", resp)
 }
 ```
 
@@ -137,11 +145,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -156,6 +164,8 @@ Name | Type | Description  | Notes
 ## GetEmployerByIdAsync
 
 > EmployerProfileDtoEnvelope GetEmployerByIdAsync(ctx, employerId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get employer by ID
 
 
 
@@ -215,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -230,6 +240,8 @@ Name | Type | Description  | Notes
 ## GetEmployersAsync
 
 > EmployerProfileDtoListEnvelope GetEmployersAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get employers
 
 
 
@@ -283,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -298,6 +310,8 @@ Name | Type | Description  | Notes
 ## GetEmployersCountAsync
 
 > Int32Envelope GetEmployersCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count employers
 
 
 
@@ -351,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -365,7 +379,9 @@ Name | Type | Description  | Notes
 
 ## UpdateEmployerAsync
 
-> UpdateEmployerAsync(ctx, employerId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+> EmptyEnvelope UpdateEmployerAsync(ctx, employerId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+
+Update an employer
 
 
 
@@ -390,11 +406,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.EmployersAPI.UpdateEmployerAsync(context.Background(), employerId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+	resp, r, err := apiClient.EmployersAPI.UpdateEmployerAsync(context.Background(), employerId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmployersAPI.UpdateEmployerAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `UpdateEmployerAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmployersAPI.UpdateEmployerAsync`: %v\n", resp)
 }
 ```
 
@@ -421,11 +439,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

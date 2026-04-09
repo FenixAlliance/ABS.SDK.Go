@@ -352,6 +352,32 @@ func Test_openapi_ContactsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ContactsAPIService PreviewContactEmailTemplate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var contactId string
+
+		httpRes, err := apiClient.ContactsAPI.PreviewContactEmailTemplate(context.Background(), contactId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ContactsAPIService SendContactEmail", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var contactId string
+
+		httpRes, err := apiClient.ContactsAPI.SendContactEmail(context.Background(), contactId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ContactsAPIService UpdateContactAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

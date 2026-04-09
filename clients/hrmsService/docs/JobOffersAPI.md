@@ -4,18 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateJobOfferAsync**](JobOffersAPI.md#CreateJobOfferAsync) | **Post** /api/v2/HrmsService/JobOffers | 
-[**DeleteJobOfferAsync**](JobOffersAPI.md#DeleteJobOfferAsync) | **Delete** /api/v2/HrmsService/JobOffers/{jobOfferId} | 
-[**GetJobOfferByIdAsync**](JobOffersAPI.md#GetJobOfferByIdAsync) | **Get** /api/v2/HrmsService/JobOffers/{jobOfferId} | 
-[**GetJobOffersAsync**](JobOffersAPI.md#GetJobOffersAsync) | **Get** /api/v2/HrmsService/JobOffers | 
-[**GetJobOffersCountAsync**](JobOffersAPI.md#GetJobOffersCountAsync) | **Get** /api/v2/HrmsService/JobOffers/Count | 
-[**UpdateJobOfferAsync**](JobOffersAPI.md#UpdateJobOfferAsync) | **Put** /api/v2/HrmsService/JobOffers/{jobOfferId} | 
+[**CreateJobOfferAsync**](JobOffersAPI.md#CreateJobOfferAsync) | **Post** /api/v2/HrmsService/JobOffers | Create a job offer
+[**DeleteJobOfferAsync**](JobOffersAPI.md#DeleteJobOfferAsync) | **Delete** /api/v2/HrmsService/JobOffers/{jobOfferId} | Delete a job offer
+[**GetJobOfferByIdAsync**](JobOffersAPI.md#GetJobOfferByIdAsync) | **Get** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID
+[**GetJobOffersAsync**](JobOffersAPI.md#GetJobOffersAsync) | **Get** /api/v2/HrmsService/JobOffers | Get job offers
+[**GetJobOffersCountAsync**](JobOffersAPI.md#GetJobOffersCountAsync) | **Get** /api/v2/HrmsService/JobOffers/Count | Count job offers
+[**UpdateJobOfferAsync**](JobOffersAPI.md#UpdateJobOfferAsync) | **Put** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer
 
 
 
 ## CreateJobOfferAsync
 
-> CreateJobOfferAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JobOfferCreateDto(jobOfferCreateDto).Execute()
+> EmptyEnvelope CreateJobOfferAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JobOfferCreateDto(jobOfferCreateDto).Execute()
+
+Create a job offer
 
 
 
@@ -39,11 +41,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.JobOffersAPI.CreateJobOfferAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JobOfferCreateDto(jobOfferCreateDto).Execute()
+	resp, r, err := apiClient.JobOffersAPI.CreateJobOfferAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JobOfferCreateDto(jobOfferCreateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JobOffersAPI.CreateJobOfferAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `CreateJobOfferAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JobOffersAPI.CreateJobOfferAsync`: %v\n", resp)
 }
 ```
 
@@ -65,11 +69,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -83,7 +87,9 @@ Name | Type | Description  | Notes
 
 ## DeleteJobOfferAsync
 
-> DeleteJobOfferAsync(ctx, jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeleteJobOfferAsync(ctx, jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete a job offer
 
 
 
@@ -107,11 +113,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.JobOffersAPI.DeleteJobOfferAsync(context.Background(), jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.JobOffersAPI.DeleteJobOfferAsync(context.Background(), jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JobOffersAPI.DeleteJobOfferAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `DeleteJobOfferAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JobOffersAPI.DeleteJobOfferAsync`: %v\n", resp)
 }
 ```
 
@@ -137,11 +145,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -156,6 +164,8 @@ Name | Type | Description  | Notes
 ## GetJobOfferByIdAsync
 
 > JobOfferDtoEnvelope GetJobOfferByIdAsync(ctx, jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get job offer by ID
 
 
 
@@ -215,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -230,6 +240,8 @@ Name | Type | Description  | Notes
 ## GetJobOffersAsync
 
 > JobOfferDtoListEnvelope GetJobOffersAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get job offers
 
 
 
@@ -283,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -298,6 +310,8 @@ Name | Type | Description  | Notes
 ## GetJobOffersCountAsync
 
 > Int32Envelope GetJobOffersCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count job offers
 
 
 
@@ -351,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -365,7 +379,9 @@ Name | Type | Description  | Notes
 
 ## UpdateJobOfferAsync
 
-> UpdateJobOfferAsync(ctx, jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+> EmptyEnvelope UpdateJobOfferAsync(ctx, jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+
+Update a job offer
 
 
 
@@ -390,11 +406,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.JobOffersAPI.UpdateJobOfferAsync(context.Background(), jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+	resp, r, err := apiClient.JobOffersAPI.UpdateJobOfferAsync(context.Background(), jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JobOffersAPI.UpdateJobOfferAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `UpdateJobOfferAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JobOffersAPI.UpdateJobOfferAsync`: %v\n", resp)
 }
 ```
 
@@ -421,11 +439,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

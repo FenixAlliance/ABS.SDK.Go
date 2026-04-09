@@ -4,15 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
-**AuthorId** | Pointer to **NullableString** |  | [optional] 
+**Code** | Pointer to **NullableString** |  | [optional] 
+**Published** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **HtmlContent** | Pointer to **NullableString** |  | [optional] 
 **FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
+**CodeType** | Pointer to **NullableString** |  | [optional] 
 **MarketingCampaignId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -119,41 +121,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *EmailTemplateCreateDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *EmailTemplateCreateDto) GetEnrolmentId() string`
+`func (o *EmailTemplateCreateDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *EmailTemplateCreateDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *EmailTemplateCreateDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *EmailTemplateCreateDto) SetEnrolmentId(v string)`
+`func (o *EmailTemplateCreateDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *EmailTemplateCreateDto) HasEnrolmentId() bool`
+`func (o *EmailTemplateCreateDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *EmailTemplateCreateDto) SetEnrolmentIdNil(b bool)`
+`func (o *EmailTemplateCreateDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *EmailTemplateCreateDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *EmailTemplateCreateDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetTitle
 
 `func (o *EmailTemplateCreateDto) GetTitle() string`
@@ -189,41 +191,66 @@ HasTitle returns a boolean if a field has been set.
 `func (o *EmailTemplateCreateDto) UnsetTitle()`
 
 UnsetTitle ensures that no value is present for Title, not even an explicit nil
-### GetAuthorId
+### GetCode
 
-`func (o *EmailTemplateCreateDto) GetAuthorId() string`
+`func (o *EmailTemplateCreateDto) GetCode() string`
 
-GetAuthorId returns the AuthorId field if non-nil, zero value otherwise.
+GetCode returns the Code field if non-nil, zero value otherwise.
 
-### GetAuthorIdOk
+### GetCodeOk
 
-`func (o *EmailTemplateCreateDto) GetAuthorIdOk() (*string, bool)`
+`func (o *EmailTemplateCreateDto) GetCodeOk() (*string, bool)`
 
-GetAuthorIdOk returns a tuple with the AuthorId field if it's non-nil, zero value otherwise
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAuthorId
+### SetCode
 
-`func (o *EmailTemplateCreateDto) SetAuthorId(v string)`
+`func (o *EmailTemplateCreateDto) SetCode(v string)`
 
-SetAuthorId sets AuthorId field to given value.
+SetCode sets Code field to given value.
 
-### HasAuthorId
+### HasCode
 
-`func (o *EmailTemplateCreateDto) HasAuthorId() bool`
+`func (o *EmailTemplateCreateDto) HasCode() bool`
 
-HasAuthorId returns a boolean if a field has been set.
+HasCode returns a boolean if a field has been set.
 
-### SetAuthorIdNil
+### SetCodeNil
 
-`func (o *EmailTemplateCreateDto) SetAuthorIdNil(b bool)`
+`func (o *EmailTemplateCreateDto) SetCodeNil(b bool)`
 
- SetAuthorIdNil sets the value for AuthorId to be an explicit nil
+ SetCodeNil sets the value for Code to be an explicit nil
 
-### UnsetAuthorId
-`func (o *EmailTemplateCreateDto) UnsetAuthorId()`
+### UnsetCode
+`func (o *EmailTemplateCreateDto) UnsetCode()`
 
-UnsetAuthorId ensures that no value is present for AuthorId, not even an explicit nil
+UnsetCode ensures that no value is present for Code, not even an explicit nil
+### GetPublished
+
+`func (o *EmailTemplateCreateDto) GetPublished() bool`
+
+GetPublished returns the Published field if non-nil, zero value otherwise.
+
+### GetPublishedOk
+
+`func (o *EmailTemplateCreateDto) GetPublishedOk() (*bool, bool)`
+
+GetPublishedOk returns a tuple with the Published field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublished
+
+`func (o *EmailTemplateCreateDto) SetPublished(v bool)`
+
+SetPublished sets Published field to given value.
+
+### HasPublished
+
+`func (o *EmailTemplateCreateDto) HasPublished() bool`
+
+HasPublished returns a boolean if a field has been set.
+
 ### GetDescription
 
 `func (o *EmailTemplateCreateDto) GetDescription() string`
@@ -329,6 +356,41 @@ HasFeaturedImageUrl returns a boolean if a field has been set.
 `func (o *EmailTemplateCreateDto) UnsetFeaturedImageUrl()`
 
 UnsetFeaturedImageUrl ensures that no value is present for FeaturedImageUrl, not even an explicit nil
+### GetCodeType
+
+`func (o *EmailTemplateCreateDto) GetCodeType() string`
+
+GetCodeType returns the CodeType field if non-nil, zero value otherwise.
+
+### GetCodeTypeOk
+
+`func (o *EmailTemplateCreateDto) GetCodeTypeOk() (*string, bool)`
+
+GetCodeTypeOk returns a tuple with the CodeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCodeType
+
+`func (o *EmailTemplateCreateDto) SetCodeType(v string)`
+
+SetCodeType sets CodeType field to given value.
+
+### HasCodeType
+
+`func (o *EmailTemplateCreateDto) HasCodeType() bool`
+
+HasCodeType returns a boolean if a field has been set.
+
+### SetCodeTypeNil
+
+`func (o *EmailTemplateCreateDto) SetCodeTypeNil(b bool)`
+
+ SetCodeTypeNil sets the value for CodeType to be an explicit nil
+
+### UnsetCodeType
+`func (o *EmailTemplateCreateDto) UnsetCodeType()`
+
+UnsetCodeType ensures that no value is present for CodeType, not even an explicit nil
 ### GetMarketingCampaignId
 
 `func (o *EmailTemplateCreateDto) GetMarketingCampaignId() string`

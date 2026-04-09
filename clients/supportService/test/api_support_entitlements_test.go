@@ -22,11 +22,11 @@ func Test_openapi_SupportEntitlementsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SupportEntitlementsAPIService ApiV2SupportServiceSupportEntitlementsCountGet", func(t *testing.T) {
+	t.Run("Test SupportEntitlementsAPIService CreateSupportEntitlementAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SupportEntitlementsAPI.ApiV2SupportServiceSupportEntitlementsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SupportEntitlementsAPI.CreateSupportEntitlementAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,37 +34,13 @@ func Test_openapi_SupportEntitlementsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportEntitlementsAPIService ApiV2SupportServiceSupportEntitlementsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SupportEntitlementsAPI.ApiV2SupportServiceSupportEntitlementsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SupportEntitlementsAPIService ApiV2SupportServiceSupportEntitlementsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SupportEntitlementsAPI.ApiV2SupportServiceSupportEntitlementsPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SupportEntitlementsAPIService ApiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete", func(t *testing.T) {
+	t.Run("Test SupportEntitlementsAPIService DeleteSupportEntitlementAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportEntitlementId string
 
-		resp, httpRes, err := apiClient.SupportEntitlementsAPI.ApiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete(context.Background(), supportEntitlementId).Execute()
+		resp, httpRes, err := apiClient.SupportEntitlementsAPI.DeleteSupportEntitlementAsync(context.Background(), supportEntitlementId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +48,13 @@ func Test_openapi_SupportEntitlementsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportEntitlementsAPIService ApiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet", func(t *testing.T) {
+	t.Run("Test SupportEntitlementsAPIService GetSupportEntitlementAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportEntitlementId string
 
-		resp, httpRes, err := apiClient.SupportEntitlementsAPI.ApiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet(context.Background(), supportEntitlementId).Execute()
+		resp, httpRes, err := apiClient.SupportEntitlementsAPI.GetSupportEntitlementAsync(context.Background(), supportEntitlementId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -86,13 +62,37 @@ func Test_openapi_SupportEntitlementsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportEntitlementsAPIService ApiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut", func(t *testing.T) {
+	t.Run("Test SupportEntitlementsAPIService GetSupportEntitlementsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SupportEntitlementsAPI.GetSupportEntitlementsAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SupportEntitlementsAPIService GetSupportEntitlementsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SupportEntitlementsAPI.GetSupportEntitlementsCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SupportEntitlementsAPIService UpdateSupportEntitlementAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportEntitlementId string
 
-		resp, httpRes, err := apiClient.SupportEntitlementsAPI.ApiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut(context.Background(), supportEntitlementId).Execute()
+		resp, httpRes, err := apiClient.SupportEntitlementsAPI.UpdateSupportEntitlementAsync(context.Background(), supportEntitlementId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

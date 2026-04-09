@@ -22,73 +22,26 @@ func Test_openapi_UsersAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test UsersAPIService ApiV2SystemServiceUsersCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.UsersAPI.ApiV2SystemServiceUsersCountGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test UsersAPIService ApiV2SystemServiceUsersExtendedCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.UsersAPI.ApiV2SystemServiceUsersExtendedCountGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test UsersAPIService ApiV2SystemServiceUsersExtendedGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.UsersAPI.ApiV2SystemServiceUsersExtendedGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test UsersAPIService ApiV2SystemServiceUsersGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.UsersAPI.ApiV2SystemServiceUsersGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test UsersAPIService ApiV2SystemServiceUsersPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.UsersAPI.ApiV2SystemServiceUsersPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test UsersAPIService ApiV2SystemServiceUsersUserIdDelete", func(t *testing.T) {
+	t.Run("Test UsersAPIService AdminPreviewUserEmailTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
-		resp, httpRes, err := apiClient.UsersAPI.ApiV2SystemServiceUsersUserIdDelete(context.Background(), userId).Execute()
+		httpRes, err := apiClient.UsersAPI.AdminPreviewUserEmailTemplate(context.Background(), userId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsersAPIService AdminSendUserEmail", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var userId string
+
+		resp, httpRes, err := apiClient.UsersAPI.AdminSendUserEmail(context.Background(), userId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -96,13 +49,11 @@ func Test_openapi_UsersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test UsersAPIService ApiV2SystemServiceUsersUserIdExtendedGet", func(t *testing.T) {
+	t.Run("Test UsersAPIService CreateAccountHolderAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var userId string
-
-		resp, httpRes, err := apiClient.UsersAPI.ApiV2SystemServiceUsersUserIdExtendedGet(context.Background(), userId).Execute()
+		resp, httpRes, err := apiClient.UsersAPI.CreateAccountHolderAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -110,13 +61,51 @@ func Test_openapi_UsersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test UsersAPIService ApiV2SystemServiceUsersUserIdPut", func(t *testing.T) {
+	t.Run("Test UsersAPIService DeleteAccountHolderAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
-		resp, httpRes, err := apiClient.UsersAPI.ApiV2SystemServiceUsersUserIdPut(context.Background(), userId).Execute()
+		resp, httpRes, err := apiClient.UsersAPI.DeleteAccountHolderAsync(context.Background(), userId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsersAPIService GetExtendedAccountHolderAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var userId string
+
+		resp, httpRes, err := apiClient.UsersAPI.GetExtendedAccountHolderAsync(context.Background(), userId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsersAPIService GetExtendedUsersAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsersAPI.GetExtendedUsersAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsersAPIService GetExtendedUsersCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsersAPI.GetExtendedUsersCountAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -131,6 +120,44 @@ func Test_openapi_UsersAPIService(t *testing.T) {
 		var userId string
 
 		resp, httpRes, err := apiClient.UsersAPI.GetUserAsync(context.Background(), userId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsersAPIService GetUsersAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsersAPI.GetUsersAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsersAPIService GetUsersCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsersAPI.GetUsersCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsersAPIService UpdateAccountHolderAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var userId string
+
+		resp, httpRes, err := apiClient.UsersAPI.UpdateAccountHolderAsync(context.Background(), userId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -4,22 +4,161 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2GlobeServiceCountriesCountryIdCallingCodesGet**](CountriesAPI.md#ApiV2GlobeServiceCountriesCountryIdCallingCodesGet) | **Get** /api/v2/GlobeService/Countries/{countryId}/CallingCodes | 
-[**ApiV2GlobeServiceCountriesCountryIdCurrenciesGet**](CountriesAPI.md#ApiV2GlobeServiceCountriesCountryIdCurrenciesGet) | **Get** /api/v2/GlobeService/Countries/{countryId}/Currencies | 
-[**ApiV2GlobeServiceCountriesCountryIdGet**](CountriesAPI.md#ApiV2GlobeServiceCountriesCountryIdGet) | **Get** /api/v2/GlobeService/Countries/{countryId} | 
-[**ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet**](CountriesAPI.md#ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet) | **Get** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities | 
-[**ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet**](CountriesAPI.md#ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet) | **Get** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId} | 
-[**ApiV2GlobeServiceCountriesCountryIdStatesGet**](CountriesAPI.md#ApiV2GlobeServiceCountriesCountryIdStatesGet) | **Get** /api/v2/GlobeService/Countries/{countryId}/States | 
-[**ApiV2GlobeServiceCountriesCountryIdTimezonesGet**](CountriesAPI.md#ApiV2GlobeServiceCountriesCountryIdTimezonesGet) | **Get** /api/v2/GlobeService/Countries/{countryId}/Timezones | 
-[**ApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet**](CountriesAPI.md#ApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet) | **Get** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains | 
-[**ApiV2GlobeServiceCountriesGet**](CountriesAPI.md#ApiV2GlobeServiceCountriesGet) | **Get** /api/v2/GlobeService/Countries | 
-[**ApiV2GlobeServiceCountriesSearchGet**](CountriesAPI.md#ApiV2GlobeServiceCountriesSearchGet) | **Get** /api/v2/GlobeService/Countries/Search | 
+[**CountCountries**](CountriesAPI.md#CountCountries) | **Get** /api/v2/GlobeService/Countries/Count | Count countries
+[**GetAllCountries**](CountriesAPI.md#GetAllCountries) | **Get** /api/v2/GlobeService/Countries | Get all countries
+[**GetCallingCodesByCountryIdAsync**](CountriesAPI.md#GetCallingCodesByCountryIdAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/CallingCodes | Get calling codes for a country
+[**GetCitiesByCountryStateIdAsync**](CountriesAPI.md#GetCitiesByCountryStateIdAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities | Get cities for a state
+[**GetCountryById**](CountriesAPI.md#GetCountryById) | **Get** /api/v2/GlobeService/Countries/{countryId} | Get country by ID
+[**GetCountryStateByIdAsync**](CountriesAPI.md#GetCountryStateByIdAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId} | Get state by ID
+[**GetCountryStatesAsync**](CountriesAPI.md#GetCountryStatesAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/States | Get states for a country
+[**GetEnabledCurrenciesByCountryIdAsync**](CountriesAPI.md#GetEnabledCurrenciesByCountryIdAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/Currencies | Get currencies for a country
+[**GetTimeZonesByCountryIdAsync**](CountriesAPI.md#GetTimeZonesByCountryIdAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/Timezones | Get timezones for a country
+[**GetTopLevelDomainsByCountryIdAsync**](CountriesAPI.md#GetTopLevelDomainsByCountryIdAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains | Get top-level domains for a country
+[**SearchCountriesByNameAsync**](CountriesAPI.md#SearchCountriesByNameAsync) | **Get** /api/v2/GlobeService/Countries/Search | Search countries by name
 
 
 
-## ApiV2GlobeServiceCountriesCountryIdCallingCodesGet
+## CountCountries
 
-> CountryCallingCodeDtoListEnvelope ApiV2GlobeServiceCountriesCountryIdCallingCodesGet(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCountries(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count countries
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CountriesAPI.CountCountries(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountCountries``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountCountries`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.CountCountries`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountCountriesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAllCountries
+
+> CountryDtoListEnvelope GetAllCountries(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get all countries
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CountriesAPI.GetAllCountries(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetAllCountries``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAllCountries`: CountryDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.GetAllCountries`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAllCountriesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**CountryDtoListEnvelope**](CountryDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCallingCodesByCountryIdAsync
+
+> CountryCallingCodeDtoListEnvelope GetCallingCodesByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get calling codes for a country
 
 
 
@@ -42,13 +181,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdCallingCodesGet(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetCallingCodesByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdCallingCodesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetCallingCodesByCountryIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2GlobeServiceCountriesCountryIdCallingCodesGet`: CountryCallingCodeDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdCallingCodesGet`: %v\n", resp)
+	// response from `GetCallingCodesByCountryIdAsync`: CountryCallingCodeDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.GetCallingCodesByCountryIdAsync`: %v\n", resp)
 }
 ```
 
@@ -62,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCountriesCountryIdCallingCodesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCallingCodesByCountryIdAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -77,165 +216,23 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ApiV2GlobeServiceCountriesCountryIdCurrenciesGet
+## GetCitiesByCountryStateIdAsync
 
-> CurrencyDtoListEnvelope ApiV2GlobeServiceCountriesCountryIdCurrenciesGet(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CityDtoListEnvelope GetCitiesByCountryStateIdAsync(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	countryId := "countryId_example" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdCurrenciesGet(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdCurrenciesGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2GlobeServiceCountriesCountryIdCurrenciesGet`: CurrencyDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdCurrenciesGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**countryId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCountriesCountryIdCurrenciesGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**CurrencyDtoListEnvelope**](CurrencyDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2GlobeServiceCountriesCountryIdGet
-
-> CountryDtoEnvelope ApiV2GlobeServiceCountriesCountryIdGet(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	countryId := "countryId_example" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdGet(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2GlobeServiceCountriesCountryIdGet`: CountryDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**countryId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCountriesCountryIdGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**CountryDtoEnvelope**](CountryDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet
-
-> CityDtoListEnvelope ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+Get cities for a state
 
 
 
@@ -259,13 +256,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetCitiesByCountryStateIdAsync(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetCitiesByCountryStateIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet`: CityDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet`: %v\n", resp)
+	// response from `GetCitiesByCountryStateIdAsync`: CityDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.GetCitiesByCountryStateIdAsync`: %v\n", resp)
 }
 ```
 
@@ -280,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCitiesByCountryStateIdAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -296,21 +293,97 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet
+## GetCountryById
 
-> CountryStateDtoEnvelope ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CountryDtoEnvelope GetCountryById(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get country by ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	countryId := "countryId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CountriesAPI.GetCountryById(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetCountryById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCountryById`: CountryDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.GetCountryById`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**countryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCountryByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**CountryDtoEnvelope**](CountryDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCountryStateByIdAsync
+
+> CountryStateDtoEnvelope GetCountryStateByIdAsync(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get state by ID
 
 
 
@@ -334,13 +407,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetCountryStateByIdAsync(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetCountryStateByIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet`: CountryStateDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet`: %v\n", resp)
+	// response from `GetCountryStateByIdAsync`: CountryStateDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.GetCountryStateByIdAsync`: %v\n", resp)
 }
 ```
 
@@ -355,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCountryStateByIdAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -371,21 +444,23 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ApiV2GlobeServiceCountriesCountryIdStatesGet
+## GetCountryStatesAsync
 
-> CountryStateDtoListEnvelope ApiV2GlobeServiceCountriesCountryIdStatesGet(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CountryStateDtoListEnvelope GetCountryStatesAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get states for a country
 
 
 
@@ -408,13 +483,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesGet(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetCountryStatesAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetCountryStatesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2GlobeServiceCountriesCountryIdStatesGet`: CountryStateDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdStatesGet`: %v\n", resp)
+	// response from `GetCountryStatesAsync`: CountryStateDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.GetCountryStatesAsync`: %v\n", resp)
 }
 ```
 
@@ -428,7 +503,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCountriesCountryIdStatesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCountryStatesAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -443,21 +518,23 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ApiV2GlobeServiceCountriesCountryIdTimezonesGet
+## GetEnabledCurrenciesByCountryIdAsync
 
-> TimezoneDtoListEnvelope ApiV2GlobeServiceCountriesCountryIdTimezonesGet(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CurrencyDtoListEnvelope GetEnabledCurrenciesByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get currencies for a country
 
 
 
@@ -480,13 +557,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdTimezonesGet(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetEnabledCurrenciesByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdTimezonesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetEnabledCurrenciesByCountryIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2GlobeServiceCountriesCountryIdTimezonesGet`: TimezoneDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdTimezonesGet`: %v\n", resp)
+	// response from `GetEnabledCurrenciesByCountryIdAsync`: CurrencyDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.GetEnabledCurrenciesByCountryIdAsync`: %v\n", resp)
 }
 ```
 
@@ -500,7 +577,81 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCountriesCountryIdTimezonesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetEnabledCurrenciesByCountryIdAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**CurrencyDtoListEnvelope**](CurrencyDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTimeZonesByCountryIdAsync
+
+> TimezoneDtoListEnvelope GetTimeZonesByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get timezones for a country
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	countryId := "countryId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CountriesAPI.GetTimeZonesByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetTimeZonesByCountryIdAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTimeZonesByCountryIdAsync`: TimezoneDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.GetTimeZonesByCountryIdAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**countryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTimeZonesByCountryIdAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -515,21 +666,23 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet
+## GetTopLevelDomainsByCountryIdAsync
 
-> CountryTopLevelDomainDtoListEnvelope ApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CountryTopLevelDomainDtoListEnvelope GetTopLevelDomainsByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get top-level domains for a country
 
 
 
@@ -552,13 +705,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetTopLevelDomainsByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetTopLevelDomainsByCountryIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet`: CountryTopLevelDomainDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.ApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet`: %v\n", resp)
+	// response from `GetTopLevelDomainsByCountryIdAsync`: CountryTopLevelDomainDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.GetTopLevelDomainsByCountryIdAsync`: %v\n", resp)
 }
 ```
 
@@ -572,7 +725,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCountriesCountryIdTopLevelDomainsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTopLevelDomainsByCountryIdAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -587,87 +740,23 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ApiV2GlobeServiceCountriesGet
+## SearchCountriesByNameAsync
 
-> CountryDtoListEnvelope ApiV2GlobeServiceCountriesGet(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CountryDtoListEnvelope SearchCountriesByNameAsync(ctx).CountryName(countryName).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesGet(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.ApiV2GlobeServiceCountriesGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2GlobeServiceCountriesGet`: CountryDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.ApiV2GlobeServiceCountriesGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCountriesGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**CountryDtoListEnvelope**](CountryDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/xml, application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2GlobeServiceCountriesSearchGet
-
-> CountryDtoListEnvelope ApiV2GlobeServiceCountriesSearchGet(ctx).CountryName(countryName).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+Search countries by name
 
 
 
@@ -690,13 +779,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.ApiV2GlobeServiceCountriesSearchGet(context.Background()).CountryName(countryName).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.SearchCountriesByNameAsync(context.Background()).CountryName(countryName).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.ApiV2GlobeServiceCountriesSearchGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.SearchCountriesByNameAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2GlobeServiceCountriesSearchGet`: CountryDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.ApiV2GlobeServiceCountriesSearchGet`: %v\n", resp)
+	// response from `SearchCountriesByNameAsync`: CountryDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.SearchCountriesByNameAsync`: %v\n", resp)
 }
 ```
 
@@ -706,7 +795,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2GlobeServiceCountriesSearchGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSearchCountriesByNameAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -721,12 +810,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,14 +9,25 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: SystemService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: Antiforgery
+- name: Emails
+- name: FenixAlliance.ABP.Web
+- name: Licensing
+- name: Migrations
+- name: Modules
+- name: Options
+- name: Tenants
+- name: Users
 paths:
   /api/v2/SystemService/Antiforgery/GetAndStoreTokens:
     get:
+      description: Generates antiforgery tokens and stores them in the current HTTP
+        context.
+      operationId: GetAndStoreTokens
       parameters:
       - explode: true
         in: query
@@ -35,10 +46,14 @@ paths:
       responses:
         "200":
           description: OK
+      summary: Get and store antiforgery tokens
       tags:
       - Antiforgery
   /api/v2/SystemService/Antiforgery/IsRequestValid:
     get:
+      description: Validates whether the current HTTP request contains a valid antiforgery
+        token.
+      operationId: IsRequestValidAsync
       parameters:
       - explode: true
         in: query
@@ -57,19 +72,15 @@ paths:
       responses:
         "200":
           description: OK
+      summary: Validate antiforgery request
       tags:
       - Antiforgery
-  /api/Licensing/Licenses/Validate:
-    get:
+  /api/v2/SystemService/Emails/SendBasic:
+    post:
+      description: This action is only available for global administrators (business_owner
+        role).
+      operationId: AdminSendBasicEmail
       parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
       - explode: true
         in: query
         name: api-version
@@ -88,10 +99,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LicenseKey'
+              $ref: '#/components/schemas/ObjectEmailDispatchRequest'
           application/xml:
             schema:
-              $ref: '#/components/schemas/LicenseKey'
+              $ref: '#/components/schemas/ObjectEmailDispatchRequest'
       responses:
         "403":
           content:
@@ -115,24 +126,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BooleanEnvelope'
+                $ref: '#/components/schemas/TenantDtoListEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/BooleanEnvelope'
+                $ref: '#/components/schemas/TenantDtoListEnvelope'
           description: OK
+      summary: Send a basic transactional email to recipients.
       tags:
-      - Licenses
-  /api/Licensing/Licenses/Validate/Errors:
-    get:
+      - Emails
+  /api/v2/SystemService/Emails/Preview:
+    post:
+      description: This action is only available for global administrators (business_owner
+        role).
+      operationId: AdminPreviewBasicEmailTemplate
       parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
       - explode: true
         in: query
         name: api-version
@@ -151,168 +158,258 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LicenseKey'
+              $ref: '#/components/schemas/ObjectEmailDispatchRequest'
           application/xml:
             schema:
-              $ref: '#/components/schemas/LicenseKey'
+              $ref: '#/components/schemas/ObjectEmailDispatchRequest'
       responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LicenseValidationErrorListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/LicenseValidationErrorListEnvelope'
+          description: OK
+      summary: Preview a rendered basic email template.
+      tags:
+      - Emails
+  /version:
+    get:
+      responses:
+        "200":
           description: OK
       tags:
-      - Licenses
-  /api/Licensing/Licenses/Validate/Attributes:
+      - FenixAlliance.ABP.Web
+  /health:
     get:
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+  /register:
+    post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LicenseKey'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/LicenseKey'
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
       responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LicenseAttributesListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/LicenseAttributesListEnvelope'
           description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
       tags:
-      - Licenses
-  /api/Licensing/Licenses/Generate:
+      - FenixAlliance.ABP.Web
+  /login:
     post:
       parameters:
       - explode: true
         in: query
-        name: tenantId
-        required: true
+        name: useCookies
+        required: false
         schema:
-          format: uuid
-          type: string
+          type: boolean
         style: form
       - explode: true
         in: query
-        name: api-version
+        name: useSessionCookies
         required: false
         schema:
-          type: string
+          type: boolean
         style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LicenseKeyRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/LicenseKeyRequest'
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
       responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StringEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/StringEnvelope'
+                $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - Licenses
+      - FenixAlliance.ABP.Web
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
   /api/v2/SystemService/Licensing/Licenses:
     get:
+      description: "Retrieves a list of suite licenses, optionally filtered by tenant."
+      operationId: GetLicensesAsync
       parameters:
       - explode: true
         in: query
@@ -589,10 +686,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuiteLicenseDtoListEnvelope'
           description: OK
+      summary: Retrieve a list of licenses
       tags:
       - Licensing
   /api/v2/SystemService/Licensing/Licenses/{licenseId}:
     get:
+      description: Retrieves a single suite license by its unique identifier.
+      operationId: GetLicenseByIdAsync
       parameters:
       - explode: false
         in: path
@@ -869,10 +969,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuiteLicenseDtoEnvelope'
           description: OK
+      summary: Retrieve a license by ID
       tags:
       - Licensing
   /api/v2/SystemService/Licensing/Licenses/{licenseId}/Assignments:
     get:
+      description: Retrieves all license assignments for a given license.
+      operationId: GetLicenseAssignmentsAsync
       parameters:
       - explode: false
         in: path
@@ -1157,10 +1260,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuiteLicenseAssignmentDtoListEnvelope'
           description: OK
+      summary: Retrieve license assignments
       tags:
       - Licensing
   /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes:
     get:
+      description: Retrieves all additional attributes for a given license.
+      operationId: GetLicenseAttributesAsync
       parameters:
       - explode: false
         in: path
@@ -1445,10 +1551,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuiteLicenseAssignmentDtoListEnvelope'
           description: OK
+      summary: Retrieve license attributes
       tags:
       - Licensing
   /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features:
     get:
+      description: Retrieves all features for a given license.
+      operationId: GetLicenseFeaturesAsync
       parameters:
       - explode: false
         in: path
@@ -1733,10 +1842,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuiteLicenseAssignmentDtoListEnvelope'
           description: OK
+      summary: Retrieve license features
       tags:
       - Licensing
   /api/v2/SystemService/Licensing/Licenses/{licenseId}/Quota:
     get:
+      description: Retrieves the record quota for a given license.
+      operationId: GetLicenseRecordsQuotaAsync
       parameters:
       - explode: false
         in: path
@@ -2021,10 +2133,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuiteLicenseAssignmentDtoListEnvelope'
           description: OK
+      summary: Retrieve license record quota
       tags:
       - Licensing
   /api/v2/SystemService/Licensing/Licenses/Redeem:
     post:
+      description: Redeems a license for the current tenant user.
+      operationId: RedeemLicenseAsync
       parameters:
       - explode: true
         in: query
@@ -2433,10 +2548,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/BooleanEnvelope'
           description: OK
+      summary: Redeem a license
       tags:
       - Licensing
   /api/v2/SystemService/Licensing/Licenses/Validate:
     post:
+      description: Validates a license key and returns validation failures if any.
+      operationId: ValidateLicenseAsync
       parameters:
       - explode: true
         in: query
@@ -2715,132 +2833,132 @@ paths:
           content:
             application/json;odata.metadata=minimal;odata.streaming=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=minimal;odata.streaming=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=minimal:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=full;odata.streaming=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=full;odata.streaming=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=full:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=none;odata.streaming=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=none;odata.streaming=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=none:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.streaming=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.streaming=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=minimal;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=minimal;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=full;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=full;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=none;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.metadata=none;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.streaming=true;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.streaming=true;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.streaming=false;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;odata.streaming=false;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;IEEE754Compatible=false:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/json;IEEE754Compatible=true:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             text/plain:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             application/octet-stream:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
             text/json:
               schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/GeneralValidationFailureListEnvelope'
+                $ref: '#/components/schemas/IValidationFailureListEnvelope'
           description: OK
+      summary: Validate a license
       tags:
       - Licensing
   /api/v2/SystemService/Migrations:
     get:
+      description: Retrieves the list of applied or pending database migrations.
+      operationId: Migrations
       parameters:
       - explode: true
         in: query
@@ -2891,10 +3009,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Retrieve database migrations
       tags:
       - Migrations
   /api/v2/SystemService/Migrations/Migrate:
     post:
+      description: Applies all pending database migrations and returns the list of
+        migrations that were applied.
+      operationId: Migrate
       parameters:
       - explode: true
         in: query
@@ -2938,6 +3060,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Apply pending database migrations
       tags:
       - Migrations
   /api/v2/StudioService/Modules:
@@ -3054,6 +3177,512 @@ paths:
       summary: Get all modules available to a tenant user.
       tags:
       - Modules
+  /api/v2/SystemService/Options:
+    get:
+      description: Retrieve a list of system options for a portal
+      operationId: GetSystemOptions
+      parameters:
+      - explode: true
+        in: query
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of system options
+      tags:
+      - Options
+    post:
+      description: Create a new system option
+      operationId: CreateSystemOption
+      parameters:
+      - explode: true
+        in: query
+        name: key
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a new system option
+      tags:
+      - Options
+  /api/v2/SystemService/Options/Count:
+    get:
+      description: Get the count of system options for a portal
+      operationId: GetSystemOptionsCount
+      parameters:
+      - explode: true
+        in: query
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of system options
+      tags:
+      - Options
+  /api/v2/SystemService/Options/{optionId}:
+    delete:
+      description: Delete a system option
+      operationId: DeleteSystemOption
+      parameters:
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a system option
+      tags:
+      - Options
+    get:
+      description: Retrieve a single system option by its ID
+      operationId: GetSystemOptionById
+      parameters:
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+          description: OK
+      summary: Retrieve a single system option by its ID
+      tags:
+      - Options
+    put:
+      description: Update a system option
+      operationId: UpdateSystemOption
+      parameters:
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a system option
+      tags:
+      - Options
+  /api/v2/SystemService/Options/Key/{key}:
+    get:
+      description: Retrieve a single system option by its key
+      operationId: GetSystemOptionByKey
+      parameters:
+      - explode: true
+        in: query
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: key
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+          description: OK
+      summary: Retrieve a single system option by its key
+      tags:
+      - Options
+  /api/v2/SystemService/Options/Upsert/{key}:
+    put:
+      description: Create or update a system option by key
+      operationId: UpsertSystemOption
+      parameters:
+      - explode: false
+        in: path
+        name: key
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create or update a system option by key
+      tags:
+      - Options
   /api/v2/SystemService/Tenants:
     get:
       description: This action is only available for global administrators.
@@ -3492,8 +4121,95 @@ paths:
       summary: Update a specific tenant by ID.
       tags:
       - Tenants
+  /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview:
+    post:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: AdminPreviewTenantEmail
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+      responses:
+        "200":
+          description: OK
+      summary: Preview the rendered email for a user.
+      tags:
+      - Tenants
+  /api/v2/SystemService/Tenants/{tenantId}/Emails/Send:
+    post:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: AdminSendTenantEmail
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+      responses:
+        "200":
+          description: OK
+      summary: Send an email to a user.
+      tags:
+      - Tenants
   /api/v2/SystemService/Users:
     get:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: GetUsersAsync
       parameters:
       - explode: true
         in: query
@@ -3537,9 +4253,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserDtoListEnvelope'
           description: OK
+      summary: Retrieve a list of users
       tags:
       - Users
     post:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: CreateAccountHolderAsync
       parameters:
       - explode: true
         in: query
@@ -3559,10 +4279,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AccountHolderCreateDto'
+              $ref: '#/components/schemas/UserCreateDto'
           application/xml:
             schema:
-              $ref: '#/components/schemas/AccountHolderCreateDto'
+              $ref: '#/components/schemas/UserCreateDto'
       responses:
         "403":
           content:
@@ -3591,10 +4311,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create a new user
       tags:
       - Users
   /api/v2/SystemService/Users/Count:
     get:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: GetUsersCountAsync
       parameters:
       - explode: true
         in: query
@@ -3638,10 +4362,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Get the count of users
       tags:
       - Users
   /api/v2/SystemService/Users/Extended:
     get:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: GetExtendedUsersAsync
       parameters:
       - explode: true
         in: query
@@ -3685,10 +4413,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExtendedUserDtoListEnvelope'
           description: OK
+      summary: Retrieve a list of extended users
       tags:
       - Users
   /api/v2/SystemService/Users/Extended/Count:
     get:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: GetExtendedUsersCountAsync
       parameters:
       - explode: true
         in: query
@@ -3732,16 +4464,21 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Get the count of extended users
       tags:
       - Users
   /api/v2/SystemService/Users/{userId}:
     delete:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: DeleteAccountHolderAsync
       parameters:
       - explode: false
         in: path
         name: userId
         required: true
         schema:
+          format: uuid
           type: string
         style: simple
       - explode: true
@@ -3786,9 +4523,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Delete a user
       tags:
       - Users
     get:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
       operationId: GetUserAsync
       parameters:
       - explode: false
@@ -3840,15 +4580,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserDtoEnvelope'
           description: OK
+      summary: Retrieve a user by ID
       tags:
       - Users
     put:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: UpdateAccountHolderAsync
       parameters:
       - explode: false
         in: path
         name: userId
         required: true
         schema:
+          format: uuid
           type: string
         style: simple
       - explode: true
@@ -3869,10 +4614,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AccountHolderUpdateDto'
+              $ref: '#/components/schemas/UserUpdateDto'
           application/xml:
             schema:
-              $ref: '#/components/schemas/AccountHolderUpdateDto'
+              $ref: '#/components/schemas/UserUpdateDto'
       responses:
         "403":
           content:
@@ -3901,10 +4646,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update a user
       tags:
       - Users
   /api/v2/SystemService/Users/{userId}/Extended:
     get:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: GetExtendedAccountHolderAsync
       parameters:
       - explode: false
         in: path
@@ -3955,144 +4704,161 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExtendedUserDtoEnvelope'
           description: OK
+      summary: Retrieve an extended user by ID
+      tags:
+      - Users
+  /api/v2/SystemService/Users/{userId}/Emails/Preview:
+    post:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: AdminPreviewUserEmailTemplate
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Preview the rendered email for a user.
+      tags:
+      - Users
+  /api/v2/SystemService/Users/{userId}/Emails/Send:
+    post:
+      description: This action is only available for users with the 'business_owner'
+        role (global administrators).
+      operationId: AdminSendUserEmail
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Send an email to a user.
       tags:
       - Users
 components:
   schemas:
-    AccountHolderCreateDto:
+    AccessTokenResponse:
       additionalProperties: false
       example:
-        birthday: 2000-01-23T04:56:07.000+00:00
-        lastName: lastName
-        gender: 0
-        jobTitle: jobTitle
-        twitterUrl: twitterUrl
-        about: about
-        cityId: cityId
-        countryId: countryId
-        facebookUrl: facebookUrl
-        password: password
-        publicName: publicName
-        websiteUrl: websiteUrl
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        currencyId: currencyId
-        email: email
-        gitHubUrl: gitHubUrl
-        timestamp: 2000-01-23T04:56:07.000+00:00
-        linkedInUrl: linkedInUrl
-        qualifiedName: qualifiedName
-        stateId: stateId
-        languageId: languageId
-        firstName: firstName
-        idProvider: idProvider
-        timezoneId: timezoneId
-        instagramUrl: instagramUrl
-        youTubeUrl: youTubeUrl
-        status: status
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
       properties:
-        id:
-          format: uuid
+        tokenType:
+          nullable: true
           readOnly: true
           type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        qualifiedName:
+        accessToken:
           nullable: true
           type: string
-        birthday:
-          format: date-time
-          type: string
-        firstName:
-          nullable: true
-          type: string
-        lastName:
-          nullable: true
-          type: string
-        publicName:
-          nullable: true
-          type: string
-        idProvider:
-          nullable: true
-          type: string
-        gender:
-          enum:
-          - 0
-          - 1
-          - 2
-          format: int32
+        expiresIn:
+          format: int64
           type: integer
-        email:
+        refreshToken:
           nullable: true
           type: string
-        about:
-          nullable: true
-          type: string
-        status:
-          nullable: true
-          type: string
-        jobTitle:
-          nullable: true
-          type: string
-        gitHubUrl:
-          nullable: true
-          type: string
-        websiteUrl:
-          nullable: true
-          type: string
-        twitterUrl:
-          nullable: true
-          type: string
-        facebookUrl:
-          nullable: true
-          type: string
-        youTubeUrl:
-          nullable: true
-          type: string
-        linkedInUrl:
-          nullable: true
-          type: string
-        instagramUrl:
-          nullable: true
-          type: string
-        timezoneId:
-          nullable: true
-          type: string
-        languageId:
-          nullable: true
-          type: string
-        currencyId:
-          nullable: true
-          type: string
-        countryId:
-          nullable: true
-          type: string
-        stateId:
-          nullable: true
-          type: string
-        cityId:
-          nullable: true
-          type: string
-        password:
-          nullable: true
-          type: string
-      type: object
-    AccountHolderUpdateDto:
-      additionalProperties: false
-      type: object
-    AdditionalAttribute:
-      additionalProperties: false
-      example:
-        value: value
-        key: key
-      properties:
-        key:
-          nullable: true
-          type: string
-        value:
-          nullable: true
-          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
       type: object
     BooleanEnvelope:
       additionalProperties: false
@@ -4174,6 +4940,103 @@ components:
           format: int32
           nullable: true
           type: integer
+      type: object
+    EmailDispatchRequest:
+      additionalProperties: false
+      example:
+        buttonText: buttonText
+        alertMessage: alertMessage
+        alertType: None
+        uiCulture: uiCulture
+        title: title
+        message: message
+        contactIds:
+        - contactIds
+        - contactIds
+        templateUrl: https://openapi-generator.tech
+        culture: culture
+        recipients:
+        - recipients
+        - recipients
+        buttonLink: https://openapi-generator.tech
+        userIds:
+        - userIds
+        - userIds
+        emailTemplateId: emailTemplateId
+        tenantIds:
+        - tenantIds
+        - tenantIds
+      properties:
+        title:
+          maxLength: 150
+          minLength: 0
+          type: string
+        message:
+          minLength: 10
+          type: string
+        buttonLink:
+          format: uri
+          nullable: true
+          type: string
+        buttonText:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        alertMessage:
+          nullable: true
+          type: string
+        alertType:
+          enum:
+          - None
+          - Info
+          - Error
+          - Warning
+          - Success
+          - Action
+          - Alert
+          type: string
+        culture:
+          minLength: 1
+          pattern: "^[a-z]{2}(-[A-Z]{2})?$"
+          type: string
+        uiCulture:
+          minLength: 1
+          pattern: "^[a-z]{2}(-[A-Z]{2})?$"
+          type: string
+        recipients:
+          items:
+            type: string
+          minItems: 1
+          type: array
+        contactIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        tenantIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        userIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        templateUrl:
+          format: uri
+          nullable: true
+          type: string
+        emailTemplateId:
+          nullable: true
+          type: string
+      required:
+      - culture
+      - message
+      - recipients
+      - title
+      - uiCulture
       type: object
     EmptyEnvelope:
       additionalProperties: false
@@ -4261,7 +5124,7 @@ components:
           twitterUrl: twitterUrl
           about: about
           unreadMessagesCount: 1
-          type: 4
+          type: User
           countryId: countryId
           cover: cover
           facebookURL: facebookURL
@@ -4483,7 +5346,7 @@ components:
             twitterUrl: twitterUrl
             about: about
             unreadMessagesCount: 1
-            type: 4
+            type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
@@ -4576,7 +5439,7 @@ components:
             twitterUrl: twitterUrl
             about: about
             unreadMessagesCount: 1
-            type: 4
+            type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
@@ -4672,6 +5535,7 @@ components:
     ExtendedUserDto:
       additionalProperties: false
       example:
+        handler: handler
         twitterUrl: twitterUrl
         jobTitle: jobTitle
         about: about
@@ -4701,9 +5565,9 @@ components:
         walletId: walletId
         settings:
           dateTimeFormat: dateTimeFormat
-          siteTheme: 2
+          siteTheme: System
           dateFormat: dateFormat
-          pageSize: 5
+          pageSize: 6
           id: id
           currencyFormat: currencyFormat
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -4711,7 +5575,7 @@ components:
         avatarUrl: avatarUrl
         qualifiedName: qualifiedName
         cartId: cartId
-        enrollmentsCount: 1
+        enrollmentsCount: 0
         coverUrl: coverUrl
         firstName: firstName
         phoneNumber: phoneNumber
@@ -4720,12 +5584,12 @@ components:
         status: status
         birthday: 2000-01-23T04:56:07.000+00:00
         lastName: lastName
-        gender: 0
+        gender: Unknown
         emailConfirmed: true
-        availability: 6
+        availability: DND
         countryId: countryId
         facebookUrl: facebookUrl
-        siteTheme: 5
+        siteTheme: System
         websiteUrl: websiteUrl
         socialProfile:
           githubURL: githubURL
@@ -4733,7 +5597,7 @@ components:
           twitterUrl: twitterUrl
           about: about
           unreadMessagesCount: 1
-          type: 4
+          type: User
           countryId: countryId
           cover: cover
           facebookURL: facebookURL
@@ -4799,6 +5663,9 @@ components:
         publicName:
           nullable: true
           type: string
+        handler:
+          nullable: true
+          type: string
         lastName:
           nullable: true
           type: string
@@ -4853,12 +5720,12 @@ components:
           type: string
         gender:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
+          - Unknown
+          - Male
+          - Female
+          - PreferNotToSay
           nullable: true
-          type: integer
+          type: string
         cityId:
           nullable: true
           type: string
@@ -4913,14 +5780,13 @@ components:
           type: boolean
         availability:
           enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          format: int32
+          - DND
+          - Busy
+          - Away
+          - Offline
+          - Available
           nullable: true
-          type: integer
+          type: string
         lockoutEnabled:
           type: boolean
         lockoutEnd:
@@ -4933,12 +5799,11 @@ components:
           type: integer
         siteTheme:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
+          - System
+          - Light
+          - Dark
           nullable: true
-          type: integer
+          type: string
         cart:
           $ref: '#/components/schemas/CartDto'
         wallet:
@@ -4952,6 +5817,7 @@ components:
       additionalProperties: false
       example:
         result:
+          handler: handler
           twitterUrl: twitterUrl
           jobTitle: jobTitle
           about: about
@@ -4981,9 +5847,9 @@ components:
           walletId: walletId
           settings:
             dateTimeFormat: dateTimeFormat
-            siteTheme: 2
+            siteTheme: System
             dateFormat: dateFormat
-            pageSize: 5
+            pageSize: 6
             id: id
             currencyFormat: currencyFormat
             timestamp: 2000-01-23T04:56:07.000+00:00
@@ -4991,7 +5857,7 @@ components:
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
-          enrollmentsCount: 1
+          enrollmentsCount: 0
           coverUrl: coverUrl
           firstName: firstName
           phoneNumber: phoneNumber
@@ -5000,12 +5866,12 @@ components:
           status: status
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
-          gender: 0
+          gender: Unknown
           emailConfirmed: true
-          availability: 6
+          availability: DND
           countryId: countryId
           facebookUrl: facebookUrl
-          siteTheme: 5
+          siteTheme: System
           websiteUrl: websiteUrl
           socialProfile:
             githubURL: githubURL
@@ -5013,7 +5879,7 @@ components:
             twitterUrl: twitterUrl
             about: about
             unreadMessagesCount: 1
-            type: 4
+            type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
@@ -5091,7 +5957,8 @@ components:
       additionalProperties: false
       example:
         result:
-        - twitterUrl: twitterUrl
+        - handler: handler
+          twitterUrl: twitterUrl
           jobTitle: jobTitle
           about: about
           currentEnrollmentId: currentEnrollmentId
@@ -5120,9 +5987,9 @@ components:
           walletId: walletId
           settings:
             dateTimeFormat: dateTimeFormat
-            siteTheme: 2
+            siteTheme: System
             dateFormat: dateFormat
-            pageSize: 5
+            pageSize: 6
             id: id
             currencyFormat: currencyFormat
             timestamp: 2000-01-23T04:56:07.000+00:00
@@ -5130,7 +5997,7 @@ components:
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
-          enrollmentsCount: 1
+          enrollmentsCount: 0
           coverUrl: coverUrl
           firstName: firstName
           phoneNumber: phoneNumber
@@ -5139,12 +6006,12 @@ components:
           status: status
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
-          gender: 0
+          gender: Unknown
           emailConfirmed: true
-          availability: 6
+          availability: DND
           countryId: countryId
           facebookUrl: facebookUrl
-          siteTheme: 5
+          siteTheme: System
           websiteUrl: websiteUrl
           socialProfile:
             githubURL: githubURL
@@ -5152,7 +6019,7 @@ components:
             twitterUrl: twitterUrl
             about: about
             unreadMessagesCount: 1
-            type: 4
+            type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
@@ -5200,7 +6067,8 @@ components:
           idProvider: idProvider
           timezoneId: timezoneId
           instagramUrl: instagramUrl
-        - twitterUrl: twitterUrl
+        - handler: handler
+          twitterUrl: twitterUrl
           jobTitle: jobTitle
           about: about
           currentEnrollmentId: currentEnrollmentId
@@ -5229,9 +6097,9 @@ components:
           walletId: walletId
           settings:
             dateTimeFormat: dateTimeFormat
-            siteTheme: 2
+            siteTheme: System
             dateFormat: dateFormat
-            pageSize: 5
+            pageSize: 6
             id: id
             currencyFormat: currencyFormat
             timestamp: 2000-01-23T04:56:07.000+00:00
@@ -5239,7 +6107,7 @@ components:
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
-          enrollmentsCount: 1
+          enrollmentsCount: 0
           coverUrl: coverUrl
           firstName: firstName
           phoneNumber: phoneNumber
@@ -5248,12 +6116,12 @@ components:
           status: status
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
-          gender: 0
+          gender: Unknown
           emailConfirmed: true
-          availability: 6
+          availability: DND
           countryId: countryId
           facebookUrl: facebookUrl
-          siteTheme: 5
+          siteTheme: System
           websiteUrl: websiteUrl
           socialProfile:
             githubURL: githubURL
@@ -5261,7 +6129,7 @@ components:
             twitterUrl: twitterUrl
             about: about
             unreadMessagesCount: 1
-            type: 4
+            type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
@@ -5338,55 +6206,43 @@ components:
           nullable: true
           type: array
       type: object
-    GeneralValidationFailure:
+    ForgotPasswordRequest:
       additionalProperties: false
       example:
-        howToResolve: howToResolve
-        message: message
+        email: email
       properties:
-        message:
+        email:
           nullable: true
           type: string
-        howToResolve:
-          nullable: true
-          type: string
+      required:
+      - email
       type: object
-    GeneralValidationFailureListEnvelope:
-      additionalProperties: false
-      example:
-        result:
-        - howToResolve: howToResolve
-          message: message
-        - howToResolve: howToResolve
-          message: message
-        activityId: activityId
-        errorMessage: errorMessage
-        correlationId: correlationId
-        isSuccess: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
+    HttpValidationProblemDetails:
+      additionalProperties: {}
       properties:
-        isSuccess:
-          readOnly: true
-          type: boolean
-        errorMessage:
+        type:
           nullable: true
           type: string
-        correlationId:
+        title:
           nullable: true
           type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        activityId:
+        status:
+          format: int32
           nullable: true
-          readOnly: true
-          type: string
-        result:
-          items:
-            $ref: '#/components/schemas/GeneralValidationFailure'
+          type: integer
+        detail:
           nullable: true
-          type: array
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
       type: object
     ISwaggerContact:
       additionalProperties: false
@@ -5479,6 +6335,88 @@ components:
         license:
           $ref: '#/components/schemas/ISwaggerLicense'
       type: object
+    IValidationFailure:
+      additionalProperties: false
+      example:
+        howToResolve: howToResolve
+        message: message
+      properties:
+        message:
+          nullable: true
+          type: string
+        howToResolve:
+          nullable: true
+          type: string
+      type: object
+    IValidationFailureListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - howToResolve: howToResolve
+          message: message
+        - howToResolve: howToResolve
+          message: message
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/IValidationFailure'
+          nullable: true
+          type: array
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
     Int32Envelope:
       additionalProperties: false
       example:
@@ -5510,191 +6448,6 @@ components:
           format: int32
           type: integer
       type: object
-    LicenseAttributes:
-      additionalProperties: false
-      type: object
-    LicenseAttributesListEnvelope:
-      additionalProperties: false
-      example:
-        result:
-        - null
-        - null
-        activityId: activityId
-        errorMessage: errorMessage
-        correlationId: correlationId
-        isSuccess: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        isSuccess:
-          readOnly: true
-          type: boolean
-        errorMessage:
-          nullable: true
-          type: string
-        correlationId:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        activityId:
-          nullable: true
-          readOnly: true
-          type: string
-        result:
-          items:
-            $ref: '#/components/schemas/LicenseAttributes'
-          nullable: true
-          type: array
-      type: object
-    LicenseFeature:
-      additionalProperties: false
-      example:
-        value: value
-        key: key
-      properties:
-        key:
-          nullable: true
-          type: string
-        value:
-          nullable: true
-          type: string
-      type: object
-    LicenseKey:
-      additionalProperties: false
-      example:
-        key: key
-      properties:
-        key:
-          nullable: true
-          type: string
-      type: object
-    LicenseKeyRequest:
-      additionalProperties: false
-      example:
-        enrollmentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        licenseType: 6
-        features:
-        - value: value
-          key: key
-        - value: value
-          key: key
-        orderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        paymentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        entitlementId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        invoiceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        seats: 0
-        expirationDate: 2000-01-23T04:56:07.000+00:00
-        additionalAttributes:
-        - value: value
-          key: key
-        - value: value
-          key: key
-      properties:
-        userId:
-          format: uuid
-          type: string
-        tenantId:
-          format: uuid
-          nullable: true
-          type: string
-        orderId:
-          format: uuid
-          nullable: true
-          type: string
-        paymentId:
-          format: uuid
-          nullable: true
-          type: string
-        invoiceId:
-          format: uuid
-          nullable: true
-          type: string
-        enrollmentId:
-          format: uuid
-          nullable: true
-          type: string
-        entitlementId:
-          format: uuid
-          nullable: true
-          type: string
-        seats:
-          format: int32
-          type: integer
-        licenseType:
-          enum:
-          - 1
-          - 2
-          - 3
-          format: int32
-          type: integer
-        expirationDate:
-          format: date-time
-          type: string
-        features:
-          items:
-            $ref: '#/components/schemas/LicenseFeature'
-          nullable: true
-          type: array
-        additionalAttributes:
-          items:
-            $ref: '#/components/schemas/AdditionalAttribute'
-          nullable: true
-          type: array
-      type: object
-    LicenseValidationError:
-      additionalProperties: false
-      example:
-        howToResolve: howToResolve
-        message: message
-      properties:
-        message:
-          nullable: true
-          type: string
-        howToResolve:
-          nullable: true
-          type: string
-      type: object
-    LicenseValidationErrorListEnvelope:
-      additionalProperties: false
-      example:
-        result:
-        - howToResolve: howToResolve
-          message: message
-        - howToResolve: howToResolve
-          message: message
-        activityId: activityId
-        errorMessage: errorMessage
-        correlationId: correlationId
-        isSuccess: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        isSuccess:
-          readOnly: true
-          type: boolean
-        errorMessage:
-          nullable: true
-          type: string
-        correlationId:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        activityId:
-          nullable: true
-          readOnly: true
-          type: string
-        result:
-          items:
-            $ref: '#/components/schemas/LicenseValidationError'
-          nullable: true
-          type: array
-      type: object
     LicenseValidationRequest:
       additionalProperties: false
       example:
@@ -5707,6 +6460,30 @@ components:
       required:
       - licenseKey
       type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
     Module:
       additionalProperties: false
       example:
@@ -5716,7 +6493,7 @@ components:
         - assemblyPaths
         icon: icon
         description: description
-        type: 6
+        type: Module
         repository: repository
         markedForDeletion: true
         path: path
@@ -5815,12 +6592,11 @@ components:
           type: string
         type:
           enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          format: int32
-          type: integer
+          - Module
+          - Integration
+          - StudioModule
+          - StudioIntegration
+          type: string
         configuration:
           nullable: true
           type: string
@@ -5894,7 +6670,7 @@ components:
           - assemblyPaths
           icon: icon
           description: description
-          type: 6
+          type: Module
           repository: repository
           markedForDeletion: true
           path: path
@@ -5975,7 +6751,7 @@ components:
           - assemblyPaths
           icon: icon
           description: description
-          type: 6
+          type: Module
           repository: repository
           markedForDeletion: true
           path: path
@@ -6079,6 +6855,365 @@ components:
           nullable: true
           type: array
       type: object
+    ObjectEmailDispatchRequest:
+      additionalProperties: false
+      example:
+        buttonText: buttonText
+        alertMessage: alertMessage
+        alertType: None
+        uiCulture: uiCulture
+        title: title
+        message: message
+        contactIds:
+        - contactIds
+        - contactIds
+        templateUrl: https://openapi-generator.tech
+        payload: ""
+        culture: culture
+        recipients:
+        - recipients
+        - recipients
+        buttonLink: https://openapi-generator.tech
+        userIds:
+        - userIds
+        - userIds
+        emailTemplateId: emailTemplateId
+        tenantIds:
+        - tenantIds
+        - tenantIds
+      properties:
+        title:
+          maxLength: 150
+          minLength: 0
+          type: string
+        message:
+          minLength: 10
+          type: string
+        buttonLink:
+          format: uri
+          nullable: true
+          type: string
+        buttonText:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        alertMessage:
+          nullable: true
+          type: string
+        alertType:
+          enum:
+          - None
+          - Info
+          - Error
+          - Warning
+          - Success
+          - Action
+          - Alert
+          type: string
+        culture:
+          minLength: 1
+          pattern: "^[a-z]{2}(-[A-Z]{2})?$"
+          type: string
+        uiCulture:
+          minLength: 1
+          pattern: "^[a-z]{2}(-[A-Z]{2})?$"
+          type: string
+        recipients:
+          items:
+            type: string
+          minItems: 1
+          type: array
+        contactIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        tenantIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        userIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        templateUrl:
+          format: uri
+          nullable: true
+          type: string
+        emailTemplateId:
+          nullable: true
+          type: string
+        payload:
+          nullable: true
+      required:
+      - culture
+      - message
+      - recipients
+      - title
+      - uiCulture
+      type: object
+    OptionCreateDto:
+      additionalProperties: false
+      example:
+        transient: true
+        portalId: portalId
+        frozen: true
+        autoload: true
+        expiration: 0
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
+        key: key
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        key:
+          minLength: 1
+          type: string
+        value:
+          minLength: 1
+          type: string
+        portalId:
+          nullable: true
+          type: string
+        frozen:
+          type: boolean
+        autoload:
+          type: boolean
+        transient:
+          type: boolean
+        expiration:
+          format: int32
+          type: integer
+      required:
+      - key
+      - value
+      type: object
+    OptionDto:
+      additionalProperties: false
+      example:
+        transient: true
+        portalId: portalId
+        frozen: true
+        autoload: true
+        expiration: 0
+        id: id
+        value: value
+        key: key
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        key:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+        portalId:
+          nullable: true
+          type: string
+        frozen:
+          type: boolean
+        autoload:
+          type: boolean
+        transient:
+          type: boolean
+        expiration:
+          format: int32
+          type: integer
+      type: object
+    OptionDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          transient: true
+          portalId: portalId
+          frozen: true
+          autoload: true
+          expiration: 0
+          id: id
+          value: value
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/OptionDto'
+      type: object
+    OptionDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - transient: true
+          portalId: portalId
+          frozen: true
+          autoload: true
+          expiration: 0
+          id: id
+          value: value
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - transient: true
+          portalId: portalId
+          frozen: true
+          autoload: true
+          expiration: 0
+          id: id
+          value: value
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/OptionDto'
+          nullable: true
+          type: array
+      type: object
+    OptionUpdateDto:
+      additionalProperties: false
+      example:
+        transient: true
+        portalId: portalId
+        frozen: true
+        autoload: true
+        expiration: 0
+        value: value
+        key: key
+      properties:
+        key:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+        portalId:
+          nullable: true
+          type: string
+        frozen:
+          type: boolean
+        autoload:
+          type: boolean
+        transient:
+          type: boolean
+        expiration:
+          format: int32
+          type: integer
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
     SocialProfileDto:
       additionalProperties: false
       example:
@@ -6087,7 +7222,7 @@ components:
         twitterUrl: twitterUrl
         about: about
         unreadMessagesCount: 1
-        type: 4
+        type: User
         countryId: countryId
         cover: cover
         facebookURL: facebookURL
@@ -6163,12 +7298,11 @@ components:
           type: integer
         type:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
+          - User
+          - Tenant
+          - Contact
           nullable: true
-          type: integer
+          type: string
         socialFeedId:
           nullable: true
           type: string
@@ -6197,37 +7331,6 @@ components:
           nullable: true
           type: string
         notes:
-          nullable: true
-          type: string
-      type: object
-    StringEnvelope:
-      additionalProperties: false
-      example:
-        result: result
-        activityId: activityId
-        errorMessage: errorMessage
-        correlationId: correlationId
-        isSuccess: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        isSuccess:
-          readOnly: true
-          type: boolean
-        errorMessage:
-          nullable: true
-          type: string
-        correlationId:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        activityId:
-          nullable: true
-          readOnly: true
-          type: string
-        result:
           nullable: true
           type: string
       type: object
@@ -6537,57 +7640,93 @@ components:
       additionalProperties: false
       example:
         handler: handler
-        avatarUrl: avatarUrl
+        avatarUrl: https://openapi-generator.tech
         stateId: stateId
         about: about
         languageId: languageId
         cityId: cityId
+        businessSegmentId: businessSegmentId
         countryId: countryId
+        businessTypeId: businessTypeId
         legalName: legalName
+        businessSizeId: businessSizeId
         phone: phone
-        webUrl: webUrl
+        webUrl: https://openapi-generator.tech
         taxId: taxId
         name: name
         duns: duns
         timezoneId: timezoneId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
+        businessIndustryId: businessIndustryId
+        slogan: slogan
         email: email
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
-          type: string
-        duns:
-          nullable: true
           type: string
         name:
-          nullable: true
+          maxLength: 100
+          minLength: 1
           type: string
         legalName:
+          maxLength: 100
           nullable: true
           type: string
         email:
-          nullable: true
+          format: email
+          minLength: 1
           type: string
         phone:
+          format: tel
           nullable: true
           type: string
         webUrl:
-          nullable: true
-          type: string
-        about:
+          format: uri
           nullable: true
           type: string
         handler:
+          maxLength: 30
+          minLength: 3
+          nullable: true
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        about:
+          maxLength: 500
+          nullable: true
+          type: string
+        slogan:
+          maxLength: 500
           nullable: true
           type: string
         currencyId:
+          minLength: 1
+          pattern: "^[A-Z]{3}\\.[A-Z]{3}$"
+          type: string
+        duns:
+          nullable: true
+          pattern: "^\\d{9}$"
+          type: string
+        taxId:
+          nullable: true
+          pattern: "^[A-Z0-9]{8,15}$"
+          type: string
+        avatarUrl:
+          format: uri
+          nullable: true
+          type: string
+        countryId:
+          minLength: 1
+          pattern: "^[A-Z]{3}$"
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
           nullable: true
           type: string
         languageId:
@@ -6596,21 +7735,23 @@ components:
         timezoneId:
           nullable: true
           type: string
-        cityId:
+        businessTypeId:
           nullable: true
           type: string
-        stateId:
+        businessSegmentId:
           nullable: true
           type: string
-        countryId:
+        businessIndustryId:
           nullable: true
           type: string
-        taxId:
+        businessSizeId:
           nullable: true
           type: string
-        avatarUrl:
-          nullable: true
-          type: string
+      required:
+      - countryId
+      - currencyId
+      - email
+      - name
       type: object
     TenantDto:
       additionalProperties: false
@@ -6952,47 +8093,81 @@ components:
     TenantUpdateDto:
       additionalProperties: false
       example:
-        linkedInUrl: linkedInUrl
+        handler: handler
         supportPhoneNumber: supportPhoneNumber
         whatsAppNumber: whatsAppNumber
         twitterUrl: twitterUrl
-        stateId: stateId
         about: about
-        languageId: languageId
         cityId: cityId
         countryId: countryId
         legalName: legalName
-        twitterUsername: twitterUsername
         facebookUrl: facebookUrl
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        linkedInUrl: linkedInUrl
+        avatarUrl: https://openapi-generator.tech
+        stateId: stateId
+        languageId: languageId
+        twitterUsername: twitterUsername
         phone: phone
-        webUrl: webUrl
+        webUrl: https://openapi-generator.tech
         taxId: taxId
         name: name
         duns: duns
         timezoneId: timezoneId
         instagramUrl: instagramUrl
-        currencyId: currencyId
         slogan: slogan
-        gitHubUrl: gitHubUrl
         youTubeUrl: youTubeUrl
-        email: email
       properties:
         name:
-          nullable: true
-          type: string
-        duns:
-          nullable: true
-          type: string
-        slogan:
-          nullable: true
+          maxLength: 100
+          minLength: 1
           type: string
         legalName:
+          maxLength: 100
           nullable: true
           type: string
+        email:
+          format: email
+          minLength: 1
+          type: string
         phone:
+          format: tel
           nullable: true
           type: string
         webUrl:
+          format: uri
+          nullable: true
+          type: string
+        about:
+          maxLength: 500
+          nullable: true
+          type: string
+        slogan:
+          maxLength: 500
+          nullable: true
+          type: string
+        handler:
+          maxLength: 30
+          minLength: 3
+          nullable: true
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        currencyId:
+          minLength: 1
+          pattern: "^[A-Z]{3}\\.[A-Z]{3}$"
+          type: string
+        duns:
+          nullable: true
+          pattern: "^\\d{9}$"
+          type: string
+        taxId:
+          nullable: true
+          pattern: "^[A-Z0-9]{8,15}$"
+          type: string
+        avatarUrl:
+          format: uri
           nullable: true
           type: string
         twitterUsername:
@@ -7022,19 +8197,184 @@ components:
         supportPhoneNumber:
           nullable: true
           type: string
-        taxId:
+        countryId:
+          minLength: 1
+          pattern: "^[A-Z]{3}$"
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+      required:
+      - countryId
+      - currencyId
+      - email
+      - name
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
+    UserCreateDto:
+      additionalProperties: false
+      example:
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        gender: Unknown
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        about: about
+        cityId: cityId
+        countryId: countryId
+        facebookUrl: facebookUrl
+        password: password
+        publicName: publicName
+        websiteUrl: websiteUrl
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        linkedInUrl: linkedInUrl
+        qualifiedName: qualifiedName
+        stateId: stateId
+        languageId: languageId
+        firstName: firstName
+        idProvider: idProvider
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        youTubeUrl: youTubeUrl
+        status: status
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        publicName:
+          nullable: true
+          type: string
+        idProvider:
+          nullable: true
+          type: string
+        gender:
+          enum:
+          - Unknown
+          - Male
+          - Female
+          - PreferNotToSay
+          type: string
+        email:
           nullable: true
           type: string
         about:
           nullable: true
           type: string
-        currencyId:
+        status:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
           nullable: true
           type: string
         timezoneId:
           nullable: true
           type: string
         languageId:
+          nullable: true
+          type: string
+        currencyId:
           nullable: true
           type: string
         countryId:
@@ -7046,7 +8386,7 @@ components:
         cityId:
           nullable: true
           type: string
-        email:
+        password:
           nullable: true
           type: string
       type: object
@@ -7054,21 +8394,22 @@ components:
       additionalProperties: false
       example:
         birthday: 2000-01-23T04:56:07.000+00:00
+        handler: handler
         lastName: lastName
-        gender: 0
+        gender: Unknown
         emailConfirmed: true
         twitterUrl: twitterUrl
         jobTitle: jobTitle
         about: about
         currentEnrollmentId: currentEnrollmentId
         cityId: cityId
-        availability: 6
+        availability: DND
         countryId: countryId
         identityProvider: identityProvider
         phoneNumberConfirmed: true
         currentTenantId: currentTenantId
         facebookUrl: facebookUrl
-        siteTheme: 5
+        siteTheme: System
         publicName: publicName
         websiteUrl: websiteUrl
         id: id
@@ -7089,7 +8430,7 @@ components:
         languageId: languageId
         fullName: fullName
         userName: userName
-        enrollmentsCount: 1
+        enrollmentsCount: 0
         coverUrl: coverUrl
         firstName: firstName
         phoneNumber: phoneNumber
@@ -7115,6 +8456,9 @@ components:
           nullable: true
           type: string
         publicName:
+          nullable: true
+          type: string
+        handler:
           nullable: true
           type: string
         lastName:
@@ -7171,12 +8515,12 @@ components:
           type: string
         gender:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
+          - Unknown
+          - Male
+          - Female
+          - PreferNotToSay
           nullable: true
-          type: integer
+          type: string
         cityId:
           nullable: true
           type: string
@@ -7231,14 +8575,13 @@ components:
           type: boolean
         availability:
           enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          format: int32
+          - DND
+          - Busy
+          - Away
+          - Offline
+          - Available
           nullable: true
-          type: integer
+          type: string
         lockoutEnabled:
           type: boolean
         lockoutEnd:
@@ -7251,33 +8594,33 @@ components:
           type: integer
         siteTheme:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
+          - System
+          - Light
+          - Dark
           nullable: true
-          type: integer
+          type: string
       type: object
     UserDtoEnvelope:
       additionalProperties: false
       example:
         result:
           birthday: 2000-01-23T04:56:07.000+00:00
+          handler: handler
           lastName: lastName
-          gender: 0
+          gender: Unknown
           emailConfirmed: true
           twitterUrl: twitterUrl
           jobTitle: jobTitle
           about: about
           currentEnrollmentId: currentEnrollmentId
           cityId: cityId
-          availability: 6
+          availability: DND
           countryId: countryId
           identityProvider: identityProvider
           phoneNumberConfirmed: true
           currentTenantId: currentTenantId
           facebookUrl: facebookUrl
-          siteTheme: 5
+          siteTheme: System
           publicName: publicName
           websiteUrl: websiteUrl
           id: id
@@ -7298,7 +8641,7 @@ components:
           languageId: languageId
           fullName: fullName
           userName: userName
-          enrollmentsCount: 1
+          enrollmentsCount: 0
           coverUrl: coverUrl
           firstName: firstName
           phoneNumber: phoneNumber
@@ -7339,21 +8682,22 @@ components:
       example:
         result:
         - birthday: 2000-01-23T04:56:07.000+00:00
+          handler: handler
           lastName: lastName
-          gender: 0
+          gender: Unknown
           emailConfirmed: true
           twitterUrl: twitterUrl
           jobTitle: jobTitle
           about: about
           currentEnrollmentId: currentEnrollmentId
           cityId: cityId
-          availability: 6
+          availability: DND
           countryId: countryId
           identityProvider: identityProvider
           phoneNumberConfirmed: true
           currentTenantId: currentTenantId
           facebookUrl: facebookUrl
-          siteTheme: 5
+          siteTheme: System
           publicName: publicName
           websiteUrl: websiteUrl
           id: id
@@ -7374,7 +8718,7 @@ components:
           languageId: languageId
           fullName: fullName
           userName: userName
-          enrollmentsCount: 1
+          enrollmentsCount: 0
           coverUrl: coverUrl
           firstName: firstName
           phoneNumber: phoneNumber
@@ -7385,21 +8729,22 @@ components:
           youTubeUrl: youTubeUrl
           status: status
         - birthday: 2000-01-23T04:56:07.000+00:00
+          handler: handler
           lastName: lastName
-          gender: 0
+          gender: Unknown
           emailConfirmed: true
           twitterUrl: twitterUrl
           jobTitle: jobTitle
           about: about
           currentEnrollmentId: currentEnrollmentId
           cityId: cityId
-          availability: 6
+          availability: DND
           countryId: countryId
           identityProvider: identityProvider
           phoneNumberConfirmed: true
           currentTenantId: currentTenantId
           facebookUrl: facebookUrl
-          siteTheme: 5
+          siteTheme: System
           publicName: publicName
           websiteUrl: websiteUrl
           id: id
@@ -7420,7 +8765,7 @@ components:
           languageId: languageId
           fullName: fullName
           userName: userName
-          enrollmentsCount: 1
+          enrollmentsCount: 0
           coverUrl: coverUrl
           firstName: firstName
           phoneNumber: phoneNumber
@@ -7463,9 +8808,9 @@ components:
       additionalProperties: false
       example:
         dateTimeFormat: dateTimeFormat
-        siteTheme: 2
+        siteTheme: System
         dateFormat: dateFormat
-        pageSize: 5
+        pageSize: 6
         id: id
         currencyFormat: currencyFormat
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -7491,11 +8836,129 @@ components:
           type: string
         siteTheme:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
-          type: integer
+          - System
+          - Light
+          - Dark
+          type: string
+      type: object
+    UserUpdateDto:
+      additionalProperties: false
+      example:
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        gender: Unknown
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        about: about
+        cityId: cityId
+        availability: DND
+        countryId: countryId
+        facebookUrl: facebookUrl
+        publicName: publicName
+        websiteUrl: websiteUrl
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        linkedInUrl: linkedInUrl
+        qualifiedName: qualifiedName
+        stateId: stateId
+        languageId: languageId
+        firstName: firstName
+        idProvider: idProvider
+        webUrl: webUrl
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        youTubeUrl: youTubeUrl
+        status: status
+      properties:
+        qualifiedName:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        publicName:
+          nullable: true
+          type: string
+        idProvider:
+          nullable: true
+          type: string
+        gender:
+          enum:
+          - Unknown
+          - Male
+          - Female
+          - PreferNotToSay
+          type: string
+        email:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        availability:
+          enum:
+          - DND
+          - Busy
+          - Away
+          - Offline
+          - Available
+          type: string
       type: object
     WalletDto:
       additionalProperties: false
@@ -7560,11 +9023,3 @@ components:
           format: double
           type: number
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey

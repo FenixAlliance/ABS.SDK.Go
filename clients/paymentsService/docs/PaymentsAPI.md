@@ -4,18 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2PaymentsServicePaymentsGet**](PaymentsAPI.md#ApiV2PaymentsServicePaymentsGet) | **Get** /api/v2/PaymentsService/Payments | 
-[**ApiV2PaymentsServicePaymentsPaymentIdDelete**](PaymentsAPI.md#ApiV2PaymentsServicePaymentsPaymentIdDelete) | **Delete** /api/v2/PaymentsService/Payments/{paymentId} | 
-[**ApiV2PaymentsServicePaymentsPaymentIdDetailsGet**](PaymentsAPI.md#ApiV2PaymentsServicePaymentsPaymentIdDetailsGet) | **Get** /api/v2/PaymentsService/Payments/{paymentId}/Details | 
-[**ApiV2PaymentsServicePaymentsPaymentIdGet**](PaymentsAPI.md#ApiV2PaymentsServicePaymentsPaymentIdGet) | **Get** /api/v2/PaymentsService/Payments/{paymentId} | 
-[**ApiV2PaymentsServicePaymentsPaymentIdPut**](PaymentsAPI.md#ApiV2PaymentsServicePaymentsPaymentIdPut) | **Put** /api/v2/PaymentsService/Payments/{paymentId} | 
-[**ApiV2PaymentsServicePaymentsPost**](PaymentsAPI.md#ApiV2PaymentsServicePaymentsPost) | **Post** /api/v2/PaymentsService/Payments | 
+[**CreatePaymentAsync**](PaymentsAPI.md#CreatePaymentAsync) | **Post** /api/v2/PaymentsService/Payments | Creates a new payment
+[**DeletePaymentAsync**](PaymentsAPI.md#DeletePaymentAsync) | **Delete** /api/v2/PaymentsService/Payments/{paymentId} | Deletes a payment
+[**GetPaymentAsync**](PaymentsAPI.md#GetPaymentAsync) | **Get** /api/v2/PaymentsService/Payments/{paymentId}/Details | Gets a payment by ID (deprecated)
+[**GetPaymentAsyncV2**](PaymentsAPI.md#GetPaymentAsyncV2) | **Get** /api/v2/PaymentsService/Payments/{paymentId} | Gets a payment by ID
+[**GetPaymentsAsync**](PaymentsAPI.md#GetPaymentsAsync) | **Get** /api/v2/PaymentsService/Payments | Retrieves all payments
+[**UpdatePaymentAsync**](PaymentsAPI.md#UpdatePaymentAsync) | **Put** /api/v2/PaymentsService/Payments/{paymentId} | Updates a payment
 
 
 
-## ApiV2PaymentsServicePaymentsGet
+## CreatePaymentAsync
 
-> PaymentDtoListEnvelope ApiV2PaymentsServicePaymentsGet(ctx).TenantId(tenantId).Execute()
+> EmptyEnvelope CreatePaymentAsync(ctx).TenantId(tenantId).PaymentCreateDto(paymentCreateDto).Execute()
+
+Creates a new payment
 
 
 
@@ -33,16 +35,17 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	paymentCreateDto := *openapiclient.NewPaymentCreateDto() // PaymentCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsGet(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.PaymentsAPI.CreatePaymentAsync(context.Background()).TenantId(tenantId).PaymentCreateDto(paymentCreateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.ApiV2PaymentsServicePaymentsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.CreatePaymentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PaymentsServicePaymentsGet`: PaymentDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.ApiV2PaymentsServicePaymentsGet`: %v\n", resp)
+	// response from `CreatePaymentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.CreatePaymentAsync`: %v\n", resp)
 }
 ```
 
@@ -52,24 +55,25 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PaymentsServicePaymentsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreatePaymentAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **paymentCreateDto** | [**PaymentCreateDto**](PaymentCreateDto.md) |  | 
 
 ### Return type
 
-[**PaymentDtoListEnvelope**](PaymentDtoListEnvelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -77,9 +81,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2PaymentsServicePaymentsPaymentIdDelete
+## DeletePaymentAsync
 
-> EmptyEnvelope ApiV2PaymentsServicePaymentsPaymentIdDelete(ctx, paymentId).TenantId(tenantId).Execute()
+> EmptyEnvelope DeletePaymentAsync(ctx, paymentId).TenantId(tenantId).Execute()
+
+Deletes a payment
 
 
 
@@ -101,13 +107,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdDelete(context.Background(), paymentId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.PaymentsAPI.DeletePaymentAsync(context.Background(), paymentId).TenantId(tenantId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.DeletePaymentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PaymentsServicePaymentsPaymentIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdDelete`: %v\n", resp)
+	// response from `DeletePaymentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.DeletePaymentAsync`: %v\n", resp)
 }
 ```
 
@@ -121,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PaymentsServicePaymentsPaymentIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeletePaymentAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -135,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -147,9 +153,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2PaymentsServicePaymentsPaymentIdDetailsGet
+## GetPaymentAsync
 
-> PaymentDtoListEnvelope ApiV2PaymentsServicePaymentsPaymentIdDetailsGet(ctx, paymentId).Execute()
+> PaymentDtoListEnvelope GetPaymentAsync(ctx, paymentId).Execute()
+
+Gets a payment by ID (deprecated)
 
 
 
@@ -170,13 +178,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdDetailsGet(context.Background(), paymentId).Execute()
+	resp, r, err := apiClient.PaymentsAPI.GetPaymentAsync(context.Background(), paymentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdDetailsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.GetPaymentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PaymentsServicePaymentsPaymentIdDetailsGet`: PaymentDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdDetailsGet`: %v\n", resp)
+	// response from `GetPaymentAsync`: PaymentDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.GetPaymentAsync`: %v\n", resp)
 }
 ```
 
@@ -190,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PaymentsServicePaymentsPaymentIdDetailsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetPaymentAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -203,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -215,9 +223,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2PaymentsServicePaymentsPaymentIdGet
+## GetPaymentAsyncV2
 
-> PaymentDtoListEnvelope ApiV2PaymentsServicePaymentsPaymentIdGet(ctx, paymentId).Execute()
+> PaymentDtoListEnvelope GetPaymentAsyncV2(ctx, paymentId).Execute()
+
+Gets a payment by ID
 
 
 
@@ -238,13 +248,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdGet(context.Background(), paymentId).Execute()
+	resp, r, err := apiClient.PaymentsAPI.GetPaymentAsyncV2(context.Background(), paymentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.GetPaymentAsyncV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PaymentsServicePaymentsPaymentIdGet`: PaymentDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdGet`: %v\n", resp)
+	// response from `GetPaymentAsyncV2`: PaymentDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.GetPaymentAsyncV2`: %v\n", resp)
 }
 ```
 
@@ -258,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PaymentsServicePaymentsPaymentIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetPaymentAsyncV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -271,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -283,9 +293,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2PaymentsServicePaymentsPaymentIdPut
+## GetPaymentsAsync
 
-> EmptyEnvelope ApiV2PaymentsServicePaymentsPaymentIdPut(ctx, paymentId).TenantId(tenantId).PaymentUpdateDto(paymentUpdateDto).Execute()
+> PaymentDtoListEnvelope GetPaymentsAsync(ctx).TenantId(tenantId).Execute()
+
+Retrieves all payments
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PaymentsAPI.GetPaymentsAsync(context.Background()).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.GetPaymentsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPaymentsAsync`: PaymentDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.GetPaymentsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPaymentsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+### Return type
+
+[**PaymentDtoListEnvelope**](PaymentDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdatePaymentAsync
+
+> EmptyEnvelope UpdatePaymentAsync(ctx, paymentId).TenantId(tenantId).PaymentUpdateDto(paymentUpdateDto).Execute()
+
+Updates a payment
 
 
 
@@ -308,13 +386,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdPut(context.Background(), paymentId).TenantId(tenantId).PaymentUpdateDto(paymentUpdateDto).Execute()
+	resp, r, err := apiClient.PaymentsAPI.UpdatePaymentAsync(context.Background(), paymentId).TenantId(tenantId).PaymentUpdateDto(paymentUpdateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.UpdatePaymentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PaymentsServicePaymentsPaymentIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.ApiV2PaymentsServicePaymentsPaymentIdPut`: %v\n", resp)
+	// response from `UpdatePaymentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.UpdatePaymentAsync`: %v\n", resp)
 }
 ```
 
@@ -328,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PaymentsServicePaymentsPaymentIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdatePaymentAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -343,73 +421,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2PaymentsServicePaymentsPost
-
-> EmptyEnvelope ApiV2PaymentsServicePaymentsPost(ctx).TenantId(tenantId).PaymentCreateDto(paymentCreateDto).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	paymentCreateDto := *openapiclient.NewPaymentCreateDto() // PaymentCreateDto |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.ApiV2PaymentsServicePaymentsPost(context.Background()).TenantId(tenantId).PaymentCreateDto(paymentCreateDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.ApiV2PaymentsServicePaymentsPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2PaymentsServicePaymentsPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.ApiV2PaymentsServicePaymentsPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2PaymentsServicePaymentsPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **paymentCreateDto** | [**PaymentCreateDto**](PaymentCreateDto.md) |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

@@ -22,11 +22,11 @@ func Test_openapi_DiscountListsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsCountGet", func(t *testing.T) {
+	t.Run("Test DiscountListsAPIService CreateDiscountList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DiscountListsAPI.CreateDiscountList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,27 +34,13 @@ func Test_openapi_DiscountListsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsDiscountListIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var discountListId string
-
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsDiscountListIdDelete(context.Background(), discountListId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGet", func(t *testing.T) {
+	t.Run("Test DiscountListsAPIService CreateDiscountListEntry", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var discountListId string
 
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGet(context.Background(), discountListId).Execute()
+		resp, httpRes, err := apiClient.DiscountListsAPI.CreateDiscountListEntry(context.Background(), discountListId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,14 +48,13 @@ func Test_openapi_DiscountListsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDelete", func(t *testing.T) {
+	t.Run("Test DiscountListsAPIService DeleteDiscountList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var discountListId string
-		var discountListEntryId string
 
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDelete(context.Background(), discountListId, discountListEntryId).Execute()
+		resp, httpRes, err := apiClient.DiscountListsAPI.DeleteDiscountList(context.Background(), discountListId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -77,14 +62,14 @@ func Test_openapi_DiscountListsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPut", func(t *testing.T) {
+	t.Run("Test DiscountListsAPIService DeleteDiscountListEntry", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var discountListId string
 		var discountListEntryId string
 
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPut(context.Background(), discountListId, discountListEntryId).Execute()
+		resp, httpRes, err := apiClient.DiscountListsAPI.DeleteDiscountListEntry(context.Background(), discountListId, discountListEntryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -92,13 +77,13 @@ func Test_openapi_DiscountListsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsDiscountListIdDiscountsGet", func(t *testing.T) {
+	t.Run("Test DiscountListsAPIService GetDiscountList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var discountListId string
 
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsDiscountListIdDiscountsGet(context.Background(), discountListId).Execute()
+		resp, httpRes, err := apiClient.DiscountListsAPI.GetDiscountList(context.Background(), discountListId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -106,13 +91,13 @@ func Test_openapi_DiscountListsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsDiscountListIdDiscountsPost", func(t *testing.T) {
+	t.Run("Test DiscountListsAPIService GetDiscountListEntries", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var discountListId string
 
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsDiscountListIdDiscountsPost(context.Background(), discountListId).Execute()
+		resp, httpRes, err := apiClient.DiscountListsAPI.GetDiscountListEntries(context.Background(), discountListId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -120,51 +105,13 @@ func Test_openapi_DiscountListsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsDiscountListIdGet", func(t *testing.T) {
+	t.Run("Test DiscountListsAPIService GetDiscountListEntriesCount", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var discountListId string
 
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsDiscountListIdGet(context.Background(), discountListId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsDiscountListIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var discountListId string
-
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsDiscountListIdPut(context.Background(), discountListId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DiscountListsAPIService ApiV2PricingServiceDiscountListsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DiscountListsAPI.ApiV2PricingServiceDiscountListsPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DiscountListsAPI.GetDiscountListEntriesCount(context.Background(), discountListId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -180,6 +127,59 @@ func Test_openapi_DiscountListsAPIService(t *testing.T) {
 		var discountListEntryId string
 
 		resp, httpRes, err := apiClient.DiscountListsAPI.GetDiscountListEntry(context.Background(), discountListId, discountListEntryId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DiscountListsAPIService GetDiscountLists", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DiscountListsAPI.GetDiscountLists(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DiscountListsAPIService GetDiscountListsCount", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DiscountListsAPI.GetDiscountListsCount(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DiscountListsAPIService UpdateDiscountList", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var discountListId string
+
+		resp, httpRes, err := apiClient.DiscountListsAPI.UpdateDiscountList(context.Background(), discountListId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DiscountListsAPIService UpdateDiscountListEntry", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var discountListId string
+		var discountListEntryId string
+
+		resp, httpRes, err := apiClient.DiscountListsAPI.UpdateDiscountListEntry(context.Background(), discountListId, discountListEntryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

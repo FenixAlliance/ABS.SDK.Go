@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **FacebookImage** | Pointer to **NullableString** |  | [optional] 
 **FacebookTitle** | Pointer to **NullableString** |  | [optional] 
 **FacebookDescription** | Pointer to **NullableString** |  | [optional] 
-**FeaturedImageURL** | Pointer to **NullableString** |  | [optional] 
+**FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
 **Content** | Pointer to **NullableString** |  | [optional] 
 **Code** | Pointer to **NullableString** |  | [optional] 
 **Namespace** | Pointer to **NullableString** |  | [optional] 
@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **GeneratedCode** | Pointer to **NullableString** |  | [optional] 
 **CompilationPath** | Pointer to **NullableString** |  | [optional] 
 **HtmlContent** | Pointer to **NullableString** |  | [optional] 
+**CodeType** | Pointer to **NullableString** |  | [optional] 
 **CSharpContent** | Pointer to **NullableString** |  | [optional] 
 **RazorContent** | Pointer to **NullableString** |  | [optional] 
 **CssContent** | Pointer to **NullableString** |  | [optional] 
@@ -732,41 +733,41 @@ HasFacebookDescription returns a boolean if a field has been set.
 `func (o *EmailSignatureUpdateDto) UnsetFacebookDescription()`
 
 UnsetFacebookDescription ensures that no value is present for FacebookDescription, not even an explicit nil
-### GetFeaturedImageURL
+### GetFeaturedImageUrl
 
-`func (o *EmailSignatureUpdateDto) GetFeaturedImageURL() string`
+`func (o *EmailSignatureUpdateDto) GetFeaturedImageUrl() string`
 
-GetFeaturedImageURL returns the FeaturedImageURL field if non-nil, zero value otherwise.
+GetFeaturedImageUrl returns the FeaturedImageUrl field if non-nil, zero value otherwise.
 
-### GetFeaturedImageURLOk
+### GetFeaturedImageUrlOk
 
-`func (o *EmailSignatureUpdateDto) GetFeaturedImageURLOk() (*string, bool)`
+`func (o *EmailSignatureUpdateDto) GetFeaturedImageUrlOk() (*string, bool)`
 
-GetFeaturedImageURLOk returns a tuple with the FeaturedImageURL field if it's non-nil, zero value otherwise
+GetFeaturedImageUrlOk returns a tuple with the FeaturedImageUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFeaturedImageURL
+### SetFeaturedImageUrl
 
-`func (o *EmailSignatureUpdateDto) SetFeaturedImageURL(v string)`
+`func (o *EmailSignatureUpdateDto) SetFeaturedImageUrl(v string)`
 
-SetFeaturedImageURL sets FeaturedImageURL field to given value.
+SetFeaturedImageUrl sets FeaturedImageUrl field to given value.
 
-### HasFeaturedImageURL
+### HasFeaturedImageUrl
 
-`func (o *EmailSignatureUpdateDto) HasFeaturedImageURL() bool`
+`func (o *EmailSignatureUpdateDto) HasFeaturedImageUrl() bool`
 
-HasFeaturedImageURL returns a boolean if a field has been set.
+HasFeaturedImageUrl returns a boolean if a field has been set.
 
-### SetFeaturedImageURLNil
+### SetFeaturedImageUrlNil
 
-`func (o *EmailSignatureUpdateDto) SetFeaturedImageURLNil(b bool)`
+`func (o *EmailSignatureUpdateDto) SetFeaturedImageUrlNil(b bool)`
 
- SetFeaturedImageURLNil sets the value for FeaturedImageURL to be an explicit nil
+ SetFeaturedImageUrlNil sets the value for FeaturedImageUrl to be an explicit nil
 
-### UnsetFeaturedImageURL
-`func (o *EmailSignatureUpdateDto) UnsetFeaturedImageURL()`
+### UnsetFeaturedImageUrl
+`func (o *EmailSignatureUpdateDto) UnsetFeaturedImageUrl()`
 
-UnsetFeaturedImageURL ensures that no value is present for FeaturedImageURL, not even an explicit nil
+UnsetFeaturedImageUrl ensures that no value is present for FeaturedImageUrl, not even an explicit nil
 ### GetContent
 
 `func (o *EmailSignatureUpdateDto) GetContent() string`
@@ -1012,6 +1013,41 @@ HasHtmlContent returns a boolean if a field has been set.
 `func (o *EmailSignatureUpdateDto) UnsetHtmlContent()`
 
 UnsetHtmlContent ensures that no value is present for HtmlContent, not even an explicit nil
+### GetCodeType
+
+`func (o *EmailSignatureUpdateDto) GetCodeType() string`
+
+GetCodeType returns the CodeType field if non-nil, zero value otherwise.
+
+### GetCodeTypeOk
+
+`func (o *EmailSignatureUpdateDto) GetCodeTypeOk() (*string, bool)`
+
+GetCodeTypeOk returns a tuple with the CodeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCodeType
+
+`func (o *EmailSignatureUpdateDto) SetCodeType(v string)`
+
+SetCodeType sets CodeType field to given value.
+
+### HasCodeType
+
+`func (o *EmailSignatureUpdateDto) HasCodeType() bool`
+
+HasCodeType returns a boolean if a field has been set.
+
+### SetCodeTypeNil
+
+`func (o *EmailSignatureUpdateDto) SetCodeTypeNil(b bool)`
+
+ SetCodeTypeNil sets the value for CodeType to be an explicit nil
+
+### UnsetCodeType
+`func (o *EmailSignatureUpdateDto) UnsetCodeType()`
+
+UnsetCodeType ensures that no value is present for CodeType, not even an explicit nil
 ### GetCSharpContent
 
 `func (o *EmailSignatureUpdateDto) GetCSharpContent() string`

@@ -22,13 +22,13 @@ func Test_openapi_RatesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RatesAPIService ApiV2ForexServiceRatesHistoryCurrencyIdGet", func(t *testing.T) {
+	t.Run("Test RatesAPIService GetHistoricalCurrencyRateAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var currencyId string
 
-		resp, httpRes, err := apiClient.RatesAPI.ApiV2ForexServiceRatesHistoryCurrencyIdGet(context.Background(), currencyId).Execute()
+		resp, httpRes, err := apiClient.RatesAPI.GetHistoricalCurrencyRateAsync(context.Background(), currencyId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_openapi_RatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RatesAPIService ApiV2ForexServiceRatesHistoryGet", func(t *testing.T) {
+	t.Run("Test RatesAPIService GetHistoricalCurrencyRatesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RatesAPI.ApiV2ForexServiceRatesHistoryGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RatesAPI.GetHistoricalCurrencyRatesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_openapi_RatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RatesAPIService ApiV2ForexServiceRatesLatestCurrencyIdGet", func(t *testing.T) {
+	t.Run("Test RatesAPIService GetLatestCurrencyRateAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var currencyId string
 
-		resp, httpRes, err := apiClient.RatesAPI.ApiV2ForexServiceRatesLatestCurrencyIdGet(context.Background(), currencyId).Execute()
+		resp, httpRes, err := apiClient.RatesAPI.GetLatestCurrencyRateAsync(context.Background(), currencyId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,11 +62,11 @@ func Test_openapi_RatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RatesAPIService ApiV2ForexServiceRatesLatestGet", func(t *testing.T) {
+	t.Run("Test RatesAPIService GetLatestCurrencyRatesModelAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RatesAPI.ApiV2ForexServiceRatesLatestGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RatesAPI.GetLatestCurrencyRatesModelAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

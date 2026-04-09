@@ -22,61 +22,13 @@ func Test_openapi_QuotesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesCountGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesExtendedGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesExtendedGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesQuoteIdCalculatePut", func(t *testing.T) {
+	t.Run("Test QuotesAPIService CalculateQuote", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var quoteId string
 
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesQuoteIdCalculatePut(context.Background(), quoteId).Execute()
+		resp, httpRes, err := apiClient.QuotesAPI.CalculateQuote(context.Background(), quoteId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -84,70 +36,14 @@ func Test_openapi_QuotesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesQuoteIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var quoteId string
-
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesQuoteIdDelete(context.Background(), quoteId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesQuoteIdLinesCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var quoteId string
-
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesQuoteIdLinesCountGet(context.Background(), quoteId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesQuoteIdLinesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var quoteId string
-
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesQuoteIdLinesGet(context.Background(), quoteId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesQuoteIdLinesPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var quoteId string
-
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesQuoteIdLinesPost(context.Background(), quoteId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePut", func(t *testing.T) {
+	t.Run("Test QuotesAPIService CalculateQuoteLine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var quoteId string
 		var quoteLineId string
 
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePut(context.Background(), quoteId, quoteLineId).Execute()
+		resp, httpRes, err := apiClient.QuotesAPI.CalculateQuoteLine(context.Background(), quoteId, quoteLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -155,14 +51,82 @@ func Test_openapi_QuotesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDelete", func(t *testing.T) {
+	t.Run("Test QuotesAPIService CloseQuote", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.CloseQuote(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService CreateOrderFromQuote", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.CreateOrderFromQuote(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService CreateQuote", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.QuotesAPI.CreateQuote(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService CreateQuoteLine", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.CreateQuoteLine(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService DeleteQuote", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.DeleteQuote(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService DeleteQuoteLine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var quoteId string
 		var quoteLineId string
 
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDelete(context.Background(), quoteId, quoteLineId).Execute()
+		resp, httpRes, err := apiClient.QuotesAPI.DeleteQuoteLine(context.Background(), quoteId, quoteLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -170,14 +134,40 @@ func Test_openapi_QuotesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGet", func(t *testing.T) {
+	t.Run("Test QuotesAPIService GetExtendedQuotes", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.QuotesAPI.GetExtendedQuotes(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService GetQuote", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.GetQuote(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService GetQuoteLine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var quoteId string
 		var quoteLineId string
 
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGet(context.Background(), quoteId, quoteLineId).Execute()
+		resp, httpRes, err := apiClient.QuotesAPI.GetQuoteLine(context.Background(), quoteId, quoteLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -185,14 +175,135 @@ func Test_openapi_QuotesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPut", func(t *testing.T) {
+	t.Run("Test QuotesAPIService GetQuoteLines", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.GetQuoteLines(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService GetQuoteLinesCount", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.GetQuoteLinesCount(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService GetQuotes", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.QuotesAPI.GetQuotes(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService GetQuotesCount", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.QuotesAPI.GetQuotesCount(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService PreviewQuoteEmailTemplate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		httpRes, err := apiClient.QuotesAPI.PreviewQuoteEmailTemplate(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService QuoteLineExists", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.QuoteLineExists(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService ReopenQuote", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.ReopenQuote(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService SendQuoteEmail", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.SendQuoteEmail(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService UpdateQuote", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var quoteId string
+
+		resp, httpRes, err := apiClient.QuotesAPI.UpdateQuote(context.Background(), quoteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test QuotesAPIService UpdateQuoteLine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var quoteId string
 		var quoteLineId string
 
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPut(context.Background(), quoteId, quoteLineId).Execute()
+		resp, httpRes, err := apiClient.QuotesAPI.UpdateQuoteLine(context.Background(), quoteId, quoteLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -200,27 +311,14 @@ func Test_openapi_QuotesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test QuotesAPIService ApiV2QuotesServiceQuotesQuoteIdPut", func(t *testing.T) {
+	t.Run("Test QuotesAPIService UpsertQuoteLine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var quoteId string
+		var quoteLineId string
 
-		resp, httpRes, err := apiClient.QuotesAPI.ApiV2QuotesServiceQuotesQuoteIdPut(context.Background(), quoteId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test QuotesAPIService GetQuoteAsync", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var quoteId string
-
-		resp, httpRes, err := apiClient.QuotesAPI.GetQuoteAsync(context.Background(), quoteId).Execute()
+		resp, httpRes, err := apiClient.QuotesAPI.UpsertQuoteLine(context.Background(), quoteId, quoteLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

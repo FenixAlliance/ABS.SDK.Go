@@ -22,25 +22,13 @@ func Test_openapi_DealUnitsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsCountGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdCalculatePut", func(t *testing.T) {
+	t.Run("Test DealUnitsAPIService CalculateDealUnitAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var dealUnitId string
 
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdCalculatePut(context.Background(), dealUnitId).Execute()
+		resp, httpRes, err := apiClient.DealUnitsAPI.CalculateDealUnitAsync(context.Background(), dealUnitId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,56 +36,14 @@ func Test_openapi_DealUnitsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitId string
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdDelete(context.Background(), dealUnitId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdExtendedGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitId string
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdExtendedGet(context.Background(), dealUnitId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdLinesCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitId string
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdLinesCountGet(context.Background(), dealUnitId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut", func(t *testing.T) {
+	t.Run("Test DealUnitsAPIService CalculateDealUnitLineAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var dealUnitId string
 		var dealUnitLineId string
 
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut(context.Background(), dealUnitId, dealUnitLineId).Execute()
+		resp, httpRes, err := apiClient.DealUnitsAPI.CalculateDealUnitLineAsync(context.Background(), dealUnitId, dealUnitLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -105,122 +51,54 @@ func Test_openapi_DealUnitsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete", func(t *testing.T) {
+	t.Run("Test DealUnitsAPIService CreateDealUnitAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.CreateDealUnitAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService CreateGetDealUnitLinesAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitId string
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.CreateGetDealUnitLinesAsync(context.Background(), dealUnitId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService DeleteDealUnitAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitId string
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.DeleteDealUnitAsync(context.Background(), dealUnitId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService DeleteDealUnitPriceAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var dealUnitId string
 		var dealUnitLineId string
 
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete(context.Background(), dealUnitId, dealUnitLineId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitId string
-		var dealUnitLineId string
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet(context.Background(), dealUnitId, dealUnitLineId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitId string
-		var dealUnitLineId string
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut(context.Background(), dealUnitId, dealUnitLineId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdLinesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitId string
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdLinesGet(context.Background(), dealUnitId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdLinesPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitId string
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdLinesPost(context.Background(), dealUnitId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsDealUnitIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var dealUnitId string
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsDealUnitIdPut(context.Background(), dealUnitId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsExtendedGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsExtendedGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DealUnitsAPIService ApiV2DealsServiceDealUnitsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DealUnitsAPI.ApiV2DealsServiceDealUnitsPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DealUnitsAPI.DeleteDealUnitPriceAsync(context.Background(), dealUnitId, dealUnitLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -235,6 +113,128 @@ func Test_openapi_DealUnitsAPIService(t *testing.T) {
 		var dealUnitId string
 
 		resp, httpRes, err := apiClient.DealUnitsAPI.GetDealUnitAsync(context.Background(), dealUnitId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService GetDealUnitLinesAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitId string
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.GetDealUnitLinesAsync(context.Background(), dealUnitId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService GetDealUnitLinesCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitId string
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.GetDealUnitLinesCountAsync(context.Background(), dealUnitId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService GetDealUnitPriceAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitId string
+		var dealUnitLineId string
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.GetDealUnitPriceAsync(context.Background(), dealUnitId, dealUnitLineId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService GetDealUnitsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.GetDealUnitsAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService GetDealUnitsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.GetDealUnitsCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService GetExtendedDealUnitAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitId string
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.GetExtendedDealUnitAsync(context.Background(), dealUnitId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService GetExtendedDealUnitsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.GetExtendedDealUnitsAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService UpdateDealUnitAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitId string
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.UpdateDealUnitAsync(context.Background(), dealUnitId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DealUnitsAPIService UpdateDealUnitPriceAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var dealUnitId string
+		var dealUnitLineId string
+
+		resp, httpRes, err := apiClient.DealUnitsAPI.UpdateDealUnitPriceAsync(context.Background(), dealUnitId, dealUnitLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

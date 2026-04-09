@@ -4,15 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
-**AuthorId** | Pointer to **NullableString** |  | [optional] 
+**Code** | Pointer to **NullableString** |  | [optional] 
+**Published** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **HtmlContent** | Pointer to **NullableString** |  | [optional] 
 **FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
+**CodeType** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -118,41 +120,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *EmailSignatureCreateDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *EmailSignatureCreateDto) GetEnrolmentId() string`
+`func (o *EmailSignatureCreateDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *EmailSignatureCreateDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *EmailSignatureCreateDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *EmailSignatureCreateDto) SetEnrolmentId(v string)`
+`func (o *EmailSignatureCreateDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *EmailSignatureCreateDto) HasEnrolmentId() bool`
+`func (o *EmailSignatureCreateDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *EmailSignatureCreateDto) SetEnrolmentIdNil(b bool)`
+`func (o *EmailSignatureCreateDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *EmailSignatureCreateDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *EmailSignatureCreateDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetTitle
 
 `func (o *EmailSignatureCreateDto) GetTitle() string`
@@ -188,41 +190,66 @@ HasTitle returns a boolean if a field has been set.
 `func (o *EmailSignatureCreateDto) UnsetTitle()`
 
 UnsetTitle ensures that no value is present for Title, not even an explicit nil
-### GetAuthorId
+### GetCode
 
-`func (o *EmailSignatureCreateDto) GetAuthorId() string`
+`func (o *EmailSignatureCreateDto) GetCode() string`
 
-GetAuthorId returns the AuthorId field if non-nil, zero value otherwise.
+GetCode returns the Code field if non-nil, zero value otherwise.
 
-### GetAuthorIdOk
+### GetCodeOk
 
-`func (o *EmailSignatureCreateDto) GetAuthorIdOk() (*string, bool)`
+`func (o *EmailSignatureCreateDto) GetCodeOk() (*string, bool)`
 
-GetAuthorIdOk returns a tuple with the AuthorId field if it's non-nil, zero value otherwise
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAuthorId
+### SetCode
 
-`func (o *EmailSignatureCreateDto) SetAuthorId(v string)`
+`func (o *EmailSignatureCreateDto) SetCode(v string)`
 
-SetAuthorId sets AuthorId field to given value.
+SetCode sets Code field to given value.
 
-### HasAuthorId
+### HasCode
 
-`func (o *EmailSignatureCreateDto) HasAuthorId() bool`
+`func (o *EmailSignatureCreateDto) HasCode() bool`
 
-HasAuthorId returns a boolean if a field has been set.
+HasCode returns a boolean if a field has been set.
 
-### SetAuthorIdNil
+### SetCodeNil
 
-`func (o *EmailSignatureCreateDto) SetAuthorIdNil(b bool)`
+`func (o *EmailSignatureCreateDto) SetCodeNil(b bool)`
 
- SetAuthorIdNil sets the value for AuthorId to be an explicit nil
+ SetCodeNil sets the value for Code to be an explicit nil
 
-### UnsetAuthorId
-`func (o *EmailSignatureCreateDto) UnsetAuthorId()`
+### UnsetCode
+`func (o *EmailSignatureCreateDto) UnsetCode()`
 
-UnsetAuthorId ensures that no value is present for AuthorId, not even an explicit nil
+UnsetCode ensures that no value is present for Code, not even an explicit nil
+### GetPublished
+
+`func (o *EmailSignatureCreateDto) GetPublished() bool`
+
+GetPublished returns the Published field if non-nil, zero value otherwise.
+
+### GetPublishedOk
+
+`func (o *EmailSignatureCreateDto) GetPublishedOk() (*bool, bool)`
+
+GetPublishedOk returns a tuple with the Published field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublished
+
+`func (o *EmailSignatureCreateDto) SetPublished(v bool)`
+
+SetPublished sets Published field to given value.
+
+### HasPublished
+
+`func (o *EmailSignatureCreateDto) HasPublished() bool`
+
+HasPublished returns a boolean if a field has been set.
+
 ### GetDescription
 
 `func (o *EmailSignatureCreateDto) GetDescription() string`
@@ -328,6 +355,41 @@ HasFeaturedImageUrl returns a boolean if a field has been set.
 `func (o *EmailSignatureCreateDto) UnsetFeaturedImageUrl()`
 
 UnsetFeaturedImageUrl ensures that no value is present for FeaturedImageUrl, not even an explicit nil
+### GetCodeType
+
+`func (o *EmailSignatureCreateDto) GetCodeType() string`
+
+GetCodeType returns the CodeType field if non-nil, zero value otherwise.
+
+### GetCodeTypeOk
+
+`func (o *EmailSignatureCreateDto) GetCodeTypeOk() (*string, bool)`
+
+GetCodeTypeOk returns a tuple with the CodeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCodeType
+
+`func (o *EmailSignatureCreateDto) SetCodeType(v string)`
+
+SetCodeType sets CodeType field to given value.
+
+### HasCodeType
+
+`func (o *EmailSignatureCreateDto) HasCodeType() bool`
+
+HasCodeType returns a boolean if a field has been set.
+
+### SetCodeTypeNil
+
+`func (o *EmailSignatureCreateDto) SetCodeTypeNil(b bool)`
+
+ SetCodeTypeNil sets the value for CodeType to be an explicit nil
+
+### UnsetCodeType
+`func (o *EmailSignatureCreateDto) UnsetCodeType()`
+
+UnsetCodeType ensures that no value is present for CodeType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

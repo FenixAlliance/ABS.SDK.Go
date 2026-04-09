@@ -22,11 +22,11 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsCountGet", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService CreateSupportRequestAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SupportRequestsAPI.CreateSupportRequestAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,13 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsGet", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService DeleteSupportRequestAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsGet(context.Background()).Execute()
+		var supportRequestId string
+
+		resp, httpRes, err := apiClient.SupportRequestsAPI.DeleteSupportRequestAsync(context.Background(), supportRequestId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +48,13 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsPost", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService GetSupportRequestAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsPost(context.Background()).Execute()
+		var supportRequestId string
+
+		resp, httpRes, err := apiClient.SupportRequestsAPI.GetSupportRequestAsync(context.Background(), supportRequestId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,14 +62,14 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService GetSupportRequestAttachmentByRequest", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportRequestId string
 		var attachmentId string
 
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet(context.Background(), supportRequestId, attachmentId).Execute()
+		resp, httpRes, err := apiClient.SupportRequestsAPI.GetSupportRequestAttachmentByRequest(context.Background(), supportRequestId, attachmentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,13 +77,13 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService GetSupportRequestAttachmentsByRequest", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportRequestId string
 
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet(context.Background(), supportRequestId).Execute()
+		resp, httpRes, err := apiClient.SupportRequestsAPI.GetSupportRequestAttachmentsByRequest(context.Background(), supportRequestId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -87,13 +91,13 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService GetSupportRequestAttachmentsCountByRequest", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportRequestId string
 
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet(context.Background(), supportRequestId).Execute()
+		resp, httpRes, err := apiClient.SupportRequestsAPI.GetSupportRequestAttachmentsCountByRequest(context.Background(), supportRequestId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -101,13 +105,13 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService GetSupportRequestTicketsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportRequestId string
 
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost(context.Background(), supportRequestId).Execute()
+		resp, httpRes, err := apiClient.SupportRequestsAPI.GetSupportRequestTicketsAsync(context.Background(), supportRequestId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -115,13 +119,11 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsSupportRequestIdDelete", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService GetSupportRequestsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var supportRequestId string
-
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdDelete(context.Background(), supportRequestId).Execute()
+		resp, httpRes, err := apiClient.SupportRequestsAPI.GetSupportRequestsAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -129,13 +131,11 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsSupportRequestIdGet", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService GetSupportRequestsCountAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var supportRequestId string
-
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdGet(context.Background(), supportRequestId).Execute()
+		resp, httpRes, err := apiClient.SupportRequestsAPI.GetSupportRequestsCountAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -143,13 +143,13 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsSupportRequestIdPut", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService RelateSupportRequestToAttachmentAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportRequestId string
 
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdPut(context.Background(), supportRequestId).Execute()
+		resp, httpRes, err := apiClient.SupportRequestsAPI.RelateSupportRequestToAttachmentAsync(context.Background(), supportRequestId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -157,13 +157,13 @@ func Test_openapi_SupportRequestsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportRequestsAPIService ApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet", func(t *testing.T) {
+	t.Run("Test SupportRequestsAPIService UpdateSupportRequestAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportRequestId string
 
-		resp, httpRes, err := apiClient.SupportRequestsAPI.ApiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet(context.Background(), supportRequestId).Execute()
+		resp, httpRes, err := apiClient.SupportRequestsAPI.UpdateSupportRequestAsync(context.Background(), supportRequestId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

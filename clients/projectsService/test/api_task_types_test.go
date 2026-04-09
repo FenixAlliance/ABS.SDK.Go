@@ -22,11 +22,11 @@ func Test_openapi_TaskTypesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TaskTypesAPIService ApiV2ProjectsServiceTaskTypesPost", func(t *testing.T) {
+	t.Run("Test TaskTypesAPIService CreateTaskTypeAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TaskTypesAPI.ApiV2ProjectsServiceTaskTypesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TaskTypesAPI.CreateTaskTypeAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_openapi_TaskTypesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaskTypesAPIService ApiV2ProjectsServiceTaskTypesTaskTypeIdDelete", func(t *testing.T) {
+	t.Run("Test TaskTypesAPIService DeleteTaskTypeAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taskTypeId string
 
-		resp, httpRes, err := apiClient.TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdDelete(context.Background(), taskTypeId).Execute()
+		resp, httpRes, err := apiClient.TaskTypesAPI.DeleteTaskTypeAsync(context.Background(), taskTypeId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_openapi_TaskTypesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaskTypesAPIService ApiV2ProjectsServiceTaskTypesTaskTypeIdGet", func(t *testing.T) {
+	t.Run("Test TaskTypesAPIService GetTaskTypeByIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taskTypeId string
 
-		resp, httpRes, err := apiClient.TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdGet(context.Background(), taskTypeId).Execute()
+		resp, httpRes, err := apiClient.TaskTypesAPI.GetTaskTypeByIdAsync(context.Background(), taskTypeId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +62,13 @@ func Test_openapi_TaskTypesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaskTypesAPIService ApiV2ProjectsServiceTaskTypesTaskTypeIdPut", func(t *testing.T) {
+	t.Run("Test TaskTypesAPIService UpdateTaskTypeAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taskTypeId string
 
-		resp, httpRes, err := apiClient.TaskTypesAPI.ApiV2ProjectsServiceTaskTypesTaskTypeIdPut(context.Background(), taskTypeId).Execute()
+		resp, httpRes, err := apiClient.TaskTypesAPI.UpdateTaskTypeAsync(context.Background(), taskTypeId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

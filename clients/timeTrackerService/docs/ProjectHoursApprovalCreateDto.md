@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **RequesterContactID** | Pointer to **NullableString** |  | [optional] 
 **ApproverContactID** | Pointer to **NullableString** |  | [optional] 
 **ProjectPeriodID** | Pointer to **NullableString** |  | [optional] 

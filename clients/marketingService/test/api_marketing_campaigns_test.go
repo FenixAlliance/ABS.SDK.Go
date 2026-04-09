@@ -22,11 +22,11 @@ func Test_openapi_MarketingCampaignsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MarketingCampaignsAPIService ApiV2MarketingServiceMarketingCampaignsCountGet", func(t *testing.T) {
+	t.Run("Test MarketingCampaignsAPIService CreateMarketingCampaignAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketingCampaignsAPI.CreateMarketingCampaignAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,24 +34,13 @@ func Test_openapi_MarketingCampaignsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketingCampaignsAPIService ApiV2MarketingServiceMarketingCampaignsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		httpRes, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MarketingCampaignsAPIService ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete", func(t *testing.T) {
+	t.Run("Test MarketingCampaignsAPIService DeleteMarketingCampaignAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var marketingcampaignId string
 
-		resp, httpRes, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete(context.Background(), marketingcampaignId).Execute()
+		resp, httpRes, err := apiClient.MarketingCampaignsAPI.DeleteMarketingCampaignAsync(context.Background(), marketingcampaignId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -59,13 +48,13 @@ func Test_openapi_MarketingCampaignsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketingCampaignsAPIService ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet", func(t *testing.T) {
+	t.Run("Test MarketingCampaignsAPIService GetMarketingCampaignDetailsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var marketingcampaignId string
 
-		resp, httpRes, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet(context.Background(), marketingcampaignId).Execute()
+		resp, httpRes, err := apiClient.MarketingCampaignsAPI.GetMarketingCampaignDetailsAsync(context.Background(), marketingcampaignId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,25 +62,36 @@ func Test_openapi_MarketingCampaignsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketingCampaignsAPIService ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut", func(t *testing.T) {
+	t.Run("Test MarketingCampaignsAPIService GetMarketingCampaignODataAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.MarketingCampaignsAPI.GetMarketingCampaignODataAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MarketingCampaignsAPIService GetMarketingCampaignsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MarketingCampaignsAPI.GetMarketingCampaignsCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MarketingCampaignsAPIService UpdateMarketingCampaignAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var marketingcampaignId string
 
-		resp, httpRes, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut(context.Background(), marketingcampaignId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MarketingCampaignsAPIService ApiV2MarketingServiceMarketingCampaignsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.MarketingCampaignsAPI.ApiV2MarketingServiceMarketingCampaignsPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketingCampaignsAPI.UpdateMarketingCampaignAsync(context.Background(), marketingcampaignId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

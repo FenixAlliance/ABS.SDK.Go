@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** |  | [optional] 
 **UserId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **PriceListId** | Pointer to **NullableString** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
@@ -29,47 +28,52 @@ Name | Type | Description | Notes
 **StateId** | Pointer to **NullableString** |  | [optional] 
 **CityId** | Pointer to **NullableString** |  | [optional] 
 **CustomerNotes** | Pointer to **NullableString** |  | [optional] 
+**TaxCalculationMethod** | Pointer to **string** |  | [optional] 
+**CostCalculationMethod** | Pointer to **string** |  | [optional] 
 **ForexRate** | Pointer to **float64** |  | [optional] 
-**Total** | Pointer to **float64** |  | [optional] 
-**TotalTaxes** | Pointer to **float64** |  | [optional] 
-**TotalTaxBase** | Pointer to **float64** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalDetail** | Pointer to **float64** |  | [optional] 
+**TotalDetailCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalProfit** | Pointer to **float64** |  | [optional] 
+**TotalProfitCurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TotalDiscounts** | Pointer to **float64** |  | [optional] 
+**TotalDiscountsCurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TotalSurcharges** | Pointer to **float64** |  | [optional] 
+**TotalSurchargesCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalTaxBase** | Pointer to **float64** |  | [optional] 
+**TotalTaxBaseCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalTaxes** | Pointer to **float64** |  | [optional] 
+**TotalTaxesCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalShippingCost** | Pointer to **float64** |  | [optional] 
+**TotalShippingCostCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalShippingTax** | Pointer to **float64** |  | [optional] 
+**TotalShippingTaxCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalWithheldTax** | Pointer to **float64** |  | [optional] 
+**TotalWithheldTaxCurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TotalGlobalDiscounts** | Pointer to **float64** |  | [optional] 
+**TotalGlobalDiscountsCurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TotalGlobalSurcharges** | Pointer to **float64** |  | [optional] 
-**TotalTaxesInUsd** | Pointer to **float64** |  | [optional] 
-**TotalAmountInUsd** | Pointer to **float64** |  | [optional] 
+**TotalGlobalSurchargesCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**Total** | Pointer to **float64** |  | [optional] 
+**TotalCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TotalDetailInUsd** | Pointer to **float64** |  | [optional] 
 **TotalProfitInUsd** | Pointer to **float64** |  | [optional] 
-**TotalTaxBaseInUsd** | Pointer to **float64** |  | [optional] 
 **TotalDiscountsInUsd** | Pointer to **float64** |  | [optional] 
 **TotalSurchargesInUsd** | Pointer to **float64** |  | [optional] 
-**TotalDetailAmountInUsd** | Pointer to **float64** |  | [optional] 
-**TotalGlobalDiscountsInUsd** | Pointer to **float64** |  | [optional] 
-**TotalGlobalSurchargesInUsd** | Pointer to **float64** |  | [optional] 
-**TotalWithholdingTaxesInUsd** | Pointer to **float64** |  | [optional] 
+**TotalTaxBaseInUsd** | Pointer to **float64** |  | [optional] 
+**TotalTaxesInUsd** | Pointer to **float64** |  | [optional] 
+**TotalWithheldTaxesInUsd** | Pointer to **float64** |  | [optional] 
 **TotalShippingCostInUsd** | Pointer to **float64** |  | [optional] 
 **TotalShippingTaxesInUsd** | Pointer to **float64** |  | [optional] 
-**Currency** | Pointer to [**Currency**](Currency.md) |  | [optional] 
-**TotalInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalTaxAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalTaxBaseAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalDiscountsAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalSurchargesAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalGlobalDiscountsAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalGlobalSurchargesAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalTaxAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalTaxBaseAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalDiscountsAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalSurchargesAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalGlobalDiscountsAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
-**TotalGlobalSurchargesAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
+**TotalGlobalDiscountsInUsd** | Pointer to **float64** |  | [optional] 
+**TotalGlobalSurchargesInUsd** | Pointer to **float64** |  | [optional] 
+**TotalInUsd** | Pointer to **float64** |  | [optional] 
 **CartId** | Pointer to **NullableString** |  | [optional] 
+**DealUnitId** | Pointer to **NullableString** |  | [optional] 
 **EffectiveTo** | Pointer to **NullableTime** |  | [optional] 
 **EffectiveFrom** | Pointer to **NullableTime** |  | [optional] 
-**QuoteStatus** | Pointer to **int32** |  | [optional] 
-**FreightTerms** | Pointer to **int32** |  | [optional] 
-**CostCalculationMethod** | Pointer to **int32** |  | [optional] 
+**QuoteStatus** | Pointer to **string** |  | [optional] 
+**FreightTerms** | Pointer to **string** |  | [optional] 
 **CustomDiscountsAmount** | Pointer to **float64** |  | [optional] 
 
 ## Methods
@@ -326,41 +330,6 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *QuoteDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetCurrencyId
-
-`func (o *QuoteDto) GetCurrencyId() string`
-
-GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
-
-### GetCurrencyIdOk
-
-`func (o *QuoteDto) GetCurrencyIdOk() (*string, bool)`
-
-GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCurrencyId
-
-`func (o *QuoteDto) SetCurrencyId(v string)`
-
-SetCurrencyId sets CurrencyId field to given value.
-
-### HasCurrencyId
-
-`func (o *QuoteDto) HasCurrencyId() bool`
-
-HasCurrencyId returns a boolean if a field has been set.
-
-### SetCurrencyIdNil
-
-`func (o *QuoteDto) SetCurrencyIdNil(b bool)`
-
- SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
-
-### UnsetCurrencyId
-`func (o *QuoteDto) UnsetCurrencyId()`
-
-UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
 ### GetDescription
 
 `func (o *QuoteDto) GetDescription() string`
@@ -956,6 +925,56 @@ HasCustomerNotes returns a boolean if a field has been set.
 `func (o *QuoteDto) UnsetCustomerNotes()`
 
 UnsetCustomerNotes ensures that no value is present for CustomerNotes, not even an explicit nil
+### GetTaxCalculationMethod
+
+`func (o *QuoteDto) GetTaxCalculationMethod() string`
+
+GetTaxCalculationMethod returns the TaxCalculationMethod field if non-nil, zero value otherwise.
+
+### GetTaxCalculationMethodOk
+
+`func (o *QuoteDto) GetTaxCalculationMethodOk() (*string, bool)`
+
+GetTaxCalculationMethodOk returns a tuple with the TaxCalculationMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaxCalculationMethod
+
+`func (o *QuoteDto) SetTaxCalculationMethod(v string)`
+
+SetTaxCalculationMethod sets TaxCalculationMethod field to given value.
+
+### HasTaxCalculationMethod
+
+`func (o *QuoteDto) HasTaxCalculationMethod() bool`
+
+HasTaxCalculationMethod returns a boolean if a field has been set.
+
+### GetCostCalculationMethod
+
+`func (o *QuoteDto) GetCostCalculationMethod() string`
+
+GetCostCalculationMethod returns the CostCalculationMethod field if non-nil, zero value otherwise.
+
+### GetCostCalculationMethodOk
+
+`func (o *QuoteDto) GetCostCalculationMethodOk() (*string, bool)`
+
+GetCostCalculationMethodOk returns a tuple with the CostCalculationMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostCalculationMethod
+
+`func (o *QuoteDto) SetCostCalculationMethod(v string)`
+
+SetCostCalculationMethod sets CostCalculationMethod field to given value.
+
+### HasCostCalculationMethod
+
+`func (o *QuoteDto) HasCostCalculationMethod() bool`
+
+HasCostCalculationMethod returns a boolean if a field has been set.
+
 ### GetForexRate
 
 `func (o *QuoteDto) GetForexRate() float64`
@@ -981,81 +1000,161 @@ SetForexRate sets ForexRate field to given value.
 
 HasForexRate returns a boolean if a field has been set.
 
-### GetTotal
+### GetCurrencyId
 
-`func (o *QuoteDto) GetTotal() float64`
+`func (o *QuoteDto) GetCurrencyId() string`
 
-GetTotal returns the Total field if non-nil, zero value otherwise.
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
 
-### GetTotalOk
+### GetCurrencyIdOk
 
-`func (o *QuoteDto) GetTotalOk() (*float64, bool)`
+`func (o *QuoteDto) GetCurrencyIdOk() (*string, bool)`
 
-GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotal
+### SetCurrencyId
 
-`func (o *QuoteDto) SetTotal(v float64)`
+`func (o *QuoteDto) SetCurrencyId(v string)`
 
-SetTotal sets Total field to given value.
+SetCurrencyId sets CurrencyId field to given value.
 
-### HasTotal
+### HasCurrencyId
 
-`func (o *QuoteDto) HasTotal() bool`
+`func (o *QuoteDto) HasCurrencyId() bool`
 
-HasTotal returns a boolean if a field has been set.
+HasCurrencyId returns a boolean if a field has been set.
 
-### GetTotalTaxes
+### SetCurrencyIdNil
 
-`func (o *QuoteDto) GetTotalTaxes() float64`
+`func (o *QuoteDto) SetCurrencyIdNil(b bool)`
 
-GetTotalTaxes returns the TotalTaxes field if non-nil, zero value otherwise.
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
 
-### GetTotalTaxesOk
+### UnsetCurrencyId
+`func (o *QuoteDto) UnsetCurrencyId()`
 
-`func (o *QuoteDto) GetTotalTaxesOk() (*float64, bool)`
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
+### GetTotalDetail
 
-GetTotalTaxesOk returns a tuple with the TotalTaxes field if it's non-nil, zero value otherwise
+`func (o *QuoteDto) GetTotalDetail() float64`
+
+GetTotalDetail returns the TotalDetail field if non-nil, zero value otherwise.
+
+### GetTotalDetailOk
+
+`func (o *QuoteDto) GetTotalDetailOk() (*float64, bool)`
+
+GetTotalDetailOk returns a tuple with the TotalDetail field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotalTaxes
+### SetTotalDetail
 
-`func (o *QuoteDto) SetTotalTaxes(v float64)`
+`func (o *QuoteDto) SetTotalDetail(v float64)`
 
-SetTotalTaxes sets TotalTaxes field to given value.
+SetTotalDetail sets TotalDetail field to given value.
 
-### HasTotalTaxes
+### HasTotalDetail
 
-`func (o *QuoteDto) HasTotalTaxes() bool`
+`func (o *QuoteDto) HasTotalDetail() bool`
 
-HasTotalTaxes returns a boolean if a field has been set.
+HasTotalDetail returns a boolean if a field has been set.
 
-### GetTotalTaxBase
+### GetTotalDetailCurrencyId
 
-`func (o *QuoteDto) GetTotalTaxBase() float64`
+`func (o *QuoteDto) GetTotalDetailCurrencyId() string`
 
-GetTotalTaxBase returns the TotalTaxBase field if non-nil, zero value otherwise.
+GetTotalDetailCurrencyId returns the TotalDetailCurrencyId field if non-nil, zero value otherwise.
 
-### GetTotalTaxBaseOk
+### GetTotalDetailCurrencyIdOk
 
-`func (o *QuoteDto) GetTotalTaxBaseOk() (*float64, bool)`
+`func (o *QuoteDto) GetTotalDetailCurrencyIdOk() (*string, bool)`
 
-GetTotalTaxBaseOk returns a tuple with the TotalTaxBase field if it's non-nil, zero value otherwise
+GetTotalDetailCurrencyIdOk returns a tuple with the TotalDetailCurrencyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotalTaxBase
+### SetTotalDetailCurrencyId
 
-`func (o *QuoteDto) SetTotalTaxBase(v float64)`
+`func (o *QuoteDto) SetTotalDetailCurrencyId(v string)`
 
-SetTotalTaxBase sets TotalTaxBase field to given value.
+SetTotalDetailCurrencyId sets TotalDetailCurrencyId field to given value.
 
-### HasTotalTaxBase
+### HasTotalDetailCurrencyId
 
-`func (o *QuoteDto) HasTotalTaxBase() bool`
+`func (o *QuoteDto) HasTotalDetailCurrencyId() bool`
 
-HasTotalTaxBase returns a boolean if a field has been set.
+HasTotalDetailCurrencyId returns a boolean if a field has been set.
 
+### SetTotalDetailCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalDetailCurrencyIdNil(b bool)`
+
+ SetTotalDetailCurrencyIdNil sets the value for TotalDetailCurrencyId to be an explicit nil
+
+### UnsetTotalDetailCurrencyId
+`func (o *QuoteDto) UnsetTotalDetailCurrencyId()`
+
+UnsetTotalDetailCurrencyId ensures that no value is present for TotalDetailCurrencyId, not even an explicit nil
+### GetTotalProfit
+
+`func (o *QuoteDto) GetTotalProfit() float64`
+
+GetTotalProfit returns the TotalProfit field if non-nil, zero value otherwise.
+
+### GetTotalProfitOk
+
+`func (o *QuoteDto) GetTotalProfitOk() (*float64, bool)`
+
+GetTotalProfitOk returns a tuple with the TotalProfit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalProfit
+
+`func (o *QuoteDto) SetTotalProfit(v float64)`
+
+SetTotalProfit sets TotalProfit field to given value.
+
+### HasTotalProfit
+
+`func (o *QuoteDto) HasTotalProfit() bool`
+
+HasTotalProfit returns a boolean if a field has been set.
+
+### GetTotalProfitCurrencyId
+
+`func (o *QuoteDto) GetTotalProfitCurrencyId() string`
+
+GetTotalProfitCurrencyId returns the TotalProfitCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalProfitCurrencyIdOk
+
+`func (o *QuoteDto) GetTotalProfitCurrencyIdOk() (*string, bool)`
+
+GetTotalProfitCurrencyIdOk returns a tuple with the TotalProfitCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalProfitCurrencyId
+
+`func (o *QuoteDto) SetTotalProfitCurrencyId(v string)`
+
+SetTotalProfitCurrencyId sets TotalProfitCurrencyId field to given value.
+
+### HasTotalProfitCurrencyId
+
+`func (o *QuoteDto) HasTotalProfitCurrencyId() bool`
+
+HasTotalProfitCurrencyId returns a boolean if a field has been set.
+
+### SetTotalProfitCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalProfitCurrencyIdNil(b bool)`
+
+ SetTotalProfitCurrencyIdNil sets the value for TotalProfitCurrencyId to be an explicit nil
+
+### UnsetTotalProfitCurrencyId
+`func (o *QuoteDto) UnsetTotalProfitCurrencyId()`
+
+UnsetTotalProfitCurrencyId ensures that no value is present for TotalProfitCurrencyId, not even an explicit nil
 ### GetTotalDiscounts
 
 `func (o *QuoteDto) GetTotalDiscounts() float64`
@@ -1081,6 +1180,41 @@ SetTotalDiscounts sets TotalDiscounts field to given value.
 
 HasTotalDiscounts returns a boolean if a field has been set.
 
+### GetTotalDiscountsCurrencyId
+
+`func (o *QuoteDto) GetTotalDiscountsCurrencyId() string`
+
+GetTotalDiscountsCurrencyId returns the TotalDiscountsCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalDiscountsCurrencyIdOk
+
+`func (o *QuoteDto) GetTotalDiscountsCurrencyIdOk() (*string, bool)`
+
+GetTotalDiscountsCurrencyIdOk returns a tuple with the TotalDiscountsCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalDiscountsCurrencyId
+
+`func (o *QuoteDto) SetTotalDiscountsCurrencyId(v string)`
+
+SetTotalDiscountsCurrencyId sets TotalDiscountsCurrencyId field to given value.
+
+### HasTotalDiscountsCurrencyId
+
+`func (o *QuoteDto) HasTotalDiscountsCurrencyId() bool`
+
+HasTotalDiscountsCurrencyId returns a boolean if a field has been set.
+
+### SetTotalDiscountsCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalDiscountsCurrencyIdNil(b bool)`
+
+ SetTotalDiscountsCurrencyIdNil sets the value for TotalDiscountsCurrencyId to be an explicit nil
+
+### UnsetTotalDiscountsCurrencyId
+`func (o *QuoteDto) UnsetTotalDiscountsCurrencyId()`
+
+UnsetTotalDiscountsCurrencyId ensures that no value is present for TotalDiscountsCurrencyId, not even an explicit nil
 ### GetTotalSurcharges
 
 `func (o *QuoteDto) GetTotalSurcharges() float64`
@@ -1106,6 +1240,341 @@ SetTotalSurcharges sets TotalSurcharges field to given value.
 
 HasTotalSurcharges returns a boolean if a field has been set.
 
+### GetTotalSurchargesCurrencyId
+
+`func (o *QuoteDto) GetTotalSurchargesCurrencyId() string`
+
+GetTotalSurchargesCurrencyId returns the TotalSurchargesCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalSurchargesCurrencyIdOk
+
+`func (o *QuoteDto) GetTotalSurchargesCurrencyIdOk() (*string, bool)`
+
+GetTotalSurchargesCurrencyIdOk returns a tuple with the TotalSurchargesCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalSurchargesCurrencyId
+
+`func (o *QuoteDto) SetTotalSurchargesCurrencyId(v string)`
+
+SetTotalSurchargesCurrencyId sets TotalSurchargesCurrencyId field to given value.
+
+### HasTotalSurchargesCurrencyId
+
+`func (o *QuoteDto) HasTotalSurchargesCurrencyId() bool`
+
+HasTotalSurchargesCurrencyId returns a boolean if a field has been set.
+
+### SetTotalSurchargesCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalSurchargesCurrencyIdNil(b bool)`
+
+ SetTotalSurchargesCurrencyIdNil sets the value for TotalSurchargesCurrencyId to be an explicit nil
+
+### UnsetTotalSurchargesCurrencyId
+`func (o *QuoteDto) UnsetTotalSurchargesCurrencyId()`
+
+UnsetTotalSurchargesCurrencyId ensures that no value is present for TotalSurchargesCurrencyId, not even an explicit nil
+### GetTotalTaxBase
+
+`func (o *QuoteDto) GetTotalTaxBase() float64`
+
+GetTotalTaxBase returns the TotalTaxBase field if non-nil, zero value otherwise.
+
+### GetTotalTaxBaseOk
+
+`func (o *QuoteDto) GetTotalTaxBaseOk() (*float64, bool)`
+
+GetTotalTaxBaseOk returns a tuple with the TotalTaxBase field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalTaxBase
+
+`func (o *QuoteDto) SetTotalTaxBase(v float64)`
+
+SetTotalTaxBase sets TotalTaxBase field to given value.
+
+### HasTotalTaxBase
+
+`func (o *QuoteDto) HasTotalTaxBase() bool`
+
+HasTotalTaxBase returns a boolean if a field has been set.
+
+### GetTotalTaxBaseCurrencyId
+
+`func (o *QuoteDto) GetTotalTaxBaseCurrencyId() string`
+
+GetTotalTaxBaseCurrencyId returns the TotalTaxBaseCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalTaxBaseCurrencyIdOk
+
+`func (o *QuoteDto) GetTotalTaxBaseCurrencyIdOk() (*string, bool)`
+
+GetTotalTaxBaseCurrencyIdOk returns a tuple with the TotalTaxBaseCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalTaxBaseCurrencyId
+
+`func (o *QuoteDto) SetTotalTaxBaseCurrencyId(v string)`
+
+SetTotalTaxBaseCurrencyId sets TotalTaxBaseCurrencyId field to given value.
+
+### HasTotalTaxBaseCurrencyId
+
+`func (o *QuoteDto) HasTotalTaxBaseCurrencyId() bool`
+
+HasTotalTaxBaseCurrencyId returns a boolean if a field has been set.
+
+### SetTotalTaxBaseCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalTaxBaseCurrencyIdNil(b bool)`
+
+ SetTotalTaxBaseCurrencyIdNil sets the value for TotalTaxBaseCurrencyId to be an explicit nil
+
+### UnsetTotalTaxBaseCurrencyId
+`func (o *QuoteDto) UnsetTotalTaxBaseCurrencyId()`
+
+UnsetTotalTaxBaseCurrencyId ensures that no value is present for TotalTaxBaseCurrencyId, not even an explicit nil
+### GetTotalTaxes
+
+`func (o *QuoteDto) GetTotalTaxes() float64`
+
+GetTotalTaxes returns the TotalTaxes field if non-nil, zero value otherwise.
+
+### GetTotalTaxesOk
+
+`func (o *QuoteDto) GetTotalTaxesOk() (*float64, bool)`
+
+GetTotalTaxesOk returns a tuple with the TotalTaxes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalTaxes
+
+`func (o *QuoteDto) SetTotalTaxes(v float64)`
+
+SetTotalTaxes sets TotalTaxes field to given value.
+
+### HasTotalTaxes
+
+`func (o *QuoteDto) HasTotalTaxes() bool`
+
+HasTotalTaxes returns a boolean if a field has been set.
+
+### GetTotalTaxesCurrencyId
+
+`func (o *QuoteDto) GetTotalTaxesCurrencyId() string`
+
+GetTotalTaxesCurrencyId returns the TotalTaxesCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalTaxesCurrencyIdOk
+
+`func (o *QuoteDto) GetTotalTaxesCurrencyIdOk() (*string, bool)`
+
+GetTotalTaxesCurrencyIdOk returns a tuple with the TotalTaxesCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalTaxesCurrencyId
+
+`func (o *QuoteDto) SetTotalTaxesCurrencyId(v string)`
+
+SetTotalTaxesCurrencyId sets TotalTaxesCurrencyId field to given value.
+
+### HasTotalTaxesCurrencyId
+
+`func (o *QuoteDto) HasTotalTaxesCurrencyId() bool`
+
+HasTotalTaxesCurrencyId returns a boolean if a field has been set.
+
+### SetTotalTaxesCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalTaxesCurrencyIdNil(b bool)`
+
+ SetTotalTaxesCurrencyIdNil sets the value for TotalTaxesCurrencyId to be an explicit nil
+
+### UnsetTotalTaxesCurrencyId
+`func (o *QuoteDto) UnsetTotalTaxesCurrencyId()`
+
+UnsetTotalTaxesCurrencyId ensures that no value is present for TotalTaxesCurrencyId, not even an explicit nil
+### GetTotalShippingCost
+
+`func (o *QuoteDto) GetTotalShippingCost() float64`
+
+GetTotalShippingCost returns the TotalShippingCost field if non-nil, zero value otherwise.
+
+### GetTotalShippingCostOk
+
+`func (o *QuoteDto) GetTotalShippingCostOk() (*float64, bool)`
+
+GetTotalShippingCostOk returns a tuple with the TotalShippingCost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalShippingCost
+
+`func (o *QuoteDto) SetTotalShippingCost(v float64)`
+
+SetTotalShippingCost sets TotalShippingCost field to given value.
+
+### HasTotalShippingCost
+
+`func (o *QuoteDto) HasTotalShippingCost() bool`
+
+HasTotalShippingCost returns a boolean if a field has been set.
+
+### GetTotalShippingCostCurrencyId
+
+`func (o *QuoteDto) GetTotalShippingCostCurrencyId() string`
+
+GetTotalShippingCostCurrencyId returns the TotalShippingCostCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalShippingCostCurrencyIdOk
+
+`func (o *QuoteDto) GetTotalShippingCostCurrencyIdOk() (*string, bool)`
+
+GetTotalShippingCostCurrencyIdOk returns a tuple with the TotalShippingCostCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalShippingCostCurrencyId
+
+`func (o *QuoteDto) SetTotalShippingCostCurrencyId(v string)`
+
+SetTotalShippingCostCurrencyId sets TotalShippingCostCurrencyId field to given value.
+
+### HasTotalShippingCostCurrencyId
+
+`func (o *QuoteDto) HasTotalShippingCostCurrencyId() bool`
+
+HasTotalShippingCostCurrencyId returns a boolean if a field has been set.
+
+### SetTotalShippingCostCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalShippingCostCurrencyIdNil(b bool)`
+
+ SetTotalShippingCostCurrencyIdNil sets the value for TotalShippingCostCurrencyId to be an explicit nil
+
+### UnsetTotalShippingCostCurrencyId
+`func (o *QuoteDto) UnsetTotalShippingCostCurrencyId()`
+
+UnsetTotalShippingCostCurrencyId ensures that no value is present for TotalShippingCostCurrencyId, not even an explicit nil
+### GetTotalShippingTax
+
+`func (o *QuoteDto) GetTotalShippingTax() float64`
+
+GetTotalShippingTax returns the TotalShippingTax field if non-nil, zero value otherwise.
+
+### GetTotalShippingTaxOk
+
+`func (o *QuoteDto) GetTotalShippingTaxOk() (*float64, bool)`
+
+GetTotalShippingTaxOk returns a tuple with the TotalShippingTax field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalShippingTax
+
+`func (o *QuoteDto) SetTotalShippingTax(v float64)`
+
+SetTotalShippingTax sets TotalShippingTax field to given value.
+
+### HasTotalShippingTax
+
+`func (o *QuoteDto) HasTotalShippingTax() bool`
+
+HasTotalShippingTax returns a boolean if a field has been set.
+
+### GetTotalShippingTaxCurrencyId
+
+`func (o *QuoteDto) GetTotalShippingTaxCurrencyId() string`
+
+GetTotalShippingTaxCurrencyId returns the TotalShippingTaxCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalShippingTaxCurrencyIdOk
+
+`func (o *QuoteDto) GetTotalShippingTaxCurrencyIdOk() (*string, bool)`
+
+GetTotalShippingTaxCurrencyIdOk returns a tuple with the TotalShippingTaxCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalShippingTaxCurrencyId
+
+`func (o *QuoteDto) SetTotalShippingTaxCurrencyId(v string)`
+
+SetTotalShippingTaxCurrencyId sets TotalShippingTaxCurrencyId field to given value.
+
+### HasTotalShippingTaxCurrencyId
+
+`func (o *QuoteDto) HasTotalShippingTaxCurrencyId() bool`
+
+HasTotalShippingTaxCurrencyId returns a boolean if a field has been set.
+
+### SetTotalShippingTaxCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalShippingTaxCurrencyIdNil(b bool)`
+
+ SetTotalShippingTaxCurrencyIdNil sets the value for TotalShippingTaxCurrencyId to be an explicit nil
+
+### UnsetTotalShippingTaxCurrencyId
+`func (o *QuoteDto) UnsetTotalShippingTaxCurrencyId()`
+
+UnsetTotalShippingTaxCurrencyId ensures that no value is present for TotalShippingTaxCurrencyId, not even an explicit nil
+### GetTotalWithheldTax
+
+`func (o *QuoteDto) GetTotalWithheldTax() float64`
+
+GetTotalWithheldTax returns the TotalWithheldTax field if non-nil, zero value otherwise.
+
+### GetTotalWithheldTaxOk
+
+`func (o *QuoteDto) GetTotalWithheldTaxOk() (*float64, bool)`
+
+GetTotalWithheldTaxOk returns a tuple with the TotalWithheldTax field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalWithheldTax
+
+`func (o *QuoteDto) SetTotalWithheldTax(v float64)`
+
+SetTotalWithheldTax sets TotalWithheldTax field to given value.
+
+### HasTotalWithheldTax
+
+`func (o *QuoteDto) HasTotalWithheldTax() bool`
+
+HasTotalWithheldTax returns a boolean if a field has been set.
+
+### GetTotalWithheldTaxCurrencyId
+
+`func (o *QuoteDto) GetTotalWithheldTaxCurrencyId() string`
+
+GetTotalWithheldTaxCurrencyId returns the TotalWithheldTaxCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalWithheldTaxCurrencyIdOk
+
+`func (o *QuoteDto) GetTotalWithheldTaxCurrencyIdOk() (*string, bool)`
+
+GetTotalWithheldTaxCurrencyIdOk returns a tuple with the TotalWithheldTaxCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalWithheldTaxCurrencyId
+
+`func (o *QuoteDto) SetTotalWithheldTaxCurrencyId(v string)`
+
+SetTotalWithheldTaxCurrencyId sets TotalWithheldTaxCurrencyId field to given value.
+
+### HasTotalWithheldTaxCurrencyId
+
+`func (o *QuoteDto) HasTotalWithheldTaxCurrencyId() bool`
+
+HasTotalWithheldTaxCurrencyId returns a boolean if a field has been set.
+
+### SetTotalWithheldTaxCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalWithheldTaxCurrencyIdNil(b bool)`
+
+ SetTotalWithheldTaxCurrencyIdNil sets the value for TotalWithheldTaxCurrencyId to be an explicit nil
+
+### UnsetTotalWithheldTaxCurrencyId
+`func (o *QuoteDto) UnsetTotalWithheldTaxCurrencyId()`
+
+UnsetTotalWithheldTaxCurrencyId ensures that no value is present for TotalWithheldTaxCurrencyId, not even an explicit nil
 ### GetTotalGlobalDiscounts
 
 `func (o *QuoteDto) GetTotalGlobalDiscounts() float64`
@@ -1131,6 +1600,41 @@ SetTotalGlobalDiscounts sets TotalGlobalDiscounts field to given value.
 
 HasTotalGlobalDiscounts returns a boolean if a field has been set.
 
+### GetTotalGlobalDiscountsCurrencyId
+
+`func (o *QuoteDto) GetTotalGlobalDiscountsCurrencyId() string`
+
+GetTotalGlobalDiscountsCurrencyId returns the TotalGlobalDiscountsCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalGlobalDiscountsCurrencyIdOk
+
+`func (o *QuoteDto) GetTotalGlobalDiscountsCurrencyIdOk() (*string, bool)`
+
+GetTotalGlobalDiscountsCurrencyIdOk returns a tuple with the TotalGlobalDiscountsCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalGlobalDiscountsCurrencyId
+
+`func (o *QuoteDto) SetTotalGlobalDiscountsCurrencyId(v string)`
+
+SetTotalGlobalDiscountsCurrencyId sets TotalGlobalDiscountsCurrencyId field to given value.
+
+### HasTotalGlobalDiscountsCurrencyId
+
+`func (o *QuoteDto) HasTotalGlobalDiscountsCurrencyId() bool`
+
+HasTotalGlobalDiscountsCurrencyId returns a boolean if a field has been set.
+
+### SetTotalGlobalDiscountsCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalGlobalDiscountsCurrencyIdNil(b bool)`
+
+ SetTotalGlobalDiscountsCurrencyIdNil sets the value for TotalGlobalDiscountsCurrencyId to be an explicit nil
+
+### UnsetTotalGlobalDiscountsCurrencyId
+`func (o *QuoteDto) UnsetTotalGlobalDiscountsCurrencyId()`
+
+UnsetTotalGlobalDiscountsCurrencyId ensures that no value is present for TotalGlobalDiscountsCurrencyId, not even an explicit nil
 ### GetTotalGlobalSurcharges
 
 `func (o *QuoteDto) GetTotalGlobalSurcharges() float64`
@@ -1156,55 +1660,125 @@ SetTotalGlobalSurcharges sets TotalGlobalSurcharges field to given value.
 
 HasTotalGlobalSurcharges returns a boolean if a field has been set.
 
-### GetTotalTaxesInUsd
+### GetTotalGlobalSurchargesCurrencyId
 
-`func (o *QuoteDto) GetTotalTaxesInUsd() float64`
+`func (o *QuoteDto) GetTotalGlobalSurchargesCurrencyId() string`
 
-GetTotalTaxesInUsd returns the TotalTaxesInUsd field if non-nil, zero value otherwise.
+GetTotalGlobalSurchargesCurrencyId returns the TotalGlobalSurchargesCurrencyId field if non-nil, zero value otherwise.
 
-### GetTotalTaxesInUsdOk
+### GetTotalGlobalSurchargesCurrencyIdOk
 
-`func (o *QuoteDto) GetTotalTaxesInUsdOk() (*float64, bool)`
+`func (o *QuoteDto) GetTotalGlobalSurchargesCurrencyIdOk() (*string, bool)`
 
-GetTotalTaxesInUsdOk returns a tuple with the TotalTaxesInUsd field if it's non-nil, zero value otherwise
+GetTotalGlobalSurchargesCurrencyIdOk returns a tuple with the TotalGlobalSurchargesCurrencyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotalTaxesInUsd
+### SetTotalGlobalSurchargesCurrencyId
 
-`func (o *QuoteDto) SetTotalTaxesInUsd(v float64)`
+`func (o *QuoteDto) SetTotalGlobalSurchargesCurrencyId(v string)`
 
-SetTotalTaxesInUsd sets TotalTaxesInUsd field to given value.
+SetTotalGlobalSurchargesCurrencyId sets TotalGlobalSurchargesCurrencyId field to given value.
 
-### HasTotalTaxesInUsd
+### HasTotalGlobalSurchargesCurrencyId
 
-`func (o *QuoteDto) HasTotalTaxesInUsd() bool`
+`func (o *QuoteDto) HasTotalGlobalSurchargesCurrencyId() bool`
 
-HasTotalTaxesInUsd returns a boolean if a field has been set.
+HasTotalGlobalSurchargesCurrencyId returns a boolean if a field has been set.
 
-### GetTotalAmountInUsd
+### SetTotalGlobalSurchargesCurrencyIdNil
 
-`func (o *QuoteDto) GetTotalAmountInUsd() float64`
+`func (o *QuoteDto) SetTotalGlobalSurchargesCurrencyIdNil(b bool)`
 
-GetTotalAmountInUsd returns the TotalAmountInUsd field if non-nil, zero value otherwise.
+ SetTotalGlobalSurchargesCurrencyIdNil sets the value for TotalGlobalSurchargesCurrencyId to be an explicit nil
 
-### GetTotalAmountInUsdOk
+### UnsetTotalGlobalSurchargesCurrencyId
+`func (o *QuoteDto) UnsetTotalGlobalSurchargesCurrencyId()`
 
-`func (o *QuoteDto) GetTotalAmountInUsdOk() (*float64, bool)`
+UnsetTotalGlobalSurchargesCurrencyId ensures that no value is present for TotalGlobalSurchargesCurrencyId, not even an explicit nil
+### GetTotal
 
-GetTotalAmountInUsdOk returns a tuple with the TotalAmountInUsd field if it's non-nil, zero value otherwise
+`func (o *QuoteDto) GetTotal() float64`
+
+GetTotal returns the Total field if non-nil, zero value otherwise.
+
+### GetTotalOk
+
+`func (o *QuoteDto) GetTotalOk() (*float64, bool)`
+
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotalAmountInUsd
+### SetTotal
 
-`func (o *QuoteDto) SetTotalAmountInUsd(v float64)`
+`func (o *QuoteDto) SetTotal(v float64)`
 
-SetTotalAmountInUsd sets TotalAmountInUsd field to given value.
+SetTotal sets Total field to given value.
 
-### HasTotalAmountInUsd
+### HasTotal
 
-`func (o *QuoteDto) HasTotalAmountInUsd() bool`
+`func (o *QuoteDto) HasTotal() bool`
 
-HasTotalAmountInUsd returns a boolean if a field has been set.
+HasTotal returns a boolean if a field has been set.
+
+### GetTotalCurrencyId
+
+`func (o *QuoteDto) GetTotalCurrencyId() string`
+
+GetTotalCurrencyId returns the TotalCurrencyId field if non-nil, zero value otherwise.
+
+### GetTotalCurrencyIdOk
+
+`func (o *QuoteDto) GetTotalCurrencyIdOk() (*string, bool)`
+
+GetTotalCurrencyIdOk returns a tuple with the TotalCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalCurrencyId
+
+`func (o *QuoteDto) SetTotalCurrencyId(v string)`
+
+SetTotalCurrencyId sets TotalCurrencyId field to given value.
+
+### HasTotalCurrencyId
+
+`func (o *QuoteDto) HasTotalCurrencyId() bool`
+
+HasTotalCurrencyId returns a boolean if a field has been set.
+
+### SetTotalCurrencyIdNil
+
+`func (o *QuoteDto) SetTotalCurrencyIdNil(b bool)`
+
+ SetTotalCurrencyIdNil sets the value for TotalCurrencyId to be an explicit nil
+
+### UnsetTotalCurrencyId
+`func (o *QuoteDto) UnsetTotalCurrencyId()`
+
+UnsetTotalCurrencyId ensures that no value is present for TotalCurrencyId, not even an explicit nil
+### GetTotalDetailInUsd
+
+`func (o *QuoteDto) GetTotalDetailInUsd() float64`
+
+GetTotalDetailInUsd returns the TotalDetailInUsd field if non-nil, zero value otherwise.
+
+### GetTotalDetailInUsdOk
+
+`func (o *QuoteDto) GetTotalDetailInUsdOk() (*float64, bool)`
+
+GetTotalDetailInUsdOk returns a tuple with the TotalDetailInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalDetailInUsd
+
+`func (o *QuoteDto) SetTotalDetailInUsd(v float64)`
+
+SetTotalDetailInUsd sets TotalDetailInUsd field to given value.
+
+### HasTotalDetailInUsd
+
+`func (o *QuoteDto) HasTotalDetailInUsd() bool`
+
+HasTotalDetailInUsd returns a boolean if a field has been set.
 
 ### GetTotalProfitInUsd
 
@@ -1230,31 +1804,6 @@ SetTotalProfitInUsd sets TotalProfitInUsd field to given value.
 `func (o *QuoteDto) HasTotalProfitInUsd() bool`
 
 HasTotalProfitInUsd returns a boolean if a field has been set.
-
-### GetTotalTaxBaseInUsd
-
-`func (o *QuoteDto) GetTotalTaxBaseInUsd() float64`
-
-GetTotalTaxBaseInUsd returns the TotalTaxBaseInUsd field if non-nil, zero value otherwise.
-
-### GetTotalTaxBaseInUsdOk
-
-`func (o *QuoteDto) GetTotalTaxBaseInUsdOk() (*float64, bool)`
-
-GetTotalTaxBaseInUsdOk returns a tuple with the TotalTaxBaseInUsd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalTaxBaseInUsd
-
-`func (o *QuoteDto) SetTotalTaxBaseInUsd(v float64)`
-
-SetTotalTaxBaseInUsd sets TotalTaxBaseInUsd field to given value.
-
-### HasTotalTaxBaseInUsd
-
-`func (o *QuoteDto) HasTotalTaxBaseInUsd() bool`
-
-HasTotalTaxBaseInUsd returns a boolean if a field has been set.
 
 ### GetTotalDiscountsInUsd
 
@@ -1306,105 +1855,80 @@ SetTotalSurchargesInUsd sets TotalSurchargesInUsd field to given value.
 
 HasTotalSurchargesInUsd returns a boolean if a field has been set.
 
-### GetTotalDetailAmountInUsd
+### GetTotalTaxBaseInUsd
 
-`func (o *QuoteDto) GetTotalDetailAmountInUsd() float64`
+`func (o *QuoteDto) GetTotalTaxBaseInUsd() float64`
 
-GetTotalDetailAmountInUsd returns the TotalDetailAmountInUsd field if non-nil, zero value otherwise.
+GetTotalTaxBaseInUsd returns the TotalTaxBaseInUsd field if non-nil, zero value otherwise.
 
-### GetTotalDetailAmountInUsdOk
+### GetTotalTaxBaseInUsdOk
 
-`func (o *QuoteDto) GetTotalDetailAmountInUsdOk() (*float64, bool)`
+`func (o *QuoteDto) GetTotalTaxBaseInUsdOk() (*float64, bool)`
 
-GetTotalDetailAmountInUsdOk returns a tuple with the TotalDetailAmountInUsd field if it's non-nil, zero value otherwise
+GetTotalTaxBaseInUsdOk returns a tuple with the TotalTaxBaseInUsd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotalDetailAmountInUsd
+### SetTotalTaxBaseInUsd
 
-`func (o *QuoteDto) SetTotalDetailAmountInUsd(v float64)`
+`func (o *QuoteDto) SetTotalTaxBaseInUsd(v float64)`
 
-SetTotalDetailAmountInUsd sets TotalDetailAmountInUsd field to given value.
+SetTotalTaxBaseInUsd sets TotalTaxBaseInUsd field to given value.
 
-### HasTotalDetailAmountInUsd
+### HasTotalTaxBaseInUsd
 
-`func (o *QuoteDto) HasTotalDetailAmountInUsd() bool`
+`func (o *QuoteDto) HasTotalTaxBaseInUsd() bool`
 
-HasTotalDetailAmountInUsd returns a boolean if a field has been set.
+HasTotalTaxBaseInUsd returns a boolean if a field has been set.
 
-### GetTotalGlobalDiscountsInUsd
+### GetTotalTaxesInUsd
 
-`func (o *QuoteDto) GetTotalGlobalDiscountsInUsd() float64`
+`func (o *QuoteDto) GetTotalTaxesInUsd() float64`
 
-GetTotalGlobalDiscountsInUsd returns the TotalGlobalDiscountsInUsd field if non-nil, zero value otherwise.
+GetTotalTaxesInUsd returns the TotalTaxesInUsd field if non-nil, zero value otherwise.
 
-### GetTotalGlobalDiscountsInUsdOk
+### GetTotalTaxesInUsdOk
 
-`func (o *QuoteDto) GetTotalGlobalDiscountsInUsdOk() (*float64, bool)`
+`func (o *QuoteDto) GetTotalTaxesInUsdOk() (*float64, bool)`
 
-GetTotalGlobalDiscountsInUsdOk returns a tuple with the TotalGlobalDiscountsInUsd field if it's non-nil, zero value otherwise
+GetTotalTaxesInUsdOk returns a tuple with the TotalTaxesInUsd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotalGlobalDiscountsInUsd
+### SetTotalTaxesInUsd
 
-`func (o *QuoteDto) SetTotalGlobalDiscountsInUsd(v float64)`
+`func (o *QuoteDto) SetTotalTaxesInUsd(v float64)`
 
-SetTotalGlobalDiscountsInUsd sets TotalGlobalDiscountsInUsd field to given value.
+SetTotalTaxesInUsd sets TotalTaxesInUsd field to given value.
 
-### HasTotalGlobalDiscountsInUsd
+### HasTotalTaxesInUsd
 
-`func (o *QuoteDto) HasTotalGlobalDiscountsInUsd() bool`
+`func (o *QuoteDto) HasTotalTaxesInUsd() bool`
 
-HasTotalGlobalDiscountsInUsd returns a boolean if a field has been set.
+HasTotalTaxesInUsd returns a boolean if a field has been set.
 
-### GetTotalGlobalSurchargesInUsd
+### GetTotalWithheldTaxesInUsd
 
-`func (o *QuoteDto) GetTotalGlobalSurchargesInUsd() float64`
+`func (o *QuoteDto) GetTotalWithheldTaxesInUsd() float64`
 
-GetTotalGlobalSurchargesInUsd returns the TotalGlobalSurchargesInUsd field if non-nil, zero value otherwise.
+GetTotalWithheldTaxesInUsd returns the TotalWithheldTaxesInUsd field if non-nil, zero value otherwise.
 
-### GetTotalGlobalSurchargesInUsdOk
+### GetTotalWithheldTaxesInUsdOk
 
-`func (o *QuoteDto) GetTotalGlobalSurchargesInUsdOk() (*float64, bool)`
+`func (o *QuoteDto) GetTotalWithheldTaxesInUsdOk() (*float64, bool)`
 
-GetTotalGlobalSurchargesInUsdOk returns a tuple with the TotalGlobalSurchargesInUsd field if it's non-nil, zero value otherwise
+GetTotalWithheldTaxesInUsdOk returns a tuple with the TotalWithheldTaxesInUsd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotalGlobalSurchargesInUsd
+### SetTotalWithheldTaxesInUsd
 
-`func (o *QuoteDto) SetTotalGlobalSurchargesInUsd(v float64)`
+`func (o *QuoteDto) SetTotalWithheldTaxesInUsd(v float64)`
 
-SetTotalGlobalSurchargesInUsd sets TotalGlobalSurchargesInUsd field to given value.
+SetTotalWithheldTaxesInUsd sets TotalWithheldTaxesInUsd field to given value.
 
-### HasTotalGlobalSurchargesInUsd
+### HasTotalWithheldTaxesInUsd
 
-`func (o *QuoteDto) HasTotalGlobalSurchargesInUsd() bool`
+`func (o *QuoteDto) HasTotalWithheldTaxesInUsd() bool`
 
-HasTotalGlobalSurchargesInUsd returns a boolean if a field has been set.
-
-### GetTotalWithholdingTaxesInUsd
-
-`func (o *QuoteDto) GetTotalWithholdingTaxesInUsd() float64`
-
-GetTotalWithholdingTaxesInUsd returns the TotalWithholdingTaxesInUsd field if non-nil, zero value otherwise.
-
-### GetTotalWithholdingTaxesInUsdOk
-
-`func (o *QuoteDto) GetTotalWithholdingTaxesInUsdOk() (*float64, bool)`
-
-GetTotalWithholdingTaxesInUsdOk returns a tuple with the TotalWithholdingTaxesInUsd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalWithholdingTaxesInUsd
-
-`func (o *QuoteDto) SetTotalWithholdingTaxesInUsd(v float64)`
-
-SetTotalWithholdingTaxesInUsd sets TotalWithholdingTaxesInUsd field to given value.
-
-### HasTotalWithholdingTaxesInUsd
-
-`func (o *QuoteDto) HasTotalWithholdingTaxesInUsd() bool`
-
-HasTotalWithholdingTaxesInUsd returns a boolean if a field has been set.
+HasTotalWithheldTaxesInUsd returns a boolean if a field has been set.
 
 ### GetTotalShippingCostInUsd
 
@@ -1456,47 +1980,72 @@ SetTotalShippingTaxesInUsd sets TotalShippingTaxesInUsd field to given value.
 
 HasTotalShippingTaxesInUsd returns a boolean if a field has been set.
 
-### GetCurrency
+### GetTotalGlobalDiscountsInUsd
 
-`func (o *QuoteDto) GetCurrency() Currency`
+`func (o *QuoteDto) GetTotalGlobalDiscountsInUsd() float64`
 
-GetCurrency returns the Currency field if non-nil, zero value otherwise.
+GetTotalGlobalDiscountsInUsd returns the TotalGlobalDiscountsInUsd field if non-nil, zero value otherwise.
 
-### GetCurrencyOk
+### GetTotalGlobalDiscountsInUsdOk
 
-`func (o *QuoteDto) GetCurrencyOk() (*Currency, bool)`
+`func (o *QuoteDto) GetTotalGlobalDiscountsInUsdOk() (*float64, bool)`
 
-GetCurrencyOk returns a tuple with the Currency field if it's non-nil, zero value otherwise
+GetTotalGlobalDiscountsInUsdOk returns a tuple with the TotalGlobalDiscountsInUsd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrency
+### SetTotalGlobalDiscountsInUsd
 
-`func (o *QuoteDto) SetCurrency(v Currency)`
+`func (o *QuoteDto) SetTotalGlobalDiscountsInUsd(v float64)`
 
-SetCurrency sets Currency field to given value.
+SetTotalGlobalDiscountsInUsd sets TotalGlobalDiscountsInUsd field to given value.
 
-### HasCurrency
+### HasTotalGlobalDiscountsInUsd
 
-`func (o *QuoteDto) HasCurrency() bool`
+`func (o *QuoteDto) HasTotalGlobalDiscountsInUsd() bool`
 
-HasCurrency returns a boolean if a field has been set.
+HasTotalGlobalDiscountsInUsd returns a boolean if a field has been set.
+
+### GetTotalGlobalSurchargesInUsd
+
+`func (o *QuoteDto) GetTotalGlobalSurchargesInUsd() float64`
+
+GetTotalGlobalSurchargesInUsd returns the TotalGlobalSurchargesInUsd field if non-nil, zero value otherwise.
+
+### GetTotalGlobalSurchargesInUsdOk
+
+`func (o *QuoteDto) GetTotalGlobalSurchargesInUsdOk() (*float64, bool)`
+
+GetTotalGlobalSurchargesInUsdOk returns a tuple with the TotalGlobalSurchargesInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalGlobalSurchargesInUsd
+
+`func (o *QuoteDto) SetTotalGlobalSurchargesInUsd(v float64)`
+
+SetTotalGlobalSurchargesInUsd sets TotalGlobalSurchargesInUsd field to given value.
+
+### HasTotalGlobalSurchargesInUsd
+
+`func (o *QuoteDto) HasTotalGlobalSurchargesInUsd() bool`
+
+HasTotalGlobalSurchargesInUsd returns a boolean if a field has been set.
 
 ### GetTotalInUsd
 
-`func (o *QuoteDto) GetTotalInUsd() Money`
+`func (o *QuoteDto) GetTotalInUsd() float64`
 
 GetTotalInUsd returns the TotalInUsd field if non-nil, zero value otherwise.
 
 ### GetTotalInUsdOk
 
-`func (o *QuoteDto) GetTotalInUsdOk() (*Money, bool)`
+`func (o *QuoteDto) GetTotalInUsdOk() (*float64, bool)`
 
 GetTotalInUsdOk returns a tuple with the TotalInUsd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotalInUsd
 
-`func (o *QuoteDto) SetTotalInUsd(v Money)`
+`func (o *QuoteDto) SetTotalInUsd(v float64)`
 
 SetTotalInUsd sets TotalInUsd field to given value.
 
@@ -1505,331 +2054,6 @@ SetTotalInUsd sets TotalInUsd field to given value.
 `func (o *QuoteDto) HasTotalInUsd() bool`
 
 HasTotalInUsd returns a boolean if a field has been set.
-
-### GetTotalTaxAmountInUsd
-
-`func (o *QuoteDto) GetTotalTaxAmountInUsd() Money`
-
-GetTotalTaxAmountInUsd returns the TotalTaxAmountInUsd field if non-nil, zero value otherwise.
-
-### GetTotalTaxAmountInUsdOk
-
-`func (o *QuoteDto) GetTotalTaxAmountInUsdOk() (*Money, bool)`
-
-GetTotalTaxAmountInUsdOk returns a tuple with the TotalTaxAmountInUsd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalTaxAmountInUsd
-
-`func (o *QuoteDto) SetTotalTaxAmountInUsd(v Money)`
-
-SetTotalTaxAmountInUsd sets TotalTaxAmountInUsd field to given value.
-
-### HasTotalTaxAmountInUsd
-
-`func (o *QuoteDto) HasTotalTaxAmountInUsd() bool`
-
-HasTotalTaxAmountInUsd returns a boolean if a field has been set.
-
-### GetTotalTaxBaseAmountInUsd
-
-`func (o *QuoteDto) GetTotalTaxBaseAmountInUsd() Money`
-
-GetTotalTaxBaseAmountInUsd returns the TotalTaxBaseAmountInUsd field if non-nil, zero value otherwise.
-
-### GetTotalTaxBaseAmountInUsdOk
-
-`func (o *QuoteDto) GetTotalTaxBaseAmountInUsdOk() (*Money, bool)`
-
-GetTotalTaxBaseAmountInUsdOk returns a tuple with the TotalTaxBaseAmountInUsd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalTaxBaseAmountInUsd
-
-`func (o *QuoteDto) SetTotalTaxBaseAmountInUsd(v Money)`
-
-SetTotalTaxBaseAmountInUsd sets TotalTaxBaseAmountInUsd field to given value.
-
-### HasTotalTaxBaseAmountInUsd
-
-`func (o *QuoteDto) HasTotalTaxBaseAmountInUsd() bool`
-
-HasTotalTaxBaseAmountInUsd returns a boolean if a field has been set.
-
-### GetTotalDiscountsAmountInUsd
-
-`func (o *QuoteDto) GetTotalDiscountsAmountInUsd() Money`
-
-GetTotalDiscountsAmountInUsd returns the TotalDiscountsAmountInUsd field if non-nil, zero value otherwise.
-
-### GetTotalDiscountsAmountInUsdOk
-
-`func (o *QuoteDto) GetTotalDiscountsAmountInUsdOk() (*Money, bool)`
-
-GetTotalDiscountsAmountInUsdOk returns a tuple with the TotalDiscountsAmountInUsd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalDiscountsAmountInUsd
-
-`func (o *QuoteDto) SetTotalDiscountsAmountInUsd(v Money)`
-
-SetTotalDiscountsAmountInUsd sets TotalDiscountsAmountInUsd field to given value.
-
-### HasTotalDiscountsAmountInUsd
-
-`func (o *QuoteDto) HasTotalDiscountsAmountInUsd() bool`
-
-HasTotalDiscountsAmountInUsd returns a boolean if a field has been set.
-
-### GetTotalSurchargesAmountInUsd
-
-`func (o *QuoteDto) GetTotalSurchargesAmountInUsd() Money`
-
-GetTotalSurchargesAmountInUsd returns the TotalSurchargesAmountInUsd field if non-nil, zero value otherwise.
-
-### GetTotalSurchargesAmountInUsdOk
-
-`func (o *QuoteDto) GetTotalSurchargesAmountInUsdOk() (*Money, bool)`
-
-GetTotalSurchargesAmountInUsdOk returns a tuple with the TotalSurchargesAmountInUsd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalSurchargesAmountInUsd
-
-`func (o *QuoteDto) SetTotalSurchargesAmountInUsd(v Money)`
-
-SetTotalSurchargesAmountInUsd sets TotalSurchargesAmountInUsd field to given value.
-
-### HasTotalSurchargesAmountInUsd
-
-`func (o *QuoteDto) HasTotalSurchargesAmountInUsd() bool`
-
-HasTotalSurchargesAmountInUsd returns a boolean if a field has been set.
-
-### GetTotalGlobalDiscountsAmountInUsd
-
-`func (o *QuoteDto) GetTotalGlobalDiscountsAmountInUsd() Money`
-
-GetTotalGlobalDiscountsAmountInUsd returns the TotalGlobalDiscountsAmountInUsd field if non-nil, zero value otherwise.
-
-### GetTotalGlobalDiscountsAmountInUsdOk
-
-`func (o *QuoteDto) GetTotalGlobalDiscountsAmountInUsdOk() (*Money, bool)`
-
-GetTotalGlobalDiscountsAmountInUsdOk returns a tuple with the TotalGlobalDiscountsAmountInUsd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalGlobalDiscountsAmountInUsd
-
-`func (o *QuoteDto) SetTotalGlobalDiscountsAmountInUsd(v Money)`
-
-SetTotalGlobalDiscountsAmountInUsd sets TotalGlobalDiscountsAmountInUsd field to given value.
-
-### HasTotalGlobalDiscountsAmountInUsd
-
-`func (o *QuoteDto) HasTotalGlobalDiscountsAmountInUsd() bool`
-
-HasTotalGlobalDiscountsAmountInUsd returns a boolean if a field has been set.
-
-### GetTotalGlobalSurchargesAmountInUsd
-
-`func (o *QuoteDto) GetTotalGlobalSurchargesAmountInUsd() Money`
-
-GetTotalGlobalSurchargesAmountInUsd returns the TotalGlobalSurchargesAmountInUsd field if non-nil, zero value otherwise.
-
-### GetTotalGlobalSurchargesAmountInUsdOk
-
-`func (o *QuoteDto) GetTotalGlobalSurchargesAmountInUsdOk() (*Money, bool)`
-
-GetTotalGlobalSurchargesAmountInUsdOk returns a tuple with the TotalGlobalSurchargesAmountInUsd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalGlobalSurchargesAmountInUsd
-
-`func (o *QuoteDto) SetTotalGlobalSurchargesAmountInUsd(v Money)`
-
-SetTotalGlobalSurchargesAmountInUsd sets TotalGlobalSurchargesAmountInUsd field to given value.
-
-### HasTotalGlobalSurchargesAmountInUsd
-
-`func (o *QuoteDto) HasTotalGlobalSurchargesAmountInUsd() bool`
-
-HasTotalGlobalSurchargesAmountInUsd returns a boolean if a field has been set.
-
-### GetTotalAmount
-
-`func (o *QuoteDto) GetTotalAmount() Money`
-
-GetTotalAmount returns the TotalAmount field if non-nil, zero value otherwise.
-
-### GetTotalAmountOk
-
-`func (o *QuoteDto) GetTotalAmountOk() (*Money, bool)`
-
-GetTotalAmountOk returns a tuple with the TotalAmount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalAmount
-
-`func (o *QuoteDto) SetTotalAmount(v Money)`
-
-SetTotalAmount sets TotalAmount field to given value.
-
-### HasTotalAmount
-
-`func (o *QuoteDto) HasTotalAmount() bool`
-
-HasTotalAmount returns a boolean if a field has been set.
-
-### GetTotalTaxAmount
-
-`func (o *QuoteDto) GetTotalTaxAmount() Money`
-
-GetTotalTaxAmount returns the TotalTaxAmount field if non-nil, zero value otherwise.
-
-### GetTotalTaxAmountOk
-
-`func (o *QuoteDto) GetTotalTaxAmountOk() (*Money, bool)`
-
-GetTotalTaxAmountOk returns a tuple with the TotalTaxAmount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalTaxAmount
-
-`func (o *QuoteDto) SetTotalTaxAmount(v Money)`
-
-SetTotalTaxAmount sets TotalTaxAmount field to given value.
-
-### HasTotalTaxAmount
-
-`func (o *QuoteDto) HasTotalTaxAmount() bool`
-
-HasTotalTaxAmount returns a boolean if a field has been set.
-
-### GetTotalTaxBaseAmount
-
-`func (o *QuoteDto) GetTotalTaxBaseAmount() Money`
-
-GetTotalTaxBaseAmount returns the TotalTaxBaseAmount field if non-nil, zero value otherwise.
-
-### GetTotalTaxBaseAmountOk
-
-`func (o *QuoteDto) GetTotalTaxBaseAmountOk() (*Money, bool)`
-
-GetTotalTaxBaseAmountOk returns a tuple with the TotalTaxBaseAmount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalTaxBaseAmount
-
-`func (o *QuoteDto) SetTotalTaxBaseAmount(v Money)`
-
-SetTotalTaxBaseAmount sets TotalTaxBaseAmount field to given value.
-
-### HasTotalTaxBaseAmount
-
-`func (o *QuoteDto) HasTotalTaxBaseAmount() bool`
-
-HasTotalTaxBaseAmount returns a boolean if a field has been set.
-
-### GetTotalDiscountsAmount
-
-`func (o *QuoteDto) GetTotalDiscountsAmount() Money`
-
-GetTotalDiscountsAmount returns the TotalDiscountsAmount field if non-nil, zero value otherwise.
-
-### GetTotalDiscountsAmountOk
-
-`func (o *QuoteDto) GetTotalDiscountsAmountOk() (*Money, bool)`
-
-GetTotalDiscountsAmountOk returns a tuple with the TotalDiscountsAmount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalDiscountsAmount
-
-`func (o *QuoteDto) SetTotalDiscountsAmount(v Money)`
-
-SetTotalDiscountsAmount sets TotalDiscountsAmount field to given value.
-
-### HasTotalDiscountsAmount
-
-`func (o *QuoteDto) HasTotalDiscountsAmount() bool`
-
-HasTotalDiscountsAmount returns a boolean if a field has been set.
-
-### GetTotalSurchargesAmount
-
-`func (o *QuoteDto) GetTotalSurchargesAmount() Money`
-
-GetTotalSurchargesAmount returns the TotalSurchargesAmount field if non-nil, zero value otherwise.
-
-### GetTotalSurchargesAmountOk
-
-`func (o *QuoteDto) GetTotalSurchargesAmountOk() (*Money, bool)`
-
-GetTotalSurchargesAmountOk returns a tuple with the TotalSurchargesAmount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalSurchargesAmount
-
-`func (o *QuoteDto) SetTotalSurchargesAmount(v Money)`
-
-SetTotalSurchargesAmount sets TotalSurchargesAmount field to given value.
-
-### HasTotalSurchargesAmount
-
-`func (o *QuoteDto) HasTotalSurchargesAmount() bool`
-
-HasTotalSurchargesAmount returns a boolean if a field has been set.
-
-### GetTotalGlobalDiscountsAmount
-
-`func (o *QuoteDto) GetTotalGlobalDiscountsAmount() Money`
-
-GetTotalGlobalDiscountsAmount returns the TotalGlobalDiscountsAmount field if non-nil, zero value otherwise.
-
-### GetTotalGlobalDiscountsAmountOk
-
-`func (o *QuoteDto) GetTotalGlobalDiscountsAmountOk() (*Money, bool)`
-
-GetTotalGlobalDiscountsAmountOk returns a tuple with the TotalGlobalDiscountsAmount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalGlobalDiscountsAmount
-
-`func (o *QuoteDto) SetTotalGlobalDiscountsAmount(v Money)`
-
-SetTotalGlobalDiscountsAmount sets TotalGlobalDiscountsAmount field to given value.
-
-### HasTotalGlobalDiscountsAmount
-
-`func (o *QuoteDto) HasTotalGlobalDiscountsAmount() bool`
-
-HasTotalGlobalDiscountsAmount returns a boolean if a field has been set.
-
-### GetTotalGlobalSurchargesAmount
-
-`func (o *QuoteDto) GetTotalGlobalSurchargesAmount() Money`
-
-GetTotalGlobalSurchargesAmount returns the TotalGlobalSurchargesAmount field if non-nil, zero value otherwise.
-
-### GetTotalGlobalSurchargesAmountOk
-
-`func (o *QuoteDto) GetTotalGlobalSurchargesAmountOk() (*Money, bool)`
-
-GetTotalGlobalSurchargesAmountOk returns a tuple with the TotalGlobalSurchargesAmount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalGlobalSurchargesAmount
-
-`func (o *QuoteDto) SetTotalGlobalSurchargesAmount(v Money)`
-
-SetTotalGlobalSurchargesAmount sets TotalGlobalSurchargesAmount field to given value.
-
-### HasTotalGlobalSurchargesAmount
-
-`func (o *QuoteDto) HasTotalGlobalSurchargesAmount() bool`
-
-HasTotalGlobalSurchargesAmount returns a boolean if a field has been set.
 
 ### GetCartId
 
@@ -1866,6 +2090,41 @@ HasCartId returns a boolean if a field has been set.
 `func (o *QuoteDto) UnsetCartId()`
 
 UnsetCartId ensures that no value is present for CartId, not even an explicit nil
+### GetDealUnitId
+
+`func (o *QuoteDto) GetDealUnitId() string`
+
+GetDealUnitId returns the DealUnitId field if non-nil, zero value otherwise.
+
+### GetDealUnitIdOk
+
+`func (o *QuoteDto) GetDealUnitIdOk() (*string, bool)`
+
+GetDealUnitIdOk returns a tuple with the DealUnitId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDealUnitId
+
+`func (o *QuoteDto) SetDealUnitId(v string)`
+
+SetDealUnitId sets DealUnitId field to given value.
+
+### HasDealUnitId
+
+`func (o *QuoteDto) HasDealUnitId() bool`
+
+HasDealUnitId returns a boolean if a field has been set.
+
+### SetDealUnitIdNil
+
+`func (o *QuoteDto) SetDealUnitIdNil(b bool)`
+
+ SetDealUnitIdNil sets the value for DealUnitId to be an explicit nil
+
+### UnsetDealUnitId
+`func (o *QuoteDto) UnsetDealUnitId()`
+
+UnsetDealUnitId ensures that no value is present for DealUnitId, not even an explicit nil
 ### GetEffectiveTo
 
 `func (o *QuoteDto) GetEffectiveTo() time.Time`
@@ -1938,20 +2197,20 @@ HasEffectiveFrom returns a boolean if a field has been set.
 UnsetEffectiveFrom ensures that no value is present for EffectiveFrom, not even an explicit nil
 ### GetQuoteStatus
 
-`func (o *QuoteDto) GetQuoteStatus() int32`
+`func (o *QuoteDto) GetQuoteStatus() string`
 
 GetQuoteStatus returns the QuoteStatus field if non-nil, zero value otherwise.
 
 ### GetQuoteStatusOk
 
-`func (o *QuoteDto) GetQuoteStatusOk() (*int32, bool)`
+`func (o *QuoteDto) GetQuoteStatusOk() (*string, bool)`
 
 GetQuoteStatusOk returns a tuple with the QuoteStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetQuoteStatus
 
-`func (o *QuoteDto) SetQuoteStatus(v int32)`
+`func (o *QuoteDto) SetQuoteStatus(v string)`
 
 SetQuoteStatus sets QuoteStatus field to given value.
 
@@ -1963,20 +2222,20 @@ HasQuoteStatus returns a boolean if a field has been set.
 
 ### GetFreightTerms
 
-`func (o *QuoteDto) GetFreightTerms() int32`
+`func (o *QuoteDto) GetFreightTerms() string`
 
 GetFreightTerms returns the FreightTerms field if non-nil, zero value otherwise.
 
 ### GetFreightTermsOk
 
-`func (o *QuoteDto) GetFreightTermsOk() (*int32, bool)`
+`func (o *QuoteDto) GetFreightTermsOk() (*string, bool)`
 
 GetFreightTermsOk returns a tuple with the FreightTerms field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFreightTerms
 
-`func (o *QuoteDto) SetFreightTerms(v int32)`
+`func (o *QuoteDto) SetFreightTerms(v string)`
 
 SetFreightTerms sets FreightTerms field to given value.
 
@@ -1985,31 +2244,6 @@ SetFreightTerms sets FreightTerms field to given value.
 `func (o *QuoteDto) HasFreightTerms() bool`
 
 HasFreightTerms returns a boolean if a field has been set.
-
-### GetCostCalculationMethod
-
-`func (o *QuoteDto) GetCostCalculationMethod() int32`
-
-GetCostCalculationMethod returns the CostCalculationMethod field if non-nil, zero value otherwise.
-
-### GetCostCalculationMethodOk
-
-`func (o *QuoteDto) GetCostCalculationMethodOk() (*int32, bool)`
-
-GetCostCalculationMethodOk returns a tuple with the CostCalculationMethod field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCostCalculationMethod
-
-`func (o *QuoteDto) SetCostCalculationMethod(v int32)`
-
-SetCostCalculationMethod sets CostCalculationMethod field to given value.
-
-### HasCostCalculationMethod
-
-`func (o *QuoteDto) HasCostCalculationMethod() bool`
-
-HasCostCalculationMethod returns a boolean if a field has been set.
 
 ### GetCustomDiscountsAmount
 

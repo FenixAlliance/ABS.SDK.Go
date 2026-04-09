@@ -22,22 +22,22 @@ func Test_openapi_AntiforgeryAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AntiforgeryAPIService ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet", func(t *testing.T) {
+	t.Run("Test AntiforgeryAPIService GetAndStoreTokens", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.AntiforgeryAPI.ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet(context.Background()).Execute()
+		httpRes, err := apiClient.AntiforgeryAPI.GetAndStoreTokens(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AntiforgeryAPIService ApiV2SystemServiceAntiforgeryIsRequestValidGet", func(t *testing.T) {
+	t.Run("Test AntiforgeryAPIService IsRequestValidAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.AntiforgeryAPI.ApiV2SystemServiceAntiforgeryIsRequestValidGet(context.Background()).Execute()
+		httpRes, err := apiClient.AntiforgeryAPI.IsRequestValidAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -22,11 +22,11 @@ func Test_openapi_MigrationsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MigrationsAPIService ApiV2SystemServiceMigrationsGet", func(t *testing.T) {
+	t.Run("Test MigrationsAPIService Migrate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MigrationsAPI.ApiV2SystemServiceMigrationsGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MigrationsAPI.Migrate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_openapi_MigrationsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MigrationsAPIService ApiV2SystemServiceMigrationsMigratePost", func(t *testing.T) {
+	t.Run("Test MigrationsAPIService Migrations", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MigrationsAPI.ApiV2SystemServiceMigrationsMigratePost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MigrationsAPI.Migrations(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

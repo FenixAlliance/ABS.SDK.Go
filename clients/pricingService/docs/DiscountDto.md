@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Percent** | Pointer to **float64** |  | [optional] 
 **ItemId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **DiscountListId** | Pointer to **NullableString** |  | [optional] 
 **EndQuantity** | Pointer to **float64** |  | [optional] 
 **BeginQuantity** | Pointer to **float64** |  | [optional] 
@@ -260,41 +260,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *DiscountDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *DiscountDto) GetEnrolmentId() string`
+`func (o *DiscountDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *DiscountDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *DiscountDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *DiscountDto) SetEnrolmentId(v string)`
+`func (o *DiscountDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *DiscountDto) HasEnrolmentId() bool`
+`func (o *DiscountDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *DiscountDto) SetEnrolmentIdNil(b bool)`
+`func (o *DiscountDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *DiscountDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *DiscountDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetDiscountListId
 
 `func (o *DiscountDto) GetDiscountListId() string`

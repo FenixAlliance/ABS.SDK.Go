@@ -4,24 +4,30 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2SecurityServicePermissionsGet**](PermissionsAPI.md#ApiV2SecurityServicePermissionsGet) | **Get** /api/v2/SecurityService/Permissions | 
-[**ApiV2SecurityServicePermissionsPost**](PermissionsAPI.md#ApiV2SecurityServicePermissionsPost) | **Post** /api/v2/SecurityService/Permissions | 
-[**ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete**](PermissionsAPI.md#ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete) | **Delete** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | 
-[**ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost**](PermissionsAPI.md#ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost) | **Post** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | 
-[**ApiV2SecurityServicePermissionsSecurityPermissionIdDelete**](PermissionsAPI.md#ApiV2SecurityServicePermissionsSecurityPermissionIdDelete) | **Delete** /api/v2/SecurityService/Permissions/{securityPermissionId} | 
-[**ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete**](PermissionsAPI.md#ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete) | **Delete** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | 
-[**ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost**](PermissionsAPI.md#ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost) | **Post** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | 
-[**ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet**](PermissionsAPI.md#ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet) | **Get** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments | 
-[**ApiV2SecurityServicePermissionsSecurityPermissionIdGet**](PermissionsAPI.md#ApiV2SecurityServicePermissionsSecurityPermissionIdGet) | **Get** /api/v2/SecurityService/Permissions/{securityPermissionId} | 
-[**ApiV2SecurityServicePermissionsSecurityPermissionIdPut**](PermissionsAPI.md#ApiV2SecurityServicePermissionsSecurityPermissionIdPut) | **Put** /api/v2/SecurityService/Permissions/{securityPermissionId} | 
-[**ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete**](PermissionsAPI.md#ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete) | **Delete** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | 
-[**ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost**](PermissionsAPI.md#ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost) | **Post** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | 
+[**AssignPermissionToBusinessApplicationAsync**](PermissionsAPI.md#AssignPermissionToBusinessApplicationAsync) | **Post** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | Assign a permission to a business application
+[**AssignPermissionToEnrollmentAsync**](PermissionsAPI.md#AssignPermissionToEnrollmentAsync) | **Post** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | Assign a permission to an enrollment
+[**AssignRoleToPermissionAsync**](PermissionsAPI.md#AssignRoleToPermissionAsync) | **Post** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | Assign a role to a permission
+[**CreatePermissionAsync**](PermissionsAPI.md#CreatePermissionAsync) | **Post** /api/v2/SecurityService/Permissions | Create a new permission
+[**DeletePermissionAsync**](PermissionsAPI.md#DeletePermissionAsync) | **Delete** /api/v2/SecurityService/Permissions/{securityPermissionId} | Delete an existing permission
+[**GetApplicationsByPermissionAsync**](PermissionsAPI.md#GetApplicationsByPermissionAsync) | **Get** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications | Get applications by permission
+[**GetEnrollmentsByPermissionAsync**](PermissionsAPI.md#GetEnrollmentsByPermissionAsync) | **Get** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments | Get enrollments by permission
+[**GetPermissionAsync**](PermissionsAPI.md#GetPermissionAsync) | **Get** /api/v2/SecurityService/Permissions/{securityPermissionId} | Get permission by ID
+[**GetPermissionsAsync**](PermissionsAPI.md#GetPermissionsAsync) | **Get** /api/v2/SecurityService/Permissions | Get all permissions
+[**GetPermissionsByEnrollmentAsync**](PermissionsAPI.md#GetPermissionsByEnrollmentAsync) | **Get** /api/v2/SecurityService/Permissions/ByEnrollment/{enrollmentId} | Get permissions by enrollment
+[**GetPermissionsCountAsync**](PermissionsAPI.md#GetPermissionsCountAsync) | **Get** /api/v2/SecurityService/Permissions/Count | Get permissions count
+[**GetRolesByPermissionAsync**](PermissionsAPI.md#GetRolesByPermissionAsync) | **Get** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles | Get roles by permission
+[**RevokePermissionFromBusinessApplicationAsync**](PermissionsAPI.md#RevokePermissionFromBusinessApplicationAsync) | **Delete** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | Revoke a permission from a business application
+[**RevokePermissionFromEnrollmentAsync**](PermissionsAPI.md#RevokePermissionFromEnrollmentAsync) | **Delete** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | Revoke a permission from an enrollment
+[**RevokeRoleFromPermissionAsync**](PermissionsAPI.md#RevokeRoleFromPermissionAsync) | **Delete** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | Revoke a role from a permission
+[**UpdatePermissionAsync**](PermissionsAPI.md#UpdatePermissionAsync) | **Put** /api/v2/SecurityService/Permissions/{securityPermissionId} | Update an existing permission
 
 
 
-## ApiV2SecurityServicePermissionsGet
+## AssignPermissionToBusinessApplicationAsync
 
-> SecurityRoleDtoListEnvelope ApiV2SecurityServicePermissionsGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope AssignPermissionToBusinessApplicationAsync(ctx, securityPermissionId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Assign a permission to a business application
 
 
 
@@ -39,43 +45,52 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityPermissionId := "securityPermissionId_example" // string | 
+	applicationId := "applicationId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PermissionsAPI.AssignPermissionToBusinessApplicationAsync(context.Background(), securityPermissionId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.AssignPermissionToBusinessApplicationAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServicePermissionsGet`: SecurityRoleDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsGet`: %v\n", resp)
+	// response from `AssignPermissionToBusinessApplicationAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.AssignPermissionToBusinessApplicationAsync`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityPermissionId** | **string** |  | 
+**applicationId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAssignPermissionToBusinessApplicationAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+
+
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
 ### Return type
 
-[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -87,9 +102,169 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServicePermissionsPost
+## AssignPermissionToEnrollmentAsync
 
-> EmptyEnvelope ApiV2SecurityServicePermissionsPost(ctx).TenantId(tenantId).SecurityPermissionCreateDto(securityPermissionCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope AssignPermissionToEnrollmentAsync(ctx, securityPermissionId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Assign a permission to an enrollment
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityPermissionId := "securityPermissionId_example" // string | 
+	enrollmentId := "enrollmentId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PermissionsAPI.AssignPermissionToEnrollmentAsync(context.Background(), securityPermissionId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.AssignPermissionToEnrollmentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AssignPermissionToEnrollmentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.AssignPermissionToEnrollmentAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityPermissionId** | **string** |  | 
+**enrollmentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAssignPermissionToEnrollmentAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AssignRoleToPermissionAsync
+
+> EmptyEnvelope AssignRoleToPermissionAsync(ctx, securityPermissionId, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Assign a role to a permission
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityPermissionId := "securityPermissionId_example" // string | 
+	securityRoleId := "securityRoleId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PermissionsAPI.AssignRoleToPermissionAsync(context.Background(), securityPermissionId, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.AssignRoleToPermissionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AssignRoleToPermissionAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.AssignRoleToPermissionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityPermissionId** | **string** |  | 
+**securityRoleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAssignRoleToPermissionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreatePermissionAsync
+
+> EmptyEnvelope CreatePermissionAsync(ctx).TenantId(tenantId).SecurityPermissionCreateDto(securityPermissionCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Create a new permission
 
 
 
@@ -113,13 +288,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsPost(context.Background()).TenantId(tenantId).SecurityPermissionCreateDto(securityPermissionCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PermissionsAPI.CreatePermissionAsync(context.Background()).TenantId(tenantId).SecurityPermissionCreateDto(securityPermissionCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.CreatePermissionAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServicePermissionsPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsPost`: %v\n", resp)
+	// response from `CreatePermissionAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.CreatePermissionAsync`: %v\n", resp)
 }
 ```
 
@@ -129,7 +304,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreatePermissionAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -145,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -157,163 +332,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete
+## DeletePermissionAsync
 
-> EmptyEnvelope ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete(ctx, securityPermissionId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeletePermissionAsync(ctx, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityPermissionId := "securityPermissionId_example" // string | 
-	applicationId := "applicationId_example" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete(context.Background(), securityPermissionId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityPermissionId** | **string** |  | 
-**applicationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost
-
-> EmptyEnvelope ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost(ctx, securityPermissionId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityPermissionId := "securityPermissionId_example" // string | 
-	applicationId := "applicationId_example" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost(context.Background(), securityPermissionId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityPermissionId** | **string** |  | 
-**applicationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SecurityServicePermissionsSecurityPermissionIdDelete
-
-> EmptyEnvelope ApiV2SecurityServicePermissionsSecurityPermissionIdDelete(ctx, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+Delete an existing permission
 
 
 
@@ -337,13 +360,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdDelete(context.Background(), securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PermissionsAPI.DeletePermissionAsync(context.Background(), securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.DeletePermissionAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServicePermissionsSecurityPermissionIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdDelete`: %v\n", resp)
+	// response from `DeletePermissionAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.DeletePermissionAsync`: %v\n", resp)
 }
 ```
 
@@ -357,7 +380,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsSecurityPermissionIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeletePermissionAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -373,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -385,9 +408,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete
+## GetApplicationsByPermissionAsync
 
-> EmptyEnvelope ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete(ctx, securityPermissionId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BusinessApplicationSimpleDtoListEnvelope GetApplicationsByPermissionAsync(ctx, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get applications by permission
 
 
 
@@ -406,19 +431,316 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	securityPermissionId := "securityPermissionId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PermissionsAPI.GetApplicationsByPermissionAsync(context.Background(), securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.GetApplicationsByPermissionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetApplicationsByPermissionAsync`: BusinessApplicationSimpleDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.GetApplicationsByPermissionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityPermissionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetApplicationsByPermissionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**BusinessApplicationSimpleDtoListEnvelope**](BusinessApplicationSimpleDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetEnrollmentsByPermissionAsync
+
+> TenantEnrollmentDtoListEnvelope GetEnrollmentsByPermissionAsync(ctx, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get enrollments by permission
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityPermissionId := "securityPermissionId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PermissionsAPI.GetEnrollmentsByPermissionAsync(context.Background(), securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.GetEnrollmentsByPermissionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetEnrollmentsByPermissionAsync`: TenantEnrollmentDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.GetEnrollmentsByPermissionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityPermissionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetEnrollmentsByPermissionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**TenantEnrollmentDtoListEnvelope**](TenantEnrollmentDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPermissionAsync
+
+> SecurityPermissionDtoEnvelope GetPermissionAsync(ctx, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get permission by ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityPermissionId := "securityPermissionId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PermissionsAPI.GetPermissionAsync(context.Background(), securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.GetPermissionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPermissionAsync`: SecurityPermissionDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.GetPermissionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityPermissionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPermissionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SecurityPermissionDtoEnvelope**](SecurityPermissionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPermissionsAsync
+
+> SecurityPermissionDtoListEnvelope GetPermissionsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get all permissions
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PermissionsAPI.GetPermissionsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.GetPermissionsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPermissionsAsync`: SecurityPermissionDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.GetPermissionsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPermissionsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SecurityPermissionDtoListEnvelope**](SecurityPermissionDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPermissionsByEnrollmentAsync
+
+> SecurityPermissionDtoListEnvelope GetPermissionsByEnrollmentAsync(ctx, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get permissions by enrollment
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	enrollmentId := "enrollmentId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete(context.Background(), securityPermissionId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PermissionsAPI.GetPermissionsByEnrollmentAsync(context.Background(), enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.GetPermissionsByEnrollmentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete`: %v\n", resp)
+	// response from `GetPermissionsByEnrollmentAsync`: SecurityPermissionDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.GetPermissionsByEnrollmentAsync`: %v\n", resp)
 }
 ```
 
@@ -428,29 +750,27 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityPermissionId** | **string** |  | 
 **enrollmentId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetPermissionsByEnrollmentAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
-
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md)
+[**SecurityPermissionDtoListEnvelope**](SecurityPermissionDtoListEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -462,9 +782,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost
+## GetPermissionsCountAsync
 
-> EmptyEnvelope ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost(ctx, securityPermissionId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetPermissionsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get permissions count
 
 
 
@@ -482,52 +804,43 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityPermissionId := "securityPermissionId_example" // string | 
-	enrollmentId := "enrollmentId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost(context.Background(), securityPermissionId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PermissionsAPI.GetPermissionsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.GetPermissionsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost`: %v\n", resp)
+	// response from `GetPermissionsCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.GetPermissionsCountAsync`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityPermissionId** | **string** |  | 
-**enrollmentId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetPermissionsCountAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
-
-
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md)
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -539,83 +852,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet
+## GetRolesByPermissionAsync
 
-> TenantEnrolmentDtoListEnvelope ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet(ctx, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SecurityRoleDtoListEnvelope GetRolesByPermissionAsync(ctx, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityPermissionId := "securityPermissionId_example" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet(context.Background(), securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet`: TenantEnrolmentDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityPermissionId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**TenantEnrolmentDtoListEnvelope**](TenantEnrolmentDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SecurityServicePermissionsSecurityPermissionIdGet
-
-> SecurityRoleDtoListEnvelope ApiV2SecurityServicePermissionsSecurityPermissionIdGet(ctx, securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+Get roles by permission
 
 
 
@@ -639,13 +880,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdGet(context.Background(), securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PermissionsAPI.GetRolesByPermissionAsync(context.Background(), securityPermissionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.GetRolesByPermissionAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServicePermissionsSecurityPermissionIdGet`: SecurityRoleDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdGet`: %v\n", resp)
+	// response from `GetRolesByPermissionAsync`: SecurityRoleDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.GetRolesByPermissionAsync`: %v\n", resp)
 }
 ```
 
@@ -659,7 +900,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsSecurityPermissionIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetRolesByPermissionAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -675,7 +916,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -687,9 +928,248 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SecurityServicePermissionsSecurityPermissionIdPut
+## RevokePermissionFromBusinessApplicationAsync
 
-> EmptyEnvelope ApiV2SecurityServicePermissionsSecurityPermissionIdPut(ctx, securityPermissionId).TenantId(tenantId).SecurityPermissionUpdateDto(securityPermissionUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope RevokePermissionFromBusinessApplicationAsync(ctx, securityPermissionId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Revoke a permission from a business application
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityPermissionId := "securityPermissionId_example" // string | 
+	applicationId := "applicationId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PermissionsAPI.RevokePermissionFromBusinessApplicationAsync(context.Background(), securityPermissionId, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.RevokePermissionFromBusinessApplicationAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RevokePermissionFromBusinessApplicationAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.RevokePermissionFromBusinessApplicationAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityPermissionId** | **string** |  | 
+**applicationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRevokePermissionFromBusinessApplicationAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RevokePermissionFromEnrollmentAsync
+
+> EmptyEnvelope RevokePermissionFromEnrollmentAsync(ctx, securityPermissionId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Revoke a permission from an enrollment
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityPermissionId := "securityPermissionId_example" // string | 
+	enrollmentId := "enrollmentId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PermissionsAPI.RevokePermissionFromEnrollmentAsync(context.Background(), securityPermissionId, enrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.RevokePermissionFromEnrollmentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RevokePermissionFromEnrollmentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.RevokePermissionFromEnrollmentAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityPermissionId** | **string** |  | 
+**enrollmentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRevokePermissionFromEnrollmentAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RevokeRoleFromPermissionAsync
+
+> EmptyEnvelope RevokeRoleFromPermissionAsync(ctx, securityPermissionId, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Revoke a role from a permission
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityPermissionId := "securityPermissionId_example" // string | 
+	securityRoleId := "securityRoleId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PermissionsAPI.RevokeRoleFromPermissionAsync(context.Background(), securityPermissionId, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.RevokeRoleFromPermissionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RevokeRoleFromPermissionAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.RevokeRoleFromPermissionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityPermissionId** | **string** |  | 
+**securityRoleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRevokeRoleFromPermissionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdatePermissionAsync
+
+> EmptyEnvelope UpdatePermissionAsync(ctx, securityPermissionId).TenantId(tenantId).SecurityPermissionUpdateDto(securityPermissionUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Update an existing permission
 
 
 
@@ -714,13 +1194,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdPut(context.Background(), securityPermissionId).TenantId(tenantId).SecurityPermissionUpdateDto(securityPermissionUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PermissionsAPI.UpdatePermissionAsync(context.Background(), securityPermissionId).TenantId(tenantId).SecurityPermissionUpdateDto(securityPermissionUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.UpdatePermissionAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2SecurityServicePermissionsSecurityPermissionIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdPut`: %v\n", resp)
+	// response from `UpdatePermissionAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.UpdatePermissionAsync`: %v\n", resp)
 }
 ```
 
@@ -734,7 +1214,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsSecurityPermissionIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdatePermissionAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -751,165 +1231,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete
-
-> EmptyEnvelope ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete(ctx, securityPermissionId, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityPermissionId := "securityPermissionId_example" // string | 
-	securityRoleId := "securityRoleId_example" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete(context.Background(), securityPermissionId, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityPermissionId** | **string** |  | 
-**securityRoleId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost
-
-> EmptyEnvelope ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost(ctx, securityPermissionId, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityPermissionId := "securityPermissionId_example" // string | 
-	securityRoleId := "securityRoleId_example" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost(context.Background(), securityPermissionId, securityRoleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityPermissionId** | **string** |  | 
-**securityRoleId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

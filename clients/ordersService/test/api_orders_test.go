@@ -22,37 +22,13 @@ func Test_openapi_OrdersAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersCountGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersExtendedGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersExtendedGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersOrderIdCalculatePut", func(t *testing.T) {
+	t.Run("Test OrdersAPIService CalculateOrder", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var orderId string
 
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersOrderIdCalculatePut(context.Background(), orderId).Execute()
+		resp, httpRes, err := apiClient.OrdersAPI.CalculateOrder(context.Background(), orderId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,56 +36,14 @@ func Test_openapi_OrdersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersOrderIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var orderId string
-
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersOrderIdDelete(context.Background(), orderId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersOrderIdLinesCountGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var orderId string
-
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersOrderIdLinesCountGet(context.Background(), orderId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersOrderIdLinesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var orderId string
-
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersOrderIdLinesGet(context.Background(), orderId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePut", func(t *testing.T) {
+	t.Run("Test OrdersAPIService CalculateOrderLine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var orderId string
 		var orderLineId string
 
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePut(context.Background(), orderId, orderLineId).Execute()
+		resp, httpRes, err := apiClient.OrdersAPI.CalculateOrderLine(context.Background(), orderId, orderLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -117,14 +51,54 @@ func Test_openapi_OrdersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDelete", func(t *testing.T) {
+	t.Run("Test OrdersAPIService CreateOrder", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OrdersAPI.CreateOrder(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService CreateOrderLine", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var orderId string
+
+		resp, httpRes, err := apiClient.OrdersAPI.CreateOrderLine(context.Background(), orderId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService DeleteOrder", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var orderId string
+
+		resp, httpRes, err := apiClient.OrdersAPI.DeleteOrder(context.Background(), orderId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService DeleteOrderLine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var orderId string
 		var orderLineId string
 
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDelete(context.Background(), orderId, orderLineId).Execute()
+		resp, httpRes, err := apiClient.OrdersAPI.DeleteOrderLine(context.Background(), orderId, orderLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -132,14 +106,40 @@ func Test_openapi_OrdersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGet", func(t *testing.T) {
+	t.Run("Test OrdersAPIService GetExtendedOrders", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OrdersAPI.GetExtendedOrders(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService GetOrder", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var orderId string
+
+		resp, httpRes, err := apiClient.OrdersAPI.GetOrder(context.Background(), orderId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService GetOrderLine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var orderId string
 		var orderLineId string
 
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGet(context.Background(), orderId, orderLineId).Execute()
+		resp, httpRes, err := apiClient.OrdersAPI.GetOrderLine(context.Background(), orderId, orderLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -147,92 +147,119 @@ func Test_openapi_OrdersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPut", func(t *testing.T) {
+	t.Run("Test OrdersAPIService GetOrderLines", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var orderId string
+
+		resp, httpRes, err := apiClient.OrdersAPI.GetOrderLines(context.Background(), orderId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService GetOrderLinesCount", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var orderId string
+
+		resp, httpRes, err := apiClient.OrdersAPI.GetOrderLinesCount(context.Background(), orderId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService GetOrders", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OrdersAPI.GetOrders(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService GetOrdersCount", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OrdersAPI.GetOrdersCount(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService PreviewOrderEmailTemplate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var orderId string
+
+		httpRes, err := apiClient.OrdersAPI.PreviewOrderEmailTemplate(context.Background(), orderId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService SendOrderEmail", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var orderId string
+
+		resp, httpRes, err := apiClient.OrdersAPI.SendOrderEmail(context.Background(), orderId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService SubmitCart", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OrdersAPI.SubmitCart(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService UpdateOrder", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var orderId string
+
+		resp, httpRes, err := apiClient.OrdersAPI.UpdateOrder(context.Background(), orderId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrdersAPIService UpdateOrderLine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var orderId string
 		var orderLineId string
 
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPut(context.Background(), orderId, orderLineId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersOrderIdLinesPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var orderId string
-
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersOrderIdLinesPost(context.Background(), orderId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersOrderIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var orderId string
-
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersOrderIdPut(context.Background(), orderId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService ApiV2OrdersServiceOrdersSubmitCartPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.OrdersAPI.ApiV2OrdersServiceOrdersSubmitCartPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService GetOrderAsync", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var orderId string
-
-		resp, httpRes, err := apiClient.OrdersAPI.GetOrderAsync(context.Background(), orderId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrdersAPIService GetOrdersAsync", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.OrdersAPI.GetOrdersAsync(context.Background()).Execute()
+		resp, httpRes, err := apiClient.OrdersAPI.UpdateOrderLine(context.Background(), orderId, orderLineId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

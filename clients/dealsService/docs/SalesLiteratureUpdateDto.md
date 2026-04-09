@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ModifiedDate** | Pointer to **time.Time** |  | [optional] 
 **ExpirationDate** | Pointer to **time.Time** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **SalesLiteratureTypeId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -222,41 +222,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *SalesLiteratureUpdateDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *SalesLiteratureUpdateDto) GetEnrolmentId() string`
+`func (o *SalesLiteratureUpdateDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *SalesLiteratureUpdateDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *SalesLiteratureUpdateDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *SalesLiteratureUpdateDto) SetEnrolmentId(v string)`
+`func (o *SalesLiteratureUpdateDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *SalesLiteratureUpdateDto) HasEnrolmentId() bool`
+`func (o *SalesLiteratureUpdateDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *SalesLiteratureUpdateDto) SetEnrolmentIdNil(b bool)`
+`func (o *SalesLiteratureUpdateDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *SalesLiteratureUpdateDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *SalesLiteratureUpdateDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetSalesLiteratureTypeId
 
 `func (o *SalesLiteratureUpdateDto) GetSalesLiteratureTypeId() string`

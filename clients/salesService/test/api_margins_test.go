@@ -22,13 +22,13 @@ func Test_openapi_MarginsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MarginsAPIService ApiV2SalesServiceMarginsMarginIdDetailsGet", func(t *testing.T) {
+	t.Run("Test MarginsAPIService GetQuoteAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var marginId string
 
-		httpRes, err := apiClient.MarginsAPI.ApiV2SalesServiceMarginsMarginIdDetailsGet(context.Background(), marginId).Execute()
+		httpRes, err := apiClient.MarginsAPI.GetQuoteAsync(context.Background(), marginId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

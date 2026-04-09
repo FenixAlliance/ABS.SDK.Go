@@ -22,11 +22,11 @@ func Test_openapi_SocialPostBucketsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SocialPostBucketsAPIService ApiV2MarketingServiceSocialPostBucketsCountGet", func(t *testing.T) {
+	t.Run("Test SocialPostBucketsAPIService CreateSocialPostBucketAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SocialPostBucketsAPI.ApiV2MarketingServiceSocialPostBucketsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SocialPostBucketsAPI.CreateSocialPostBucketAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,37 +34,13 @@ func Test_openapi_SocialPostBucketsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SocialPostBucketsAPIService ApiV2MarketingServiceSocialPostBucketsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SocialPostBucketsAPI.ApiV2MarketingServiceSocialPostBucketsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SocialPostBucketsAPIService ApiV2MarketingServiceSocialPostBucketsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SocialPostBucketsAPI.ApiV2MarketingServiceSocialPostBucketsPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SocialPostBucketsAPIService ApiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete", func(t *testing.T) {
+	t.Run("Test SocialPostBucketsAPIService DeleteSocialPostBucketAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var socialpostbucketId string
 
-		resp, httpRes, err := apiClient.SocialPostBucketsAPI.ApiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete(context.Background(), socialpostbucketId).Execute()
+		resp, httpRes, err := apiClient.SocialPostBucketsAPI.DeleteSocialPostBucketAsync(context.Background(), socialpostbucketId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +48,13 @@ func Test_openapi_SocialPostBucketsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SocialPostBucketsAPIService ApiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet", func(t *testing.T) {
+	t.Run("Test SocialPostBucketsAPIService GetSocialPostBucketDetailsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var socialpostbucketId string
 
-		resp, httpRes, err := apiClient.SocialPostBucketsAPI.ApiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet(context.Background(), socialpostbucketId).Execute()
+		resp, httpRes, err := apiClient.SocialPostBucketsAPI.GetSocialPostBucketDetailsAsync(context.Background(), socialpostbucketId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -86,13 +62,37 @@ func Test_openapi_SocialPostBucketsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SocialPostBucketsAPIService ApiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut", func(t *testing.T) {
+	t.Run("Test SocialPostBucketsAPIService GetSocialPostBucketsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SocialPostBucketsAPI.GetSocialPostBucketsCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SocialPostBucketsAPIService GetSocialPostBucketsODataAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SocialPostBucketsAPI.GetSocialPostBucketsODataAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SocialPostBucketsAPIService UpdateSocialPostBucketAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var socialpostbucketId string
 
-		resp, httpRes, err := apiClient.SocialPostBucketsAPI.ApiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut(context.Background(), socialpostbucketId).Execute()
+		resp, httpRes, err := apiClient.SocialPostBucketsAPI.UpdateSocialPostBucketAsync(context.Background(), socialpostbucketId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

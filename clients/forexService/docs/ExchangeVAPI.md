@@ -4,14 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV3ForexServiceExchangeHistoryGet**](ExchangeVAPI.md#ApiV3ForexServiceExchangeHistoryGet) | **Get** /api/v3/ForexService/Exchange/History | 
-[**ApiV3ForexServiceExchangeLatestGet**](ExchangeVAPI.md#ApiV3ForexServiceExchangeLatestGet) | **Get** /api/v3/ForexService/Exchange/Latest | 
+[**ExchangeAmountHistoricalV3Async**](ExchangeVAPI.md#ExchangeAmountHistoricalV3Async) | **Get** /api/v3/ForexService/Exchange/History | Exchange currency at historical rates (v3)
+[**ExchangeAmountV3Async**](ExchangeVAPI.md#ExchangeAmountV3Async) | **Get** /api/v3/ForexService/Exchange/Latest | Exchange currency at latest rates (v3)
 
 
 
-## ApiV3ForexServiceExchangeHistoryGet
+## ExchangeAmountHistoricalV3Async
 
-> ExchangeRateEnvelope ApiV3ForexServiceExchangeHistoryGet(ctx).Amount(amount).SourceCurrencyId(sourceCurrencyId).TargetCurrencyId(targetCurrencyId).Date(date).Execute()
+> ExchangeRateEnvelope ExchangeAmountHistoricalV3Async(ctx).Amount(amount).SourceCurrencyId(sourceCurrencyId).TargetCurrencyId(targetCurrencyId).Date(date).Execute()
+
+Exchange currency at historical rates (v3)
 
 
 
@@ -36,13 +38,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ExchangeVAPI.ApiV3ForexServiceExchangeHistoryGet(context.Background()).Amount(amount).SourceCurrencyId(sourceCurrencyId).TargetCurrencyId(targetCurrencyId).Date(date).Execute()
+	resp, r, err := apiClient.ExchangeVAPI.ExchangeAmountHistoricalV3Async(context.Background()).Amount(amount).SourceCurrencyId(sourceCurrencyId).TargetCurrencyId(targetCurrencyId).Date(date).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ExchangeVAPI.ApiV3ForexServiceExchangeHistoryGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ExchangeVAPI.ExchangeAmountHistoricalV3Async``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV3ForexServiceExchangeHistoryGet`: ExchangeRateEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ExchangeVAPI.ApiV3ForexServiceExchangeHistoryGet`: %v\n", resp)
+	// response from `ExchangeAmountHistoricalV3Async`: ExchangeRateEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ExchangeVAPI.ExchangeAmountHistoricalV3Async`: %v\n", resp)
 }
 ```
 
@@ -52,7 +54,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV3ForexServiceExchangeHistoryGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiExchangeAmountHistoricalV3AsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -68,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -80,9 +82,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV3ForexServiceExchangeLatestGet
+## ExchangeAmountV3Async
 
-> ExchangeRateEnvelope ApiV3ForexServiceExchangeLatestGet(ctx).Amount(amount).SourceCurrencyId(sourceCurrencyId).TargetCurrencyId(targetCurrencyId).Execute()
+> ExchangeRateEnvelope ExchangeAmountV3Async(ctx).Amount(amount).SourceCurrencyId(sourceCurrencyId).TargetCurrencyId(targetCurrencyId).Execute()
+
+Exchange currency at latest rates (v3)
 
 
 
@@ -105,13 +109,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ExchangeVAPI.ApiV3ForexServiceExchangeLatestGet(context.Background()).Amount(amount).SourceCurrencyId(sourceCurrencyId).TargetCurrencyId(targetCurrencyId).Execute()
+	resp, r, err := apiClient.ExchangeVAPI.ExchangeAmountV3Async(context.Background()).Amount(amount).SourceCurrencyId(sourceCurrencyId).TargetCurrencyId(targetCurrencyId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ExchangeVAPI.ApiV3ForexServiceExchangeLatestGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ExchangeVAPI.ExchangeAmountV3Async``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV3ForexServiceExchangeLatestGet`: ExchangeRateEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ExchangeVAPI.ApiV3ForexServiceExchangeLatestGet`: %v\n", resp)
+	// response from `ExchangeAmountV3Async`: ExchangeRateEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ExchangeVAPI.ExchangeAmountV3Async`: %v\n", resp)
 }
 ```
 
@@ -121,7 +125,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV3ForexServiceExchangeLatestGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiExchangeAmountV3AsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -136,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

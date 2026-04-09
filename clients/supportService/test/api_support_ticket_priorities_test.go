@@ -22,11 +22,11 @@ func Test_openapi_SupportTicketPrioritiesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SupportTicketPrioritiesAPIService ApiV2SupportServiceSupportTicketPrioritiesCountGet", func(t *testing.T) {
+	t.Run("Test SupportTicketPrioritiesAPIService CreateSupportTicketPriorityAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.ApiV2SupportServiceSupportTicketPrioritiesCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.CreateSupportTicketPriorityAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,37 +34,13 @@ func Test_openapi_SupportTicketPrioritiesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportTicketPrioritiesAPIService ApiV2SupportServiceSupportTicketPrioritiesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.ApiV2SupportServiceSupportTicketPrioritiesGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SupportTicketPrioritiesAPIService ApiV2SupportServiceSupportTicketPrioritiesPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.ApiV2SupportServiceSupportTicketPrioritiesPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SupportTicketPrioritiesAPIService ApiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete", func(t *testing.T) {
+	t.Run("Test SupportTicketPrioritiesAPIService DeleteSupportTicketPriorityAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportTicketPriorityId string
 
-		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.ApiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete(context.Background(), supportTicketPriorityId).Execute()
+		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.DeleteSupportTicketPriorityAsync(context.Background(), supportTicketPriorityId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +48,11 @@ func Test_openapi_SupportTicketPrioritiesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportTicketPrioritiesAPIService ApiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet", func(t *testing.T) {
+	t.Run("Test SupportTicketPrioritiesAPIService GetSupportTicketPrioritiesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var supportTicketPriorityId string
-
-		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.ApiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet(context.Background(), supportTicketPriorityId).Execute()
+		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.GetSupportTicketPrioritiesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -86,13 +60,39 @@ func Test_openapi_SupportTicketPrioritiesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SupportTicketPrioritiesAPIService ApiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut", func(t *testing.T) {
+	t.Run("Test SupportTicketPrioritiesAPIService GetSupportTicketPrioritiesCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.GetSupportTicketPrioritiesCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SupportTicketPrioritiesAPIService GetSupportTicketPriorityAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var supportTicketPriorityId string
 
-		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.ApiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut(context.Background(), supportTicketPriorityId).Execute()
+		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.GetSupportTicketPriorityAsync(context.Background(), supportTicketPriorityId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SupportTicketPrioritiesAPIService UpdateSupportTicketPriorityAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var supportTicketPriorityId string
+
+		resp, httpRes, err := apiClient.SupportTicketPrioritiesAPI.UpdateSupportTicketPriorityAsync(context.Background(), supportTicketPriorityId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

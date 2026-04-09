@@ -22,13 +22,13 @@ func Test_openapi_InventoryAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test InventoryAPIService ApiV2InventoryServiceInventoryStockItemIdDetailsGet", func(t *testing.T) {
+	t.Run("Test InventoryAPIService GetInventoryDetailsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var stockItemId string
 
-		httpRes, err := apiClient.InventoryAPI.ApiV2InventoryServiceInventoryStockItemIdDetailsGet(context.Background(), stockItemId).Execute()
+		httpRes, err := apiClient.InventoryAPI.GetInventoryDetailsAsync(context.Background(), stockItemId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

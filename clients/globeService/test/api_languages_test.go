@@ -22,11 +22,11 @@ func Test_openapi_LanguagesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test LanguagesAPIService ApiV2GlobeServiceLanguagesGet", func(t *testing.T) {
+	t.Run("Test LanguagesAPIService CountLanguagesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.LanguagesAPI.ApiV2GlobeServiceLanguagesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.LanguagesAPI.CountLanguagesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,25 @@ func Test_openapi_LanguagesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test LanguagesAPIService ApiV2GlobeServiceLanguagesLanguageIdGet", func(t *testing.T) {
+	t.Run("Test LanguagesAPIService GetLanguageByIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var languageId string
 
-		resp, httpRes, err := apiClient.LanguagesAPI.ApiV2GlobeServiceLanguagesLanguageIdGet(context.Background(), languageId).Execute()
+		resp, httpRes, err := apiClient.LanguagesAPI.GetLanguageByIdAsync(context.Background(), languageId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test LanguagesAPIService GetLanguagesAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.LanguagesAPI.GetLanguagesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

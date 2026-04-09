@@ -22,11 +22,11 @@ func Test_openapi_SocialMediaPostsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SocialMediaPostsAPIService ApiV2MarketingServiceSocialMediaPostsCountGet", func(t *testing.T) {
+	t.Run("Test SocialMediaPostsAPIService CreateSocialMediaPostAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SocialMediaPostsAPI.ApiV2MarketingServiceSocialMediaPostsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SocialMediaPostsAPI.CreateSocialMediaPostAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,37 +34,13 @@ func Test_openapi_SocialMediaPostsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SocialMediaPostsAPIService ApiV2MarketingServiceSocialMediaPostsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SocialMediaPostsAPI.ApiV2MarketingServiceSocialMediaPostsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SocialMediaPostsAPIService ApiV2MarketingServiceSocialMediaPostsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SocialMediaPostsAPI.ApiV2MarketingServiceSocialMediaPostsPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SocialMediaPostsAPIService ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete", func(t *testing.T) {
+	t.Run("Test SocialMediaPostsAPIService DeleteSocialMediaPostAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var socialmediapostId string
 
-		resp, httpRes, err := apiClient.SocialMediaPostsAPI.ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete(context.Background(), socialmediapostId).Execute()
+		resp, httpRes, err := apiClient.SocialMediaPostsAPI.DeleteSocialMediaPostAsync(context.Background(), socialmediapostId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +48,13 @@ func Test_openapi_SocialMediaPostsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SocialMediaPostsAPIService ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet", func(t *testing.T) {
+	t.Run("Test SocialMediaPostsAPIService GetSocialMediaPostDetailsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var socialmediapostId string
 
-		resp, httpRes, err := apiClient.SocialMediaPostsAPI.ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet(context.Background(), socialmediapostId).Execute()
+		resp, httpRes, err := apiClient.SocialMediaPostsAPI.GetSocialMediaPostDetailsAsync(context.Background(), socialmediapostId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -86,13 +62,37 @@ func Test_openapi_SocialMediaPostsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SocialMediaPostsAPIService ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut", func(t *testing.T) {
+	t.Run("Test SocialMediaPostsAPIService GetSocialMediaPostsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SocialMediaPostsAPI.GetSocialMediaPostsCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SocialMediaPostsAPIService GetSocialMediaPostsODataAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SocialMediaPostsAPI.GetSocialMediaPostsODataAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SocialMediaPostsAPIService UpdateSocialMediaPostAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var socialmediapostId string
 
-		resp, httpRes, err := apiClient.SocialMediaPostsAPI.ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut(context.Background(), socialmediapostId).Execute()
+		resp, httpRes, err := apiClient.SocialMediaPostsAPI.UpdateSocialMediaPostAsync(context.Background(), socialmediapostId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

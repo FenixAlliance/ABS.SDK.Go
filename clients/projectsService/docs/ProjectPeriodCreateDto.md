@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **PeriodStartDate** | Pointer to **time.Time** |  | [optional] 
 **PeriodEndDate** | Pointer to **time.Time** |  | [optional] 
 **ProjectID** | Pointer to **NullableString** |  | [optional] 

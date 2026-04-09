@@ -4,14 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet**](AntiforgeryAPI.md#ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet) | **Get** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | 
-[**ApiV2SystemServiceAntiforgeryIsRequestValidGet**](AntiforgeryAPI.md#ApiV2SystemServiceAntiforgeryIsRequestValidGet) | **Get** /api/v2/SystemService/Antiforgery/IsRequestValid | 
+[**GetAndStoreTokens**](AntiforgeryAPI.md#GetAndStoreTokens) | **Get** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | Get and store antiforgery tokens
+[**IsRequestValidAsync**](AntiforgeryAPI.md#IsRequestValidAsync) | **Get** /api/v2/SystemService/Antiforgery/IsRequestValid | Validate antiforgery request
 
 
 
-## ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet
+## GetAndStoreTokens
 
-> ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> GetAndStoreTokens(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get and store antiforgery tokens
 
 
 
@@ -33,9 +35,9 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AntiforgeryAPI.ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	r, err := apiClient.AntiforgeryAPI.GetAndStoreTokens(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AntiforgeryAPI.ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AntiforgeryAPI.GetAndStoreTokens``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -47,7 +49,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SystemServiceAntiforgeryGetAndStoreTokensGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAndStoreTokensRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -61,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -73,9 +75,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2SystemServiceAntiforgeryIsRequestValidGet
+## IsRequestValidAsync
 
-> ApiV2SystemServiceAntiforgeryIsRequestValidGet(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> IsRequestValidAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Validate antiforgery request
 
 
 
@@ -97,9 +101,9 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AntiforgeryAPI.ApiV2SystemServiceAntiforgeryIsRequestValidGet(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	r, err := apiClient.AntiforgeryAPI.IsRequestValidAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AntiforgeryAPI.ApiV2SystemServiceAntiforgeryIsRequestValidGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AntiforgeryAPI.IsRequestValidAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -111,7 +115,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2SystemServiceAntiforgeryIsRequestValidGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiIsRequestValidAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -125,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

@@ -22,11 +22,11 @@ func Test_openapi_TaskCategoriesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TaskCategoriesAPIService ApiV2ProjectsServiceTaskCategoriesGet", func(t *testing.T) {
+	t.Run("Test TaskCategoriesAPIService CountTenantTaskCategoriesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TaskCategoriesAPI.ApiV2ProjectsServiceTaskCategoriesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TaskCategoriesAPI.CountTenantTaskCategoriesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_openapi_TaskCategoriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaskCategoriesAPIService ApiV2ProjectsServiceTaskCategoriesPost", func(t *testing.T) {
+	t.Run("Test TaskCategoriesAPIService CreateTaskCategoryAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TaskCategoriesAPI.ApiV2ProjectsServiceTaskCategoriesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TaskCategoriesAPI.CreateTaskCategoryAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_openapi_TaskCategoriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaskCategoriesAPIService ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete", func(t *testing.T) {
+	t.Run("Test TaskCategoriesAPIService DeleteTaskCategoryAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taskCategoryId string
 
-		resp, httpRes, err := apiClient.TaskCategoriesAPI.ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete(context.Background(), taskCategoryId).Execute()
+		resp, httpRes, err := apiClient.TaskCategoriesAPI.DeleteTaskCategoryAsync(context.Background(), taskCategoryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,13 +60,13 @@ func Test_openapi_TaskCategoriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaskCategoriesAPIService ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet", func(t *testing.T) {
+	t.Run("Test TaskCategoriesAPIService GetTaskCategoryByIdAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taskCategoryId string
 
-		resp, httpRes, err := apiClient.TaskCategoriesAPI.ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet(context.Background(), taskCategoryId).Execute()
+		resp, httpRes, err := apiClient.TaskCategoriesAPI.GetTaskCategoryByIdAsync(context.Background(), taskCategoryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,13 +74,13 @@ func Test_openapi_TaskCategoriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaskCategoriesAPIService ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut", func(t *testing.T) {
+	t.Run("Test TaskCategoriesAPIService GetTaskCategoryTaskTypesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taskCategoryId string
 
-		resp, httpRes, err := apiClient.TaskCategoriesAPI.ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut(context.Background(), taskCategoryId).Execute()
+		resp, httpRes, err := apiClient.TaskCategoriesAPI.GetTaskCategoryTaskTypesAsync(context.Background(), taskCategoryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +88,25 @@ func Test_openapi_TaskCategoriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaskCategoriesAPIService ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet", func(t *testing.T) {
+	t.Run("Test TaskCategoriesAPIService GetTenantTaskCategoriesAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.TaskCategoriesAPI.GetTenantTaskCategoriesAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test TaskCategoriesAPIService UpdateTaskCategoryAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taskCategoryId string
 
-		resp, httpRes, err := apiClient.TaskCategoriesAPI.ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet(context.Background(), taskCategoryId).Execute()
+		resp, httpRes, err := apiClient.TaskCategoriesAPI.UpdateTaskCategoryAsync(context.Background(), taskCategoryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

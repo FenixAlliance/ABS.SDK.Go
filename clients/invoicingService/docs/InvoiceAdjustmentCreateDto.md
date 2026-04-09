@@ -4,12 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
-**InvoiceId** | Pointer to **NullableString** |  | [optional] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **SurchargePercent** | Pointer to **float64** |  | [optional] 
 **SurchargeAmount** | Pointer to **float64** |  | [optional] 
@@ -17,7 +14,7 @@ Name | Type | Description | Notes
 **DiscountAmount** | Pointer to **float64** |  | [optional] 
 **TotalSurcharge** | Pointer to **float64** |  | [optional] 
 **TotalDiscount** | Pointer to **float64** |  | [optional] 
-**Type** | Pointer to **int32** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -88,76 +85,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetTenantId
-
-`func (o *InvoiceAdjustmentCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *InvoiceAdjustmentCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *InvoiceAdjustmentCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *InvoiceAdjustmentCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *InvoiceAdjustmentCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *InvoiceAdjustmentCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetInvoiceId
-
-`func (o *InvoiceAdjustmentCreateDto) GetInvoiceId() string`
-
-GetInvoiceId returns the InvoiceId field if non-nil, zero value otherwise.
-
-### GetInvoiceIdOk
-
-`func (o *InvoiceAdjustmentCreateDto) GetInvoiceIdOk() (*string, bool)`
-
-GetInvoiceIdOk returns a tuple with the InvoiceId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInvoiceId
-
-`func (o *InvoiceAdjustmentCreateDto) SetInvoiceId(v string)`
-
-SetInvoiceId sets InvoiceId field to given value.
-
-### HasInvoiceId
-
-`func (o *InvoiceAdjustmentCreateDto) HasInvoiceId() bool`
-
-HasInvoiceId returns a boolean if a field has been set.
-
-### SetInvoiceIdNil
-
-`func (o *InvoiceAdjustmentCreateDto) SetInvoiceIdNil(b bool)`
-
- SetInvoiceIdNil sets the value for InvoiceId to be an explicit nil
-
-### UnsetInvoiceId
-`func (o *InvoiceAdjustmentCreateDto) UnsetInvoiceId()`
-
-UnsetInvoiceId ensures that no value is present for InvoiceId, not even an explicit nil
 ### GetCurrencyId
 
 `func (o *InvoiceAdjustmentCreateDto) GetCurrencyId() string`
@@ -193,41 +120,6 @@ HasCurrencyId returns a boolean if a field has been set.
 `func (o *InvoiceAdjustmentCreateDto) UnsetCurrencyId()`
 
 UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *InvoiceAdjustmentCreateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *InvoiceAdjustmentCreateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *InvoiceAdjustmentCreateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *InvoiceAdjustmentCreateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *InvoiceAdjustmentCreateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *InvoiceAdjustmentCreateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetDescription
 
 `func (o *InvoiceAdjustmentCreateDto) GetDescription() string`
@@ -415,20 +307,20 @@ HasTotalDiscount returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *InvoiceAdjustmentCreateDto) GetType() int32`
+`func (o *InvoiceAdjustmentCreateDto) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *InvoiceAdjustmentCreateDto) GetTypeOk() (*int32, bool)`
+`func (o *InvoiceAdjustmentCreateDto) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *InvoiceAdjustmentCreateDto) SetType(v int32)`
+`func (o *InvoiceAdjustmentCreateDto) SetType(v string)`
 
 SetType sets Type field to given value.
 

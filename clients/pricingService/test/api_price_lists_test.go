@@ -22,11 +22,11 @@ func Test_openapi_PriceListsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PriceListsAPIService ApiV2PricingServicePriceListsCountGet", func(t *testing.T) {
+	t.Run("Test PriceListsAPIService CreatePriceListAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PriceListsAPI.CreatePriceListAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,37 +34,13 @@ func Test_openapi_PriceListsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PriceListsAPIService ApiV2PricingServicePriceListsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PriceListsAPIService ApiV2PricingServicePriceListsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PriceListsAPIService ApiV2PricingServicePriceListsPriceListIdDelete", func(t *testing.T) {
+	t.Run("Test PriceListsAPIService CreatePriceListPricesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var priceListId string
 
-		resp, httpRes, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdDelete(context.Background(), priceListId).Execute()
+		resp, httpRes, err := apiClient.PriceListsAPI.CreatePriceListPricesAsync(context.Background(), priceListId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +48,13 @@ func Test_openapi_PriceListsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PriceListsAPIService ApiV2PricingServicePriceListsPriceListIdPricesPost", func(t *testing.T) {
+	t.Run("Test PriceListsAPIService DeletePriceListAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var priceListId string
 
-		resp, httpRes, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPost(context.Background(), priceListId).Execute()
+		resp, httpRes, err := apiClient.PriceListsAPI.DeletePriceListAsync(context.Background(), priceListId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -86,43 +62,14 @@ func Test_openapi_PriceListsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PriceListsAPIService ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete", func(t *testing.T) {
+	t.Run("Test PriceListsAPIService DeletePriceListPriceAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var priceListId string
 		var priceId string
 
-		resp, httpRes, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete(context.Background(), priceListId, priceId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PriceListsAPIService ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var priceListId string
-		var priceId string
-
-		resp, httpRes, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut(context.Background(), priceListId, priceId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PriceListsAPIService ApiV2PricingServicePriceListsPriceListIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var priceListId string
-
-		resp, httpRes, err := apiClient.PriceListsAPI.ApiV2PricingServicePriceListsPriceListIdPut(context.Background(), priceListId).Execute()
+		resp, httpRes, err := apiClient.PriceListsAPI.DeletePriceListPriceAsync(context.Background(), priceListId, priceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -166,6 +113,59 @@ func Test_openapi_PriceListsAPIService(t *testing.T) {
 		var priceListId string
 
 		resp, httpRes, err := apiClient.PriceListsAPI.GetPriceListPricesAsync(context.Background(), priceListId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PriceListsAPIService GetPriceListsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PriceListsAPI.GetPriceListsAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PriceListsAPIService GetPriceListsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PriceListsAPI.GetPriceListsCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PriceListsAPIService UpdatePriceListAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var priceListId string
+
+		resp, httpRes, err := apiClient.PriceListsAPI.UpdatePriceListAsync(context.Background(), priceListId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PriceListsAPIService UpdatePriceListPriceAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var priceListId string
+		var priceId string
+
+		resp, httpRes, err := apiClient.PriceListsAPI.UpdatePriceListPriceAsync(context.Background(), priceListId, priceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

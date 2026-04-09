@@ -22,11 +22,11 @@ func Test_openapi_EmailTemplatesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test EmailTemplatesAPIService ApiV2MarketingServiceEmailTemplatesCountGet", func(t *testing.T) {
+	t.Run("Test EmailTemplatesAPIService CreateEmailTemplateAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.EmailTemplatesAPI.ApiV2MarketingServiceEmailTemplatesCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.EmailTemplatesAPI.CreateEmailTemplateAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_openapi_EmailTemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailTemplatesAPIService ApiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete", func(t *testing.T) {
+	t.Run("Test EmailTemplatesAPIService DeleteEmailTemplateAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var emailTemplateId string
 
-		resp, httpRes, err := apiClient.EmailTemplatesAPI.ApiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete(context.Background(), emailTemplateId).Execute()
+		resp, httpRes, err := apiClient.EmailTemplatesAPI.DeleteEmailTemplateAsync(context.Background(), emailTemplateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_openapi_EmailTemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailTemplatesAPIService ApiV2MarketingServiceEmailTemplatesEmailTemplateIdGet", func(t *testing.T) {
+	t.Run("Test EmailTemplatesAPIService GetEmailTemplateDetailsAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var emailTemplateId string
 
-		resp, httpRes, err := apiClient.EmailTemplatesAPI.ApiV2MarketingServiceEmailTemplatesEmailTemplateIdGet(context.Background(), emailTemplateId).Execute()
+		resp, httpRes, err := apiClient.EmailTemplatesAPI.GetEmailTemplateDetailsAsync(context.Background(), emailTemplateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,37 +62,37 @@ func Test_openapi_EmailTemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailTemplatesAPIService ApiV2MarketingServiceEmailTemplatesEmailTemplateIdPut", func(t *testing.T) {
+	t.Run("Test EmailTemplatesAPIService GetEmailTemplatesCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.EmailTemplatesAPI.GetEmailTemplatesCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test EmailTemplatesAPIService GetEmailTemplatesODataAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.EmailTemplatesAPI.GetEmailTemplatesODataAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test EmailTemplatesAPIService UpdateEmailTemplateAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var emailTemplateId string
 
-		resp, httpRes, err := apiClient.EmailTemplatesAPI.ApiV2MarketingServiceEmailTemplatesEmailTemplateIdPut(context.Background(), emailTemplateId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test EmailTemplatesAPIService ApiV2MarketingServiceEmailTemplatesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.EmailTemplatesAPI.ApiV2MarketingServiceEmailTemplatesGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test EmailTemplatesAPIService ApiV2MarketingServiceEmailTemplatesPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.EmailTemplatesAPI.ApiV2MarketingServiceEmailTemplatesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.EmailTemplatesAPI.UpdateEmailTemplateAsync(context.Background(), emailTemplateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **FullName** | Pointer to **NullableString** |  | [optional] [readonly] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**Type** | Pointer to **int32** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
 **Configuration** | Pointer to **NullableString** |  | [optional] 
 **Author** | Pointer to **NullableString** |  | [optional] 
 **AuthorUrl** | Pointer to **NullableString** |  | [optional] 
@@ -269,20 +269,20 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetType
 
-`func (o *Module) GetType() int32`
+`func (o *Module) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *Module) GetTypeOk() (*int32, bool)`
+`func (o *Module) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *Module) SetType(v int32)`
+`func (o *Module) SetType(v string)`
 
 SetType sets Type field to given value.
 

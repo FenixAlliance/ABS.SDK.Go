@@ -4,18 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2MarketingServiceEmailSignaturesCountGet**](EmailSignaturesAPI.md#ApiV2MarketingServiceEmailSignaturesCountGet) | **Get** /api/v2/MarketingService/EmailSignatures/Count | 
-[**ApiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete**](EmailSignaturesAPI.md#ApiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete) | **Delete** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | 
-[**ApiV2MarketingServiceEmailSignaturesEmailsignatureIdGet**](EmailSignaturesAPI.md#ApiV2MarketingServiceEmailSignaturesEmailsignatureIdGet) | **Get** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | 
-[**ApiV2MarketingServiceEmailSignaturesEmailsignatureIdPut**](EmailSignaturesAPI.md#ApiV2MarketingServiceEmailSignaturesEmailsignatureIdPut) | **Put** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | 
-[**ApiV2MarketingServiceEmailSignaturesGet**](EmailSignaturesAPI.md#ApiV2MarketingServiceEmailSignaturesGet) | **Get** /api/v2/MarketingService/EmailSignatures | 
-[**ApiV2MarketingServiceEmailSignaturesPost**](EmailSignaturesAPI.md#ApiV2MarketingServiceEmailSignaturesPost) | **Post** /api/v2/MarketingService/EmailSignatures | 
+[**CreateEmailSignatureAsync**](EmailSignaturesAPI.md#CreateEmailSignatureAsync) | **Post** /api/v2/MarketingService/EmailSignatures | Create an email signature
+[**DeleteEmailSignatureAsync**](EmailSignaturesAPI.md#DeleteEmailSignatureAsync) | **Delete** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Delete an email signature
+[**GetEmailSignatureDetailsAsync**](EmailSignaturesAPI.md#GetEmailSignatureDetailsAsync) | **Get** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Get email signature by ID
+[**GetEmailSignaturesCountAsync**](EmailSignaturesAPI.md#GetEmailSignaturesCountAsync) | **Get** /api/v2/MarketingService/EmailSignatures/Count | Get email signatures count
+[**GetEmailSignaturesODataAsync**](EmailSignaturesAPI.md#GetEmailSignaturesODataAsync) | **Get** /api/v2/MarketingService/EmailSignatures | Get email signatures
+[**UpdateEmailSignatureAsync**](EmailSignaturesAPI.md#UpdateEmailSignatureAsync) | **Put** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Update an email signature
 
 
 
-## ApiV2MarketingServiceEmailSignaturesCountGet
+## CreateEmailSignatureAsync
 
-> Int32Envelope ApiV2MarketingServiceEmailSignaturesCountGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope CreateEmailSignatureAsync(ctx).TenantId(tenantId).EmailSignatureCreateDto(emailSignatureCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Create an email signature
 
 
 
@@ -33,18 +35,19 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	emailSignatureCreateDto := *openapiclient.NewEmailSignatureCreateDto() // EmailSignatureCreateDto | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesCountGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.EmailSignaturesAPI.CreateEmailSignatureAsync(context.Background()).TenantId(tenantId).EmailSignatureCreateDto(emailSignatureCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesCountGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.CreateEmailSignatureAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2MarketingServiceEmailSignaturesCountGet`: Int32Envelope
-	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesCountGet`: %v\n", resp)
+	// response from `CreateEmailSignatureAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.CreateEmailSignatureAsync`: %v\n", resp)
 }
 ```
 
@@ -54,26 +57,27 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceEmailSignaturesCountGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateEmailSignatureAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **emailSignatureCreateDto** | [**EmailSignatureCreateDto**](EmailSignatureCreateDto.md) |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -81,9 +85,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete
+## DeleteEmailSignatureAsync
 
-> EmptyEnvelope ApiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete(ctx, emailsignatureId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeleteEmailSignatureAsync(ctx, emailsignatureId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete an email signature
 
 
 
@@ -107,13 +113,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete(context.Background(), emailsignatureId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.EmailSignaturesAPI.DeleteEmailSignatureAsync(context.Background(), emailsignatureId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.DeleteEmailSignatureAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete`: %v\n", resp)
+	// response from `DeleteEmailSignatureAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.DeleteEmailSignatureAsync`: %v\n", resp)
 }
 ```
 
@@ -127,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceEmailSignaturesEmailsignatureIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteEmailSignatureAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -143,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -155,9 +161,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2MarketingServiceEmailSignaturesEmailsignatureIdGet
+## GetEmailSignatureDetailsAsync
 
-> EmailSignatureDtoEnvelope ApiV2MarketingServiceEmailSignaturesEmailsignatureIdGet(ctx, emailsignatureId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmailSignatureDtoEnvelope GetEmailSignatureDetailsAsync(ctx, emailsignatureId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get email signature by ID
 
 
 
@@ -181,13 +189,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdGet(context.Background(), emailsignatureId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.EmailSignaturesAPI.GetEmailSignatureDetailsAsync(context.Background(), emailsignatureId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.GetEmailSignatureDetailsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2MarketingServiceEmailSignaturesEmailsignatureIdGet`: EmailSignatureDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdGet`: %v\n", resp)
+	// response from `GetEmailSignatureDetailsAsync`: EmailSignatureDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.GetEmailSignatureDetailsAsync`: %v\n", resp)
 }
 ```
 
@@ -201,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceEmailSignaturesEmailsignatureIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetEmailSignatureDetailsAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -217,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -229,9 +237,151 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2MarketingServiceEmailSignaturesEmailsignatureIdPut
+## GetEmailSignaturesCountAsync
 
-> EmptyEnvelope ApiV2MarketingServiceEmailSignaturesEmailsignatureIdPut(ctx, emailsignatureId).TenantId(tenantId).EmailSignatureUpdateDto(emailSignatureUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetEmailSignaturesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get email signatures count
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EmailSignaturesAPI.GetEmailSignaturesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.GetEmailSignaturesCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetEmailSignaturesCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.GetEmailSignaturesCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetEmailSignaturesCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetEmailSignaturesODataAsync
+
+> EmailSignatureDtoListEnvelope GetEmailSignaturesODataAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get email signatures
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EmailSignaturesAPI.GetEmailSignaturesODataAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.GetEmailSignaturesODataAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetEmailSignaturesODataAsync`: EmailSignatureDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.GetEmailSignaturesODataAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetEmailSignaturesODataAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmailSignatureDtoListEnvelope**](EmailSignatureDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateEmailSignatureAsync
+
+> EmptyEnvelope UpdateEmailSignatureAsync(ctx, emailsignatureId).TenantId(tenantId).EmailSignatureUpdateDto(emailSignatureUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Update an email signature
 
 
 
@@ -256,13 +406,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdPut(context.Background(), emailsignatureId).TenantId(tenantId).EmailSignatureUpdateDto(emailSignatureUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.EmailSignaturesAPI.UpdateEmailSignatureAsync(context.Background(), emailsignatureId).TenantId(tenantId).EmailSignatureUpdateDto(emailSignatureUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.UpdateEmailSignatureAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2MarketingServiceEmailSignaturesEmailsignatureIdPut`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesEmailsignatureIdPut`: %v\n", resp)
+	// response from `UpdateEmailSignatureAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.UpdateEmailSignatureAsync`: %v\n", resp)
 }
 ```
 
@@ -276,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceEmailSignaturesEmailsignatureIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateEmailSignatureAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -293,145 +443,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2MarketingServiceEmailSignaturesGet
-
-> EmailSignatureDtoListEnvelope ApiV2MarketingServiceEmailSignaturesGet(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesGet(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2MarketingServiceEmailSignaturesGet`: EmailSignatureDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceEmailSignaturesGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmailSignatureDtoListEnvelope**](EmailSignatureDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2MarketingServiceEmailSignaturesPost
-
-> EmptyEnvelope ApiV2MarketingServiceEmailSignaturesPost(ctx).TenantId(tenantId).EmailSignatureCreateDto(emailSignatureCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	emailSignatureCreateDto := *openapiclient.NewEmailSignatureCreateDto() // EmailSignatureCreateDto | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesPost(context.Background()).TenantId(tenantId).EmailSignatureCreateDto(emailSignatureCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2MarketingServiceEmailSignaturesPost`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.ApiV2MarketingServiceEmailSignaturesPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2MarketingServiceEmailSignaturesPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantId** | **string** |  | 
- **emailSignatureCreateDto** | [**EmailSignatureCreateDto**](EmailSignatureCreateDto.md) |  | 
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

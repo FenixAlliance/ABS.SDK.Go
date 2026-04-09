@@ -22,38 +22,14 @@ func Test_openapi_PermissionsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete", func(t *testing.T) {
+	t.Run("Test PermissionsAPIService AssignPermissionToBusinessApplicationAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var securityPermissionId string
 		var applicationId string
 
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete(context.Background(), securityPermissionId, applicationId).Execute()
+		resp, httpRes, err := apiClient.PermissionsAPI.AssignPermissionToBusinessApplicationAsync(context.Background(), securityPermissionId, applicationId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -61,14 +37,164 @@ func Test_openapi_PermissionsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost", func(t *testing.T) {
+	t.Run("Test PermissionsAPIService AssignPermissionToEnrollmentAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityPermissionId string
+		var enrollmentId string
+
+		resp, httpRes, err := apiClient.PermissionsAPI.AssignPermissionToEnrollmentAsync(context.Background(), securityPermissionId, enrollmentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService AssignRoleToPermissionAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityPermissionId string
+		var securityRoleId string
+
+		resp, httpRes, err := apiClient.PermissionsAPI.AssignRoleToPermissionAsync(context.Background(), securityPermissionId, securityRoleId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService CreatePermissionAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PermissionsAPI.CreatePermissionAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService DeletePermissionAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityPermissionId string
+
+		resp, httpRes, err := apiClient.PermissionsAPI.DeletePermissionAsync(context.Background(), securityPermissionId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService GetApplicationsByPermissionAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityPermissionId string
+
+		resp, httpRes, err := apiClient.PermissionsAPI.GetApplicationsByPermissionAsync(context.Background(), securityPermissionId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService GetEnrollmentsByPermissionAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityPermissionId string
+
+		resp, httpRes, err := apiClient.PermissionsAPI.GetEnrollmentsByPermissionAsync(context.Background(), securityPermissionId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService GetPermissionAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityPermissionId string
+
+		resp, httpRes, err := apiClient.PermissionsAPI.GetPermissionAsync(context.Background(), securityPermissionId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService GetPermissionsAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PermissionsAPI.GetPermissionsAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService GetPermissionsByEnrollmentAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var enrollmentId string
+
+		resp, httpRes, err := apiClient.PermissionsAPI.GetPermissionsByEnrollmentAsync(context.Background(), enrollmentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService GetPermissionsCountAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PermissionsAPI.GetPermissionsCountAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService GetRolesByPermissionAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var securityPermissionId string
+
+		resp, httpRes, err := apiClient.PermissionsAPI.GetRolesByPermissionAsync(context.Background(), securityPermissionId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PermissionsAPIService RevokePermissionFromBusinessApplicationAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var securityPermissionId string
 		var applicationId string
 
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost(context.Background(), securityPermissionId, applicationId).Execute()
+		resp, httpRes, err := apiClient.PermissionsAPI.RevokePermissionFromBusinessApplicationAsync(context.Background(), securityPermissionId, applicationId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,28 +202,14 @@ func Test_openapi_PermissionsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsSecurityPermissionIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityPermissionId string
-
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdDelete(context.Background(), securityPermissionId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete", func(t *testing.T) {
+	t.Run("Test PermissionsAPIService RevokePermissionFromEnrollmentAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var securityPermissionId string
 		var enrollmentId string
 
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete(context.Background(), securityPermissionId, enrollmentId).Execute()
+		resp, httpRes, err := apiClient.PermissionsAPI.RevokePermissionFromEnrollmentAsync(context.Background(), securityPermissionId, enrollmentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -105,71 +217,14 @@ func Test_openapi_PermissionsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityPermissionId string
-		var enrollmentId string
-
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost(context.Background(), securityPermissionId, enrollmentId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityPermissionId string
-
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet(context.Background(), securityPermissionId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsSecurityPermissionIdGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityPermissionId string
-
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdGet(context.Background(), securityPermissionId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsSecurityPermissionIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var securityPermissionId string
-
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdPut(context.Background(), securityPermissionId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete", func(t *testing.T) {
+	t.Run("Test PermissionsAPIService RevokeRoleFromPermissionAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var securityPermissionId string
 		var securityRoleId string
 
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete(context.Background(), securityPermissionId, securityRoleId).Execute()
+		resp, httpRes, err := apiClient.PermissionsAPI.RevokeRoleFromPermissionAsync(context.Background(), securityPermissionId, securityRoleId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -177,14 +232,13 @@ func Test_openapi_PermissionsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PermissionsAPIService ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost", func(t *testing.T) {
+	t.Run("Test PermissionsAPIService UpdatePermissionAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var securityPermissionId string
-		var securityRoleId string
 
-		resp, httpRes, err := apiClient.PermissionsAPI.ApiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost(context.Background(), securityPermissionId, securityRoleId).Execute()
+		resp, httpRes, err := apiClient.PermissionsAPI.UpdatePermissionAsync(context.Background(), securityPermissionId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

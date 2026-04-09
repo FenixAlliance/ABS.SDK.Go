@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **int32** |  | [optional] 
+**Kind** | Pointer to **string** |  | [optional] 
 **IsFolder** | Pointer to **bool** |  | [optional] [readonly] 
 **IsFile** | Pointer to **bool** |  | [optional] [readonly] 
 **FolderPath** | Pointer to **NullableString** |  | [optional] [readonly] 
@@ -39,20 +39,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetKind
 
-`func (o *Blob) GetKind() int32`
+`func (o *Blob) GetKind() string`
 
 GetKind returns the Kind field if non-nil, zero value otherwise.
 
 ### GetKindOk
 
-`func (o *Blob) GetKindOk() (*int32, bool)`
+`func (o *Blob) GetKindOk() (*string, bool)`
 
 GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKind
 
-`func (o *Blob) SetKind(v int32)`
+`func (o *Blob) SetKind(v string)`
 
 SetKind sets Kind field to given value.
 

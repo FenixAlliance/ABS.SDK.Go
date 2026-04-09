@@ -4,16 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2PricingServicePricesItemIdFinalPriceGet**](PricesAPI.md#ApiV2PricingServicePricesItemIdFinalPriceGet) | **Get** /api/v2/PricingService/Prices/{itemId}/FinalPrice | 
-[**ApiV2PricingServicePricesItemIdPriceGet**](PricesAPI.md#ApiV2PricingServicePricesItemIdPriceGet) | **Get** /api/v2/PricingService/Prices/{itemId}/Price | 
-[**ApiV2PricingServicePricesItemIdTotalSavingsGet**](PricesAPI.md#ApiV2PricingServicePricesItemIdTotalSavingsGet) | **Get** /api/v2/PricingService/Prices/{itemId}/TotalSavings | 
-[**ApiV2PricingServicePricesItemIdTotalTaxesGet**](PricesAPI.md#ApiV2PricingServicePricesItemIdTotalTaxesGet) | **Get** /api/v2/PricingService/Prices/{itemId}/TotalTaxes | 
+[**GetFinalPrice**](PricesAPI.md#GetFinalPrice) | **Get** /api/v2/PricingService/Prices/{itemId}/FinalPrice | Gets the final price for an item
+[**GetPrice**](PricesAPI.md#GetPrice) | **Get** /api/v2/PricingService/Prices/{itemId}/Price | Gets the calculated price for an item
+[**GetTotalSavingsInUsd**](PricesAPI.md#GetTotalSavingsInUsd) | **Get** /api/v2/PricingService/Prices/{itemId}/TotalSavings | Gets total savings for an item
+[**GetTotalTaxesInUsd**](PricesAPI.md#GetTotalTaxesInUsd) | **Get** /api/v2/PricingService/Prices/{itemId}/TotalTaxes | Gets total taxes for an item
 
 
 
-## ApiV2PricingServicePricesItemIdFinalPriceGet
+## GetFinalPrice
 
-> MoneyEnvelope ApiV2PricingServicePricesItemIdFinalPriceGet(ctx, itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> MoneyEnvelope GetFinalPrice(ctx, itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Gets the final price for an item
 
 
 
@@ -37,13 +39,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PricesAPI.ApiV2PricingServicePricesItemIdFinalPriceGet(context.Background(), itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PricesAPI.GetFinalPrice(context.Background(), itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PricesAPI.ApiV2PricingServicePricesItemIdFinalPriceGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PricesAPI.GetFinalPrice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PricingServicePricesItemIdFinalPriceGet`: MoneyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PricesAPI.ApiV2PricingServicePricesItemIdFinalPriceGet`: %v\n", resp)
+	// response from `GetFinalPrice`: MoneyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PricesAPI.GetFinalPrice`: %v\n", resp)
 }
 ```
 
@@ -57,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PricingServicePricesItemIdFinalPriceGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetFinalPriceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -73,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -85,9 +87,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2PricingServicePricesItemIdPriceGet
+## GetPrice
 
-> PriceCalculationDtoEnvelope ApiV2PricingServicePricesItemIdPriceGet(ctx, itemId).PriceListId(priceListId).DiscountsListId(discountsListId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemPriceCalculationEnvelope GetPrice(ctx, itemId).PriceListId(priceListId).DiscountsListId(discountsListId).Quantity(quantity).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Gets the calculated price for an item
 
 
 
@@ -107,19 +111,20 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	discountsListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	quantity := float64(1.2) // float64 |  (optional) (default to 1)
 	currencyId := "currencyId_example" // string |  (optional) (default to "USD.USA")
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PricesAPI.ApiV2PricingServicePricesItemIdPriceGet(context.Background(), itemId).PriceListId(priceListId).DiscountsListId(discountsListId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PricesAPI.GetPrice(context.Background(), itemId).PriceListId(priceListId).DiscountsListId(discountsListId).Quantity(quantity).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PricesAPI.ApiV2PricingServicePricesItemIdPriceGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PricesAPI.GetPrice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PricingServicePricesItemIdPriceGet`: PriceCalculationDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PricesAPI.ApiV2PricingServicePricesItemIdPriceGet`: %v\n", resp)
+	// response from `GetPrice`: ItemPriceCalculationEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PricesAPI.GetPrice`: %v\n", resp)
 }
 ```
 
@@ -133,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PricingServicePricesItemIdPriceGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetPriceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -141,17 +146,18 @@ Name | Type | Description  | Notes
 
  **priceListId** | **string** |  | 
  **discountsListId** | **string** |  | 
+ **quantity** | **float64** |  | [default to 1]
  **currencyId** | **string** |  | [default to &quot;USD.USA&quot;]
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
 ### Return type
 
-[**PriceCalculationDtoEnvelope**](PriceCalculationDtoEnvelope.md)
+[**ItemPriceCalculationEnvelope**](ItemPriceCalculationEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -163,9 +169,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2PricingServicePricesItemIdTotalSavingsGet
+## GetTotalSavingsInUsd
 
-> MoneyEnvelope ApiV2PricingServicePricesItemIdTotalSavingsGet(ctx, itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> MoneyEnvelope GetTotalSavingsInUsd(ctx, itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Gets total savings for an item
 
 
 
@@ -189,13 +197,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PricesAPI.ApiV2PricingServicePricesItemIdTotalSavingsGet(context.Background(), itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PricesAPI.GetTotalSavingsInUsd(context.Background(), itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PricesAPI.ApiV2PricingServicePricesItemIdTotalSavingsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PricesAPI.GetTotalSavingsInUsd``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PricingServicePricesItemIdTotalSavingsGet`: MoneyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PricesAPI.ApiV2PricingServicePricesItemIdTotalSavingsGet`: %v\n", resp)
+	// response from `GetTotalSavingsInUsd`: MoneyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PricesAPI.GetTotalSavingsInUsd`: %v\n", resp)
 }
 ```
 
@@ -209,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PricingServicePricesItemIdTotalSavingsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTotalSavingsInUsdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -225,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -237,9 +245,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2PricingServicePricesItemIdTotalTaxesGet
+## GetTotalTaxesInUsd
 
-> MoneyEnvelope ApiV2PricingServicePricesItemIdTotalTaxesGet(ctx, itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> MoneyEnvelope GetTotalTaxesInUsd(ctx, itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Gets total taxes for an item
 
 
 
@@ -263,13 +273,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PricesAPI.ApiV2PricingServicePricesItemIdTotalTaxesGet(context.Background(), itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PricesAPI.GetTotalTaxesInUsd(context.Background(), itemId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PricesAPI.ApiV2PricingServicePricesItemIdTotalTaxesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PricesAPI.GetTotalTaxesInUsd``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2PricingServicePricesItemIdTotalTaxesGet`: MoneyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `PricesAPI.ApiV2PricingServicePricesItemIdTotalTaxesGet`: %v\n", resp)
+	// response from `GetTotalTaxesInUsd`: MoneyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PricesAPI.GetTotalTaxesInUsd`: %v\n", resp)
 }
 ```
 
@@ -283,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiV2PricingServicePricesItemIdTotalTaxesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTotalTaxesInUsdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -299,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

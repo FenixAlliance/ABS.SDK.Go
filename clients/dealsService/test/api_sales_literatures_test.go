@@ -22,11 +22,11 @@ func Test_openapi_SalesLiteraturesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SalesLiteraturesAPIService ApiV2DealsServiceSalesLiteraturesExtendedGet", func(t *testing.T) {
+	t.Run("Test SalesLiteraturesAPIService CountSalesLiteraturesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SalesLiteraturesAPI.ApiV2DealsServiceSalesLiteraturesExtendedGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SalesLiteraturesAPI.CountSalesLiteraturesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_openapi_SalesLiteraturesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SalesLiteraturesAPIService ApiV2DealsServiceSalesLiteraturesGet", func(t *testing.T) {
+	t.Run("Test SalesLiteraturesAPIService CreateSalesLiteratureAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SalesLiteraturesAPI.ApiV2DealsServiceSalesLiteraturesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SalesLiteraturesAPI.CreateSalesLiteratureAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,25 +46,13 @@ func Test_openapi_SalesLiteraturesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SalesLiteraturesAPIService ApiV2DealsServiceSalesLiteraturesPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SalesLiteraturesAPI.ApiV2DealsServiceSalesLiteraturesPost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SalesLiteraturesAPIService ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete", func(t *testing.T) {
+	t.Run("Test SalesLiteraturesAPIService DeleteSalesLiteratureAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var salesLiteratureId string
 
-		resp, httpRes, err := apiClient.SalesLiteraturesAPI.ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete(context.Background(), salesLiteratureId).Execute()
+		resp, httpRes, err := apiClient.SalesLiteraturesAPI.DeleteSalesLiteratureAsync(context.Background(), salesLiteratureId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +60,11 @@ func Test_openapi_SalesLiteraturesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SalesLiteraturesAPIService ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet", func(t *testing.T) {
+	t.Run("Test SalesLiteraturesAPIService GetExtendedSalesLiteraturesAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var salesLiteratureId string
-
-		resp, httpRes, err := apiClient.SalesLiteraturesAPI.ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet(context.Background(), salesLiteratureId).Execute()
+		resp, httpRes, err := apiClient.SalesLiteraturesAPI.GetExtendedSalesLiteraturesAsync(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -86,13 +72,39 @@ func Test_openapi_SalesLiteraturesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test SalesLiteraturesAPIService ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut", func(t *testing.T) {
+	t.Run("Test SalesLiteraturesAPIService GetSalesLiteratureAsync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var salesLiteratureId string
 
-		resp, httpRes, err := apiClient.SalesLiteraturesAPI.ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut(context.Background(), salesLiteratureId).Execute()
+		resp, httpRes, err := apiClient.SalesLiteraturesAPI.GetSalesLiteratureAsync(context.Background(), salesLiteratureId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SalesLiteraturesAPIService GetSalesLiteraturesAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SalesLiteraturesAPI.GetSalesLiteraturesAsync(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SalesLiteraturesAPIService UpdateSalesLiteratureAsync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var salesLiteratureId string
+
+		resp, httpRes, err := apiClient.SalesLiteraturesAPI.UpdateSalesLiteratureAsync(context.Background(), salesLiteratureId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

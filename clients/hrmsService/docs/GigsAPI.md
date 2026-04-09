@@ -4,18 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateGigAsync**](GigsAPI.md#CreateGigAsync) | **Post** /api/v2/HrmsService/Gigs | 
-[**DeleteGigAsync**](GigsAPI.md#DeleteGigAsync) | **Delete** /api/v2/HrmsService/Gigs/{gigId} | 
-[**GetGigByIdAsync**](GigsAPI.md#GetGigByIdAsync) | **Get** /api/v2/HrmsService/Gigs/{gigId} | 
-[**GetGigsAsync**](GigsAPI.md#GetGigsAsync) | **Get** /api/v2/HrmsService/Gigs | 
-[**GetGigsCountAsync**](GigsAPI.md#GetGigsCountAsync) | **Get** /api/v2/HrmsService/Gigs/Count | 
-[**UpdateGigAsync**](GigsAPI.md#UpdateGigAsync) | **Put** /api/v2/HrmsService/Gigs/{gigId} | 
+[**CreateGigAsync**](GigsAPI.md#CreateGigAsync) | **Post** /api/v2/HrmsService/Gigs | Create a gig
+[**DeleteGigAsync**](GigsAPI.md#DeleteGigAsync) | **Delete** /api/v2/HrmsService/Gigs/{gigId} | Delete a gig
+[**GetGigByIdAsync**](GigsAPI.md#GetGigByIdAsync) | **Get** /api/v2/HrmsService/Gigs/{gigId} | Get gig by ID
+[**GetGigsAsync**](GigsAPI.md#GetGigsAsync) | **Get** /api/v2/HrmsService/Gigs | Get gigs
+[**GetGigsCountAsync**](GigsAPI.md#GetGigsCountAsync) | **Get** /api/v2/HrmsService/Gigs/Count | Count gigs
+[**UpdateGigAsync**](GigsAPI.md#UpdateGigAsync) | **Put** /api/v2/HrmsService/Gigs/{gigId} | Update a gig
 
 
 
 ## CreateGigAsync
 
-> CreateGigAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).GigCreateDto(gigCreateDto).Execute()
+> EmptyEnvelope CreateGigAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).GigCreateDto(gigCreateDto).Execute()
+
+Create a gig
 
 
 
@@ -39,11 +41,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.GigsAPI.CreateGigAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).GigCreateDto(gigCreateDto).Execute()
+	resp, r, err := apiClient.GigsAPI.CreateGigAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).GigCreateDto(gigCreateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GigsAPI.CreateGigAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `CreateGigAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `GigsAPI.CreateGigAsync`: %v\n", resp)
 }
 ```
 
@@ -65,11 +69,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -83,7 +87,9 @@ Name | Type | Description  | Notes
 
 ## DeleteGigAsync
 
-> DeleteGigAsync(ctx, gigId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeleteGigAsync(ctx, gigId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete a gig
 
 
 
@@ -107,11 +113,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.GigsAPI.DeleteGigAsync(context.Background(), gigId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.GigsAPI.DeleteGigAsync(context.Background(), gigId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GigsAPI.DeleteGigAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `DeleteGigAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `GigsAPI.DeleteGigAsync`: %v\n", resp)
 }
 ```
 
@@ -137,11 +145,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -156,6 +164,8 @@ Name | Type | Description  | Notes
 ## GetGigByIdAsync
 
 > GigDtoEnvelope GetGigByIdAsync(ctx, gigId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get gig by ID
 
 
 
@@ -215,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -230,6 +240,8 @@ Name | Type | Description  | Notes
 ## GetGigsAsync
 
 > GigDtoListEnvelope GetGigsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get gigs
 
 
 
@@ -283,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -298,6 +310,8 @@ Name | Type | Description  | Notes
 ## GetGigsCountAsync
 
 > Int32Envelope GetGigsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count gigs
 
 
 
@@ -351,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -365,7 +379,9 @@ Name | Type | Description  | Notes
 
 ## UpdateGigAsync
 
-> UpdateGigAsync(ctx, gigId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+> EmptyEnvelope UpdateGigAsync(ctx, gigId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).GigUpdateDto(gigUpdateDto).Execute()
+
+Update a gig
 
 
 
@@ -386,15 +402,17 @@ func main() {
 	gigId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+	gigUpdateDto := *openapiclient.NewGigUpdateDto() // GigUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.GigsAPI.UpdateGigAsync(context.Background(), gigId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+	resp, r, err := apiClient.GigsAPI.UpdateGigAsync(context.Background(), gigId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).GigUpdateDto(gigUpdateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GigsAPI.UpdateGigAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `UpdateGigAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `GigsAPI.UpdateGigAsync`: %v\n", resp)
 }
 ```
 
@@ -417,15 +435,15 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **body** | **map[string]interface{}** |  | 
+ **gigUpdateDto** | [**GigUpdateDto**](GigUpdateDto.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

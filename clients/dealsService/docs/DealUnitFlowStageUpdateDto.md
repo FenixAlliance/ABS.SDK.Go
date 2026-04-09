@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Order** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**EnrolmentId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **DealUnitFlowId** | Pointer to **NullableString** |  | [optional] 
 **ParentBusinessProcessStageId** | Pointer to **NullableString** |  | [optional] 
 
@@ -125,41 +125,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *DealUnitFlowStageUpdateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetEnrolmentId
+### GetEnrollmentId
 
-`func (o *DealUnitFlowStageUpdateDto) GetEnrolmentId() string`
+`func (o *DealUnitFlowStageUpdateDto) GetEnrollmentId() string`
 
-GetEnrolmentId returns the EnrolmentId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetEnrolmentIdOk
+### GetEnrollmentIdOk
 
-`func (o *DealUnitFlowStageUpdateDto) GetEnrolmentIdOk() (*string, bool)`
+`func (o *DealUnitFlowStageUpdateDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetEnrolmentIdOk returns a tuple with the EnrolmentId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnrolmentId
+### SetEnrollmentId
 
-`func (o *DealUnitFlowStageUpdateDto) SetEnrolmentId(v string)`
+`func (o *DealUnitFlowStageUpdateDto) SetEnrollmentId(v string)`
 
-SetEnrolmentId sets EnrolmentId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasEnrolmentId
+### HasEnrollmentId
 
-`func (o *DealUnitFlowStageUpdateDto) HasEnrolmentId() bool`
+`func (o *DealUnitFlowStageUpdateDto) HasEnrollmentId() bool`
 
-HasEnrolmentId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetEnrolmentIdNil
+### SetEnrollmentIdNil
 
-`func (o *DealUnitFlowStageUpdateDto) SetEnrolmentIdNil(b bool)`
+`func (o *DealUnitFlowStageUpdateDto) SetEnrollmentIdNil(b bool)`
 
- SetEnrolmentIdNil sets the value for EnrolmentId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetEnrolmentId
-`func (o *DealUnitFlowStageUpdateDto) UnsetEnrolmentId()`
+### UnsetEnrollmentId
+`func (o *DealUnitFlowStageUpdateDto) UnsetEnrollmentId()`
 
-UnsetEnrolmentId ensures that no value is present for EnrolmentId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetDealUnitFlowId
 
 `func (o *DealUnitFlowStageUpdateDto) GetDealUnitFlowId() string`
