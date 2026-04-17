@@ -22,8 +22,6 @@ var _ MappedNullable = &AccountingPeriodUpdateDto{}
 // AccountingPeriodUpdateDto struct for AccountingPeriodUpdateDto
 type AccountingPeriodUpdateDto struct {
 	Name NullableString `json:"name,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	DateStart *time.Time `json:"dateStart,omitempty"`
 	DateEnd *time.Time `json:"dateEnd,omitempty"`
 }
@@ -85,90 +83,6 @@ func (o *AccountingPeriodUpdateDto) SetNameNil() {
 // UnsetName ensures that no value is present for Name, not even an explicit nil
 func (o *AccountingPeriodUpdateDto) UnsetName() {
 	o.Name.Unset()
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AccountingPeriodUpdateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AccountingPeriodUpdateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *AccountingPeriodUpdateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *AccountingPeriodUpdateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *AccountingPeriodUpdateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *AccountingPeriodUpdateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AccountingPeriodUpdateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AccountingPeriodUpdateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *AccountingPeriodUpdateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *AccountingPeriodUpdateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *AccountingPeriodUpdateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *AccountingPeriodUpdateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
 }
 
 // GetDateStart returns the DateStart field value if set, zero value otherwise.
@@ -247,12 +161,6 @@ func (o AccountingPeriodUpdateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if !IsNil(o.DateStart) {
 		toSerialize["dateStart"] = o.DateStart

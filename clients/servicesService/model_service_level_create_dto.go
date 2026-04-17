@@ -53,7 +53,6 @@ type ServiceLevelCreateDto struct {
 	Pattern NullableString `json:"pattern,omitempty"`
 	Features NullableString `json:"features,omitempty"`
 	Material NullableString `json:"material,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	Permalink NullableString `json:"permalink,omitempty"`
 	BrandName NullableString `json:"brandName,omitempty"`
 	Variations NullableString `json:"variations,omitempty"`
@@ -1523,48 +1522,6 @@ func (o *ServiceLevelCreateDto) SetMaterialNil() {
 // UnsetMaterial ensures that no value is present for Material, not even an explicit nil
 func (o *ServiceLevelCreateDto) UnsetMaterial() {
 	o.Material.Unset()
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ServiceLevelCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ServiceLevelCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *ServiceLevelCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *ServiceLevelCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *ServiceLevelCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *ServiceLevelCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
 }
 
 // GetPermalink returns the Permalink field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -6202,9 +6159,6 @@ func (o ServiceLevelCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Material.IsSet() {
 		toSerialize["material"] = o.Material.Get()
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
 	}
 	if o.Permalink.IsSet() {
 		toSerialize["permalink"] = o.Permalink.Get()

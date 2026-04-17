@@ -26,10 +26,9 @@ type FiscalYearCreateDto struct {
 	Name NullableString `json:"name,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Closed *bool `json:"closed,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	EndDate *time.Time `json:"endDate,omitempty"`
 	StartDate *time.Time `json:"startDate,omitempty"`
+	FiscalAuthorityId NullableString `json:"fiscalAuthorityId,omitempty"`
 }
 
 // NewFiscalYearCreateDto instantiates a new FiscalYearCreateDto object
@@ -229,90 +228,6 @@ func (o *FiscalYearCreateDto) SetClosed(v bool) {
 	o.Closed = &v
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FiscalYearCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FiscalYearCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *FiscalYearCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *FiscalYearCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *FiscalYearCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *FiscalYearCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FiscalYearCreateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FiscalYearCreateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *FiscalYearCreateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *FiscalYearCreateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *FiscalYearCreateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *FiscalYearCreateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
-}
-
 // GetEndDate returns the EndDate field value if set, zero value otherwise.
 func (o *FiscalYearCreateDto) GetEndDate() time.Time {
 	if o == nil || IsNil(o.EndDate) {
@@ -377,6 +292,48 @@ func (o *FiscalYearCreateDto) SetStartDate(v time.Time) {
 	o.StartDate = &v
 }
 
+// GetFiscalAuthorityId returns the FiscalAuthorityId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FiscalYearCreateDto) GetFiscalAuthorityId() string {
+	if o == nil || IsNil(o.FiscalAuthorityId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.FiscalAuthorityId.Get()
+}
+
+// GetFiscalAuthorityIdOk returns a tuple with the FiscalAuthorityId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FiscalYearCreateDto) GetFiscalAuthorityIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.FiscalAuthorityId.Get(), o.FiscalAuthorityId.IsSet()
+}
+
+// HasFiscalAuthorityId returns a boolean if a field has been set.
+func (o *FiscalYearCreateDto) HasFiscalAuthorityId() bool {
+	if o != nil && o.FiscalAuthorityId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFiscalAuthorityId gets a reference to the given NullableString and assigns it to the FiscalAuthorityId field.
+func (o *FiscalYearCreateDto) SetFiscalAuthorityId(v string) {
+	o.FiscalAuthorityId.Set(&v)
+}
+// SetFiscalAuthorityIdNil sets the value for FiscalAuthorityId to be an explicit nil
+func (o *FiscalYearCreateDto) SetFiscalAuthorityIdNil() {
+	o.FiscalAuthorityId.Set(nil)
+}
+
+// UnsetFiscalAuthorityId ensures that no value is present for FiscalAuthorityId, not even an explicit nil
+func (o *FiscalYearCreateDto) UnsetFiscalAuthorityId() {
+	o.FiscalAuthorityId.Unset()
+}
+
 func (o FiscalYearCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -402,17 +359,14 @@ func (o FiscalYearCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Closed) {
 		toSerialize["closed"] = o.Closed
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
-	}
 	if !IsNil(o.EndDate) {
 		toSerialize["endDate"] = o.EndDate
 	}
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
+	}
+	if o.FiscalAuthorityId.IsSet() {
+		toSerialize["fiscalAuthorityId"] = o.FiscalAuthorityId.Get()
 	}
 	return toSerialize, nil
 }

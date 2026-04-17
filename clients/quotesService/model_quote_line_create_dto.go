@@ -29,8 +29,6 @@ type QuoteLineCreateDto struct {
 	ItemShortDescription NullableString `json:"itemShortDescription,omitempty"`
 	ItemPrimaryImageUrl NullableString `json:"itemPrimaryImageUrl,omitempty"`
 	ShippingPolicyId NullableString `json:"shippingPolicyId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	CurrencyId NullableString `json:"currencyId,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Quantity *float64 `json:"quantity,omitempty"`
@@ -116,7 +114,6 @@ type QuoteLineCreateDto struct {
 	ShippingLocationId NullableString `json:"shippingLocationId,omitempty"`
 	LocationId NullableString `json:"locationId,omitempty"`
 	QuoteItemRecordId NullableString `json:"quoteItemRecordId,omitempty"`
-	BusinessProfileRecordId NullableString `json:"businessProfileRecordId,omitempty"`
 	ParentBillingItemRecordId NullableString `json:"parentBillingItemRecordId,omitempty"`
 	QuoteId NullableString `json:"quoteId,omitempty"`
 }
@@ -442,90 +439,6 @@ func (o *QuoteLineCreateDto) SetShippingPolicyIdNil() {
 // UnsetShippingPolicyId ensures that no value is present for ShippingPolicyId, not even an explicit nil
 func (o *QuoteLineCreateDto) UnsetShippingPolicyId() {
 	o.ShippingPolicyId.Unset()
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *QuoteLineCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *QuoteLineCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *QuoteLineCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *QuoteLineCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *QuoteLineCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *QuoteLineCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *QuoteLineCreateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *QuoteLineCreateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *QuoteLineCreateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *QuoteLineCreateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *QuoteLineCreateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *QuoteLineCreateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
 }
 
 // GetCurrencyId returns the CurrencyId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -3748,48 +3661,6 @@ func (o *QuoteLineCreateDto) UnsetQuoteItemRecordId() {
 	o.QuoteItemRecordId.Unset()
 }
 
-// GetBusinessProfileRecordId returns the BusinessProfileRecordId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *QuoteLineCreateDto) GetBusinessProfileRecordId() string {
-	if o == nil || IsNil(o.BusinessProfileRecordId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordId.Get()
-}
-
-// GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *QuoteLineCreateDto) GetBusinessProfileRecordIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordId.Get(), o.BusinessProfileRecordId.IsSet()
-}
-
-// HasBusinessProfileRecordId returns a boolean if a field has been set.
-func (o *QuoteLineCreateDto) HasBusinessProfileRecordId() bool {
-	if o != nil && o.BusinessProfileRecordId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordId gets a reference to the given NullableString and assigns it to the BusinessProfileRecordId field.
-func (o *QuoteLineCreateDto) SetBusinessProfileRecordId(v string) {
-	o.BusinessProfileRecordId.Set(&v)
-}
-// SetBusinessProfileRecordIdNil sets the value for BusinessProfileRecordId to be an explicit nil
-func (o *QuoteLineCreateDto) SetBusinessProfileRecordIdNil() {
-	o.BusinessProfileRecordId.Set(nil)
-}
-
-// UnsetBusinessProfileRecordId ensures that no value is present for BusinessProfileRecordId, not even an explicit nil
-func (o *QuoteLineCreateDto) UnsetBusinessProfileRecordId() {
-	o.BusinessProfileRecordId.Unset()
-}
-
 // GetParentBillingItemRecordId returns the ParentBillingItemRecordId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *QuoteLineCreateDto) GetParentBillingItemRecordId() string {
 	if o == nil || IsNil(o.ParentBillingItemRecordId.Get()) {
@@ -3907,12 +3778,6 @@ func (o QuoteLineCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ShippingPolicyId.IsSet() {
 		toSerialize["shippingPolicyId"] = o.ShippingPolicyId.Get()
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if o.CurrencyId.IsSet() {
 		toSerialize["currencyId"] = o.CurrencyId.Get()
@@ -4168,9 +4033,6 @@ func (o QuoteLineCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.QuoteItemRecordId.IsSet() {
 		toSerialize["quoteItemRecordId"] = o.QuoteItemRecordId.Get()
-	}
-	if o.BusinessProfileRecordId.IsSet() {
-		toSerialize["businessProfileRecordId"] = o.BusinessProfileRecordId.Get()
 	}
 	if o.ParentBillingItemRecordId.IsSet() {
 		toSerialize["parentBillingItemRecordId"] = o.ParentBillingItemRecordId.Get()

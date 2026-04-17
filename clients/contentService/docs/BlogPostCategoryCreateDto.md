@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **ImageURL** | Pointer to **NullableString** |  | [optional] 
 **Image** | Pointer to **NullableString** |  | [optional] 
 **WebPortalID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -526,76 +524,6 @@ HasWebPortalID returns a boolean if a field has been set.
 `func (o *BlogPostCategoryCreateDto) UnsetWebPortalID()`
 
 UnsetWebPortalID ensures that no value is present for WebPortalID, not even an explicit nil
-### GetBusinessID
-
-`func (o *BlogPostCategoryCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *BlogPostCategoryCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *BlogPostCategoryCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-### HasBusinessID
-
-`func (o *BlogPostCategoryCreateDto) HasBusinessID() bool`
-
-HasBusinessID returns a boolean if a field has been set.
-
-### SetBusinessIDNil
-
-`func (o *BlogPostCategoryCreateDto) SetBusinessIDNil(b bool)`
-
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-
-### UnsetBusinessID
-`func (o *BlogPostCategoryCreateDto) UnsetBusinessID()`
-
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *BlogPostCategoryCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *BlogPostCategoryCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *BlogPostCategoryCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *BlogPostCategoryCreateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *BlogPostCategoryCreateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *BlogPostCategoryCreateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

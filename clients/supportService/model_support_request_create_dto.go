@@ -29,11 +29,8 @@ type SupportRequestCreateDto struct {
 	Description NullableString `json:"description,omitempty"`
 	Approved *bool `json:"approved,omitempty"`
 	ApprovedTimestamp *time.Time `json:"approvedTimestamp,omitempty"`
-	BusinessID NullableString `json:"businessID,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	SupportEntitlementID NullableString `json:"supportEntitlementID,omitempty"`
 	ContactID NullableString `json:"contactID,omitempty"`
-	AccountHolderID NullableString `json:"accountHolderID,omitempty"`
 }
 
 type _SupportRequestCreateDto SupportRequestCreateDto
@@ -250,90 +247,6 @@ func (o *SupportRequestCreateDto) SetApprovedTimestamp(v time.Time) {
 	o.ApprovedTimestamp = &v
 }
 
-// GetBusinessID returns the BusinessID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportRequestCreateDto) GetBusinessID() string {
-	if o == nil || IsNil(o.BusinessID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessID.Get()
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportRequestCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessID.Get(), o.BusinessID.IsSet()
-}
-
-// HasBusinessID returns a boolean if a field has been set.
-func (o *SupportRequestCreateDto) HasBusinessID() bool {
-	if o != nil && o.BusinessID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessID gets a reference to the given NullableString and assigns it to the BusinessID field.
-func (o *SupportRequestCreateDto) SetBusinessID(v string) {
-	o.BusinessID.Set(&v)
-}
-// SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-func (o *SupportRequestCreateDto) SetBusinessIDNil() {
-	o.BusinessID.Set(nil)
-}
-
-// UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-func (o *SupportRequestCreateDto) UnsetBusinessID() {
-	o.BusinessID.Unset()
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportRequestCreateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportRequestCreateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *SupportRequestCreateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *SupportRequestCreateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *SupportRequestCreateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *SupportRequestCreateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
-}
-
 // GetSupportEntitlementID returns the SupportEntitlementID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SupportRequestCreateDto) GetSupportEntitlementID() string {
 	if o == nil || IsNil(o.SupportEntitlementID.Get()) {
@@ -418,48 +331,6 @@ func (o *SupportRequestCreateDto) UnsetContactID() {
 	o.ContactID.Unset()
 }
 
-// GetAccountHolderID returns the AccountHolderID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportRequestCreateDto) GetAccountHolderID() string {
-	if o == nil || IsNil(o.AccountHolderID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.AccountHolderID.Get()
-}
-
-// GetAccountHolderIDOk returns a tuple with the AccountHolderID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportRequestCreateDto) GetAccountHolderIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AccountHolderID.Get(), o.AccountHolderID.IsSet()
-}
-
-// HasAccountHolderID returns a boolean if a field has been set.
-func (o *SupportRequestCreateDto) HasAccountHolderID() bool {
-	if o != nil && o.AccountHolderID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountHolderID gets a reference to the given NullableString and assigns it to the AccountHolderID field.
-func (o *SupportRequestCreateDto) SetAccountHolderID(v string) {
-	o.AccountHolderID.Set(&v)
-}
-// SetAccountHolderIDNil sets the value for AccountHolderID to be an explicit nil
-func (o *SupportRequestCreateDto) SetAccountHolderIDNil() {
-	o.AccountHolderID.Set(nil)
-}
-
-// UnsetAccountHolderID ensures that no value is present for AccountHolderID, not even an explicit nil
-func (o *SupportRequestCreateDto) UnsetAccountHolderID() {
-	o.AccountHolderID.Unset()
-}
-
 func (o SupportRequestCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -486,20 +357,11 @@ func (o SupportRequestCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ApprovedTimestamp) {
 		toSerialize["approvedTimestamp"] = o.ApprovedTimestamp
 	}
-	if o.BusinessID.IsSet() {
-		toSerialize["businessID"] = o.BusinessID.Get()
-	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
-	}
 	if o.SupportEntitlementID.IsSet() {
 		toSerialize["supportEntitlementID"] = o.SupportEntitlementID.Get()
 	}
 	if o.ContactID.IsSet() {
 		toSerialize["contactID"] = o.ContactID.Get()
-	}
-	if o.AccountHolderID.IsSet() {
-		toSerialize["accountHolderID"] = o.AccountHolderID.Get()
 	}
 	return toSerialize, nil
 }

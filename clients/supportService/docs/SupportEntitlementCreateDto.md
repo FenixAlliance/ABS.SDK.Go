@@ -45,12 +45,9 @@ Name | Type | Description | Notes
 **Data8Label** | Pointer to **NullableString** |  | [optional] 
 **Data9** | Pointer to **NullableString** |  | [optional] 
 **Data9Label** | Pointer to **NullableString** |  | [optional] 
-**AccountHolderID** | Pointer to **NullableString** |  | [optional] 
 **IndividualID** | Pointer to **NullableString** |  | [optional] 
 **OrganizationID** | Pointer to **NullableString** |  | [optional] 
 **ReceiverBusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **PaymentTokenID** | Pointer to **NullableString** |  | [optional] 
 **WalletAccountID** | Pointer to **NullableString** |  | [optional] 
 **SecurityCertificateID** | Pointer to **NullableString** |  | [optional] 
@@ -1339,41 +1336,6 @@ HasData9Label returns a boolean if a field has been set.
 `func (o *SupportEntitlementCreateDto) UnsetData9Label()`
 
 UnsetData9Label ensures that no value is present for Data9Label, not even an explicit nil
-### GetAccountHolderID
-
-`func (o *SupportEntitlementCreateDto) GetAccountHolderID() string`
-
-GetAccountHolderID returns the AccountHolderID field if non-nil, zero value otherwise.
-
-### GetAccountHolderIDOk
-
-`func (o *SupportEntitlementCreateDto) GetAccountHolderIDOk() (*string, bool)`
-
-GetAccountHolderIDOk returns a tuple with the AccountHolderID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountHolderID
-
-`func (o *SupportEntitlementCreateDto) SetAccountHolderID(v string)`
-
-SetAccountHolderID sets AccountHolderID field to given value.
-
-### HasAccountHolderID
-
-`func (o *SupportEntitlementCreateDto) HasAccountHolderID() bool`
-
-HasAccountHolderID returns a boolean if a field has been set.
-
-### SetAccountHolderIDNil
-
-`func (o *SupportEntitlementCreateDto) SetAccountHolderIDNil(b bool)`
-
- SetAccountHolderIDNil sets the value for AccountHolderID to be an explicit nil
-
-### UnsetAccountHolderID
-`func (o *SupportEntitlementCreateDto) UnsetAccountHolderID()`
-
-UnsetAccountHolderID ensures that no value is present for AccountHolderID, not even an explicit nil
 ### GetIndividualID
 
 `func (o *SupportEntitlementCreateDto) GetIndividualID() string`
@@ -1479,76 +1441,6 @@ HasReceiverBusinessID returns a boolean if a field has been set.
 `func (o *SupportEntitlementCreateDto) UnsetReceiverBusinessID()`
 
 UnsetReceiverBusinessID ensures that no value is present for ReceiverBusinessID, not even an explicit nil
-### GetBusinessID
-
-`func (o *SupportEntitlementCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *SupportEntitlementCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *SupportEntitlementCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-### HasBusinessID
-
-`func (o *SupportEntitlementCreateDto) HasBusinessID() bool`
-
-HasBusinessID returns a boolean if a field has been set.
-
-### SetBusinessIDNil
-
-`func (o *SupportEntitlementCreateDto) SetBusinessIDNil(b bool)`
-
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-
-### UnsetBusinessID
-`func (o *SupportEntitlementCreateDto) UnsetBusinessID()`
-
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *SupportEntitlementCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *SupportEntitlementCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *SupportEntitlementCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *SupportEntitlementCreateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *SupportEntitlementCreateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *SupportEntitlementCreateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetPaymentTokenID
 
 `func (o *SupportEntitlementCreateDto) GetPaymentTokenID() string`

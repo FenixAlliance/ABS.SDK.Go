@@ -27,7 +27,6 @@ type ItemAttributeCreateDto struct {
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Name string `json:"name"`
 	Description NullableString `json:"description,omitempty"`
-	BusinessID string `json:"businessID"`
 }
 
 type _ItemAttributeCreateDto ItemAttributeCreateDto
@@ -36,10 +35,9 @@ type _ItemAttributeCreateDto ItemAttributeCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemAttributeCreateDto(name string, businessID string) *ItemAttributeCreateDto {
+func NewItemAttributeCreateDto(name string) *ItemAttributeCreateDto {
 	this := ItemAttributeCreateDto{}
 	this.Name = name
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -181,30 +179,6 @@ func (o *ItemAttributeCreateDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *ItemAttributeCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *ItemAttributeCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *ItemAttributeCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 func (o ItemAttributeCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -225,7 +199,6 @@ func (o ItemAttributeCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	toSerialize["businessID"] = o.BusinessID
 	return toSerialize, nil
 }
 
@@ -235,7 +208,6 @@ func (o *ItemAttributeCreateDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"name",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

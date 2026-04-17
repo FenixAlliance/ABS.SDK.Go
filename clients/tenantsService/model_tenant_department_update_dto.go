@@ -23,7 +23,6 @@ type TenantDepartmentUpdateDto struct {
 	Name NullableString `json:"name,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Disabled *bool `json:"disabled,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	OrganizationProfileID NullableString `json:"organizationProfileID,omitempty"`
 	ParentDepartmentID NullableString `json:"parentDepartmentID,omitempty"`
 }
@@ -161,48 +160,6 @@ func (o *TenantDepartmentUpdateDto) SetDisabled(v bool) {
 	o.Disabled = &v
 }
 
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TenantDepartmentUpdateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TenantDepartmentUpdateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *TenantDepartmentUpdateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *TenantDepartmentUpdateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *TenantDepartmentUpdateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *TenantDepartmentUpdateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
-}
-
 // GetOrganizationProfileID returns the OrganizationProfileID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TenantDepartmentUpdateDto) GetOrganizationProfileID() string {
 	if o == nil || IsNil(o.OrganizationProfileID.Get()) {
@@ -305,9 +262,6 @@ func (o TenantDepartmentUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Disabled) {
 		toSerialize["disabled"] = o.Disabled
-	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
 	}
 	if o.OrganizationProfileID.IsSet() {
 		toSerialize["organizationProfileID"] = o.OrganizationProfileID.Get()

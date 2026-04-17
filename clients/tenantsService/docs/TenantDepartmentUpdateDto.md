@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Disabled** | Pointer to **bool** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **OrganizationProfileID** | Pointer to **NullableString** |  | [optional] 
 **ParentDepartmentID** | Pointer to **NullableString** |  | [optional] 
 
@@ -125,41 +124,6 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### GetBusinessProfileRecordID
-
-`func (o *TenantDepartmentUpdateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *TenantDepartmentUpdateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *TenantDepartmentUpdateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *TenantDepartmentUpdateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *TenantDepartmentUpdateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *TenantDepartmentUpdateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetOrganizationProfileID
 
 `func (o *TenantDepartmentUpdateDto) GetOrganizationProfileID() string`

@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessId** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **AssetClass** | Pointer to **string** |  | [optional] 
@@ -96,76 +94,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetBusinessId
-
-`func (o *AssetCreateDto) GetBusinessId() string`
-
-GetBusinessId returns the BusinessId field if non-nil, zero value otherwise.
-
-### GetBusinessIdOk
-
-`func (o *AssetCreateDto) GetBusinessIdOk() (*string, bool)`
-
-GetBusinessIdOk returns a tuple with the BusinessId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessId
-
-`func (o *AssetCreateDto) SetBusinessId(v string)`
-
-SetBusinessId sets BusinessId field to given value.
-
-### HasBusinessId
-
-`func (o *AssetCreateDto) HasBusinessId() bool`
-
-HasBusinessId returns a boolean if a field has been set.
-
-### SetBusinessIdNil
-
-`func (o *AssetCreateDto) SetBusinessIdNil(b bool)`
-
- SetBusinessIdNil sets the value for BusinessId to be an explicit nil
-
-### UnsetBusinessId
-`func (o *AssetCreateDto) UnsetBusinessId()`
-
-UnsetBusinessId ensures that no value is present for BusinessId, not even an explicit nil
-### GetBusinessProfileRecordId
-
-`func (o *AssetCreateDto) GetBusinessProfileRecordId() string`
-
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIdOk
-
-`func (o *AssetCreateDto) GetBusinessProfileRecordIdOk() (*string, bool)`
-
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordId
-
-`func (o *AssetCreateDto) SetBusinessProfileRecordId(v string)`
-
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
-
-### HasBusinessProfileRecordId
-
-`func (o *AssetCreateDto) HasBusinessProfileRecordId() bool`
-
-HasBusinessProfileRecordId returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIdNil
-
-`func (o *AssetCreateDto) SetBusinessProfileRecordIdNil(b bool)`
-
- SetBusinessProfileRecordIdNil sets the value for BusinessProfileRecordId to be an explicit nil
-
-### UnsetBusinessProfileRecordId
-`func (o *AssetCreateDto) UnsetBusinessProfileRecordId()`
-
-UnsetBusinessProfileRecordId ensures that no value is present for BusinessProfileRecordId, not even an explicit nil
 ### GetName
 
 `func (o *AssetCreateDto) GetName() string`

@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **ParentTerritoryID** | Pointer to **NullableString** |  | [optional] 
@@ -81,76 +79,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetBusinessID
-
-`func (o *TenantTerritoryCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *TenantTerritoryCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *TenantTerritoryCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-### HasBusinessID
-
-`func (o *TenantTerritoryCreateDto) HasBusinessID() bool`
-
-HasBusinessID returns a boolean if a field has been set.
-
-### SetBusinessIDNil
-
-`func (o *TenantTerritoryCreateDto) SetBusinessIDNil(b bool)`
-
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-
-### UnsetBusinessID
-`func (o *TenantTerritoryCreateDto) UnsetBusinessID()`
-
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *TenantTerritoryCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *TenantTerritoryCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *TenantTerritoryCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *TenantTerritoryCreateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *TenantTerritoryCreateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *TenantTerritoryCreateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetName
 
 `func (o *TenantTerritoryCreateDto) GetName() string`

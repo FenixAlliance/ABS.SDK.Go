@@ -282,7 +282,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	securityRoleCreateDto := *openapiclient.NewSecurityRoleCreateDto("Name_example", "TenantId_example") // SecurityRoleCreateDto | 
+	securityRoleCreateDto := *openapiclient.NewSecurityRoleCreateDto("Name_example") // SecurityRoleCreateDto | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 

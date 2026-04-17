@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **AssetId** | Pointer to **NullableString** |  | [optional] 
 **IsRootTransfer** | Pointer to **bool** |  | [optional] 
 **SerialList** | Pointer to **NullableString** |  | [optional] 
@@ -35,6 +37,56 @@ will change when the set of required properties is changed
 NewAssetTransferCreateDtoWithDefaults instantiates a new AssetTransferCreateDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *AssetTransferCreateDto) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *AssetTransferCreateDto) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *AssetTransferCreateDto) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *AssetTransferCreateDto) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetTimestamp
+
+`func (o *AssetTransferCreateDto) GetTimestamp() time.Time`
+
+GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
+
+### GetTimestampOk
+
+`func (o *AssetTransferCreateDto) GetTimestampOk() (*time.Time, bool)`
+
+GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimestamp
+
+`func (o *AssetTransferCreateDto) SetTimestamp(v time.Time)`
+
+SetTimestamp sets Timestamp field to given value.
+
+### HasTimestamp
+
+`func (o *AssetTransferCreateDto) HasTimestamp() bool`
+
+HasTimestamp returns a boolean if a field has been set.
 
 ### GetAssetId
 

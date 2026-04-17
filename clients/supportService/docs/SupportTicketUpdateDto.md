@@ -5,9 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **NullableString** |  | [optional] 
-**AccountHolderID** | Pointer to **NullableString** |  | [optional] 
 **ContactID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **SupportTicketTypeID** | Pointer to **NullableString** |  | [optional] 
 **SupportEntitlementID** | Pointer to **NullableString** |  | [optional] 
 **SupportPriorityID** | Pointer to **NullableString** |  | [optional] 
@@ -66,41 +64,6 @@ HasDescription returns a boolean if a field has been set.
 `func (o *SupportTicketUpdateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetAccountHolderID
-
-`func (o *SupportTicketUpdateDto) GetAccountHolderID() string`
-
-GetAccountHolderID returns the AccountHolderID field if non-nil, zero value otherwise.
-
-### GetAccountHolderIDOk
-
-`func (o *SupportTicketUpdateDto) GetAccountHolderIDOk() (*string, bool)`
-
-GetAccountHolderIDOk returns a tuple with the AccountHolderID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountHolderID
-
-`func (o *SupportTicketUpdateDto) SetAccountHolderID(v string)`
-
-SetAccountHolderID sets AccountHolderID field to given value.
-
-### HasAccountHolderID
-
-`func (o *SupportTicketUpdateDto) HasAccountHolderID() bool`
-
-HasAccountHolderID returns a boolean if a field has been set.
-
-### SetAccountHolderIDNil
-
-`func (o *SupportTicketUpdateDto) SetAccountHolderIDNil(b bool)`
-
- SetAccountHolderIDNil sets the value for AccountHolderID to be an explicit nil
-
-### UnsetAccountHolderID
-`func (o *SupportTicketUpdateDto) UnsetAccountHolderID()`
-
-UnsetAccountHolderID ensures that no value is present for AccountHolderID, not even an explicit nil
 ### GetContactID
 
 `func (o *SupportTicketUpdateDto) GetContactID() string`
@@ -136,41 +99,6 @@ HasContactID returns a boolean if a field has been set.
 `func (o *SupportTicketUpdateDto) UnsetContactID()`
 
 UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *SupportTicketUpdateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *SupportTicketUpdateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *SupportTicketUpdateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *SupportTicketUpdateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *SupportTicketUpdateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *SupportTicketUpdateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetSupportTicketTypeID
 
 `func (o *SupportTicketUpdateDto) GetSupportTicketTypeID() string`

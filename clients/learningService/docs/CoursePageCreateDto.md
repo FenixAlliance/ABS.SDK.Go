@@ -11,13 +11,12 @@ Name | Type | Description | Notes
 **Content** | Pointer to **NullableString** |  | [optional] 
 **Slug** | Pointer to **NullableString** |  | [optional] 
 **CourseID** | **string** |  | 
-**BusinessID** | **string** |  | 
 
 ## Methods
 
 ### NewCoursePageCreateDto
 
-`func NewCoursePageCreateDto(title string, courseID string, businessID string, ) *CoursePageCreateDto`
+`func NewCoursePageCreateDto(title string, courseID string, ) *CoursePageCreateDto`
 
 NewCoursePageCreateDto instantiates a new CoursePageCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -225,26 +224,6 @@ and a boolean to check if the value has been set.
 `func (o *CoursePageCreateDto) SetCourseID(v string)`
 
 SetCourseID sets CourseID field to given value.
-
-
-### GetBusinessID
-
-`func (o *CoursePageCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *CoursePageCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *CoursePageCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
 
 
 

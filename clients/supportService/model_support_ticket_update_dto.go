@@ -21,9 +21,7 @@ var _ MappedNullable = &SupportTicketUpdateDto{}
 // SupportTicketUpdateDto struct for SupportTicketUpdateDto
 type SupportTicketUpdateDto struct {
 	Description NullableString `json:"description,omitempty"`
-	AccountHolderID NullableString `json:"accountHolderID,omitempty"`
 	ContactID NullableString `json:"contactID,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	SupportTicketTypeID NullableString `json:"supportTicketTypeID,omitempty"`
 	SupportEntitlementID NullableString `json:"supportEntitlementID,omitempty"`
 	SupportPriorityID NullableString `json:"supportPriorityID,omitempty"`
@@ -88,48 +86,6 @@ func (o *SupportTicketUpdateDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetAccountHolderID returns the AccountHolderID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportTicketUpdateDto) GetAccountHolderID() string {
-	if o == nil || IsNil(o.AccountHolderID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.AccountHolderID.Get()
-}
-
-// GetAccountHolderIDOk returns a tuple with the AccountHolderID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportTicketUpdateDto) GetAccountHolderIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AccountHolderID.Get(), o.AccountHolderID.IsSet()
-}
-
-// HasAccountHolderID returns a boolean if a field has been set.
-func (o *SupportTicketUpdateDto) HasAccountHolderID() bool {
-	if o != nil && o.AccountHolderID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountHolderID gets a reference to the given NullableString and assigns it to the AccountHolderID field.
-func (o *SupportTicketUpdateDto) SetAccountHolderID(v string) {
-	o.AccountHolderID.Set(&v)
-}
-// SetAccountHolderIDNil sets the value for AccountHolderID to be an explicit nil
-func (o *SupportTicketUpdateDto) SetAccountHolderIDNil() {
-	o.AccountHolderID.Set(nil)
-}
-
-// UnsetAccountHolderID ensures that no value is present for AccountHolderID, not even an explicit nil
-func (o *SupportTicketUpdateDto) UnsetAccountHolderID() {
-	o.AccountHolderID.Unset()
-}
-
 // GetContactID returns the ContactID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SupportTicketUpdateDto) GetContactID() string {
 	if o == nil || IsNil(o.ContactID.Get()) {
@@ -170,48 +126,6 @@ func (o *SupportTicketUpdateDto) SetContactIDNil() {
 // UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
 func (o *SupportTicketUpdateDto) UnsetContactID() {
 	o.ContactID.Unset()
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportTicketUpdateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportTicketUpdateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *SupportTicketUpdateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *SupportTicketUpdateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *SupportTicketUpdateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *SupportTicketUpdateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
 }
 
 // GetSupportTicketTypeID returns the SupportTicketTypeID field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -353,14 +267,8 @@ func (o SupportTicketUpdateDto) ToMap() (map[string]interface{}, error) {
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.AccountHolderID.IsSet() {
-		toSerialize["accountHolderID"] = o.AccountHolderID.Get()
-	}
 	if o.ContactID.IsSet() {
 		toSerialize["contactID"] = o.ContactID.Get()
-	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
 	}
 	if o.SupportTicketTypeID.IsSet() {
 		toSerialize["supportTicketTypeID"] = o.SupportTicketTypeID.Get()

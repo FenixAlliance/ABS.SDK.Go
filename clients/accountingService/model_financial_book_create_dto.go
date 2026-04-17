@@ -27,7 +27,6 @@ type FinancialBookCreateDto struct {
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Name string `json:"name"`
 	Description NullableString `json:"description,omitempty"`
-	TenantID NullableString `json:"tenantID,omitempty"`
 }
 
 type _FinancialBookCreateDto FinancialBookCreateDto
@@ -180,48 +179,6 @@ func (o *FinancialBookCreateDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetTenantID returns the TenantID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialBookCreateDto) GetTenantID() string {
-	if o == nil || IsNil(o.TenantID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantID.Get()
-}
-
-// GetTenantIDOk returns a tuple with the TenantID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialBookCreateDto) GetTenantIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantID.Get(), o.TenantID.IsSet()
-}
-
-// HasTenantID returns a boolean if a field has been set.
-func (o *FinancialBookCreateDto) HasTenantID() bool {
-	if o != nil && o.TenantID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantID gets a reference to the given NullableString and assigns it to the TenantID field.
-func (o *FinancialBookCreateDto) SetTenantID(v string) {
-	o.TenantID.Set(&v)
-}
-// SetTenantIDNil sets the value for TenantID to be an explicit nil
-func (o *FinancialBookCreateDto) SetTenantIDNil() {
-	o.TenantID.Set(nil)
-}
-
-// UnsetTenantID ensures that no value is present for TenantID, not even an explicit nil
-func (o *FinancialBookCreateDto) UnsetTenantID() {
-	o.TenantID.Unset()
-}
-
 func (o FinancialBookCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -241,9 +198,6 @@ func (o FinancialBookCreateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
-	}
-	if o.TenantID.IsSet() {
-		toSerialize["tenantID"] = o.TenantID.Get()
 	}
 	return toSerialize, nil
 }

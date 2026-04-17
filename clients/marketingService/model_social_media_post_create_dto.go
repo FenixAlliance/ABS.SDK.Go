@@ -13,6 +13,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the SocialMediaPostCreateDto type satisfies the MappedNullable interface at compile time
@@ -20,12 +21,12 @@ var _ MappedNullable = &SocialMediaPostCreateDto{}
 
 // SocialMediaPostCreateDto struct for SocialMediaPostCreateDto
 type SocialMediaPostCreateDto struct {
+	Id *string `json:"id,omitempty"`
+	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	Content NullableString `json:"content,omitempty"`
 	FeaturedImageUrl NullableString `json:"featuredImageUrl,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	SocialPostBucketId NullableString `json:"socialPostBucketId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 }
 
 // NewSocialMediaPostCreateDto instantiates a new SocialMediaPostCreateDto object
@@ -43,6 +44,70 @@ func NewSocialMediaPostCreateDto() *SocialMediaPostCreateDto {
 func NewSocialMediaPostCreateDtoWithDefaults() *SocialMediaPostCreateDto {
 	this := SocialMediaPostCreateDto{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *SocialMediaPostCreateDto) GetId() string {
+	if o == nil || IsNil(o.Id) {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SocialMediaPostCreateDto) GetIdOk() (*string, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *SocialMediaPostCreateDto) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *SocialMediaPostCreateDto) SetId(v string) {
+	o.Id = &v
+}
+
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+func (o *SocialMediaPostCreateDto) GetTimestamp() time.Time {
+	if o == nil || IsNil(o.Timestamp) {
+		var ret time.Time
+		return ret
+	}
+	return *o.Timestamp
+}
+
+// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SocialMediaPostCreateDto) GetTimestampOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.Timestamp) {
+		return nil, false
+	}
+	return o.Timestamp, true
+}
+
+// HasTimestamp returns a boolean if a field has been set.
+func (o *SocialMediaPostCreateDto) HasTimestamp() bool {
+	if o != nil && !IsNil(o.Timestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
+func (o *SocialMediaPostCreateDto) SetTimestamp(v time.Time) {
+	o.Timestamp = &v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -171,48 +236,6 @@ func (o *SocialMediaPostCreateDto) UnsetFeaturedImageUrl() {
 	o.FeaturedImageUrl.Unset()
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SocialMediaPostCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SocialMediaPostCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *SocialMediaPostCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *SocialMediaPostCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *SocialMediaPostCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *SocialMediaPostCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetSocialPostBucketId returns the SocialPostBucketId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SocialMediaPostCreateDto) GetSocialPostBucketId() string {
 	if o == nil || IsNil(o.SocialPostBucketId.Get()) {
@@ -255,48 +278,6 @@ func (o *SocialMediaPostCreateDto) UnsetSocialPostBucketId() {
 	o.SocialPostBucketId.Unset()
 }
 
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SocialMediaPostCreateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SocialMediaPostCreateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *SocialMediaPostCreateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *SocialMediaPostCreateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *SocialMediaPostCreateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *SocialMediaPostCreateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
-}
-
 func (o SocialMediaPostCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -307,6 +288,12 @@ func (o SocialMediaPostCreateDto) MarshalJSON() ([]byte, error) {
 
 func (o SocialMediaPostCreateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Timestamp) {
+		toSerialize["timestamp"] = o.Timestamp
+	}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
 	}
@@ -316,14 +303,8 @@ func (o SocialMediaPostCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.FeaturedImageUrl.IsSet() {
 		toSerialize["featuredImageUrl"] = o.FeaturedImageUrl.Get()
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
 	if o.SocialPostBucketId.IsSet() {
 		toSerialize["socialPostBucketId"] = o.SocialPostBucketId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	return toSerialize, nil
 }

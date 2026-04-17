@@ -29,7 +29,6 @@ type CourseProblemSetCreateDto struct {
 	Description NullableString `json:"description,omitempty"`
 	OverallScore *float64 `json:"overallScore,omitempty"`
 	CourseID string `json:"courseID"`
-	BusinessID string `json:"businessID"`
 	CourseUnitID NullableString `json:"courseUnitID,omitempty"`
 	CourseGradingRubricID NullableString `json:"courseGradingRubricID,omitempty"`
 	ReleaseDateTime NullableTime `json:"releaseDateTime,omitempty"`
@@ -41,11 +40,10 @@ type _CourseProblemSetCreateDto CourseProblemSetCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseProblemSetCreateDto(title string, courseID string, businessID string) *CourseProblemSetCreateDto {
+func NewCourseProblemSetCreateDto(title string, courseID string) *CourseProblemSetCreateDto {
 	this := CourseProblemSetCreateDto{}
 	this.Title = title
 	this.CourseID = courseID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -243,30 +241,6 @@ func (o *CourseProblemSetCreateDto) SetCourseID(v string) {
 	o.CourseID = v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseProblemSetCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseProblemSetCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseProblemSetCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 // GetCourseUnitID returns the CourseUnitID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CourseProblemSetCreateDto) GetCourseUnitID() string {
 	if o == nil || IsNil(o.CourseUnitID.Get()) {
@@ -417,7 +391,6 @@ func (o CourseProblemSetCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["overallScore"] = o.OverallScore
 	}
 	toSerialize["courseID"] = o.CourseID
-	toSerialize["businessID"] = o.BusinessID
 	if o.CourseUnitID.IsSet() {
 		toSerialize["courseUnitID"] = o.CourseUnitID.Get()
 	}
@@ -437,7 +410,6 @@ func (o *CourseProblemSetCreateDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"title",
 		"courseID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

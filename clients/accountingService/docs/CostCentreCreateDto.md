@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Disabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **CostCentreType** | Pointer to **string** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **CostCentresGroupId** | Pointer to **NullableString** |  | [optional] 
 **ParentCostCentreId** | Pointer to **NullableString** |  | [optional] 
 
@@ -203,41 +202,6 @@ SetCostCentreType sets CostCentreType field to given value.
 
 HasCostCentreType returns a boolean if a field has been set.
 
-### GetTenantId
-
-`func (o *CostCentreCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *CostCentreCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *CostCentreCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *CostCentreCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *CostCentreCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *CostCentreCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetCostCentresGroupId
 
 `func (o *CostCentreCreateDto) GetCostCentresGroupId() string`

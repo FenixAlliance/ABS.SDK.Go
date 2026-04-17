@@ -13,6 +13,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the SocialGroupCreateDto type satisfies the MappedNullable interface at compile time
@@ -20,6 +21,8 @@ var _ MappedNullable = &SocialGroupCreateDto{}
 
 // SocialGroupCreateDto struct for SocialGroupCreateDto
 type SocialGroupCreateDto struct {
+	Id *string `json:"id,omitempty"`
+	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	AvatarURL NullableString `json:"avatarURL,omitempty"`
@@ -41,6 +44,70 @@ func NewSocialGroupCreateDto() *SocialGroupCreateDto {
 func NewSocialGroupCreateDtoWithDefaults() *SocialGroupCreateDto {
 	this := SocialGroupCreateDto{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *SocialGroupCreateDto) GetId() string {
+	if o == nil || IsNil(o.Id) {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SocialGroupCreateDto) GetIdOk() (*string, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *SocialGroupCreateDto) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *SocialGroupCreateDto) SetId(v string) {
+	o.Id = &v
+}
+
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+func (o *SocialGroupCreateDto) GetTimestamp() time.Time {
+	if o == nil || IsNil(o.Timestamp) {
+		var ret time.Time
+		return ret
+	}
+	return *o.Timestamp
+}
+
+// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SocialGroupCreateDto) GetTimestampOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.Timestamp) {
+		return nil, false
+	}
+	return o.Timestamp, true
+}
+
+// HasTimestamp returns a boolean if a field has been set.
+func (o *SocialGroupCreateDto) HasTimestamp() bool {
+	if o != nil && !IsNil(o.Timestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
+func (o *SocialGroupCreateDto) SetTimestamp(v time.Time) {
+	o.Timestamp = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -221,6 +288,12 @@ func (o SocialGroupCreateDto) MarshalJSON() ([]byte, error) {
 
 func (o SocialGroupCreateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Timestamp) {
+		toSerialize["timestamp"] = o.Timestamp
+	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}

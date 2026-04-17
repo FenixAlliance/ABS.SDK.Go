@@ -13,8 +13,6 @@ Name | Type | Description | Notes
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **UnitId** | Pointer to **NullableString** |  | [optional] 
 **UnitGroupId** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -295,76 +293,6 @@ HasUnitGroupId returns a boolean if a field has been set.
 `func (o *PriceListCreateDto) UnsetUnitGroupId()`
 
 UnsetUnitGroupId ensures that no value is present for UnitGroupId, not even an explicit nil
-### GetTenantId
-
-`func (o *PriceListCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *PriceListCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *PriceListCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *PriceListCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *PriceListCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *PriceListCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *PriceListCreateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *PriceListCreateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *PriceListCreateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *PriceListCreateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *PriceListCreateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *PriceListCreateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

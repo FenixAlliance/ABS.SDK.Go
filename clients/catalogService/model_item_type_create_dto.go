@@ -30,7 +30,6 @@ type ItemTypeCreateDto struct {
 	Description NullableString `json:"description,omitempty"`
 	ImageURL NullableString `json:"imageURL,omitempty"`
 	GoogleCategoryTaxonomy NullableString `json:"googleCategoryTaxonomy,omitempty"`
-	BusinessID string `json:"businessID"`
 	ItemCategoryID string `json:"itemCategoryID"`
 	ItemGoogleCategoryID NullableString `json:"itemGoogleCategoryID,omitempty"`
 }
@@ -41,9 +40,8 @@ type _ItemTypeCreateDto ItemTypeCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemTypeCreateDto(businessID string, itemCategoryID string) *ItemTypeCreateDto {
+func NewItemTypeCreateDto(itemCategoryID string) *ItemTypeCreateDto {
 	this := ItemTypeCreateDto{}
-	this.BusinessID = businessID
 	this.ItemCategoryID = itemCategoryID
 	return &this
 }
@@ -330,30 +328,6 @@ func (o *ItemTypeCreateDto) UnsetGoogleCategoryTaxonomy() {
 	o.GoogleCategoryTaxonomy.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *ItemTypeCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *ItemTypeCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *ItemTypeCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 // GetItemCategoryID returns the ItemCategoryID field value
 func (o *ItemTypeCreateDto) GetItemCategoryID() string {
 	if o == nil {
@@ -451,7 +425,6 @@ func (o ItemTypeCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.GoogleCategoryTaxonomy.IsSet() {
 		toSerialize["googleCategoryTaxonomy"] = o.GoogleCategoryTaxonomy.Get()
 	}
-	toSerialize["businessID"] = o.BusinessID
 	toSerialize["itemCategoryID"] = o.ItemCategoryID
 	if o.ItemGoogleCategoryID.IsSet() {
 		toSerialize["itemGoogleCategoryID"] = o.ItemGoogleCategoryID.Get()
@@ -464,7 +437,6 @@ func (o *ItemTypeCreateDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"businessID",
 		"itemCategoryID",
 	}
 

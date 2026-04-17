@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **BusinessTeamID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -27,76 +25,6 @@ NewTenantTeamRecordUpdateDtoWithDefaults instantiates a new TenantTeamRecordUpda
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetBusinessID
-
-`func (o *TenantTeamRecordUpdateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *TenantTeamRecordUpdateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *TenantTeamRecordUpdateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-### HasBusinessID
-
-`func (o *TenantTeamRecordUpdateDto) HasBusinessID() bool`
-
-HasBusinessID returns a boolean if a field has been set.
-
-### SetBusinessIDNil
-
-`func (o *TenantTeamRecordUpdateDto) SetBusinessIDNil(b bool)`
-
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-
-### UnsetBusinessID
-`func (o *TenantTeamRecordUpdateDto) UnsetBusinessID()`
-
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *TenantTeamRecordUpdateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *TenantTeamRecordUpdateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *TenantTeamRecordUpdateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *TenantTeamRecordUpdateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *TenantTeamRecordUpdateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *TenantTeamRecordUpdateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetBusinessTeamID
 
 `func (o *TenantTeamRecordUpdateDto) GetBusinessTeamID() string`

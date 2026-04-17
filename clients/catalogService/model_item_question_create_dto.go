@@ -29,7 +29,6 @@ type ItemQuestionCreateDto struct {
 	NeedsRevision bool `json:"needsRevision"`
 	Question string `json:"question"`
 	SocialProfileID NullableString `json:"socialProfileID,omitempty"`
-	BusinessID string `json:"businessID"`
 	ItemID string `json:"itemID"`
 }
 
@@ -39,12 +38,11 @@ type _ItemQuestionCreateDto ItemQuestionCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemQuestionCreateDto(title string, needsRevision bool, question string, businessID string, itemID string) *ItemQuestionCreateDto {
+func NewItemQuestionCreateDto(title string, needsRevision bool, question string, itemID string) *ItemQuestionCreateDto {
 	this := ItemQuestionCreateDto{}
 	this.Title = title
 	this.NeedsRevision = needsRevision
 	this.Question = question
-	this.BusinessID = businessID
 	this.ItemID = itemID
 	return &this
 }
@@ -235,30 +233,6 @@ func (o *ItemQuestionCreateDto) UnsetSocialProfileID() {
 	o.SocialProfileID.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *ItemQuestionCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *ItemQuestionCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *ItemQuestionCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 // GetItemID returns the ItemID field value
 func (o *ItemQuestionCreateDto) GetItemID() string {
 	if o == nil {
@@ -305,7 +279,6 @@ func (o ItemQuestionCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.SocialProfileID.IsSet() {
 		toSerialize["socialProfileID"] = o.SocialProfileID.Get()
 	}
-	toSerialize["businessID"] = o.BusinessID
 	toSerialize["itemID"] = o.ItemID
 	return toSerialize, nil
 }
@@ -318,7 +291,6 @@ func (o *ItemQuestionCreateDto) UnmarshalJSON(data []byte) (err error) {
 		"title",
 		"needsRevision",
 		"question",
-		"businessID",
 		"itemID",
 	}
 

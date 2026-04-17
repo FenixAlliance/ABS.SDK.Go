@@ -20,8 +20,6 @@ var _ MappedNullable = &AppliedTaxPolicyRecordUpdateDto{}
 
 // AppliedTaxPolicyRecordUpdateDto struct for AppliedTaxPolicyRecordUpdateDto
 type AppliedTaxPolicyRecordUpdateDto struct {
-	TenantId NullableString `json:"tenantId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	TaxPolicyId NullableString `json:"taxPolicyId,omitempty"`
 	InvoiceId NullableString `json:"invoiceId,omitempty"`
 	ItemId NullableString `json:"itemId,omitempty"`
@@ -44,90 +42,6 @@ func NewAppliedTaxPolicyRecordUpdateDto() *AppliedTaxPolicyRecordUpdateDto {
 func NewAppliedTaxPolicyRecordUpdateDtoWithDefaults() *AppliedTaxPolicyRecordUpdateDto {
 	this := AppliedTaxPolicyRecordUpdateDto{}
 	return &this
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AppliedTaxPolicyRecordUpdateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AppliedTaxPolicyRecordUpdateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *AppliedTaxPolicyRecordUpdateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *AppliedTaxPolicyRecordUpdateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *AppliedTaxPolicyRecordUpdateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *AppliedTaxPolicyRecordUpdateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AppliedTaxPolicyRecordUpdateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AppliedTaxPolicyRecordUpdateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *AppliedTaxPolicyRecordUpdateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *AppliedTaxPolicyRecordUpdateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *AppliedTaxPolicyRecordUpdateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *AppliedTaxPolicyRecordUpdateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
 }
 
 // GetTaxPolicyId returns the TaxPolicyId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -330,12 +244,6 @@ func (o AppliedTaxPolicyRecordUpdateDto) MarshalJSON() ([]byte, error) {
 
 func (o AppliedTaxPolicyRecordUpdateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
-	}
 	if o.TaxPolicyId.IsSet() {
 		toSerialize["taxPolicyId"] = o.TaxPolicyId.Get()
 	}

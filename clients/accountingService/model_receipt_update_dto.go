@@ -21,15 +21,12 @@ var _ MappedNullable = &ReceiptUpdateDto{}
 // ReceiptUpdateDto struct for ReceiptUpdateDto
 type ReceiptUpdateDto struct {
 	PaymentId NullableString `json:"paymentId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	ForexRate *float64 `json:"forexRate,omitempty"`
 	TotalAmount *float64 `json:"totalAmount,omitempty"`
 	TotalAmountInUsd *float64 `json:"totalAmountInUsd,omitempty"`
 	Closed *bool `json:"closed,omitempty"`
 	CurrencyId NullableString `json:"currencyId,omitempty"`
-	AccountHolderId NullableString `json:"accountHolderId,omitempty"`
 	ContactId NullableString `json:"contactId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	OrderId NullableString `json:"orderId,omitempty"`
 	InvoiceId NullableString `json:"invoiceId,omitempty"`
 }
@@ -91,48 +88,6 @@ func (o *ReceiptUpdateDto) SetPaymentIdNil() {
 // UnsetPaymentId ensures that no value is present for PaymentId, not even an explicit nil
 func (o *ReceiptUpdateDto) UnsetPaymentId() {
 	o.PaymentId.Unset()
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReceiptUpdateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReceiptUpdateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *ReceiptUpdateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *ReceiptUpdateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *ReceiptUpdateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *ReceiptUpdateDto) UnsetTenantId() {
-	o.TenantId.Unset()
 }
 
 // GetForexRate returns the ForexRate field value if set, zero value otherwise.
@@ -305,48 +260,6 @@ func (o *ReceiptUpdateDto) UnsetCurrencyId() {
 	o.CurrencyId.Unset()
 }
 
-// GetAccountHolderId returns the AccountHolderId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReceiptUpdateDto) GetAccountHolderId() string {
-	if o == nil || IsNil(o.AccountHolderId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.AccountHolderId.Get()
-}
-
-// GetAccountHolderIdOk returns a tuple with the AccountHolderId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReceiptUpdateDto) GetAccountHolderIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AccountHolderId.Get(), o.AccountHolderId.IsSet()
-}
-
-// HasAccountHolderId returns a boolean if a field has been set.
-func (o *ReceiptUpdateDto) HasAccountHolderId() bool {
-	if o != nil && o.AccountHolderId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountHolderId gets a reference to the given NullableString and assigns it to the AccountHolderId field.
-func (o *ReceiptUpdateDto) SetAccountHolderId(v string) {
-	o.AccountHolderId.Set(&v)
-}
-// SetAccountHolderIdNil sets the value for AccountHolderId to be an explicit nil
-func (o *ReceiptUpdateDto) SetAccountHolderIdNil() {
-	o.AccountHolderId.Set(nil)
-}
-
-// UnsetAccountHolderId ensures that no value is present for AccountHolderId, not even an explicit nil
-func (o *ReceiptUpdateDto) UnsetAccountHolderId() {
-	o.AccountHolderId.Unset()
-}
-
 // GetContactId returns the ContactId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ReceiptUpdateDto) GetContactId() string {
 	if o == nil || IsNil(o.ContactId.Get()) {
@@ -387,48 +300,6 @@ func (o *ReceiptUpdateDto) SetContactIdNil() {
 // UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
 func (o *ReceiptUpdateDto) UnsetContactId() {
 	o.ContactId.Unset()
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReceiptUpdateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReceiptUpdateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *ReceiptUpdateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *ReceiptUpdateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *ReceiptUpdateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *ReceiptUpdateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -528,9 +399,6 @@ func (o ReceiptUpdateDto) ToMap() (map[string]interface{}, error) {
 	if o.PaymentId.IsSet() {
 		toSerialize["paymentId"] = o.PaymentId.Get()
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
 	if !IsNil(o.ForexRate) {
 		toSerialize["forexRate"] = o.ForexRate
 	}
@@ -546,14 +414,8 @@ func (o ReceiptUpdateDto) ToMap() (map[string]interface{}, error) {
 	if o.CurrencyId.IsSet() {
 		toSerialize["currencyId"] = o.CurrencyId.Get()
 	}
-	if o.AccountHolderId.IsSet() {
-		toSerialize["accountHolderId"] = o.AccountHolderId.Get()
-	}
 	if o.ContactId.IsSet() {
 		toSerialize["contactId"] = o.ContactId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if o.OrderId.IsSet() {
 		toSerialize["orderId"] = o.OrderId.Get()

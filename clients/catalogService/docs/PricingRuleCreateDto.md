@@ -27,8 +27,6 @@ Name | Type | Description | Notes
 **CustomState** | Pointer to **NullableString** |  | [optional] 
 **CustomCity** | Pointer to **NullableString** |  | [optional] 
 **CityID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -714,76 +712,6 @@ HasCityID returns a boolean if a field has been set.
 `func (o *PricingRuleCreateDto) UnsetCityID()`
 
 UnsetCityID ensures that no value is present for CityID, not even an explicit nil
-### GetBusinessID
-
-`func (o *PricingRuleCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *PricingRuleCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *PricingRuleCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-### HasBusinessID
-
-`func (o *PricingRuleCreateDto) HasBusinessID() bool`
-
-HasBusinessID returns a boolean if a field has been set.
-
-### SetBusinessIDNil
-
-`func (o *PricingRuleCreateDto) SetBusinessIDNil(b bool)`
-
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-
-### UnsetBusinessID
-`func (o *PricingRuleCreateDto) UnsetBusinessID()`
-
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *PricingRuleCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *PricingRuleCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *PricingRuleCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *PricingRuleCreateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *PricingRuleCreateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *PricingRuleCreateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

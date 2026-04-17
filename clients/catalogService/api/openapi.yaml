@@ -10833,7 +10833,6 @@ components:
         mozaicCoverURL: mozaicCoverURL
         deleted: true
         series: series
-        tenantId: tenantId
         width: 7.061401241503109
         publishedDate: 2000-01-23T04:56:07.000+00:00
         tariffHeading: tariffHeading
@@ -11029,9 +11028,6 @@ components:
           nullable: true
           type: string
         material:
-          nullable: true
-          type: string
-        tenantId:
           nullable: true
           type: string
         permalink:
@@ -12866,7 +12862,6 @@ components:
         mozaicCoverUrl: mozaicCoverUrl
         series: series
         width: 0.8008281904610115
-        tenantId: tenantId
         publishedDate: 2000-01-23T04:56:07.000+00:00
         tariffHeading: tariffHeading
         primaryGoogleCategoryId: primaryGoogleCategoryId
@@ -12897,7 +12892,6 @@ components:
         - selectedPricingPolicies
         isbNs: isbNs
         customTaxAmount: 9.965781217890562
-        enrollmentId: enrollmentId
         brandName: brandName
         shippingCost: 1.4894159098541704
         selectedTaxPolicies:
@@ -13116,9 +13110,6 @@ components:
         totalTax:
           format: double
           type: number
-        tenantId:
-          nullable: true
-          type: string
         permalink:
           nullable: true
           type: string
@@ -13185,9 +13176,6 @@ components:
         questionsCount:
           format: int32
           type: integer
-        enrollmentId:
-          nullable: true
-          type: string
         supplierCode:
           nullable: true
           type: string
@@ -14010,7 +13998,6 @@ components:
       additionalProperties: false
       example:
         name: name
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -14030,12 +14017,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
       required:
-      - businessID
       - name
       type: object
     ItemAttributeDto:
@@ -14272,7 +14254,6 @@ components:
         code: code
         websiteURL: https://openapi-generator.tech
         name: name
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -14305,12 +14286,7 @@ components:
           type: boolean
         trending:
           type: boolean
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
       required:
-      - businessID
       - name
       type: object
     ItemBrandDto:
@@ -14488,12 +14464,10 @@ components:
       additionalProperties: false
       example:
         imageURL: https://openapi-generator.tech
-        businessID: businessID
         parentItemCategoryID: parentItemCategoryID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -14515,22 +14489,12 @@ components:
           format: uri
           nullable: true
           type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
-        businessProfileRecordID:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
         parentItemCategoryID:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
       required:
-      - businessID
       - title
       type: object
     ItemCategoryDto:
@@ -14922,15 +14886,12 @@ components:
         fileUploadURL: https://openapi-generator.tech
         keyWords: keyWords
         validResponse: true
-        accountHolderID: accountHolderID
         metadata: metadata
         fileName: fileName
         notes: notes
         author: author
-        businessID: businessID
         abstract: abstract
         title: title
-        businessProfileRecordID: businessProfileRecordID
         itemID: itemID
         mD5Hash: mD5Hash
         parentFileUploadID: parentFileUploadID
@@ -14946,15 +14907,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
-        businessProfileRecordID:
-          maxLength: 36
-          minLength: 36
-          nullable: true
           type: string
         itemID:
           maxLength: 36
@@ -15028,13 +14980,7 @@ components:
           minLength: 36
           nullable: true
           type: string
-        accountHolderID:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
       required:
-      - businessID
       - fileName
       type: object
     ItemImageDto:
@@ -15347,7 +15293,6 @@ components:
         itemID: itemID
         needsRevision: true
         question: question
-        businessID: businessID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
         socialProfileID: socialProfileID
@@ -15374,16 +15319,11 @@ components:
           minLength: 36
           nullable: true
           type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
         itemID:
           maxLength: 36
           minLength: 36
           type: string
       required:
-      - businessID
       - itemID
       - needsRevision
       - question
@@ -15518,7 +15458,6 @@ components:
       example:
         needsRevision: true
         question: question
-        businessID: businessID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
         socialProfileID: socialProfileID
@@ -15545,12 +15484,7 @@ components:
           minLength: 36
           nullable: true
           type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
       required:
-      - businessID
       - needsRevision
       - question
       - title
@@ -16564,7 +16498,6 @@ components:
     ItemTagCreateDto:
       additionalProperties: false
       example:
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -16585,12 +16518,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
       required:
-      - businessID
       - title
       type: object
     ItemTagDto:
@@ -16993,7 +16921,6 @@ components:
         singularTitle: singularTitle
         imageURL: https://openapi-generator.tech
         googleCategoryTaxonomy: googleCategoryTaxonomy
-        businessID: businessID
         description: description
         itemCategoryID: itemCategoryID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17030,10 +16957,6 @@ components:
           minLength: 0
           nullable: true
           type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
         itemCategoryID:
           maxLength: 36
           minLength: 36
@@ -17044,7 +16967,6 @@ components:
           nullable: true
           type: string
       required:
-      - businessID
       - itemCategoryID
       type: object
     ItemTypeDto:
@@ -17949,31 +17871,29 @@ components:
     PricingRuleCreateDto:
       additionalProperties: false
       example:
-        code: code
-        weeks: 1
-        customState: customState
-        description: description
-        title: title
-        customCity: customCity
-        years: 5
-        isFree: true
-        percentage: 7.061401241503109
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        value: 2.3021358869347655
-        timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
         allowInternational: true
         hours: 0
+        code: code
+        weeks: 1
         months: 5
-        businessID: businessID
+        customState: customState
+        description: description
         countryStateID: countryStateID
         cityID: cityID
-        businessProfileRecordID: businessProfileRecordID
+        title: title
+        customCity: customCity
+        years: 5
         countryID: countryID
         isDefault: true
+        isFree: true
         isEnabled: true
+        percentage: 7.061401241503109
         days: 6
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyID: currencyID
+        value: 2.3021358869347655
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
           format: uuid
@@ -18037,12 +17957,6 @@ components:
           nullable: true
           type: string
         cityID:
-          nullable: true
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       type: object

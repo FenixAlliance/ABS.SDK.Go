@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -145,13 +144,4 @@ model_user_settings_dto.go
 model_user_update_dto.go
 model_wallet_dto.go
 response.go
-test/api_antiforgery_test.go
-test/api_emails_test.go
-test/api_fenix_alliance_abp_web_test.go
-test/api_licensing_test.go
-test/api_migrations_test.go
-test/api_modules_test.go
-test/api_options_test.go
-test/api_tenants_test.go
-test/api_users_test.go
 utils.go

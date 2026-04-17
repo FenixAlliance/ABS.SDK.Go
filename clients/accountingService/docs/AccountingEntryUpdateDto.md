@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Amount** | Pointer to **float64** |  | [optional] 
 **Date** | Pointer to **NullableTime** |  | [optional] 
@@ -34,76 +32,6 @@ NewAccountingEntryUpdateDtoWithDefaults instantiates a new AccountingEntryUpdate
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetTenantId
-
-`func (o *AccountingEntryUpdateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *AccountingEntryUpdateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *AccountingEntryUpdateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *AccountingEntryUpdateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *AccountingEntryUpdateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *AccountingEntryUpdateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *AccountingEntryUpdateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *AccountingEntryUpdateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *AccountingEntryUpdateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *AccountingEntryUpdateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *AccountingEntryUpdateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *AccountingEntryUpdateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetDescription
 
 `func (o *AccountingEntryUpdateDto) GetDescription() string`

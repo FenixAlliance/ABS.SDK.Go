@@ -23,7 +23,6 @@ type DealUnitFlowStageUpdateDto struct {
 	Order *int32 `json:"order,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	Description NullableString `json:"description,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	DealUnitFlowId NullableString `json:"dealUnitFlowId,omitempty"`
 	ParentBusinessProcessStageId NullableString `json:"parentBusinessProcessStageId,omitempty"`
 }
@@ -161,48 +160,6 @@ func (o *DealUnitFlowStageUpdateDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitFlowStageUpdateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitFlowStageUpdateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *DealUnitFlowStageUpdateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *DealUnitFlowStageUpdateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *DealUnitFlowStageUpdateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *DealUnitFlowStageUpdateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
-}
-
 // GetDealUnitFlowId returns the DealUnitFlowId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DealUnitFlowStageUpdateDto) GetDealUnitFlowId() string {
 	if o == nil || IsNil(o.DealUnitFlowId.Get()) {
@@ -305,9 +262,6 @@ func (o DealUnitFlowStageUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if o.DealUnitFlowId.IsSet() {
 		toSerialize["dealUnitFlowId"] = o.DealUnitFlowId.Get()

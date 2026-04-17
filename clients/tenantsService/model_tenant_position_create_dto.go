@@ -23,8 +23,6 @@ var _ MappedNullable = &TenantPositionCreateDto{}
 type TenantPositionCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	BusinessID NullableString `json:"businessID,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 }
@@ -108,90 +106,6 @@ func (o *TenantPositionCreateDto) HasTimestamp() bool {
 // SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
 func (o *TenantPositionCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
-}
-
-// GetBusinessID returns the BusinessID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TenantPositionCreateDto) GetBusinessID() string {
-	if o == nil || IsNil(o.BusinessID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessID.Get()
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TenantPositionCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessID.Get(), o.BusinessID.IsSet()
-}
-
-// HasBusinessID returns a boolean if a field has been set.
-func (o *TenantPositionCreateDto) HasBusinessID() bool {
-	if o != nil && o.BusinessID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessID gets a reference to the given NullableString and assigns it to the BusinessID field.
-func (o *TenantPositionCreateDto) SetBusinessID(v string) {
-	o.BusinessID.Set(&v)
-}
-// SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-func (o *TenantPositionCreateDto) SetBusinessIDNil() {
-	o.BusinessID.Set(nil)
-}
-
-// UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-func (o *TenantPositionCreateDto) UnsetBusinessID() {
-	o.BusinessID.Unset()
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TenantPositionCreateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TenantPositionCreateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *TenantPositionCreateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *TenantPositionCreateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *TenantPositionCreateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *TenantPositionCreateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -293,12 +207,6 @@ func (o TenantPositionCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
-	}
-	if o.BusinessID.IsSet() {
-		toSerialize["businessID"] = o.BusinessID.Get()
-	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
 	}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()

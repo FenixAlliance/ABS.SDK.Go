@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Title** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **CourseID** | **string** |  | 
-**BusinessID** | **string** |  | 
 **CourseUnitID** | Pointer to **NullableString** |  | [optional] 
 **ReleaseDateTime** | Pointer to **NullableTime** |  | [optional] 
 
@@ -17,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewCourseWikiCreateDto
 
-`func NewCourseWikiCreateDto(title string, courseID string, businessID string, ) *CourseWikiCreateDto`
+`func NewCourseWikiCreateDto(title string, courseID string, ) *CourseWikiCreateDto`
 
 NewCourseWikiCreateDto instantiates a new CourseWikiCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -155,26 +154,6 @@ and a boolean to check if the value has been set.
 `func (o *CourseWikiCreateDto) SetCourseID(v string)`
 
 SetCourseID sets CourseID field to given value.
-
-
-### GetBusinessID
-
-`func (o *CourseWikiCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *CourseWikiCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *CourseWikiCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
 
 
 ### GetCourseUnitID

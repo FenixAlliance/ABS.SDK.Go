@@ -49,9 +49,7 @@ type StudentProfileUpdateDto struct {
 	Data8Label NullableString `json:"data8Label,omitempty"`
 	Data9 NullableString `json:"data9,omitempty"`
 	Data9Label NullableString `json:"data9Label,omitempty"`
-	BusinessID NullableString `json:"businessID,omitempty"`
 	ContactID NullableString `json:"contactID,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 }
 
 // NewStudentProfileUpdateDto instantiates a new StudentProfileUpdateDto object
@@ -1197,48 +1195,6 @@ func (o *StudentProfileUpdateDto) UnsetData9Label() {
 	o.Data9Label.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StudentProfileUpdateDto) GetBusinessID() string {
-	if o == nil || IsNil(o.BusinessID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessID.Get()
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StudentProfileUpdateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessID.Get(), o.BusinessID.IsSet()
-}
-
-// HasBusinessID returns a boolean if a field has been set.
-func (o *StudentProfileUpdateDto) HasBusinessID() bool {
-	if o != nil && o.BusinessID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessID gets a reference to the given NullableString and assigns it to the BusinessID field.
-func (o *StudentProfileUpdateDto) SetBusinessID(v string) {
-	o.BusinessID.Set(&v)
-}
-// SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-func (o *StudentProfileUpdateDto) SetBusinessIDNil() {
-	o.BusinessID.Set(nil)
-}
-
-// UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-func (o *StudentProfileUpdateDto) UnsetBusinessID() {
-	o.BusinessID.Unset()
-}
-
 // GetContactID returns the ContactID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StudentProfileUpdateDto) GetContactID() string {
 	if o == nil || IsNil(o.ContactID.Get()) {
@@ -1279,48 +1235,6 @@ func (o *StudentProfileUpdateDto) SetContactIDNil() {
 // UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
 func (o *StudentProfileUpdateDto) UnsetContactID() {
 	o.ContactID.Unset()
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StudentProfileUpdateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StudentProfileUpdateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *StudentProfileUpdateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *StudentProfileUpdateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *StudentProfileUpdateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *StudentProfileUpdateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
 }
 
 func (o StudentProfileUpdateDto) MarshalJSON() ([]byte, error) {
@@ -1417,14 +1331,8 @@ func (o StudentProfileUpdateDto) ToMap() (map[string]interface{}, error) {
 	if o.Data9Label.IsSet() {
 		toSerialize["data9Label"] = o.Data9Label.Get()
 	}
-	if o.BusinessID.IsSet() {
-		toSerialize["businessID"] = o.BusinessID.Get()
-	}
 	if o.ContactID.IsSet() {
 		toSerialize["contactID"] = o.ContactID.Get()
-	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
 	}
 	return toSerialize, nil
 }

@@ -12,13 +12,12 @@ Name | Type | Description | Notes
 **ContentType** | Pointer to **NullableString** |  | [optional] 
 **FileLength** | Pointer to **int64** |  | [optional] 
 **CourseID** | **string** |  | 
-**BusinessID** | **string** |  | 
 
 ## Methods
 
 ### NewCourseFileCreateDto
 
-`func NewCourseFileCreateDto(title string, fileName string, fileUploadURL string, courseID string, businessID string, ) *CourseFileCreateDto`
+`func NewCourseFileCreateDto(title string, fileName string, fileUploadURL string, courseID string, ) *CourseFileCreateDto`
 
 NewCourseFileCreateDto instantiates a new CourseFileCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -221,26 +220,6 @@ and a boolean to check if the value has been set.
 `func (o *CourseFileCreateDto) SetCourseID(v string)`
 
 SetCourseID sets CourseID field to given value.
-
-
-### GetBusinessID
-
-`func (o *CourseFileCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *CourseFileCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *CourseFileCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
 
 
 

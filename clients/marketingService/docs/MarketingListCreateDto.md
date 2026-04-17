@@ -15,8 +15,6 @@ Name | Type | Description | Notes
 **ModifiedOn** | Pointer to **time.Time** |  | [optional] 
 **LastUsedOn** | Pointer to **time.Time** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **MarketingListType** | Pointer to **string** |  | [optional] 
 **MarketingListTarget** | Pointer to **string** |  | [optional] 
 
@@ -364,76 +362,6 @@ HasCurrencyId returns a boolean if a field has been set.
 `func (o *MarketingListCreateDto) UnsetCurrencyId()`
 
 UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
-### GetTenantId
-
-`func (o *MarketingListCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *MarketingListCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *MarketingListCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *MarketingListCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *MarketingListCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *MarketingListCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *MarketingListCreateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *MarketingListCreateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *MarketingListCreateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *MarketingListCreateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *MarketingListCreateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *MarketingListCreateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetMarketingListType
 
 `func (o *MarketingListCreateDto) GetMarketingListType() string`

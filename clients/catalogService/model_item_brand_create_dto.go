@@ -31,7 +31,6 @@ type ItemBrandCreateDto struct {
 	WebsiteURL NullableString `json:"websiteURL,omitempty"`
 	Featured *bool `json:"featured,omitempty"`
 	Trending *bool `json:"trending,omitempty"`
-	BusinessID string `json:"businessID"`
 }
 
 type _ItemBrandCreateDto ItemBrandCreateDto
@@ -40,10 +39,9 @@ type _ItemBrandCreateDto ItemBrandCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemBrandCreateDto(name string, businessID string) *ItemBrandCreateDto {
+func NewItemBrandCreateDto(name string) *ItemBrandCreateDto {
 	this := ItemBrandCreateDto{}
 	this.Name = name
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -333,30 +331,6 @@ func (o *ItemBrandCreateDto) SetTrending(v bool) {
 	o.Trending = &v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *ItemBrandCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *ItemBrandCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *ItemBrandCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 func (o ItemBrandCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -389,7 +363,6 @@ func (o ItemBrandCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Trending) {
 		toSerialize["trending"] = o.Trending
 	}
-	toSerialize["businessID"] = o.BusinessID
 	return toSerialize, nil
 }
 
@@ -399,7 +372,6 @@ func (o *ItemBrandCreateDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"name",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

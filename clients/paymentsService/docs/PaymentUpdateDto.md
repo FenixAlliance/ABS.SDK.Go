@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InvoiceId** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **EmisorWalletId** | Pointer to **NullableString** |  | [optional] 
 **ReceiverWalletId** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
@@ -57,7 +56,6 @@ Name | Type | Description | Notes
 **AccountingEntryId** | Pointer to **NullableString** |  | [optional] 
 **PaymentGatewayId** | Pointer to **NullableString** |  | [optional] 
 **BankAccountId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **BankId** | Pointer to **NullableString** |  | [optional] 
 **PaymentTokenId** | Pointer to **NullableString** |  | [optional] 
 **EmisorWalletAccountId** | Pointer to **NullableString** |  | [optional] 
@@ -117,41 +115,6 @@ HasInvoiceId returns a boolean if a field has been set.
 `func (o *PaymentUpdateDto) UnsetInvoiceId()`
 
 UnsetInvoiceId ensures that no value is present for InvoiceId, not even an explicit nil
-### GetTenantId
-
-`func (o *PaymentUpdateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *PaymentUpdateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *PaymentUpdateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *PaymentUpdateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *PaymentUpdateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *PaymentUpdateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetEmisorWalletId
 
 `func (o *PaymentUpdateDto) GetEmisorWalletId() string`
@@ -1777,41 +1740,6 @@ HasBankAccountId returns a boolean if a field has been set.
 `func (o *PaymentUpdateDto) UnsetBankAccountId()`
 
 UnsetBankAccountId ensures that no value is present for BankAccountId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *PaymentUpdateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *PaymentUpdateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *PaymentUpdateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *PaymentUpdateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *PaymentUpdateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *PaymentUpdateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetBankId
 
 `func (o *PaymentUpdateDto) GetBankId() string`

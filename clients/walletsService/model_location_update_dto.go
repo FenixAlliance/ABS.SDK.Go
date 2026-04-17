@@ -32,7 +32,6 @@ type LocationUpdateDto struct {
 	StateId NullableString `json:"stateId,omitempty"`
 	PostalCode NullableString `json:"postalCode,omitempty"`
 	CountryId NullableString `json:"countryId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	Longitude *float64 `json:"longitude,omitempty"`
 	Latitude *float64 `json:"latitude,omitempty"`
 	IsRoutable *bool `json:"isRoutable,omitempty"`
@@ -565,48 +564,6 @@ func (o *LocationUpdateDto) UnsetCountryId() {
 	o.CountryId.Unset()
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LocationUpdateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LocationUpdateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *LocationUpdateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *LocationUpdateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *LocationUpdateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *LocationUpdateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetLongitude returns the Longitude field value if set, zero value otherwise.
 func (o *LocationUpdateDto) GetLongitude() float64 {
 	if o == nil || IsNil(o.Longitude) {
@@ -940,9 +897,6 @@ func (o LocationUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.CountryId.IsSet() {
 		toSerialize["countryId"] = o.CountryId.Get()
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
 	}
 	if !IsNil(o.Longitude) {
 		toSerialize["longitude"] = o.Longitude

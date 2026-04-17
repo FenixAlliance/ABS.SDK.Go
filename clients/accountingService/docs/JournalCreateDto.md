@@ -9,8 +9,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **DateTime** | Pointer to **time.Time** |  | [optional] 
-**TenantID** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentID** | Pointer to **NullableString** |  | [optional] 
 **ParentJournalID** | Pointer to **NullableString** |  | [optional] 
 **JournalTypeID** | Pointer to **NullableString** |  | [optional] 
 **LedgerID** | Pointer to **NullableString** |  | [optional] 
@@ -164,76 +162,6 @@ SetDateTime sets DateTime field to given value.
 
 HasDateTime returns a boolean if a field has been set.
 
-### GetTenantID
-
-`func (o *JournalCreateDto) GetTenantID() string`
-
-GetTenantID returns the TenantID field if non-nil, zero value otherwise.
-
-### GetTenantIDOk
-
-`func (o *JournalCreateDto) GetTenantIDOk() (*string, bool)`
-
-GetTenantIDOk returns a tuple with the TenantID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantID
-
-`func (o *JournalCreateDto) SetTenantID(v string)`
-
-SetTenantID sets TenantID field to given value.
-
-### HasTenantID
-
-`func (o *JournalCreateDto) HasTenantID() bool`
-
-HasTenantID returns a boolean if a field has been set.
-
-### SetTenantIDNil
-
-`func (o *JournalCreateDto) SetTenantIDNil(b bool)`
-
- SetTenantIDNil sets the value for TenantID to be an explicit nil
-
-### UnsetTenantID
-`func (o *JournalCreateDto) UnsetTenantID()`
-
-UnsetTenantID ensures that no value is present for TenantID, not even an explicit nil
-### GetEnrollmentID
-
-`func (o *JournalCreateDto) GetEnrollmentID() string`
-
-GetEnrollmentID returns the EnrollmentID field if non-nil, zero value otherwise.
-
-### GetEnrollmentIDOk
-
-`func (o *JournalCreateDto) GetEnrollmentIDOk() (*string, bool)`
-
-GetEnrollmentIDOk returns a tuple with the EnrollmentID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentID
-
-`func (o *JournalCreateDto) SetEnrollmentID(v string)`
-
-SetEnrollmentID sets EnrollmentID field to given value.
-
-### HasEnrollmentID
-
-`func (o *JournalCreateDto) HasEnrollmentID() bool`
-
-HasEnrollmentID returns a boolean if a field has been set.
-
-### SetEnrollmentIDNil
-
-`func (o *JournalCreateDto) SetEnrollmentIDNil(b bool)`
-
- SetEnrollmentIDNil sets the value for EnrollmentID to be an explicit nil
-
-### UnsetEnrollmentID
-`func (o *JournalCreateDto) UnsetEnrollmentID()`
-
-UnsetEnrollmentID ensures that no value is present for EnrollmentID, not even an explicit nil
 ### GetParentJournalID
 
 `func (o *JournalCreateDto) GetParentJournalID() string`

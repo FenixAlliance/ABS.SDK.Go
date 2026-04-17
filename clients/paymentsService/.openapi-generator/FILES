@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -87,9 +86,4 @@ model_reset_password_request.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_fenix_alliance_abp_web_test.go
-test/api_payment_methods_test.go
-test/api_payment_modes_test.go
-test/api_payment_terms_test.go
-test/api_payments_test.go
 utils.go

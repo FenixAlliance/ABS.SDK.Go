@@ -14,8 +14,6 @@ package openapi
 import (
 	"encoding/json"
 	"time"
-	"bytes"
-	"fmt"
 )
 
 // checks if the TenantTeamCreateDto type satisfies the MappedNullable interface at compile time
@@ -25,8 +23,6 @@ var _ MappedNullable = &TenantTeamCreateDto{}
 type TenantTeamCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	BusinessID string `json:"businessID"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	AvatarURL NullableString `json:"avatarURL,omitempty"`
@@ -35,15 +31,12 @@ type TenantTeamCreateDto struct {
 	OrganizationProfileID NullableString `json:"organizationProfileID,omitempty"`
 }
 
-type _TenantTeamCreateDto TenantTeamCreateDto
-
 // NewTenantTeamCreateDto instantiates a new TenantTeamCreateDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTenantTeamCreateDto(businessID string) *TenantTeamCreateDto {
+func NewTenantTeamCreateDto() *TenantTeamCreateDto {
 	this := TenantTeamCreateDto{}
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -117,72 +110,6 @@ func (o *TenantTeamCreateDto) HasTimestamp() bool {
 // SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
 func (o *TenantTeamCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
-}
-
-// GetBusinessID returns the BusinessID field value
-func (o *TenantTeamCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *TenantTeamCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *TenantTeamCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TenantTeamCreateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TenantTeamCreateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *TenantTeamCreateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *TenantTeamCreateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *TenantTeamCreateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *TenantTeamCreateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -443,10 +370,6 @@ func (o TenantTeamCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-	toSerialize["businessID"] = o.BusinessID
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
-	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
@@ -466,43 +389,6 @@ func (o TenantTeamCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["organizationProfileID"] = o.OrganizationProfileID.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *TenantTeamCreateDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"businessID",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTenantTeamCreateDto := _TenantTeamCreateDto{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTenantTeamCreateDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TenantTeamCreateDto(varTenantTeamCreateDto)
-
-	return err
 }
 
 type NullableTenantTeamCreateDto struct {

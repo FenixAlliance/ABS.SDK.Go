@@ -26,7 +26,6 @@ type CourseEnrollmentCreateDto struct {
 	CourseID NullableString `json:"courseID,omitempty"`
 	CourseCohortID NullableString `json:"courseCohortID,omitempty"`
 	StudentProfileID NullableString `json:"studentProfileID,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	CourseCompletionCertificateID NullableString `json:"courseCompletionCertificateID,omitempty"`
 }
 
@@ -237,48 +236,6 @@ func (o *CourseEnrollmentCreateDto) UnsetStudentProfileID() {
 	o.StudentProfileID.Unset()
 }
 
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CourseEnrollmentCreateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CourseEnrollmentCreateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *CourseEnrollmentCreateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *CourseEnrollmentCreateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *CourseEnrollmentCreateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *CourseEnrollmentCreateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
-}
-
 // GetCourseCompletionCertificateID returns the CourseCompletionCertificateID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CourseEnrollmentCreateDto) GetCourseCompletionCertificateID() string {
 	if o == nil || IsNil(o.CourseCompletionCertificateID.Get()) {
@@ -345,9 +302,6 @@ func (o CourseEnrollmentCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.StudentProfileID.IsSet() {
 		toSerialize["studentProfileID"] = o.StudentProfileID.Get()
-	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
 	}
 	if o.CourseCompletionCertificateID.IsSet() {
 		toSerialize["courseCompletionCertificateID"] = o.CourseCompletionCertificateID.Get()

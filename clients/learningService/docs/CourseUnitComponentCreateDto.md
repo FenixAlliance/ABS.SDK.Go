@@ -11,14 +11,13 @@ Name | Type | Description | Notes
 **Content** | Pointer to **NullableString** |  | [optional] 
 **Order** | Pointer to **int32** |  | [optional] 
 **CourseID** | **string** |  | 
-**BusinessID** | **string** |  | 
 **CourseUnitID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCourseUnitComponentCreateDto
 
-`func NewCourseUnitComponentCreateDto(title string, courseID string, businessID string, ) *CourseUnitComponentCreateDto`
+`func NewCourseUnitComponentCreateDto(title string, courseID string, ) *CourseUnitComponentCreateDto`
 
 NewCourseUnitComponentCreateDto instantiates a new CourseUnitComponentCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -216,26 +215,6 @@ and a boolean to check if the value has been set.
 `func (o *CourseUnitComponentCreateDto) SetCourseID(v string)`
 
 SetCourseID sets CourseID field to given value.
-
-
-### GetBusinessID
-
-`func (o *CourseUnitComponentCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *CourseUnitComponentCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *CourseUnitComponentCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
 
 
 ### GetCourseUnitID

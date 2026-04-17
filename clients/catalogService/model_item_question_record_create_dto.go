@@ -29,7 +29,6 @@ type ItemQuestionRecordCreateDto struct {
 	NeedsRevision bool `json:"needsRevision"`
 	Question string `json:"question"`
 	SocialProfileID NullableString `json:"socialProfileID,omitempty"`
-	BusinessID string `json:"businessID"`
 }
 
 type _ItemQuestionRecordCreateDto ItemQuestionRecordCreateDto
@@ -38,12 +37,11 @@ type _ItemQuestionRecordCreateDto ItemQuestionRecordCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemQuestionRecordCreateDto(title string, needsRevision bool, question string, businessID string) *ItemQuestionRecordCreateDto {
+func NewItemQuestionRecordCreateDto(title string, needsRevision bool, question string) *ItemQuestionRecordCreateDto {
 	this := ItemQuestionRecordCreateDto{}
 	this.Title = title
 	this.NeedsRevision = needsRevision
 	this.Question = question
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -233,30 +231,6 @@ func (o *ItemQuestionRecordCreateDto) UnsetSocialProfileID() {
 	o.SocialProfileID.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *ItemQuestionRecordCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *ItemQuestionRecordCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *ItemQuestionRecordCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 func (o ItemQuestionRecordCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -279,7 +253,6 @@ func (o ItemQuestionRecordCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.SocialProfileID.IsSet() {
 		toSerialize["socialProfileID"] = o.SocialProfileID.Get()
 	}
-	toSerialize["businessID"] = o.BusinessID
 	return toSerialize, nil
 }
 
@@ -291,7 +264,6 @@ func (o *ItemQuestionRecordCreateDto) UnmarshalJSON(data []byte) (err error) {
 		"title",
 		"needsRevision",
 		"question",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

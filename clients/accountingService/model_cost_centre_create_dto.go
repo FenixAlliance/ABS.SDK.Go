@@ -27,7 +27,6 @@ type CostCentreCreateDto struct {
 	Disabled *bool `json:"disabled,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	CostCentreType *string `json:"costCentreType,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	CostCentresGroupId NullableString `json:"costCentresGroupId,omitempty"`
 	ParentCostCentreId NullableString `json:"parentCostCentreId,omitempty"`
 }
@@ -261,48 +260,6 @@ func (o *CostCentreCreateDto) SetCostCentreType(v string) {
 	o.CostCentreType = &v
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CostCentreCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CostCentreCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *CostCentreCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *CostCentreCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *CostCentreCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *CostCentreCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetCostCentresGroupId returns the CostCentresGroupId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CostCentreCreateDto) GetCostCentresGroupId() string {
 	if o == nil || IsNil(o.CostCentresGroupId.Get()) {
@@ -414,9 +371,6 @@ func (o CostCentreCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CostCentreType) {
 		toSerialize["costCentreType"] = o.CostCentreType
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
 	}
 	if o.CostCentresGroupId.IsSet() {
 		toSerialize["costCentresGroupId"] = o.CostCentresGroupId.Get()

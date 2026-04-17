@@ -13,13 +13,12 @@ Name | Type | Description | Notes
 **ReleaseDateTime** | Pointer to **NullableTime** |  | [optional] 
 **CourseID** | **string** |  | 
 **CourseUnitID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | **string** |  | 
 
 ## Methods
 
 ### NewCourseHandoutCreateDto
 
-`func NewCourseHandoutCreateDto(name string, courseID string, businessID string, ) *CourseHandoutCreateDto`
+`func NewCourseHandoutCreateDto(name string, courseID string, ) *CourseHandoutCreateDto`
 
 NewCourseHandoutCreateDto instantiates a new CourseHandoutCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -299,26 +298,6 @@ HasCourseUnitID returns a boolean if a field has been set.
 `func (o *CourseHandoutCreateDto) UnsetCourseUnitID()`
 
 UnsetCourseUnitID ensures that no value is present for CourseUnitID, not even an explicit nil
-### GetBusinessID
-
-`func (o *CourseHandoutCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *CourseHandoutCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *CourseHandoutCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

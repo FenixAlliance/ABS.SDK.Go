@@ -3687,40 +3687,24 @@ components:
     SupportEntitlementCreateDto:
       additionalProperties: false
       example:
+        walletAccountID: walletAccountID
+        code: code
         data: data
+        signature: signature
         data8Label: data8Label
+        description: description
         customRenewalPeriod: 2
+        title: title
         repetitions: 6
         usageThreshold: 7
+        data5Label: data5Label
         paymentTokenID: paymentTokenID
+        nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
         enableAutomaticRenew: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         data2Label: data2Label
-        securityCertificateID: securityCertificateID
-        enableAutomaticDisable: true
-        dataLabel: dataLabel
-        businessID: businessID
-        gracePeriodInDays: 5
-        individualID: individualID
-        endDateTime: 2000-01-23T04:56:07.000+00:00
-        businessProfileRecordID: businessProfileRecordID
-        receiverBusinessID: receiverBusinessID
-        enableProRateBilling: true
-        data1Label: data1Label
-        organizationID: organizationID
-        data4Label: data4Label
-        enableUsageThreshold: true
-        freeTrialInDays: 5
-        data7Label: data7Label
-        accountHolderID: accountHolderID
-        walletAccountID: walletAccountID
-        code: code
-        signature: signature
-        description: description
-        title: title
-        data5Label: data5Label
-        nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
+        securityCertificateID: securityCertificateID
         data9: data9
         data8: data8
         enableAutomaticPayments: true
@@ -3729,14 +3713,27 @@ components:
         data6: data6
         data5: data5
         data4: data4
+        enableAutomaticDisable: true
         data3: data3
         data9Label: data9Label
         data2: data2
+        dataLabel: dataLabel
         data1: data1
+        gracePeriodInDays: 5
+        individualID: individualID
+        endDateTime: 2000-01-23T04:56:07.000+00:00
         data3Label: data3Label
         data6Label: data6Label
+        receiverBusinessID: receiverBusinessID
+        enableProRateBilling: true
+        data1Label: data1Label
+        organizationID: organizationID
+        data4Label: data4Label
         startDateTime: 2000-01-23T04:56:07.000+00:00
+        enableUsageThreshold: true
         chargeAttempts: 1
+        freeTrialInDays: 5
+        data7Label: data7Label
       properties:
         id:
           format: uuid
@@ -3860,9 +3857,6 @@ components:
         data9Label:
           nullable: true
           type: string
-        accountHolderID:
-          nullable: true
-          type: string
         individualID:
           nullable: true
           type: string
@@ -3870,12 +3864,6 @@ components:
           nullable: true
           type: string
         receiverBusinessID:
-          nullable: true
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
         paymentTokenID:
@@ -4305,7 +4293,6 @@ components:
     SupportEntitlementUpdateDto:
       additionalProperties: false
       example:
-        accountHolderID: accountHolderID
         walletAccountID: walletAccountID
         code: code
         data: data
@@ -4336,13 +4323,11 @@ components:
         data2: data2
         dataLabel: dataLabel
         data1: data1
-        businessID: businessID
         gracePeriodInDays: 5
         individualID: individualID
         endDateTime: 2000-01-23T04:56:07.000+00:00
         data3Label: data3Label
         data6Label: data6Label
-        businessProfileRecordID: businessProfileRecordID
         receiverBusinessID: receiverBusinessID
         enableProRateBilling: true
         data1Label: data1Label
@@ -4462,9 +4447,6 @@ components:
         data9Label:
           nullable: true
           type: string
-        accountHolderID:
-          nullable: true
-          type: string
         individualID:
           nullable: true
           type: string
@@ -4472,12 +4454,6 @@ components:
           nullable: true
           type: string
         receiverBusinessID:
-          nullable: true
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
         paymentTokenID:
@@ -4501,10 +4477,8 @@ components:
         author: author
         supportRequestID: supportRequestID
         filePath: filePath
-        businessID: businessID
         abstract: abstract
         title: title
-        businessProfileRecordID: businessProfileRecordID
         isFolder: true
         parentFileUploadId: parentFileUploadId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -4542,16 +4516,6 @@ components:
           nullable: true
           type: string
         filePath:
-          nullable: true
-          type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          maxLength: 36
-          minLength: 36
           nullable: true
           type: string
         metadata:
@@ -4848,15 +4812,12 @@ components:
       additionalProperties: false
       example:
         supportEntitlementID: supportEntitlementID
-        accountHolderID: accountHolderID
         approved: true
         contactID: contactID
         approvedTimestamp: 2000-01-23T04:56:07.000+00:00
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -4879,19 +4840,10 @@ components:
         approvedTimestamp:
           format: date-time
           type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
-          type: string
         supportEntitlementID:
           nullable: true
           type: string
         contactID:
-          nullable: true
-          type: string
-        accountHolderID:
           nullable: true
           type: string
       required:
@@ -5218,13 +5170,10 @@ components:
       example:
         supportEntitlementID: supportEntitlementID
         supportPriorityID: supportPriorityID
-        accountHolderID: accountHolderID
         contactID: contactID
         supportTicketTypeID: supportTicketTypeID
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -5238,22 +5187,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        accountHolderID:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
         contactID:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        businessProfileRecordID:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -5417,10 +5351,17 @@ components:
       additionalProperties: false
       example:
         supportEntitlementID: supportEntitlementID
-        businessID: businessID
         description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
         title:
           maxLength: 255
           minLength: 0
@@ -5429,11 +5370,6 @@ components:
         description:
           maxLength: 1000
           minLength: 0
-          nullable: true
-          type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
           nullable: true
           type: string
         supportEntitlementID:
@@ -5569,7 +5505,6 @@ components:
     SupportTicketTypeCreateDto:
       additionalProperties: false
       example:
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -5589,11 +5524,6 @@ components:
         description:
           maxLength: 1000
           minLength: 0
-          nullable: true
-          type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
           nullable: true
           type: string
       type: object
@@ -5732,22 +5662,14 @@ components:
       example:
         supportEntitlementID: supportEntitlementID
         supportPriorityID: supportPriorityID
-        accountHolderID: accountHolderID
         contactID: contactID
         supportTicketTypeID: supportTicketTypeID
         description: description
-        businessProfileRecordID: businessProfileRecordID
       properties:
         description:
           nullable: true
           type: string
-        accountHolderID:
-          nullable: true
-          type: string
         contactID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
         supportTicketTypeID:

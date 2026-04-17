@@ -29,7 +29,6 @@ type CourseCategoryCreateDto struct {
 	Description NullableString `json:"description,omitempty"`
 	ImageURL NullableString `json:"imageURL,omitempty"`
 	IsFeatured *bool `json:"isFeatured,omitempty"`
-	BusinessID string `json:"businessID"`
 }
 
 type _CourseCategoryCreateDto CourseCategoryCreateDto
@@ -38,10 +37,9 @@ type _CourseCategoryCreateDto CourseCategoryCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseCategoryCreateDto(title string, businessID string) *CourseCategoryCreateDto {
+func NewCourseCategoryCreateDto(title string) *CourseCategoryCreateDto {
 	this := CourseCategoryCreateDto{}
 	this.Title = title
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -257,30 +255,6 @@ func (o *CourseCategoryCreateDto) SetIsFeatured(v bool) {
 	o.IsFeatured = &v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseCategoryCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseCategoryCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseCategoryCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 func (o CourseCategoryCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -307,7 +281,6 @@ func (o CourseCategoryCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsFeatured) {
 		toSerialize["isFeatured"] = o.IsFeatured
 	}
-	toSerialize["businessID"] = o.BusinessID
 	return toSerialize, nil
 }
 
@@ -317,7 +290,6 @@ func (o *CourseCategoryCreateDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"title",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

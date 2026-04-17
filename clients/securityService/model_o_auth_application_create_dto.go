@@ -13,6 +13,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 	"bytes"
 	"fmt"
 )
@@ -22,6 +23,8 @@ var _ MappedNullable = &OAuthApplicationCreateDto{}
 
 // OAuthApplicationCreateDto struct for OAuthApplicationCreateDto
 type OAuthApplicationCreateDto struct {
+	Id *string `json:"id,omitempty"`
+	Timestamp *time.Time `json:"timestamp,omitempty"`
 	DisplayName string `json:"displayName"`
 	ClientId NullableString `json:"clientId,omitempty"`
 	ClientSecret NullableString `json:"clientSecret,omitempty"`
@@ -31,8 +34,6 @@ type OAuthApplicationCreateDto struct {
 	RedirectUris NullableString `json:"redirectUris,omitempty"`
 	PostLogoutRedirectUris NullableString `json:"postLogoutRedirectUris,omitempty"`
 	Logo NullableString `json:"logo,omitempty"`
-	BusinessID NullableString `json:"businessID,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 }
 
 type _OAuthApplicationCreateDto OAuthApplicationCreateDto
@@ -53,6 +54,70 @@ func NewOAuthApplicationCreateDto(displayName string) *OAuthApplicationCreateDto
 func NewOAuthApplicationCreateDtoWithDefaults() *OAuthApplicationCreateDto {
 	this := OAuthApplicationCreateDto{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *OAuthApplicationCreateDto) GetId() string {
+	if o == nil || IsNil(o.Id) {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OAuthApplicationCreateDto) GetIdOk() (*string, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *OAuthApplicationCreateDto) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *OAuthApplicationCreateDto) SetId(v string) {
+	o.Id = &v
+}
+
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+func (o *OAuthApplicationCreateDto) GetTimestamp() time.Time {
+	if o == nil || IsNil(o.Timestamp) {
+		var ret time.Time
+		return ret
+	}
+	return *o.Timestamp
+}
+
+// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OAuthApplicationCreateDto) GetTimestampOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.Timestamp) {
+		return nil, false
+	}
+	return o.Timestamp, true
+}
+
+// HasTimestamp returns a boolean if a field has been set.
+func (o *OAuthApplicationCreateDto) HasTimestamp() bool {
+	if o != nil && !IsNil(o.Timestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
+func (o *OAuthApplicationCreateDto) SetTimestamp(v time.Time) {
+	o.Timestamp = &v
 }
 
 // GetDisplayName returns the DisplayName field value
@@ -415,90 +480,6 @@ func (o *OAuthApplicationCreateDto) UnsetLogo() {
 	o.Logo.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OAuthApplicationCreateDto) GetBusinessID() string {
-	if o == nil || IsNil(o.BusinessID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessID.Get()
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OAuthApplicationCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessID.Get(), o.BusinessID.IsSet()
-}
-
-// HasBusinessID returns a boolean if a field has been set.
-func (o *OAuthApplicationCreateDto) HasBusinessID() bool {
-	if o != nil && o.BusinessID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessID gets a reference to the given NullableString and assigns it to the BusinessID field.
-func (o *OAuthApplicationCreateDto) SetBusinessID(v string) {
-	o.BusinessID.Set(&v)
-}
-// SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-func (o *OAuthApplicationCreateDto) SetBusinessIDNil() {
-	o.BusinessID.Set(nil)
-}
-
-// UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-func (o *OAuthApplicationCreateDto) UnsetBusinessID() {
-	o.BusinessID.Unset()
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OAuthApplicationCreateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OAuthApplicationCreateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *OAuthApplicationCreateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *OAuthApplicationCreateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *OAuthApplicationCreateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *OAuthApplicationCreateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
-}
-
 func (o OAuthApplicationCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -509,6 +490,12 @@ func (o OAuthApplicationCreateDto) MarshalJSON() ([]byte, error) {
 
 func (o OAuthApplicationCreateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Timestamp) {
+		toSerialize["timestamp"] = o.Timestamp
+	}
 	toSerialize["displayName"] = o.DisplayName
 	if o.ClientId.IsSet() {
 		toSerialize["clientId"] = o.ClientId.Get()
@@ -533,12 +520,6 @@ func (o OAuthApplicationCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Logo.IsSet() {
 		toSerialize["logo"] = o.Logo.Get()
-	}
-	if o.BusinessID.IsSet() {
-		toSerialize["businessID"] = o.BusinessID.Get()
-	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
 	}
 	return toSerialize, nil
 }

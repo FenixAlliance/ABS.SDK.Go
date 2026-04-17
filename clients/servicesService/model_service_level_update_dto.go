@@ -72,7 +72,6 @@ type ServiceLevelUpdateDto struct {
 	Material NullableString `json:"material,omitempty"`
 	OnDiscount *bool `json:"onDiscount,omitempty"`
 	TotalTax *float64 `json:"totalTax,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	Permalink NullableString `json:"permalink,omitempty"`
 	BrandName NullableString `json:"brandName,omitempty"`
 	ReviewsCount *int32 `json:"reviewsCount,omitempty"`
@@ -97,7 +96,6 @@ type ServiceLevelUpdateDto struct {
 	CustomTaxValue *float64 `json:"customTaxValue,omitempty"`
 	HasVariations *bool `json:"hasVariations,omitempty"`
 	QuestionsCount *int32 `json:"questionsCount,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	SupplierCode NullableString `json:"supplierCode,omitempty"`
 	AuctionEnd *time.Time `json:"auctionEnd,omitempty"`
 	PurchaseNote NullableString `json:"purchaseNote,omitempty"`
@@ -2155,48 +2153,6 @@ func (o *ServiceLevelUpdateDto) SetTotalTax(v float64) {
 	o.TotalTax = &v
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ServiceLevelUpdateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ServiceLevelUpdateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *ServiceLevelUpdateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *ServiceLevelUpdateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *ServiceLevelUpdateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *ServiceLevelUpdateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetPermalink returns the Permalink field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ServiceLevelUpdateDto) GetPermalink() string {
 	if o == nil || IsNil(o.Permalink.Get()) {
@@ -3073,48 +3029,6 @@ func (o *ServiceLevelUpdateDto) HasQuestionsCount() bool {
 // SetQuestionsCount gets a reference to the given int32 and assigns it to the QuestionsCount field.
 func (o *ServiceLevelUpdateDto) SetQuestionsCount(v int32) {
 	o.QuestionsCount = &v
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ServiceLevelUpdateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ServiceLevelUpdateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *ServiceLevelUpdateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *ServiceLevelUpdateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *ServiceLevelUpdateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *ServiceLevelUpdateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
 }
 
 // GetSupplierCode returns the SupplierCode field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -6698,9 +6612,6 @@ func (o ServiceLevelUpdateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TotalTax) {
 		toSerialize["totalTax"] = o.TotalTax
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
 	if o.Permalink.IsSet() {
 		toSerialize["permalink"] = o.Permalink.Get()
 	}
@@ -6772,9 +6683,6 @@ func (o ServiceLevelUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.QuestionsCount) {
 		toSerialize["questionsCount"] = o.QuestionsCount
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if o.SupplierCode.IsSet() {
 		toSerialize["supplierCode"] = o.SupplierCode.Get()

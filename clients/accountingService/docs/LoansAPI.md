@@ -749,7 +749,7 @@ No authorization required
 
 ## UpdateLoanApplicationAsync
 
-> EmptyEnvelope UpdateLoanApplicationAsync(ctx, applicationId).TenantId(tenantId).LoanApplicationUpdateDto(loanApplicationUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope UpdateLoanApplicationAsync(ctx, applicationId).TenantId(tenantId).Body(body).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Updates a loan application
 
@@ -770,13 +770,13 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	applicationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	loanApplicationUpdateDto := *openapiclient.NewLoanApplicationUpdateDto() // LoanApplicationUpdateDto | 
+	body := map[string]interface{}{ ... } // map[string]interface{} | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LoansAPI.UpdateLoanApplicationAsync(context.Background(), applicationId).TenantId(tenantId).LoanApplicationUpdateDto(loanApplicationUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.LoansAPI.UpdateLoanApplicationAsync(context.Background(), applicationId).TenantId(tenantId).Body(body).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LoansAPI.UpdateLoanApplicationAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -803,7 +803,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **loanApplicationUpdateDto** | [**LoanApplicationUpdateDto**](LoanApplicationUpdateDto.md) |  | 
+ **body** | **map[string]interface{}** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 

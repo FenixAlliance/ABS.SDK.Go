@@ -38,8 +38,6 @@ type BusinessApplicationCreateDto struct {
 	ContactEmail NullableString `json:"contactEmail,omitempty"`
 	PrivacyPolicyURL NullableString `json:"privacyPolicyURL,omitempty"`
 	TermsAndConditionsURL NullableString `json:"termsAndConditionsURL,omitempty"`
-	BusinessID NullableString `json:"businessID,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	RequireHttps *bool `json:"requireHttps,omitempty"`
 	RequireAppSecret *bool `json:"requireAppSecret,omitempty"`
 	EnableClientOauthLogin *bool `json:"enableClientOauthLogin,omitempty"`
@@ -624,90 +622,6 @@ func (o *BusinessApplicationCreateDto) SetTermsAndConditionsURLNil() {
 // UnsetTermsAndConditionsURL ensures that no value is present for TermsAndConditionsURL, not even an explicit nil
 func (o *BusinessApplicationCreateDto) UnsetTermsAndConditionsURL() {
 	o.TermsAndConditionsURL.Unset()
-}
-
-// GetBusinessID returns the BusinessID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BusinessApplicationCreateDto) GetBusinessID() string {
-	if o == nil || IsNil(o.BusinessID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessID.Get()
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BusinessApplicationCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessID.Get(), o.BusinessID.IsSet()
-}
-
-// HasBusinessID returns a boolean if a field has been set.
-func (o *BusinessApplicationCreateDto) HasBusinessID() bool {
-	if o != nil && o.BusinessID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessID gets a reference to the given NullableString and assigns it to the BusinessID field.
-func (o *BusinessApplicationCreateDto) SetBusinessID(v string) {
-	o.BusinessID.Set(&v)
-}
-// SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-func (o *BusinessApplicationCreateDto) SetBusinessIDNil() {
-	o.BusinessID.Set(nil)
-}
-
-// UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-func (o *BusinessApplicationCreateDto) UnsetBusinessID() {
-	o.BusinessID.Unset()
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BusinessApplicationCreateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BusinessApplicationCreateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *BusinessApplicationCreateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *BusinessApplicationCreateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *BusinessApplicationCreateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *BusinessApplicationCreateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
 }
 
 // GetRequireHttps returns the RequireHttps field value if set, zero value otherwise.
@@ -1556,12 +1470,6 @@ func (o BusinessApplicationCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TermsAndConditionsURL.IsSet() {
 		toSerialize["termsAndConditionsURL"] = o.TermsAndConditionsURL.Get()
-	}
-	if o.BusinessID.IsSet() {
-		toSerialize["businessID"] = o.BusinessID.Get()
-	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
 	}
 	if !IsNil(o.RequireHttps) {
 		toSerialize["requireHttps"] = o.RequireHttps

@@ -62,7 +62,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	contactCreateDto := *openapiclient.NewContactCreateDto("TenantId_example", "Type_example", "FirstName_example", "Email_example") // ContactCreateDto |  (optional)
+	contactCreateDto := *openapiclient.NewContactCreateDto("Type_example", "FirstName_example", "Email_example") // ContactCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

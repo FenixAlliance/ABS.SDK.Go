@@ -30,9 +30,7 @@ type BankGuaranteeUpdateDto struct {
 	StartDate *time.Time `json:"startDate,omitempty"`
 	EndDate *time.Time `json:"endDate,omitempty"`
 	ValidityInDays *int32 `json:"validityInDays,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	BankGuaranteeType *string `json:"bankGuaranteeType,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	ContactId NullableString `json:"contactId,omitempty"`
 	ProjectId NullableString `json:"projectId,omitempty"`
 	OrderId NullableString `json:"orderId,omitempty"`
@@ -376,48 +374,6 @@ func (o *BankGuaranteeUpdateDto) SetValidityInDays(v int32) {
 	o.ValidityInDays = &v
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BankGuaranteeUpdateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BankGuaranteeUpdateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *BankGuaranteeUpdateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *BankGuaranteeUpdateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *BankGuaranteeUpdateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *BankGuaranteeUpdateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetBankGuaranteeType returns the BankGuaranteeType field value if set, zero value otherwise.
 func (o *BankGuaranteeUpdateDto) GetBankGuaranteeType() string {
 	if o == nil || IsNil(o.BankGuaranteeType) {
@@ -448,48 +404,6 @@ func (o *BankGuaranteeUpdateDto) HasBankGuaranteeType() bool {
 // SetBankGuaranteeType gets a reference to the given string and assigns it to the BankGuaranteeType field.
 func (o *BankGuaranteeUpdateDto) SetBankGuaranteeType(v string) {
 	o.BankGuaranteeType = &v
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BankGuaranteeUpdateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BankGuaranteeUpdateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *BankGuaranteeUpdateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *BankGuaranteeUpdateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *BankGuaranteeUpdateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *BankGuaranteeUpdateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
 }
 
 // GetContactId returns the ContactId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -781,14 +695,8 @@ func (o BankGuaranteeUpdateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ValidityInDays) {
 		toSerialize["validityInDays"] = o.ValidityInDays
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
 	if !IsNil(o.BankGuaranteeType) {
 		toSerialize["bankGuaranteeType"] = o.BankGuaranteeType
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if o.ContactId.IsSet() {
 		toSerialize["contactId"] = o.ContactId.Get()

@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessID** | **string** |  | 
-**BusinessProfileRecordID** | **string** |  | 
 **BusinessTeamID** | **string** |  | 
 **ProjectID** | **string** |  | 
 
@@ -15,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewTenantTeamProjectEnrollmentCreateDto
 
-`func NewTenantTeamProjectEnrollmentCreateDto(businessID string, businessProfileRecordID string, businessTeamID string, projectID string, ) *TenantTeamProjectEnrollmentCreateDto`
+`func NewTenantTeamProjectEnrollmentCreateDto(businessTeamID string, projectID string, ) *TenantTeamProjectEnrollmentCreateDto`
 
 NewTenantTeamProjectEnrollmentCreateDto instantiates a new TenantTeamProjectEnrollmentCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -79,46 +77,6 @@ SetTimestamp sets Timestamp field to given value.
 `func (o *TenantTeamProjectEnrollmentCreateDto) HasTimestamp() bool`
 
 HasTimestamp returns a boolean if a field has been set.
-
-### GetBusinessID
-
-`func (o *TenantTeamProjectEnrollmentCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *TenantTeamProjectEnrollmentCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *TenantTeamProjectEnrollmentCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-
-### GetBusinessProfileRecordID
-
-`func (o *TenantTeamProjectEnrollmentCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *TenantTeamProjectEnrollmentCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *TenantTeamProjectEnrollmentCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
 
 ### GetBusinessTeamID
 

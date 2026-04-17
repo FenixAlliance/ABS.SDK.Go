@@ -26,7 +26,6 @@ type SecurityRoleCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Name string `json:"name"`
-	TenantId string `json:"tenantId"`
 	Description NullableString `json:"description,omitempty"`
 }
 
@@ -36,10 +35,9 @@ type _SecurityRoleCreateDto SecurityRoleCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSecurityRoleCreateDto(name string, tenantId string) *SecurityRoleCreateDto {
+func NewSecurityRoleCreateDto(name string) *SecurityRoleCreateDto {
 	this := SecurityRoleCreateDto{}
 	this.Name = name
-	this.TenantId = tenantId
 	return &this
 }
 
@@ -139,30 +137,6 @@ func (o *SecurityRoleCreateDto) SetName(v string) {
 	o.Name = v
 }
 
-// GetTenantId returns the TenantId field value
-func (o *SecurityRoleCreateDto) GetTenantId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.TenantId
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value
-// and a boolean to check if the value has been set.
-func (o *SecurityRoleCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TenantId, true
-}
-
-// SetTenantId sets field value
-func (o *SecurityRoleCreateDto) SetTenantId(v string) {
-	o.TenantId = v
-}
-
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SecurityRoleCreateDto) GetDescription() string {
 	if o == nil || IsNil(o.Description.Get()) {
@@ -222,7 +196,6 @@ func (o SecurityRoleCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
 	toSerialize["name"] = o.Name
-	toSerialize["tenantId"] = o.TenantId
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
@@ -235,7 +208,6 @@ func (o *SecurityRoleCreateDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"name",
-		"tenantId",
 	}
 
 	allProperties := make(map[string]interface{})

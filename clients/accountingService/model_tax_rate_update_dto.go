@@ -34,12 +34,10 @@ type TaxRateUpdateDto struct {
 	CumulativeTransactionThreshold *float64 `json:"cumulativeTransactionThreshold,omitempty"`
 	FiscalAuthorityId NullableString `json:"fiscalAuthorityId,omitempty"`
 	FiscalYearId NullableString `json:"fiscalYearId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	CountryId NullableString `json:"countryId,omitempty"`
 	TaxClassId NullableString `json:"taxClassId,omitempty"`
 	CurrencyId NullableString `json:"currencyId,omitempty"`
 	TaxPolicyId NullableString `json:"taxPolicyId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 }
 
 // NewTaxRateUpdateDto instantiates a new TaxRateUpdateDto object
@@ -567,48 +565,6 @@ func (o *TaxRateUpdateDto) UnsetFiscalYearId() {
 	o.FiscalYearId.Unset()
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TaxRateUpdateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TaxRateUpdateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *TaxRateUpdateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *TaxRateUpdateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *TaxRateUpdateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *TaxRateUpdateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetCountryId returns the CountryId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TaxRateUpdateDto) GetCountryId() string {
 	if o == nil || IsNil(o.CountryId.Get()) {
@@ -777,48 +733,6 @@ func (o *TaxRateUpdateDto) UnsetTaxPolicyId() {
 	o.TaxPolicyId.Unset()
 }
 
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TaxRateUpdateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TaxRateUpdateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *TaxRateUpdateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *TaxRateUpdateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *TaxRateUpdateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *TaxRateUpdateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
-}
-
 func (o TaxRateUpdateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -871,9 +785,6 @@ func (o TaxRateUpdateDto) ToMap() (map[string]interface{}, error) {
 	if o.FiscalYearId.IsSet() {
 		toSerialize["fiscalYearId"] = o.FiscalYearId.Get()
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
 	if o.CountryId.IsSet() {
 		toSerialize["countryId"] = o.CountryId.Get()
 	}
@@ -885,9 +796,6 @@ func (o TaxRateUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TaxPolicyId.IsSet() {
 		toSerialize["taxPolicyId"] = o.TaxPolicyId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	return toSerialize, nil
 }

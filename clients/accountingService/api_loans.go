@@ -1547,7 +1547,7 @@ type ApiUpdateLoanApplicationAsyncRequest struct {
 	ApiService *LoansAPIService
 	tenantId *string
 	applicationId string
-	loanApplicationUpdateDto *LoanApplicationUpdateDto
+	body *map[string]interface{}
 	apiVersion *string
 	xApiVersion *string
 }
@@ -1557,8 +1557,8 @@ func (r ApiUpdateLoanApplicationAsyncRequest) TenantId(tenantId string) ApiUpdat
 	return r
 }
 
-func (r ApiUpdateLoanApplicationAsyncRequest) LoanApplicationUpdateDto(loanApplicationUpdateDto LoanApplicationUpdateDto) ApiUpdateLoanApplicationAsyncRequest {
-	r.loanApplicationUpdateDto = &loanApplicationUpdateDto
+func (r ApiUpdateLoanApplicationAsyncRequest) Body(body map[string]interface{}) ApiUpdateLoanApplicationAsyncRequest {
+	r.body = &body
 	return r
 }
 
@@ -1617,8 +1617,8 @@ func (a *LoansAPIService) UpdateLoanApplicationAsyncExecute(r ApiUpdateLoanAppli
 	if r.tenantId == nil {
 		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
 	}
-	if r.loanApplicationUpdateDto == nil {
-		return localVarReturnValue, nil, reportError("loanApplicationUpdateDto is required and must be specified")
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
@@ -1646,7 +1646,7 @@ func (a *LoansAPIService) UpdateLoanApplicationAsyncExecute(r ApiUpdateLoanAppli
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.loanApplicationUpdateDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

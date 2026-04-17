@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -139,14 +138,4 @@ model_social_post_bucket_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_email_groups_test.go
-test/api_email_signatures_test.go
-test/api_email_templates_test.go
-test/api_fenix_alliance_abp_web_test.go
-test/api_marketing_campaigns_test.go
-test/api_marketing_lists_test.go
-test/api_newsletters_test.go
-test/api_social_media_posts_test.go
-test/api_social_post_buckets_test.go
-test/api_tracking_pixels_test.go
 utils.go

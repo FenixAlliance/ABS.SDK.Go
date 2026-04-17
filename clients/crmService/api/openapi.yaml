@@ -3318,7 +3318,6 @@ components:
         mobilePhone: mobilePhone
         taxId: taxId
         webUrl: webUrl
-        tenantId: tenantId
         duns: duns
         timezoneId: timezoneId
         faxNumber: faxNumber
@@ -3331,9 +3330,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          minLength: 1
           type: string
         type:
           enum:
@@ -3477,7 +3473,6 @@ components:
       required:
       - email
       - firstName
-      - tenantId
       - type
       type: object
     ContactDto:

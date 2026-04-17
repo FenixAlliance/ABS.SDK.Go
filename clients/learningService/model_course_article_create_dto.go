@@ -30,7 +30,6 @@ type CourseArticleCreateDto struct {
 	Content NullableString `json:"content,omitempty"`
 	CourseID string `json:"courseID"`
 	CourseWikiID string `json:"courseWikiID"`
-	BusinessID string `json:"businessID"`
 }
 
 type _CourseArticleCreateDto CourseArticleCreateDto
@@ -39,12 +38,11 @@ type _CourseArticleCreateDto CourseArticleCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseArticleCreateDto(title string, courseID string, courseWikiID string, businessID string) *CourseArticleCreateDto {
+func NewCourseArticleCreateDto(title string, courseID string, courseWikiID string) *CourseArticleCreateDto {
 	this := CourseArticleCreateDto{}
 	this.Title = title
 	this.CourseID = courseID
 	this.CourseWikiID = courseWikiID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -276,30 +274,6 @@ func (o *CourseArticleCreateDto) SetCourseWikiID(v string) {
 	o.CourseWikiID = v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseArticleCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseArticleCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseArticleCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 func (o CourseArticleCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -325,7 +299,6 @@ func (o CourseArticleCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["courseID"] = o.CourseID
 	toSerialize["courseWikiID"] = o.CourseWikiID
-	toSerialize["businessID"] = o.BusinessID
 	return toSerialize, nil
 }
 
@@ -337,7 +310,6 @@ func (o *CourseArticleCreateDto) UnmarshalJSON(data []byte) (err error) {
 		"title",
 		"courseID",
 		"courseWikiID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

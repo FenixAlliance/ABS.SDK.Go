@@ -26,6 +26,7 @@ type FiscalYearUpdateDto struct {
 	Closed *bool `json:"closed,omitempty"`
 	EndDate *time.Time `json:"endDate,omitempty"`
 	StartDate *time.Time `json:"startDate,omitempty"`
+	FiscalAuthorityId NullableString `json:"fiscalAuthorityId,omitempty"`
 }
 
 // NewFiscalYearUpdateDto instantiates a new FiscalYearUpdateDto object
@@ -225,6 +226,48 @@ func (o *FiscalYearUpdateDto) SetStartDate(v time.Time) {
 	o.StartDate = &v
 }
 
+// GetFiscalAuthorityId returns the FiscalAuthorityId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FiscalYearUpdateDto) GetFiscalAuthorityId() string {
+	if o == nil || IsNil(o.FiscalAuthorityId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.FiscalAuthorityId.Get()
+}
+
+// GetFiscalAuthorityIdOk returns a tuple with the FiscalAuthorityId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FiscalYearUpdateDto) GetFiscalAuthorityIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.FiscalAuthorityId.Get(), o.FiscalAuthorityId.IsSet()
+}
+
+// HasFiscalAuthorityId returns a boolean if a field has been set.
+func (o *FiscalYearUpdateDto) HasFiscalAuthorityId() bool {
+	if o != nil && o.FiscalAuthorityId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFiscalAuthorityId gets a reference to the given NullableString and assigns it to the FiscalAuthorityId field.
+func (o *FiscalYearUpdateDto) SetFiscalAuthorityId(v string) {
+	o.FiscalAuthorityId.Set(&v)
+}
+// SetFiscalAuthorityIdNil sets the value for FiscalAuthorityId to be an explicit nil
+func (o *FiscalYearUpdateDto) SetFiscalAuthorityIdNil() {
+	o.FiscalAuthorityId.Set(nil)
+}
+
+// UnsetFiscalAuthorityId ensures that no value is present for FiscalAuthorityId, not even an explicit nil
+func (o *FiscalYearUpdateDto) UnsetFiscalAuthorityId() {
+	o.FiscalAuthorityId.Unset()
+}
+
 func (o FiscalYearUpdateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -249,6 +292,9 @@ func (o FiscalYearUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
+	}
+	if o.FiscalAuthorityId.IsSet() {
+		toSerialize["fiscalAuthorityId"] = o.FiscalAuthorityId.Get()
 	}
 	return toSerialize, nil
 }

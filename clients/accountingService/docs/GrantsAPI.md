@@ -379,7 +379,7 @@ No authorization required
 
 ## UpdateGrantAsync
 
-> EmptyEnvelope UpdateGrantAsync(ctx, grantId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).GrantUpdateDto(grantUpdateDto).Execute()
+> EmptyEnvelope UpdateGrantAsync(ctx, grantId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
 
 Update grant
 
@@ -402,11 +402,11 @@ func main() {
 	grantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	grantUpdateDto := *openapiclient.NewGrantUpdateDto() // GrantUpdateDto |  (optional)
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.GrantsAPI.UpdateGrantAsync(context.Background(), grantId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).GrantUpdateDto(grantUpdateDto).Execute()
+	resp, r, err := apiClient.GrantsAPI.UpdateGrantAsync(context.Background(), grantId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GrantsAPI.UpdateGrantAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **grantUpdateDto** | [**GrantUpdateDto**](GrantUpdateDto.md) |  | 
+ **body** | **map[string]interface{}** |  | 
 
 ### Return type
 

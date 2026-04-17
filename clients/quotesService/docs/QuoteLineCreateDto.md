@@ -12,8 +12,6 @@ Name | Type | Description | Notes
 **ItemShortDescription** | Pointer to **NullableString** |  | [optional] 
 **ItemPrimaryImageUrl** | Pointer to **NullableString** |  | [optional] 
 **ShippingPolicyId** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Quantity** | Pointer to **float64** |  | [optional] 
@@ -99,7 +97,6 @@ Name | Type | Description | Notes
 **ShippingLocationId** | Pointer to **NullableString** |  | [optional] 
 **LocationId** | Pointer to **NullableString** |  | [optional] 
 **QuoteItemRecordId** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **NullableString** |  | [optional] 
 **ParentBillingItemRecordId** | Pointer to **NullableString** |  | [optional] 
 **QuoteId** | Pointer to **NullableString** |  | [optional] 
 
@@ -372,76 +369,6 @@ HasShippingPolicyId returns a boolean if a field has been set.
 `func (o *QuoteLineCreateDto) UnsetShippingPolicyId()`
 
 UnsetShippingPolicyId ensures that no value is present for ShippingPolicyId, not even an explicit nil
-### GetTenantId
-
-`func (o *QuoteLineCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *QuoteLineCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *QuoteLineCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *QuoteLineCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *QuoteLineCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *QuoteLineCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *QuoteLineCreateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *QuoteLineCreateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *QuoteLineCreateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *QuoteLineCreateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *QuoteLineCreateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *QuoteLineCreateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetCurrencyId
 
 `func (o *QuoteLineCreateDto) GetCurrencyId() string`
@@ -3067,41 +2994,6 @@ HasQuoteItemRecordId returns a boolean if a field has been set.
 `func (o *QuoteLineCreateDto) UnsetQuoteItemRecordId()`
 
 UnsetQuoteItemRecordId ensures that no value is present for QuoteItemRecordId, not even an explicit nil
-### GetBusinessProfileRecordId
-
-`func (o *QuoteLineCreateDto) GetBusinessProfileRecordId() string`
-
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIdOk
-
-`func (o *QuoteLineCreateDto) GetBusinessProfileRecordIdOk() (*string, bool)`
-
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordId
-
-`func (o *QuoteLineCreateDto) SetBusinessProfileRecordId(v string)`
-
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
-
-### HasBusinessProfileRecordId
-
-`func (o *QuoteLineCreateDto) HasBusinessProfileRecordId() bool`
-
-HasBusinessProfileRecordId returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIdNil
-
-`func (o *QuoteLineCreateDto) SetBusinessProfileRecordIdNil(b bool)`
-
- SetBusinessProfileRecordIdNil sets the value for BusinessProfileRecordId to be an explicit nil
-
-### UnsetBusinessProfileRecordId
-`func (o *QuoteLineCreateDto) UnsetBusinessProfileRecordId()`
-
-UnsetBusinessProfileRecordId ensures that no value is present for BusinessProfileRecordId, not even an explicit nil
 ### GetParentBillingItemRecordId
 
 `func (o *QuoteLineCreateDto) GetParentBillingItemRecordId() string`

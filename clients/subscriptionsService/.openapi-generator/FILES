@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -65,7 +64,4 @@ model_subscription_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_fenix_alliance_abp_web_test.go
-test/api_subscription_plans_test.go
-test/api_subscriptions_test.go
 utils.go

@@ -8704,7 +8704,6 @@ components:
       additionalProperties: false
       example:
         courseWikiID: courseWikiID
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -8733,11 +8732,7 @@ components:
         courseWikiID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
       required:
-      - businessID
       - courseID
       - courseWikiID
       - title
@@ -8801,7 +8796,6 @@ components:
       additionalProperties: false
       example:
         instructions: instructions
-        businessID: businessID
         description: description
         resources: resources
         title: title
@@ -8836,9 +8830,6 @@ components:
         courseID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
         courseUnitID:
           nullable: true
           type: string
@@ -8858,7 +8849,6 @@ components:
           nullable: true
           type: string
       required:
-      - businessID
       - courseID
       - title
       type: object
@@ -8961,7 +8951,6 @@ components:
       additionalProperties: false
       example:
         imageURL: imageURL
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -8985,11 +8974,7 @@ components:
           type: string
         isFeatured:
           type: boolean
-        businessID:
-          minLength: 1
-          type: string
       required:
-      - businessID
       - title
       type: object
     CourseCategoryDto:
@@ -9049,13 +9034,11 @@ components:
     CourseCertificateTemplateCreateDto:
       additionalProperties: false
       example:
-        businessID: businessID
         parentWebContentVersionID: parentWebContentVersionID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         socialProfileID: socialProfileID
         parentWebContentID: parentWebContentID
         courseID: courseID
-        businessProfileRecordID: businessProfileRecordID
         webPortalID: webPortalID
         timestamp: 2000-01-23T04:56:07.000+00:00
         websiteThemeID: websiteThemeID
@@ -9070,17 +9053,10 @@ components:
           maxLength: 36
           minLength: 36
           type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
         webPortalID:
           nullable: true
           type: string
         websiteThemeID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
         socialProfileID:
@@ -9093,7 +9069,6 @@ components:
           nullable: true
           type: string
       required:
-      - businessID
       - courseID
       type: object
     CourseCertificateTemplateDto:
@@ -9148,7 +9123,6 @@ components:
         startDateTime: 2000-01-23T04:56:07.000+00:00
         expectedEndDateTime: 2000-01-23T04:56:07.000+00:00
         name: name
-        businessID: businessID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         endDateTime: 2000-01-23T04:56:07.000+00:00
         expectedStartDateTime: 2000-01-23T04:56:07.000+00:00
@@ -9165,9 +9139,6 @@ components:
           minLength: 1
           type: string
         courseID:
-          minLength: 1
-          type: string
-        businessID:
           minLength: 1
           type: string
         startDateTime:
@@ -9187,7 +9158,6 @@ components:
           nullable: true
           type: string
       required:
-      - businessID
       - courseID
       - name
       type: object
@@ -9266,11 +9236,9 @@ components:
       additionalProperties: false
       example:
         courseEnrollmentID: courseEnrollmentID
-        businessID: businessID
         courseCompletionCertificateTemplateID: courseCompletionCertificateTemplateID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         studentProfileID: studentProfileID
-        businessProfileRecordID: businessProfileRecordID
         courseID: courseID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9287,12 +9255,6 @@ components:
         courseEnrollmentID:
           maxLength: 36
           minLength: 36
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
           type: string
         courseCompletionCertificateTemplateID:
           nullable: true
@@ -9371,22 +9333,14 @@ components:
       additionalProperties: false
       example:
         courseEnrollmentID: courseEnrollmentID
-        businessID: businessID
         courseCompletionCertificateTemplateID: courseCompletionCertificateTemplateID
         studentProfileID: studentProfileID
-        businessProfileRecordID: businessProfileRecordID
         courseID: courseID
       properties:
         studentProfileID:
           nullable: true
           type: string
         courseEnrollmentID:
-          nullable: true
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
         courseCompletionCertificateTemplateID:
@@ -10134,7 +10088,6 @@ components:
         studentProfileID: studentProfileID
         courseID: courseID
         courseCohortID: courseCohortID
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -10150,9 +10103,6 @@ components:
           nullable: true
           type: string
         studentProfileID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
         courseCompletionCertificateID:
@@ -10219,7 +10169,6 @@ components:
       example:
         fileUploadURL: fileUploadURL
         fileName: fileName
-        businessID: businessID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
         contentType: contentType
@@ -10251,11 +10200,7 @@ components:
         courseID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
       required:
-      - businessID
       - courseID
       - fileName
       - fileUploadURL
@@ -10332,7 +10277,6 @@ components:
     CourseForumCreateDto:
       additionalProperties: false
       example:
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -10354,11 +10298,7 @@ components:
         courseID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
       required:
-      - businessID
       - courseID
       - title
       type: object
@@ -10410,7 +10350,6 @@ components:
       example:
         courseUnitID: courseUnitID
         name: name
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         courseID: courseID
@@ -10447,11 +10386,7 @@ components:
         courseUnitID:
           nullable: true
           type: string
-        businessID:
-          minLength: 1
-          type: string
       required:
-      - businessID
       - courseID
       - name
       type: object
@@ -10536,7 +10471,6 @@ components:
       additionalProperties: false
       example:
         courseUnitID: courseUnitID
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -10562,15 +10496,11 @@ components:
         courseUnitID:
           nullable: true
           type: string
-        businessID:
-          minLength: 1
-          type: string
         releaseDateTime:
           format: date-time
           nullable: true
           type: string
       required:
-      - businessID
       - courseID
       - title
       type: object
@@ -10637,7 +10567,6 @@ components:
     CourseNewsCreateDto:
       additionalProperties: false
       example:
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -10663,11 +10592,7 @@ components:
         courseID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
       required:
-      - businessID
       - courseID
       - title
       type: object
@@ -10725,7 +10650,6 @@ components:
     CoursePageCreateDto:
       additionalProperties: false
       example:
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -10755,11 +10679,7 @@ components:
         courseID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
       required:
-      - businessID
       - courseID
       - title
       type: object
@@ -10827,7 +10747,6 @@ components:
       example:
         courseUnitID: courseUnitID
         overallScore: 0.8008281904610115
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -10854,9 +10773,6 @@ components:
         courseID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
         courseUnitID:
           nullable: true
           type: string
@@ -10868,7 +10784,6 @@ components:
           nullable: true
           type: string
       required:
-      - businessID
       - courseID
       - title
       type: object
@@ -10951,7 +10866,6 @@ components:
         hideFromStudents: true
         name: name
         icon: icon
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         courseID: courseID
@@ -10976,9 +10890,6 @@ components:
         courseID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
         releaseDateTime:
           format: date-time
           nullable: true
@@ -10986,7 +10897,6 @@ components:
         hideFromStudents:
           type: boolean
       required:
-      - businessID
       - courseID
       - name
       type: object
@@ -11060,7 +10970,6 @@ components:
       additionalProperties: false
       example:
         courseUnitID: courseUnitID
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -11090,14 +10999,10 @@ components:
         courseID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
         courseUnitID:
           nullable: true
           type: string
       required:
-      - businessID
       - courseID
       - title
       type: object
@@ -11173,7 +11078,6 @@ components:
       additionalProperties: false
       example:
         courseSectionID: courseSectionID
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -11204,9 +11108,6 @@ components:
         courseSectionID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
         courseContentGroupID:
           nullable: true
           type: string
@@ -11215,7 +11116,6 @@ components:
           nullable: true
           type: string
       required:
-      - businessID
       - courseID
       - courseSectionID
       - title
@@ -11379,7 +11279,6 @@ components:
       additionalProperties: false
       example:
         courseUnitID: courseUnitID
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -11402,9 +11301,6 @@ components:
         courseID:
           minLength: 1
           type: string
-        businessID:
-          minLength: 1
-          type: string
         courseUnitID:
           nullable: true
           type: string
@@ -11413,7 +11309,6 @@ components:
           nullable: true
           type: string
       required:
-      - businessID
       - courseID
       - title
       type: object
@@ -11601,10 +11496,8 @@ components:
         verified: true
         dataLabel: dataLabel
         data1: data1
-        businessID: businessID
         data3Label: data3Label
         data6Label: data6Label
-        businessProfileRecordID: businessProfileRecordID
         data1Label: data1Label
         data4Label: data4Label
         submitted: true
@@ -11694,13 +11587,7 @@ components:
         data9Label:
           nullable: true
           type: string
-        businessID:
-          nullable: true
-          type: string
         contactID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       type: object
@@ -12063,10 +11950,8 @@ components:
         verified: true
         dataLabel: dataLabel
         data1: data1
-        businessID: businessID
         data3Label: data3Label
         data6Label: data6Label
-        businessProfileRecordID: businessProfileRecordID
         data1Label: data1Label
         data4Label: data4Label
         submitted: true
@@ -12154,13 +12039,7 @@ components:
         data9Label:
           nullable: true
           type: string
-        businessID:
-          nullable: true
-          type: string
         contactID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       type: object
@@ -12318,10 +12197,8 @@ components:
         verified: true
         dataLabel: dataLabel
         data1: data1
-        businessID: businessID
         data3Label: data3Label
         data6Label: data6Label
-        businessProfileRecordID: businessProfileRecordID
         data1Label: data1Label
         data4Label: data4Label
         submitted: true
@@ -12409,13 +12286,7 @@ components:
         data9Label:
           nullable: true
           type: string
-        businessID:
-          nullable: true
-          type: string
         contactID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       type: object

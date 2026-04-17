@@ -28,8 +28,6 @@ type JournalCreateDto struct {
 	Name string `json:"name"`
 	Description NullableString `json:"description,omitempty"`
 	DateTime *time.Time `json:"dateTime,omitempty"`
-	TenantID NullableString `json:"tenantID,omitempty"`
-	EnrollmentID NullableString `json:"enrollmentID,omitempty"`
 	ParentJournalID NullableString `json:"parentJournalID,omitempty"`
 	JournalTypeID NullableString `json:"journalTypeID,omitempty"`
 	LedgerID NullableString `json:"ledgerID,omitempty"`
@@ -217,90 +215,6 @@ func (o *JournalCreateDto) SetDateTime(v time.Time) {
 	o.DateTime = &v
 }
 
-// GetTenantID returns the TenantID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalCreateDto) GetTenantID() string {
-	if o == nil || IsNil(o.TenantID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantID.Get()
-}
-
-// GetTenantIDOk returns a tuple with the TenantID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalCreateDto) GetTenantIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantID.Get(), o.TenantID.IsSet()
-}
-
-// HasTenantID returns a boolean if a field has been set.
-func (o *JournalCreateDto) HasTenantID() bool {
-	if o != nil && o.TenantID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantID gets a reference to the given NullableString and assigns it to the TenantID field.
-func (o *JournalCreateDto) SetTenantID(v string) {
-	o.TenantID.Set(&v)
-}
-// SetTenantIDNil sets the value for TenantID to be an explicit nil
-func (o *JournalCreateDto) SetTenantIDNil() {
-	o.TenantID.Set(nil)
-}
-
-// UnsetTenantID ensures that no value is present for TenantID, not even an explicit nil
-func (o *JournalCreateDto) UnsetTenantID() {
-	o.TenantID.Unset()
-}
-
-// GetEnrollmentID returns the EnrollmentID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalCreateDto) GetEnrollmentID() string {
-	if o == nil || IsNil(o.EnrollmentID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentID.Get()
-}
-
-// GetEnrollmentIDOk returns a tuple with the EnrollmentID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalCreateDto) GetEnrollmentIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentID.Get(), o.EnrollmentID.IsSet()
-}
-
-// HasEnrollmentID returns a boolean if a field has been set.
-func (o *JournalCreateDto) HasEnrollmentID() bool {
-	if o != nil && o.EnrollmentID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentID gets a reference to the given NullableString and assigns it to the EnrollmentID field.
-func (o *JournalCreateDto) SetEnrollmentID(v string) {
-	o.EnrollmentID.Set(&v)
-}
-// SetEnrollmentIDNil sets the value for EnrollmentID to be an explicit nil
-func (o *JournalCreateDto) SetEnrollmentIDNil() {
-	o.EnrollmentID.Set(nil)
-}
-
-// UnsetEnrollmentID ensures that no value is present for EnrollmentID, not even an explicit nil
-func (o *JournalCreateDto) UnsetEnrollmentID() {
-	o.EnrollmentID.Unset()
-}
-
 // GetParentJournalID returns the ParentJournalID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *JournalCreateDto) GetParentJournalID() string {
 	if o == nil || IsNil(o.ParentJournalID.Get()) {
@@ -449,12 +363,6 @@ func (o JournalCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DateTime) {
 		toSerialize["dateTime"] = o.DateTime
-	}
-	if o.TenantID.IsSet() {
-		toSerialize["tenantID"] = o.TenantID.Get()
-	}
-	if o.EnrollmentID.IsSet() {
-		toSerialize["enrollmentID"] = o.EnrollmentID.Get()
 	}
 	if o.ParentJournalID.IsSet() {
 		toSerialize["parentJournalID"] = o.ParentJournalID.Get()

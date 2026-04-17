@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **OverallScore** | Pointer to **float64** |  | [optional] 
 **CourseID** | **string** |  | 
-**BusinessID** | **string** |  | 
 **CourseUnitID** | Pointer to **NullableString** |  | [optional] 
 **CourseGradingRubricID** | Pointer to **NullableString** |  | [optional] 
 **ReleaseDateTime** | Pointer to **NullableTime** |  | [optional] 
@@ -19,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewCourseProblemSetCreateDto
 
-`func NewCourseProblemSetCreateDto(title string, courseID string, businessID string, ) *CourseProblemSetCreateDto`
+`func NewCourseProblemSetCreateDto(title string, courseID string, ) *CourseProblemSetCreateDto`
 
 NewCourseProblemSetCreateDto instantiates a new CourseProblemSetCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -182,26 +181,6 @@ and a boolean to check if the value has been set.
 `func (o *CourseProblemSetCreateDto) SetCourseID(v string)`
 
 SetCourseID sets CourseID field to given value.
-
-
-### GetBusinessID
-
-`func (o *CourseProblemSetCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *CourseProblemSetCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *CourseProblemSetCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
 
 
 ### GetCourseUnitID

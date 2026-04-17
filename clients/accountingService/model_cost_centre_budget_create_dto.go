@@ -24,7 +24,6 @@ type CostCentreBudgetCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Name NullableString `json:"name,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	FiscalYearId NullableString `json:"fiscalYearId,omitempty"`
 	CostCentreId NullableString `json:"costCentreId,omitempty"`
 }
@@ -152,48 +151,6 @@ func (o *CostCentreBudgetCreateDto) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CostCentreBudgetCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CostCentreBudgetCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *CostCentreBudgetCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *CostCentreBudgetCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *CostCentreBudgetCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *CostCentreBudgetCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetFiscalYearId returns the FiscalYearId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CostCentreBudgetCreateDto) GetFiscalYearId() string {
 	if o == nil || IsNil(o.FiscalYearId.Get()) {
@@ -296,9 +253,6 @@ func (o CostCentreBudgetCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
 	}
 	if o.FiscalYearId.IsSet() {
 		toSerialize["fiscalYearId"] = o.FiscalYearId.Get()

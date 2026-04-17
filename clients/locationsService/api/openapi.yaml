@@ -1060,7 +1060,6 @@ components:
         unit: unit
         canGenerateLabels: true
         phone: phone
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         fax: fax
         email: email
@@ -1107,9 +1106,6 @@ components:
           nullable: true
           type: string
         countryId:
-          nullable: true
-          type: string
-        tenantId:
           nullable: true
           type: string
         longitude:
@@ -1384,7 +1380,6 @@ components:
         unit: unit
         canGenerateLabels: true
         phone: phone
-        tenantId: tenantId
         fax: fax
         email: email
         longitude: 0.8008281904610115
@@ -1423,9 +1418,6 @@ components:
           nullable: true
           type: string
         countryId:
-          nullable: true
-          type: string
-        tenantId:
           nullable: true
           type: string
         longitude:

@@ -25,8 +25,6 @@ var _ MappedNullable = &TenantTeamEmployeeEnrollmentCreateDto{}
 type TenantTeamEmployeeEnrollmentCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	BusinessID string `json:"businessID"`
-	BusinessProfileRecordID string `json:"businessProfileRecordID"`
 	BusinessTeamID string `json:"businessTeamID"`
 	EmployeeProfileID string `json:"employeeProfileID"`
 }
@@ -37,10 +35,8 @@ type _TenantTeamEmployeeEnrollmentCreateDto TenantTeamEmployeeEnrollmentCreateDt
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTenantTeamEmployeeEnrollmentCreateDto(businessID string, businessProfileRecordID string, businessTeamID string, employeeProfileID string) *TenantTeamEmployeeEnrollmentCreateDto {
+func NewTenantTeamEmployeeEnrollmentCreateDto(businessTeamID string, employeeProfileID string) *TenantTeamEmployeeEnrollmentCreateDto {
 	this := TenantTeamEmployeeEnrollmentCreateDto{}
-	this.BusinessID = businessID
-	this.BusinessProfileRecordID = businessProfileRecordID
 	this.BusinessTeamID = businessTeamID
 	this.EmployeeProfileID = employeeProfileID
 	return &this
@@ -118,54 +114,6 @@ func (o *TenantTeamEmployeeEnrollmentCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *TenantTeamEmployeeEnrollmentCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *TenantTeamEmployeeEnrollmentCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *TenantTeamEmployeeEnrollmentCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value
-func (o *TenantTeamEmployeeEnrollmentCreateDto) GetBusinessProfileRecordID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessProfileRecordID
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value
-// and a boolean to check if the value has been set.
-func (o *TenantTeamEmployeeEnrollmentCreateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessProfileRecordID, true
-}
-
-// SetBusinessProfileRecordID sets field value
-func (o *TenantTeamEmployeeEnrollmentCreateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID = v
-}
-
 // GetBusinessTeamID returns the BusinessTeamID field value
 func (o *TenantTeamEmployeeEnrollmentCreateDto) GetBusinessTeamID() string {
 	if o == nil {
@@ -230,8 +178,6 @@ func (o TenantTeamEmployeeEnrollmentCreateDto) ToMap() (map[string]interface{}, 
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-	toSerialize["businessID"] = o.BusinessID
-	toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID
 	toSerialize["businessTeamID"] = o.BusinessTeamID
 	toSerialize["employeeProfileID"] = o.EmployeeProfileID
 	return toSerialize, nil
@@ -242,8 +188,6 @@ func (o *TenantTeamEmployeeEnrollmentCreateDto) UnmarshalJSON(data []byte) (err 
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"businessID",
-		"businessProfileRecordID",
 		"businessTeamID",
 		"employeeProfileID",
 	}

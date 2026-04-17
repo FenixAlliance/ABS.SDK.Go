@@ -10,14 +10,13 @@ Name | Type | Description | Notes
 **NeedsRevision** | **bool** |  | 
 **Question** | **string** |  | 
 **SocialProfileID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | **string** |  | 
 **ItemID** | **string** |  | 
 
 ## Methods
 
 ### NewItemQuestionCreateDto
 
-`func NewItemQuestionCreateDto(title string, needsRevision bool, question string, businessID string, itemID string, ) *ItemQuestionCreateDto`
+`func NewItemQuestionCreateDto(title string, needsRevision bool, question string, itemID string, ) *ItemQuestionCreateDto`
 
 NewItemQuestionCreateDto instantiates a new ItemQuestionCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -177,26 +176,6 @@ HasSocialProfileID returns a boolean if a field has been set.
 `func (o *ItemQuestionCreateDto) UnsetSocialProfileID()`
 
 UnsetSocialProfileID ensures that no value is present for SocialProfileID, not even an explicit nil
-### GetBusinessID
-
-`func (o *ItemQuestionCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *ItemQuestionCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *ItemQuestionCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-
 ### GetItemID
 
 `func (o *ItemQuestionCreateDto) GetItemID() string`

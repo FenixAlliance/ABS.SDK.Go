@@ -27,7 +27,6 @@ type WebPortalUpdateDto struct {
 	Description NullableString `json:"description,omitempty"`
 	WebsiteThemeID NullableString `json:"websiteThemeID,omitempty"`
 	BusinessDomainID NullableString `json:"businessDomainID,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	BusinessPortalApplicationID NullableString `json:"businessPortalApplicationID,omitempty"`
 }
 
@@ -322,48 +321,6 @@ func (o *WebPortalUpdateDto) UnsetBusinessDomainID() {
 	o.BusinessDomainID.Unset()
 }
 
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WebPortalUpdateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WebPortalUpdateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *WebPortalUpdateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *WebPortalUpdateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *WebPortalUpdateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *WebPortalUpdateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
-}
-
 // GetBusinessPortalApplicationID returns the BusinessPortalApplicationID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WebPortalUpdateDto) GetBusinessPortalApplicationID() string {
 	if o == nil || IsNil(o.BusinessPortalApplicationID.Get()) {
@@ -436,9 +393,6 @@ func (o WebPortalUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.BusinessDomainID.IsSet() {
 		toSerialize["businessDomainID"] = o.BusinessDomainID.Get()
-	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
 	}
 	if o.BusinessPortalApplicationID.IsSet() {
 		toSerialize["businessPortalApplicationID"] = o.BusinessPortalApplicationID.Get()

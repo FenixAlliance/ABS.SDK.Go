@@ -13,6 +13,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the SupportTicketPriorityCreateDto type satisfies the MappedNullable interface at compile time
@@ -20,9 +21,10 @@ var _ MappedNullable = &SupportTicketPriorityCreateDto{}
 
 // SupportTicketPriorityCreateDto struct for SupportTicketPriorityCreateDto
 type SupportTicketPriorityCreateDto struct {
+	Id *string `json:"id,omitempty"`
+	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	Description NullableString `json:"description,omitempty"`
-	BusinessID NullableString `json:"businessID,omitempty"`
 	SupportEntitlementID NullableString `json:"supportEntitlementID,omitempty"`
 }
 
@@ -41,6 +43,70 @@ func NewSupportTicketPriorityCreateDto() *SupportTicketPriorityCreateDto {
 func NewSupportTicketPriorityCreateDtoWithDefaults() *SupportTicketPriorityCreateDto {
 	this := SupportTicketPriorityCreateDto{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *SupportTicketPriorityCreateDto) GetId() string {
+	if o == nil || IsNil(o.Id) {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SupportTicketPriorityCreateDto) GetIdOk() (*string, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *SupportTicketPriorityCreateDto) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *SupportTicketPriorityCreateDto) SetId(v string) {
+	o.Id = &v
+}
+
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+func (o *SupportTicketPriorityCreateDto) GetTimestamp() time.Time {
+	if o == nil || IsNil(o.Timestamp) {
+		var ret time.Time
+		return ret
+	}
+	return *o.Timestamp
+}
+
+// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SupportTicketPriorityCreateDto) GetTimestampOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.Timestamp) {
+		return nil, false
+	}
+	return o.Timestamp, true
+}
+
+// HasTimestamp returns a boolean if a field has been set.
+func (o *SupportTicketPriorityCreateDto) HasTimestamp() bool {
+	if o != nil && !IsNil(o.Timestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
+func (o *SupportTicketPriorityCreateDto) SetTimestamp(v time.Time) {
+	o.Timestamp = &v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -127,48 +193,6 @@ func (o *SupportTicketPriorityCreateDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportTicketPriorityCreateDto) GetBusinessID() string {
-	if o == nil || IsNil(o.BusinessID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessID.Get()
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportTicketPriorityCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessID.Get(), o.BusinessID.IsSet()
-}
-
-// HasBusinessID returns a boolean if a field has been set.
-func (o *SupportTicketPriorityCreateDto) HasBusinessID() bool {
-	if o != nil && o.BusinessID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessID gets a reference to the given NullableString and assigns it to the BusinessID field.
-func (o *SupportTicketPriorityCreateDto) SetBusinessID(v string) {
-	o.BusinessID.Set(&v)
-}
-// SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-func (o *SupportTicketPriorityCreateDto) SetBusinessIDNil() {
-	o.BusinessID.Set(nil)
-}
-
-// UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-func (o *SupportTicketPriorityCreateDto) UnsetBusinessID() {
-	o.BusinessID.Unset()
-}
-
 // GetSupportEntitlementID returns the SupportEntitlementID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SupportTicketPriorityCreateDto) GetSupportEntitlementID() string {
 	if o == nil || IsNil(o.SupportEntitlementID.Get()) {
@@ -221,14 +245,17 @@ func (o SupportTicketPriorityCreateDto) MarshalJSON() ([]byte, error) {
 
 func (o SupportTicketPriorityCreateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Timestamp) {
+		toSerialize["timestamp"] = o.Timestamp
+	}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
-	}
-	if o.BusinessID.IsSet() {
-		toSerialize["businessID"] = o.BusinessID.Get()
 	}
 	if o.SupportEntitlementID.IsSet() {
 		toSerialize["supportEntitlementID"] = o.SupportEntitlementID.Get()

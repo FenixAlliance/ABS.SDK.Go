@@ -26,10 +26,8 @@ type CourseCertificateTemplateCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	CourseID string `json:"courseID"`
-	BusinessID string `json:"businessID"`
 	WebPortalID NullableString `json:"webPortalID,omitempty"`
 	WebsiteThemeID NullableString `json:"websiteThemeID,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	SocialProfileID NullableString `json:"socialProfileID,omitempty"`
 	ParentWebContentID NullableString `json:"parentWebContentID,omitempty"`
 	ParentWebContentVersionID NullableString `json:"parentWebContentVersionID,omitempty"`
@@ -41,10 +39,9 @@ type _CourseCertificateTemplateCreateDto CourseCertificateTemplateCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseCertificateTemplateCreateDto(courseID string, businessID string) *CourseCertificateTemplateCreateDto {
+func NewCourseCertificateTemplateCreateDto(courseID string) *CourseCertificateTemplateCreateDto {
 	this := CourseCertificateTemplateCreateDto{}
 	this.CourseID = courseID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -144,30 +141,6 @@ func (o *CourseCertificateTemplateCreateDto) SetCourseID(v string) {
 	o.CourseID = v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseCertificateTemplateCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseCertificateTemplateCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseCertificateTemplateCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 // GetWebPortalID returns the WebPortalID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CourseCertificateTemplateCreateDto) GetWebPortalID() string {
 	if o == nil || IsNil(o.WebPortalID.Get()) {
@@ -250,48 +223,6 @@ func (o *CourseCertificateTemplateCreateDto) SetWebsiteThemeIDNil() {
 // UnsetWebsiteThemeID ensures that no value is present for WebsiteThemeID, not even an explicit nil
 func (o *CourseCertificateTemplateCreateDto) UnsetWebsiteThemeID() {
 	o.WebsiteThemeID.Unset()
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CourseCertificateTemplateCreateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CourseCertificateTemplateCreateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *CourseCertificateTemplateCreateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *CourseCertificateTemplateCreateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *CourseCertificateTemplateCreateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *CourseCertificateTemplateCreateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
 }
 
 // GetSocialProfileID returns the SocialProfileID field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -437,15 +368,11 @@ func (o CourseCertificateTemplateCreateDto) ToMap() (map[string]interface{}, err
 		toSerialize["timestamp"] = o.Timestamp
 	}
 	toSerialize["courseID"] = o.CourseID
-	toSerialize["businessID"] = o.BusinessID
 	if o.WebPortalID.IsSet() {
 		toSerialize["webPortalID"] = o.WebPortalID.Get()
 	}
 	if o.WebsiteThemeID.IsSet() {
 		toSerialize["websiteThemeID"] = o.WebsiteThemeID.Get()
-	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
 	}
 	if o.SocialProfileID.IsSet() {
 		toSerialize["socialProfileID"] = o.SocialProfileID.Get()
@@ -465,7 +392,6 @@ func (o *CourseCertificateTemplateCreateDto) UnmarshalJSON(data []byte) (err err
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"courseID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

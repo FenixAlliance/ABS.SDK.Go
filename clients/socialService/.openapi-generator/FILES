@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -145,9 +144,4 @@ model_social_reaction_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_fenix_alliance_abp_web_test.go
-test/api_social_feeds_test.go
-test/api_social_groups_test.go
-test/api_social_posts_test.go
-test/api_social_profiles_test.go
 utils.go

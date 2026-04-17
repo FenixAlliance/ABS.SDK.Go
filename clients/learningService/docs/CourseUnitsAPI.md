@@ -37,7 +37,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseUnitCreateDto := *openapiclient.NewCourseUnitCreateDto("Title_example", "CourseID_example", "CourseSectionID_example", "BusinessID_example") // CourseUnitCreateDto |  (optional)
+	courseUnitCreateDto := *openapiclient.NewCourseUnitCreateDto("Title_example", "CourseID_example", "CourseSectionID_example") // CourseUnitCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

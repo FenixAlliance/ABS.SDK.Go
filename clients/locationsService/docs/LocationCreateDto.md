@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **StateId** | Pointer to **NullableString** |  | [optional] 
 **PostalCode** | Pointer to **NullableString** |  | [optional] 
 **CountryId** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **Longitude** | Pointer to **float64** |  | [optional] 
 **Latitude** | Pointer to **float64** |  | [optional] 
 **IsRoutable** | Pointer to **bool** |  | [optional] 
@@ -518,41 +517,6 @@ HasCountryId returns a boolean if a field has been set.
 `func (o *LocationCreateDto) UnsetCountryId()`
 
 UnsetCountryId ensures that no value is present for CountryId, not even an explicit nil
-### GetTenantId
-
-`func (o *LocationCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *LocationCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *LocationCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *LocationCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *LocationCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *LocationCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetLongitude
 
 `func (o *LocationCreateDto) GetLongitude() float64`

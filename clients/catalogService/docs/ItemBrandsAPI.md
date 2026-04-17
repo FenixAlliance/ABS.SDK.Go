@@ -36,7 +36,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	itemBrandCreateDto := *openapiclient.NewItemBrandCreateDto("Name_example", "BusinessID_example") // ItemBrandCreateDto |  (optional)
+	itemBrandCreateDto := *openapiclient.NewItemBrandCreateDto("Name_example") // ItemBrandCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

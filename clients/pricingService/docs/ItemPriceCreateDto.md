@@ -8,11 +8,9 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **ItemId** | **string** |  | 
 **UnitId** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **PriceListId** | Pointer to **NullableString** |  | [optional] 
 **UnitGroupId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **DiscountListId** | Pointer to **NullableString** |  | [optional] 
 **RoundingPolicyId** | Pointer to **NullableString** |  | [optional] 
 **Price** | Pointer to **float64** |  | [optional] 
@@ -142,41 +140,6 @@ HasUnitId returns a boolean if a field has been set.
 `func (o *ItemPriceCreateDto) UnsetUnitId()`
 
 UnsetUnitId ensures that no value is present for UnitId, not even an explicit nil
-### GetTenantId
-
-`func (o *ItemPriceCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *ItemPriceCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *ItemPriceCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *ItemPriceCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *ItemPriceCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *ItemPriceCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetCurrencyId
 
 `func (o *ItemPriceCreateDto) GetCurrencyId() string`
@@ -282,41 +245,6 @@ HasUnitGroupId returns a boolean if a field has been set.
 `func (o *ItemPriceCreateDto) UnsetUnitGroupId()`
 
 UnsetUnitGroupId ensures that no value is present for UnitGroupId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *ItemPriceCreateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *ItemPriceCreateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *ItemPriceCreateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *ItemPriceCreateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *ItemPriceCreateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *ItemPriceCreateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetDiscountListId
 
 `func (o *ItemPriceCreateDto) GetDiscountListId() string`

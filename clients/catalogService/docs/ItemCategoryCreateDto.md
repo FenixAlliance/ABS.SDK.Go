@@ -9,15 +9,13 @@ Name | Type | Description | Notes
 **Title** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **ImageURL** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | **string** |  | 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **ParentItemCategoryID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewItemCategoryCreateDto
 
-`func NewItemCategoryCreateDto(title string, businessID string, ) *ItemCategoryCreateDto`
+`func NewItemCategoryCreateDto(title string, ) *ItemCategoryCreateDto`
 
 NewItemCategoryCreateDto instantiates a new ItemCategoryCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -172,61 +170,6 @@ HasImageURL returns a boolean if a field has been set.
 `func (o *ItemCategoryCreateDto) UnsetImageURL()`
 
 UnsetImageURL ensures that no value is present for ImageURL, not even an explicit nil
-### GetBusinessID
-
-`func (o *ItemCategoryCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *ItemCategoryCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *ItemCategoryCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-
-### GetBusinessProfileRecordID
-
-`func (o *ItemCategoryCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *ItemCategoryCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *ItemCategoryCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *ItemCategoryCreateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *ItemCategoryCreateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *ItemCategoryCreateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetParentItemCategoryID
 
 `func (o *ItemCategoryCreateDto) GetParentItemCategoryID() string`

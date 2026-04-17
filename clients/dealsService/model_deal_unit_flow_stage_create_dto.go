@@ -26,9 +26,7 @@ type DealUnitFlowStageCreateDto struct {
 	Order *int32 `json:"order,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	DealUnitFlowId NullableString `json:"dealUnitFlowId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	Description NullableString `json:"description,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	ParentBusinessProcessStageId NullableString `json:"parentBusinessProcessStageId,omitempty"`
 }
 
@@ -229,48 +227,6 @@ func (o *DealUnitFlowStageCreateDto) UnsetDealUnitFlowId() {
 	o.DealUnitFlowId.Unset()
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitFlowStageCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitFlowStageCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *DealUnitFlowStageCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *DealUnitFlowStageCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *DealUnitFlowStageCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *DealUnitFlowStageCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DealUnitFlowStageCreateDto) GetDescription() string {
 	if o == nil || IsNil(o.Description.Get()) {
@@ -311,48 +267,6 @@ func (o *DealUnitFlowStageCreateDto) SetDescriptionNil() {
 // UnsetDescription ensures that no value is present for Description, not even an explicit nil
 func (o *DealUnitFlowStageCreateDto) UnsetDescription() {
 	o.Description.Unset()
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitFlowStageCreateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitFlowStageCreateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *DealUnitFlowStageCreateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *DealUnitFlowStageCreateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *DealUnitFlowStageCreateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *DealUnitFlowStageCreateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
 }
 
 // GetParentBusinessProcessStageId returns the ParentBusinessProcessStageId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -422,14 +336,8 @@ func (o DealUnitFlowStageCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.DealUnitFlowId.IsSet() {
 		toSerialize["dealUnitFlowId"] = o.DealUnitFlowId.Get()
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if o.ParentBusinessProcessStageId.IsSet() {
 		toSerialize["parentBusinessProcessStageId"] = o.ParentBusinessProcessStageId.Get()

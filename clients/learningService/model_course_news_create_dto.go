@@ -29,7 +29,6 @@ type CourseNewsCreateDto struct {
 	Description NullableString `json:"description,omitempty"`
 	Content NullableString `json:"content,omitempty"`
 	CourseID string `json:"courseID"`
-	BusinessID string `json:"businessID"`
 }
 
 type _CourseNewsCreateDto CourseNewsCreateDto
@@ -38,11 +37,10 @@ type _CourseNewsCreateDto CourseNewsCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseNewsCreateDto(title string, courseID string, businessID string) *CourseNewsCreateDto {
+func NewCourseNewsCreateDto(title string, courseID string) *CourseNewsCreateDto {
 	this := CourseNewsCreateDto{}
 	this.Title = title
 	this.CourseID = courseID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -250,30 +248,6 @@ func (o *CourseNewsCreateDto) SetCourseID(v string) {
 	o.CourseID = v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseNewsCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseNewsCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseNewsCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 func (o CourseNewsCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -298,7 +272,6 @@ func (o CourseNewsCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["content"] = o.Content.Get()
 	}
 	toSerialize["courseID"] = o.CourseID
-	toSerialize["businessID"] = o.BusinessID
 	return toSerialize, nil
 }
 
@@ -309,7 +282,6 @@ func (o *CourseNewsCreateDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"title",
 		"courseID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

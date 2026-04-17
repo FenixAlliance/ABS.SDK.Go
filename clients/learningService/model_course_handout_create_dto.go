@@ -32,7 +32,6 @@ type CourseHandoutCreateDto struct {
 	ReleaseDateTime NullableTime `json:"releaseDateTime,omitempty"`
 	CourseID string `json:"courseID"`
 	CourseUnitID NullableString `json:"courseUnitID,omitempty"`
-	BusinessID string `json:"businessID"`
 }
 
 type _CourseHandoutCreateDto CourseHandoutCreateDto
@@ -41,11 +40,10 @@ type _CourseHandoutCreateDto CourseHandoutCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseHandoutCreateDto(name string, courseID string, businessID string) *CourseHandoutCreateDto {
+func NewCourseHandoutCreateDto(name string, courseID string) *CourseHandoutCreateDto {
 	this := CourseHandoutCreateDto{}
 	this.Name = name
 	this.CourseID = courseID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -379,30 +377,6 @@ func (o *CourseHandoutCreateDto) UnsetCourseUnitID() {
 	o.CourseUnitID.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseHandoutCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseHandoutCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseHandoutCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 func (o CourseHandoutCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -436,7 +410,6 @@ func (o CourseHandoutCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.CourseUnitID.IsSet() {
 		toSerialize["courseUnitID"] = o.CourseUnitID.Get()
 	}
-	toSerialize["businessID"] = o.BusinessID
 	return toSerialize, nil
 }
 
@@ -447,7 +420,6 @@ func (o *CourseHandoutCreateDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"name",
 		"courseID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

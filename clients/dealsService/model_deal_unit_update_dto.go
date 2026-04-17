@@ -24,10 +24,8 @@ type DealUnitUpdateDto struct {
 	Closed *bool `json:"closed,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	UserId NullableString `json:"userId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	PriceListId NullableString `json:"priceListId,omitempty"`
 	Description NullableString `json:"description,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	IndividualId NullableString `json:"individualId,omitempty"`
 	PaymentTermId NullableString `json:"paymentTermId,omitempty"`
 	OrganizationId NullableString `json:"organizationId,omitempty"`
@@ -228,48 +226,6 @@ func (o *DealUnitUpdateDto) UnsetUserId() {
 	o.UserId.Unset()
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitUpdateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitUpdateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *DealUnitUpdateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *DealUnitUpdateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *DealUnitUpdateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *DealUnitUpdateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetPriceListId returns the PriceListId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DealUnitUpdateDto) GetPriceListId() string {
 	if o == nil || IsNil(o.PriceListId.Get()) {
@@ -352,48 +308,6 @@ func (o *DealUnitUpdateDto) SetDescriptionNil() {
 // UnsetDescription ensures that no value is present for Description, not even an explicit nil
 func (o *DealUnitUpdateDto) UnsetDescription() {
 	o.Description.Unset()
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitUpdateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitUpdateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *DealUnitUpdateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *DealUnitUpdateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *DealUnitUpdateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *DealUnitUpdateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
 }
 
 // GetIndividualId returns the IndividualId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2865,17 +2779,11 @@ func (o DealUnitUpdateDto) ToMap() (map[string]interface{}, error) {
 	if o.UserId.IsSet() {
 		toSerialize["userId"] = o.UserId.Get()
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
 	if o.PriceListId.IsSet() {
 		toSerialize["priceListId"] = o.PriceListId.Get()
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if o.IndividualId.IsSet() {
 		toSerialize["individualId"] = o.IndividualId.Get()

@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -329,17 +328,4 @@ model_web_template_dto_envelope.go
 model_web_template_dto_list_envelope.go
 model_web_template_update_dto.go
 response.go
-test/api_blog_post_authors_test.go
-test/api_blog_post_categories_test.go
-test/api_blog_post_tags_test.go
-test/api_blog_posts_test.go
-test/api_business_domains_test.go
-test/api_fenix_alliance_abp_web_test.go
-test/api_portals_test.go
-test/api_themes_test.go
-test/api_web_contents_test.go
-test/api_web_page_categories_test.go
-test/api_web_page_tags_test.go
-test/api_web_pages_test.go
-test/api_web_templates_test.go
 utils.go

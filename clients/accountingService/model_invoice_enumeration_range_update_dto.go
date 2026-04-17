@@ -31,8 +31,6 @@ type InvoiceEnumerationRangeUpdateDto struct {
 	ValidFrom *time.Time `json:"validFrom,omitempty"`
 	ValidTo *time.Time `json:"validTo,omitempty"`
 	FiscalAuthorityId NullableString `json:"fiscalAuthorityId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	DocumentType *string `json:"documentType,omitempty"`
 }
 
@@ -423,90 +421,6 @@ func (o *InvoiceEnumerationRangeUpdateDto) UnsetFiscalAuthorityId() {
 	o.FiscalAuthorityId.Unset()
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *InvoiceEnumerationRangeUpdateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *InvoiceEnumerationRangeUpdateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *InvoiceEnumerationRangeUpdateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *InvoiceEnumerationRangeUpdateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *InvoiceEnumerationRangeUpdateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *InvoiceEnumerationRangeUpdateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *InvoiceEnumerationRangeUpdateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *InvoiceEnumerationRangeUpdateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *InvoiceEnumerationRangeUpdateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *InvoiceEnumerationRangeUpdateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *InvoiceEnumerationRangeUpdateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *InvoiceEnumerationRangeUpdateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
-}
-
 // GetDocumentType returns the DocumentType field value if set, zero value otherwise.
 func (o *InvoiceEnumerationRangeUpdateDto) GetDocumentType() string {
 	if o == nil || IsNil(o.DocumentType) {
@@ -578,12 +492,6 @@ func (o InvoiceEnumerationRangeUpdateDto) ToMap() (map[string]interface{}, error
 	}
 	if o.FiscalAuthorityId.IsSet() {
 		toSerialize["fiscalAuthorityId"] = o.FiscalAuthorityId.Get()
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if !IsNil(o.DocumentType) {
 		toSerialize["documentType"] = o.DocumentType

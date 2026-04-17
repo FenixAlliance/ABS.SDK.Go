@@ -29,7 +29,6 @@ type CourseSectionCreateDto struct {
 	Icon NullableString `json:"icon,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	CourseID string `json:"courseID"`
-	BusinessID string `json:"businessID"`
 	ReleaseDateTime NullableTime `json:"releaseDateTime,omitempty"`
 	HideFromStudents *bool `json:"hideFromStudents,omitempty"`
 }
@@ -40,11 +39,10 @@ type _CourseSectionCreateDto CourseSectionCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseSectionCreateDto(name string, courseID string, businessID string) *CourseSectionCreateDto {
+func NewCourseSectionCreateDto(name string, courseID string) *CourseSectionCreateDto {
 	this := CourseSectionCreateDto{}
 	this.Name = name
 	this.CourseID = courseID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -252,30 +250,6 @@ func (o *CourseSectionCreateDto) SetCourseID(v string) {
 	o.CourseID = v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseSectionCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseSectionCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseSectionCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 // GetReleaseDateTime returns the ReleaseDateTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CourseSectionCreateDto) GetReleaseDateTime() time.Time {
 	if o == nil || IsNil(o.ReleaseDateTime.Get()) {
@@ -374,7 +348,6 @@ func (o CourseSectionCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["description"] = o.Description.Get()
 	}
 	toSerialize["courseID"] = o.CourseID
-	toSerialize["businessID"] = o.BusinessID
 	if o.ReleaseDateTime.IsSet() {
 		toSerialize["releaseDateTime"] = o.ReleaseDateTime.Get()
 	}
@@ -391,7 +364,6 @@ func (o *CourseSectionCreateDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"name",
 		"courseID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

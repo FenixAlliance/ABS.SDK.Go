@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **CourseID** | Pointer to **NullableString** |  | [optional] 
 **CourseCohortID** | Pointer to **NullableString** |  | [optional] 
 **StudentProfileID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **CourseCompletionCertificateID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -186,41 +185,6 @@ HasStudentProfileID returns a boolean if a field has been set.
 `func (o *CourseEnrollmentCreateDto) UnsetStudentProfileID()`
 
 UnsetStudentProfileID ensures that no value is present for StudentProfileID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *CourseEnrollmentCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *CourseEnrollmentCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *CourseEnrollmentCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *CourseEnrollmentCreateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *CourseEnrollmentCreateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *CourseEnrollmentCreateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetCourseCompletionCertificateID
 
 `func (o *CourseEnrollmentCreateDto) GetCourseCompletionCertificateID() string`

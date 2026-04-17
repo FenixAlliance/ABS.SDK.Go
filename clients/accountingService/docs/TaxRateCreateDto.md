@@ -20,12 +20,10 @@ Name | Type | Description | Notes
 **CumulativeTransactionThreshold** | Pointer to **float64** |  | [optional] 
 **FiscalAuthorityId** | Pointer to **NullableString** |  | [optional] 
 **FiscalYearId** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **CountryId** | Pointer to **NullableString** |  | [optional] 
 **TaxClassId** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TaxPolicyId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -506,41 +504,6 @@ HasFiscalYearId returns a boolean if a field has been set.
 `func (o *TaxRateCreateDto) UnsetFiscalYearId()`
 
 UnsetFiscalYearId ensures that no value is present for FiscalYearId, not even an explicit nil
-### GetTenantId
-
-`func (o *TaxRateCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *TaxRateCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *TaxRateCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *TaxRateCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *TaxRateCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *TaxRateCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetCountryId
 
 `func (o *TaxRateCreateDto) GetCountryId() string`
@@ -681,41 +644,6 @@ HasTaxPolicyId returns a boolean if a field has been set.
 `func (o *TaxRateCreateDto) UnsetTaxPolicyId()`
 
 UnsetTaxPolicyId ensures that no value is present for TaxPolicyId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *TaxRateCreateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *TaxRateCreateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *TaxRateCreateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *TaxRateCreateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *TaxRateCreateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *TaxRateCreateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

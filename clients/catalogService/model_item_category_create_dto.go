@@ -28,8 +28,6 @@ type ItemCategoryCreateDto struct {
 	Title string `json:"title"`
 	Description NullableString `json:"description,omitempty"`
 	ImageURL NullableString `json:"imageURL,omitempty"`
-	BusinessID string `json:"businessID"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	ParentItemCategoryID NullableString `json:"parentItemCategoryID,omitempty"`
 }
 
@@ -39,10 +37,9 @@ type _ItemCategoryCreateDto ItemCategoryCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemCategoryCreateDto(title string, businessID string) *ItemCategoryCreateDto {
+func NewItemCategoryCreateDto(title string) *ItemCategoryCreateDto {
 	this := ItemCategoryCreateDto{}
 	this.Title = title
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -226,72 +223,6 @@ func (o *ItemCategoryCreateDto) UnsetImageURL() {
 	o.ImageURL.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *ItemCategoryCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *ItemCategoryCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *ItemCategoryCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemCategoryCreateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemCategoryCreateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *ItemCategoryCreateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *ItemCategoryCreateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *ItemCategoryCreateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *ItemCategoryCreateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
-}
-
 // GetParentItemCategoryID returns the ParentItemCategoryID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ItemCategoryCreateDto) GetParentItemCategoryID() string {
 	if o == nil || IsNil(o.ParentItemCategoryID.Get()) {
@@ -357,10 +288,6 @@ func (o ItemCategoryCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.ImageURL.IsSet() {
 		toSerialize["imageURL"] = o.ImageURL.Get()
 	}
-	toSerialize["businessID"] = o.BusinessID
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
-	}
 	if o.ParentItemCategoryID.IsSet() {
 		toSerialize["parentItemCategoryID"] = o.ParentItemCategoryID.Get()
 	}
@@ -373,7 +300,6 @@ func (o *ItemCategoryCreateDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"title",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

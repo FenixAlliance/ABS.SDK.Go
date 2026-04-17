@@ -107,7 +107,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	itemCategoryCreateDto := *openapiclient.NewItemCategoryCreateDto("Title_example", "BusinessID_example") // ItemCategoryCreateDto |  (optional)
+	itemCategoryCreateDto := *openapiclient.NewItemCategoryCreateDto("Title_example") // ItemCategoryCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

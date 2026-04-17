@@ -12,9 +12,7 @@ Name | Type | Description | Notes
 **Code** | Pointer to **NullableString** |  | [optional] 
 **Path** | Pointer to **NullableString** |  | [optional] 
 **Prefix** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | **string** |  | 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **AccountTypeId** | Pointer to **NullableString** |  | [optional] 
 **ParentAccountId** | Pointer to **NullableString** |  | [optional] 
 **AccountCategory** | **string** |  | 
@@ -270,41 +268,6 @@ HasPrefix returns a boolean if a field has been set.
 `func (o *BankAccountCreateDto) UnsetPrefix()`
 
 UnsetPrefix ensures that no value is present for Prefix, not even an explicit nil
-### GetTenantId
-
-`func (o *BankAccountCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *BankAccountCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *BankAccountCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *BankAccountCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *BankAccountCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *BankAccountCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetCurrencyId
 
 `func (o *BankAccountCreateDto) GetCurrencyId() string`
@@ -325,41 +288,6 @@ and a boolean to check if the value has been set.
 SetCurrencyId sets CurrencyId field to given value.
 
 
-### GetEnrollmentId
-
-`func (o *BankAccountCreateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *BankAccountCreateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *BankAccountCreateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *BankAccountCreateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *BankAccountCreateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *BankAccountCreateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetAccountTypeId
 
 `func (o *BankAccountCreateDto) GetAccountTypeId() string`

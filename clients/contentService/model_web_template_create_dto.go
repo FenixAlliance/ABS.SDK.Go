@@ -21,8 +21,8 @@ var _ MappedNullable = &WebTemplateCreateDto{}
 
 // WebTemplateCreateDto struct for WebTemplateCreateDto
 type WebTemplateCreateDto struct {
-	Id NullableString `json:"id,omitempty"`
-	Timestamp NullableTime `json:"timestamp,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Slug NullableString `json:"slug,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	Title NullableString `json:"title,omitempty"`
@@ -53,88 +53,68 @@ func NewWebTemplateCreateDtoWithDefaults() *WebTemplateCreateDto {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *WebTemplateCreateDto) GetId() string {
-	if o == nil || IsNil(o.Id.Get()) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
-	return *o.Id.Get()
+	return *o.Id
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebTemplateCreateDto) GetIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return o.Id.Get(), o.Id.IsSet()
+	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *WebTemplateCreateDto) HasId() bool {
-	if o != nil && o.Id.IsSet() {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given NullableString and assigns it to the Id field.
+// SetId gets a reference to the given string and assigns it to the Id field.
 func (o *WebTemplateCreateDto) SetId(v string) {
-	o.Id.Set(&v)
-}
-// SetIdNil sets the value for Id to be an explicit nil
-func (o *WebTemplateCreateDto) SetIdNil() {
-	o.Id.Set(nil)
+	o.Id = &v
 }
 
-// UnsetId ensures that no value is present for Id, not even an explicit nil
-func (o *WebTemplateCreateDto) UnsetId() {
-	o.Id.Unset()
-}
-
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *WebTemplateCreateDto) GetTimestamp() time.Time {
-	if o == nil || IsNil(o.Timestamp.Get()) {
+	if o == nil || IsNil(o.Timestamp) {
 		var ret time.Time
 		return ret
 	}
-	return *o.Timestamp.Get()
+	return *o.Timestamp
 }
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebTemplateCreateDto) GetTimestampOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Timestamp) {
 		return nil, false
 	}
-	return o.Timestamp.Get(), o.Timestamp.IsSet()
+	return o.Timestamp, true
 }
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *WebTemplateCreateDto) HasTimestamp() bool {
-	if o != nil && o.Timestamp.IsSet() {
+	if o != nil && !IsNil(o.Timestamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
+// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
 func (o *WebTemplateCreateDto) SetTimestamp(v time.Time) {
-	o.Timestamp.Set(&v)
-}
-// SetTimestampNil sets the value for Timestamp to be an explicit nil
-func (o *WebTemplateCreateDto) SetTimestampNil() {
-	o.Timestamp.Set(nil)
-}
-
-// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-func (o *WebTemplateCreateDto) UnsetTimestamp() {
-	o.Timestamp.Unset()
+	o.Timestamp = &v
 }
 
 // GetSlug returns the Slug field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -599,11 +579,11 @@ func (o WebTemplateCreateDto) MarshalJSON() ([]byte, error) {
 
 func (o WebTemplateCreateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id.IsSet() {
-		toSerialize["id"] = o.Id.Get()
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
 	}
-	if o.Timestamp.IsSet() {
-		toSerialize["timestamp"] = o.Timestamp.Get()
+	if !IsNil(o.Timestamp) {
+		toSerialize["timestamp"] = o.Timestamp
 	}
 	if o.Slug.IsSet() {
 		toSerialize["slug"] = o.Slug.Get()

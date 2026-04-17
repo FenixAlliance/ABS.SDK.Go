@@ -23,7 +23,6 @@ type DealUnitFlowUpdateDto struct {
 	Name NullableString `json:"name,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	ParentBusinessProcessId NullableString `json:"parentBusinessProcessId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	TenantEnrollmentId NullableString `json:"tenantEnrollmentId,omitempty"`
 }
 
@@ -170,48 +169,6 @@ func (o *DealUnitFlowUpdateDto) UnsetParentBusinessProcessId() {
 	o.ParentBusinessProcessId.Unset()
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitFlowUpdateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitFlowUpdateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *DealUnitFlowUpdateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *DealUnitFlowUpdateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *DealUnitFlowUpdateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *DealUnitFlowUpdateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetTenantEnrollmentId returns the TenantEnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DealUnitFlowUpdateDto) GetTenantEnrollmentId() string {
 	if o == nil || IsNil(o.TenantEnrollmentId.Get()) {
@@ -272,9 +229,6 @@ func (o DealUnitFlowUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ParentBusinessProcessId.IsSet() {
 		toSerialize["parentBusinessProcessId"] = o.ParentBusinessProcessId.Get()
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
 	}
 	if o.TenantEnrollmentId.IsSet() {
 		toSerialize["tenantEnrollmentId"] = o.TenantEnrollmentId.Get()

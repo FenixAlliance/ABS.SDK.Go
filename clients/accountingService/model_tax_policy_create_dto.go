@@ -44,8 +44,6 @@ type TaxPolicyCreateDto struct {
 	CustomState NullableString `json:"customState,omitempty"`
 	CustomCity NullableString `json:"customCity,omitempty"`
 	CityId NullableString `json:"cityId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	Zero *bool `json:"zero,omitempty"`
 	Reduced *bool `json:"reduced,omitempty"`
 	Withholding *bool `json:"withholding,omitempty"`
@@ -895,90 +893,6 @@ func (o *TaxPolicyCreateDto) UnsetCityId() {
 	o.CityId.Unset()
 }
 
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TaxPolicyCreateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TaxPolicyCreateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *TaxPolicyCreateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *TaxPolicyCreateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *TaxPolicyCreateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *TaxPolicyCreateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TaxPolicyCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TaxPolicyCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *TaxPolicyCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *TaxPolicyCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *TaxPolicyCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *TaxPolicyCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetZero returns the Zero field value if set, zero value otherwise.
 func (o *TaxPolicyCreateDto) GetZero() bool {
 	if o == nil || IsNil(o.Zero) {
@@ -1195,12 +1109,6 @@ func (o TaxPolicyCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.CityId.IsSet() {
 		toSerialize["cityId"] = o.CityId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
 	}
 	if !IsNil(o.Zero) {
 		toSerialize["zero"] = o.Zero

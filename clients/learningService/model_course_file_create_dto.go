@@ -31,7 +31,6 @@ type CourseFileCreateDto struct {
 	ContentType NullableString `json:"contentType,omitempty"`
 	FileLength *int64 `json:"fileLength,omitempty"`
 	CourseID string `json:"courseID"`
-	BusinessID string `json:"businessID"`
 }
 
 type _CourseFileCreateDto CourseFileCreateDto
@@ -40,13 +39,12 @@ type _CourseFileCreateDto CourseFileCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseFileCreateDto(title string, fileName string, fileUploadURL string, courseID string, businessID string) *CourseFileCreateDto {
+func NewCourseFileCreateDto(title string, fileName string, fileUploadURL string, courseID string) *CourseFileCreateDto {
 	this := CourseFileCreateDto{}
 	this.Title = title
 	this.FileName = fileName
 	this.FileUploadURL = fileUploadURL
 	this.CourseID = courseID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -292,30 +290,6 @@ func (o *CourseFileCreateDto) SetCourseID(v string) {
 	o.CourseID = v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseFileCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseFileCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseFileCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 func (o CourseFileCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -342,7 +316,6 @@ func (o CourseFileCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["fileLength"] = o.FileLength
 	}
 	toSerialize["courseID"] = o.CourseID
-	toSerialize["businessID"] = o.BusinessID
 	return toSerialize, nil
 }
 
@@ -355,7 +328,6 @@ func (o *CourseFileCreateDto) UnmarshalJSON(data []byte) (err error) {
 		"fileName",
 		"fileUploadURL",
 		"courseID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

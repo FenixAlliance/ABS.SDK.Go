@@ -682,7 +682,7 @@ type ApiUpdateGrantAsyncRequest struct {
 	grantId string
 	apiVersion *string
 	xApiVersion *string
-	grantUpdateDto *GrantUpdateDto
+	body *map[string]interface{}
 }
 
 func (r ApiUpdateGrantAsyncRequest) TenantId(tenantId string) ApiUpdateGrantAsyncRequest {
@@ -700,8 +700,8 @@ func (r ApiUpdateGrantAsyncRequest) XApiVersion(xApiVersion string) ApiUpdateGra
 	return r
 }
 
-func (r ApiUpdateGrantAsyncRequest) GrantUpdateDto(grantUpdateDto GrantUpdateDto) ApiUpdateGrantAsyncRequest {
-	r.grantUpdateDto = &grantUpdateDto
+func (r ApiUpdateGrantAsyncRequest) Body(body map[string]interface{}) ApiUpdateGrantAsyncRequest {
+	r.body = &body
 	return r
 }
 
@@ -776,7 +776,7 @@ func (a *GrantsAPIService) UpdateGrantAsyncExecute(r ApiUpdateGrantAsyncRequest)
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.grantUpdateDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -14,8 +14,6 @@ Name | Type | Description | Notes
 **ValidFrom** | Pointer to **time.Time** |  | [optional] 
 **ValidTo** | Pointer to **time.Time** |  | [optional] 
 **FiscalAuthorityId** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **DocumentType** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -337,76 +335,6 @@ HasFiscalAuthorityId returns a boolean if a field has been set.
 `func (o *InvoiceEnumerationRangeUpdateDto) UnsetFiscalAuthorityId()`
 
 UnsetFiscalAuthorityId ensures that no value is present for FiscalAuthorityId, not even an explicit nil
-### GetTenantId
-
-`func (o *InvoiceEnumerationRangeUpdateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *InvoiceEnumerationRangeUpdateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *InvoiceEnumerationRangeUpdateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *InvoiceEnumerationRangeUpdateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *InvoiceEnumerationRangeUpdateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *InvoiceEnumerationRangeUpdateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *InvoiceEnumerationRangeUpdateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *InvoiceEnumerationRangeUpdateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *InvoiceEnumerationRangeUpdateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *InvoiceEnumerationRangeUpdateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *InvoiceEnumerationRangeUpdateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *InvoiceEnumerationRangeUpdateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetDocumentType
 
 `func (o *InvoiceEnumerationRangeUpdateDto) GetDocumentType() string`

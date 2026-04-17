@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **ImageURL** | Pointer to **NullableString** |  | [optional] 
 **GoogleCategoryTaxonomy** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | **string** |  | 
 **ItemCategoryID** | **string** |  | 
 **ItemGoogleCategoryID** | Pointer to **NullableString** |  | [optional] 
 
@@ -19,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewItemTypeCreateDto
 
-`func NewItemTypeCreateDto(businessID string, itemCategoryID string, ) *ItemTypeCreateDto`
+`func NewItemTypeCreateDto(itemCategoryID string, ) *ItemTypeCreateDto`
 
 NewItemTypeCreateDto instantiates a new ItemTypeCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -259,26 +258,6 @@ HasGoogleCategoryTaxonomy returns a boolean if a field has been set.
 `func (o *ItemTypeCreateDto) UnsetGoogleCategoryTaxonomy()`
 
 UnsetGoogleCategoryTaxonomy ensures that no value is present for GoogleCategoryTaxonomy, not even an explicit nil
-### GetBusinessID
-
-`func (o *ItemTypeCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *ItemTypeCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *ItemTypeCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-
 ### GetItemCategoryID
 
 `func (o *ItemTypeCreateDto) GetItemCategoryID() string`

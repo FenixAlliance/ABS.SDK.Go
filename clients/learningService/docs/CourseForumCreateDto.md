@@ -9,13 +9,12 @@ Name | Type | Description | Notes
 **Title** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **CourseID** | **string** |  | 
-**BusinessID** | **string** |  | 
 
 ## Methods
 
 ### NewCourseForumCreateDto
 
-`func NewCourseForumCreateDto(title string, courseID string, businessID string, ) *CourseForumCreateDto`
+`func NewCourseForumCreateDto(title string, courseID string, ) *CourseForumCreateDto`
 
 NewCourseForumCreateDto instantiates a new CourseForumCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -153,26 +152,6 @@ and a boolean to check if the value has been set.
 `func (o *CourseForumCreateDto) SetCourseID(v string)`
 
 SetCourseID sets CourseID field to given value.
-
-
-### GetBusinessID
-
-`func (o *CourseForumCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *CourseForumCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *CourseForumCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
 
 
 

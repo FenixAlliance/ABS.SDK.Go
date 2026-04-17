@@ -25,8 +25,6 @@ var _ MappedNullable = &ItemImageCreateDto{}
 type ItemImageCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	BusinessID string `json:"businessID"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
 	ItemID NullableString `json:"itemID,omitempty"`
 	IsItemMozaicBG *bool `json:"isItemMozaicBG,omitempty"`
 	MD5Hash NullableString `json:"mD5Hash,omitempty"`
@@ -43,7 +41,6 @@ type ItemImageCreateDto struct {
 	ValidResponse *bool `json:"validResponse,omitempty"`
 	SocialProfileID NullableString `json:"socialProfileID,omitempty"`
 	ParentFileUploadID NullableString `json:"parentFileUploadID,omitempty"`
-	AccountHolderID NullableString `json:"accountHolderID,omitempty"`
 }
 
 type _ItemImageCreateDto ItemImageCreateDto
@@ -52,9 +49,8 @@ type _ItemImageCreateDto ItemImageCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemImageCreateDto(businessID string, fileName string) *ItemImageCreateDto {
+func NewItemImageCreateDto(fileName string) *ItemImageCreateDto {
 	this := ItemImageCreateDto{}
-	this.BusinessID = businessID
 	this.FileName = fileName
 	return &this
 }
@@ -129,72 +125,6 @@ func (o *ItemImageCreateDto) HasTimestamp() bool {
 // SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
 func (o *ItemImageCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
-}
-
-// GetBusinessID returns the BusinessID field value
-func (o *ItemImageCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *ItemImageCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *ItemImageCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemImageCreateDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordID.Get()
-}
-
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemImageCreateDto) GetBusinessProfileRecordIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
-}
-
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *ItemImageCreateDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *ItemImageCreateDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
-}
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *ItemImageCreateDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *ItemImageCreateDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
 }
 
 // GetItemID returns the ItemID field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -821,48 +751,6 @@ func (o *ItemImageCreateDto) UnsetParentFileUploadID() {
 	o.ParentFileUploadID.Unset()
 }
 
-// GetAccountHolderID returns the AccountHolderID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemImageCreateDto) GetAccountHolderID() string {
-	if o == nil || IsNil(o.AccountHolderID.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.AccountHolderID.Get()
-}
-
-// GetAccountHolderIDOk returns a tuple with the AccountHolderID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemImageCreateDto) GetAccountHolderIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AccountHolderID.Get(), o.AccountHolderID.IsSet()
-}
-
-// HasAccountHolderID returns a boolean if a field has been set.
-func (o *ItemImageCreateDto) HasAccountHolderID() bool {
-	if o != nil && o.AccountHolderID.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountHolderID gets a reference to the given NullableString and assigns it to the AccountHolderID field.
-func (o *ItemImageCreateDto) SetAccountHolderID(v string) {
-	o.AccountHolderID.Set(&v)
-}
-// SetAccountHolderIDNil sets the value for AccountHolderID to be an explicit nil
-func (o *ItemImageCreateDto) SetAccountHolderIDNil() {
-	o.AccountHolderID.Set(nil)
-}
-
-// UnsetAccountHolderID ensures that no value is present for AccountHolderID, not even an explicit nil
-func (o *ItemImageCreateDto) UnsetAccountHolderID() {
-	o.AccountHolderID.Unset()
-}
-
 func (o ItemImageCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -878,10 +766,6 @@ func (o ItemImageCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
-	}
-	toSerialize["businessID"] = o.BusinessID
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
 	}
 	if o.ItemID.IsSet() {
 		toSerialize["itemID"] = o.ItemID.Get()
@@ -929,9 +813,6 @@ func (o ItemImageCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.ParentFileUploadID.IsSet() {
 		toSerialize["parentFileUploadID"] = o.ParentFileUploadID.Get()
 	}
-	if o.AccountHolderID.IsSet() {
-		toSerialize["accountHolderID"] = o.AccountHolderID.Get()
-	}
 	return toSerialize, nil
 }
 
@@ -940,7 +821,6 @@ func (o *ItemImageCreateDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"businessID",
 		"fileName",
 	}
 

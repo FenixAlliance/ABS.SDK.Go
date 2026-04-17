@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**TenantID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -134,41 +133,6 @@ HasDescription returns a boolean if a field has been set.
 `func (o *FinancialBookCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetTenantID
-
-`func (o *FinancialBookCreateDto) GetTenantID() string`
-
-GetTenantID returns the TenantID field if non-nil, zero value otherwise.
-
-### GetTenantIDOk
-
-`func (o *FinancialBookCreateDto) GetTenantIDOk() (*string, bool)`
-
-GetTenantIDOk returns a tuple with the TenantID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantID
-
-`func (o *FinancialBookCreateDto) SetTenantID(v string)`
-
-SetTenantID sets TenantID field to given value.
-
-### HasTenantID
-
-`func (o *FinancialBookCreateDto) HasTenantID() bool`
-
-HasTenantID returns a boolean if a field has been set.
-
-### SetTenantIDNil
-
-`func (o *FinancialBookCreateDto) SetTenantIDNil(b bool)`
-
- SetTenantIDNil sets the value for TenantID to be an explicit nil
-
-### UnsetTenantID
-`func (o *FinancialBookCreateDto) UnsetTenantID()`
-
-UnsetTenantID ensures that no value is present for TenantID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

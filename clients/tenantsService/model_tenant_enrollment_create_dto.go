@@ -23,7 +23,6 @@ var _ MappedNullable = &TenantEnrollmentCreateDto{}
 type TenantEnrollmentCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	UserId NullableString `json:"userId,omitempty"`
 }
 
@@ -108,48 +107,6 @@ func (o *TenantEnrollmentCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TenantEnrollmentCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TenantEnrollmentCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *TenantEnrollmentCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *TenantEnrollmentCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *TenantEnrollmentCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *TenantEnrollmentCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetUserId returns the UserId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TenantEnrollmentCreateDto) GetUserId() string {
 	if o == nil || IsNil(o.UserId.Get()) {
@@ -207,9 +164,6 @@ func (o TenantEnrollmentCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
 	}
 	if o.UserId.IsSet() {
 		toSerialize["userId"] = o.UserId.Get()

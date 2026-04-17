@@ -7,10 +7,8 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **CourseID** | **string** |  | 
-**BusinessID** | **string** |  | 
 **WebPortalID** | Pointer to **NullableString** |  | [optional] 
 **WebsiteThemeID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileID** | Pointer to **NullableString** |  | [optional] 
 **ParentWebContentID** | Pointer to **NullableString** |  | [optional] 
 **ParentWebContentVersionID** | Pointer to **NullableString** |  | [optional] 
@@ -19,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCourseCertificateTemplateCreateDto
 
-`func NewCourseCertificateTemplateCreateDto(courseID string, businessID string, ) *CourseCertificateTemplateCreateDto`
+`func NewCourseCertificateTemplateCreateDto(courseID string, ) *CourseCertificateTemplateCreateDto`
 
 NewCourseCertificateTemplateCreateDto instantiates a new CourseCertificateTemplateCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -104,26 +102,6 @@ and a boolean to check if the value has been set.
 SetCourseID sets CourseID field to given value.
 
 
-### GetBusinessID
-
-`func (o *CourseCertificateTemplateCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *CourseCertificateTemplateCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *CourseCertificateTemplateCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-
 ### GetWebPortalID
 
 `func (o *CourseCertificateTemplateCreateDto) GetWebPortalID() string`
@@ -194,41 +172,6 @@ HasWebsiteThemeID returns a boolean if a field has been set.
 `func (o *CourseCertificateTemplateCreateDto) UnsetWebsiteThemeID()`
 
 UnsetWebsiteThemeID ensures that no value is present for WebsiteThemeID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *CourseCertificateTemplateCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *CourseCertificateTemplateCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *CourseCertificateTemplateCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *CourseCertificateTemplateCreateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *CourseCertificateTemplateCreateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *CourseCertificateTemplateCreateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetSocialProfileID
 
 `func (o *CourseCertificateTemplateCreateDto) GetSocialProfileID() string`

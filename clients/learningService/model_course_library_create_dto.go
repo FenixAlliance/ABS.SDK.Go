@@ -29,7 +29,6 @@ type CourseLibraryCreateDto struct {
 	Description NullableString `json:"description,omitempty"`
 	CourseID string `json:"courseID"`
 	CourseUnitID NullableString `json:"courseUnitID,omitempty"`
-	BusinessID string `json:"businessID"`
 	ReleaseDateTime NullableTime `json:"releaseDateTime,omitempty"`
 }
 
@@ -39,11 +38,10 @@ type _CourseLibraryCreateDto CourseLibraryCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseLibraryCreateDto(title string, courseID string, businessID string) *CourseLibraryCreateDto {
+func NewCourseLibraryCreateDto(title string, courseID string) *CourseLibraryCreateDto {
 	this := CourseLibraryCreateDto{}
 	this.Title = title
 	this.CourseID = courseID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -251,30 +249,6 @@ func (o *CourseLibraryCreateDto) UnsetCourseUnitID() {
 	o.CourseUnitID.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseLibraryCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseLibraryCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseLibraryCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 // GetReleaseDateTime returns the ReleaseDateTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CourseLibraryCreateDto) GetReleaseDateTime() time.Time {
 	if o == nil || IsNil(o.ReleaseDateTime.Get()) {
@@ -341,7 +315,6 @@ func (o CourseLibraryCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.CourseUnitID.IsSet() {
 		toSerialize["courseUnitID"] = o.CourseUnitID.Get()
 	}
-	toSerialize["businessID"] = o.BusinessID
 	if o.ReleaseDateTime.IsSet() {
 		toSerialize["releaseDateTime"] = o.ReleaseDateTime.Get()
 	}
@@ -355,7 +328,6 @@ func (o *CourseLibraryCreateDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"title",
 		"courseID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

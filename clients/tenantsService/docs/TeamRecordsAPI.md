@@ -37,7 +37,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	tenantTeamRecordCreateDto := *openapiclient.NewTenantTeamRecordCreateDto("BusinessID_example", "BusinessProfileRecordID_example", "BusinessTeamID_example") // TenantTeamRecordCreateDto |  (optional)
+	tenantTeamRecordCreateDto := *openapiclient.NewTenantTeamRecordCreateDto("BusinessTeamID_example") // TenantTeamRecordCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

@@ -28,7 +28,6 @@ type CourseWikiCreateDto struct {
 	Title string `json:"title"`
 	Description NullableString `json:"description,omitempty"`
 	CourseID string `json:"courseID"`
-	BusinessID string `json:"businessID"`
 	CourseUnitID NullableString `json:"courseUnitID,omitempty"`
 	ReleaseDateTime NullableTime `json:"releaseDateTime,omitempty"`
 }
@@ -39,11 +38,10 @@ type _CourseWikiCreateDto CourseWikiCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseWikiCreateDto(title string, courseID string, businessID string) *CourseWikiCreateDto {
+func NewCourseWikiCreateDto(title string, courseID string) *CourseWikiCreateDto {
 	this := CourseWikiCreateDto{}
 	this.Title = title
 	this.CourseID = courseID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -209,30 +207,6 @@ func (o *CourseWikiCreateDto) SetCourseID(v string) {
 	o.CourseID = v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseWikiCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseWikiCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseWikiCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 // GetCourseUnitID returns the CourseUnitID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CourseWikiCreateDto) GetCourseUnitID() string {
 	if o == nil || IsNil(o.CourseUnitID.Get()) {
@@ -338,7 +312,6 @@ func (o CourseWikiCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["description"] = o.Description.Get()
 	}
 	toSerialize["courseID"] = o.CourseID
-	toSerialize["businessID"] = o.BusinessID
 	if o.CourseUnitID.IsSet() {
 		toSerialize["courseUnitID"] = o.CourseUnitID.Get()
 	}
@@ -355,7 +328,6 @@ func (o *CourseWikiCreateDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"title",
 		"courseID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

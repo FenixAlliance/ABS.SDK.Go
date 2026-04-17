@@ -25,7 +25,6 @@ var _ MappedNullable = &ContactCreateDto{}
 type ContactCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	TenantId string `json:"tenantId"`
 	Type string `json:"type"`
 	FirstName string `json:"firstName"`
 	LastName NullableString `json:"lastName,omitempty"`
@@ -74,9 +73,8 @@ type _ContactCreateDto ContactCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContactCreateDto(tenantId string, type_ string, firstName string, email string) *ContactCreateDto {
+func NewContactCreateDto(type_ string, firstName string, email string) *ContactCreateDto {
 	this := ContactCreateDto{}
-	this.TenantId = tenantId
 	this.Type = type_
 	this.FirstName = firstName
 	this.Email = email
@@ -153,30 +151,6 @@ func (o *ContactCreateDto) HasTimestamp() bool {
 // SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
 func (o *ContactCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
-}
-
-// GetTenantId returns the TenantId field value
-func (o *ContactCreateDto) GetTenantId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.TenantId
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value
-// and a boolean to check if the value has been set.
-func (o *ContactCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TenantId, true
-}
-
-// SetTenantId sets field value
-func (o *ContactCreateDto) SetTenantId(v string) {
-	o.TenantId = v
 }
 
 // GetType returns the Type field value
@@ -1821,7 +1795,6 @@ func (o ContactCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-	toSerialize["tenantId"] = o.TenantId
 	toSerialize["type"] = o.Type
 	toSerialize["firstName"] = o.FirstName
 	if o.LastName.IsSet() {
@@ -1944,7 +1917,6 @@ func (o *ContactCreateDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"tenantId",
 		"type",
 		"firstName",
 		"email",

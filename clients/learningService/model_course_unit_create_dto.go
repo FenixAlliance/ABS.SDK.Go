@@ -30,7 +30,6 @@ type CourseUnitCreateDto struct {
 	Content NullableString `json:"content,omitempty"`
 	CourseID string `json:"courseID"`
 	CourseSectionID string `json:"courseSectionID"`
-	BusinessID string `json:"businessID"`
 	CourseContentGroupID NullableString `json:"courseContentGroupID,omitempty"`
 	ReleaseDateTime NullableTime `json:"releaseDateTime,omitempty"`
 }
@@ -41,12 +40,11 @@ type _CourseUnitCreateDto CourseUnitCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseUnitCreateDto(title string, courseID string, courseSectionID string, businessID string) *CourseUnitCreateDto {
+func NewCourseUnitCreateDto(title string, courseID string, courseSectionID string) *CourseUnitCreateDto {
 	this := CourseUnitCreateDto{}
 	this.Title = title
 	this.CourseID = courseID
 	this.CourseSectionID = courseSectionID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -278,30 +276,6 @@ func (o *CourseUnitCreateDto) SetCourseSectionID(v string) {
 	o.CourseSectionID = v
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *CourseUnitCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseUnitCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseUnitCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 // GetCourseContentGroupID returns the CourseContentGroupID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CourseUnitCreateDto) GetCourseContentGroupID() string {
 	if o == nil || IsNil(o.CourseContentGroupID.Get()) {
@@ -411,7 +385,6 @@ func (o CourseUnitCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["courseID"] = o.CourseID
 	toSerialize["courseSectionID"] = o.CourseSectionID
-	toSerialize["businessID"] = o.BusinessID
 	if o.CourseContentGroupID.IsSet() {
 		toSerialize["courseContentGroupID"] = o.CourseContentGroupID.Get()
 	}
@@ -429,7 +402,6 @@ func (o *CourseUnitCreateDto) UnmarshalJSON(data []byte) (err error) {
 		"title",
 		"courseID",
 		"courseSectionID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

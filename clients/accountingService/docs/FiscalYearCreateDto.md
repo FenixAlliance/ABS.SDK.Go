@@ -9,10 +9,9 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Closed** | Pointer to **bool** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **EndDate** | Pointer to **time.Time** |  | [optional] 
 **StartDate** | Pointer to **time.Time** |  | [optional] 
+**FiscalAuthorityId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -178,76 +177,6 @@ SetClosed sets Closed field to given value.
 
 HasClosed returns a boolean if a field has been set.
 
-### GetTenantId
-
-`func (o *FiscalYearCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *FiscalYearCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *FiscalYearCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *FiscalYearCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *FiscalYearCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *FiscalYearCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *FiscalYearCreateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *FiscalYearCreateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *FiscalYearCreateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *FiscalYearCreateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *FiscalYearCreateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *FiscalYearCreateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetEndDate
 
 `func (o *FiscalYearCreateDto) GetEndDate() time.Time`
@@ -298,6 +227,41 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
+### GetFiscalAuthorityId
+
+`func (o *FiscalYearCreateDto) GetFiscalAuthorityId() string`
+
+GetFiscalAuthorityId returns the FiscalAuthorityId field if non-nil, zero value otherwise.
+
+### GetFiscalAuthorityIdOk
+
+`func (o *FiscalYearCreateDto) GetFiscalAuthorityIdOk() (*string, bool)`
+
+GetFiscalAuthorityIdOk returns a tuple with the FiscalAuthorityId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFiscalAuthorityId
+
+`func (o *FiscalYearCreateDto) SetFiscalAuthorityId(v string)`
+
+SetFiscalAuthorityId sets FiscalAuthorityId field to given value.
+
+### HasFiscalAuthorityId
+
+`func (o *FiscalYearCreateDto) HasFiscalAuthorityId() bool`
+
+HasFiscalAuthorityId returns a boolean if a field has been set.
+
+### SetFiscalAuthorityIdNil
+
+`func (o *FiscalYearCreateDto) SetFiscalAuthorityIdNil(b bool)`
+
+ SetFiscalAuthorityIdNil sets the value for FiscalAuthorityId to be an explicit nil
+
+### UnsetFiscalAuthorityId
+`func (o *FiscalYearCreateDto) UnsetFiscalAuthorityId()`
+
+UnsetFiscalAuthorityId ensures that no value is present for FiscalAuthorityId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

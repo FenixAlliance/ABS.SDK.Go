@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
 **CourseID** | **string** |  | 
-**BusinessID** | **string** |  | 
 **StartDateTime** | Pointer to **NullableTime** |  | [optional] 
 **EndDateTime** | Pointer to **NullableTime** |  | [optional] 
 **ExpectedStartDateTime** | Pointer to **NullableTime** |  | [optional] 
@@ -18,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCourseCohortCreateDto
 
-`func NewCourseCohortCreateDto(name string, courseID string, businessID string, ) *CourseCohortCreateDto`
+`func NewCourseCohortCreateDto(name string, courseID string, ) *CourseCohortCreateDto`
 
 NewCourseCohortCreateDto instantiates a new CourseCohortCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -121,26 +120,6 @@ and a boolean to check if the value has been set.
 `func (o *CourseCohortCreateDto) SetCourseID(v string)`
 
 SetCourseID sets CourseID field to given value.
-
-
-### GetBusinessID
-
-`func (o *CourseCohortCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *CourseCohortCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *CourseCohortCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
 
 
 ### GetStartDateTime

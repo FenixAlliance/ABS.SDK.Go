@@ -36,7 +36,6 @@ Name | Type | Description | Notes
 **Pattern** | Pointer to **NullableString** |  | [optional] 
 **Features** | Pointer to **NullableString** |  | [optional] 
 **Material** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **Permalink** | Pointer to **NullableString** |  | [optional] 
 **BrandName** | Pointer to **NullableString** |  | [optional] 
 **Variations** | Pointer to **NullableString** |  | [optional] 
@@ -1285,41 +1284,6 @@ HasMaterial returns a boolean if a field has been set.
 `func (o *ServiceLevelCreateDto) UnsetMaterial()`
 
 UnsetMaterial ensures that no value is present for Material, not even an explicit nil
-### GetTenantId
-
-`func (o *ServiceLevelCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *ServiceLevelCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *ServiceLevelCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *ServiceLevelCreateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *ServiceLevelCreateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *ServiceLevelCreateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetPermalink
 
 `func (o *ServiceLevelCreateDto) GetPermalink() string`

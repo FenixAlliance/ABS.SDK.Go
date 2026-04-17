@@ -27,7 +27,6 @@ type ItemTagCreateDto struct {
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Title string `json:"title"`
 	Description NullableString `json:"description,omitempty"`
-	BusinessID string `json:"businessID"`
 }
 
 type _ItemTagCreateDto ItemTagCreateDto
@@ -36,10 +35,9 @@ type _ItemTagCreateDto ItemTagCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemTagCreateDto(title string, businessID string) *ItemTagCreateDto {
+func NewItemTagCreateDto(title string) *ItemTagCreateDto {
 	this := ItemTagCreateDto{}
 	this.Title = title
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -181,30 +179,6 @@ func (o *ItemTagCreateDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetBusinessID returns the BusinessID field value
-func (o *ItemTagCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *ItemTagCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *ItemTagCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
-}
-
 func (o ItemTagCreateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -225,7 +199,6 @@ func (o ItemTagCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	toSerialize["businessID"] = o.BusinessID
 	return toSerialize, nil
 }
 
@@ -235,7 +208,6 @@ func (o *ItemTagCreateDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"title",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

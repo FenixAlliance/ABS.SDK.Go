@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**TenantId** | **string** |  | 
 **Type** | **string** |  | 
 **FirstName** | **string** |  | 
 **LastName** | Pointer to **NullableString** |  | [optional] 
@@ -52,7 +51,7 @@ Name | Type | Description | Notes
 
 ### NewContactCreateDto
 
-`func NewContactCreateDto(tenantId string, type_ string, firstName string, email string, ) *ContactCreateDto`
+`func NewContactCreateDto(type_ string, firstName string, email string, ) *ContactCreateDto`
 
 NewContactCreateDto instantiates a new ContactCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -116,26 +115,6 @@ SetTimestamp sets Timestamp field to given value.
 `func (o *ContactCreateDto) HasTimestamp() bool`
 
 HasTimestamp returns a boolean if a field has been set.
-
-### GetTenantId
-
-`func (o *ContactCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *ContactCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *ContactCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
 
 ### GetType
 

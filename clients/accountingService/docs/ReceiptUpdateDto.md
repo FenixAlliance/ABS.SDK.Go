@@ -5,15 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PaymentId** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **ForexRate** | Pointer to **float64** |  | [optional] 
 **TotalAmount** | Pointer to **float64** |  | [optional] 
 **TotalAmountInUsd** | Pointer to **float64** |  | [optional] 
 **Closed** | Pointer to **bool** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
-**AccountHolderId** | Pointer to **NullableString** |  | [optional] 
 **ContactId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **OrderId** | Pointer to **NullableString** |  | [optional] 
 **InvoiceId** | Pointer to **NullableString** |  | [optional] 
 
@@ -71,41 +68,6 @@ HasPaymentId returns a boolean if a field has been set.
 `func (o *ReceiptUpdateDto) UnsetPaymentId()`
 
 UnsetPaymentId ensures that no value is present for PaymentId, not even an explicit nil
-### GetTenantId
-
-`func (o *ReceiptUpdateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *ReceiptUpdateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *ReceiptUpdateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *ReceiptUpdateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *ReceiptUpdateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *ReceiptUpdateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetForexRate
 
 `func (o *ReceiptUpdateDto) GetForexRate() float64`
@@ -241,41 +203,6 @@ HasCurrencyId returns a boolean if a field has been set.
 `func (o *ReceiptUpdateDto) UnsetCurrencyId()`
 
 UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
-### GetAccountHolderId
-
-`func (o *ReceiptUpdateDto) GetAccountHolderId() string`
-
-GetAccountHolderId returns the AccountHolderId field if non-nil, zero value otherwise.
-
-### GetAccountHolderIdOk
-
-`func (o *ReceiptUpdateDto) GetAccountHolderIdOk() (*string, bool)`
-
-GetAccountHolderIdOk returns a tuple with the AccountHolderId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountHolderId
-
-`func (o *ReceiptUpdateDto) SetAccountHolderId(v string)`
-
-SetAccountHolderId sets AccountHolderId field to given value.
-
-### HasAccountHolderId
-
-`func (o *ReceiptUpdateDto) HasAccountHolderId() bool`
-
-HasAccountHolderId returns a boolean if a field has been set.
-
-### SetAccountHolderIdNil
-
-`func (o *ReceiptUpdateDto) SetAccountHolderIdNil(b bool)`
-
- SetAccountHolderIdNil sets the value for AccountHolderId to be an explicit nil
-
-### UnsetAccountHolderId
-`func (o *ReceiptUpdateDto) UnsetAccountHolderId()`
-
-UnsetAccountHolderId ensures that no value is present for AccountHolderId, not even an explicit nil
 ### GetContactId
 
 `func (o *ReceiptUpdateDto) GetContactId() string`
@@ -311,41 +238,6 @@ HasContactId returns a boolean if a field has been set.
 `func (o *ReceiptUpdateDto) UnsetContactId()`
 
 UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *ReceiptUpdateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *ReceiptUpdateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *ReceiptUpdateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *ReceiptUpdateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *ReceiptUpdateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *ReceiptUpdateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetOrderId
 
 `func (o *ReceiptUpdateDto) GetOrderId() string`

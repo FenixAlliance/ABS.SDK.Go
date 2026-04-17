@@ -27,7 +27,6 @@ type CourseCohortCreateDto struct {
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Name string `json:"name"`
 	CourseID string `json:"courseID"`
-	BusinessID string `json:"businessID"`
 	StartDateTime NullableTime `json:"startDateTime,omitempty"`
 	EndDateTime NullableTime `json:"endDateTime,omitempty"`
 	ExpectedStartDateTime NullableTime `json:"expectedStartDateTime,omitempty"`
@@ -40,11 +39,10 @@ type _CourseCohortCreateDto CourseCohortCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourseCohortCreateDto(name string, courseID string, businessID string) *CourseCohortCreateDto {
+func NewCourseCohortCreateDto(name string, courseID string) *CourseCohortCreateDto {
 	this := CourseCohortCreateDto{}
 	this.Name = name
 	this.CourseID = courseID
-	this.BusinessID = businessID
 	return &this
 }
 
@@ -166,30 +164,6 @@ func (o *CourseCohortCreateDto) GetCourseIDOk() (*string, bool) {
 // SetCourseID sets field value
 func (o *CourseCohortCreateDto) SetCourseID(v string) {
 	o.CourseID = v
-}
-
-// GetBusinessID returns the BusinessID field value
-func (o *CourseCohortCreateDto) GetBusinessID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BusinessID
-}
-
-// GetBusinessIDOk returns a tuple with the BusinessID field value
-// and a boolean to check if the value has been set.
-func (o *CourseCohortCreateDto) GetBusinessIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BusinessID, true
-}
-
-// SetBusinessID sets field value
-func (o *CourseCohortCreateDto) SetBusinessID(v string) {
-	o.BusinessID = v
 }
 
 // GetStartDateTime returns the StartDateTime field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -378,7 +352,6 @@ func (o CourseCohortCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["name"] = o.Name
 	toSerialize["courseID"] = o.CourseID
-	toSerialize["businessID"] = o.BusinessID
 	if o.StartDateTime.IsSet() {
 		toSerialize["startDateTime"] = o.StartDateTime.Get()
 	}
@@ -401,7 +374,6 @@ func (o *CourseCohortCreateDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"name",
 		"courseID",
-		"businessID",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -55,7 +55,6 @@ Name | Type | Description | Notes
 **Material** | Pointer to **NullableString** |  | [optional] 
 **OnDiscount** | Pointer to **bool** |  | [optional] 
 **TotalTax** | Pointer to **float64** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **Permalink** | Pointer to **NullableString** |  | [optional] 
 **BrandName** | Pointer to **NullableString** |  | [optional] 
 **ReviewsCount** | Pointer to **int32** |  | [optional] 
@@ -80,7 +79,6 @@ Name | Type | Description | Notes
 **CustomTaxValue** | Pointer to **float64** |  | [optional] 
 **HasVariations** | Pointer to **bool** |  | [optional] 
 **QuestionsCount** | Pointer to **int32** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **SupplierCode** | Pointer to **NullableString** |  | [optional] 
 **AuctionEnd** | Pointer to **time.Time** |  | [optional] 
 **PurchaseNote** | Pointer to **NullableString** |  | [optional] 
@@ -1781,41 +1779,6 @@ SetTotalTax sets TotalTax field to given value.
 
 HasTotalTax returns a boolean if a field has been set.
 
-### GetTenantId
-
-`func (o *CatalogItemUpdateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *CatalogItemUpdateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *CatalogItemUpdateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *CatalogItemUpdateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *CatalogItemUpdateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *CatalogItemUpdateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetPermalink
 
 `func (o *CatalogItemUpdateDto) GetPermalink() string`
@@ -2526,41 +2489,6 @@ SetQuestionsCount sets QuestionsCount field to given value.
 
 HasQuestionsCount returns a boolean if a field has been set.
 
-### GetEnrollmentId
-
-`func (o *CatalogItemUpdateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *CatalogItemUpdateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *CatalogItemUpdateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *CatalogItemUpdateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *CatalogItemUpdateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *CatalogItemUpdateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetSupplierCode
 
 `func (o *CatalogItemUpdateDto) GetSupplierCode() string`

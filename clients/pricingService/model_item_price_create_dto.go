@@ -27,11 +27,9 @@ type ItemPriceCreateDto struct {
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	ItemId string `json:"itemId"`
 	UnitId NullableString `json:"unitId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	CurrencyId NullableString `json:"currencyId,omitempty"`
 	PriceListId NullableString `json:"priceListId,omitempty"`
 	UnitGroupId NullableString `json:"unitGroupId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	DiscountListId NullableString `json:"discountListId,omitempty"`
 	RoundingPolicyId NullableString `json:"roundingPolicyId,omitempty"`
 	Price *float64 `json:"price,omitempty"`
@@ -188,48 +186,6 @@ func (o *ItemPriceCreateDto) UnsetUnitId() {
 	o.UnitId.Unset()
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemPriceCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemPriceCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *ItemPriceCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *ItemPriceCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *ItemPriceCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *ItemPriceCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
 // GetCurrencyId returns the CurrencyId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ItemPriceCreateDto) GetCurrencyId() string {
 	if o == nil || IsNil(o.CurrencyId.Get()) {
@@ -354,48 +310,6 @@ func (o *ItemPriceCreateDto) SetUnitGroupIdNil() {
 // UnsetUnitGroupId ensures that no value is present for UnitGroupId, not even an explicit nil
 func (o *ItemPriceCreateDto) UnsetUnitGroupId() {
 	o.UnitGroupId.Unset()
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemPriceCreateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemPriceCreateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *ItemPriceCreateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *ItemPriceCreateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *ItemPriceCreateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *ItemPriceCreateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
 }
 
 // GetDiscountListId returns the DiscountListId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -566,9 +480,6 @@ func (o ItemPriceCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.UnitId.IsSet() {
 		toSerialize["unitId"] = o.UnitId.Get()
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
 	if o.CurrencyId.IsSet() {
 		toSerialize["currencyId"] = o.CurrencyId.Get()
 	}
@@ -577,9 +488,6 @@ func (o ItemPriceCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.UnitGroupId.IsSet() {
 		toSerialize["unitGroupId"] = o.UnitGroupId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if o.DiscountListId.IsSet() {
 		toSerialize["discountListId"] = o.DiscountListId.Get()

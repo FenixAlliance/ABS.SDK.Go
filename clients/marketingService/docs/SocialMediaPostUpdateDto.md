@@ -7,9 +7,7 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Content** | Pointer to **NullableString** |  | [optional] 
 **FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
 **SocialPostBucketId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -135,41 +133,6 @@ HasFeaturedImageUrl returns a boolean if a field has been set.
 `func (o *SocialMediaPostUpdateDto) UnsetFeaturedImageUrl()`
 
 UnsetFeaturedImageUrl ensures that no value is present for FeaturedImageUrl, not even an explicit nil
-### GetTenantId
-
-`func (o *SocialMediaPostUpdateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *SocialMediaPostUpdateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *SocialMediaPostUpdateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *SocialMediaPostUpdateDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *SocialMediaPostUpdateDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *SocialMediaPostUpdateDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetSocialPostBucketId
 
 `func (o *SocialMediaPostUpdateDto) GetSocialPostBucketId() string`
@@ -205,41 +168,6 @@ HasSocialPostBucketId returns a boolean if a field has been set.
 `func (o *SocialMediaPostUpdateDto) UnsetSocialPostBucketId()`
 
 UnsetSocialPostBucketId ensures that no value is present for SocialPostBucketId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *SocialMediaPostUpdateDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *SocialMediaPostUpdateDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *SocialMediaPostUpdateDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *SocialMediaPostUpdateDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *SocialMediaPostUpdateDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *SocialMediaPostUpdateDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

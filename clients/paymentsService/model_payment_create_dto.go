@@ -24,7 +24,6 @@ type PaymentCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	InvoiceId NullableString `json:"invoiceId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
 	EmisorWalletId NullableString `json:"emisorWalletId,omitempty"`
 	ReceiverWalletId NullableString `json:"receiverWalletId,omitempty"`
 	CurrencyId NullableString `json:"currencyId,omitempty"`
@@ -76,7 +75,6 @@ type PaymentCreateDto struct {
 	AccountingEntryId NullableString `json:"accountingEntryId,omitempty"`
 	PaymentGatewayId NullableString `json:"paymentGatewayId,omitempty"`
 	BankAccountId NullableString `json:"bankAccountId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	BankId NullableString `json:"bankId,omitempty"`
 	PaymentTokenId NullableString `json:"paymentTokenId,omitempty"`
 	EmisorWalletAccountId NullableString `json:"emisorWalletAccountId,omitempty"`
@@ -204,48 +202,6 @@ func (o *PaymentCreateDto) SetInvoiceIdNil() {
 // UnsetInvoiceId ensures that no value is present for InvoiceId, not even an explicit nil
 func (o *PaymentCreateDto) UnsetInvoiceId() {
 	o.InvoiceId.Unset()
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PaymentCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PaymentCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *PaymentCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *PaymentCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *PaymentCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *PaymentCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
 }
 
 // GetEmisorWalletId returns the EmisorWalletId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2230,48 +2186,6 @@ func (o *PaymentCreateDto) UnsetBankAccountId() {
 	o.BankAccountId.Unset()
 }
 
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PaymentCreateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PaymentCreateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *PaymentCreateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *PaymentCreateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *PaymentCreateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *PaymentCreateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
-}
-
 // GetBankId returns the BankId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PaymentCreateDto) GetBankId() string {
 	if o == nil || IsNil(o.BankId.Get()) {
@@ -2459,9 +2373,6 @@ func (o PaymentCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.InvoiceId.IsSet() {
 		toSerialize["invoiceId"] = o.InvoiceId.Get()
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
 	if o.EmisorWalletId.IsSet() {
 		toSerialize["emisorWalletId"] = o.EmisorWalletId.Get()
 	}
@@ -2614,9 +2525,6 @@ func (o PaymentCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.BankAccountId.IsSet() {
 		toSerialize["bankAccountId"] = o.BankAccountId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if o.BankId.IsSet() {
 		toSerialize["bankId"] = o.BankId.Get()

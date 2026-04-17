@@ -13,6 +13,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the DealUnitLineCreateDto type satisfies the MappedNullable interface at compile time
@@ -20,14 +21,14 @@ var _ MappedNullable = &DealUnitLineCreateDto{}
 
 // DealUnitLineCreateDto struct for DealUnitLineCreateDto
 type DealUnitLineCreateDto struct {
+	Id *string `json:"id,omitempty"`
+	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Closed *bool `json:"closed,omitempty"`
 	ItemId NullableString `json:"itemId,omitempty"`
 	ItemTitle NullableString `json:"itemTitle,omitempty"`
 	ItemShortDescription NullableString `json:"itemShortDescription,omitempty"`
 	ItemPrimaryImageUrl NullableString `json:"itemPrimaryImageUrl,omitempty"`
 	ShippingPolicyId NullableString `json:"shippingPolicyId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
-	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	CurrencyId NullableString `json:"currencyId,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Quantity *float64 `json:"quantity,omitempty"`
@@ -84,14 +85,14 @@ type DealUnitLineCreateDto struct {
 	CustomGlobalDiscountsAmountCurrencyId NullableString `json:"customGlobalDiscountsAmountCurrencyId,omitempty"`
 	TotalDetail *float64 `json:"totalDetail,omitempty"`
 	TotalDetailCurrencyId NullableString `json:"totalDetailCurrencyId,omitempty"`
-	TotalProfit *float64 `json:"totalProfit,omitempty"`
-	TotalProfitCurrencyId NullableString `json:"totalProfitCurrencyId,omitempty"`
 	TotalDiscounts *float64 `json:"totalDiscounts,omitempty"`
 	TotalDiscountsCurrencyId NullableString `json:"totalDiscountsCurrencyId,omitempty"`
-	TotalSurcharges *float64 `json:"totalSurcharges,omitempty"`
-	TotalSurchargesCurrencyId NullableString `json:"totalSurchargesCurrencyId,omitempty"`
 	TotalTaxBase *float64 `json:"totalTaxBase,omitempty"`
 	TotalTaxBaseCurrencyId NullableString `json:"totalTaxBaseCurrencyId,omitempty"`
+	TotalSurcharges *float64 `json:"totalSurcharges,omitempty"`
+	TotalSurchargesCurrencyId NullableString `json:"totalSurchargesCurrencyId,omitempty"`
+	TotalProfit *float64 `json:"totalProfit,omitempty"`
+	TotalProfitCurrencyId NullableString `json:"totalProfitCurrencyId,omitempty"`
 	TotalShippingCost *float64 `json:"totalShippingCost,omitempty"`
 	TotalShippingCostCurrencyId NullableString `json:"totalShippingCostCurrencyId,omitempty"`
 	TotalShippingTax *float64 `json:"totalShippingTax,omitempty"`
@@ -113,7 +114,6 @@ type DealUnitLineCreateDto struct {
 	ShippingLocationId NullableString `json:"shippingLocationId,omitempty"`
 	LocationId NullableString `json:"locationId,omitempty"`
 	QuoteItemRecordId NullableString `json:"quoteItemRecordId,omitempty"`
-	BusinessProfileRecordId NullableString `json:"businessProfileRecordId,omitempty"`
 	ParentBillingItemRecordId NullableString `json:"parentBillingItemRecordId,omitempty"`
 	DealUnitId NullableString `json:"dealUnitId,omitempty"`
 }
@@ -133,6 +133,70 @@ func NewDealUnitLineCreateDto() *DealUnitLineCreateDto {
 func NewDealUnitLineCreateDtoWithDefaults() *DealUnitLineCreateDto {
 	this := DealUnitLineCreateDto{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *DealUnitLineCreateDto) GetId() string {
+	if o == nil || IsNil(o.Id) {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DealUnitLineCreateDto) GetIdOk() (*string, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *DealUnitLineCreateDto) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *DealUnitLineCreateDto) SetId(v string) {
+	o.Id = &v
+}
+
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+func (o *DealUnitLineCreateDto) GetTimestamp() time.Time {
+	if o == nil || IsNil(o.Timestamp) {
+		var ret time.Time
+		return ret
+	}
+	return *o.Timestamp
+}
+
+// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DealUnitLineCreateDto) GetTimestampOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.Timestamp) {
+		return nil, false
+	}
+	return o.Timestamp, true
+}
+
+// HasTimestamp returns a boolean if a field has been set.
+func (o *DealUnitLineCreateDto) HasTimestamp() bool {
+	if o != nil && !IsNil(o.Timestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
+func (o *DealUnitLineCreateDto) SetTimestamp(v time.Time) {
+	o.Timestamp = &v
 }
 
 // GetClosed returns the Closed field value if set, zero value otherwise.
@@ -375,90 +439,6 @@ func (o *DealUnitLineCreateDto) SetShippingPolicyIdNil() {
 // UnsetShippingPolicyId ensures that no value is present for ShippingPolicyId, not even an explicit nil
 func (o *DealUnitLineCreateDto) UnsetShippingPolicyId() {
 	o.ShippingPolicyId.Unset()
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitLineCreateDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TenantId.Get()
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitLineCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
-}
-
-// HasTenantId returns a boolean if a field has been set.
-func (o *DealUnitLineCreateDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
-func (o *DealUnitLineCreateDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *DealUnitLineCreateDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *DealUnitLineCreateDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
-// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitLineCreateDto) GetEnrollmentId() string {
-	if o == nil || IsNil(o.EnrollmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EnrollmentId.Get()
-}
-
-// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitLineCreateDto) GetEnrollmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
-}
-
-// HasEnrollmentId returns a boolean if a field has been set.
-func (o *DealUnitLineCreateDto) HasEnrollmentId() bool {
-	if o != nil && o.EnrollmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
-func (o *DealUnitLineCreateDto) SetEnrollmentId(v string) {
-	o.EnrollmentId.Set(&v)
-}
-// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-func (o *DealUnitLineCreateDto) SetEnrollmentIdNil() {
-	o.EnrollmentId.Set(nil)
-}
-
-// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-func (o *DealUnitLineCreateDto) UnsetEnrollmentId() {
-	o.EnrollmentId.Unset()
 }
 
 // GetCurrencyId returns the CurrencyId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2573,80 +2553,6 @@ func (o *DealUnitLineCreateDto) UnsetTotalDetailCurrencyId() {
 	o.TotalDetailCurrencyId.Unset()
 }
 
-// GetTotalProfit returns the TotalProfit field value if set, zero value otherwise.
-func (o *DealUnitLineCreateDto) GetTotalProfit() float64 {
-	if o == nil || IsNil(o.TotalProfit) {
-		var ret float64
-		return ret
-	}
-	return *o.TotalProfit
-}
-
-// GetTotalProfitOk returns a tuple with the TotalProfit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DealUnitLineCreateDto) GetTotalProfitOk() (*float64, bool) {
-	if o == nil || IsNil(o.TotalProfit) {
-		return nil, false
-	}
-	return o.TotalProfit, true
-}
-
-// HasTotalProfit returns a boolean if a field has been set.
-func (o *DealUnitLineCreateDto) HasTotalProfit() bool {
-	if o != nil && !IsNil(o.TotalProfit) {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalProfit gets a reference to the given float64 and assigns it to the TotalProfit field.
-func (o *DealUnitLineCreateDto) SetTotalProfit(v float64) {
-	o.TotalProfit = &v
-}
-
-// GetTotalProfitCurrencyId returns the TotalProfitCurrencyId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitLineCreateDto) GetTotalProfitCurrencyId() string {
-	if o == nil || IsNil(o.TotalProfitCurrencyId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TotalProfitCurrencyId.Get()
-}
-
-// GetTotalProfitCurrencyIdOk returns a tuple with the TotalProfitCurrencyId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitLineCreateDto) GetTotalProfitCurrencyIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TotalProfitCurrencyId.Get(), o.TotalProfitCurrencyId.IsSet()
-}
-
-// HasTotalProfitCurrencyId returns a boolean if a field has been set.
-func (o *DealUnitLineCreateDto) HasTotalProfitCurrencyId() bool {
-	if o != nil && o.TotalProfitCurrencyId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalProfitCurrencyId gets a reference to the given NullableString and assigns it to the TotalProfitCurrencyId field.
-func (o *DealUnitLineCreateDto) SetTotalProfitCurrencyId(v string) {
-	o.TotalProfitCurrencyId.Set(&v)
-}
-// SetTotalProfitCurrencyIdNil sets the value for TotalProfitCurrencyId to be an explicit nil
-func (o *DealUnitLineCreateDto) SetTotalProfitCurrencyIdNil() {
-	o.TotalProfitCurrencyId.Set(nil)
-}
-
-// UnsetTotalProfitCurrencyId ensures that no value is present for TotalProfitCurrencyId, not even an explicit nil
-func (o *DealUnitLineCreateDto) UnsetTotalProfitCurrencyId() {
-	o.TotalProfitCurrencyId.Unset()
-}
-
 // GetTotalDiscounts returns the TotalDiscounts field value if set, zero value otherwise.
 func (o *DealUnitLineCreateDto) GetTotalDiscounts() float64 {
 	if o == nil || IsNil(o.TotalDiscounts) {
@@ -2719,6 +2625,80 @@ func (o *DealUnitLineCreateDto) SetTotalDiscountsCurrencyIdNil() {
 // UnsetTotalDiscountsCurrencyId ensures that no value is present for TotalDiscountsCurrencyId, not even an explicit nil
 func (o *DealUnitLineCreateDto) UnsetTotalDiscountsCurrencyId() {
 	o.TotalDiscountsCurrencyId.Unset()
+}
+
+// GetTotalTaxBase returns the TotalTaxBase field value if set, zero value otherwise.
+func (o *DealUnitLineCreateDto) GetTotalTaxBase() float64 {
+	if o == nil || IsNil(o.TotalTaxBase) {
+		var ret float64
+		return ret
+	}
+	return *o.TotalTaxBase
+}
+
+// GetTotalTaxBaseOk returns a tuple with the TotalTaxBase field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DealUnitLineCreateDto) GetTotalTaxBaseOk() (*float64, bool) {
+	if o == nil || IsNil(o.TotalTaxBase) {
+		return nil, false
+	}
+	return o.TotalTaxBase, true
+}
+
+// HasTotalTaxBase returns a boolean if a field has been set.
+func (o *DealUnitLineCreateDto) HasTotalTaxBase() bool {
+	if o != nil && !IsNil(o.TotalTaxBase) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalTaxBase gets a reference to the given float64 and assigns it to the TotalTaxBase field.
+func (o *DealUnitLineCreateDto) SetTotalTaxBase(v float64) {
+	o.TotalTaxBase = &v
+}
+
+// GetTotalTaxBaseCurrencyId returns the TotalTaxBaseCurrencyId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DealUnitLineCreateDto) GetTotalTaxBaseCurrencyId() string {
+	if o == nil || IsNil(o.TotalTaxBaseCurrencyId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.TotalTaxBaseCurrencyId.Get()
+}
+
+// GetTotalTaxBaseCurrencyIdOk returns a tuple with the TotalTaxBaseCurrencyId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DealUnitLineCreateDto) GetTotalTaxBaseCurrencyIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalTaxBaseCurrencyId.Get(), o.TotalTaxBaseCurrencyId.IsSet()
+}
+
+// HasTotalTaxBaseCurrencyId returns a boolean if a field has been set.
+func (o *DealUnitLineCreateDto) HasTotalTaxBaseCurrencyId() bool {
+	if o != nil && o.TotalTaxBaseCurrencyId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalTaxBaseCurrencyId gets a reference to the given NullableString and assigns it to the TotalTaxBaseCurrencyId field.
+func (o *DealUnitLineCreateDto) SetTotalTaxBaseCurrencyId(v string) {
+	o.TotalTaxBaseCurrencyId.Set(&v)
+}
+// SetTotalTaxBaseCurrencyIdNil sets the value for TotalTaxBaseCurrencyId to be an explicit nil
+func (o *DealUnitLineCreateDto) SetTotalTaxBaseCurrencyIdNil() {
+	o.TotalTaxBaseCurrencyId.Set(nil)
+}
+
+// UnsetTotalTaxBaseCurrencyId ensures that no value is present for TotalTaxBaseCurrencyId, not even an explicit nil
+func (o *DealUnitLineCreateDto) UnsetTotalTaxBaseCurrencyId() {
+	o.TotalTaxBaseCurrencyId.Unset()
 }
 
 // GetTotalSurcharges returns the TotalSurcharges field value if set, zero value otherwise.
@@ -2795,78 +2775,78 @@ func (o *DealUnitLineCreateDto) UnsetTotalSurchargesCurrencyId() {
 	o.TotalSurchargesCurrencyId.Unset()
 }
 
-// GetTotalTaxBase returns the TotalTaxBase field value if set, zero value otherwise.
-func (o *DealUnitLineCreateDto) GetTotalTaxBase() float64 {
-	if o == nil || IsNil(o.TotalTaxBase) {
+// GetTotalProfit returns the TotalProfit field value if set, zero value otherwise.
+func (o *DealUnitLineCreateDto) GetTotalProfit() float64 {
+	if o == nil || IsNil(o.TotalProfit) {
 		var ret float64
 		return ret
 	}
-	return *o.TotalTaxBase
+	return *o.TotalProfit
 }
 
-// GetTotalTaxBaseOk returns a tuple with the TotalTaxBase field value if set, nil otherwise
+// GetTotalProfitOk returns a tuple with the TotalProfit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DealUnitLineCreateDto) GetTotalTaxBaseOk() (*float64, bool) {
-	if o == nil || IsNil(o.TotalTaxBase) {
+func (o *DealUnitLineCreateDto) GetTotalProfitOk() (*float64, bool) {
+	if o == nil || IsNil(o.TotalProfit) {
 		return nil, false
 	}
-	return o.TotalTaxBase, true
+	return o.TotalProfit, true
 }
 
-// HasTotalTaxBase returns a boolean if a field has been set.
-func (o *DealUnitLineCreateDto) HasTotalTaxBase() bool {
-	if o != nil && !IsNil(o.TotalTaxBase) {
+// HasTotalProfit returns a boolean if a field has been set.
+func (o *DealUnitLineCreateDto) HasTotalProfit() bool {
+	if o != nil && !IsNil(o.TotalProfit) {
 		return true
 	}
 
 	return false
 }
 
-// SetTotalTaxBase gets a reference to the given float64 and assigns it to the TotalTaxBase field.
-func (o *DealUnitLineCreateDto) SetTotalTaxBase(v float64) {
-	o.TotalTaxBase = &v
+// SetTotalProfit gets a reference to the given float64 and assigns it to the TotalProfit field.
+func (o *DealUnitLineCreateDto) SetTotalProfit(v float64) {
+	o.TotalProfit = &v
 }
 
-// GetTotalTaxBaseCurrencyId returns the TotalTaxBaseCurrencyId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitLineCreateDto) GetTotalTaxBaseCurrencyId() string {
-	if o == nil || IsNil(o.TotalTaxBaseCurrencyId.Get()) {
+// GetTotalProfitCurrencyId returns the TotalProfitCurrencyId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DealUnitLineCreateDto) GetTotalProfitCurrencyId() string {
+	if o == nil || IsNil(o.TotalProfitCurrencyId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TotalTaxBaseCurrencyId.Get()
+	return *o.TotalProfitCurrencyId.Get()
 }
 
-// GetTotalTaxBaseCurrencyIdOk returns a tuple with the TotalTaxBaseCurrencyId field value if set, nil otherwise
+// GetTotalProfitCurrencyIdOk returns a tuple with the TotalProfitCurrencyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitLineCreateDto) GetTotalTaxBaseCurrencyIdOk() (*string, bool) {
+func (o *DealUnitLineCreateDto) GetTotalProfitCurrencyIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TotalTaxBaseCurrencyId.Get(), o.TotalTaxBaseCurrencyId.IsSet()
+	return o.TotalProfitCurrencyId.Get(), o.TotalProfitCurrencyId.IsSet()
 }
 
-// HasTotalTaxBaseCurrencyId returns a boolean if a field has been set.
-func (o *DealUnitLineCreateDto) HasTotalTaxBaseCurrencyId() bool {
-	if o != nil && o.TotalTaxBaseCurrencyId.IsSet() {
+// HasTotalProfitCurrencyId returns a boolean if a field has been set.
+func (o *DealUnitLineCreateDto) HasTotalProfitCurrencyId() bool {
+	if o != nil && o.TotalProfitCurrencyId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTotalTaxBaseCurrencyId gets a reference to the given NullableString and assigns it to the TotalTaxBaseCurrencyId field.
-func (o *DealUnitLineCreateDto) SetTotalTaxBaseCurrencyId(v string) {
-	o.TotalTaxBaseCurrencyId.Set(&v)
+// SetTotalProfitCurrencyId gets a reference to the given NullableString and assigns it to the TotalProfitCurrencyId field.
+func (o *DealUnitLineCreateDto) SetTotalProfitCurrencyId(v string) {
+	o.TotalProfitCurrencyId.Set(&v)
 }
-// SetTotalTaxBaseCurrencyIdNil sets the value for TotalTaxBaseCurrencyId to be an explicit nil
-func (o *DealUnitLineCreateDto) SetTotalTaxBaseCurrencyIdNil() {
-	o.TotalTaxBaseCurrencyId.Set(nil)
+// SetTotalProfitCurrencyIdNil sets the value for TotalProfitCurrencyId to be an explicit nil
+func (o *DealUnitLineCreateDto) SetTotalProfitCurrencyIdNil() {
+	o.TotalProfitCurrencyId.Set(nil)
 }
 
-// UnsetTotalTaxBaseCurrencyId ensures that no value is present for TotalTaxBaseCurrencyId, not even an explicit nil
-func (o *DealUnitLineCreateDto) UnsetTotalTaxBaseCurrencyId() {
-	o.TotalTaxBaseCurrencyId.Unset()
+// UnsetTotalProfitCurrencyId ensures that no value is present for TotalProfitCurrencyId, not even an explicit nil
+func (o *DealUnitLineCreateDto) UnsetTotalProfitCurrencyId() {
+	o.TotalProfitCurrencyId.Unset()
 }
 
 // GetTotalShippingCost returns the TotalShippingCost field value if set, zero value otherwise.
@@ -3681,48 +3661,6 @@ func (o *DealUnitLineCreateDto) UnsetQuoteItemRecordId() {
 	o.QuoteItemRecordId.Unset()
 }
 
-// GetBusinessProfileRecordId returns the BusinessProfileRecordId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitLineCreateDto) GetBusinessProfileRecordId() string {
-	if o == nil || IsNil(o.BusinessProfileRecordId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BusinessProfileRecordId.Get()
-}
-
-// GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitLineCreateDto) GetBusinessProfileRecordIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BusinessProfileRecordId.Get(), o.BusinessProfileRecordId.IsSet()
-}
-
-// HasBusinessProfileRecordId returns a boolean if a field has been set.
-func (o *DealUnitLineCreateDto) HasBusinessProfileRecordId() bool {
-	if o != nil && o.BusinessProfileRecordId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBusinessProfileRecordId gets a reference to the given NullableString and assigns it to the BusinessProfileRecordId field.
-func (o *DealUnitLineCreateDto) SetBusinessProfileRecordId(v string) {
-	o.BusinessProfileRecordId.Set(&v)
-}
-// SetBusinessProfileRecordIdNil sets the value for BusinessProfileRecordId to be an explicit nil
-func (o *DealUnitLineCreateDto) SetBusinessProfileRecordIdNil() {
-	o.BusinessProfileRecordId.Set(nil)
-}
-
-// UnsetBusinessProfileRecordId ensures that no value is present for BusinessProfileRecordId, not even an explicit nil
-func (o *DealUnitLineCreateDto) UnsetBusinessProfileRecordId() {
-	o.BusinessProfileRecordId.Unset()
-}
-
 // GetParentBillingItemRecordId returns the ParentBillingItemRecordId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DealUnitLineCreateDto) GetParentBillingItemRecordId() string {
 	if o == nil || IsNil(o.ParentBillingItemRecordId.Get()) {
@@ -3817,6 +3755,12 @@ func (o DealUnitLineCreateDto) MarshalJSON() ([]byte, error) {
 
 func (o DealUnitLineCreateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Timestamp) {
+		toSerialize["timestamp"] = o.Timestamp
+	}
 	if !IsNil(o.Closed) {
 		toSerialize["closed"] = o.Closed
 	}
@@ -3834,12 +3778,6 @@ func (o DealUnitLineCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ShippingPolicyId.IsSet() {
 		toSerialize["shippingPolicyId"] = o.ShippingPolicyId.Get()
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
-	if o.EnrollmentId.IsSet() {
-		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	if o.CurrencyId.IsSet() {
 		toSerialize["currencyId"] = o.CurrencyId.Get()
@@ -4009,17 +3947,17 @@ func (o DealUnitLineCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.TotalDetailCurrencyId.IsSet() {
 		toSerialize["totalDetailCurrencyId"] = o.TotalDetailCurrencyId.Get()
 	}
-	if !IsNil(o.TotalProfit) {
-		toSerialize["totalProfit"] = o.TotalProfit
-	}
-	if o.TotalProfitCurrencyId.IsSet() {
-		toSerialize["totalProfitCurrencyId"] = o.TotalProfitCurrencyId.Get()
-	}
 	if !IsNil(o.TotalDiscounts) {
 		toSerialize["totalDiscounts"] = o.TotalDiscounts
 	}
 	if o.TotalDiscountsCurrencyId.IsSet() {
 		toSerialize["totalDiscountsCurrencyId"] = o.TotalDiscountsCurrencyId.Get()
+	}
+	if !IsNil(o.TotalTaxBase) {
+		toSerialize["totalTaxBase"] = o.TotalTaxBase
+	}
+	if o.TotalTaxBaseCurrencyId.IsSet() {
+		toSerialize["totalTaxBaseCurrencyId"] = o.TotalTaxBaseCurrencyId.Get()
 	}
 	if !IsNil(o.TotalSurcharges) {
 		toSerialize["totalSurcharges"] = o.TotalSurcharges
@@ -4027,11 +3965,11 @@ func (o DealUnitLineCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.TotalSurchargesCurrencyId.IsSet() {
 		toSerialize["totalSurchargesCurrencyId"] = o.TotalSurchargesCurrencyId.Get()
 	}
-	if !IsNil(o.TotalTaxBase) {
-		toSerialize["totalTaxBase"] = o.TotalTaxBase
+	if !IsNil(o.TotalProfit) {
+		toSerialize["totalProfit"] = o.TotalProfit
 	}
-	if o.TotalTaxBaseCurrencyId.IsSet() {
-		toSerialize["totalTaxBaseCurrencyId"] = o.TotalTaxBaseCurrencyId.Get()
+	if o.TotalProfitCurrencyId.IsSet() {
+		toSerialize["totalProfitCurrencyId"] = o.TotalProfitCurrencyId.Get()
 	}
 	if !IsNil(o.TotalShippingCost) {
 		toSerialize["totalShippingCost"] = o.TotalShippingCost
@@ -4095,9 +4033,6 @@ func (o DealUnitLineCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.QuoteItemRecordId.IsSet() {
 		toSerialize["quoteItemRecordId"] = o.QuoteItemRecordId.Get()
-	}
-	if o.BusinessProfileRecordId.IsSet() {
-		toSerialize["businessProfileRecordId"] = o.BusinessProfileRecordId.Get()
 	}
 	if o.ParentBillingItemRecordId.IsSet() {
 		toSerialize["parentBillingItemRecordId"] = o.ParentBillingItemRecordId.Get()

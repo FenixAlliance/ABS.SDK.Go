@@ -3805,9 +3805,7 @@ components:
     EmailGroupCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         enabled: true
@@ -3827,12 +3825,6 @@ components:
           type: string
         enabled:
           type: boolean
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
-          type: string
       type: object
     EmailGroupDto:
       additionalProperties: false
@@ -3954,9 +3946,7 @@ components:
     EmailGroupUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         description: description
         enabled: true
       properties:
@@ -3968,21 +3958,13 @@ components:
           type: string
         enabled:
           type: boolean
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
-          type: string
       type: object
     EmailSignatureCreateDto:
       additionalProperties: false
       example:
         featuredImageUrl: featuredImageUrl
-        enrollmentId: enrollmentId
         code: code
         codeType: Razor
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
@@ -3995,12 +3977,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
           type: string
         title:
           nullable: true
@@ -4724,11 +4700,9 @@ components:
       additionalProperties: false
       example:
         featuredImageUrl: featuredImageUrl
-        enrollmentId: enrollmentId
         code: code
         codeType: Razor
         marketingCampaignId: marketingCampaignId
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
@@ -4741,12 +4715,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
           type: string
         title:
           nullable: true
@@ -5674,7 +5642,6 @@ components:
       additionalProperties: false
       example:
         expectedResponsePercent: 5.962133916683182
-        enrollmentId: enrollmentId
         allocatedBudget: 0.8008281904610115
         code: code
         miscCost: 1.4658129805029452
@@ -5686,7 +5653,6 @@ components:
         proposedStart: 2000-01-23T04:56:07.000+00:00
         proposedEnd: 2000-01-23T04:56:07.000+00:00
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
         actualStart: 2000-01-23T04:56:07.000+00:00
@@ -5737,12 +5703,6 @@ components:
           nullable: true
           type: string
         currencyId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -5875,7 +5835,6 @@ components:
       additionalProperties: false
       example:
         expectedResponsePercent: 5.962133916683182
-        enrollmentId: enrollmentId
         allocatedBudget: 0.8008281904610115
         code: code
         miscCost: 1.4658129805029452
@@ -5887,7 +5846,6 @@ components:
         proposedStart: 2000-01-23T04:56:07.000+00:00
         proposedEnd: 2000-01-23T04:56:07.000+00:00
         name: name
-        tenantId: tenantId
         currencyId: currencyId
         actualStart: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5932,18 +5890,11 @@ components:
         currencyId:
           nullable: true
           type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
-          type: string
       type: object
     MarketingListCreateDto:
       additionalProperties: false
       example:
         lastUsedOn: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
         cost: 0.8008281904610115
         purpose: purpose
         marketingListTarget: Individual
@@ -5951,7 +5902,6 @@ components:
         source: source
         modifiedOn: 2000-01-23T04:56:07.000+00:00
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         marketingListType: Static
         locked: true
@@ -5988,12 +5938,6 @@ components:
           format: date-time
           type: string
         currencyId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         marketingListType:
@@ -6190,15 +6134,13 @@ components:
       additionalProperties: false
       example:
         lastUsedOn: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
+        modifiedOn: 2000-01-23T04:56:07.000+00:00
         cost: 0.8008281904610115
         purpose: purpose
         marketingListTarget: Individual
+        name: name
         description: description
         source: source
-        modifiedOn: 2000-01-23T04:56:07.000+00:00
-        name: name
-        tenantId: tenantId
         marketingListType: Static
         locked: true
         currencyId: currencyId
@@ -6229,12 +6171,6 @@ components:
         currencyId:
           nullable: true
           type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
-          type: string
         marketingListType:
           enum:
           - Static
@@ -6250,10 +6186,8 @@ components:
     NewsletterCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         code: code
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6271,12 +6205,6 @@ components:
           nullable: true
           type: string
         title:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -6354,9 +6282,7 @@ components:
     NewsletterUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         code: code
-        tenantId: tenantId
         name: name
         title: title
       properties:
@@ -6364,12 +6290,6 @@ components:
           nullable: true
           type: string
         title:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         name:
@@ -6915,12 +6835,18 @@ components:
       additionalProperties: false
       example:
         featuredImageUrl: https://openapi-generator.tech
-        enrollmentId: enrollmentId
-        tenantId: tenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
         socialPostBucketId: socialPostBucketId
         content: content
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
         title:
           maxLength: 99
           minLength: 0
@@ -6933,17 +6859,7 @@ components:
           format: uri
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         socialPostBucketId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -7078,8 +6994,6 @@ components:
       additionalProperties: false
       example:
         featuredImageUrl: https://openapi-generator.tech
-        enrollmentId: enrollmentId
-        tenantId: tenantId
         title: title
         socialPostBucketId: socialPostBucketId
         content: content
@@ -7096,17 +7010,7 @@ components:
           format: uri
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         socialPostBucketId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -7115,9 +7019,7 @@ components:
     SocialPostBucketCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7129,16 +7031,6 @@ components:
           type: string
         name:
           maxLength: 99
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string
@@ -7250,22 +7142,10 @@ components:
     SocialPostBucketUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
       properties:
         name:
           maxLength: 99
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string

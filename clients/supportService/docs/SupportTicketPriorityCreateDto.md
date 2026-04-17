@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
 **SupportEntitlementID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -27,6 +28,56 @@ will change when the set of required properties is changed
 NewSupportTicketPriorityCreateDtoWithDefaults instantiates a new SupportTicketPriorityCreateDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *SupportTicketPriorityCreateDto) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *SupportTicketPriorityCreateDto) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *SupportTicketPriorityCreateDto) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *SupportTicketPriorityCreateDto) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetTimestamp
+
+`func (o *SupportTicketPriorityCreateDto) GetTimestamp() time.Time`
+
+GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
+
+### GetTimestampOk
+
+`func (o *SupportTicketPriorityCreateDto) GetTimestampOk() (*time.Time, bool)`
+
+GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimestamp
+
+`func (o *SupportTicketPriorityCreateDto) SetTimestamp(v time.Time)`
+
+SetTimestamp sets Timestamp field to given value.
+
+### HasTimestamp
+
+`func (o *SupportTicketPriorityCreateDto) HasTimestamp() bool`
+
+HasTimestamp returns a boolean if a field has been set.
 
 ### GetTitle
 
@@ -98,41 +149,6 @@ HasDescription returns a boolean if a field has been set.
 `func (o *SupportTicketPriorityCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetBusinessID
-
-`func (o *SupportTicketPriorityCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *SupportTicketPriorityCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *SupportTicketPriorityCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-### HasBusinessID
-
-`func (o *SupportTicketPriorityCreateDto) HasBusinessID() bool`
-
-HasBusinessID returns a boolean if a field has been set.
-
-### SetBusinessIDNil
-
-`func (o *SupportTicketPriorityCreateDto) SetBusinessIDNil(b bool)`
-
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-
-### UnsetBusinessID
-`func (o *SupportTicketPriorityCreateDto) UnsetBusinessID()`
-
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
 ### GetSupportEntitlementID
 
 `func (o *SupportTicketPriorityCreateDto) GetSupportEntitlementID() string`

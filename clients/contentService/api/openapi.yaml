@@ -5894,13 +5894,11 @@ components:
         allowSerachEngines: true
         image: image
         canonicalUrl: canonicalUrl
-        businessID: businessID
         description: description
         type: type
         title: title
         seoTitle: seoTitle
         metaDescription: metaDescription
-        businessProfileRecordID: businessProfileRecordID
         seoKeyPhrases: seoKeyPhrases
         cornerstoneContent: true
         imageURL: imageURL
@@ -5950,12 +5948,6 @@ components:
           nullable: true
           type: string
         webPortalID:
-          nullable: true
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       type: object
@@ -6315,18 +6307,16 @@ components:
     BlogPostCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
+        featuredImageUrl: featuredImageUrl
         code: code
         codeType: Razor
+        blogPostCategoryID: blogPostCategoryID
         description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
         title: title
-        htmlContent: htmlContent
-        featuredImageUrl: featuredImageUrl
-        blogPostCategoryID: blogPostCategoryID
-        tenantId: tenantId
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
+        htmlContent: htmlContent
         webTemplateID: webTemplateID
       properties:
         id:
@@ -6334,12 +6324,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
           type: string
         title:
           nullable: true
@@ -6870,13 +6854,11 @@ components:
         allowSerachEngines: true
         image: image
         canonicalUrl: canonicalUrl
-        businessID: businessID
         description: description
         type: type
         title: title
         seoTitle: seoTitle
         metaDescription: metaDescription
-        businessProfileRecordID: businessProfileRecordID
         seoKeyPhrases: seoKeyPhrases
         cornerstoneContent: true
         imageURL: imageURL
@@ -6926,12 +6908,6 @@ components:
           nullable: true
           type: string
         webPortalID:
-          nullable: true
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       type: object
@@ -14129,10 +14105,8 @@ components:
       additionalProperties: false
       example:
         featuredImageUrl: featuredImageUrl
-        enrollmentId: enrollmentId
         code: code
         codeType: Razor
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
@@ -14145,12 +14119,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
           type: string
         title:
           nullable: true
@@ -14880,7 +14848,6 @@ components:
         title: title
         seoTitle: seoTitle
         metaDescription: metaDescription
-        businessProfileRecordID: businessProfileRecordID
         seoKeyPhrases: seoKeyPhrases
         cornerstoneContent: true
         imageURL: imageURL
@@ -14927,9 +14894,6 @@ components:
           nullable: true
           type: string
         webPortalID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       type: object
@@ -15163,10 +15127,8 @@ components:
       additionalProperties: false
       example:
         featuredImageUrl: featuredImageUrl
-        enrollmentId: enrollmentId
         code: code
         codeType: Razor
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
@@ -15180,12 +15142,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
           type: string
         title:
           nullable: true
@@ -15770,7 +15726,6 @@ components:
         title: title
         seoTitle: seoTitle
         metaDescription: metaDescription
-        businessProfileRecordID: businessProfileRecordID
         seoKeyPhrases: seoKeyPhrases
         cornerstoneContent: true
         imageURL: imageURL
@@ -15817,9 +15772,6 @@ components:
           nullable: true
           type: string
         webPortalID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       type: object
@@ -16299,14 +16251,12 @@ components:
       example:
         root: true
         domain: domain
-        businessID: businessID
         description: description
         businessPortalApplicationID: businessPortalApplicationID
         disabled: true
         businessDomainID: businessDomainID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
         websiteThemeID: websiteThemeID
       properties:
@@ -16326,9 +16276,6 @@ components:
           type: string
         disabled:
           type: boolean
-        businessID:
-          nullable: true
-          type: string
         description:
           nullable: true
           type: string
@@ -16336,9 +16283,6 @@ components:
           nullable: true
           type: string
         businessDomainID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
         businessPortalApplicationID:
@@ -16449,7 +16393,6 @@ components:
         disabled: true
         businessDomainID: businessDomainID
         title: title
-        businessProfileRecordID: businessProfileRecordID
         websiteThemeID: websiteThemeID
       properties:
         root:
@@ -16471,9 +16414,6 @@ components:
         businessDomainID:
           nullable: true
           type: string
-        businessProfileRecordID:
-          nullable: true
-          type: string
         businessPortalApplicationID:
           nullable: true
           type: string
@@ -16489,18 +16429,17 @@ components:
         htmlContent: htmlContent
         highlightImage: highlightImage
         name: name
-        id: id
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         jsContent: jsContent
         slug: slug
         timestamp: 2000-01-23T04:56:07.000+00:00
         order: 0
       properties:
         id:
-          nullable: true
+          format: uuid
           type: string
         timestamp:
           format: date-time
-          nullable: true
           type: string
         slug:
           nullable: true

@@ -10,11 +10,8 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Approved** | Pointer to **bool** |  | [optional] 
 **ApprovedTimestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **SupportEntitlementID** | Pointer to **NullableString** |  | [optional] 
 **ContactID** | Pointer to **NullableString** |  | [optional] 
-**AccountHolderID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -190,76 +187,6 @@ SetApprovedTimestamp sets ApprovedTimestamp field to given value.
 
 HasApprovedTimestamp returns a boolean if a field has been set.
 
-### GetBusinessID
-
-`func (o *SupportRequestCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *SupportRequestCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *SupportRequestCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-### HasBusinessID
-
-`func (o *SupportRequestCreateDto) HasBusinessID() bool`
-
-HasBusinessID returns a boolean if a field has been set.
-
-### SetBusinessIDNil
-
-`func (o *SupportRequestCreateDto) SetBusinessIDNil(b bool)`
-
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-
-### UnsetBusinessID
-`func (o *SupportRequestCreateDto) UnsetBusinessID()`
-
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *SupportRequestCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *SupportRequestCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *SupportRequestCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *SupportRequestCreateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *SupportRequestCreateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *SupportRequestCreateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetSupportEntitlementID
 
 `func (o *SupportRequestCreateDto) GetSupportEntitlementID() string`
@@ -330,41 +257,6 @@ HasContactID returns a boolean if a field has been set.
 `func (o *SupportRequestCreateDto) UnsetContactID()`
 
 UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
-### GetAccountHolderID
-
-`func (o *SupportRequestCreateDto) GetAccountHolderID() string`
-
-GetAccountHolderID returns the AccountHolderID field if non-nil, zero value otherwise.
-
-### GetAccountHolderIDOk
-
-`func (o *SupportRequestCreateDto) GetAccountHolderIDOk() (*string, bool)`
-
-GetAccountHolderIDOk returns a tuple with the AccountHolderID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountHolderID
-
-`func (o *SupportRequestCreateDto) SetAccountHolderID(v string)`
-
-SetAccountHolderID sets AccountHolderID field to given value.
-
-### HasAccountHolderID
-
-`func (o *SupportRequestCreateDto) HasAccountHolderID() bool`
-
-HasAccountHolderID returns a boolean if a field has been set.
-
-### SetAccountHolderIDNil
-
-`func (o *SupportRequestCreateDto) SetAccountHolderIDNil(b bool)`
-
- SetAccountHolderIDNil sets the value for AccountHolderID to be an explicit nil
-
-### UnsetAccountHolderID
-`func (o *SupportRequestCreateDto) UnsetAccountHolderID()`
-
-UnsetAccountHolderID ensures that no value is present for AccountHolderID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

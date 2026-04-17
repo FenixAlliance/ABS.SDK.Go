@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **NullableString** |  | [optional] 
-**Timestamp** | Pointer to **NullableTime** |  | [optional] 
+**Id** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Slug** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
@@ -62,16 +62,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### SetIdNil
-
-`func (o *WebTemplateCreateDto) SetIdNil(b bool)`
-
- SetIdNil sets the value for Id to be an explicit nil
-
-### UnsetId
-`func (o *WebTemplateCreateDto) UnsetId()`
-
-UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetTimestamp
 
 `func (o *WebTemplateCreateDto) GetTimestamp() time.Time`
@@ -97,16 +87,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### SetTimestampNil
-
-`func (o *WebTemplateCreateDto) SetTimestampNil(b bool)`
-
- SetTimestampNil sets the value for Timestamp to be an explicit nil
-
-### UnsetTimestamp
-`func (o *WebTemplateCreateDto) UnsetTimestamp()`
-
-UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetSlug
 
 `func (o *WebTemplateCreateDto) GetSlug() string`

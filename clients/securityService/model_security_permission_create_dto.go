@@ -26,7 +26,6 @@ type SecurityPermissionCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Name string `json:"name"`
-	TenantId string `json:"tenantId"`
 	Description NullableString `json:"description,omitempty"`
 }
 
@@ -36,10 +35,9 @@ type _SecurityPermissionCreateDto SecurityPermissionCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSecurityPermissionCreateDto(name string, tenantId string) *SecurityPermissionCreateDto {
+func NewSecurityPermissionCreateDto(name string) *SecurityPermissionCreateDto {
 	this := SecurityPermissionCreateDto{}
 	this.Name = name
-	this.TenantId = tenantId
 	return &this
 }
 
@@ -139,30 +137,6 @@ func (o *SecurityPermissionCreateDto) SetName(v string) {
 	o.Name = v
 }
 
-// GetTenantId returns the TenantId field value
-func (o *SecurityPermissionCreateDto) GetTenantId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.TenantId
-}
-
-// GetTenantIdOk returns a tuple with the TenantId field value
-// and a boolean to check if the value has been set.
-func (o *SecurityPermissionCreateDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TenantId, true
-}
-
-// SetTenantId sets field value
-func (o *SecurityPermissionCreateDto) SetTenantId(v string) {
-	o.TenantId = v
-}
-
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SecurityPermissionCreateDto) GetDescription() string {
 	if o == nil || IsNil(o.Description.Get()) {
@@ -222,7 +196,6 @@ func (o SecurityPermissionCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
 	toSerialize["name"] = o.Name
-	toSerialize["tenantId"] = o.TenantId
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
@@ -235,7 +208,6 @@ func (o *SecurityPermissionCreateDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"name",
-		"tenantId",
 	}
 
 	allProperties := make(map[string]interface{})

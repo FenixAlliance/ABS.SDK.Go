@@ -2192,18 +2192,17 @@ components:
           totalShippingCost: 7.058770351582356
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           quoteItemRecordId: quoteItemRecordId
-          businessProfileRecordId: businessProfileRecordId
           totalTaxBaseInUsd: 4.965218492984954
-          totalTaxBase: 0.8851374739011653
+          totalTaxBase: 3.0937452626664474
           totalWarrantyCostInUsd: 9.018348186070783
           totalAmountInUsd: 1.284659006116532
           itemShortDescription: itemShortDescription
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           totalDetailAmountInUsd: 1.1730742509559433
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           currencyId: currencyId
           data2Label: data2Label
           priceListItemId: priceListItemId
-          enrollmentId: enrollmentId
           forexRatesSnapshot: forexRatesSnapshot
           totalWithheldTaxesInUsd: 9.369310271410669
           customGlobalSurchargesAmount: 6.878052220127876
@@ -2232,10 +2231,10 @@ components:
           shippingPolicyId: shippingPolicyId
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
           freeReason: freeReason
-          totalProfit: 3.353193347011243
+          totalProfit: 0.8851374739011653
           totalGlobalDiscounts: 8.969578798196912
           itemTitle: itemTitle
-          totalDiscounts: 3.0937452626664474
+          totalDiscounts: 3.353193347011243
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           shippingLocationId: shippingLocationId
@@ -2248,6 +2247,7 @@ components:
           unitId: unitId
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           free: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
           data9: data9
           data8: data8
           data7: data7
@@ -2269,7 +2269,6 @@ components:
           shipmentPolicyId: shipmentPolicyId
           totalBaseAmountInUsd: 6.84685269835264
           totalTaxesInUsd: 9.965781217890562
-          tenantId: tenantId
           closed: true
           totalSurcharges: 7.143538047012306
           taxCalculationMethod: Included
@@ -2288,18 +2287,17 @@ components:
           totalShippingCost: 7.058770351582356
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           quoteItemRecordId: quoteItemRecordId
-          businessProfileRecordId: businessProfileRecordId
           totalTaxBaseInUsd: 4.965218492984954
-          totalTaxBase: 0.8851374739011653
+          totalTaxBase: 3.0937452626664474
           totalWarrantyCostInUsd: 9.018348186070783
           totalAmountInUsd: 1.284659006116532
           itemShortDescription: itemShortDescription
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           totalDetailAmountInUsd: 1.1730742509559433
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           currencyId: currencyId
           data2Label: data2Label
           priceListItemId: priceListItemId
-          enrollmentId: enrollmentId
           forexRatesSnapshot: forexRatesSnapshot
           totalWithheldTaxesInUsd: 9.369310271410669
           customGlobalSurchargesAmount: 6.878052220127876
@@ -2328,10 +2326,10 @@ components:
           shippingPolicyId: shippingPolicyId
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
           freeReason: freeReason
-          totalProfit: 3.353193347011243
+          totalProfit: 0.8851374739011653
           totalGlobalDiscounts: 8.969578798196912
           itemTitle: itemTitle
-          totalDiscounts: 3.0937452626664474
+          totalDiscounts: 3.353193347011243
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           shippingLocationId: shippingLocationId
@@ -2344,6 +2342,7 @@ components:
           unitId: unitId
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           free: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
           data9: data9
           data8: data8
           data7: data7
@@ -2365,7 +2364,6 @@ components:
           shipmentPolicyId: shipmentPolicyId
           totalBaseAmountInUsd: 6.84685269835264
           totalTaxesInUsd: 9.965781217890562
-          tenantId: tenantId
           closed: true
           totalSurcharges: 7.143538047012306
           taxCalculationMethod: Included
@@ -3353,10 +3351,8 @@ components:
       example:
         parentBusinessProcessId: parentBusinessProcessId
         name: name
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        tenantEnrollmentId: tenantEnrollmentId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -3376,16 +3372,6 @@ components:
           nullable: true
           type: string
         parentBusinessProcessId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        tenantEnrollmentId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -3513,10 +3499,8 @@ components:
       additionalProperties: false
       example:
         parentBusinessProcessStageId: parentBusinessProcessStageId
-        enrollmentId: enrollmentId
         name: name
         dealUnitFlowId: dealUnitFlowId
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -3537,13 +3521,7 @@ components:
         dealUnitFlowId:
           nullable: true
           type: string
-        tenantId:
-          nullable: true
-          type: string
         description:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         parentBusinessProcessStageId:
@@ -3686,7 +3664,6 @@ components:
       additionalProperties: false
       example:
         parentBusinessProcessStageId: parentBusinessProcessStageId
-        enrollmentId: enrollmentId
         name: name
         dealUnitFlowId: dealUnitFlowId
         description: description
@@ -3701,9 +3678,6 @@ components:
         description:
           nullable: true
           type: string
-        enrollmentId:
-          nullable: true
-          type: string
         dealUnitFlowId:
           nullable: true
           type: string
@@ -3716,7 +3690,6 @@ components:
       example:
         parentBusinessProcessId: parentBusinessProcessId
         name: name
-        tenantId: tenantId
         description: description
         tenantEnrollmentId: tenantEnrollmentId
       properties:
@@ -3731,11 +3704,6 @@ components:
           nullable: true
           type: string
         parentBusinessProcessId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        tenantId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -3759,18 +3727,17 @@ components:
         totalShippingCost: 7.058770351582356
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
         quoteItemRecordId: quoteItemRecordId
-        businessProfileRecordId: businessProfileRecordId
         totalTaxBaseInUsd: 4.965218492984954
-        totalTaxBase: 0.8851374739011653
+        totalTaxBase: 3.0937452626664474
         totalWarrantyCostInUsd: 9.018348186070783
         totalAmountInUsd: 1.284659006116532
         itemShortDescription: itemShortDescription
         totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         totalDetailAmountInUsd: 1.1730742509559433
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
         data2Label: data2Label
         priceListItemId: priceListItemId
-        enrollmentId: enrollmentId
         forexRatesSnapshot: forexRatesSnapshot
         totalWithheldTaxesInUsd: 9.369310271410669
         customGlobalSurchargesAmount: 6.878052220127876
@@ -3799,10 +3766,10 @@ components:
         shippingPolicyId: shippingPolicyId
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
         freeReason: freeReason
-        totalProfit: 3.353193347011243
+        totalProfit: 0.8851374739011653
         totalGlobalDiscounts: 8.969578798196912
         itemTitle: itemTitle
-        totalDiscounts: 3.0937452626664474
+        totalDiscounts: 3.353193347011243
         totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
         shippingLocationId: shippingLocationId
@@ -3815,6 +3782,7 @@ components:
         unitId: unitId
         totalDiscountsCurrencyId: totalDiscountsCurrencyId
         free: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
         data9: data9
         data8: data8
         data7: data7
@@ -3836,7 +3804,6 @@ components:
         shipmentPolicyId: shipmentPolicyId
         totalBaseAmountInUsd: 6.84685269835264
         totalTaxesInUsd: 9.965781217890562
-        tenantId: tenantId
         closed: true
         totalSurcharges: 7.143538047012306
         taxCalculationMethod: Included
@@ -3846,6 +3813,12 @@ components:
         totalProfitCurrencyId: totalProfitCurrencyId
         totalTaxesCurrencyId: totalTaxesCurrencyId
       properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
         closed:
           type: boolean
         itemId:
@@ -3861,12 +3834,6 @@ components:
           nullable: true
           type: string
         shippingPolicyId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         currencyId:
@@ -4040,16 +4007,16 @@ components:
         totalDetailCurrencyId:
           nullable: true
           type: string
-        totalProfit:
-          format: double
-          type: number
-        totalProfitCurrencyId:
-          nullable: true
-          type: string
         totalDiscounts:
           format: double
           type: number
         totalDiscountsCurrencyId:
+          nullable: true
+          type: string
+        totalTaxBase:
+          format: double
+          type: number
+        totalTaxBaseCurrencyId:
           nullable: true
           type: string
         totalSurcharges:
@@ -4058,10 +4025,10 @@ components:
         totalSurchargesCurrencyId:
           nullable: true
           type: string
-        totalTaxBase:
+        totalProfit:
           format: double
           type: number
-        totalTaxBaseCurrencyId:
+        totalProfitCurrencyId:
           nullable: true
           type: string
         totalShippingCost:
@@ -4125,9 +4092,6 @@ components:
           nullable: true
           type: string
         quoteItemRecordId:
-          nullable: true
-          type: string
-        businessProfileRecordId:
           nullable: true
           type: string
         parentBillingItemRecordId:
@@ -5243,7 +5207,6 @@ components:
         totalShippingCost: 6.438423552598547
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
         quoteItemRecordId: quoteItemRecordId
-        businessProfileRecordId: businessProfileRecordId
         totalTaxBaseInUsd: 2.3021358869347655
         totalTaxBase: 9.018348186070783
         totalWarrantyCostInUsd: 7.386281948385884
@@ -5254,7 +5217,6 @@ components:
         currencyId: currencyId
         data2Label: data2Label
         priceListItemId: priceListItemId
-        enrollmentId: enrollmentId
         forexRatesSnapshot: forexRatesSnapshot
         totalWithheldTaxesInUsd: 3.616076749251911
         customGlobalSurchargesAmount: 4.965218492984954
@@ -5319,7 +5281,6 @@ components:
         shipmentPolicyId: shipmentPolicyId
         totalBaseAmountInUsd: 1.4658129805029452
         totalTaxesInUsd: 9.301444243932576
-        tenantId: tenantId
         closed: true
         totalSurcharges: 8.762042012749001
         taxCalculationMethod: Included
@@ -5344,12 +5305,6 @@ components:
           nullable: true
           type: string
         shippingPolicyId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         currencyId:
@@ -5610,9 +5565,6 @@ components:
         quoteItemRecordId:
           nullable: true
           type: string
-        businessProfileRecordId:
-          nullable: true
-          type: string
         parentBillingItemRecordId:
           nullable: true
           type: string
@@ -5638,7 +5590,6 @@ components:
         dealUnitFlowStageId: dealUnitFlowStageId
         currencyId: currencyId
         dealUnitForecastCategory: None
-        enrollmentId: enrollmentId
         closedTimestamp: 2000-01-23T04:56:07.000+00:00
         cartId: cartId
         totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
@@ -5683,7 +5634,6 @@ components:
         userId: userId
         totalDetailCurrencyId: totalDetailCurrencyId
         totalSurchargesCurrencyId: totalSurchargesCurrencyId
-        tenantId: tenantId
         closed: true
         totalSurcharges: 5.637376656633329
         wonDate: 2000-01-23T04:56:07.000+00:00
@@ -5701,16 +5651,10 @@ components:
         userId:
           nullable: true
           type: string
-        tenantId:
-          nullable: true
-          type: string
         priceListId:
           nullable: true
           type: string
         description:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         individualId:
@@ -8229,10 +8173,8 @@ components:
     SalesLiteratureCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         salesLiteratureTypeId: salesLiteratureTypeId
         modifiedDate: 2000-01-23T04:56:07.000+00:00
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -8266,16 +8208,6 @@ components:
           type: string
         expirationDate:
           format: date-time
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
           type: string
         salesLiteratureTypeId:
           maxLength: 36
@@ -8451,10 +8383,8 @@ components:
     SalesLiteratureUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         salesLiteratureTypeId: salesLiteratureTypeId
         modifiedDate: 2000-01-23T04:56:07.000+00:00
-        tenantId: tenantId
         description: description
         title: title
         content: content
@@ -8480,16 +8410,6 @@ components:
           type: string
         expirationDate:
           format: date-time
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
           type: string
         salesLiteratureTypeId:
           maxLength: 36

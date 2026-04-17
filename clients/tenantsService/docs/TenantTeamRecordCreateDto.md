@@ -6,15 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessID** | **string** |  | 
-**BusinessProfileRecordID** | **string** |  | 
 **BusinessTeamID** | **string** |  | 
 
 ## Methods
 
 ### NewTenantTeamRecordCreateDto
 
-`func NewTenantTeamRecordCreateDto(businessID string, businessProfileRecordID string, businessTeamID string, ) *TenantTeamRecordCreateDto`
+`func NewTenantTeamRecordCreateDto(businessTeamID string, ) *TenantTeamRecordCreateDto`
 
 NewTenantTeamRecordCreateDto instantiates a new TenantTeamRecordCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -78,46 +76,6 @@ SetTimestamp sets Timestamp field to given value.
 `func (o *TenantTeamRecordCreateDto) HasTimestamp() bool`
 
 HasTimestamp returns a boolean if a field has been set.
-
-### GetBusinessID
-
-`func (o *TenantTeamRecordCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *TenantTeamRecordCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *TenantTeamRecordCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-
-### GetBusinessProfileRecordID
-
-`func (o *TenantTeamRecordCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *TenantTeamRecordCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *TenantTeamRecordCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
 
 ### GetBusinessTeamID
 

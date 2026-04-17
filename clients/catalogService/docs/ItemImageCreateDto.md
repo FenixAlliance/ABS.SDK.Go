@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessID** | **string** |  | 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **ItemID** | Pointer to **NullableString** |  | [optional] 
 **IsItemMozaicBG** | Pointer to **bool** |  | [optional] 
 **MD5Hash** | Pointer to **NullableString** |  | [optional] 
@@ -24,13 +22,12 @@ Name | Type | Description | Notes
 **ValidResponse** | Pointer to **bool** |  | [optional] 
 **SocialProfileID** | Pointer to **NullableString** |  | [optional] 
 **ParentFileUploadID** | Pointer to **NullableString** |  | [optional] 
-**AccountHolderID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewItemImageCreateDto
 
-`func NewItemImageCreateDto(businessID string, fileName string, ) *ItemImageCreateDto`
+`func NewItemImageCreateDto(fileName string, ) *ItemImageCreateDto`
 
 NewItemImageCreateDto instantiates a new ItemImageCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -95,61 +92,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetBusinessID
-
-`func (o *ItemImageCreateDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *ItemImageCreateDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *ItemImageCreateDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-
-### GetBusinessProfileRecordID
-
-`func (o *ItemImageCreateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *ItemImageCreateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *ItemImageCreateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *ItemImageCreateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *ItemImageCreateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *ItemImageCreateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetItemID
 
 `func (o *ItemImageCreateDto) GetItemID() string`
@@ -665,41 +607,6 @@ HasParentFileUploadID returns a boolean if a field has been set.
 `func (o *ItemImageCreateDto) UnsetParentFileUploadID()`
 
 UnsetParentFileUploadID ensures that no value is present for ParentFileUploadID, not even an explicit nil
-### GetAccountHolderID
-
-`func (o *ItemImageCreateDto) GetAccountHolderID() string`
-
-GetAccountHolderID returns the AccountHolderID field if non-nil, zero value otherwise.
-
-### GetAccountHolderIDOk
-
-`func (o *ItemImageCreateDto) GetAccountHolderIDOk() (*string, bool)`
-
-GetAccountHolderIDOk returns a tuple with the AccountHolderID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountHolderID
-
-`func (o *ItemImageCreateDto) SetAccountHolderID(v string)`
-
-SetAccountHolderID sets AccountHolderID field to given value.
-
-### HasAccountHolderID
-
-`func (o *ItemImageCreateDto) HasAccountHolderID() bool`
-
-HasAccountHolderID returns a boolean if a field has been set.
-
-### SetAccountHolderIDNil
-
-`func (o *ItemImageCreateDto) SetAccountHolderIDNil(b bool)`
-
- SetAccountHolderIDNil sets the value for AccountHolderID to be an explicit nil
-
-### UnsetAccountHolderID
-`func (o *ItemImageCreateDto) UnsetAccountHolderID()`
-
-UnsetAccountHolderID ensures that no value is present for AccountHolderID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

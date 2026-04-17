@@ -7,14 +7,13 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
-**TenantId** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewSecurityPermissionCreateDto
 
-`func NewSecurityPermissionCreateDto(name string, tenantId string, ) *SecurityPermissionCreateDto`
+`func NewSecurityPermissionCreateDto(name string, ) *SecurityPermissionCreateDto`
 
 NewSecurityPermissionCreateDto instantiates a new SecurityPermissionCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -97,26 +96,6 @@ and a boolean to check if the value has been set.
 `func (o *SecurityPermissionCreateDto) SetName(v string)`
 
 SetName sets Name field to given value.
-
-
-### GetTenantId
-
-`func (o *SecurityPermissionCreateDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *SecurityPermissionCreateDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *SecurityPermissionCreateDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
 
 
 ### GetDescription

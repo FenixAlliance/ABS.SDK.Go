@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **WebsiteThemeID** | Pointer to **NullableString** |  | [optional] 
 **BusinessDomainID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 **BusinessPortalApplicationID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -258,41 +257,6 @@ HasBusinessDomainID returns a boolean if a field has been set.
 `func (o *WebPortalUpdateDto) UnsetBusinessDomainID()`
 
 UnsetBusinessDomainID ensures that no value is present for BusinessDomainID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *WebPortalUpdateDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *WebPortalUpdateDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *WebPortalUpdateDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *WebPortalUpdateDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *WebPortalUpdateDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *WebPortalUpdateDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 ### GetBusinessPortalApplicationID
 
 `func (o *WebPortalUpdateDto) GetBusinessPortalApplicationID() string`

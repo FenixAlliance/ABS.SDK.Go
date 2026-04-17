@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Closed** | Pointer to **bool** |  | [optional] 
 **EndDate** | Pointer to **time.Time** |  | [optional] 
 **StartDate** | Pointer to **time.Time** |  | [optional] 
+**FiscalAuthorityId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -174,6 +175,41 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
+### GetFiscalAuthorityId
+
+`func (o *FiscalYearUpdateDto) GetFiscalAuthorityId() string`
+
+GetFiscalAuthorityId returns the FiscalAuthorityId field if non-nil, zero value otherwise.
+
+### GetFiscalAuthorityIdOk
+
+`func (o *FiscalYearUpdateDto) GetFiscalAuthorityIdOk() (*string, bool)`
+
+GetFiscalAuthorityIdOk returns a tuple with the FiscalAuthorityId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFiscalAuthorityId
+
+`func (o *FiscalYearUpdateDto) SetFiscalAuthorityId(v string)`
+
+SetFiscalAuthorityId sets FiscalAuthorityId field to given value.
+
+### HasFiscalAuthorityId
+
+`func (o *FiscalYearUpdateDto) HasFiscalAuthorityId() bool`
+
+HasFiscalAuthorityId returns a boolean if a field has been set.
+
+### SetFiscalAuthorityIdNil
+
+`func (o *FiscalYearUpdateDto) SetFiscalAuthorityIdNil(b bool)`
+
+ SetFiscalAuthorityIdNil sets the value for FiscalAuthorityId to be an explicit nil
+
+### UnsetFiscalAuthorityId
+`func (o *FiscalYearUpdateDto) UnsetFiscalAuthorityId()`
+
+UnsetFiscalAuthorityId ensures that no value is present for FiscalAuthorityId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
