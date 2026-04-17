@@ -24,6 +24,155 @@ import (
 // WebPageTagsAPIService WebPageTagsAPI service
 type WebPageTagsAPIService service
 
+type ApiCountWebPageTagsAsyncRequest struct {
+	ctx context.Context
+	ApiService *WebPageTagsAPIService
+	tenantId *string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiCountWebPageTagsAsyncRequest) TenantId(tenantId string) ApiCountWebPageTagsAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiCountWebPageTagsAsyncRequest) ApiVersion(apiVersion string) ApiCountWebPageTagsAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiCountWebPageTagsAsyncRequest) XApiVersion(xApiVersion string) ApiCountWebPageTagsAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountWebPageTagsAsyncRequest) Execute() (*Int32Envelope, *http.Response, error) {
+	return r.ApiService.CountWebPageTagsAsyncExecute(r)
+}
+
+/*
+CountWebPageTagsAsync Count web page tags
+
+Counts all web page tags for the specified tenant.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCountWebPageTagsAsyncRequest
+*/
+func (a *WebPageTagsAPIService) CountWebPageTagsAsync(ctx context.Context) ApiCountWebPageTagsAsyncRequest {
+	return ApiCountWebPageTagsAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return Int32Envelope
+func (a *WebPageTagsAPIService) CountWebPageTagsAsyncExecute(r ApiCountWebPageTagsAsyncRequest) (*Int32Envelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Int32Envelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebPageTagsAPIService.CountWebPageTagsAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/ContentService/WebPageTags/Count"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiCreateWebPageTagAsyncRequest struct {
 	ctx context.Context
 	ApiService *WebPageTagsAPIService

@@ -4,12 +4,83 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CountBlogPostTagsAsync**](BlogPostTagsAPI.md#CountBlogPostTagsAsync) | **Get** /api/v2/ContentService/BlogPostTags/Count | Count blog post tags
 [**CreateBlogPostTagAsync**](BlogPostTagsAPI.md#CreateBlogPostTagAsync) | **Post** /api/v2/ContentService/BlogPostTags | Create a blog post tag
 [**DeleteBlogPostTagAsync**](BlogPostTagsAPI.md#DeleteBlogPostTagAsync) | **Delete** /api/v2/ContentService/BlogPostTags/{blogPostTagId} | Delete a blog post tag
 [**GetBlogPostTagByIdAsync**](BlogPostTagsAPI.md#GetBlogPostTagByIdAsync) | **Get** /api/v2/ContentService/BlogPostTags/{blogPostTagId} | Get blog post tag by ID
 [**GetBlogPostTagsAsync**](BlogPostTagsAPI.md#GetBlogPostTagsAsync) | **Get** /api/v2/ContentService/BlogPostTags | Get blog post tags
 [**UpdateBlogPostTagAsync**](BlogPostTagsAPI.md#UpdateBlogPostTagAsync) | **Put** /api/v2/ContentService/BlogPostTags/{blogPostTagId} | Update a blog post tag
 
+
+
+## CountBlogPostTagsAsync
+
+> Int32Envelope CountBlogPostTagsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count blog post tags
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BlogPostTagsAPI.CountBlogPostTagsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BlogPostTagsAPI.CountBlogPostTagsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountBlogPostTagsAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `BlogPostTagsAPI.CountBlogPostTagsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountBlogPostTagsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CreateBlogPostTagAsync

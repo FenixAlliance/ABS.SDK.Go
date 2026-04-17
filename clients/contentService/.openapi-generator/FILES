@@ -170,6 +170,7 @@ docs/WebPagesAPI.md
 docs/WebPortalCreateDto.md
 docs/WebPortalDto.md
 docs/WebPortalDtoEnvelope.md
+docs/WebPortalDtoListEnvelope.md
 docs/WebPortalUpdateDto.md
 docs/WebTemplateCreateDto.md
 docs/WebTemplateDto.md
@@ -321,6 +322,7 @@ model_web_page_update_dto.go
 model_web_portal_create_dto.go
 model_web_portal_dto.go
 model_web_portal_dto_envelope.go
+model_web_portal_dto_list_envelope.go
 model_web_portal_update_dto.go
 model_web_template_create_dto.go
 model_web_template_dto.go

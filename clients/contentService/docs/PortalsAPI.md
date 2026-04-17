@@ -4,10 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CountPortalsAsync**](PortalsAPI.md#CountPortalsAsync) | **Get** /api/v2/ContentService/Portals/Count | Count portals
 [**CreateWebPortalAsync**](PortalsAPI.md#CreateWebPortalAsync) | **Post** /api/v2/ContentService/Portals | Create a new web portal
 [**DeleteWebPortalAsync**](PortalsAPI.md#DeleteWebPortalAsync) | **Delete** /api/v2/ContentService/Portals/{portalId} | Delete a web portal
 [**GetCurrentWebPortalAsync**](PortalsAPI.md#GetCurrentWebPortalAsync) | **Get** /api/v2/ContentService/Portals/Current | Get the current portal
 [**GetCurrentWebPortalOptionsAsync**](PortalsAPI.md#GetCurrentWebPortalOptionsAsync) | **Get** /api/v2/ContentService/Portals/Current/Options | Get the current portal&#39;s options
+[**GetPortalsAsync**](PortalsAPI.md#GetPortalsAsync) | **Get** /api/v2/ContentService/Portals | Get portals
 [**GetRootWebPortalAsync**](PortalsAPI.md#GetRootWebPortalAsync) | **Get** /api/v2/ContentService/Portals/Root | Get the root portal
 [**GetWebPortalByIdAsync**](PortalsAPI.md#GetWebPortalByIdAsync) | **Get** /api/v2/ContentService/Portals/{portalId} | Get a web portal by its ID
 [**GetWebPortalOptionsAsync**](PortalsAPI.md#GetWebPortalOptionsAsync) | **Get** /api/v2/ContentService/Portals/{portalId}/Options | Get a web portal&#39;s options by its ID
@@ -17,6 +19,76 @@ Method | HTTP request | Description
 [**SearchWebPortalAsync**](PortalsAPI.md#SearchWebPortalAsync) | **Get** /api/v2/ContentService/Portals/Search | Search for a portal by its domain
 [**UpdateWebPortalAsync**](PortalsAPI.md#UpdateWebPortalAsync) | **Put** /api/v2/ContentService/Portals/{portalId} | Update an existing web portal
 
+
+
+## CountPortalsAsync
+
+> Int32Envelope CountPortalsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count portals
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PortalsAPI.CountPortalsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PortalsAPI.CountPortalsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountPortalsAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `PortalsAPI.CountPortalsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountPortalsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CreateWebPortalAsync
@@ -288,6 +360,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PortalOptionsEnvelope**](PortalOptionsEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPortalsAsync
+
+> WebPortalDtoListEnvelope GetPortalsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get portals
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PortalsAPI.GetPortalsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PortalsAPI.GetPortalsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPortalsAsync`: WebPortalDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PortalsAPI.GetPortalsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPortalsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**WebPortalDtoListEnvelope**](WebPortalDtoListEnvelope.md)
 
 ### Authorization
 
