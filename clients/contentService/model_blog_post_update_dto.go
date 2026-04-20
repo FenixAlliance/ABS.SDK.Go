@@ -74,6 +74,8 @@ type BlogPostUpdateDto struct {
 	CornerstoneContent *bool `json:"cornerstoneContent,omitempty"`
 	IsEssentialContent *bool `json:"isEssentialContent,omitempty"`
 	AllowSearchEngineIndexing *bool `json:"allowSearchEngineIndexing,omitempty"`
+	BlogPostCategoryId NullableString `json:"blogPostCategoryId,omitempty"`
+	WebTemplateId NullableString `json:"webTemplateId,omitempty"`
 }
 
 // NewBlogPostUpdateDto instantiates a new BlogPostUpdateDto object
@@ -2171,6 +2173,90 @@ func (o *BlogPostUpdateDto) SetAllowSearchEngineIndexing(v bool) {
 	o.AllowSearchEngineIndexing = &v
 }
 
+// GetBlogPostCategoryId returns the BlogPostCategoryId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BlogPostUpdateDto) GetBlogPostCategoryId() string {
+	if o == nil || IsNil(o.BlogPostCategoryId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BlogPostCategoryId.Get()
+}
+
+// GetBlogPostCategoryIdOk returns a tuple with the BlogPostCategoryId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BlogPostUpdateDto) GetBlogPostCategoryIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BlogPostCategoryId.Get(), o.BlogPostCategoryId.IsSet()
+}
+
+// HasBlogPostCategoryId returns a boolean if a field has been set.
+func (o *BlogPostUpdateDto) HasBlogPostCategoryId() bool {
+	if o != nil && o.BlogPostCategoryId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBlogPostCategoryId gets a reference to the given NullableString and assigns it to the BlogPostCategoryId field.
+func (o *BlogPostUpdateDto) SetBlogPostCategoryId(v string) {
+	o.BlogPostCategoryId.Set(&v)
+}
+// SetBlogPostCategoryIdNil sets the value for BlogPostCategoryId to be an explicit nil
+func (o *BlogPostUpdateDto) SetBlogPostCategoryIdNil() {
+	o.BlogPostCategoryId.Set(nil)
+}
+
+// UnsetBlogPostCategoryId ensures that no value is present for BlogPostCategoryId, not even an explicit nil
+func (o *BlogPostUpdateDto) UnsetBlogPostCategoryId() {
+	o.BlogPostCategoryId.Unset()
+}
+
+// GetWebTemplateId returns the WebTemplateId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BlogPostUpdateDto) GetWebTemplateId() string {
+	if o == nil || IsNil(o.WebTemplateId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.WebTemplateId.Get()
+}
+
+// GetWebTemplateIdOk returns a tuple with the WebTemplateId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BlogPostUpdateDto) GetWebTemplateIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WebTemplateId.Get(), o.WebTemplateId.IsSet()
+}
+
+// HasWebTemplateId returns a boolean if a field has been set.
+func (o *BlogPostUpdateDto) HasWebTemplateId() bool {
+	if o != nil && o.WebTemplateId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWebTemplateId gets a reference to the given NullableString and assigns it to the WebTemplateId field.
+func (o *BlogPostUpdateDto) SetWebTemplateId(v string) {
+	o.WebTemplateId.Set(&v)
+}
+// SetWebTemplateIdNil sets the value for WebTemplateId to be an explicit nil
+func (o *BlogPostUpdateDto) SetWebTemplateIdNil() {
+	o.WebTemplateId.Set(nil)
+}
+
+// UnsetWebTemplateId ensures that no value is present for WebTemplateId, not even an explicit nil
+func (o *BlogPostUpdateDto) UnsetWebTemplateId() {
+	o.WebTemplateId.Unset()
+}
+
 func (o BlogPostUpdateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -2342,6 +2428,12 @@ func (o BlogPostUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AllowSearchEngineIndexing) {
 		toSerialize["allowSearchEngineIndexing"] = o.AllowSearchEngineIndexing
+	}
+	if o.BlogPostCategoryId.IsSet() {
+		toSerialize["blogPostCategoryId"] = o.BlogPostCategoryId.Get()
+	}
+	if o.WebTemplateId.IsSet() {
+		toSerialize["webTemplateId"] = o.WebTemplateId.Get()
 	}
 	return toSerialize, nil
 }

@@ -80,8 +80,8 @@ type BlogPostDto struct {
 	SocialProfileId NullableString `json:"socialProfileId,omitempty"`
 	ParentWebContentId NullableString `json:"parentWebContentId,omitempty"`
 	ParentWebContentVersionId NullableString `json:"parentWebContentVersionId,omitempty"`
-	BlogPostCategoryID NullableString `json:"blogPostCategoryID,omitempty"`
-	WebTemplateID NullableString `json:"webTemplateID,omitempty"`
+	BlogPostCategoryId NullableString `json:"blogPostCategoryId,omitempty"`
+	WebTemplateId NullableString `json:"webTemplateId,omitempty"`
 }
 
 // NewBlogPostDto instantiates a new BlogPostDto object
@@ -2430,88 +2430,88 @@ func (o *BlogPostDto) UnsetParentWebContentVersionId() {
 	o.ParentWebContentVersionId.Unset()
 }
 
-// GetBlogPostCategoryID returns the BlogPostCategoryID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BlogPostDto) GetBlogPostCategoryID() string {
-	if o == nil || IsNil(o.BlogPostCategoryID.Get()) {
+// GetBlogPostCategoryId returns the BlogPostCategoryId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BlogPostDto) GetBlogPostCategoryId() string {
+	if o == nil || IsNil(o.BlogPostCategoryId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BlogPostCategoryID.Get()
+	return *o.BlogPostCategoryId.Get()
 }
 
-// GetBlogPostCategoryIDOk returns a tuple with the BlogPostCategoryID field value if set, nil otherwise
+// GetBlogPostCategoryIdOk returns a tuple with the BlogPostCategoryId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BlogPostDto) GetBlogPostCategoryIDOk() (*string, bool) {
+func (o *BlogPostDto) GetBlogPostCategoryIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BlogPostCategoryID.Get(), o.BlogPostCategoryID.IsSet()
+	return o.BlogPostCategoryId.Get(), o.BlogPostCategoryId.IsSet()
 }
 
-// HasBlogPostCategoryID returns a boolean if a field has been set.
-func (o *BlogPostDto) HasBlogPostCategoryID() bool {
-	if o != nil && o.BlogPostCategoryID.IsSet() {
+// HasBlogPostCategoryId returns a boolean if a field has been set.
+func (o *BlogPostDto) HasBlogPostCategoryId() bool {
+	if o != nil && o.BlogPostCategoryId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetBlogPostCategoryID gets a reference to the given NullableString and assigns it to the BlogPostCategoryID field.
-func (o *BlogPostDto) SetBlogPostCategoryID(v string) {
-	o.BlogPostCategoryID.Set(&v)
+// SetBlogPostCategoryId gets a reference to the given NullableString and assigns it to the BlogPostCategoryId field.
+func (o *BlogPostDto) SetBlogPostCategoryId(v string) {
+	o.BlogPostCategoryId.Set(&v)
 }
-// SetBlogPostCategoryIDNil sets the value for BlogPostCategoryID to be an explicit nil
-func (o *BlogPostDto) SetBlogPostCategoryIDNil() {
-	o.BlogPostCategoryID.Set(nil)
-}
-
-// UnsetBlogPostCategoryID ensures that no value is present for BlogPostCategoryID, not even an explicit nil
-func (o *BlogPostDto) UnsetBlogPostCategoryID() {
-	o.BlogPostCategoryID.Unset()
+// SetBlogPostCategoryIdNil sets the value for BlogPostCategoryId to be an explicit nil
+func (o *BlogPostDto) SetBlogPostCategoryIdNil() {
+	o.BlogPostCategoryId.Set(nil)
 }
 
-// GetWebTemplateID returns the WebTemplateID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BlogPostDto) GetWebTemplateID() string {
-	if o == nil || IsNil(o.WebTemplateID.Get()) {
+// UnsetBlogPostCategoryId ensures that no value is present for BlogPostCategoryId, not even an explicit nil
+func (o *BlogPostDto) UnsetBlogPostCategoryId() {
+	o.BlogPostCategoryId.Unset()
+}
+
+// GetWebTemplateId returns the WebTemplateId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BlogPostDto) GetWebTemplateId() string {
+	if o == nil || IsNil(o.WebTemplateId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WebTemplateID.Get()
+	return *o.WebTemplateId.Get()
 }
 
-// GetWebTemplateIDOk returns a tuple with the WebTemplateID field value if set, nil otherwise
+// GetWebTemplateIdOk returns a tuple with the WebTemplateId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BlogPostDto) GetWebTemplateIDOk() (*string, bool) {
+func (o *BlogPostDto) GetWebTemplateIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.WebTemplateID.Get(), o.WebTemplateID.IsSet()
+	return o.WebTemplateId.Get(), o.WebTemplateId.IsSet()
 }
 
-// HasWebTemplateID returns a boolean if a field has been set.
-func (o *BlogPostDto) HasWebTemplateID() bool {
-	if o != nil && o.WebTemplateID.IsSet() {
+// HasWebTemplateId returns a boolean if a field has been set.
+func (o *BlogPostDto) HasWebTemplateId() bool {
+	if o != nil && o.WebTemplateId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetWebTemplateID gets a reference to the given NullableString and assigns it to the WebTemplateID field.
-func (o *BlogPostDto) SetWebTemplateID(v string) {
-	o.WebTemplateID.Set(&v)
+// SetWebTemplateId gets a reference to the given NullableString and assigns it to the WebTemplateId field.
+func (o *BlogPostDto) SetWebTemplateId(v string) {
+	o.WebTemplateId.Set(&v)
 }
-// SetWebTemplateIDNil sets the value for WebTemplateID to be an explicit nil
-func (o *BlogPostDto) SetWebTemplateIDNil() {
-	o.WebTemplateID.Set(nil)
+// SetWebTemplateIdNil sets the value for WebTemplateId to be an explicit nil
+func (o *BlogPostDto) SetWebTemplateIdNil() {
+	o.WebTemplateId.Set(nil)
 }
 
-// UnsetWebTemplateID ensures that no value is present for WebTemplateID, not even an explicit nil
-func (o *BlogPostDto) UnsetWebTemplateID() {
-	o.WebTemplateID.Unset()
+// UnsetWebTemplateId ensures that no value is present for WebTemplateId, not even an explicit nil
+func (o *BlogPostDto) UnsetWebTemplateId() {
+	o.WebTemplateId.Unset()
 }
 
 func (o BlogPostDto) MarshalJSON() ([]byte, error) {
@@ -2701,11 +2701,11 @@ func (o BlogPostDto) ToMap() (map[string]interface{}, error) {
 	if o.ParentWebContentVersionId.IsSet() {
 		toSerialize["parentWebContentVersionId"] = o.ParentWebContentVersionId.Get()
 	}
-	if o.BlogPostCategoryID.IsSet() {
-		toSerialize["blogPostCategoryID"] = o.BlogPostCategoryID.Get()
+	if o.BlogPostCategoryId.IsSet() {
+		toSerialize["blogPostCategoryId"] = o.BlogPostCategoryId.Get()
 	}
-	if o.WebTemplateID.IsSet() {
-		toSerialize["webTemplateID"] = o.WebTemplateID.Get()
+	if o.WebTemplateId.IsSet() {
+		toSerialize["webTemplateId"] = o.WebTemplateId.Get()
 	}
 	return toSerialize, nil
 }

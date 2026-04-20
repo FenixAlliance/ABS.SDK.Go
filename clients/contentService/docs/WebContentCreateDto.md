@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**Title** | Pointer to **NullableString** |  | [optional] 
-**Code** | Pointer to **NullableString** |  | [optional] 
+**Title** | **string** |  | 
 **Published** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**HtmlContent** | Pointer to **NullableString** |  | [optional] 
+**Code** | Pointer to **NullableString** |  | [optional] 
+**Markup** | Pointer to **NullableString** |  | [optional] 
 **FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
 **CodeType** | Pointer to **NullableString** |  | [optional] 
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewWebContentCreateDto
 
-`func NewWebContentCreateDto() *WebContentCreateDto`
+`func NewWebContentCreateDto(title string, ) *WebContentCreateDto`
 
 NewWebContentCreateDto instantiates a new WebContentCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -102,57 +102,7 @@ and a boolean to check if the value has been set.
 
 SetTitle sets Title field to given value.
 
-### HasTitle
 
-`func (o *WebContentCreateDto) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
-### SetTitleNil
-
-`func (o *WebContentCreateDto) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *WebContentCreateDto) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
-### GetCode
-
-`func (o *WebContentCreateDto) GetCode() string`
-
-GetCode returns the Code field if non-nil, zero value otherwise.
-
-### GetCodeOk
-
-`func (o *WebContentCreateDto) GetCodeOk() (*string, bool)`
-
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCode
-
-`func (o *WebContentCreateDto) SetCode(v string)`
-
-SetCode sets Code field to given value.
-
-### HasCode
-
-`func (o *WebContentCreateDto) HasCode() bool`
-
-HasCode returns a boolean if a field has been set.
-
-### SetCodeNil
-
-`func (o *WebContentCreateDto) SetCodeNil(b bool)`
-
- SetCodeNil sets the value for Code to be an explicit nil
-
-### UnsetCode
-`func (o *WebContentCreateDto) UnsetCode()`
-
-UnsetCode ensures that no value is present for Code, not even an explicit nil
 ### GetPublished
 
 `func (o *WebContentCreateDto) GetPublished() bool`
@@ -213,41 +163,76 @@ HasDescription returns a boolean if a field has been set.
 `func (o *WebContentCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetHtmlContent
+### GetCode
 
-`func (o *WebContentCreateDto) GetHtmlContent() string`
+`func (o *WebContentCreateDto) GetCode() string`
 
-GetHtmlContent returns the HtmlContent field if non-nil, zero value otherwise.
+GetCode returns the Code field if non-nil, zero value otherwise.
 
-### GetHtmlContentOk
+### GetCodeOk
 
-`func (o *WebContentCreateDto) GetHtmlContentOk() (*string, bool)`
+`func (o *WebContentCreateDto) GetCodeOk() (*string, bool)`
 
-GetHtmlContentOk returns a tuple with the HtmlContent field if it's non-nil, zero value otherwise
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHtmlContent
+### SetCode
 
-`func (o *WebContentCreateDto) SetHtmlContent(v string)`
+`func (o *WebContentCreateDto) SetCode(v string)`
 
-SetHtmlContent sets HtmlContent field to given value.
+SetCode sets Code field to given value.
 
-### HasHtmlContent
+### HasCode
 
-`func (o *WebContentCreateDto) HasHtmlContent() bool`
+`func (o *WebContentCreateDto) HasCode() bool`
 
-HasHtmlContent returns a boolean if a field has been set.
+HasCode returns a boolean if a field has been set.
 
-### SetHtmlContentNil
+### SetCodeNil
 
-`func (o *WebContentCreateDto) SetHtmlContentNil(b bool)`
+`func (o *WebContentCreateDto) SetCodeNil(b bool)`
 
- SetHtmlContentNil sets the value for HtmlContent to be an explicit nil
+ SetCodeNil sets the value for Code to be an explicit nil
 
-### UnsetHtmlContent
-`func (o *WebContentCreateDto) UnsetHtmlContent()`
+### UnsetCode
+`func (o *WebContentCreateDto) UnsetCode()`
 
-UnsetHtmlContent ensures that no value is present for HtmlContent, not even an explicit nil
+UnsetCode ensures that no value is present for Code, not even an explicit nil
+### GetMarkup
+
+`func (o *WebContentCreateDto) GetMarkup() string`
+
+GetMarkup returns the Markup field if non-nil, zero value otherwise.
+
+### GetMarkupOk
+
+`func (o *WebContentCreateDto) GetMarkupOk() (*string, bool)`
+
+GetMarkupOk returns a tuple with the Markup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMarkup
+
+`func (o *WebContentCreateDto) SetMarkup(v string)`
+
+SetMarkup sets Markup field to given value.
+
+### HasMarkup
+
+`func (o *WebContentCreateDto) HasMarkup() bool`
+
+HasMarkup returns a boolean if a field has been set.
+
+### SetMarkupNil
+
+`func (o *WebContentCreateDto) SetMarkupNil(b bool)`
+
+ SetMarkupNil sets the value for Markup to be an explicit nil
+
+### UnsetMarkup
+`func (o *WebContentCreateDto) UnsetMarkup()`
+
+UnsetMarkup ensures that no value is present for Markup, not even an explicit nil
 ### GetFeaturedImageUrl
 
 `func (o *WebContentCreateDto) GetFeaturedImageUrl() string`

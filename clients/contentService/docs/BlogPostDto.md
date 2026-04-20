@@ -63,8 +63,8 @@ Name | Type | Description | Notes
 **SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 **ParentWebContentId** | Pointer to **NullableString** |  | [optional] 
 **ParentWebContentVersionId** | Pointer to **NullableString** |  | [optional] 
-**BlogPostCategoryID** | Pointer to **NullableString** |  | [optional] 
-**WebTemplateID** | Pointer to **NullableString** |  | [optional] 
+**BlogPostCategoryId** | Pointer to **NullableString** |  | [optional] 
+**WebTemplateId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -2010,76 +2010,76 @@ HasParentWebContentVersionId returns a boolean if a field has been set.
 `func (o *BlogPostDto) UnsetParentWebContentVersionId()`
 
 UnsetParentWebContentVersionId ensures that no value is present for ParentWebContentVersionId, not even an explicit nil
-### GetBlogPostCategoryID
+### GetBlogPostCategoryId
 
-`func (o *BlogPostDto) GetBlogPostCategoryID() string`
+`func (o *BlogPostDto) GetBlogPostCategoryId() string`
 
-GetBlogPostCategoryID returns the BlogPostCategoryID field if non-nil, zero value otherwise.
+GetBlogPostCategoryId returns the BlogPostCategoryId field if non-nil, zero value otherwise.
 
-### GetBlogPostCategoryIDOk
+### GetBlogPostCategoryIdOk
 
-`func (o *BlogPostDto) GetBlogPostCategoryIDOk() (*string, bool)`
+`func (o *BlogPostDto) GetBlogPostCategoryIdOk() (*string, bool)`
 
-GetBlogPostCategoryIDOk returns a tuple with the BlogPostCategoryID field if it's non-nil, zero value otherwise
+GetBlogPostCategoryIdOk returns a tuple with the BlogPostCategoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBlogPostCategoryID
+### SetBlogPostCategoryId
 
-`func (o *BlogPostDto) SetBlogPostCategoryID(v string)`
+`func (o *BlogPostDto) SetBlogPostCategoryId(v string)`
 
-SetBlogPostCategoryID sets BlogPostCategoryID field to given value.
+SetBlogPostCategoryId sets BlogPostCategoryId field to given value.
 
-### HasBlogPostCategoryID
+### HasBlogPostCategoryId
 
-`func (o *BlogPostDto) HasBlogPostCategoryID() bool`
+`func (o *BlogPostDto) HasBlogPostCategoryId() bool`
 
-HasBlogPostCategoryID returns a boolean if a field has been set.
+HasBlogPostCategoryId returns a boolean if a field has been set.
 
-### SetBlogPostCategoryIDNil
+### SetBlogPostCategoryIdNil
 
-`func (o *BlogPostDto) SetBlogPostCategoryIDNil(b bool)`
+`func (o *BlogPostDto) SetBlogPostCategoryIdNil(b bool)`
 
- SetBlogPostCategoryIDNil sets the value for BlogPostCategoryID to be an explicit nil
+ SetBlogPostCategoryIdNil sets the value for BlogPostCategoryId to be an explicit nil
 
-### UnsetBlogPostCategoryID
-`func (o *BlogPostDto) UnsetBlogPostCategoryID()`
+### UnsetBlogPostCategoryId
+`func (o *BlogPostDto) UnsetBlogPostCategoryId()`
 
-UnsetBlogPostCategoryID ensures that no value is present for BlogPostCategoryID, not even an explicit nil
-### GetWebTemplateID
+UnsetBlogPostCategoryId ensures that no value is present for BlogPostCategoryId, not even an explicit nil
+### GetWebTemplateId
 
-`func (o *BlogPostDto) GetWebTemplateID() string`
+`func (o *BlogPostDto) GetWebTemplateId() string`
 
-GetWebTemplateID returns the WebTemplateID field if non-nil, zero value otherwise.
+GetWebTemplateId returns the WebTemplateId field if non-nil, zero value otherwise.
 
-### GetWebTemplateIDOk
+### GetWebTemplateIdOk
 
-`func (o *BlogPostDto) GetWebTemplateIDOk() (*string, bool)`
+`func (o *BlogPostDto) GetWebTemplateIdOk() (*string, bool)`
 
-GetWebTemplateIDOk returns a tuple with the WebTemplateID field if it's non-nil, zero value otherwise
+GetWebTemplateIdOk returns a tuple with the WebTemplateId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWebTemplateID
+### SetWebTemplateId
 
-`func (o *BlogPostDto) SetWebTemplateID(v string)`
+`func (o *BlogPostDto) SetWebTemplateId(v string)`
 
-SetWebTemplateID sets WebTemplateID field to given value.
+SetWebTemplateId sets WebTemplateId field to given value.
 
-### HasWebTemplateID
+### HasWebTemplateId
 
-`func (o *BlogPostDto) HasWebTemplateID() bool`
+`func (o *BlogPostDto) HasWebTemplateId() bool`
 
-HasWebTemplateID returns a boolean if a field has been set.
+HasWebTemplateId returns a boolean if a field has been set.
 
-### SetWebTemplateIDNil
+### SetWebTemplateIdNil
 
-`func (o *BlogPostDto) SetWebTemplateIDNil(b bool)`
+`func (o *BlogPostDto) SetWebTemplateIdNil(b bool)`
 
- SetWebTemplateIDNil sets the value for WebTemplateID to be an explicit nil
+ SetWebTemplateIdNil sets the value for WebTemplateId to be an explicit nil
 
-### UnsetWebTemplateID
-`func (o *BlogPostDto) UnsetWebTemplateID()`
+### UnsetWebTemplateId
+`func (o *BlogPostDto) UnsetWebTemplateId()`
 
-UnsetWebTemplateID ensures that no value is present for WebTemplateID, not even an explicit nil
+UnsetWebTemplateId ensures that no value is present for WebTemplateId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

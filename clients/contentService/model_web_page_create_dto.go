@@ -14,6 +14,8 @@ package openapi
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WebPageCreateDto type satisfies the MappedNullable interface at compile time
@@ -23,22 +25,25 @@ var _ MappedNullable = &WebPageCreateDto{}
 type WebPageCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	Title NullableString `json:"title,omitempty"`
-	Code NullableString `json:"code,omitempty"`
+	Title string `json:"title"`
 	Published *bool `json:"published,omitempty"`
 	Description NullableString `json:"description,omitempty"`
-	HtmlContent NullableString `json:"htmlContent,omitempty"`
+	Code NullableString `json:"code,omitempty"`
+	Markup NullableString `json:"markup,omitempty"`
 	FeaturedImageUrl NullableString `json:"featuredImageUrl,omitempty"`
 	CodeType NullableString `json:"codeType,omitempty"`
 	WebTemplateID NullableString `json:"webTemplateID,omitempty"`
 }
 
+type _WebPageCreateDto WebPageCreateDto
+
 // NewWebPageCreateDto instantiates a new WebPageCreateDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebPageCreateDto() *WebPageCreateDto {
+func NewWebPageCreateDto(title string) *WebPageCreateDto {
 	this := WebPageCreateDto{}
+	this.Title = title
 	return &this
 }
 
@@ -114,88 +119,28 @@ func (o *WebPageCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value
 func (o *WebPageCreateDto) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+
+	return o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebPageCreateDto) GetTitleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return &o.Title, true
 }
 
-// HasTitle returns a boolean if a field has been set.
-func (o *WebPageCreateDto) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle sets field value
 func (o *WebPageCreateDto) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *WebPageCreateDto) SetTitleNil() {
-	o.Title.Set(nil)
-}
-
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *WebPageCreateDto) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetCode returns the Code field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WebPageCreateDto) GetCode() string {
-	if o == nil || IsNil(o.Code.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Code.Get()
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WebPageCreateDto) GetCodeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Code.Get(), o.Code.IsSet()
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *WebPageCreateDto) HasCode() bool {
-	if o != nil && o.Code.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given NullableString and assigns it to the Code field.
-func (o *WebPageCreateDto) SetCode(v string) {
-	o.Code.Set(&v)
-}
-// SetCodeNil sets the value for Code to be an explicit nil
-func (o *WebPageCreateDto) SetCodeNil() {
-	o.Code.Set(nil)
-}
-
-// UnsetCode ensures that no value is present for Code, not even an explicit nil
-func (o *WebPageCreateDto) UnsetCode() {
-	o.Code.Unset()
+	o.Title = v
 }
 
 // GetPublished returns the Published field value if set, zero value otherwise.
@@ -272,46 +217,88 @@ func (o *WebPageCreateDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetHtmlContent returns the HtmlContent field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WebPageCreateDto) GetHtmlContent() string {
-	if o == nil || IsNil(o.HtmlContent.Get()) {
+// GetCode returns the Code field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WebPageCreateDto) GetCode() string {
+	if o == nil || IsNil(o.Code.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HtmlContent.Get()
+	return *o.Code.Get()
 }
 
-// GetHtmlContentOk returns a tuple with the HtmlContent field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WebPageCreateDto) GetHtmlContentOk() (*string, bool) {
+func (o *WebPageCreateDto) GetCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.HtmlContent.Get(), o.HtmlContent.IsSet()
+	return o.Code.Get(), o.Code.IsSet()
 }
 
-// HasHtmlContent returns a boolean if a field has been set.
-func (o *WebPageCreateDto) HasHtmlContent() bool {
-	if o != nil && o.HtmlContent.IsSet() {
+// HasCode returns a boolean if a field has been set.
+func (o *WebPageCreateDto) HasCode() bool {
+	if o != nil && o.Code.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetHtmlContent gets a reference to the given NullableString and assigns it to the HtmlContent field.
-func (o *WebPageCreateDto) SetHtmlContent(v string) {
-	o.HtmlContent.Set(&v)
+// SetCode gets a reference to the given NullableString and assigns it to the Code field.
+func (o *WebPageCreateDto) SetCode(v string) {
+	o.Code.Set(&v)
 }
-// SetHtmlContentNil sets the value for HtmlContent to be an explicit nil
-func (o *WebPageCreateDto) SetHtmlContentNil() {
-	o.HtmlContent.Set(nil)
+// SetCodeNil sets the value for Code to be an explicit nil
+func (o *WebPageCreateDto) SetCodeNil() {
+	o.Code.Set(nil)
 }
 
-// UnsetHtmlContent ensures that no value is present for HtmlContent, not even an explicit nil
-func (o *WebPageCreateDto) UnsetHtmlContent() {
-	o.HtmlContent.Unset()
+// UnsetCode ensures that no value is present for Code, not even an explicit nil
+func (o *WebPageCreateDto) UnsetCode() {
+	o.Code.Unset()
+}
+
+// GetMarkup returns the Markup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WebPageCreateDto) GetMarkup() string {
+	if o == nil || IsNil(o.Markup.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Markup.Get()
+}
+
+// GetMarkupOk returns a tuple with the Markup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WebPageCreateDto) GetMarkupOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Markup.Get(), o.Markup.IsSet()
+}
+
+// HasMarkup returns a boolean if a field has been set.
+func (o *WebPageCreateDto) HasMarkup() bool {
+	if o != nil && o.Markup.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMarkup gets a reference to the given NullableString and assigns it to the Markup field.
+func (o *WebPageCreateDto) SetMarkup(v string) {
+	o.Markup.Set(&v)
+}
+// SetMarkupNil sets the value for Markup to be an explicit nil
+func (o *WebPageCreateDto) SetMarkupNil() {
+	o.Markup.Set(nil)
+}
+
+// UnsetMarkup ensures that no value is present for Markup, not even an explicit nil
+func (o *WebPageCreateDto) UnsetMarkup() {
+	o.Markup.Unset()
 }
 
 // GetFeaturedImageUrl returns the FeaturedImageUrl field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -456,20 +443,18 @@ func (o WebPageCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
-	}
-	if o.Code.IsSet() {
-		toSerialize["code"] = o.Code.Get()
-	}
+	toSerialize["title"] = o.Title
 	if !IsNil(o.Published) {
 		toSerialize["published"] = o.Published
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.HtmlContent.IsSet() {
-		toSerialize["htmlContent"] = o.HtmlContent.Get()
+	if o.Code.IsSet() {
+		toSerialize["code"] = o.Code.Get()
+	}
+	if o.Markup.IsSet() {
+		toSerialize["markup"] = o.Markup.Get()
 	}
 	if o.FeaturedImageUrl.IsSet() {
 		toSerialize["featuredImageUrl"] = o.FeaturedImageUrl.Get()
@@ -481,6 +466,43 @@ func (o WebPageCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["webTemplateID"] = o.WebTemplateID.Get()
 	}
 	return toSerialize, nil
+}
+
+func (o *WebPageCreateDto) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"title",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWebPageCreateDto := _WebPageCreateDto{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWebPageCreateDto)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WebPageCreateDto(varWebPageCreateDto)
+
+	return err
 }
 
 type NullableWebPageCreateDto struct {

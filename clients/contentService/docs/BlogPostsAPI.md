@@ -1,6 +1,6 @@
 # \BlogPostsAPI
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -48,7 +48,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	blogPostCreateDto := *openapiclient.NewBlogPostCreateDto() // BlogPostCreateDto |  (optional)
+	blogPostCreateDto := *openapiclient.NewBlogPostCreateDto("Title_example") // BlogPostCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

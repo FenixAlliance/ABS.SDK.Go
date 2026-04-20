@@ -6,21 +6,21 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**Title** | Pointer to **NullableString** |  | [optional] 
-**Code** | Pointer to **NullableString** |  | [optional] 
+**Title** | **string** |  | 
 **Published** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**HtmlContent** | Pointer to **NullableString** |  | [optional] 
+**Code** | Pointer to **NullableString** |  | [optional] 
+**Markup** | Pointer to **NullableString** |  | [optional] 
 **FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
 **CodeType** | Pointer to **NullableString** |  | [optional] 
-**BlogPostCategoryID** | Pointer to **NullableString** |  | [optional] 
-**WebTemplateID** | Pointer to **NullableString** |  | [optional] 
+**BlogPostCategoryId** | Pointer to **NullableString** |  | [optional] 
+**WebTemplateId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewBlogPostCreateDto
 
-`func NewBlogPostCreateDto() *BlogPostCreateDto`
+`func NewBlogPostCreateDto(title string, ) *BlogPostCreateDto`
 
 NewBlogPostCreateDto instantiates a new BlogPostCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -104,57 +104,7 @@ and a boolean to check if the value has been set.
 
 SetTitle sets Title field to given value.
 
-### HasTitle
 
-`func (o *BlogPostCreateDto) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
-### SetTitleNil
-
-`func (o *BlogPostCreateDto) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *BlogPostCreateDto) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
-### GetCode
-
-`func (o *BlogPostCreateDto) GetCode() string`
-
-GetCode returns the Code field if non-nil, zero value otherwise.
-
-### GetCodeOk
-
-`func (o *BlogPostCreateDto) GetCodeOk() (*string, bool)`
-
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCode
-
-`func (o *BlogPostCreateDto) SetCode(v string)`
-
-SetCode sets Code field to given value.
-
-### HasCode
-
-`func (o *BlogPostCreateDto) HasCode() bool`
-
-HasCode returns a boolean if a field has been set.
-
-### SetCodeNil
-
-`func (o *BlogPostCreateDto) SetCodeNil(b bool)`
-
- SetCodeNil sets the value for Code to be an explicit nil
-
-### UnsetCode
-`func (o *BlogPostCreateDto) UnsetCode()`
-
-UnsetCode ensures that no value is present for Code, not even an explicit nil
 ### GetPublished
 
 `func (o *BlogPostCreateDto) GetPublished() bool`
@@ -215,41 +165,76 @@ HasDescription returns a boolean if a field has been set.
 `func (o *BlogPostCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetHtmlContent
+### GetCode
 
-`func (o *BlogPostCreateDto) GetHtmlContent() string`
+`func (o *BlogPostCreateDto) GetCode() string`
 
-GetHtmlContent returns the HtmlContent field if non-nil, zero value otherwise.
+GetCode returns the Code field if non-nil, zero value otherwise.
 
-### GetHtmlContentOk
+### GetCodeOk
 
-`func (o *BlogPostCreateDto) GetHtmlContentOk() (*string, bool)`
+`func (o *BlogPostCreateDto) GetCodeOk() (*string, bool)`
 
-GetHtmlContentOk returns a tuple with the HtmlContent field if it's non-nil, zero value otherwise
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHtmlContent
+### SetCode
 
-`func (o *BlogPostCreateDto) SetHtmlContent(v string)`
+`func (o *BlogPostCreateDto) SetCode(v string)`
 
-SetHtmlContent sets HtmlContent field to given value.
+SetCode sets Code field to given value.
 
-### HasHtmlContent
+### HasCode
 
-`func (o *BlogPostCreateDto) HasHtmlContent() bool`
+`func (o *BlogPostCreateDto) HasCode() bool`
 
-HasHtmlContent returns a boolean if a field has been set.
+HasCode returns a boolean if a field has been set.
 
-### SetHtmlContentNil
+### SetCodeNil
 
-`func (o *BlogPostCreateDto) SetHtmlContentNil(b bool)`
+`func (o *BlogPostCreateDto) SetCodeNil(b bool)`
 
- SetHtmlContentNil sets the value for HtmlContent to be an explicit nil
+ SetCodeNil sets the value for Code to be an explicit nil
 
-### UnsetHtmlContent
-`func (o *BlogPostCreateDto) UnsetHtmlContent()`
+### UnsetCode
+`func (o *BlogPostCreateDto) UnsetCode()`
 
-UnsetHtmlContent ensures that no value is present for HtmlContent, not even an explicit nil
+UnsetCode ensures that no value is present for Code, not even an explicit nil
+### GetMarkup
+
+`func (o *BlogPostCreateDto) GetMarkup() string`
+
+GetMarkup returns the Markup field if non-nil, zero value otherwise.
+
+### GetMarkupOk
+
+`func (o *BlogPostCreateDto) GetMarkupOk() (*string, bool)`
+
+GetMarkupOk returns a tuple with the Markup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMarkup
+
+`func (o *BlogPostCreateDto) SetMarkup(v string)`
+
+SetMarkup sets Markup field to given value.
+
+### HasMarkup
+
+`func (o *BlogPostCreateDto) HasMarkup() bool`
+
+HasMarkup returns a boolean if a field has been set.
+
+### SetMarkupNil
+
+`func (o *BlogPostCreateDto) SetMarkupNil(b bool)`
+
+ SetMarkupNil sets the value for Markup to be an explicit nil
+
+### UnsetMarkup
+`func (o *BlogPostCreateDto) UnsetMarkup()`
+
+UnsetMarkup ensures that no value is present for Markup, not even an explicit nil
 ### GetFeaturedImageUrl
 
 `func (o *BlogPostCreateDto) GetFeaturedImageUrl() string`
@@ -320,76 +305,76 @@ HasCodeType returns a boolean if a field has been set.
 `func (o *BlogPostCreateDto) UnsetCodeType()`
 
 UnsetCodeType ensures that no value is present for CodeType, not even an explicit nil
-### GetBlogPostCategoryID
+### GetBlogPostCategoryId
 
-`func (o *BlogPostCreateDto) GetBlogPostCategoryID() string`
+`func (o *BlogPostCreateDto) GetBlogPostCategoryId() string`
 
-GetBlogPostCategoryID returns the BlogPostCategoryID field if non-nil, zero value otherwise.
+GetBlogPostCategoryId returns the BlogPostCategoryId field if non-nil, zero value otherwise.
 
-### GetBlogPostCategoryIDOk
+### GetBlogPostCategoryIdOk
 
-`func (o *BlogPostCreateDto) GetBlogPostCategoryIDOk() (*string, bool)`
+`func (o *BlogPostCreateDto) GetBlogPostCategoryIdOk() (*string, bool)`
 
-GetBlogPostCategoryIDOk returns a tuple with the BlogPostCategoryID field if it's non-nil, zero value otherwise
+GetBlogPostCategoryIdOk returns a tuple with the BlogPostCategoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBlogPostCategoryID
+### SetBlogPostCategoryId
 
-`func (o *BlogPostCreateDto) SetBlogPostCategoryID(v string)`
+`func (o *BlogPostCreateDto) SetBlogPostCategoryId(v string)`
 
-SetBlogPostCategoryID sets BlogPostCategoryID field to given value.
+SetBlogPostCategoryId sets BlogPostCategoryId field to given value.
 
-### HasBlogPostCategoryID
+### HasBlogPostCategoryId
 
-`func (o *BlogPostCreateDto) HasBlogPostCategoryID() bool`
+`func (o *BlogPostCreateDto) HasBlogPostCategoryId() bool`
 
-HasBlogPostCategoryID returns a boolean if a field has been set.
+HasBlogPostCategoryId returns a boolean if a field has been set.
 
-### SetBlogPostCategoryIDNil
+### SetBlogPostCategoryIdNil
 
-`func (o *BlogPostCreateDto) SetBlogPostCategoryIDNil(b bool)`
+`func (o *BlogPostCreateDto) SetBlogPostCategoryIdNil(b bool)`
 
- SetBlogPostCategoryIDNil sets the value for BlogPostCategoryID to be an explicit nil
+ SetBlogPostCategoryIdNil sets the value for BlogPostCategoryId to be an explicit nil
 
-### UnsetBlogPostCategoryID
-`func (o *BlogPostCreateDto) UnsetBlogPostCategoryID()`
+### UnsetBlogPostCategoryId
+`func (o *BlogPostCreateDto) UnsetBlogPostCategoryId()`
 
-UnsetBlogPostCategoryID ensures that no value is present for BlogPostCategoryID, not even an explicit nil
-### GetWebTemplateID
+UnsetBlogPostCategoryId ensures that no value is present for BlogPostCategoryId, not even an explicit nil
+### GetWebTemplateId
 
-`func (o *BlogPostCreateDto) GetWebTemplateID() string`
+`func (o *BlogPostCreateDto) GetWebTemplateId() string`
 
-GetWebTemplateID returns the WebTemplateID field if non-nil, zero value otherwise.
+GetWebTemplateId returns the WebTemplateId field if non-nil, zero value otherwise.
 
-### GetWebTemplateIDOk
+### GetWebTemplateIdOk
 
-`func (o *BlogPostCreateDto) GetWebTemplateIDOk() (*string, bool)`
+`func (o *BlogPostCreateDto) GetWebTemplateIdOk() (*string, bool)`
 
-GetWebTemplateIDOk returns a tuple with the WebTemplateID field if it's non-nil, zero value otherwise
+GetWebTemplateIdOk returns a tuple with the WebTemplateId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWebTemplateID
+### SetWebTemplateId
 
-`func (o *BlogPostCreateDto) SetWebTemplateID(v string)`
+`func (o *BlogPostCreateDto) SetWebTemplateId(v string)`
 
-SetWebTemplateID sets WebTemplateID field to given value.
+SetWebTemplateId sets WebTemplateId field to given value.
 
-### HasWebTemplateID
+### HasWebTemplateId
 
-`func (o *BlogPostCreateDto) HasWebTemplateID() bool`
+`func (o *BlogPostCreateDto) HasWebTemplateId() bool`
 
-HasWebTemplateID returns a boolean if a field has been set.
+HasWebTemplateId returns a boolean if a field has been set.
 
-### SetWebTemplateIDNil
+### SetWebTemplateIdNil
 
-`func (o *BlogPostCreateDto) SetWebTemplateIDNil(b bool)`
+`func (o *BlogPostCreateDto) SetWebTemplateIdNil(b bool)`
 
- SetWebTemplateIDNil sets the value for WebTemplateID to be an explicit nil
+ SetWebTemplateIdNil sets the value for WebTemplateId to be an explicit nil
 
-### UnsetWebTemplateID
-`func (o *BlogPostCreateDto) UnsetWebTemplateID()`
+### UnsetWebTemplateId
+`func (o *BlogPostCreateDto) UnsetWebTemplateId()`
 
-UnsetWebTemplateID ensures that no value is present for WebTemplateID, not even an explicit nil
+UnsetWebTemplateId ensures that no value is present for WebTemplateId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

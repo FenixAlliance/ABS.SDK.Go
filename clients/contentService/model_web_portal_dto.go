@@ -29,10 +29,10 @@ type WebPortalDto struct {
 	Disabled *bool `json:"disabled,omitempty"`
 	TenantId NullableString `json:"tenantId,omitempty"`
 	Description NullableString `json:"description,omitempty"`
-	WebsiteThemeID NullableString `json:"websiteThemeID,omitempty"`
-	BusinessDomainID NullableString `json:"businessDomainID,omitempty"`
-	BusinessProfileRecordID NullableString `json:"businessProfileRecordID,omitempty"`
-	BusinessPortalApplicationID NullableString `json:"businessPortalApplicationID,omitempty"`
+	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
+	WebsiteThemeId NullableString `json:"websiteThemeId,omitempty"`
+	BusinessDomainId NullableString `json:"businessDomainId,omitempty"`
+	BusinessPortalApplicationId NullableString `json:"businessPortalApplicationId,omitempty"`
 }
 
 // NewWebPortalDto instantiates a new WebPortalDto object
@@ -368,172 +368,172 @@ func (o *WebPortalDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetWebsiteThemeID returns the WebsiteThemeID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WebPortalDto) GetWebsiteThemeID() string {
-	if o == nil || IsNil(o.WebsiteThemeID.Get()) {
+// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WebPortalDto) GetEnrollmentId() string {
+	if o == nil || IsNil(o.EnrollmentId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WebsiteThemeID.Get()
+	return *o.EnrollmentId.Get()
 }
 
-// GetWebsiteThemeIDOk returns a tuple with the WebsiteThemeID field value if set, nil otherwise
+// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WebPortalDto) GetWebsiteThemeIDOk() (*string, bool) {
+func (o *WebPortalDto) GetEnrollmentIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.WebsiteThemeID.Get(), o.WebsiteThemeID.IsSet()
+	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
 }
 
-// HasWebsiteThemeID returns a boolean if a field has been set.
-func (o *WebPortalDto) HasWebsiteThemeID() bool {
-	if o != nil && o.WebsiteThemeID.IsSet() {
+// HasEnrollmentId returns a boolean if a field has been set.
+func (o *WebPortalDto) HasEnrollmentId() bool {
+	if o != nil && o.EnrollmentId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetWebsiteThemeID gets a reference to the given NullableString and assigns it to the WebsiteThemeID field.
-func (o *WebPortalDto) SetWebsiteThemeID(v string) {
-	o.WebsiteThemeID.Set(&v)
+// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
+func (o *WebPortalDto) SetEnrollmentId(v string) {
+	o.EnrollmentId.Set(&v)
 }
-// SetWebsiteThemeIDNil sets the value for WebsiteThemeID to be an explicit nil
-func (o *WebPortalDto) SetWebsiteThemeIDNil() {
-	o.WebsiteThemeID.Set(nil)
-}
-
-// UnsetWebsiteThemeID ensures that no value is present for WebsiteThemeID, not even an explicit nil
-func (o *WebPortalDto) UnsetWebsiteThemeID() {
-	o.WebsiteThemeID.Unset()
+// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+func (o *WebPortalDto) SetEnrollmentIdNil() {
+	o.EnrollmentId.Set(nil)
 }
 
-// GetBusinessDomainID returns the BusinessDomainID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WebPortalDto) GetBusinessDomainID() string {
-	if o == nil || IsNil(o.BusinessDomainID.Get()) {
+// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
+func (o *WebPortalDto) UnsetEnrollmentId() {
+	o.EnrollmentId.Unset()
+}
+
+// GetWebsiteThemeId returns the WebsiteThemeId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WebPortalDto) GetWebsiteThemeId() string {
+	if o == nil || IsNil(o.WebsiteThemeId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BusinessDomainID.Get()
+	return *o.WebsiteThemeId.Get()
 }
 
-// GetBusinessDomainIDOk returns a tuple with the BusinessDomainID field value if set, nil otherwise
+// GetWebsiteThemeIdOk returns a tuple with the WebsiteThemeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WebPortalDto) GetBusinessDomainIDOk() (*string, bool) {
+func (o *WebPortalDto) GetWebsiteThemeIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BusinessDomainID.Get(), o.BusinessDomainID.IsSet()
+	return o.WebsiteThemeId.Get(), o.WebsiteThemeId.IsSet()
 }
 
-// HasBusinessDomainID returns a boolean if a field has been set.
-func (o *WebPortalDto) HasBusinessDomainID() bool {
-	if o != nil && o.BusinessDomainID.IsSet() {
+// HasWebsiteThemeId returns a boolean if a field has been set.
+func (o *WebPortalDto) HasWebsiteThemeId() bool {
+	if o != nil && o.WebsiteThemeId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetBusinessDomainID gets a reference to the given NullableString and assigns it to the BusinessDomainID field.
-func (o *WebPortalDto) SetBusinessDomainID(v string) {
-	o.BusinessDomainID.Set(&v)
+// SetWebsiteThemeId gets a reference to the given NullableString and assigns it to the WebsiteThemeId field.
+func (o *WebPortalDto) SetWebsiteThemeId(v string) {
+	o.WebsiteThemeId.Set(&v)
 }
-// SetBusinessDomainIDNil sets the value for BusinessDomainID to be an explicit nil
-func (o *WebPortalDto) SetBusinessDomainIDNil() {
-	o.BusinessDomainID.Set(nil)
-}
-
-// UnsetBusinessDomainID ensures that no value is present for BusinessDomainID, not even an explicit nil
-func (o *WebPortalDto) UnsetBusinessDomainID() {
-	o.BusinessDomainID.Unset()
+// SetWebsiteThemeIdNil sets the value for WebsiteThemeId to be an explicit nil
+func (o *WebPortalDto) SetWebsiteThemeIdNil() {
+	o.WebsiteThemeId.Set(nil)
 }
 
-// GetBusinessProfileRecordID returns the BusinessProfileRecordID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WebPortalDto) GetBusinessProfileRecordID() string {
-	if o == nil || IsNil(o.BusinessProfileRecordID.Get()) {
+// UnsetWebsiteThemeId ensures that no value is present for WebsiteThemeId, not even an explicit nil
+func (o *WebPortalDto) UnsetWebsiteThemeId() {
+	o.WebsiteThemeId.Unset()
+}
+
+// GetBusinessDomainId returns the BusinessDomainId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WebPortalDto) GetBusinessDomainId() string {
+	if o == nil || IsNil(o.BusinessDomainId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BusinessProfileRecordID.Get()
+	return *o.BusinessDomainId.Get()
 }
 
-// GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field value if set, nil otherwise
+// GetBusinessDomainIdOk returns a tuple with the BusinessDomainId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WebPortalDto) GetBusinessProfileRecordIDOk() (*string, bool) {
+func (o *WebPortalDto) GetBusinessDomainIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BusinessProfileRecordID.Get(), o.BusinessProfileRecordID.IsSet()
+	return o.BusinessDomainId.Get(), o.BusinessDomainId.IsSet()
 }
 
-// HasBusinessProfileRecordID returns a boolean if a field has been set.
-func (o *WebPortalDto) HasBusinessProfileRecordID() bool {
-	if o != nil && o.BusinessProfileRecordID.IsSet() {
+// HasBusinessDomainId returns a boolean if a field has been set.
+func (o *WebPortalDto) HasBusinessDomainId() bool {
+	if o != nil && o.BusinessDomainId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetBusinessProfileRecordID gets a reference to the given NullableString and assigns it to the BusinessProfileRecordID field.
-func (o *WebPortalDto) SetBusinessProfileRecordID(v string) {
-	o.BusinessProfileRecordID.Set(&v)
+// SetBusinessDomainId gets a reference to the given NullableString and assigns it to the BusinessDomainId field.
+func (o *WebPortalDto) SetBusinessDomainId(v string) {
+	o.BusinessDomainId.Set(&v)
 }
-// SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-func (o *WebPortalDto) SetBusinessProfileRecordIDNil() {
-	o.BusinessProfileRecordID.Set(nil)
-}
-
-// UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-func (o *WebPortalDto) UnsetBusinessProfileRecordID() {
-	o.BusinessProfileRecordID.Unset()
+// SetBusinessDomainIdNil sets the value for BusinessDomainId to be an explicit nil
+func (o *WebPortalDto) SetBusinessDomainIdNil() {
+	o.BusinessDomainId.Set(nil)
 }
 
-// GetBusinessPortalApplicationID returns the BusinessPortalApplicationID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WebPortalDto) GetBusinessPortalApplicationID() string {
-	if o == nil || IsNil(o.BusinessPortalApplicationID.Get()) {
+// UnsetBusinessDomainId ensures that no value is present for BusinessDomainId, not even an explicit nil
+func (o *WebPortalDto) UnsetBusinessDomainId() {
+	o.BusinessDomainId.Unset()
+}
+
+// GetBusinessPortalApplicationId returns the BusinessPortalApplicationId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WebPortalDto) GetBusinessPortalApplicationId() string {
+	if o == nil || IsNil(o.BusinessPortalApplicationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BusinessPortalApplicationID.Get()
+	return *o.BusinessPortalApplicationId.Get()
 }
 
-// GetBusinessPortalApplicationIDOk returns a tuple with the BusinessPortalApplicationID field value if set, nil otherwise
+// GetBusinessPortalApplicationIdOk returns a tuple with the BusinessPortalApplicationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WebPortalDto) GetBusinessPortalApplicationIDOk() (*string, bool) {
+func (o *WebPortalDto) GetBusinessPortalApplicationIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BusinessPortalApplicationID.Get(), o.BusinessPortalApplicationID.IsSet()
+	return o.BusinessPortalApplicationId.Get(), o.BusinessPortalApplicationId.IsSet()
 }
 
-// HasBusinessPortalApplicationID returns a boolean if a field has been set.
-func (o *WebPortalDto) HasBusinessPortalApplicationID() bool {
-	if o != nil && o.BusinessPortalApplicationID.IsSet() {
+// HasBusinessPortalApplicationId returns a boolean if a field has been set.
+func (o *WebPortalDto) HasBusinessPortalApplicationId() bool {
+	if o != nil && o.BusinessPortalApplicationId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetBusinessPortalApplicationID gets a reference to the given NullableString and assigns it to the BusinessPortalApplicationID field.
-func (o *WebPortalDto) SetBusinessPortalApplicationID(v string) {
-	o.BusinessPortalApplicationID.Set(&v)
+// SetBusinessPortalApplicationId gets a reference to the given NullableString and assigns it to the BusinessPortalApplicationId field.
+func (o *WebPortalDto) SetBusinessPortalApplicationId(v string) {
+	o.BusinessPortalApplicationId.Set(&v)
 }
-// SetBusinessPortalApplicationIDNil sets the value for BusinessPortalApplicationID to be an explicit nil
-func (o *WebPortalDto) SetBusinessPortalApplicationIDNil() {
-	o.BusinessPortalApplicationID.Set(nil)
+// SetBusinessPortalApplicationIdNil sets the value for BusinessPortalApplicationId to be an explicit nil
+func (o *WebPortalDto) SetBusinessPortalApplicationIdNil() {
+	o.BusinessPortalApplicationId.Set(nil)
 }
 
-// UnsetBusinessPortalApplicationID ensures that no value is present for BusinessPortalApplicationID, not even an explicit nil
-func (o *WebPortalDto) UnsetBusinessPortalApplicationID() {
-	o.BusinessPortalApplicationID.Unset()
+// UnsetBusinessPortalApplicationId ensures that no value is present for BusinessPortalApplicationId, not even an explicit nil
+func (o *WebPortalDto) UnsetBusinessPortalApplicationId() {
+	o.BusinessPortalApplicationId.Unset()
 }
 
 func (o WebPortalDto) MarshalJSON() ([]byte, error) {
@@ -570,17 +570,17 @@ func (o WebPortalDto) ToMap() (map[string]interface{}, error) {
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.WebsiteThemeID.IsSet() {
-		toSerialize["websiteThemeID"] = o.WebsiteThemeID.Get()
+	if o.EnrollmentId.IsSet() {
+		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
-	if o.BusinessDomainID.IsSet() {
-		toSerialize["businessDomainID"] = o.BusinessDomainID.Get()
+	if o.WebsiteThemeId.IsSet() {
+		toSerialize["websiteThemeId"] = o.WebsiteThemeId.Get()
 	}
-	if o.BusinessProfileRecordID.IsSet() {
-		toSerialize["businessProfileRecordID"] = o.BusinessProfileRecordID.Get()
+	if o.BusinessDomainId.IsSet() {
+		toSerialize["businessDomainId"] = o.BusinessDomainId.Get()
 	}
-	if o.BusinessPortalApplicationID.IsSet() {
-		toSerialize["businessPortalApplicationID"] = o.BusinessPortalApplicationID.Get()
+	if o.BusinessPortalApplicationId.IsSet() {
+		toSerialize["businessPortalApplicationId"] = o.BusinessPortalApplicationId.Get()
 	}
 	return toSerialize, nil
 }

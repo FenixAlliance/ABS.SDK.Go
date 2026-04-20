@@ -1,6 +1,6 @@
 # \WebPagesAPI
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -115,7 +115,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	webPageCreateDto := *openapiclient.NewWebPageCreateDto() // WebPageCreateDto |  (optional)
+	webPageCreateDto := *openapiclient.NewWebPageCreateDto("Title_example") // WebPageCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

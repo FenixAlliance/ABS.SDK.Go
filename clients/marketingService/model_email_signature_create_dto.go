@@ -14,6 +14,8 @@ package openapi
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EmailSignatureCreateDto type satisfies the MappedNullable interface at compile time
@@ -23,21 +25,24 @@ var _ MappedNullable = &EmailSignatureCreateDto{}
 type EmailSignatureCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	Title NullableString `json:"title,omitempty"`
-	Code NullableString `json:"code,omitempty"`
+	Title string `json:"title"`
 	Published *bool `json:"published,omitempty"`
 	Description NullableString `json:"description,omitempty"`
-	HtmlContent NullableString `json:"htmlContent,omitempty"`
+	Code NullableString `json:"code,omitempty"`
+	Markup NullableString `json:"markup,omitempty"`
 	FeaturedImageUrl NullableString `json:"featuredImageUrl,omitempty"`
 	CodeType NullableString `json:"codeType,omitempty"`
 }
+
+type _EmailSignatureCreateDto EmailSignatureCreateDto
 
 // NewEmailSignatureCreateDto instantiates a new EmailSignatureCreateDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEmailSignatureCreateDto() *EmailSignatureCreateDto {
+func NewEmailSignatureCreateDto(title string) *EmailSignatureCreateDto {
 	this := EmailSignatureCreateDto{}
+	this.Title = title
 	return &this
 }
 
@@ -113,88 +118,28 @@ func (o *EmailSignatureCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value
 func (o *EmailSignatureCreateDto) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+
+	return o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EmailSignatureCreateDto) GetTitleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return &o.Title, true
 }
 
-// HasTitle returns a boolean if a field has been set.
-func (o *EmailSignatureCreateDto) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle sets field value
 func (o *EmailSignatureCreateDto) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *EmailSignatureCreateDto) SetTitleNil() {
-	o.Title.Set(nil)
-}
-
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *EmailSignatureCreateDto) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetCode returns the Code field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *EmailSignatureCreateDto) GetCode() string {
-	if o == nil || IsNil(o.Code.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Code.Get()
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EmailSignatureCreateDto) GetCodeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Code.Get(), o.Code.IsSet()
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *EmailSignatureCreateDto) HasCode() bool {
-	if o != nil && o.Code.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given NullableString and assigns it to the Code field.
-func (o *EmailSignatureCreateDto) SetCode(v string) {
-	o.Code.Set(&v)
-}
-// SetCodeNil sets the value for Code to be an explicit nil
-func (o *EmailSignatureCreateDto) SetCodeNil() {
-	o.Code.Set(nil)
-}
-
-// UnsetCode ensures that no value is present for Code, not even an explicit nil
-func (o *EmailSignatureCreateDto) UnsetCode() {
-	o.Code.Unset()
+	o.Title = v
 }
 
 // GetPublished returns the Published field value if set, zero value otherwise.
@@ -271,46 +216,88 @@ func (o *EmailSignatureCreateDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetHtmlContent returns the HtmlContent field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *EmailSignatureCreateDto) GetHtmlContent() string {
-	if o == nil || IsNil(o.HtmlContent.Get()) {
+// GetCode returns the Code field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EmailSignatureCreateDto) GetCode() string {
+	if o == nil || IsNil(o.Code.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HtmlContent.Get()
+	return *o.Code.Get()
 }
 
-// GetHtmlContentOk returns a tuple with the HtmlContent field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EmailSignatureCreateDto) GetHtmlContentOk() (*string, bool) {
+func (o *EmailSignatureCreateDto) GetCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.HtmlContent.Get(), o.HtmlContent.IsSet()
+	return o.Code.Get(), o.Code.IsSet()
 }
 
-// HasHtmlContent returns a boolean if a field has been set.
-func (o *EmailSignatureCreateDto) HasHtmlContent() bool {
-	if o != nil && o.HtmlContent.IsSet() {
+// HasCode returns a boolean if a field has been set.
+func (o *EmailSignatureCreateDto) HasCode() bool {
+	if o != nil && o.Code.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetHtmlContent gets a reference to the given NullableString and assigns it to the HtmlContent field.
-func (o *EmailSignatureCreateDto) SetHtmlContent(v string) {
-	o.HtmlContent.Set(&v)
+// SetCode gets a reference to the given NullableString and assigns it to the Code field.
+func (o *EmailSignatureCreateDto) SetCode(v string) {
+	o.Code.Set(&v)
 }
-// SetHtmlContentNil sets the value for HtmlContent to be an explicit nil
-func (o *EmailSignatureCreateDto) SetHtmlContentNil() {
-	o.HtmlContent.Set(nil)
+// SetCodeNil sets the value for Code to be an explicit nil
+func (o *EmailSignatureCreateDto) SetCodeNil() {
+	o.Code.Set(nil)
 }
 
-// UnsetHtmlContent ensures that no value is present for HtmlContent, not even an explicit nil
-func (o *EmailSignatureCreateDto) UnsetHtmlContent() {
-	o.HtmlContent.Unset()
+// UnsetCode ensures that no value is present for Code, not even an explicit nil
+func (o *EmailSignatureCreateDto) UnsetCode() {
+	o.Code.Unset()
+}
+
+// GetMarkup returns the Markup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EmailSignatureCreateDto) GetMarkup() string {
+	if o == nil || IsNil(o.Markup.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Markup.Get()
+}
+
+// GetMarkupOk returns a tuple with the Markup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *EmailSignatureCreateDto) GetMarkupOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Markup.Get(), o.Markup.IsSet()
+}
+
+// HasMarkup returns a boolean if a field has been set.
+func (o *EmailSignatureCreateDto) HasMarkup() bool {
+	if o != nil && o.Markup.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMarkup gets a reference to the given NullableString and assigns it to the Markup field.
+func (o *EmailSignatureCreateDto) SetMarkup(v string) {
+	o.Markup.Set(&v)
+}
+// SetMarkupNil sets the value for Markup to be an explicit nil
+func (o *EmailSignatureCreateDto) SetMarkupNil() {
+	o.Markup.Set(nil)
+}
+
+// UnsetMarkup ensures that no value is present for Markup, not even an explicit nil
+func (o *EmailSignatureCreateDto) UnsetMarkup() {
+	o.Markup.Unset()
 }
 
 // GetFeaturedImageUrl returns the FeaturedImageUrl field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -413,20 +400,18 @@ func (o EmailSignatureCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
-	}
-	if o.Code.IsSet() {
-		toSerialize["code"] = o.Code.Get()
-	}
+	toSerialize["title"] = o.Title
 	if !IsNil(o.Published) {
 		toSerialize["published"] = o.Published
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.HtmlContent.IsSet() {
-		toSerialize["htmlContent"] = o.HtmlContent.Get()
+	if o.Code.IsSet() {
+		toSerialize["code"] = o.Code.Get()
+	}
+	if o.Markup.IsSet() {
+		toSerialize["markup"] = o.Markup.Get()
 	}
 	if o.FeaturedImageUrl.IsSet() {
 		toSerialize["featuredImageUrl"] = o.FeaturedImageUrl.Get()
@@ -435,6 +420,43 @@ func (o EmailSignatureCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["codeType"] = o.CodeType.Get()
 	}
 	return toSerialize, nil
+}
+
+func (o *EmailSignatureCreateDto) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"title",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEmailSignatureCreateDto := _EmailSignatureCreateDto{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEmailSignatureCreateDto)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EmailSignatureCreateDto(varEmailSignatureCreateDto)
+
+	return err
 }
 
 type NullableEmailSignatureCreateDto struct {

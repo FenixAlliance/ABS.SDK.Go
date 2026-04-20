@@ -14,6 +14,8 @@ package openapi
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the BlogPostCreateDto type satisfies the MappedNullable interface at compile time
@@ -23,23 +25,26 @@ var _ MappedNullable = &BlogPostCreateDto{}
 type BlogPostCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	Title NullableString `json:"title,omitempty"`
-	Code NullableString `json:"code,omitempty"`
+	Title string `json:"title"`
 	Published *bool `json:"published,omitempty"`
 	Description NullableString `json:"description,omitempty"`
-	HtmlContent NullableString `json:"htmlContent,omitempty"`
+	Code NullableString `json:"code,omitempty"`
+	Markup NullableString `json:"markup,omitempty"`
 	FeaturedImageUrl NullableString `json:"featuredImageUrl,omitempty"`
 	CodeType NullableString `json:"codeType,omitempty"`
-	BlogPostCategoryID NullableString `json:"blogPostCategoryID,omitempty"`
-	WebTemplateID NullableString `json:"webTemplateID,omitempty"`
+	BlogPostCategoryId NullableString `json:"blogPostCategoryId,omitempty"`
+	WebTemplateId NullableString `json:"webTemplateId,omitempty"`
 }
+
+type _BlogPostCreateDto BlogPostCreateDto
 
 // NewBlogPostCreateDto instantiates a new BlogPostCreateDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBlogPostCreateDto() *BlogPostCreateDto {
+func NewBlogPostCreateDto(title string) *BlogPostCreateDto {
 	this := BlogPostCreateDto{}
+	this.Title = title
 	return &this
 }
 
@@ -115,88 +120,28 @@ func (o *BlogPostCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value
 func (o *BlogPostCreateDto) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+
+	return o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BlogPostCreateDto) GetTitleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return &o.Title, true
 }
 
-// HasTitle returns a boolean if a field has been set.
-func (o *BlogPostCreateDto) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle sets field value
 func (o *BlogPostCreateDto) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *BlogPostCreateDto) SetTitleNil() {
-	o.Title.Set(nil)
-}
-
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *BlogPostCreateDto) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetCode returns the Code field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BlogPostCreateDto) GetCode() string {
-	if o == nil || IsNil(o.Code.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Code.Get()
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BlogPostCreateDto) GetCodeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Code.Get(), o.Code.IsSet()
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *BlogPostCreateDto) HasCode() bool {
-	if o != nil && o.Code.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given NullableString and assigns it to the Code field.
-func (o *BlogPostCreateDto) SetCode(v string) {
-	o.Code.Set(&v)
-}
-// SetCodeNil sets the value for Code to be an explicit nil
-func (o *BlogPostCreateDto) SetCodeNil() {
-	o.Code.Set(nil)
-}
-
-// UnsetCode ensures that no value is present for Code, not even an explicit nil
-func (o *BlogPostCreateDto) UnsetCode() {
-	o.Code.Unset()
+	o.Title = v
 }
 
 // GetPublished returns the Published field value if set, zero value otherwise.
@@ -273,46 +218,88 @@ func (o *BlogPostCreateDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetHtmlContent returns the HtmlContent field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BlogPostCreateDto) GetHtmlContent() string {
-	if o == nil || IsNil(o.HtmlContent.Get()) {
+// GetCode returns the Code field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BlogPostCreateDto) GetCode() string {
+	if o == nil || IsNil(o.Code.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HtmlContent.Get()
+	return *o.Code.Get()
 }
 
-// GetHtmlContentOk returns a tuple with the HtmlContent field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BlogPostCreateDto) GetHtmlContentOk() (*string, bool) {
+func (o *BlogPostCreateDto) GetCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.HtmlContent.Get(), o.HtmlContent.IsSet()
+	return o.Code.Get(), o.Code.IsSet()
 }
 
-// HasHtmlContent returns a boolean if a field has been set.
-func (o *BlogPostCreateDto) HasHtmlContent() bool {
-	if o != nil && o.HtmlContent.IsSet() {
+// HasCode returns a boolean if a field has been set.
+func (o *BlogPostCreateDto) HasCode() bool {
+	if o != nil && o.Code.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetHtmlContent gets a reference to the given NullableString and assigns it to the HtmlContent field.
-func (o *BlogPostCreateDto) SetHtmlContent(v string) {
-	o.HtmlContent.Set(&v)
+// SetCode gets a reference to the given NullableString and assigns it to the Code field.
+func (o *BlogPostCreateDto) SetCode(v string) {
+	o.Code.Set(&v)
 }
-// SetHtmlContentNil sets the value for HtmlContent to be an explicit nil
-func (o *BlogPostCreateDto) SetHtmlContentNil() {
-	o.HtmlContent.Set(nil)
+// SetCodeNil sets the value for Code to be an explicit nil
+func (o *BlogPostCreateDto) SetCodeNil() {
+	o.Code.Set(nil)
 }
 
-// UnsetHtmlContent ensures that no value is present for HtmlContent, not even an explicit nil
-func (o *BlogPostCreateDto) UnsetHtmlContent() {
-	o.HtmlContent.Unset()
+// UnsetCode ensures that no value is present for Code, not even an explicit nil
+func (o *BlogPostCreateDto) UnsetCode() {
+	o.Code.Unset()
+}
+
+// GetMarkup returns the Markup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BlogPostCreateDto) GetMarkup() string {
+	if o == nil || IsNil(o.Markup.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Markup.Get()
+}
+
+// GetMarkupOk returns a tuple with the Markup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BlogPostCreateDto) GetMarkupOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Markup.Get(), o.Markup.IsSet()
+}
+
+// HasMarkup returns a boolean if a field has been set.
+func (o *BlogPostCreateDto) HasMarkup() bool {
+	if o != nil && o.Markup.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMarkup gets a reference to the given NullableString and assigns it to the Markup field.
+func (o *BlogPostCreateDto) SetMarkup(v string) {
+	o.Markup.Set(&v)
+}
+// SetMarkupNil sets the value for Markup to be an explicit nil
+func (o *BlogPostCreateDto) SetMarkupNil() {
+	o.Markup.Set(nil)
+}
+
+// UnsetMarkup ensures that no value is present for Markup, not even an explicit nil
+func (o *BlogPostCreateDto) UnsetMarkup() {
+	o.Markup.Unset()
 }
 
 // GetFeaturedImageUrl returns the FeaturedImageUrl field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -399,88 +386,88 @@ func (o *BlogPostCreateDto) UnsetCodeType() {
 	o.CodeType.Unset()
 }
 
-// GetBlogPostCategoryID returns the BlogPostCategoryID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BlogPostCreateDto) GetBlogPostCategoryID() string {
-	if o == nil || IsNil(o.BlogPostCategoryID.Get()) {
+// GetBlogPostCategoryId returns the BlogPostCategoryId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BlogPostCreateDto) GetBlogPostCategoryId() string {
+	if o == nil || IsNil(o.BlogPostCategoryId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BlogPostCategoryID.Get()
+	return *o.BlogPostCategoryId.Get()
 }
 
-// GetBlogPostCategoryIDOk returns a tuple with the BlogPostCategoryID field value if set, nil otherwise
+// GetBlogPostCategoryIdOk returns a tuple with the BlogPostCategoryId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BlogPostCreateDto) GetBlogPostCategoryIDOk() (*string, bool) {
+func (o *BlogPostCreateDto) GetBlogPostCategoryIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BlogPostCategoryID.Get(), o.BlogPostCategoryID.IsSet()
+	return o.BlogPostCategoryId.Get(), o.BlogPostCategoryId.IsSet()
 }
 
-// HasBlogPostCategoryID returns a boolean if a field has been set.
-func (o *BlogPostCreateDto) HasBlogPostCategoryID() bool {
-	if o != nil && o.BlogPostCategoryID.IsSet() {
+// HasBlogPostCategoryId returns a boolean if a field has been set.
+func (o *BlogPostCreateDto) HasBlogPostCategoryId() bool {
+	if o != nil && o.BlogPostCategoryId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetBlogPostCategoryID gets a reference to the given NullableString and assigns it to the BlogPostCategoryID field.
-func (o *BlogPostCreateDto) SetBlogPostCategoryID(v string) {
-	o.BlogPostCategoryID.Set(&v)
+// SetBlogPostCategoryId gets a reference to the given NullableString and assigns it to the BlogPostCategoryId field.
+func (o *BlogPostCreateDto) SetBlogPostCategoryId(v string) {
+	o.BlogPostCategoryId.Set(&v)
 }
-// SetBlogPostCategoryIDNil sets the value for BlogPostCategoryID to be an explicit nil
-func (o *BlogPostCreateDto) SetBlogPostCategoryIDNil() {
-	o.BlogPostCategoryID.Set(nil)
-}
-
-// UnsetBlogPostCategoryID ensures that no value is present for BlogPostCategoryID, not even an explicit nil
-func (o *BlogPostCreateDto) UnsetBlogPostCategoryID() {
-	o.BlogPostCategoryID.Unset()
+// SetBlogPostCategoryIdNil sets the value for BlogPostCategoryId to be an explicit nil
+func (o *BlogPostCreateDto) SetBlogPostCategoryIdNil() {
+	o.BlogPostCategoryId.Set(nil)
 }
 
-// GetWebTemplateID returns the WebTemplateID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BlogPostCreateDto) GetWebTemplateID() string {
-	if o == nil || IsNil(o.WebTemplateID.Get()) {
+// UnsetBlogPostCategoryId ensures that no value is present for BlogPostCategoryId, not even an explicit nil
+func (o *BlogPostCreateDto) UnsetBlogPostCategoryId() {
+	o.BlogPostCategoryId.Unset()
+}
+
+// GetWebTemplateId returns the WebTemplateId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BlogPostCreateDto) GetWebTemplateId() string {
+	if o == nil || IsNil(o.WebTemplateId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WebTemplateID.Get()
+	return *o.WebTemplateId.Get()
 }
 
-// GetWebTemplateIDOk returns a tuple with the WebTemplateID field value if set, nil otherwise
+// GetWebTemplateIdOk returns a tuple with the WebTemplateId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BlogPostCreateDto) GetWebTemplateIDOk() (*string, bool) {
+func (o *BlogPostCreateDto) GetWebTemplateIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.WebTemplateID.Get(), o.WebTemplateID.IsSet()
+	return o.WebTemplateId.Get(), o.WebTemplateId.IsSet()
 }
 
-// HasWebTemplateID returns a boolean if a field has been set.
-func (o *BlogPostCreateDto) HasWebTemplateID() bool {
-	if o != nil && o.WebTemplateID.IsSet() {
+// HasWebTemplateId returns a boolean if a field has been set.
+func (o *BlogPostCreateDto) HasWebTemplateId() bool {
+	if o != nil && o.WebTemplateId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetWebTemplateID gets a reference to the given NullableString and assigns it to the WebTemplateID field.
-func (o *BlogPostCreateDto) SetWebTemplateID(v string) {
-	o.WebTemplateID.Set(&v)
+// SetWebTemplateId gets a reference to the given NullableString and assigns it to the WebTemplateId field.
+func (o *BlogPostCreateDto) SetWebTemplateId(v string) {
+	o.WebTemplateId.Set(&v)
 }
-// SetWebTemplateIDNil sets the value for WebTemplateID to be an explicit nil
-func (o *BlogPostCreateDto) SetWebTemplateIDNil() {
-	o.WebTemplateID.Set(nil)
+// SetWebTemplateIdNil sets the value for WebTemplateId to be an explicit nil
+func (o *BlogPostCreateDto) SetWebTemplateIdNil() {
+	o.WebTemplateId.Set(nil)
 }
 
-// UnsetWebTemplateID ensures that no value is present for WebTemplateID, not even an explicit nil
-func (o *BlogPostCreateDto) UnsetWebTemplateID() {
-	o.WebTemplateID.Unset()
+// UnsetWebTemplateId ensures that no value is present for WebTemplateId, not even an explicit nil
+func (o *BlogPostCreateDto) UnsetWebTemplateId() {
+	o.WebTemplateId.Unset()
 }
 
 func (o BlogPostCreateDto) MarshalJSON() ([]byte, error) {
@@ -499,20 +486,18 @@ func (o BlogPostCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
-	}
-	if o.Code.IsSet() {
-		toSerialize["code"] = o.Code.Get()
-	}
+	toSerialize["title"] = o.Title
 	if !IsNil(o.Published) {
 		toSerialize["published"] = o.Published
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.HtmlContent.IsSet() {
-		toSerialize["htmlContent"] = o.HtmlContent.Get()
+	if o.Code.IsSet() {
+		toSerialize["code"] = o.Code.Get()
+	}
+	if o.Markup.IsSet() {
+		toSerialize["markup"] = o.Markup.Get()
 	}
 	if o.FeaturedImageUrl.IsSet() {
 		toSerialize["featuredImageUrl"] = o.FeaturedImageUrl.Get()
@@ -520,13 +505,50 @@ func (o BlogPostCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.CodeType.IsSet() {
 		toSerialize["codeType"] = o.CodeType.Get()
 	}
-	if o.BlogPostCategoryID.IsSet() {
-		toSerialize["blogPostCategoryID"] = o.BlogPostCategoryID.Get()
+	if o.BlogPostCategoryId.IsSet() {
+		toSerialize["blogPostCategoryId"] = o.BlogPostCategoryId.Get()
 	}
-	if o.WebTemplateID.IsSet() {
-		toSerialize["webTemplateID"] = o.WebTemplateID.Get()
+	if o.WebTemplateId.IsSet() {
+		toSerialize["webTemplateId"] = o.WebTemplateId.Get()
 	}
 	return toSerialize, nil
+}
+
+func (o *BlogPostCreateDto) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"title",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varBlogPostCreateDto := _BlogPostCreateDto{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varBlogPostCreateDto)
+
+	if err != nil {
+		return err
+	}
+
+	*o = BlogPostCreateDto(varBlogPostCreateDto)
+
+	return err
 }
 
 type NullableBlogPostCreateDto struct {

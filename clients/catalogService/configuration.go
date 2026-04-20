@@ -91,8 +91,20 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
-				URL: "",
-				Description: "No description provided",
+				URL: "{server}",
+				Description: "Alliance Business Suite API",
+				Variables: map[string]ServerVariable{
+					"server": ServerVariable{
+						Description: "ABS instance base URL",
+						DefaultValue: "https://absuite.net",
+						EnumValues: []string{
+							"https://absuite.net",
+							"https://test.absuite.net",
+							"https://dev.absuite.net",
+							"https://localhost:44388",
+						},
+					},
+				},
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{

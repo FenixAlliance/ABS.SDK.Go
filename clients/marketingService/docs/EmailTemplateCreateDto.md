@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**Title** | Pointer to **NullableString** |  | [optional] 
-**Code** | Pointer to **NullableString** |  | [optional] 
+**Title** | **string** |  | 
 **Published** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**HtmlContent** | Pointer to **NullableString** |  | [optional] 
+**Code** | Pointer to **NullableString** |  | [optional] 
+**Markup** | Pointer to **NullableString** |  | [optional] 
 **FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
 **CodeType** | Pointer to **NullableString** |  | [optional] 
 **MarketingCampaignId** | Pointer to **NullableString** |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewEmailTemplateCreateDto
 
-`func NewEmailTemplateCreateDto() *EmailTemplateCreateDto`
+`func NewEmailTemplateCreateDto(title string, ) *EmailTemplateCreateDto`
 
 NewEmailTemplateCreateDto instantiates a new EmailTemplateCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -103,57 +103,7 @@ and a boolean to check if the value has been set.
 
 SetTitle sets Title field to given value.
 
-### HasTitle
 
-`func (o *EmailTemplateCreateDto) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
-### SetTitleNil
-
-`func (o *EmailTemplateCreateDto) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *EmailTemplateCreateDto) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
-### GetCode
-
-`func (o *EmailTemplateCreateDto) GetCode() string`
-
-GetCode returns the Code field if non-nil, zero value otherwise.
-
-### GetCodeOk
-
-`func (o *EmailTemplateCreateDto) GetCodeOk() (*string, bool)`
-
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCode
-
-`func (o *EmailTemplateCreateDto) SetCode(v string)`
-
-SetCode sets Code field to given value.
-
-### HasCode
-
-`func (o *EmailTemplateCreateDto) HasCode() bool`
-
-HasCode returns a boolean if a field has been set.
-
-### SetCodeNil
-
-`func (o *EmailTemplateCreateDto) SetCodeNil(b bool)`
-
- SetCodeNil sets the value for Code to be an explicit nil
-
-### UnsetCode
-`func (o *EmailTemplateCreateDto) UnsetCode()`
-
-UnsetCode ensures that no value is present for Code, not even an explicit nil
 ### GetPublished
 
 `func (o *EmailTemplateCreateDto) GetPublished() bool`
@@ -214,41 +164,76 @@ HasDescription returns a boolean if a field has been set.
 `func (o *EmailTemplateCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetHtmlContent
+### GetCode
 
-`func (o *EmailTemplateCreateDto) GetHtmlContent() string`
+`func (o *EmailTemplateCreateDto) GetCode() string`
 
-GetHtmlContent returns the HtmlContent field if non-nil, zero value otherwise.
+GetCode returns the Code field if non-nil, zero value otherwise.
 
-### GetHtmlContentOk
+### GetCodeOk
 
-`func (o *EmailTemplateCreateDto) GetHtmlContentOk() (*string, bool)`
+`func (o *EmailTemplateCreateDto) GetCodeOk() (*string, bool)`
 
-GetHtmlContentOk returns a tuple with the HtmlContent field if it's non-nil, zero value otherwise
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHtmlContent
+### SetCode
 
-`func (o *EmailTemplateCreateDto) SetHtmlContent(v string)`
+`func (o *EmailTemplateCreateDto) SetCode(v string)`
 
-SetHtmlContent sets HtmlContent field to given value.
+SetCode sets Code field to given value.
 
-### HasHtmlContent
+### HasCode
 
-`func (o *EmailTemplateCreateDto) HasHtmlContent() bool`
+`func (o *EmailTemplateCreateDto) HasCode() bool`
 
-HasHtmlContent returns a boolean if a field has been set.
+HasCode returns a boolean if a field has been set.
 
-### SetHtmlContentNil
+### SetCodeNil
 
-`func (o *EmailTemplateCreateDto) SetHtmlContentNil(b bool)`
+`func (o *EmailTemplateCreateDto) SetCodeNil(b bool)`
 
- SetHtmlContentNil sets the value for HtmlContent to be an explicit nil
+ SetCodeNil sets the value for Code to be an explicit nil
 
-### UnsetHtmlContent
-`func (o *EmailTemplateCreateDto) UnsetHtmlContent()`
+### UnsetCode
+`func (o *EmailTemplateCreateDto) UnsetCode()`
 
-UnsetHtmlContent ensures that no value is present for HtmlContent, not even an explicit nil
+UnsetCode ensures that no value is present for Code, not even an explicit nil
+### GetMarkup
+
+`func (o *EmailTemplateCreateDto) GetMarkup() string`
+
+GetMarkup returns the Markup field if non-nil, zero value otherwise.
+
+### GetMarkupOk
+
+`func (o *EmailTemplateCreateDto) GetMarkupOk() (*string, bool)`
+
+GetMarkupOk returns a tuple with the Markup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMarkup
+
+`func (o *EmailTemplateCreateDto) SetMarkup(v string)`
+
+SetMarkup sets Markup field to given value.
+
+### HasMarkup
+
+`func (o *EmailTemplateCreateDto) HasMarkup() bool`
+
+HasMarkup returns a boolean if a field has been set.
+
+### SetMarkupNil
+
+`func (o *EmailTemplateCreateDto) SetMarkupNil(b bool)`
+
+ SetMarkupNil sets the value for Markup to be an explicit nil
+
+### UnsetMarkup
+`func (o *EmailTemplateCreateDto) UnsetMarkup()`
+
+UnsetMarkup ensures that no value is present for Markup, not even an explicit nil
 ### GetFeaturedImageUrl
 
 `func (o *EmailTemplateCreateDto) GetFeaturedImageUrl() string`

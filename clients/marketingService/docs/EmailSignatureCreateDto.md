@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**Title** | Pointer to **NullableString** |  | [optional] 
-**Code** | Pointer to **NullableString** |  | [optional] 
+**Title** | **string** |  | 
 **Published** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**HtmlContent** | Pointer to **NullableString** |  | [optional] 
+**Code** | Pointer to **NullableString** |  | [optional] 
+**Markup** | Pointer to **NullableString** |  | [optional] 
 **FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
 **CodeType** | Pointer to **NullableString** |  | [optional] 
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewEmailSignatureCreateDto
 
-`func NewEmailSignatureCreateDto() *EmailSignatureCreateDto`
+`func NewEmailSignatureCreateDto(title string, ) *EmailSignatureCreateDto`
 
 NewEmailSignatureCreateDto instantiates a new EmailSignatureCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -102,57 +102,7 @@ and a boolean to check if the value has been set.
 
 SetTitle sets Title field to given value.
 
-### HasTitle
 
-`func (o *EmailSignatureCreateDto) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
-### SetTitleNil
-
-`func (o *EmailSignatureCreateDto) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *EmailSignatureCreateDto) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
-### GetCode
-
-`func (o *EmailSignatureCreateDto) GetCode() string`
-
-GetCode returns the Code field if non-nil, zero value otherwise.
-
-### GetCodeOk
-
-`func (o *EmailSignatureCreateDto) GetCodeOk() (*string, bool)`
-
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCode
-
-`func (o *EmailSignatureCreateDto) SetCode(v string)`
-
-SetCode sets Code field to given value.
-
-### HasCode
-
-`func (o *EmailSignatureCreateDto) HasCode() bool`
-
-HasCode returns a boolean if a field has been set.
-
-### SetCodeNil
-
-`func (o *EmailSignatureCreateDto) SetCodeNil(b bool)`
-
- SetCodeNil sets the value for Code to be an explicit nil
-
-### UnsetCode
-`func (o *EmailSignatureCreateDto) UnsetCode()`
-
-UnsetCode ensures that no value is present for Code, not even an explicit nil
 ### GetPublished
 
 `func (o *EmailSignatureCreateDto) GetPublished() bool`
@@ -213,41 +163,76 @@ HasDescription returns a boolean if a field has been set.
 `func (o *EmailSignatureCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetHtmlContent
+### GetCode
 
-`func (o *EmailSignatureCreateDto) GetHtmlContent() string`
+`func (o *EmailSignatureCreateDto) GetCode() string`
 
-GetHtmlContent returns the HtmlContent field if non-nil, zero value otherwise.
+GetCode returns the Code field if non-nil, zero value otherwise.
 
-### GetHtmlContentOk
+### GetCodeOk
 
-`func (o *EmailSignatureCreateDto) GetHtmlContentOk() (*string, bool)`
+`func (o *EmailSignatureCreateDto) GetCodeOk() (*string, bool)`
 
-GetHtmlContentOk returns a tuple with the HtmlContent field if it's non-nil, zero value otherwise
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHtmlContent
+### SetCode
 
-`func (o *EmailSignatureCreateDto) SetHtmlContent(v string)`
+`func (o *EmailSignatureCreateDto) SetCode(v string)`
 
-SetHtmlContent sets HtmlContent field to given value.
+SetCode sets Code field to given value.
 
-### HasHtmlContent
+### HasCode
 
-`func (o *EmailSignatureCreateDto) HasHtmlContent() bool`
+`func (o *EmailSignatureCreateDto) HasCode() bool`
 
-HasHtmlContent returns a boolean if a field has been set.
+HasCode returns a boolean if a field has been set.
 
-### SetHtmlContentNil
+### SetCodeNil
 
-`func (o *EmailSignatureCreateDto) SetHtmlContentNil(b bool)`
+`func (o *EmailSignatureCreateDto) SetCodeNil(b bool)`
 
- SetHtmlContentNil sets the value for HtmlContent to be an explicit nil
+ SetCodeNil sets the value for Code to be an explicit nil
 
-### UnsetHtmlContent
-`func (o *EmailSignatureCreateDto) UnsetHtmlContent()`
+### UnsetCode
+`func (o *EmailSignatureCreateDto) UnsetCode()`
 
-UnsetHtmlContent ensures that no value is present for HtmlContent, not even an explicit nil
+UnsetCode ensures that no value is present for Code, not even an explicit nil
+### GetMarkup
+
+`func (o *EmailSignatureCreateDto) GetMarkup() string`
+
+GetMarkup returns the Markup field if non-nil, zero value otherwise.
+
+### GetMarkupOk
+
+`func (o *EmailSignatureCreateDto) GetMarkupOk() (*string, bool)`
+
+GetMarkupOk returns a tuple with the Markup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMarkup
+
+`func (o *EmailSignatureCreateDto) SetMarkup(v string)`
+
+SetMarkup sets Markup field to given value.
+
+### HasMarkup
+
+`func (o *EmailSignatureCreateDto) HasMarkup() bool`
+
+HasMarkup returns a boolean if a field has been set.
+
+### SetMarkupNil
+
+`func (o *EmailSignatureCreateDto) SetMarkupNil(b bool)`
+
+ SetMarkupNil sets the value for Markup to be an explicit nil
+
+### UnsetMarkup
+`func (o *EmailSignatureCreateDto) UnsetMarkup()`
+
+UnsetMarkup ensures that no value is present for Markup, not even an explicit nil
 ### GetFeaturedImageUrl
 
 `func (o *EmailSignatureCreateDto) GetFeaturedImageUrl() string`

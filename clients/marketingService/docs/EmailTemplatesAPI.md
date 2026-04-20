@@ -1,6 +1,6 @@
 # \EmailTemplatesAPI
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	emailTemplateCreateDto := *openapiclient.NewEmailTemplateCreateDto() // EmailTemplateCreateDto | 
+	emailTemplateCreateDto := *openapiclient.NewEmailTemplateCreateDto("Title_example") // EmailTemplateCreateDto | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 

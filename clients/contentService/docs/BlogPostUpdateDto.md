@@ -58,6 +58,8 @@ Name | Type | Description | Notes
 **CornerstoneContent** | Pointer to **bool** |  | [optional] 
 **IsEssentialContent** | Pointer to **bool** |  | [optional] 
 **AllowSearchEngineIndexing** | Pointer to **bool** |  | [optional] 
+**BlogPostCategoryId** | Pointer to **NullableString** |  | [optional] 
+**WebTemplateId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -1778,6 +1780,76 @@ SetAllowSearchEngineIndexing sets AllowSearchEngineIndexing field to given value
 
 HasAllowSearchEngineIndexing returns a boolean if a field has been set.
 
+### GetBlogPostCategoryId
+
+`func (o *BlogPostUpdateDto) GetBlogPostCategoryId() string`
+
+GetBlogPostCategoryId returns the BlogPostCategoryId field if non-nil, zero value otherwise.
+
+### GetBlogPostCategoryIdOk
+
+`func (o *BlogPostUpdateDto) GetBlogPostCategoryIdOk() (*string, bool)`
+
+GetBlogPostCategoryIdOk returns a tuple with the BlogPostCategoryId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBlogPostCategoryId
+
+`func (o *BlogPostUpdateDto) SetBlogPostCategoryId(v string)`
+
+SetBlogPostCategoryId sets BlogPostCategoryId field to given value.
+
+### HasBlogPostCategoryId
+
+`func (o *BlogPostUpdateDto) HasBlogPostCategoryId() bool`
+
+HasBlogPostCategoryId returns a boolean if a field has been set.
+
+### SetBlogPostCategoryIdNil
+
+`func (o *BlogPostUpdateDto) SetBlogPostCategoryIdNil(b bool)`
+
+ SetBlogPostCategoryIdNil sets the value for BlogPostCategoryId to be an explicit nil
+
+### UnsetBlogPostCategoryId
+`func (o *BlogPostUpdateDto) UnsetBlogPostCategoryId()`
+
+UnsetBlogPostCategoryId ensures that no value is present for BlogPostCategoryId, not even an explicit nil
+### GetWebTemplateId
+
+`func (o *BlogPostUpdateDto) GetWebTemplateId() string`
+
+GetWebTemplateId returns the WebTemplateId field if non-nil, zero value otherwise.
+
+### GetWebTemplateIdOk
+
+`func (o *BlogPostUpdateDto) GetWebTemplateIdOk() (*string, bool)`
+
+GetWebTemplateIdOk returns a tuple with the WebTemplateId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWebTemplateId
+
+`func (o *BlogPostUpdateDto) SetWebTemplateId(v string)`
+
+SetWebTemplateId sets WebTemplateId field to given value.
+
+### HasWebTemplateId
+
+`func (o *BlogPostUpdateDto) HasWebTemplateId() bool`
+
+HasWebTemplateId returns a boolean if a field has been set.
+
+### SetWebTemplateIdNil
+
+`func (o *BlogPostUpdateDto) SetWebTemplateIdNil(b bool)`
+
+ SetWebTemplateIdNil sets the value for WebTemplateId to be an explicit nil
+
+### UnsetWebTemplateId
+`func (o *BlogPostUpdateDto) UnsetWebTemplateId()`
+
+UnsetWebTemplateId ensures that no value is present for WebTemplateId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

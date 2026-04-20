@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **Disabled** | Pointer to **bool** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**WebsiteThemeID** | Pointer to **NullableString** |  | [optional] 
-**BusinessDomainID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
-**BusinessPortalApplicationID** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**WebsiteThemeId** | Pointer to **NullableString** |  | [optional] 
+**BusinessDomainId** | Pointer to **NullableString** |  | [optional] 
+**BusinessPortalApplicationId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -296,146 +296,146 @@ HasDescription returns a boolean if a field has been set.
 `func (o *WebPortalDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetWebsiteThemeID
+### GetEnrollmentId
 
-`func (o *WebPortalDto) GetWebsiteThemeID() string`
+`func (o *WebPortalDto) GetEnrollmentId() string`
 
-GetWebsiteThemeID returns the WebsiteThemeID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetWebsiteThemeIDOk
+### GetEnrollmentIdOk
 
-`func (o *WebPortalDto) GetWebsiteThemeIDOk() (*string, bool)`
+`func (o *WebPortalDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetWebsiteThemeIDOk returns a tuple with the WebsiteThemeID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWebsiteThemeID
+### SetEnrollmentId
 
-`func (o *WebPortalDto) SetWebsiteThemeID(v string)`
+`func (o *WebPortalDto) SetEnrollmentId(v string)`
 
-SetWebsiteThemeID sets WebsiteThemeID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasWebsiteThemeID
+### HasEnrollmentId
 
-`func (o *WebPortalDto) HasWebsiteThemeID() bool`
+`func (o *WebPortalDto) HasEnrollmentId() bool`
 
-HasWebsiteThemeID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetWebsiteThemeIDNil
+### SetEnrollmentIdNil
 
-`func (o *WebPortalDto) SetWebsiteThemeIDNil(b bool)`
+`func (o *WebPortalDto) SetEnrollmentIdNil(b bool)`
 
- SetWebsiteThemeIDNil sets the value for WebsiteThemeID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetWebsiteThemeID
-`func (o *WebPortalDto) UnsetWebsiteThemeID()`
+### UnsetEnrollmentId
+`func (o *WebPortalDto) UnsetEnrollmentId()`
 
-UnsetWebsiteThemeID ensures that no value is present for WebsiteThemeID, not even an explicit nil
-### GetBusinessDomainID
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
+### GetWebsiteThemeId
 
-`func (o *WebPortalDto) GetBusinessDomainID() string`
+`func (o *WebPortalDto) GetWebsiteThemeId() string`
 
-GetBusinessDomainID returns the BusinessDomainID field if non-nil, zero value otherwise.
+GetWebsiteThemeId returns the WebsiteThemeId field if non-nil, zero value otherwise.
 
-### GetBusinessDomainIDOk
+### GetWebsiteThemeIdOk
 
-`func (o *WebPortalDto) GetBusinessDomainIDOk() (*string, bool)`
+`func (o *WebPortalDto) GetWebsiteThemeIdOk() (*string, bool)`
 
-GetBusinessDomainIDOk returns a tuple with the BusinessDomainID field if it's non-nil, zero value otherwise
+GetWebsiteThemeIdOk returns a tuple with the WebsiteThemeId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessDomainID
+### SetWebsiteThemeId
 
-`func (o *WebPortalDto) SetBusinessDomainID(v string)`
+`func (o *WebPortalDto) SetWebsiteThemeId(v string)`
 
-SetBusinessDomainID sets BusinessDomainID field to given value.
+SetWebsiteThemeId sets WebsiteThemeId field to given value.
 
-### HasBusinessDomainID
+### HasWebsiteThemeId
 
-`func (o *WebPortalDto) HasBusinessDomainID() bool`
+`func (o *WebPortalDto) HasWebsiteThemeId() bool`
 
-HasBusinessDomainID returns a boolean if a field has been set.
+HasWebsiteThemeId returns a boolean if a field has been set.
 
-### SetBusinessDomainIDNil
+### SetWebsiteThemeIdNil
 
-`func (o *WebPortalDto) SetBusinessDomainIDNil(b bool)`
+`func (o *WebPortalDto) SetWebsiteThemeIdNil(b bool)`
 
- SetBusinessDomainIDNil sets the value for BusinessDomainID to be an explicit nil
+ SetWebsiteThemeIdNil sets the value for WebsiteThemeId to be an explicit nil
 
-### UnsetBusinessDomainID
-`func (o *WebPortalDto) UnsetBusinessDomainID()`
+### UnsetWebsiteThemeId
+`func (o *WebPortalDto) UnsetWebsiteThemeId()`
 
-UnsetBusinessDomainID ensures that no value is present for BusinessDomainID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetWebsiteThemeId ensures that no value is present for WebsiteThemeId, not even an explicit nil
+### GetBusinessDomainId
 
-`func (o *WebPortalDto) GetBusinessProfileRecordID() string`
+`func (o *WebPortalDto) GetBusinessDomainId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetBusinessDomainId returns the BusinessDomainId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetBusinessDomainIdOk
 
-`func (o *WebPortalDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *WebPortalDto) GetBusinessDomainIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetBusinessDomainIdOk returns a tuple with the BusinessDomainId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetBusinessDomainId
 
-`func (o *WebPortalDto) SetBusinessProfileRecordID(v string)`
+`func (o *WebPortalDto) SetBusinessDomainId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetBusinessDomainId sets BusinessDomainId field to given value.
 
-### HasBusinessProfileRecordID
+### HasBusinessDomainId
 
-`func (o *WebPortalDto) HasBusinessProfileRecordID() bool`
+`func (o *WebPortalDto) HasBusinessDomainId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasBusinessDomainId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetBusinessDomainIdNil
 
-`func (o *WebPortalDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *WebPortalDto) SetBusinessDomainIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetBusinessDomainIdNil sets the value for BusinessDomainId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *WebPortalDto) UnsetBusinessProfileRecordID()`
+### UnsetBusinessDomainId
+`func (o *WebPortalDto) UnsetBusinessDomainId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-### GetBusinessPortalApplicationID
+UnsetBusinessDomainId ensures that no value is present for BusinessDomainId, not even an explicit nil
+### GetBusinessPortalApplicationId
 
-`func (o *WebPortalDto) GetBusinessPortalApplicationID() string`
+`func (o *WebPortalDto) GetBusinessPortalApplicationId() string`
 
-GetBusinessPortalApplicationID returns the BusinessPortalApplicationID field if non-nil, zero value otherwise.
+GetBusinessPortalApplicationId returns the BusinessPortalApplicationId field if non-nil, zero value otherwise.
 
-### GetBusinessPortalApplicationIDOk
+### GetBusinessPortalApplicationIdOk
 
-`func (o *WebPortalDto) GetBusinessPortalApplicationIDOk() (*string, bool)`
+`func (o *WebPortalDto) GetBusinessPortalApplicationIdOk() (*string, bool)`
 
-GetBusinessPortalApplicationIDOk returns a tuple with the BusinessPortalApplicationID field if it's non-nil, zero value otherwise
+GetBusinessPortalApplicationIdOk returns a tuple with the BusinessPortalApplicationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessPortalApplicationID
+### SetBusinessPortalApplicationId
 
-`func (o *WebPortalDto) SetBusinessPortalApplicationID(v string)`
+`func (o *WebPortalDto) SetBusinessPortalApplicationId(v string)`
 
-SetBusinessPortalApplicationID sets BusinessPortalApplicationID field to given value.
+SetBusinessPortalApplicationId sets BusinessPortalApplicationId field to given value.
 
-### HasBusinessPortalApplicationID
+### HasBusinessPortalApplicationId
 
-`func (o *WebPortalDto) HasBusinessPortalApplicationID() bool`
+`func (o *WebPortalDto) HasBusinessPortalApplicationId() bool`
 
-HasBusinessPortalApplicationID returns a boolean if a field has been set.
+HasBusinessPortalApplicationId returns a boolean if a field has been set.
 
-### SetBusinessPortalApplicationIDNil
+### SetBusinessPortalApplicationIdNil
 
-`func (o *WebPortalDto) SetBusinessPortalApplicationIDNil(b bool)`
+`func (o *WebPortalDto) SetBusinessPortalApplicationIdNil(b bool)`
 
- SetBusinessPortalApplicationIDNil sets the value for BusinessPortalApplicationID to be an explicit nil
+ SetBusinessPortalApplicationIdNil sets the value for BusinessPortalApplicationId to be an explicit nil
 
-### UnsetBusinessPortalApplicationID
-`func (o *WebPortalDto) UnsetBusinessPortalApplicationID()`
+### UnsetBusinessPortalApplicationId
+`func (o *WebPortalDto) UnsetBusinessPortalApplicationId()`
 
-UnsetBusinessPortalApplicationID ensures that no value is present for BusinessPortalApplicationID, not even an explicit nil
+UnsetBusinessPortalApplicationId ensures that no value is present for BusinessPortalApplicationId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
