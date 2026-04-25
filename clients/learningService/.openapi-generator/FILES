@@ -20,7 +20,7 @@ api_course_units.go
 api_course_updates.go
 api_course_wikis.go
 api_courses.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_instructor_profiles.go
 api_student_profiles.go
 client.go
@@ -103,7 +103,7 @@ docs/CourseWikiUpdateDto.md
 docs/CourseWikisAPI.md
 docs/CoursesAPI.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md

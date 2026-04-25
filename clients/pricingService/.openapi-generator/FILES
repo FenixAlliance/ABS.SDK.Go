@@ -3,7 +3,7 @@
 README.md
 api/openapi.yaml
 api_discount_lists.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_price_lists.go
 api_prices.go
 client.go
@@ -23,7 +23,7 @@ docs/DiscountListsAPI.md
 docs/DiscountUpdateDto.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -96,4 +96,5 @@ model_reset_password_request.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
+test/api_fenix_alliance_abs_web_test.go
 utils.go

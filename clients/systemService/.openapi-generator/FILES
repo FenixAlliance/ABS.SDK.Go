@@ -4,7 +4,7 @@ README.md
 api/openapi.yaml
 api_antiforgery.go
 api_emails.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_licensing.go
 api_migrations.go
 api_modules.go
@@ -26,7 +26,7 @@ docs/ExtendedTenantDtoListEnvelope.md
 docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
 docs/ExtendedUserDtoListEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/ISwaggerContact.md
@@ -144,4 +144,5 @@ model_user_settings_dto.go
 model_user_update_dto.go
 model_wallet_dto.go
 response.go
+test/api_fenix_alliance_abs_web_test.go
 utils.go

@@ -5,7 +5,7 @@ api/openapi.yaml
 api_departments.go
 api_employee_enrollments.go
 api_enrollments.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_industries.go
 api_invitations.go
 api_options.go
@@ -36,7 +36,7 @@ docs/ExtendedTenantDto.md
 docs/ExtendedTenantDtoEnvelope.md
 docs/ExtendedTenantEnrollmentDto.md
 docs/ExtendedTenantEnrollmentDtoEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/IndustriesAPI.md
@@ -314,4 +314,5 @@ model_wallet_dto_envelope.go
 model_web_portal_dto.go
 model_web_portal_dto_list_envelope.go
 response.go
+test/api_fenix_alliance_abs_web_test.go
 utils.go

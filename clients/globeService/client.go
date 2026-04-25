@@ -54,7 +54,7 @@ type APIClient struct {
 
 	CurrenciesAPI *CurrenciesAPIService
 
-	FenixAllianceABPWebAPI *FenixAllianceABPWebAPIService
+	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
 
 	LanguagesAPI *LanguagesAPIService
 
@@ -79,7 +79,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.CountriesAPI = (*CountriesAPIService)(&c.common)
 	c.CurrenciesAPI = (*CurrenciesAPIService)(&c.common)
-	c.FenixAllianceABPWebAPI = (*FenixAllianceABPWebAPIService)(&c.common)
+	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.LanguagesAPI = (*LanguagesAPIService)(&c.common)
 	c.TimezonesAPI = (*TimezonesAPIService)(&c.common)
 

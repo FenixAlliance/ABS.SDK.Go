@@ -86,7 +86,7 @@ type APIClient struct {
 
 	CoursesAPI *CoursesAPIService
 
-	FenixAllianceABPWebAPI *FenixAllianceABPWebAPIService
+	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
 
 	InstructorProfilesAPI *InstructorProfilesAPIService
 
@@ -127,7 +127,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CourseUpdatesAPI = (*CourseUpdatesAPIService)(&c.common)
 	c.CourseWikisAPI = (*CourseWikisAPIService)(&c.common)
 	c.CoursesAPI = (*CoursesAPIService)(&c.common)
-	c.FenixAllianceABPWebAPI = (*FenixAllianceABPWebAPIService)(&c.common)
+	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.InstructorProfilesAPI = (*InstructorProfilesAPIService)(&c.common)
 	c.StudentProfilesAPI = (*StudentProfilesAPIService)(&c.common)
 

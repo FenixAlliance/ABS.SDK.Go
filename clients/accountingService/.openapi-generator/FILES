@@ -10,7 +10,7 @@ api_billing_profiles.go
 api_budgets.go
 api_commissions.go
 api_cost_centres.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_financial_books.go
 api_fiscal_authorities.go
 api_fiscal_authority_years.go
@@ -136,7 +136,7 @@ docs/CreateLedgerDto.md
 docs/CurrencyId.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/FinancialBookCreateDto.md
 docs/FinancialBookDto.md
 docs/FinancialBookDtoEnvelope.md
@@ -558,4 +558,5 @@ model_two_factor_request.go
 model_two_factor_response.go
 model_update_ledger_dto.go
 response.go
+test/api_fenix_alliance_abs_web_test.go
 utils.go

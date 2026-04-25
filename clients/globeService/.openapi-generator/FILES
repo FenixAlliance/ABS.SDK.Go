@@ -4,7 +4,7 @@ README.md
 api/openapi.yaml
 api_countries.go
 api_currencies.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_languages.go
 api_timezones.go
 client.go
@@ -31,7 +31,7 @@ docs/CurrencyDto.md
 docs/CurrencyDtoEnvelope.md
 docs/CurrencyDtoListEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md

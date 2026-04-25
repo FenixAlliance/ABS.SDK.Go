@@ -5,7 +5,7 @@ api/openapi.yaml
 api_email_groups.go
 api_email_signatures.go
 api_email_templates.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_marketing_campaigns.go
 api_marketing_lists.go
 api_newsletters.go
@@ -35,7 +35,7 @@ docs/EmailTemplateUpdateDto.md
 docs/EmailTemplatesAPI.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -138,4 +138,5 @@ model_social_post_bucket_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
+test/api_fenix_alliance_abs_web_test.go
 utils.go

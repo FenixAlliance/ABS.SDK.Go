@@ -54,7 +54,7 @@ type APIClient struct {
 
 	ExchangeVAPI *ExchangeVAPIService
 
-	FenixAllianceABPWebAPI *FenixAllianceABPWebAPIService
+	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
 
 	RatesAPI *RatesAPIService
 }
@@ -77,7 +77,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.ExchangeAPI = (*ExchangeAPIService)(&c.common)
 	c.ExchangeVAPI = (*ExchangeVAPIService)(&c.common)
-	c.FenixAllianceABPWebAPI = (*FenixAllianceABPWebAPIService)(&c.common)
+	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.RatesAPI = (*RatesAPIService)(&c.common)
 
 	return c

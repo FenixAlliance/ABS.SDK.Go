@@ -4,7 +4,7 @@ README.md
 api/openapi.yaml
 api_deal_unit_flows.go
 api_deal_units.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_sales_literatures.go
 client.go
 configuration.go
@@ -40,7 +40,7 @@ docs/ExtendedDealUnitDtoEnvelope.md
 docs/ExtendedDealUnitDtoListEnvelope.md
 docs/ExtendedSalesLiteratureDto.md
 docs/ExtendedSalesLiteratureDtoListEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForexRates.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md

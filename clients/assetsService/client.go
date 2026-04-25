@@ -58,7 +58,7 @@ type APIClient struct {
 
 	AssetsAPI *AssetsAPIService
 
-	FenixAllianceABPWebAPI *FenixAllianceABPWebAPIService
+	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
 }
 
 type service struct {
@@ -81,7 +81,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AssetTransfersAPI = (*AssetTransfersAPIService)(&c.common)
 	c.AssetTypesAPI = (*AssetTypesAPIService)(&c.common)
 	c.AssetsAPI = (*AssetsAPIService)(&c.common)
-	c.FenixAllianceABPWebAPI = (*FenixAllianceABPWebAPIService)(&c.common)
+	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 
 	return c
 }

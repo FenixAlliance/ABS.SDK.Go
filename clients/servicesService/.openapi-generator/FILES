@@ -2,7 +2,7 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_service_case_types.go
 api_service_cases.go
 api_service_level_agreements.go
@@ -14,7 +14,7 @@ configuration.go
 docs/AccessTokenResponse.md
 docs/Envelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -112,4 +112,5 @@ model_service_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
+test/api_fenix_alliance_abs_web_test.go
 utils.go

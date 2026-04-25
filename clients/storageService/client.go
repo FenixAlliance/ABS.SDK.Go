@@ -54,7 +54,7 @@ type APIClient struct {
 
 	BlobsAPI *BlobsAPIService
 
-	FenixAllianceABPWebAPI *FenixAllianceABPWebAPIService
+	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
 
 	FilesAPI *FilesAPIService
 
@@ -81,7 +81,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.AvatarsAPI = (*AvatarsAPIService)(&c.common)
 	c.BlobsAPI = (*BlobsAPIService)(&c.common)
-	c.FenixAllianceABPWebAPI = (*FenixAllianceABPWebAPIService)(&c.common)
+	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.FilesAPI = (*FilesAPIService)(&c.common)
 	c.RadzenEditorAPI = (*RadzenEditorAPIService)(&c.common)
 	c.UploadsAPI = (*UploadsAPIService)(&c.common)

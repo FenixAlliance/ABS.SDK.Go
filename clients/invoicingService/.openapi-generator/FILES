@@ -2,7 +2,7 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_invoices.go
 client.go
 configuration.go
@@ -14,7 +14,7 @@ docs/Envelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedInvoiceDto.md
 docs/ExtendedInvoiceDtoListEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForexRates.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md

@@ -3,7 +3,7 @@
 README.md
 api/openapi.yaml
 api_contacts.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_options.go
 api_sync.go
 client.go
@@ -26,7 +26,7 @@ docs/ErrorEnvelope.md
 docs/ExtendedContactDto.md
 docs/ExtendedContactDtoEnvelope.md
 docs/ExtendedContactDtoListEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md

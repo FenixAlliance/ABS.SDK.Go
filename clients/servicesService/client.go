@@ -50,7 +50,7 @@ type APIClient struct {
 
 	// API Services
 
-	FenixAllianceABPWebAPI *FenixAllianceABPWebAPIService
+	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
 
 	ServiceCaseTypesAPI *ServiceCaseTypesAPIService
 
@@ -81,7 +81,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.FenixAllianceABPWebAPI = (*FenixAllianceABPWebAPIService)(&c.common)
+	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.ServiceCaseTypesAPI = (*ServiceCaseTypesAPIService)(&c.common)
 	c.ServiceCasesAPI = (*ServiceCasesAPIService)(&c.common)
 	c.ServiceLevelAgreementsAPI = (*ServiceLevelAgreementsAPIService)(&c.common)

@@ -27,7 +27,7 @@ tags:
 - name: Assets
 - name: AssetTransfers
 - name: AssetTypes
-- name: FenixAlliance.ABP.Web
+- name: FenixAlliance.ABS.Web
 paths:
   /api/v2/AssetsService/AssetCategories:
     get:
@@ -3098,21 +3098,21 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /health:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /hello:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /register:
     post:
       requestBody:
@@ -3131,7 +3131,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /login:
     post:
       parameters:
@@ -3163,7 +3163,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /refresh:
     post:
       requestBody:
@@ -3180,7 +3180,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /confirmEmail:
     get:
       operationId: MapIdentityApi-/confirmEmail
@@ -3210,7 +3210,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /resendConfirmationEmail:
     post:
       requestBody:
@@ -3223,7 +3223,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /forgotPassword:
     post:
       requestBody:
@@ -3242,7 +3242,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /resetPassword:
     post:
       requestBody:
@@ -3261,7 +3261,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /manage/2fa:
     post:
       requestBody:
@@ -3286,7 +3286,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
   /manage/info:
     get:
       responses:
@@ -3305,7 +3305,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
     post:
       requestBody:
         content:
@@ -3329,7 +3329,81 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
+  /Account/PerformExternalLogin:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              provider:
+                style: form
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_PerformExternalLogin_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              provider:
+                style: form
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_PerformExternalLogin_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+  /Account/Logout:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Logout_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Logout_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+  /Account/Manage/LinkExternalLogin:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              provider:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Manage_LinkExternalLogin_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              provider:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Manage_LinkExternalLogin_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+  /Account/Manage/DownloadPersonalData:
+    post:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
 components:
   schemas:
     AccessTokenResponse:
@@ -5562,4 +5636,21 @@ components:
       - isTwoFactorEnabled
       - recoveryCodesLeft
       - sharedKey
+      type: object
+    _Account_PerformExternalLogin_post_request:
+      properties:
+        provider:
+          type: string
+        returnUrl:
+          type: string
+      type: object
+    _Account_Logout_post_request:
+      properties:
+        returnUrl:
+          type: string
+      type: object
+    _Account_Manage_LinkExternalLogin_post_request:
+      properties:
+        provider:
+          type: string
       type: object

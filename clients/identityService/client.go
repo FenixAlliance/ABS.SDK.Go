@@ -54,7 +54,7 @@ type APIClient struct {
 
 	CheckerAPI *CheckerAPIService
 
-	FenixAllianceABPWebAPI *FenixAllianceABPWebAPIService
+	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
 
 	OAuthAPI *OAuthAPIService
 
@@ -81,7 +81,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.ApplicationsAPI = (*ApplicationsAPIService)(&c.common)
 	c.CheckerAPI = (*CheckerAPIService)(&c.common)
-	c.FenixAllianceABPWebAPI = (*FenixAllianceABPWebAPIService)(&c.common)
+	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.OAuthAPI = (*OAuthAPIService)(&c.common)
 	c.ResourceAPI = (*ResourceAPIService)(&c.common)
 	c.UserInfoAPI = (*UserInfoAPIService)(&c.common)

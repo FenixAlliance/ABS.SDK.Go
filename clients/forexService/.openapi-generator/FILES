@@ -4,7 +4,7 @@ README.md
 api/openapi.yaml
 api_exchange.go
 api_exchange_v.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_rates.go
 client.go
 configuration.go
@@ -15,7 +15,7 @@ docs/ExchangeAPI.md
 docs/ExchangeRate.md
 docs/ExchangeRateEnvelope.md
 docs/ExchangeVAPI.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForexRatesDto.md
 docs/ForexRatesDtoEnvelope.md
 docs/ForgotPasswordRequest.md

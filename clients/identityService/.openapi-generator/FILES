@@ -4,7 +4,7 @@ README.md
 api/openapi.yaml
 api_applications.go
 api_checker.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_o_auth.go
 api_resource.go
 api_user_info.go
@@ -16,7 +16,7 @@ docs/AuthorizationResult.md
 docs/AuthorizationResultEnvelope.md
 docs/CheckerAPI.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md

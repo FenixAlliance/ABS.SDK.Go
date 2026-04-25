@@ -54,7 +54,7 @@ type APIClient struct {
 
 	CompareAPI *CompareAPIService
 
-	FenixAllianceABPWebAPI *FenixAllianceABPWebAPIService
+	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
 
 	RecordsAPI *RecordsAPIService
 
@@ -79,7 +79,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.CartsAPI = (*CartsAPIService)(&c.common)
 	c.CompareAPI = (*CompareAPIService)(&c.common)
-	c.FenixAllianceABPWebAPI = (*FenixAllianceABPWebAPIService)(&c.common)
+	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.RecordsAPI = (*RecordsAPIService)(&c.common)
 	c.WishListsAPI = (*WishListsAPIService)(&c.common)
 

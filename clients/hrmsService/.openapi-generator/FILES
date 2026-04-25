@@ -4,7 +4,7 @@ README.md
 api/openapi.yaml
 api_employees.go
 api_employers.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_gigs.go
 api_job_offers.go
 client.go
@@ -22,7 +22,7 @@ docs/EmployerProfileDtoListEnvelope.md
 docs/EmployersAPI.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/GigCreateDto.md
 docs/GigDto.md

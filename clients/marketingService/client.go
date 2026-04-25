@@ -56,7 +56,7 @@ type APIClient struct {
 
 	EmailTemplatesAPI *EmailTemplatesAPIService
 
-	FenixAllianceABPWebAPI *FenixAllianceABPWebAPIService
+	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
 
 	MarketingCampaignsAPI *MarketingCampaignsAPIService
 
@@ -90,7 +90,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.EmailGroupsAPI = (*EmailGroupsAPIService)(&c.common)
 	c.EmailSignaturesAPI = (*EmailSignaturesAPIService)(&c.common)
 	c.EmailTemplatesAPI = (*EmailTemplatesAPIService)(&c.common)
-	c.FenixAllianceABPWebAPI = (*FenixAllianceABPWebAPIService)(&c.common)
+	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.MarketingCampaignsAPI = (*MarketingCampaignsAPIService)(&c.common)
 	c.MarketingListsAPI = (*MarketingListsAPIService)(&c.common)
 	c.NewslettersAPI = (*NewslettersAPIService)(&c.common)

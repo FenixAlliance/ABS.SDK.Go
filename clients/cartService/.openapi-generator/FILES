@@ -4,7 +4,7 @@ README.md
 api/openapi.yaml
 api_carts.go
 api_compare.go
-api_fenix_alliance_abp_web.go
+api_fenix_alliance_abs_web.go
 api_records.go
 api_wish_lists.go
 client.go
@@ -26,7 +26,7 @@ docs/CurrencyId.md
 docs/CurrencySwitchRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForexRates.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md

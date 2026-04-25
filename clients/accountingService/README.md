@@ -195,19 +195,23 @@ Class | Method | HTTP request | Description
 *CostCentresAPI* | [**UpdateCostCentre**](docs/CostCentresAPI.md#updatecostcentre) | **Put** /api/v2/AccountingService/CostCentres/{costCentreId} | Update a cost centre
 *CostCentresAPI* | [**UpdateCostCentreBudget**](docs/CostCentresAPI.md#updatecostcentrebudget) | **Put** /api/v2/AccountingService/CostCentres/CostCentreBudgets/{budgetId} | Update a cost centre budget
 *CostCentresAPI* | [**UpdateCostCentreGroup**](docs/CostCentresAPI.md#updatecostcentregroup) | **Put** /api/v2/AccountingService/CostCentres/CostCentreGroups/{groupId} | Update a cost centre group
-*FenixAllianceABPWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABPWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
-*FenixAllianceABPWebAPI* | [**HealthGet**](docs/FenixAllianceABPWebAPI.md#healthget) | **Get** /health | 
-*FenixAllianceABPWebAPI* | [**HelloGet**](docs/FenixAllianceABPWebAPI.md#helloget) | **Get** /hello | 
-*FenixAllianceABPWebAPI* | [**LoginPost**](docs/FenixAllianceABPWebAPI.md#loginpost) | **Post** /login | 
-*FenixAllianceABPWebAPI* | [**Manage2faPost**](docs/FenixAllianceABPWebAPI.md#manage2fapost) | **Post** /manage/2fa | 
-*FenixAllianceABPWebAPI* | [**ManageInfoGet**](docs/FenixAllianceABPWebAPI.md#manageinfoget) | **Get** /manage/info | 
-*FenixAllianceABPWebAPI* | [**ManageInfoPost**](docs/FenixAllianceABPWebAPI.md#manageinfopost) | **Post** /manage/info | 
-*FenixAllianceABPWebAPI* | [**MapIdentityApiConfirmEmail**](docs/FenixAllianceABPWebAPI.md#mapidentityapiconfirmemail) | **Get** /confirmEmail | 
-*FenixAllianceABPWebAPI* | [**RefreshPost**](docs/FenixAllianceABPWebAPI.md#refreshpost) | **Post** /refresh | 
-*FenixAllianceABPWebAPI* | [**RegisterPost**](docs/FenixAllianceABPWebAPI.md#registerpost) | **Post** /register | 
-*FenixAllianceABPWebAPI* | [**ResendConfirmationEmailPost**](docs/FenixAllianceABPWebAPI.md#resendconfirmationemailpost) | **Post** /resendConfirmationEmail | 
-*FenixAllianceABPWebAPI* | [**ResetPasswordPost**](docs/FenixAllianceABPWebAPI.md#resetpasswordpost) | **Post** /resetPassword | 
-*FenixAllianceABPWebAPI* | [**VersionGet**](docs/FenixAllianceABPWebAPI.md#versionget) | **Get** /version | 
+*FenixAllianceABSWebAPI* | [**AccountLogoutPost**](docs/FenixAllianceABSWebAPI.md#accountlogoutpost) | **Post** /Account/Logout | 
+*FenixAllianceABSWebAPI* | [**AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebAPI.md#accountmanagedownloadpersonaldatapost) | **Post** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebAPI* | [**AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountmanagelinkexternalloginpost) | **Post** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebAPI* | [**AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountperformexternalloginpost) | **Post** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABSWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
+*FenixAllianceABSWebAPI* | [**HealthGet**](docs/FenixAllianceABSWebAPI.md#healthget) | **Get** /health | 
+*FenixAllianceABSWebAPI* | [**HelloGet**](docs/FenixAllianceABSWebAPI.md#helloget) | **Get** /hello | 
+*FenixAllianceABSWebAPI* | [**LoginPost**](docs/FenixAllianceABSWebAPI.md#loginpost) | **Post** /login | 
+*FenixAllianceABSWebAPI* | [**Manage2faPost**](docs/FenixAllianceABSWebAPI.md#manage2fapost) | **Post** /manage/2fa | 
+*FenixAllianceABSWebAPI* | [**ManageInfoGet**](docs/FenixAllianceABSWebAPI.md#manageinfoget) | **Get** /manage/info | 
+*FenixAllianceABSWebAPI* | [**ManageInfoPost**](docs/FenixAllianceABSWebAPI.md#manageinfopost) | **Post** /manage/info | 
+*FenixAllianceABSWebAPI* | [**MapIdentityApiConfirmEmail**](docs/FenixAllianceABSWebAPI.md#mapidentityapiconfirmemail) | **Get** /confirmEmail | 
+*FenixAllianceABSWebAPI* | [**RefreshPost**](docs/FenixAllianceABSWebAPI.md#refreshpost) | **Post** /refresh | 
+*FenixAllianceABSWebAPI* | [**RegisterPost**](docs/FenixAllianceABSWebAPI.md#registerpost) | **Post** /register | 
+*FenixAllianceABSWebAPI* | [**ResendConfirmationEmailPost**](docs/FenixAllianceABSWebAPI.md#resendconfirmationemailpost) | **Post** /resendConfirmationEmail | 
+*FenixAllianceABSWebAPI* | [**ResetPasswordPost**](docs/FenixAllianceABSWebAPI.md#resetpasswordpost) | **Post** /resetPassword | 
+*FenixAllianceABSWebAPI* | [**VersionGet**](docs/FenixAllianceABSWebAPI.md#versionget) | **Get** /version | 
 *FinancialBooksAPI* | [**CreateFinancialBookAsync**](docs/FinancialBooksAPI.md#createfinancialbookasync) | **Post** /api/v2/AccountingService/FinancialBooks | Creates a new financial book
 *FinancialBooksAPI* | [**DeleteFinancialBookAsync**](docs/FinancialBooksAPI.md#deletefinancialbookasync) | **Delete** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Deletes an existing financial book
 *FinancialBooksAPI* | [**GetFinancialBookDetailsAsync**](docs/FinancialBooksAPI.md#getfinancialbookdetailsasync) | **Get** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Gets the details of a specific financial book
