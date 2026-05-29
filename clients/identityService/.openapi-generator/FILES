@@ -12,7 +12,7 @@ client.go
 configuration.go
 docs/AccessTokenResponse.md
 docs/ApplicationsAPI.md
-docs/AuthorizationResult.md
+docs/AuthResult.md
 docs/AuthorizationResultEnvelope.md
 docs/CheckerAPI.md
 docs/ErrorEnvelope.md

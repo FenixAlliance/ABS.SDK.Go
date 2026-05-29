@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the AuthorizationResult type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &AuthorizationResult{}
+// checks if the AuthResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AuthResult{}
 
-// AuthorizationResult struct for AuthorizationResult
-type AuthorizationResult struct {
+// AuthResult struct for AuthResult
+type AuthResult struct {
 	UserId map[string]interface{} `json:"userId,omitempty"`
 	TenantId map[string]interface{} `json:"tenantId,omitempty"`
 	PortalId map[string]interface{} `json:"portalId,omitempty"`
@@ -30,25 +30,25 @@ type AuthorizationResult struct {
 	Error NullableString `json:"error,omitempty"`
 }
 
-// NewAuthorizationResult instantiates a new AuthorizationResult object
+// NewAuthorizationResult instantiates a new AuthResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAuthorizationResult() *AuthorizationResult {
-	this := AuthorizationResult{}
+func NewAuthorizationResult() *AuthResult {
+	this := AuthResult{}
 	return &this
 }
 
-// NewAuthorizationResultWithDefaults instantiates a new AuthorizationResult object
+// NewAuthorizationResultWithDefaults instantiates a new AuthResult object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAuthorizationResultWithDefaults() *AuthorizationResult {
-	this := AuthorizationResult{}
+func NewAuthorizationResultWithDefaults() *AuthResult {
+	this := AuthResult{}
 	return &this
 }
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
-func (o *AuthorizationResult) GetUserId() map[string]interface{} {
+func (o *AuthResult) GetUserId() map[string]interface{} {
 	if o == nil || IsNil(o.UserId) {
 		var ret map[string]interface{}
 		return ret
@@ -58,7 +58,7 @@ func (o *AuthorizationResult) GetUserId() map[string]interface{} {
 
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AuthorizationResult) GetUserIdOk() (map[string]interface{}, bool) {
+func (o *AuthResult) GetUserIdOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.UserId) {
 		return map[string]interface{}{}, false
 	}
@@ -66,7 +66,7 @@ func (o *AuthorizationResult) GetUserIdOk() (map[string]interface{}, bool) {
 }
 
 // HasUserId returns a boolean if a field has been set.
-func (o *AuthorizationResult) HasUserId() bool {
+func (o *AuthResult) HasUserId() bool {
 	if o != nil && !IsNil(o.UserId) {
 		return true
 	}
@@ -75,12 +75,12 @@ func (o *AuthorizationResult) HasUserId() bool {
 }
 
 // SetUserId gets a reference to the given map[string]interface{} and assigns it to the UserId field.
-func (o *AuthorizationResult) SetUserId(v map[string]interface{}) {
+func (o *AuthResult) SetUserId(v map[string]interface{}) {
 	o.UserId = v
 }
 
 // GetTenantId returns the TenantId field value if set, zero value otherwise.
-func (o *AuthorizationResult) GetTenantId() map[string]interface{} {
+func (o *AuthResult) GetTenantId() map[string]interface{} {
 	if o == nil || IsNil(o.TenantId) {
 		var ret map[string]interface{}
 		return ret
@@ -90,7 +90,7 @@ func (o *AuthorizationResult) GetTenantId() map[string]interface{} {
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AuthorizationResult) GetTenantIdOk() (map[string]interface{}, bool) {
+func (o *AuthResult) GetTenantIdOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.TenantId) {
 		return map[string]interface{}{}, false
 	}
@@ -98,7 +98,7 @@ func (o *AuthorizationResult) GetTenantIdOk() (map[string]interface{}, bool) {
 }
 
 // HasTenantId returns a boolean if a field has been set.
-func (o *AuthorizationResult) HasTenantId() bool {
+func (o *AuthResult) HasTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -107,12 +107,12 @@ func (o *AuthorizationResult) HasTenantId() bool {
 }
 
 // SetTenantId gets a reference to the given map[string]interface{} and assigns it to the TenantId field.
-func (o *AuthorizationResult) SetTenantId(v map[string]interface{}) {
+func (o *AuthResult) SetTenantId(v map[string]interface{}) {
 	o.TenantId = v
 }
 
 // GetPortalId returns the PortalId field value if set, zero value otherwise.
-func (o *AuthorizationResult) GetPortalId() map[string]interface{} {
+func (o *AuthResult) GetPortalId() map[string]interface{} {
 	if o == nil || IsNil(o.PortalId) {
 		var ret map[string]interface{}
 		return ret
@@ -122,7 +122,7 @@ func (o *AuthorizationResult) GetPortalId() map[string]interface{} {
 
 // GetPortalIdOk returns a tuple with the PortalId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AuthorizationResult) GetPortalIdOk() (map[string]interface{}, bool) {
+func (o *AuthResult) GetPortalIdOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.PortalId) {
 		return map[string]interface{}{}, false
 	}
@@ -130,7 +130,7 @@ func (o *AuthorizationResult) GetPortalIdOk() (map[string]interface{}, bool) {
 }
 
 // HasPortalId returns a boolean if a field has been set.
-func (o *AuthorizationResult) HasPortalId() bool {
+func (o *AuthResult) HasPortalId() bool {
 	if o != nil && !IsNil(o.PortalId) {
 		return true
 	}
@@ -139,12 +139,12 @@ func (o *AuthorizationResult) HasPortalId() bool {
 }
 
 // SetPortalId gets a reference to the given map[string]interface{} and assigns it to the PortalId field.
-func (o *AuthorizationResult) SetPortalId(v map[string]interface{}) {
+func (o *AuthResult) SetPortalId(v map[string]interface{}) {
 	o.PortalId = v
 }
 
 // GetApplicationId returns the ApplicationId field value if set, zero value otherwise.
-func (o *AuthorizationResult) GetApplicationId() map[string]interface{} {
+func (o *AuthResult) GetApplicationId() map[string]interface{} {
 	if o == nil || IsNil(o.ApplicationId) {
 		var ret map[string]interface{}
 		return ret
@@ -154,7 +154,7 @@ func (o *AuthorizationResult) GetApplicationId() map[string]interface{} {
 
 // GetApplicationIdOk returns a tuple with the ApplicationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AuthorizationResult) GetApplicationIdOk() (map[string]interface{}, bool) {
+func (o *AuthResult) GetApplicationIdOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ApplicationId) {
 		return map[string]interface{}{}, false
 	}
@@ -162,7 +162,7 @@ func (o *AuthorizationResult) GetApplicationIdOk() (map[string]interface{}, bool
 }
 
 // HasApplicationId returns a boolean if a field has been set.
-func (o *AuthorizationResult) HasApplicationId() bool {
+func (o *AuthResult) HasApplicationId() bool {
 	if o != nil && !IsNil(o.ApplicationId) {
 		return true
 	}
@@ -171,12 +171,12 @@ func (o *AuthorizationResult) HasApplicationId() bool {
 }
 
 // SetApplicationId gets a reference to the given map[string]interface{} and assigns it to the ApplicationId field.
-func (o *AuthorizationResult) SetApplicationId(v map[string]interface{}) {
+func (o *AuthResult) SetApplicationId(v map[string]interface{}) {
 	o.ApplicationId = v
 }
 
 // GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise.
-func (o *AuthorizationResult) GetEnrollmentId() map[string]interface{} {
+func (o *AuthResult) GetEnrollmentId() map[string]interface{} {
 	if o == nil || IsNil(o.EnrollmentId) {
 		var ret map[string]interface{}
 		return ret
@@ -186,7 +186,7 @@ func (o *AuthorizationResult) GetEnrollmentId() map[string]interface{} {
 
 // GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AuthorizationResult) GetEnrollmentIdOk() (map[string]interface{}, bool) {
+func (o *AuthResult) GetEnrollmentIdOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.EnrollmentId) {
 		return map[string]interface{}{}, false
 	}
@@ -194,7 +194,7 @@ func (o *AuthorizationResult) GetEnrollmentIdOk() (map[string]interface{}, bool)
 }
 
 // HasEnrollmentId returns a boolean if a field has been set.
-func (o *AuthorizationResult) HasEnrollmentId() bool {
+func (o *AuthResult) HasEnrollmentId() bool {
 	if o != nil && !IsNil(o.EnrollmentId) {
 		return true
 	}
@@ -203,12 +203,12 @@ func (o *AuthorizationResult) HasEnrollmentId() bool {
 }
 
 // SetEnrollmentId gets a reference to the given map[string]interface{} and assigns it to the EnrollmentId field.
-func (o *AuthorizationResult) SetEnrollmentId(v map[string]interface{}) {
+func (o *AuthResult) SetEnrollmentId(v map[string]interface{}) {
 	o.EnrollmentId = v
 }
 
 // GetCorrelationId returns the CorrelationId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AuthorizationResult) GetCorrelationId() string {
+func (o *AuthResult) GetCorrelationId() string {
 	if o == nil || IsNil(o.CorrelationId.Get()) {
 		var ret string
 		return ret
@@ -219,7 +219,7 @@ func (o *AuthorizationResult) GetCorrelationId() string {
 // GetCorrelationIdOk returns a tuple with the CorrelationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AuthorizationResult) GetCorrelationIdOk() (*string, bool) {
+func (o *AuthResult) GetCorrelationIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -227,7 +227,7 @@ func (o *AuthorizationResult) GetCorrelationIdOk() (*string, bool) {
 }
 
 // HasCorrelationId returns a boolean if a field has been set.
-func (o *AuthorizationResult) HasCorrelationId() bool {
+func (o *AuthResult) HasCorrelationId() bool {
 	if o != nil && o.CorrelationId.IsSet() {
 		return true
 	}
@@ -236,21 +236,21 @@ func (o *AuthorizationResult) HasCorrelationId() bool {
 }
 
 // SetCorrelationId gets a reference to the given NullableString and assigns it to the CorrelationId field.
-func (o *AuthorizationResult) SetCorrelationId(v string) {
+func (o *AuthResult) SetCorrelationId(v string) {
 	o.CorrelationId.Set(&v)
 }
 // SetCorrelationIdNil sets the value for CorrelationId to be an explicit nil
-func (o *AuthorizationResult) SetCorrelationIdNil() {
+func (o *AuthResult) SetCorrelationIdNil() {
 	o.CorrelationId.Set(nil)
 }
 
 // UnsetCorrelationId ensures that no value is present for CorrelationId, not even an explicit nil
-func (o *AuthorizationResult) UnsetCorrelationId() {
+func (o *AuthResult) UnsetCorrelationId() {
 	o.CorrelationId.Unset()
 }
 
 // GetScopes returns the Scopes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AuthorizationResult) GetScopes() []string {
+func (o *AuthResult) GetScopes() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -261,7 +261,7 @@ func (o *AuthorizationResult) GetScopes() []string {
 // GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AuthorizationResult) GetScopesOk() ([]string, bool) {
+func (o *AuthResult) GetScopesOk() ([]string, bool) {
 	if o == nil || IsNil(o.Scopes) {
 		return nil, false
 	}
@@ -269,7 +269,7 @@ func (o *AuthorizationResult) GetScopesOk() ([]string, bool) {
 }
 
 // HasScopes returns a boolean if a field has been set.
-func (o *AuthorizationResult) HasScopes() bool {
+func (o *AuthResult) HasScopes() bool {
 	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
@@ -278,12 +278,12 @@ func (o *AuthorizationResult) HasScopes() bool {
 }
 
 // SetScopes gets a reference to the given []string and assigns it to the Scopes field.
-func (o *AuthorizationResult) SetScopes(v []string) {
+func (o *AuthResult) SetScopes(v []string) {
 	o.Scopes = v
 }
 
 // GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AuthorizationResult) GetError() string {
+func (o *AuthResult) GetError() string {
 	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
@@ -294,7 +294,7 @@ func (o *AuthorizationResult) GetError() string {
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AuthorizationResult) GetErrorOk() (*string, bool) {
+func (o *AuthResult) GetErrorOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -302,7 +302,7 @@ func (o *AuthorizationResult) GetErrorOk() (*string, bool) {
 }
 
 // HasError returns a boolean if a field has been set.
-func (o *AuthorizationResult) HasError() bool {
+func (o *AuthResult) HasError() bool {
 	if o != nil && o.Error.IsSet() {
 		return true
 	}
@@ -311,20 +311,20 @@ func (o *AuthorizationResult) HasError() bool {
 }
 
 // SetError gets a reference to the given NullableString and assigns it to the Error field.
-func (o *AuthorizationResult) SetError(v string) {
+func (o *AuthResult) SetError(v string) {
 	o.Error.Set(&v)
 }
 // SetErrorNil sets the value for Error to be an explicit nil
-func (o *AuthorizationResult) SetErrorNil() {
+func (o *AuthResult) SetErrorNil() {
 	o.Error.Set(nil)
 }
 
 // UnsetError ensures that no value is present for Error, not even an explicit nil
-func (o *AuthorizationResult) UnsetError() {
+func (o *AuthResult) UnsetError() {
 	o.Error.Unset()
 }
 
-func (o AuthorizationResult) MarshalJSON() ([]byte, error) {
+func (o AuthResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -332,7 +332,7 @@ func (o AuthorizationResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o AuthorizationResult) ToMap() (map[string]interface{}, error) {
+func (o AuthResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.UserId) {
 		toSerialize["userId"] = o.UserId
@@ -362,15 +362,15 @@ func (o AuthorizationResult) ToMap() (map[string]interface{}, error) {
 }
 
 type NullableAuthorizationResult struct {
-	value *AuthorizationResult
+	value *AuthResult
 	isSet bool
 }
 
-func (v NullableAuthorizationResult) Get() *AuthorizationResult {
+func (v NullableAuthorizationResult) Get() *AuthResult {
 	return v.value
 }
 
-func (v *NullableAuthorizationResult) Set(val *AuthorizationResult) {
+func (v *NullableAuthorizationResult) Set(val *AuthResult) {
 	v.value = val
 	v.isSet = true
 }
@@ -384,7 +384,7 @@ func (v *NullableAuthorizationResult) Unset() {
 	v.isSet = false
 }
 
-func NewNullableAuthorizationResult(val *AuthorizationResult) *NullableAuthorizationResult {
+func NewNullableAuthorizationResult(val *AuthResult) *NullableAuthorizationResult {
 	return &NullableAuthorizationResult{value: val, isSet: true}
 }
 

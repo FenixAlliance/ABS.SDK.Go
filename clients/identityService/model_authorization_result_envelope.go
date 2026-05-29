@@ -26,7 +26,7 @@ type AuthorizationResultEnvelope struct {
 	CorrelationId NullableString `json:"correlationId,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	ActivityId NullableString `json:"activityId,omitempty"`
-	Result *AuthorizationResult `json:"result,omitempty"`
+	Result *AuthResult `json:"result,omitempty"`
 }
 
 // NewAuthorizationResultEnvelope instantiates a new AuthorizationResultEnvelope object
@@ -237,9 +237,9 @@ func (o *AuthorizationResultEnvelope) UnsetActivityId() {
 }
 
 // GetResult returns the Result field value if set, zero value otherwise.
-func (o *AuthorizationResultEnvelope) GetResult() AuthorizationResult {
+func (o *AuthorizationResultEnvelope) GetResult() AuthResult {
 	if o == nil || IsNil(o.Result) {
-		var ret AuthorizationResult
+		var ret AuthResult
 		return ret
 	}
 	return *o.Result
@@ -247,7 +247,7 @@ func (o *AuthorizationResultEnvelope) GetResult() AuthorizationResult {
 
 // GetResultOk returns a tuple with the Result field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AuthorizationResultEnvelope) GetResultOk() (*AuthorizationResult, bool) {
+func (o *AuthorizationResultEnvelope) GetResultOk() (*AuthResult, bool) {
 	if o == nil || IsNil(o.Result) {
 		return nil, false
 	}
@@ -263,8 +263,8 @@ func (o *AuthorizationResultEnvelope) HasResult() bool {
 	return false
 }
 
-// SetResult gets a reference to the given AuthorizationResult and assigns it to the Result field.
-func (o *AuthorizationResultEnvelope) SetResult(v AuthorizationResult) {
+// SetResult gets a reference to the given AuthResult and assigns it to the Result field.
+func (o *AuthorizationResultEnvelope) SetResult(v AuthResult) {
 	o.Result = &v
 }
 

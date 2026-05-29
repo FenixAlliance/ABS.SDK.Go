@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **CorrelationId** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
 **ActivityId** | Pointer to **NullableString** |  | [optional] [readonly] 
-**Result** | Pointer to [**AuthorizationResult**](AuthorizationResult.md) |  | [optional] 
+**Result** | Pointer to [**AuthResult**](AuthResult.md) |  | [optional] 
 
 ## Methods
 
@@ -187,20 +187,20 @@ HasActivityId returns a boolean if a field has been set.
 UnsetActivityId ensures that no value is present for ActivityId, not even an explicit nil
 ### GetResult
 
-`func (o *AuthorizationResultEnvelope) GetResult() AuthorizationResult`
+`func (o *AuthorizationResultEnvelope) GetResult() AuthResult`
 
 GetResult returns the Result field if non-nil, zero value otherwise.
 
 ### GetResultOk
 
-`func (o *AuthorizationResultEnvelope) GetResultOk() (*AuthorizationResult, bool)`
+`func (o *AuthorizationResultEnvelope) GetResultOk() (*AuthResult, bool)`
 
 GetResultOk returns a tuple with the Result field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResult
 
-`func (o *AuthorizationResultEnvelope) SetResult(v AuthorizationResult)`
+`func (o *AuthorizationResultEnvelope) SetResult(v AuthResult)`
 
 SetResult sets Result field to given value.
 
