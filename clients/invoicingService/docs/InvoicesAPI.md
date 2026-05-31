@@ -1,6 +1,6 @@
 # \InvoicesAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,7 +52,7 @@ Method | HTTP request | Description
 
 ## AggregateInvoiceDiscounts
 
-> MoneyEnvelope AggregateInvoiceDiscounts(ctx).RequestBody(requestBody).CurrencyId(currencyId).Execute()
+> MoneyEnvelope AggregateInvoiceDiscounts(ctx).TenantId(tenantId).RequestBody(requestBody).CurrencyId(currencyId).Execute()
 
 Aggregate invoice discounts.
 
@@ -71,12 +71,13 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	requestBody := []string{"Property_example"} // []string | 
 	currencyId := "currencyId_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.AggregateInvoiceDiscounts(context.Background()).RequestBody(requestBody).CurrencyId(currencyId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.AggregateInvoiceDiscounts(context.Background()).TenantId(tenantId).RequestBody(requestBody).CurrencyId(currencyId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.AggregateInvoiceDiscounts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -97,6 +98,7 @@ Other parameters are passed through a pointer to a apiAggregateInvoiceDiscountsR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **requestBody** | **[]string** |  | 
  **currencyId** | **string** |  | 
 
@@ -120,7 +122,7 @@ No authorization required
 
 ## AggregateInvoiceGlobalSurcharges
 
-> MoneyEnvelope AggregateInvoiceGlobalSurcharges(ctx).RequestBody(requestBody).CurrencyId(currencyId).Execute()
+> MoneyEnvelope AggregateInvoiceGlobalSurcharges(ctx).TenantId(tenantId).RequestBody(requestBody).CurrencyId(currencyId).Execute()
 
 Aggregate invoice global surcharges.
 
@@ -139,12 +141,13 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	requestBody := []string{"Property_example"} // []string | 
 	currencyId := "currencyId_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.AggregateInvoiceGlobalSurcharges(context.Background()).RequestBody(requestBody).CurrencyId(currencyId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.AggregateInvoiceGlobalSurcharges(context.Background()).TenantId(tenantId).RequestBody(requestBody).CurrencyId(currencyId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.AggregateInvoiceGlobalSurcharges``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -165,6 +168,7 @@ Other parameters are passed through a pointer to a apiAggregateInvoiceGlobalSurc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **requestBody** | **[]string** |  | 
  **currencyId** | **string** |  | 
 
@@ -188,7 +192,7 @@ No authorization required
 
 ## AggregateInvoiceTaxBases
 
-> MoneyEnvelope AggregateInvoiceTaxBases(ctx).RequestBody(requestBody).CurrencyId(currencyId).Execute()
+> MoneyEnvelope AggregateInvoiceTaxBases(ctx).TenantId(tenantId).RequestBody(requestBody).CurrencyId(currencyId).Execute()
 
 Aggregate invoice tax bases.
 
@@ -207,12 +211,13 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	requestBody := []string{"Property_example"} // []string | 
 	currencyId := "currencyId_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.AggregateInvoiceTaxBases(context.Background()).RequestBody(requestBody).CurrencyId(currencyId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.AggregateInvoiceTaxBases(context.Background()).TenantId(tenantId).RequestBody(requestBody).CurrencyId(currencyId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.AggregateInvoiceTaxBases``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -233,6 +238,7 @@ Other parameters are passed through a pointer to a apiAggregateInvoiceTaxBasesRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **requestBody** | **[]string** |  | 
  **currencyId** | **string** |  | 
 
@@ -256,7 +262,7 @@ No authorization required
 
 ## AggregateInvoiceTaxes
 
-> MoneyEnvelope AggregateInvoiceTaxes(ctx).RequestBody(requestBody).CurrencyId(currencyId).Execute()
+> MoneyEnvelope AggregateInvoiceTaxes(ctx).TenantId(tenantId).RequestBody(requestBody).CurrencyId(currencyId).Execute()
 
 Aggregate invoice taxes.
 
@@ -275,12 +281,13 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	requestBody := []string{"Property_example"} // []string | 
 	currencyId := "currencyId_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.AggregateInvoiceTaxes(context.Background()).RequestBody(requestBody).CurrencyId(currencyId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.AggregateInvoiceTaxes(context.Background()).TenantId(tenantId).RequestBody(requestBody).CurrencyId(currencyId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.AggregateInvoiceTaxes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -301,6 +308,7 @@ Other parameters are passed through a pointer to a apiAggregateInvoiceTaxesReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **requestBody** | **[]string** |  | 
  **currencyId** | **string** |  | 
 
@@ -324,7 +332,7 @@ No authorization required
 
 ## AggregateInvoiceTotals
 
-> MoneyEnvelope AggregateInvoiceTotals(ctx).RequestBody(requestBody).CurrencyId(currencyId).Execute()
+> MoneyEnvelope AggregateInvoiceTotals(ctx).TenantId(tenantId).RequestBody(requestBody).CurrencyId(currencyId).Execute()
 
 Aggregate invoice totals.
 
@@ -343,12 +351,13 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	requestBody := []string{"Property_example"} // []string | 
 	currencyId := "currencyId_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.AggregateInvoiceTotals(context.Background()).RequestBody(requestBody).CurrencyId(currencyId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.AggregateInvoiceTotals(context.Background()).TenantId(tenantId).RequestBody(requestBody).CurrencyId(currencyId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.AggregateInvoiceTotals``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -369,6 +378,7 @@ Other parameters are passed through a pointer to a apiAggregateInvoiceTotalsRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **requestBody** | **[]string** |  | 
  **currencyId** | **string** |  | 
 
@@ -2147,7 +2157,7 @@ No authorization required
 
 ## GetInvoicePayments
 
-> PaymentDtoIReadOnlyListEnvelope GetInvoicePayments(ctx, invoiceId).Execute()
+> PaymentDtoIReadOnlyListEnvelope GetInvoicePayments(ctx, invoiceId).TenantId(tenantId).Execute()
 
 Get payments for an invoice.
 
@@ -2166,11 +2176,12 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoicePayments(context.Background(), invoiceId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoicePayments(context.Background(), invoiceId).TenantId(tenantId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoicePayments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2195,6 +2206,7 @@ Other parameters are passed through a pointer to a apiGetInvoicePaymentsRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
 
 ### Return type
@@ -2217,7 +2229,7 @@ No authorization required
 
 ## GetInvoicePaymentsCount
 
-> Int32Envelope GetInvoicePaymentsCount(ctx, invoiceId).Execute()
+> Int32Envelope GetInvoicePaymentsCount(ctx, invoiceId).TenantId(tenantId).Execute()
 
 Get the count of payments for an invoice.
 
@@ -2236,11 +2248,12 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoicePaymentsCount(context.Background(), invoiceId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoicePaymentsCount(context.Background(), invoiceId).TenantId(tenantId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoicePaymentsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2265,6 +2278,7 @@ Other parameters are passed through a pointer to a apiGetInvoicePaymentsCountReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
 
 ### Return type

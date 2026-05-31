@@ -1,6 +1,6 @@
 # \FiscalResponsibilitiesAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,7 +34,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	fiscalResponsibilityCreateDto := *openapiclient.NewFiscalResponsibilityCreateDto() // FiscalResponsibilityCreateDto |  (optional)
@@ -62,7 +62,7 @@ Other parameters are passed through a pointer to a apiCreateFiscalResponsibility
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **fiscalResponsibilityCreateDto** | [**FiscalResponsibilityCreateDto**](FiscalResponsibilityCreateDto.md) |  | 
@@ -106,7 +106,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalResponsibilityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
@@ -138,7 +138,7 @@ Other parameters are passed through a pointer to a apiDeleteFiscalResponsibility
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -163,7 +163,7 @@ No authorization required
 
 ## GetFiscalResponsibilities
 
-> FiscalResponsibilityDtoListEnvelope GetFiscalResponsibilities(ctx, authorityId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FiscalResponsibilityDtoListEnvelope GetFiscalResponsibilities(ctx, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get fiscal responsibilities for an authority
 
@@ -182,6 +182,7 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	authorityId := "authorityId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
@@ -189,7 +190,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalResponsibilitiesAPI.GetFiscalResponsibilities(context.Background(), authorityId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalResponsibilitiesAPI.GetFiscalResponsibilities(context.Background(), authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalResponsibilitiesAPI.GetFiscalResponsibilities``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -214,6 +215,7 @@ Other parameters are passed through a pointer to a apiGetFiscalResponsibilitiesR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **fiscalAuthorityId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
@@ -239,7 +241,7 @@ No authorization required
 
 ## GetFiscalResponsibilitiesCount
 
-> Int32Envelope GetFiscalResponsibilitiesCount(ctx, fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetFiscalResponsibilitiesCount(ctx, fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get fiscal responsibilities count
 
@@ -258,13 +260,14 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalResponsibilitiesAPI.GetFiscalResponsibilitiesCount(context.Background(), fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalResponsibilitiesAPI.GetFiscalResponsibilitiesCount(context.Background(), fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalResponsibilitiesAPI.GetFiscalResponsibilitiesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -289,6 +292,7 @@ Other parameters are passed through a pointer to a apiGetFiscalResponsibilitiesC
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -332,7 +336,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalResponsibilityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
@@ -366,7 +370,7 @@ Other parameters are passed through a pointer to a apiGetFiscalResponsibilityReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
 
  **apiVersion** | **string** |  | 
@@ -411,7 +415,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalResponsibilityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
@@ -444,7 +448,7 @@ Other parameters are passed through a pointer to a apiUpdateFiscalResponsibility
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 

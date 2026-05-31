@@ -4,7 +4,8 @@ README.md
 api/openapi.yaml
 api_avatars.go
 api_blobs.go
-api_fenix_alliance_abs_web.go
+api_completions.go
+api_fenix_alliance_portals_website.go
 api_files.go
 api_radzen_editor.go
 api_uploads.go
@@ -15,9 +16,10 @@ docs/AvatarsAPI.md
 docs/Blob.md
 docs/BlobEnvelope.md
 docs/BlobsAPI.md
+docs/CompletionsAPI.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABSWebAPI.md
+docs/FenixAlliancePortalsWebsiteAPI.md
 docs/FileUploadDto.md
 docs/FileUploadDtoEnvelope.md
 docs/FilesAPI.md
@@ -56,5 +58,6 @@ model_reset_password_request.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_fenix_alliance_abs_web_test.go
+test/api_completions_test.go
+test/api_fenix_alliance_portals_website_test.go
 utils.go

@@ -1,6 +1,6 @@
 # \ItemQuestionsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -160,7 +160,7 @@ No authorization required
 
 ## GetItemQuestionByIdAsync
 
-> ItemQuestionDtoEnvelope GetItemQuestionByIdAsync(ctx, itemQuestionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemQuestionDtoEnvelope GetItemQuestionByIdAsync(ctx, itemQuestionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get item question by ID
 
@@ -180,12 +180,13 @@ import (
 
 func main() {
 	itemQuestionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemQuestionsAPI.GetItemQuestionByIdAsync(context.Background(), itemQuestionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemQuestionsAPI.GetItemQuestionByIdAsync(context.Background(), itemQuestionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemQuestionsAPI.GetItemQuestionByIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -211,6 +212,7 @@ Other parameters are passed through a pointer to a apiGetItemQuestionByIdAsyncRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -253,7 +255,7 @@ import (
 )
 
 func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 

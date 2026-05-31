@@ -1,6 +1,6 @@
 # \SocialGroupsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -85,7 +85,7 @@ No authorization required
 
 ## CreateSocialGroupAsync
 
-> EmptyEnvelope CreateSocialGroupAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialGroupCreateDto(socialGroupCreateDto).Execute()
+> EmptyEnvelope CreateSocialGroupAsync(ctx).TenantId(tenantId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialGroupCreateDto(socialGroupCreateDto).Execute()
 
 Create a social group
 
@@ -105,13 +105,14 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	socialGroupCreateDto := *openapiclient.NewSocialGroupCreateDto() // SocialGroupCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialGroupsAPI.CreateSocialGroupAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialGroupCreateDto(socialGroupCreateDto).Execute()
+	resp, r, err := apiClient.SocialGroupsAPI.CreateSocialGroupAsync(context.Background()).TenantId(tenantId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialGroupCreateDto(socialGroupCreateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialGroupsAPI.CreateSocialGroupAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -133,6 +134,7 @@ Other parameters are passed through a pointer to a apiCreateSocialGroupAsyncRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **socialProfileId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **socialGroupCreateDto** | [**SocialGroupCreateDto**](SocialGroupCreateDto.md) |  | 
@@ -157,7 +159,7 @@ No authorization required
 
 ## DeleteSocialGroupAsync
 
-> EmptyEnvelope DeleteSocialGroupAsync(ctx, socialGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeleteSocialGroupAsync(ctx, socialGroupId).TenantId(tenantId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Delete a social group
 
@@ -177,13 +179,14 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	socialGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialGroupsAPI.DeleteSocialGroupAsync(context.Background(), socialGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialGroupsAPI.DeleteSocialGroupAsync(context.Background(), socialGroupId).TenantId(tenantId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialGroupsAPI.DeleteSocialGroupAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -209,6 +212,7 @@ Other parameters are passed through a pointer to a apiDeleteSocialGroupAsyncRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **socialProfileId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -379,7 +383,7 @@ No authorization required
 
 ## UpdateSocialGroupAsync
 
-> EmptyEnvelope UpdateSocialGroupAsync(ctx, socialGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialGroupUpdateDto(socialGroupUpdateDto).Execute()
+> EmptyEnvelope UpdateSocialGroupAsync(ctx, socialGroupId).TenantId(tenantId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialGroupUpdateDto(socialGroupUpdateDto).Execute()
 
 Update a social group
 
@@ -399,6 +403,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	socialGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
@@ -406,7 +411,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialGroupsAPI.UpdateSocialGroupAsync(context.Background(), socialGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialGroupUpdateDto(socialGroupUpdateDto).Execute()
+	resp, r, err := apiClient.SocialGroupsAPI.UpdateSocialGroupAsync(context.Background(), socialGroupId).TenantId(tenantId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialGroupUpdateDto(socialGroupUpdateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialGroupsAPI.UpdateSocialGroupAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -432,6 +437,7 @@ Other parameters are passed through a pointer to a apiUpdateSocialGroupAsyncRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **socialProfileId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 

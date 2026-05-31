@@ -1,6 +1,6 @@
 # \BudgetsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**GetBudgetAccountEntryAsync**](BudgetsAPI.md#GetBudgetAccountEntryAsync) | **Get** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Gets a budget account entry by id
 [**GetBudgetDetailsAsync**](BudgetsAPI.md#GetBudgetDetailsAsync) | **Get** /api/v2/AccountingService/Budgets/{budgetId} | Gets a budget by id
 [**GetBudgetsAsync**](BudgetsAPI.md#GetBudgetsAsync) | **Get** /api/v2/AccountingService/Budgets | Gets all budgets
+[**GetBudgetsCountAsync**](BudgetsAPI.md#GetBudgetsCountAsync) | **Get** /api/v2/AccountingService/Budgets/Count | Get the count of budgets
 [**UpdateBudgetAccountEntryAsync**](BudgetsAPI.md#UpdateBudgetAccountEntryAsync) | **Put** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Updates a budget account entry
 [**UpdateBudgetAsync**](BudgetsAPI.md#UpdateBudgetAsync) | **Put** /api/v2/AccountingService/Budgets/{budgetId} | Updates a budget
 
@@ -608,6 +609,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BudgetDtoIReadOnlyListEnvelope**](BudgetDtoIReadOnlyListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetBudgetsCountAsync
+
+> Int32Envelope GetBudgetsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get the count of budgets
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BudgetsAPI.GetBudgetsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BudgetsAPI.GetBudgetsCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetBudgetsCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `BudgetsAPI.GetBudgetsCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetBudgetsCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 

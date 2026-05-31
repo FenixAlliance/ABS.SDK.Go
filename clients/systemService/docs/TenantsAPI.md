@@ -1,11 +1,11 @@
 # \TenantsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AdminPreviewTenantEmail**](TenantsAPI.md#AdminPreviewTenantEmail) | **Post** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a user.
-[**AdminSendTenantEmail**](TenantsAPI.md#AdminSendTenantEmail) | **Post** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a user.
+[**AdminPreviewTenantEmail**](TenantsAPI.md#AdminPreviewTenantEmail) | **Post** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a tenant.
+[**AdminSendTenantEmail**](TenantsAPI.md#AdminSendTenantEmail) | **Post** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a tenant.
 [**CreateTenant**](TenantsAPI.md#CreateTenant) | **Post** /api/v2/SystemService/Tenants | Create a new tenant.
 [**DeleteTenant**](TenantsAPI.md#DeleteTenant) | **Delete** /api/v2/SystemService/Tenants/{tenantId} | Delete a specific tenant by ID.
 [**GetAllExtendedTenants**](TenantsAPI.md#GetAllExtendedTenants) | **Get** /api/v2/SystemService/Tenants/Extended | Get all extended tenants available on this suite server instance.
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 > AdminPreviewTenantEmail(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmailDispatchRequest(emailDispatchRequest).Execute()
 
-Preview the rendered email for a user.
+Preview the rendered email for a tenant.
 
 
 
@@ -95,7 +95,7 @@ No authorization required
 
 > AdminSendTenantEmail(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmailDispatchRequest(emailDispatchRequest).Execute()
 
-Send an email to a user.
+Send an email to a tenant.
 
 
 

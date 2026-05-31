@@ -1,6 +1,6 @@
 # \BankingAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -128,7 +128,7 @@ func main() {
 	bankId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	bankAccountCreateDto := *openapiclient.NewBankAccountCreateDto("Name_example", "CurrencyId_example", "AccountCategory_example") // BankAccountCreateDto |  (optional)
+	bankAccountCreateDto := *openapiclient.NewBankAccountCreateDto() // BankAccountCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1655,7 +1655,7 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	bankAccountUpdateDto := *openapiclient.NewBankAccountUpdateDto("Name_example", "CurrencyId_example") // BankAccountUpdateDto |  (optional)
+	bankAccountUpdateDto := *openapiclient.NewBankAccountUpdateDto() // BankAccountUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

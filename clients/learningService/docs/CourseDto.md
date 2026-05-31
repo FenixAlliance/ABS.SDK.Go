@@ -167,6 +167,20 @@ Name | Type | Description | Notes
 **SelectedShipmentPolicies** | Pointer to **[]string** |  | [optional] 
 **SelectedAttributesOptions** | Pointer to **[]string** |  | [optional] 
 **SelectedSellingMarginPolicies** | Pointer to **[]string** |  | [optional] 
+**Code** | Pointer to **NullableString** |  | [optional] 
+**Version** | Pointer to **NullableString** |  | [optional] 
+**CourseCategoryID** | Pointer to **NullableString** |  | [optional] 
+**CourseCategoryName** | Pointer to **NullableString** |  | [optional] 
+**InstructorProfileID** | Pointer to **NullableString** |  | [optional] 
+**InstructorProfileName** | Pointer to **NullableString** |  | [optional] 
+**MaxCourseEnrollments** | Pointer to **int32** |  | [optional] 
+**TotalEffortInWeeks** | Pointer to **int32** |  | [optional] 
+**TotalHoursPerWeek** | Pointer to **int32** |  | [optional] 
+**TotalEffortInHours** | Pointer to **int32** |  | [optional] 
+**StartDateTime** | Pointer to **NullableTime** |  | [optional] 
+**EndDateTime** | Pointer to **NullableTime** |  | [optional] 
+**InscriptionsStartDateTime** | Pointer to **NullableTime** |  | [optional] 
+**InscriptionsEndDateTime** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
@@ -5452,6 +5466,456 @@ HasSelectedSellingMarginPolicies returns a boolean if a field has been set.
 `func (o *CourseDto) UnsetSelectedSellingMarginPolicies()`
 
 UnsetSelectedSellingMarginPolicies ensures that no value is present for SelectedSellingMarginPolicies, not even an explicit nil
+### GetCode
+
+`func (o *CourseDto) GetCode() string`
+
+GetCode returns the Code field if non-nil, zero value otherwise.
+
+### GetCodeOk
+
+`func (o *CourseDto) GetCodeOk() (*string, bool)`
+
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCode
+
+`func (o *CourseDto) SetCode(v string)`
+
+SetCode sets Code field to given value.
+
+### HasCode
+
+`func (o *CourseDto) HasCode() bool`
+
+HasCode returns a boolean if a field has been set.
+
+### SetCodeNil
+
+`func (o *CourseDto) SetCodeNil(b bool)`
+
+ SetCodeNil sets the value for Code to be an explicit nil
+
+### UnsetCode
+`func (o *CourseDto) UnsetCode()`
+
+UnsetCode ensures that no value is present for Code, not even an explicit nil
+### GetVersion
+
+`func (o *CourseDto) GetVersion() string`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *CourseDto) GetVersionOk() (*string, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *CourseDto) SetVersion(v string)`
+
+SetVersion sets Version field to given value.
+
+### HasVersion
+
+`func (o *CourseDto) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
+
+### SetVersionNil
+
+`func (o *CourseDto) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *CourseDto) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
+### GetCourseCategoryID
+
+`func (o *CourseDto) GetCourseCategoryID() string`
+
+GetCourseCategoryID returns the CourseCategoryID field if non-nil, zero value otherwise.
+
+### GetCourseCategoryIDOk
+
+`func (o *CourseDto) GetCourseCategoryIDOk() (*string, bool)`
+
+GetCourseCategoryIDOk returns a tuple with the CourseCategoryID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCourseCategoryID
+
+`func (o *CourseDto) SetCourseCategoryID(v string)`
+
+SetCourseCategoryID sets CourseCategoryID field to given value.
+
+### HasCourseCategoryID
+
+`func (o *CourseDto) HasCourseCategoryID() bool`
+
+HasCourseCategoryID returns a boolean if a field has been set.
+
+### SetCourseCategoryIDNil
+
+`func (o *CourseDto) SetCourseCategoryIDNil(b bool)`
+
+ SetCourseCategoryIDNil sets the value for CourseCategoryID to be an explicit nil
+
+### UnsetCourseCategoryID
+`func (o *CourseDto) UnsetCourseCategoryID()`
+
+UnsetCourseCategoryID ensures that no value is present for CourseCategoryID, not even an explicit nil
+### GetCourseCategoryName
+
+`func (o *CourseDto) GetCourseCategoryName() string`
+
+GetCourseCategoryName returns the CourseCategoryName field if non-nil, zero value otherwise.
+
+### GetCourseCategoryNameOk
+
+`func (o *CourseDto) GetCourseCategoryNameOk() (*string, bool)`
+
+GetCourseCategoryNameOk returns a tuple with the CourseCategoryName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCourseCategoryName
+
+`func (o *CourseDto) SetCourseCategoryName(v string)`
+
+SetCourseCategoryName sets CourseCategoryName field to given value.
+
+### HasCourseCategoryName
+
+`func (o *CourseDto) HasCourseCategoryName() bool`
+
+HasCourseCategoryName returns a boolean if a field has been set.
+
+### SetCourseCategoryNameNil
+
+`func (o *CourseDto) SetCourseCategoryNameNil(b bool)`
+
+ SetCourseCategoryNameNil sets the value for CourseCategoryName to be an explicit nil
+
+### UnsetCourseCategoryName
+`func (o *CourseDto) UnsetCourseCategoryName()`
+
+UnsetCourseCategoryName ensures that no value is present for CourseCategoryName, not even an explicit nil
+### GetInstructorProfileID
+
+`func (o *CourseDto) GetInstructorProfileID() string`
+
+GetInstructorProfileID returns the InstructorProfileID field if non-nil, zero value otherwise.
+
+### GetInstructorProfileIDOk
+
+`func (o *CourseDto) GetInstructorProfileIDOk() (*string, bool)`
+
+GetInstructorProfileIDOk returns a tuple with the InstructorProfileID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstructorProfileID
+
+`func (o *CourseDto) SetInstructorProfileID(v string)`
+
+SetInstructorProfileID sets InstructorProfileID field to given value.
+
+### HasInstructorProfileID
+
+`func (o *CourseDto) HasInstructorProfileID() bool`
+
+HasInstructorProfileID returns a boolean if a field has been set.
+
+### SetInstructorProfileIDNil
+
+`func (o *CourseDto) SetInstructorProfileIDNil(b bool)`
+
+ SetInstructorProfileIDNil sets the value for InstructorProfileID to be an explicit nil
+
+### UnsetInstructorProfileID
+`func (o *CourseDto) UnsetInstructorProfileID()`
+
+UnsetInstructorProfileID ensures that no value is present for InstructorProfileID, not even an explicit nil
+### GetInstructorProfileName
+
+`func (o *CourseDto) GetInstructorProfileName() string`
+
+GetInstructorProfileName returns the InstructorProfileName field if non-nil, zero value otherwise.
+
+### GetInstructorProfileNameOk
+
+`func (o *CourseDto) GetInstructorProfileNameOk() (*string, bool)`
+
+GetInstructorProfileNameOk returns a tuple with the InstructorProfileName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstructorProfileName
+
+`func (o *CourseDto) SetInstructorProfileName(v string)`
+
+SetInstructorProfileName sets InstructorProfileName field to given value.
+
+### HasInstructorProfileName
+
+`func (o *CourseDto) HasInstructorProfileName() bool`
+
+HasInstructorProfileName returns a boolean if a field has been set.
+
+### SetInstructorProfileNameNil
+
+`func (o *CourseDto) SetInstructorProfileNameNil(b bool)`
+
+ SetInstructorProfileNameNil sets the value for InstructorProfileName to be an explicit nil
+
+### UnsetInstructorProfileName
+`func (o *CourseDto) UnsetInstructorProfileName()`
+
+UnsetInstructorProfileName ensures that no value is present for InstructorProfileName, not even an explicit nil
+### GetMaxCourseEnrollments
+
+`func (o *CourseDto) GetMaxCourseEnrollments() int32`
+
+GetMaxCourseEnrollments returns the MaxCourseEnrollments field if non-nil, zero value otherwise.
+
+### GetMaxCourseEnrollmentsOk
+
+`func (o *CourseDto) GetMaxCourseEnrollmentsOk() (*int32, bool)`
+
+GetMaxCourseEnrollmentsOk returns a tuple with the MaxCourseEnrollments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxCourseEnrollments
+
+`func (o *CourseDto) SetMaxCourseEnrollments(v int32)`
+
+SetMaxCourseEnrollments sets MaxCourseEnrollments field to given value.
+
+### HasMaxCourseEnrollments
+
+`func (o *CourseDto) HasMaxCourseEnrollments() bool`
+
+HasMaxCourseEnrollments returns a boolean if a field has been set.
+
+### GetTotalEffortInWeeks
+
+`func (o *CourseDto) GetTotalEffortInWeeks() int32`
+
+GetTotalEffortInWeeks returns the TotalEffortInWeeks field if non-nil, zero value otherwise.
+
+### GetTotalEffortInWeeksOk
+
+`func (o *CourseDto) GetTotalEffortInWeeksOk() (*int32, bool)`
+
+GetTotalEffortInWeeksOk returns a tuple with the TotalEffortInWeeks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalEffortInWeeks
+
+`func (o *CourseDto) SetTotalEffortInWeeks(v int32)`
+
+SetTotalEffortInWeeks sets TotalEffortInWeeks field to given value.
+
+### HasTotalEffortInWeeks
+
+`func (o *CourseDto) HasTotalEffortInWeeks() bool`
+
+HasTotalEffortInWeeks returns a boolean if a field has been set.
+
+### GetTotalHoursPerWeek
+
+`func (o *CourseDto) GetTotalHoursPerWeek() int32`
+
+GetTotalHoursPerWeek returns the TotalHoursPerWeek field if non-nil, zero value otherwise.
+
+### GetTotalHoursPerWeekOk
+
+`func (o *CourseDto) GetTotalHoursPerWeekOk() (*int32, bool)`
+
+GetTotalHoursPerWeekOk returns a tuple with the TotalHoursPerWeek field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalHoursPerWeek
+
+`func (o *CourseDto) SetTotalHoursPerWeek(v int32)`
+
+SetTotalHoursPerWeek sets TotalHoursPerWeek field to given value.
+
+### HasTotalHoursPerWeek
+
+`func (o *CourseDto) HasTotalHoursPerWeek() bool`
+
+HasTotalHoursPerWeek returns a boolean if a field has been set.
+
+### GetTotalEffortInHours
+
+`func (o *CourseDto) GetTotalEffortInHours() int32`
+
+GetTotalEffortInHours returns the TotalEffortInHours field if non-nil, zero value otherwise.
+
+### GetTotalEffortInHoursOk
+
+`func (o *CourseDto) GetTotalEffortInHoursOk() (*int32, bool)`
+
+GetTotalEffortInHoursOk returns a tuple with the TotalEffortInHours field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalEffortInHours
+
+`func (o *CourseDto) SetTotalEffortInHours(v int32)`
+
+SetTotalEffortInHours sets TotalEffortInHours field to given value.
+
+### HasTotalEffortInHours
+
+`func (o *CourseDto) HasTotalEffortInHours() bool`
+
+HasTotalEffortInHours returns a boolean if a field has been set.
+
+### GetStartDateTime
+
+`func (o *CourseDto) GetStartDateTime() time.Time`
+
+GetStartDateTime returns the StartDateTime field if non-nil, zero value otherwise.
+
+### GetStartDateTimeOk
+
+`func (o *CourseDto) GetStartDateTimeOk() (*time.Time, bool)`
+
+GetStartDateTimeOk returns a tuple with the StartDateTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDateTime
+
+`func (o *CourseDto) SetStartDateTime(v time.Time)`
+
+SetStartDateTime sets StartDateTime field to given value.
+
+### HasStartDateTime
+
+`func (o *CourseDto) HasStartDateTime() bool`
+
+HasStartDateTime returns a boolean if a field has been set.
+
+### SetStartDateTimeNil
+
+`func (o *CourseDto) SetStartDateTimeNil(b bool)`
+
+ SetStartDateTimeNil sets the value for StartDateTime to be an explicit nil
+
+### UnsetStartDateTime
+`func (o *CourseDto) UnsetStartDateTime()`
+
+UnsetStartDateTime ensures that no value is present for StartDateTime, not even an explicit nil
+### GetEndDateTime
+
+`func (o *CourseDto) GetEndDateTime() time.Time`
+
+GetEndDateTime returns the EndDateTime field if non-nil, zero value otherwise.
+
+### GetEndDateTimeOk
+
+`func (o *CourseDto) GetEndDateTimeOk() (*time.Time, bool)`
+
+GetEndDateTimeOk returns a tuple with the EndDateTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndDateTime
+
+`func (o *CourseDto) SetEndDateTime(v time.Time)`
+
+SetEndDateTime sets EndDateTime field to given value.
+
+### HasEndDateTime
+
+`func (o *CourseDto) HasEndDateTime() bool`
+
+HasEndDateTime returns a boolean if a field has been set.
+
+### SetEndDateTimeNil
+
+`func (o *CourseDto) SetEndDateTimeNil(b bool)`
+
+ SetEndDateTimeNil sets the value for EndDateTime to be an explicit nil
+
+### UnsetEndDateTime
+`func (o *CourseDto) UnsetEndDateTime()`
+
+UnsetEndDateTime ensures that no value is present for EndDateTime, not even an explicit nil
+### GetInscriptionsStartDateTime
+
+`func (o *CourseDto) GetInscriptionsStartDateTime() time.Time`
+
+GetInscriptionsStartDateTime returns the InscriptionsStartDateTime field if non-nil, zero value otherwise.
+
+### GetInscriptionsStartDateTimeOk
+
+`func (o *CourseDto) GetInscriptionsStartDateTimeOk() (*time.Time, bool)`
+
+GetInscriptionsStartDateTimeOk returns a tuple with the InscriptionsStartDateTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInscriptionsStartDateTime
+
+`func (o *CourseDto) SetInscriptionsStartDateTime(v time.Time)`
+
+SetInscriptionsStartDateTime sets InscriptionsStartDateTime field to given value.
+
+### HasInscriptionsStartDateTime
+
+`func (o *CourseDto) HasInscriptionsStartDateTime() bool`
+
+HasInscriptionsStartDateTime returns a boolean if a field has been set.
+
+### SetInscriptionsStartDateTimeNil
+
+`func (o *CourseDto) SetInscriptionsStartDateTimeNil(b bool)`
+
+ SetInscriptionsStartDateTimeNil sets the value for InscriptionsStartDateTime to be an explicit nil
+
+### UnsetInscriptionsStartDateTime
+`func (o *CourseDto) UnsetInscriptionsStartDateTime()`
+
+UnsetInscriptionsStartDateTime ensures that no value is present for InscriptionsStartDateTime, not even an explicit nil
+### GetInscriptionsEndDateTime
+
+`func (o *CourseDto) GetInscriptionsEndDateTime() time.Time`
+
+GetInscriptionsEndDateTime returns the InscriptionsEndDateTime field if non-nil, zero value otherwise.
+
+### GetInscriptionsEndDateTimeOk
+
+`func (o *CourseDto) GetInscriptionsEndDateTimeOk() (*time.Time, bool)`
+
+GetInscriptionsEndDateTimeOk returns a tuple with the InscriptionsEndDateTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInscriptionsEndDateTime
+
+`func (o *CourseDto) SetInscriptionsEndDateTime(v time.Time)`
+
+SetInscriptionsEndDateTime sets InscriptionsEndDateTime field to given value.
+
+### HasInscriptionsEndDateTime
+
+`func (o *CourseDto) HasInscriptionsEndDateTime() bool`
+
+HasInscriptionsEndDateTime returns a boolean if a field has been set.
+
+### SetInscriptionsEndDateTimeNil
+
+`func (o *CourseDto) SetInscriptionsEndDateTimeNil(b bool)`
+
+ SetInscriptionsEndDateTimeNil sets the value for InscriptionsEndDateTime to be an explicit nil
+
+### UnsetInscriptionsEndDateTime
+`func (o *CourseDto) UnsetInscriptionsEndDateTime()`
+
+UnsetInscriptionsEndDateTime ensures that no value is present for InscriptionsEndDateTime, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
 # \ItemReturnPoliciesAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## CountItemReturnPoliciesAsync
 
-> Int32Envelope CountItemReturnPoliciesAsync(ctx).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountItemReturnPoliciesAsync(ctx).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Count item return policies
 
@@ -33,13 +33,14 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemReturnPoliciesAPI.CountItemReturnPoliciesAsync(context.Background()).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemReturnPoliciesAPI.CountItemReturnPoliciesAsync(context.Background()).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemReturnPoliciesAPI.CountItemReturnPoliciesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -60,6 +61,7 @@ Other parameters are passed through a pointer to a apiCountItemReturnPoliciesAsy
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **itemId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -84,7 +86,7 @@ No authorization required
 
 ## GetItemReturnPoliciesAsync
 
-> ItemReturnPolicyDtoListEnvelope GetItemReturnPoliciesAsync(ctx).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemReturnPolicyDtoListEnvelope GetItemReturnPoliciesAsync(ctx).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get item return policies
 
@@ -103,13 +105,14 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemReturnPoliciesAPI.GetItemReturnPoliciesAsync(context.Background()).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemReturnPoliciesAPI.GetItemReturnPoliciesAsync(context.Background()).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemReturnPoliciesAPI.GetItemReturnPoliciesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -130,6 +133,7 @@ Other parameters are passed through a pointer to a apiGetItemReturnPoliciesAsync
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **itemId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -154,7 +158,7 @@ No authorization required
 
 ## GetItemReturnPolicyByIdAsync
 
-> ItemReturnPolicyDtoEnvelope GetItemReturnPolicyByIdAsync(ctx, itemReturnPolicyId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemReturnPolicyDtoEnvelope GetItemReturnPolicyByIdAsync(ctx, itemReturnPolicyId).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get item return policy by ID
 
@@ -174,13 +178,14 @@ import (
 
 func main() {
 	itemReturnPolicyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemReturnPoliciesAPI.GetItemReturnPolicyByIdAsync(context.Background(), itemReturnPolicyId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemReturnPoliciesAPI.GetItemReturnPolicyByIdAsync(context.Background(), itemReturnPolicyId).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemReturnPoliciesAPI.GetItemReturnPolicyByIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -206,6 +211,7 @@ Other parameters are passed through a pointer to a apiGetItemReturnPolicyByIdAsy
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **tenantId** | **string** |  | 
  **itemId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 

@@ -1,9 +1,11 @@
 # \JournalsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AggregateJournalEntryCreditsAsync**](JournalsAPI.md#AggregateJournalEntryCreditsAsync) | **Get** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits
+[**AggregateJournalEntryDebitsAsync**](JournalsAPI.md#AggregateJournalEntryDebitsAsync) | **Get** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits
 [**CountJournalsAsync**](JournalsAPI.md#CountJournalsAsync) | **Get** /api/v2/AccountingService/Journals/Count | Count journals
 [**CreateJournalAsync**](JournalsAPI.md#CreateJournalAsync) | **Post** /api/v2/AccountingService/Journals | Create journal
 [**CreateJournalEntryAsync**](JournalsAPI.md#CreateJournalEntryAsync) | **Post** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry
@@ -16,6 +18,162 @@ Method | HTTP request | Description
 [**UpdateJournalAsync**](JournalsAPI.md#UpdateJournalAsync) | **Put** /api/v2/AccountingService/Journals/{journalId} | Update journal
 [**UpdateJournalEntryAsync**](JournalsAPI.md#UpdateJournalEntryAsync) | **Put** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Update journal entry
 
+
+
+## AggregateJournalEntryCreditsAsync
+
+> MoneyEnvelope AggregateJournalEntryCreditsAsync(ctx, journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Aggregate journal entry credits
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	currencyId := "currencyId_example" // string |  (optional)
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JournalsAPI.AggregateJournalEntryCreditsAsync(context.Background(), journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.AggregateJournalEntryCreditsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AggregateJournalEntryCreditsAsync`: MoneyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JournalsAPI.AggregateJournalEntryCreditsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**journalId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAggregateJournalEntryCreditsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **currencyId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AggregateJournalEntryDebitsAsync
+
+> MoneyEnvelope AggregateJournalEntryDebitsAsync(ctx, journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Aggregate journal entry debits
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	currencyId := "currencyId_example" // string |  (optional)
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JournalsAPI.AggregateJournalEntryDebitsAsync(context.Background(), journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.AggregateJournalEntryDebitsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AggregateJournalEntryDebitsAsync`: MoneyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JournalsAPI.AggregateJournalEntryDebitsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**journalId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAggregateJournalEntryDebitsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **currencyId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CountJournalsAsync

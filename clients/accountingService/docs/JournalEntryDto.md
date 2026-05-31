@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **ForexRate** | Pointer to **float64** |  | [optional] 
 **Credit** | Pointer to **float64** |  | [optional] 
 **Debit** | Pointer to **float64** |  | [optional] 
+**CreditInUsd** | Pointer to **float64** |  | [optional] 
+**DebitInUsd** | Pointer to **float64** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
@@ -28,6 +30,8 @@ Name | Type | Description | Notes
 **ParentJournalEntryId** | Pointer to **NullableString** |  | [optional] 
 **CreditAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
 **DebitAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
+**CreditAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
+**DebitAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
 
 ## Methods
 
@@ -347,6 +351,56 @@ SetDebit sets Debit field to given value.
 `func (o *JournalEntryDto) HasDebit() bool`
 
 HasDebit returns a boolean if a field has been set.
+
+### GetCreditInUsd
+
+`func (o *JournalEntryDto) GetCreditInUsd() float64`
+
+GetCreditInUsd returns the CreditInUsd field if non-nil, zero value otherwise.
+
+### GetCreditInUsdOk
+
+`func (o *JournalEntryDto) GetCreditInUsdOk() (*float64, bool)`
+
+GetCreditInUsdOk returns a tuple with the CreditInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreditInUsd
+
+`func (o *JournalEntryDto) SetCreditInUsd(v float64)`
+
+SetCreditInUsd sets CreditInUsd field to given value.
+
+### HasCreditInUsd
+
+`func (o *JournalEntryDto) HasCreditInUsd() bool`
+
+HasCreditInUsd returns a boolean if a field has been set.
+
+### GetDebitInUsd
+
+`func (o *JournalEntryDto) GetDebitInUsd() float64`
+
+GetDebitInUsd returns the DebitInUsd field if non-nil, zero value otherwise.
+
+### GetDebitInUsdOk
+
+`func (o *JournalEntryDto) GetDebitInUsdOk() (*float64, bool)`
+
+GetDebitInUsdOk returns a tuple with the DebitInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDebitInUsd
+
+`func (o *JournalEntryDto) SetDebitInUsd(v float64)`
+
+SetDebitInUsd sets DebitInUsd field to given value.
+
+### HasDebitInUsd
+
+`func (o *JournalEntryDto) HasDebitInUsd() bool`
+
+HasDebitInUsd returns a boolean if a field has been set.
 
 ### GetCurrencyId
 
@@ -817,6 +871,56 @@ SetDebitAmount sets DebitAmount field to given value.
 `func (o *JournalEntryDto) HasDebitAmount() bool`
 
 HasDebitAmount returns a boolean if a field has been set.
+
+### GetCreditAmountInUsd
+
+`func (o *JournalEntryDto) GetCreditAmountInUsd() Money`
+
+GetCreditAmountInUsd returns the CreditAmountInUsd field if non-nil, zero value otherwise.
+
+### GetCreditAmountInUsdOk
+
+`func (o *JournalEntryDto) GetCreditAmountInUsdOk() (*Money, bool)`
+
+GetCreditAmountInUsdOk returns a tuple with the CreditAmountInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreditAmountInUsd
+
+`func (o *JournalEntryDto) SetCreditAmountInUsd(v Money)`
+
+SetCreditAmountInUsd sets CreditAmountInUsd field to given value.
+
+### HasCreditAmountInUsd
+
+`func (o *JournalEntryDto) HasCreditAmountInUsd() bool`
+
+HasCreditAmountInUsd returns a boolean if a field has been set.
+
+### GetDebitAmountInUsd
+
+`func (o *JournalEntryDto) GetDebitAmountInUsd() Money`
+
+GetDebitAmountInUsd returns the DebitAmountInUsd field if non-nil, zero value otherwise.
+
+### GetDebitAmountInUsdOk
+
+`func (o *JournalEntryDto) GetDebitAmountInUsdOk() (*Money, bool)`
+
+GetDebitAmountInUsdOk returns a tuple with the DebitAmountInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDebitAmountInUsd
+
+`func (o *JournalEntryDto) SetDebitAmountInUsd(v Money)`
+
+SetDebitAmountInUsd sets DebitAmountInUsd field to given value.
+
+### HasDebitAmountInUsd
+
+`func (o *JournalEntryDto) HasDebitAmountInUsd() bool`
+
+HasDebitAmountInUsd returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

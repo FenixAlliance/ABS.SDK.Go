@@ -2,11 +2,13 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_fenix_alliance_abs_web.go
+api_completions.go
+api_fenix_alliance_portals_website.go
 api_invoices.go
 client.go
 configuration.go
 docs/AccessTokenResponse.md
+docs/CompletionsAPI.md
 docs/CurrencyId.md
 docs/EmailDispatchRequest.md
 docs/EmptyEnvelope.md
@@ -14,8 +16,7 @@ docs/Envelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedInvoiceDto.md
 docs/ExtendedInvoiceDtoListEnvelope.md
-docs/FenixAllianceABSWebAPI.md
-docs/ForexRates.md
+docs/FenixAlliancePortalsWebsiteAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -73,7 +74,6 @@ model_envelope.go
 model_error_envelope.go
 model_extended_invoice_dto.go
 model_extended_invoice_dto_list_envelope.go
-model_forex_rates.go
 model_forgot_password_request.go
 model_http_validation_problem_details.go
 model_info_request.go
@@ -120,4 +120,6 @@ model_tenant_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
+test/api_completions_test.go
+test/api_fenix_alliance_portals_website_test.go
 utils.go

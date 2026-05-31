@@ -1,6 +1,6 @@
 # \CourseCertificatesAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,9 +11,11 @@ Method | HTTP request | Description
 [**GetCourseCertificateAsync**](CourseCertificatesAPI.md#GetCourseCertificateAsync) | **Get** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Get course certificate by ID
 [**GetCourseCertificateTemplateAsync**](CourseCertificatesAPI.md#GetCourseCertificateTemplateAsync) | **Get** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Get certificate template by ID
 [**GetCourseCertificateTemplatesAsync**](CourseCertificatesAPI.md#GetCourseCertificateTemplatesAsync) | **Get** /api/v2/LearningService/CourseCertificates/Template | Get all certificate templates
+[**GetCourseCertificateTemplatesCountAsync**](CourseCertificatesAPI.md#GetCourseCertificateTemplatesCountAsync) | **Get** /api/v2/LearningService/CourseCertificates/Template/Count | Get certificate templates count
 [**GetCourseCertificatesAsync**](CourseCertificatesAPI.md#GetCourseCertificatesAsync) | **Get** /api/v2/LearningService/CourseCertificates | Get all course certificates
 [**GetCourseCertificatesCountAsync**](CourseCertificatesAPI.md#GetCourseCertificatesCountAsync) | **Get** /api/v2/LearningService/CourseCertificates/Count | Get course certificates count
 [**UpdateCourseCertificateAsync**](CourseCertificatesAPI.md#UpdateCourseCertificateAsync) | **Put** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Update a course certificate
+[**UpdateCourseCertificateTemplateAsync**](CourseCertificatesAPI.md#UpdateCourseCertificateTemplateAsync) | **Put** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Update a certificate template
 
 
 
@@ -527,6 +529,76 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetCourseCertificateTemplatesCountAsync
+
+> int32 GetCourseCertificateTemplatesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get certificate templates count
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CourseCertificatesAPI.GetCourseCertificateTemplatesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseCertificatesAPI.GetCourseCertificateTemplatesCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCourseCertificateTemplatesCountAsync`: int32
+	fmt.Fprintf(os.Stdout, "Response from `CourseCertificatesAPI.GetCourseCertificateTemplatesCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCourseCertificateTemplatesCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+**int32**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetCourseCertificatesAsync
 
 > []CourseCompletionCertificateDto GetCourseCertificatesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
@@ -724,6 +796,82 @@ Name | Type | Description  | Notes
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **courseCompletionCertificateUpdateDto** | [**CourseCompletionCertificateUpdateDto**](CourseCompletionCertificateUpdateDto.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateCourseCertificateTemplateAsync
+
+> UpdateCourseCertificateTemplateAsync(ctx, courseCertificateTemplateId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCertificateTemplateUpdateDto(courseCertificateTemplateUpdateDto).Execute()
+
+Update a certificate template
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	courseCertificateTemplateId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseCertificateTemplateUpdateDto := *openapiclient.NewCourseCertificateTemplateUpdateDto() // CourseCertificateTemplateUpdateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CourseCertificatesAPI.UpdateCourseCertificateTemplateAsync(context.Background(), courseCertificateTemplateId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCertificateTemplateUpdateDto(courseCertificateTemplateUpdateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseCertificatesAPI.UpdateCourseCertificateTemplateAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**courseCertificateTemplateId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateCourseCertificateTemplateAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **courseCertificateTemplateUpdateDto** | [**CourseCertificateTemplateUpdateDto**](CourseCertificateTemplateUpdateDto.md) |  | 
 
 ### Return type
 

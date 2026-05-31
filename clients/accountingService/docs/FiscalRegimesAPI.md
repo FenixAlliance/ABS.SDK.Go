@@ -1,6 +1,6 @@
 # \FiscalRegimesAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,7 +34,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	fiscalRegimeCreateDto := *openapiclient.NewFiscalRegimeCreateDto() // FiscalRegimeCreateDto |  (optional)
@@ -62,7 +62,7 @@ Other parameters are passed through a pointer to a apiCreateFiscalRegimeRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **fiscalRegimeCreateDto** | [**FiscalRegimeCreateDto**](FiscalRegimeCreateDto.md) |  | 
@@ -106,7 +106,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	regimeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
@@ -138,7 +138,7 @@ Other parameters are passed through a pointer to a apiDeleteFiscalRegimeRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -182,7 +182,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	regimeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
@@ -216,7 +216,7 @@ Other parameters are passed through a pointer to a apiGetFiscalRegimeRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
 
  **apiVersion** | **string** |  | 
@@ -242,7 +242,7 @@ No authorization required
 
 ## GetFiscalRegimes
 
-> FiscalRegimeDtoListEnvelope GetFiscalRegimes(ctx, authorityId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FiscalRegimeDtoListEnvelope GetFiscalRegimes(ctx, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get fiscal regimes for an authority
 
@@ -261,6 +261,7 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	authorityId := "authorityId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
@@ -268,7 +269,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalRegimesAPI.GetFiscalRegimes(context.Background(), authorityId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalRegimesAPI.GetFiscalRegimes(context.Background(), authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalRegimesAPI.GetFiscalRegimes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -293,6 +294,7 @@ Other parameters are passed through a pointer to a apiGetFiscalRegimesRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **fiscalAuthorityId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
@@ -318,7 +320,7 @@ No authorization required
 
 ## GetFiscalRegimesCount
 
-> Int32Envelope GetFiscalRegimesCount(ctx, fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetFiscalRegimesCount(ctx, fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get fiscal regimes count
 
@@ -337,13 +339,14 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalRegimesAPI.GetFiscalRegimesCount(context.Background(), fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalRegimesAPI.GetFiscalRegimesCount(context.Background(), fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalRegimesAPI.GetFiscalRegimesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -368,6 +371,7 @@ Other parameters are passed through a pointer to a apiGetFiscalRegimesCountReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -411,7 +415,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	regimeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
@@ -444,7 +448,7 @@ Other parameters are passed through a pointer to a apiUpdateFiscalRegimeRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 

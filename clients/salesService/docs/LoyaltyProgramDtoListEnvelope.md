@@ -1,0 +1,226 @@
+# LoyaltyProgramDtoListEnvelope
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**IsSuccess** | Pointer to **bool** |  | [optional] [readonly] 
+**ErrorMessage** | Pointer to **NullableString** |  | [optional] 
+**CorrelationId** | Pointer to **NullableString** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**ActivityId** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Result** | Pointer to [**[]LoyaltyProgramDto**](LoyaltyProgramDto.md) |  | [optional] 
+
+## Methods
+
+### NewLoyaltyProgramDtoListEnvelope
+
+`func NewLoyaltyProgramDtoListEnvelope() *LoyaltyProgramDtoListEnvelope`
+
+NewLoyaltyProgramDtoListEnvelope instantiates a new LoyaltyProgramDtoListEnvelope object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewLoyaltyProgramDtoListEnvelopeWithDefaults
+
+`func NewLoyaltyProgramDtoListEnvelopeWithDefaults() *LoyaltyProgramDtoListEnvelope`
+
+NewLoyaltyProgramDtoListEnvelopeWithDefaults instantiates a new LoyaltyProgramDtoListEnvelope object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetIsSuccess
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetIsSuccess() bool`
+
+GetIsSuccess returns the IsSuccess field if non-nil, zero value otherwise.
+
+### GetIsSuccessOk
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetIsSuccessOk() (*bool, bool)`
+
+GetIsSuccessOk returns a tuple with the IsSuccess field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSuccess
+
+`func (o *LoyaltyProgramDtoListEnvelope) SetIsSuccess(v bool)`
+
+SetIsSuccess sets IsSuccess field to given value.
+
+### HasIsSuccess
+
+`func (o *LoyaltyProgramDtoListEnvelope) HasIsSuccess() bool`
+
+HasIsSuccess returns a boolean if a field has been set.
+
+### GetErrorMessage
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetErrorMessage() string`
+
+GetErrorMessage returns the ErrorMessage field if non-nil, zero value otherwise.
+
+### GetErrorMessageOk
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetErrorMessageOk() (*string, bool)`
+
+GetErrorMessageOk returns a tuple with the ErrorMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorMessage
+
+`func (o *LoyaltyProgramDtoListEnvelope) SetErrorMessage(v string)`
+
+SetErrorMessage sets ErrorMessage field to given value.
+
+### HasErrorMessage
+
+`func (o *LoyaltyProgramDtoListEnvelope) HasErrorMessage() bool`
+
+HasErrorMessage returns a boolean if a field has been set.
+
+### SetErrorMessageNil
+
+`func (o *LoyaltyProgramDtoListEnvelope) SetErrorMessageNil(b bool)`
+
+ SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
+
+### UnsetErrorMessage
+`func (o *LoyaltyProgramDtoListEnvelope) UnsetErrorMessage()`
+
+UnsetErrorMessage ensures that no value is present for ErrorMessage, not even an explicit nil
+### GetCorrelationId
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetCorrelationId() string`
+
+GetCorrelationId returns the CorrelationId field if non-nil, zero value otherwise.
+
+### GetCorrelationIdOk
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetCorrelationIdOk() (*string, bool)`
+
+GetCorrelationIdOk returns a tuple with the CorrelationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCorrelationId
+
+`func (o *LoyaltyProgramDtoListEnvelope) SetCorrelationId(v string)`
+
+SetCorrelationId sets CorrelationId field to given value.
+
+### HasCorrelationId
+
+`func (o *LoyaltyProgramDtoListEnvelope) HasCorrelationId() bool`
+
+HasCorrelationId returns a boolean if a field has been set.
+
+### SetCorrelationIdNil
+
+`func (o *LoyaltyProgramDtoListEnvelope) SetCorrelationIdNil(b bool)`
+
+ SetCorrelationIdNil sets the value for CorrelationId to be an explicit nil
+
+### UnsetCorrelationId
+`func (o *LoyaltyProgramDtoListEnvelope) UnsetCorrelationId()`
+
+UnsetCorrelationId ensures that no value is present for CorrelationId, not even an explicit nil
+### GetTimestamp
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetTimestamp() time.Time`
+
+GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
+
+### GetTimestampOk
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetTimestampOk() (*time.Time, bool)`
+
+GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimestamp
+
+`func (o *LoyaltyProgramDtoListEnvelope) SetTimestamp(v time.Time)`
+
+SetTimestamp sets Timestamp field to given value.
+
+### HasTimestamp
+
+`func (o *LoyaltyProgramDtoListEnvelope) HasTimestamp() bool`
+
+HasTimestamp returns a boolean if a field has been set.
+
+### GetActivityId
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetActivityId() string`
+
+GetActivityId returns the ActivityId field if non-nil, zero value otherwise.
+
+### GetActivityIdOk
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetActivityIdOk() (*string, bool)`
+
+GetActivityIdOk returns a tuple with the ActivityId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActivityId
+
+`func (o *LoyaltyProgramDtoListEnvelope) SetActivityId(v string)`
+
+SetActivityId sets ActivityId field to given value.
+
+### HasActivityId
+
+`func (o *LoyaltyProgramDtoListEnvelope) HasActivityId() bool`
+
+HasActivityId returns a boolean if a field has been set.
+
+### SetActivityIdNil
+
+`func (o *LoyaltyProgramDtoListEnvelope) SetActivityIdNil(b bool)`
+
+ SetActivityIdNil sets the value for ActivityId to be an explicit nil
+
+### UnsetActivityId
+`func (o *LoyaltyProgramDtoListEnvelope) UnsetActivityId()`
+
+UnsetActivityId ensures that no value is present for ActivityId, not even an explicit nil
+### GetResult
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetResult() []LoyaltyProgramDto`
+
+GetResult returns the Result field if non-nil, zero value otherwise.
+
+### GetResultOk
+
+`func (o *LoyaltyProgramDtoListEnvelope) GetResultOk() (*[]LoyaltyProgramDto, bool)`
+
+GetResultOk returns a tuple with the Result field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResult
+
+`func (o *LoyaltyProgramDtoListEnvelope) SetResult(v []LoyaltyProgramDto)`
+
+SetResult sets Result field to given value.
+
+### HasResult
+
+`func (o *LoyaltyProgramDtoListEnvelope) HasResult() bool`
+
+HasResult returns a boolean if a field has been set.
+
+### SetResultNil
+
+`func (o *LoyaltyProgramDtoListEnvelope) SetResultNil(b bool)`
+
+ SetResultNil sets the value for Result to be an explicit nil
+
+### UnsetResult
+`func (o *LoyaltyProgramDtoListEnvelope) UnsetResult()`
+
+UnsetResult ensures that no value is present for Result, not even an explicit nil
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

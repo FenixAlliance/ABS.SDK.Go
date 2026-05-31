@@ -1,6 +1,6 @@
 # \FiscalPeriodsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,7 +34,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	fiscalPeriodCreateDto := *openapiclient.NewFiscalPeriodCreateDto() // FiscalPeriodCreateDto |  (optional)
@@ -62,7 +62,7 @@ Other parameters are passed through a pointer to a apiCreateFiscalPeriodRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **fiscalPeriodCreateDto** | [**FiscalPeriodCreateDto**](FiscalPeriodCreateDto.md) |  | 
@@ -106,7 +106,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalPeriodId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
@@ -138,7 +138,7 @@ Other parameters are passed through a pointer to a apiDeleteFiscalPeriodRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -182,7 +182,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalYearId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalPeriodId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
@@ -218,7 +218,7 @@ Other parameters are passed through a pointer to a apiGetFiscalPeriodRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
 
 
@@ -264,7 +264,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalYearId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	authorityId := "authorityId_example" // string | 
@@ -299,7 +299,7 @@ Other parameters are passed through a pointer to a apiGetFiscalPeriodsRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
  **fiscalAuthorityId** | **string** |  | 
 
 
@@ -345,7 +345,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalYearId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
@@ -379,7 +379,7 @@ Other parameters are passed through a pointer to a apiGetFiscalPeriodsCountReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
 
  **apiVersion** | **string** |  | 
@@ -424,7 +424,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalPeriodId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
@@ -457,7 +457,7 @@ Other parameters are passed through a pointer to a apiUpdateFiscalPeriodRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 

@@ -6,12 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
+**ContactId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **About** | Pointer to **NullableString** |  | [optional] 
 **Verified** | Pointer to **bool** |  | [optional] 
 **Submitted** | Pointer to **bool** |  | [optional] 
 **AvatarUrl** | Pointer to **NullableString** |  | [optional] 
-**QualifiedName** | Pointer to **NullableString** |  | [optional] 
-**VerificationTimestamp** | Pointer to **time.Time** |  | [optional] 
+**Contact** | Pointer to [**ContactDto**](ContactDto.md) |  | [optional] 
+**QualifiedName** | Pointer to **NullableString** |  | [optional] [readonly] 
+**VerificationTimestamp** | Pointer to **NullableTime** |  | [optional] 
 **Data** | Pointer to **NullableString** |  | [optional] 
 **DataLabel** | Pointer to **NullableString** |  | [optional] 
 **Data1** | Pointer to **NullableString** |  | [optional] 
@@ -125,6 +130,146 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *StudentProfileDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+### GetContactId
+
+`func (o *StudentProfileDto) GetContactId() string`
+
+GetContactId returns the ContactId field if non-nil, zero value otherwise.
+
+### GetContactIdOk
+
+`func (o *StudentProfileDto) GetContactIdOk() (*string, bool)`
+
+GetContactIdOk returns a tuple with the ContactId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactId
+
+`func (o *StudentProfileDto) SetContactId(v string)`
+
+SetContactId sets ContactId field to given value.
+
+### HasContactId
+
+`func (o *StudentProfileDto) HasContactId() bool`
+
+HasContactId returns a boolean if a field has been set.
+
+### SetContactIdNil
+
+`func (o *StudentProfileDto) SetContactIdNil(b bool)`
+
+ SetContactIdNil sets the value for ContactId to be an explicit nil
+
+### UnsetContactId
+`func (o *StudentProfileDto) UnsetContactId()`
+
+UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
+### GetTenantId
+
+`func (o *StudentProfileDto) GetTenantId() string`
+
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
+
+### GetTenantIdOk
+
+`func (o *StudentProfileDto) GetTenantIdOk() (*string, bool)`
+
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTenantId
+
+`func (o *StudentProfileDto) SetTenantId(v string)`
+
+SetTenantId sets TenantId field to given value.
+
+### HasTenantId
+
+`func (o *StudentProfileDto) HasTenantId() bool`
+
+HasTenantId returns a boolean if a field has been set.
+
+### SetTenantIdNil
+
+`func (o *StudentProfileDto) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *StudentProfileDto) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetType
+
+`func (o *StudentProfileDto) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *StudentProfileDto) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *StudentProfileDto) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *StudentProfileDto) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetTypeNil
+
+`func (o *StudentProfileDto) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *StudentProfileDto) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
+### GetEnrollmentId
+
+`func (o *StudentProfileDto) GetEnrollmentId() string`
+
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
+
+### GetEnrollmentIdOk
+
+`func (o *StudentProfileDto) GetEnrollmentIdOk() (*string, bool)`
+
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnrollmentId
+
+`func (o *StudentProfileDto) SetEnrollmentId(v string)`
+
+SetEnrollmentId sets EnrollmentId field to given value.
+
+### HasEnrollmentId
+
+`func (o *StudentProfileDto) HasEnrollmentId() bool`
+
+HasEnrollmentId returns a boolean if a field has been set.
+
+### SetEnrollmentIdNil
+
+`func (o *StudentProfileDto) SetEnrollmentIdNil(b bool)`
+
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+
+### UnsetEnrollmentId
+`func (o *StudentProfileDto) UnsetEnrollmentId()`
+
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetAbout
 
 `func (o *StudentProfileDto) GetAbout() string`
@@ -245,6 +390,31 @@ HasAvatarUrl returns a boolean if a field has been set.
 `func (o *StudentProfileDto) UnsetAvatarUrl()`
 
 UnsetAvatarUrl ensures that no value is present for AvatarUrl, not even an explicit nil
+### GetContact
+
+`func (o *StudentProfileDto) GetContact() ContactDto`
+
+GetContact returns the Contact field if non-nil, zero value otherwise.
+
+### GetContactOk
+
+`func (o *StudentProfileDto) GetContactOk() (*ContactDto, bool)`
+
+GetContactOk returns a tuple with the Contact field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContact
+
+`func (o *StudentProfileDto) SetContact(v ContactDto)`
+
+SetContact sets Contact field to given value.
+
+### HasContact
+
+`func (o *StudentProfileDto) HasContact() bool`
+
+HasContact returns a boolean if a field has been set.
+
 ### GetQualifiedName
 
 `func (o *StudentProfileDto) GetQualifiedName() string`
@@ -305,6 +475,16 @@ SetVerificationTimestamp sets VerificationTimestamp field to given value.
 
 HasVerificationTimestamp returns a boolean if a field has been set.
 
+### SetVerificationTimestampNil
+
+`func (o *StudentProfileDto) SetVerificationTimestampNil(b bool)`
+
+ SetVerificationTimestampNil sets the value for VerificationTimestamp to be an explicit nil
+
+### UnsetVerificationTimestamp
+`func (o *StudentProfileDto) UnsetVerificationTimestamp()`
+
+UnsetVerificationTimestamp ensures that no value is present for VerificationTimestamp, not even an explicit nil
 ### GetData
 
 `func (o *StudentProfileDto) GetData() string`

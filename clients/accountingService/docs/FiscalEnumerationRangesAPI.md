@@ -1,6 +1,6 @@
 # \FiscalEnumerationRangesAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	invoiceEnumerationRangeCreateDto := *openapiclient.NewInvoiceEnumerationRangeCreateDto(time.Now(), time.Now()) // InvoiceEnumerationRangeCreateDto |  (optional)
@@ -63,7 +63,7 @@ Other parameters are passed through a pointer to a apiCreateInvoiceEnumerationRa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **invoiceEnumerationRangeCreateDto** | [**InvoiceEnumerationRangeCreateDto**](InvoiceEnumerationRangeCreateDto.md) |  | 
@@ -107,7 +107,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	enumerationRangeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
@@ -139,7 +139,7 @@ Other parameters are passed through a pointer to a apiDeleteInvoiceEnumerationRa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -183,7 +183,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	enumerationRangeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
@@ -217,7 +217,7 @@ Other parameters are passed through a pointer to a apiGetInvoiceEnumerationRange
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
 
  **apiVersion** | **string** |  | 
@@ -243,7 +243,7 @@ No authorization required
 
 ## GetInvoiceEnumerationRanges
 
-> InvoiceEnumerationRangeDtoListEnvelope GetInvoiceEnumerationRanges(ctx, authorityId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> InvoiceEnumerationRangeDtoListEnvelope GetInvoiceEnumerationRanges(ctx, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get invoice enumeration ranges for an authority
 
@@ -262,6 +262,7 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	authorityId := "authorityId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
@@ -269,7 +270,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalEnumerationRangesAPI.GetInvoiceEnumerationRanges(context.Background(), authorityId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalEnumerationRangesAPI.GetInvoiceEnumerationRanges(context.Background(), authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalEnumerationRangesAPI.GetInvoiceEnumerationRanges``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -294,6 +295,7 @@ Other parameters are passed through a pointer to a apiGetInvoiceEnumerationRange
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **fiscalAuthorityId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
@@ -319,7 +321,7 @@ No authorization required
 
 ## GetInvoiceEnumerationRangesCount
 
-> Int32Envelope GetInvoiceEnumerationRangesCount(ctx, fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetInvoiceEnumerationRangesCount(ctx, fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get invoice enumeration ranges count
 
@@ -338,13 +340,14 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalEnumerationRangesAPI.GetInvoiceEnumerationRangesCount(context.Background(), fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalEnumerationRangesAPI.GetInvoiceEnumerationRangesCount(context.Background(), fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalEnumerationRangesAPI.GetInvoiceEnumerationRangesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -369,6 +372,7 @@ Other parameters are passed through a pointer to a apiGetInvoiceEnumerationRange
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -412,7 +416,7 @@ import (
 )
 
 func main() {
-	tenantId := map[string]interface{}{ ... } // map[string]interface{} | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	enumerationRangeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
@@ -445,7 +449,7 @@ Other parameters are passed through a pointer to a apiUpdateInvoiceEnumerationRa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**map[string]interface{}**](map[string]interface{}.md) |  | 
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 

@@ -1,6 +1,6 @@
 # \ItemsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -85,7 +85,7 @@ Method | HTTP request | Description
 
 ## CountStockItemTagsByItemId
 
-> Int32Envelope CountStockItemTagsByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountStockItemTagsByItemId(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Count tags for a stock item
 
@@ -104,13 +104,14 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.CountStockItemTagsByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.CountStockItemTagsByItemId(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.CountStockItemTagsByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -135,6 +136,7 @@ Other parameters are passed through a pointer to a apiCountStockItemTagsByItemId
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -2407,7 +2409,7 @@ No authorization required
 
 ## GetStockItemTagById
 
-> ItemTagDtoEnvelope GetStockItemTagById(ctx, itemId, itemTagId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemTagDtoEnvelope GetStockItemTagById(ctx, itemId, itemTagId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get tag by ID for a stock item
 
@@ -2426,6 +2428,7 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemTagId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
@@ -2433,7 +2436,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemTagById(context.Background(), itemId, itemTagId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemTagById(context.Background(), itemId, itemTagId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemTagById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2459,6 +2462,7 @@ Other parameters are passed through a pointer to a apiGetStockItemTagByIdRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
 
  **apiVersion** | **string** |  | 
@@ -2484,7 +2488,7 @@ No authorization required
 
 ## GetStockItemTagsByItemId
 
-> ItemTagDtoListEnvelope GetStockItemTagsByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemTagDtoListEnvelope GetStockItemTagsByItemId(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get tags for a stock item
 
@@ -2503,13 +2507,14 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemTagsByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemTagsByItemId(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemTagsByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2534,6 +2539,7 @@ Other parameters are passed through a pointer to a apiGetStockItemTagsByItemIdRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -2709,7 +2715,7 @@ No authorization required
 
 ## GetStockItemTypeById
 
-> ItemTypeDtoEnvelope GetStockItemTypeById(ctx, itemId, itemTypeId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemTypeDtoEnvelope GetStockItemTypeById(ctx, itemId, itemTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get type by ID for a stock item
 
@@ -2728,6 +2734,7 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
@@ -2735,7 +2742,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemTypeById(context.Background(), itemId, itemTypeId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemTypeById(context.Background(), itemId, itemTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemTypeById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2761,6 +2768,7 @@ Other parameters are passed through a pointer to a apiGetStockItemTypeByIdReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
 
  **apiVersion** | **string** |  | 
@@ -2786,7 +2794,7 @@ No authorization required
 
 ## GetStockItemTypesByItemId
 
-> ItemTypeDtoListEnvelope GetStockItemTypesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemTypeDtoListEnvelope GetStockItemTypesByItemId(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get types for a stock item
 
@@ -2805,13 +2813,14 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemTypesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemTypesByItemId(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemTypesByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2836,6 +2845,7 @@ Other parameters are passed through a pointer to a apiGetStockItemTypesByItemIdR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 

@@ -2,7 +2,8 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_fenix_alliance_abs_web.go
+api_completions.go
+api_fenix_alliance_portals_website.go
 api_payment_methods.go
 api_payment_modes.go
 api_payment_terms.go
@@ -10,9 +11,10 @@ api_payments.go
 client.go
 configuration.go
 docs/AccessTokenResponse.md
+docs/CompletionsAPI.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABSWebAPI.md
+docs/FenixAlliancePortalsWebsiteAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -86,5 +88,6 @@ model_reset_password_request.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_fenix_alliance_abs_web_test.go
+test/api_completions_test.go
+test/api_fenix_alliance_portals_website_test.go
 utils.go

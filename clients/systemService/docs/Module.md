@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **SwaggerSpecs** | Pointer to [**[]ISwaggerSpec**](ISwaggerSpec.md) |  | [optional] 
 **Url** | Pointer to **NullableString** |  | [optional] 
 **AssemblyPaths** | Pointer to **[]string** |  | [optional] 
+**RequiredPermissions** | Pointer to **[]string** |  | [optional] [readonly] 
 **MarkedForDeletion** | Pointer to **bool** |  | [optional] 
 **Version** | Pointer to **NullableString** |  | [optional] 
 
@@ -912,6 +913,41 @@ HasAssemblyPaths returns a boolean if a field has been set.
 `func (o *Module) UnsetAssemblyPaths()`
 
 UnsetAssemblyPaths ensures that no value is present for AssemblyPaths, not even an explicit nil
+### GetRequiredPermissions
+
+`func (o *Module) GetRequiredPermissions() []string`
+
+GetRequiredPermissions returns the RequiredPermissions field if non-nil, zero value otherwise.
+
+### GetRequiredPermissionsOk
+
+`func (o *Module) GetRequiredPermissionsOk() (*[]string, bool)`
+
+GetRequiredPermissionsOk returns a tuple with the RequiredPermissions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequiredPermissions
+
+`func (o *Module) SetRequiredPermissions(v []string)`
+
+SetRequiredPermissions sets RequiredPermissions field to given value.
+
+### HasRequiredPermissions
+
+`func (o *Module) HasRequiredPermissions() bool`
+
+HasRequiredPermissions returns a boolean if a field has been set.
+
+### SetRequiredPermissionsNil
+
+`func (o *Module) SetRequiredPermissionsNil(b bool)`
+
+ SetRequiredPermissionsNil sets the value for RequiredPermissions to be an explicit nil
+
+### UnsetRequiredPermissions
+`func (o *Module) UnsetRequiredPermissions()`
+
+UnsetRequiredPermissions ensures that no value is present for RequiredPermissions, not even an explicit nil
 ### GetMarkedForDeletion
 
 `func (o *Module) GetMarkedForDeletion() bool`

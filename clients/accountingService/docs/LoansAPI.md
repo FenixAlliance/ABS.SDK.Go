@@ -1,21 +1,27 @@
 # \LoansAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateLoanApplicationAsync**](LoansAPI.md#CreateLoanApplicationAsync) | **Post** /api/v2/AccountingService/Loans/Applications | Creates a loan application
 [**CreateLoanAsync**](LoansAPI.md#CreateLoanAsync) | **Post** /api/v2/AccountingService/Loans | Creates a new loan
+[**CreateLoanTypeAsync**](LoansAPI.md#CreateLoanTypeAsync) | **Post** /api/v2/AccountingService/Loans/Types | Creates a loan type
 [**DeleteLoanApplicationAsync**](LoansAPI.md#DeleteLoanApplicationAsync) | **Delete** /api/v2/AccountingService/Loans/Applications/{applicationId} | Deletes a loan application
 [**DeleteLoanAsync**](LoansAPI.md#DeleteLoanAsync) | **Delete** /api/v2/AccountingService/Loans/{loanId} | Deletes a loan
+[**DeleteLoanTypeAsync**](LoansAPI.md#DeleteLoanTypeAsync) | **Delete** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Deletes a loan type
 [**GetLoanApplicationDetailsAsync**](LoansAPI.md#GetLoanApplicationDetailsAsync) | **Get** /api/v2/AccountingService/Loans/Applications/{applicationId} | Gets a loan application by ID
 [**GetLoanApplicationsAsync**](LoansAPI.md#GetLoanApplicationsAsync) | **Get** /api/v2/AccountingService/Loans/Applications | Gets all loan applications
 [**GetLoanApplicationsCountAsync**](LoansAPI.md#GetLoanApplicationsCountAsync) | **Get** /api/v2/AccountingService/Loans/Applications/Count | Counts loan applications
 [**GetLoanDetailsAsync**](LoansAPI.md#GetLoanDetailsAsync) | **Get** /api/v2/AccountingService/Loans/{loanId} | Gets a loan by ID
+[**GetLoanTypeByIdAsync**](LoansAPI.md#GetLoanTypeByIdAsync) | **Get** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Gets a loan type by ID
+[**GetLoanTypesAsync**](LoansAPI.md#GetLoanTypesAsync) | **Get** /api/v2/AccountingService/Loans/Types | Gets all loan types
+[**GetLoanTypesCountAsync**](LoansAPI.md#GetLoanTypesCountAsync) | **Get** /api/v2/AccountingService/Loans/Types/Count | Counts loan types
 [**GetLoansAsync**](LoansAPI.md#GetLoansAsync) | **Get** /api/v2/AccountingService/Loans | Gets all loans
 [**GetLoansCountAsync**](LoansAPI.md#GetLoansCountAsync) | **Get** /api/v2/AccountingService/Loans/Count | Counts loans
 [**UpdateLoanApplicationAsync**](LoansAPI.md#UpdateLoanApplicationAsync) | **Put** /api/v2/AccountingService/Loans/Applications/{applicationId} | Updates a loan application
 [**UpdateLoanAsync**](LoansAPI.md#UpdateLoanAsync) | **Put** /api/v2/AccountingService/Loans/{loanId} | Updates a loan
+[**UpdateLoanTypeAsync**](LoansAPI.md#UpdateLoanTypeAsync) | **Put** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Updates a loan type
 
 
 
@@ -163,6 +169,78 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## CreateLoanTypeAsync
+
+> EmptyEnvelope CreateLoanTypeAsync(ctx).TenantId(tenantId).LoanTypeCreateDto(loanTypeCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Creates a loan type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	loanTypeCreateDto := *openapiclient.NewLoanTypeCreateDto("Name_example") // LoanTypeCreateDto | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LoansAPI.CreateLoanTypeAsync(context.Background()).TenantId(tenantId).LoanTypeCreateDto(loanTypeCreateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LoansAPI.CreateLoanTypeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateLoanTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `LoansAPI.CreateLoanTypeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateLoanTypeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **loanTypeCreateDto** | [**LoanTypeCreateDto**](LoanTypeCreateDto.md) |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteLoanApplicationAsync
 
 > EmptyEnvelope DeleteLoanApplicationAsync(ctx, applicationId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
@@ -288,6 +366,82 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiDeleteLoanAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteLoanTypeAsync
+
+> EmptyEnvelope DeleteLoanTypeAsync(ctx, loanTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Deletes a loan type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	loanTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LoansAPI.DeleteLoanTypeAsync(context.Background(), loanTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LoansAPI.DeleteLoanTypeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteLoanTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `LoansAPI.DeleteLoanTypeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**loanTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteLoanTypeAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -607,6 +761,222 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetLoanTypeByIdAsync
+
+> LoanTypeDtoEnvelope GetLoanTypeByIdAsync(ctx, loanTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Gets a loan type by ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	loanTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LoansAPI.GetLoanTypeByIdAsync(context.Background(), loanTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LoansAPI.GetLoanTypeByIdAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetLoanTypeByIdAsync`: LoanTypeDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `LoansAPI.GetLoanTypeByIdAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**loanTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetLoanTypeByIdAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**LoanTypeDtoEnvelope**](LoanTypeDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetLoanTypesAsync
+
+> LoanTypeDtoIReadOnlyListEnvelope GetLoanTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Gets all loan types
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LoansAPI.GetLoanTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LoansAPI.GetLoanTypesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetLoanTypesAsync`: LoanTypeDtoIReadOnlyListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `LoansAPI.GetLoanTypesAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetLoanTypesAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**LoanTypeDtoIReadOnlyListEnvelope**](LoanTypeDtoIReadOnlyListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetLoanTypesCountAsync
+
+> Int32Envelope GetLoanTypesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Counts loan types
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LoansAPI.GetLoanTypesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LoansAPI.GetLoanTypesCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetLoanTypesCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `LoansAPI.GetLoanTypesCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetLoanTypesCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetLoansAsync
 
 > LoanDtoIReadOnlyListEnvelope GetLoansAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
@@ -882,6 +1252,84 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
  **loanUpdateDto** | [**LoanUpdateDto**](LoanUpdateDto.md) |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateLoanTypeAsync
+
+> EmptyEnvelope UpdateLoanTypeAsync(ctx, loanTypeId).TenantId(tenantId).LoanTypeUpdateDto(loanTypeUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Updates a loan type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	loanTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	loanTypeUpdateDto := *openapiclient.NewLoanTypeUpdateDto("Name_example") // LoanTypeUpdateDto | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LoansAPI.UpdateLoanTypeAsync(context.Background(), loanTypeId).TenantId(tenantId).LoanTypeUpdateDto(loanTypeUpdateDto).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LoansAPI.UpdateLoanTypeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateLoanTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `LoansAPI.UpdateLoanTypeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**loanTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateLoanTypeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **loanTypeUpdateDto** | [**LoanTypeUpdateDto**](LoanTypeUpdateDto.md) |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 

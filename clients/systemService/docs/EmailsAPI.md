@@ -1,6 +1,6 @@
 # \EmailsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -79,7 +79,7 @@ No authorization required
 
 ## AdminSendBasicEmail
 
-> TenantDtoListEnvelope AdminSendBasicEmail(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).ObjectEmailDispatchRequest(objectEmailDispatchRequest).Execute()
+> Envelope AdminSendBasicEmail(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).ObjectEmailDispatchRequest(objectEmailDispatchRequest).Execute()
 
 Send a basic transactional email to recipients.
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmailsAPI.AdminSendBasicEmail``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AdminSendBasicEmail`: TenantDtoListEnvelope
+	// response from `AdminSendBasicEmail`: Envelope
 	fmt.Fprintf(os.Stdout, "Response from `EmailsAPI.AdminSendBasicEmail`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TenantDtoListEnvelope**](TenantDtoListEnvelope.md)
+[**Envelope**](Envelope.md)
 
 ### Authorization
 

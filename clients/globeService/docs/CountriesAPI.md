@@ -1,10 +1,15 @@
 # \CountriesAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CountCallingCodesByCountryAsync**](CountriesAPI.md#CountCallingCodesByCountryAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/CallingCodes/Count | Count calling codes for a country
+[**CountCitiesByStateAsync**](CountriesAPI.md#CountCitiesByStateAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities/Count | Count cities for a state
 [**CountCountries**](CountriesAPI.md#CountCountries) | **Get** /api/v2/GlobeService/Countries/Count | Count countries
+[**CountCountryStatesAsync**](CountriesAPI.md#CountCountryStatesAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/States/Count | Count states for a country
+[**CountTimezonesByCountryAsync**](CountriesAPI.md#CountTimezonesByCountryAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/Timezones/Count | Count timezones for a country
+[**CountTopLevelDomainsByCountryAsync**](CountriesAPI.md#CountTopLevelDomainsByCountryAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains/Count | Count top-level domains for a country
 [**GetAllCountries**](CountriesAPI.md#GetAllCountries) | **Get** /api/v2/GlobeService/Countries | Get all countries
 [**GetCallingCodesByCountryIdAsync**](CountriesAPI.md#GetCallingCodesByCountryIdAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/CallingCodes | Get calling codes for a country
 [**GetCitiesByCountryStateIdAsync**](CountriesAPI.md#GetCitiesByCountryStateIdAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities | Get cities for a state
@@ -16,6 +21,157 @@ Method | HTTP request | Description
 [**GetTopLevelDomainsByCountryIdAsync**](CountriesAPI.md#GetTopLevelDomainsByCountryIdAsync) | **Get** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains | Get top-level domains for a country
 [**SearchCountriesByNameAsync**](CountriesAPI.md#SearchCountriesByNameAsync) | **Get** /api/v2/GlobeService/Countries/Search | Search countries by name
 
+
+
+## CountCallingCodesByCountryAsync
+
+> Int32Envelope CountCallingCodesByCountryAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count calling codes for a country
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	countryId := "countryId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CountriesAPI.CountCallingCodesByCountryAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountCallingCodesByCountryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountCallingCodesByCountryAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.CountCallingCodesByCountryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**countryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountCallingCodesByCountryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CountCitiesByStateAsync
+
+> Int32Envelope CountCitiesByStateAsync(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count cities for a state
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	countryStateId := "countryStateId_example" // string | 
+	countryId := "countryId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CountriesAPI.CountCitiesByStateAsync(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountCitiesByStateAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountCitiesByStateAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.CountCitiesByStateAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**countryStateId** | **string** |  | 
+**countryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountCitiesByStateAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CountCountries
@@ -65,6 +221,228 @@ Other parameters are passed through a pointer to a apiCountCountriesRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CountCountryStatesAsync
+
+> Int32Envelope CountCountryStatesAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count states for a country
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	countryId := "countryId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CountriesAPI.CountCountryStatesAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountCountryStatesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountCountryStatesAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.CountCountryStatesAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**countryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountCountryStatesAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CountTimezonesByCountryAsync
+
+> Int32Envelope CountTimezonesByCountryAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count timezones for a country
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	countryId := "countryId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CountriesAPI.CountTimezonesByCountryAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountTimezonesByCountryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountTimezonesByCountryAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.CountTimezonesByCountryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**countryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountTimezonesByCountryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CountTopLevelDomainsByCountryAsync
+
+> Int32Envelope CountTopLevelDomainsByCountryAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count top-level domains for a country
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	countryId := "countryId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CountriesAPI.CountTopLevelDomainsByCountryAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountTopLevelDomainsByCountryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountTopLevelDomainsByCountryAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `CountriesAPI.CountTopLevelDomainsByCountryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**countryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountTopLevelDomainsByCountryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 

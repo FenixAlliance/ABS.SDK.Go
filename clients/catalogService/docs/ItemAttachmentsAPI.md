@@ -1,6 +1,6 @@
 # \ItemAttachmentsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -162,7 +162,7 @@ No authorization required
 
 ## GetItemAttachmentByIdAsync
 
-> ItemAttachmentDtoEnvelope GetItemAttachmentByIdAsync(ctx, itemAttachmentId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemAttachmentDtoEnvelope GetItemAttachmentByIdAsync(ctx, itemAttachmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get item attachment by ID
 
@@ -182,12 +182,13 @@ import (
 
 func main() {
 	itemAttachmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemAttachmentsAPI.GetItemAttachmentByIdAsync(context.Background(), itemAttachmentId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemAttachmentsAPI.GetItemAttachmentByIdAsync(context.Background(), itemAttachmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemAttachmentsAPI.GetItemAttachmentByIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -213,6 +214,7 @@ Other parameters are passed through a pointer to a apiGetItemAttachmentByIdAsync
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -255,7 +257,7 @@ import (
 )
 
 func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 

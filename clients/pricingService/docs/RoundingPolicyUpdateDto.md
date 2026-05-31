@@ -1,0 +1,666 @@
+# RoundingPolicyUpdateDto
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Code** | Pointer to **NullableString** |  | [optional] 
+**Title** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
+**IsFree** | Pointer to **bool** |  | [optional] 
+**Reduce** | Pointer to **bool** |  | [optional] 
+**IsEnabled** | Pointer to **bool** |  | [optional] 
+**IsDefault** | Pointer to **bool** |  | [optional] 
+**AllowInternational** | Pointer to **bool** |  | [optional] 
+**Hours** | Pointer to **int32** |  | [optional] 
+**Days** | Pointer to **int32** |  | [optional] 
+**Weeks** | Pointer to **int32** |  | [optional] 
+**Months** | Pointer to **int32** |  | [optional] 
+**Years** | Pointer to **int32** |  | [optional] 
+**Value** | Pointer to **float64** |  | [optional] 
+**Percentage** | Pointer to **float64** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
+**CountryId** | Pointer to **NullableString** |  | [optional] 
+**CountryStateId** | Pointer to **NullableString** |  | [optional] 
+**CustomState** | Pointer to **NullableString** |  | [optional] 
+**CustomCity** | Pointer to **NullableString** |  | [optional] 
+**CityId** | Pointer to **NullableString** |  | [optional] 
+
+## Methods
+
+### NewRoundingPolicyUpdateDto
+
+`func NewRoundingPolicyUpdateDto() *RoundingPolicyUpdateDto`
+
+NewRoundingPolicyUpdateDto instantiates a new RoundingPolicyUpdateDto object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewRoundingPolicyUpdateDtoWithDefaults
+
+`func NewRoundingPolicyUpdateDtoWithDefaults() *RoundingPolicyUpdateDto`
+
+NewRoundingPolicyUpdateDtoWithDefaults instantiates a new RoundingPolicyUpdateDto object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetCode
+
+`func (o *RoundingPolicyUpdateDto) GetCode() string`
+
+GetCode returns the Code field if non-nil, zero value otherwise.
+
+### GetCodeOk
+
+`func (o *RoundingPolicyUpdateDto) GetCodeOk() (*string, bool)`
+
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCode
+
+`func (o *RoundingPolicyUpdateDto) SetCode(v string)`
+
+SetCode sets Code field to given value.
+
+### HasCode
+
+`func (o *RoundingPolicyUpdateDto) HasCode() bool`
+
+HasCode returns a boolean if a field has been set.
+
+### SetCodeNil
+
+`func (o *RoundingPolicyUpdateDto) SetCodeNil(b bool)`
+
+ SetCodeNil sets the value for Code to be an explicit nil
+
+### UnsetCode
+`func (o *RoundingPolicyUpdateDto) UnsetCode()`
+
+UnsetCode ensures that no value is present for Code, not even an explicit nil
+### GetTitle
+
+`func (o *RoundingPolicyUpdateDto) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *RoundingPolicyUpdateDto) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *RoundingPolicyUpdateDto) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *RoundingPolicyUpdateDto) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### SetTitleNil
+
+`func (o *RoundingPolicyUpdateDto) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *RoundingPolicyUpdateDto) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
+### GetDescription
+
+`func (o *RoundingPolicyUpdateDto) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *RoundingPolicyUpdateDto) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *RoundingPolicyUpdateDto) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *RoundingPolicyUpdateDto) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *RoundingPolicyUpdateDto) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *RoundingPolicyUpdateDto) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetIsFree
+
+`func (o *RoundingPolicyUpdateDto) GetIsFree() bool`
+
+GetIsFree returns the IsFree field if non-nil, zero value otherwise.
+
+### GetIsFreeOk
+
+`func (o *RoundingPolicyUpdateDto) GetIsFreeOk() (*bool, bool)`
+
+GetIsFreeOk returns a tuple with the IsFree field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsFree
+
+`func (o *RoundingPolicyUpdateDto) SetIsFree(v bool)`
+
+SetIsFree sets IsFree field to given value.
+
+### HasIsFree
+
+`func (o *RoundingPolicyUpdateDto) HasIsFree() bool`
+
+HasIsFree returns a boolean if a field has been set.
+
+### GetReduce
+
+`func (o *RoundingPolicyUpdateDto) GetReduce() bool`
+
+GetReduce returns the Reduce field if non-nil, zero value otherwise.
+
+### GetReduceOk
+
+`func (o *RoundingPolicyUpdateDto) GetReduceOk() (*bool, bool)`
+
+GetReduceOk returns a tuple with the Reduce field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReduce
+
+`func (o *RoundingPolicyUpdateDto) SetReduce(v bool)`
+
+SetReduce sets Reduce field to given value.
+
+### HasReduce
+
+`func (o *RoundingPolicyUpdateDto) HasReduce() bool`
+
+HasReduce returns a boolean if a field has been set.
+
+### GetIsEnabled
+
+`func (o *RoundingPolicyUpdateDto) GetIsEnabled() bool`
+
+GetIsEnabled returns the IsEnabled field if non-nil, zero value otherwise.
+
+### GetIsEnabledOk
+
+`func (o *RoundingPolicyUpdateDto) GetIsEnabledOk() (*bool, bool)`
+
+GetIsEnabledOk returns a tuple with the IsEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsEnabled
+
+`func (o *RoundingPolicyUpdateDto) SetIsEnabled(v bool)`
+
+SetIsEnabled sets IsEnabled field to given value.
+
+### HasIsEnabled
+
+`func (o *RoundingPolicyUpdateDto) HasIsEnabled() bool`
+
+HasIsEnabled returns a boolean if a field has been set.
+
+### GetIsDefault
+
+`func (o *RoundingPolicyUpdateDto) GetIsDefault() bool`
+
+GetIsDefault returns the IsDefault field if non-nil, zero value otherwise.
+
+### GetIsDefaultOk
+
+`func (o *RoundingPolicyUpdateDto) GetIsDefaultOk() (*bool, bool)`
+
+GetIsDefaultOk returns a tuple with the IsDefault field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDefault
+
+`func (o *RoundingPolicyUpdateDto) SetIsDefault(v bool)`
+
+SetIsDefault sets IsDefault field to given value.
+
+### HasIsDefault
+
+`func (o *RoundingPolicyUpdateDto) HasIsDefault() bool`
+
+HasIsDefault returns a boolean if a field has been set.
+
+### GetAllowInternational
+
+`func (o *RoundingPolicyUpdateDto) GetAllowInternational() bool`
+
+GetAllowInternational returns the AllowInternational field if non-nil, zero value otherwise.
+
+### GetAllowInternationalOk
+
+`func (o *RoundingPolicyUpdateDto) GetAllowInternationalOk() (*bool, bool)`
+
+GetAllowInternationalOk returns a tuple with the AllowInternational field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowInternational
+
+`func (o *RoundingPolicyUpdateDto) SetAllowInternational(v bool)`
+
+SetAllowInternational sets AllowInternational field to given value.
+
+### HasAllowInternational
+
+`func (o *RoundingPolicyUpdateDto) HasAllowInternational() bool`
+
+HasAllowInternational returns a boolean if a field has been set.
+
+### GetHours
+
+`func (o *RoundingPolicyUpdateDto) GetHours() int32`
+
+GetHours returns the Hours field if non-nil, zero value otherwise.
+
+### GetHoursOk
+
+`func (o *RoundingPolicyUpdateDto) GetHoursOk() (*int32, bool)`
+
+GetHoursOk returns a tuple with the Hours field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHours
+
+`func (o *RoundingPolicyUpdateDto) SetHours(v int32)`
+
+SetHours sets Hours field to given value.
+
+### HasHours
+
+`func (o *RoundingPolicyUpdateDto) HasHours() bool`
+
+HasHours returns a boolean if a field has been set.
+
+### GetDays
+
+`func (o *RoundingPolicyUpdateDto) GetDays() int32`
+
+GetDays returns the Days field if non-nil, zero value otherwise.
+
+### GetDaysOk
+
+`func (o *RoundingPolicyUpdateDto) GetDaysOk() (*int32, bool)`
+
+GetDaysOk returns a tuple with the Days field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDays
+
+`func (o *RoundingPolicyUpdateDto) SetDays(v int32)`
+
+SetDays sets Days field to given value.
+
+### HasDays
+
+`func (o *RoundingPolicyUpdateDto) HasDays() bool`
+
+HasDays returns a boolean if a field has been set.
+
+### GetWeeks
+
+`func (o *RoundingPolicyUpdateDto) GetWeeks() int32`
+
+GetWeeks returns the Weeks field if non-nil, zero value otherwise.
+
+### GetWeeksOk
+
+`func (o *RoundingPolicyUpdateDto) GetWeeksOk() (*int32, bool)`
+
+GetWeeksOk returns a tuple with the Weeks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeeks
+
+`func (o *RoundingPolicyUpdateDto) SetWeeks(v int32)`
+
+SetWeeks sets Weeks field to given value.
+
+### HasWeeks
+
+`func (o *RoundingPolicyUpdateDto) HasWeeks() bool`
+
+HasWeeks returns a boolean if a field has been set.
+
+### GetMonths
+
+`func (o *RoundingPolicyUpdateDto) GetMonths() int32`
+
+GetMonths returns the Months field if non-nil, zero value otherwise.
+
+### GetMonthsOk
+
+`func (o *RoundingPolicyUpdateDto) GetMonthsOk() (*int32, bool)`
+
+GetMonthsOk returns a tuple with the Months field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMonths
+
+`func (o *RoundingPolicyUpdateDto) SetMonths(v int32)`
+
+SetMonths sets Months field to given value.
+
+### HasMonths
+
+`func (o *RoundingPolicyUpdateDto) HasMonths() bool`
+
+HasMonths returns a boolean if a field has been set.
+
+### GetYears
+
+`func (o *RoundingPolicyUpdateDto) GetYears() int32`
+
+GetYears returns the Years field if non-nil, zero value otherwise.
+
+### GetYearsOk
+
+`func (o *RoundingPolicyUpdateDto) GetYearsOk() (*int32, bool)`
+
+GetYearsOk returns a tuple with the Years field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetYears
+
+`func (o *RoundingPolicyUpdateDto) SetYears(v int32)`
+
+SetYears sets Years field to given value.
+
+### HasYears
+
+`func (o *RoundingPolicyUpdateDto) HasYears() bool`
+
+HasYears returns a boolean if a field has been set.
+
+### GetValue
+
+`func (o *RoundingPolicyUpdateDto) GetValue() float64`
+
+GetValue returns the Value field if non-nil, zero value otherwise.
+
+### GetValueOk
+
+`func (o *RoundingPolicyUpdateDto) GetValueOk() (*float64, bool)`
+
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValue
+
+`func (o *RoundingPolicyUpdateDto) SetValue(v float64)`
+
+SetValue sets Value field to given value.
+
+### HasValue
+
+`func (o *RoundingPolicyUpdateDto) HasValue() bool`
+
+HasValue returns a boolean if a field has been set.
+
+### GetPercentage
+
+`func (o *RoundingPolicyUpdateDto) GetPercentage() float64`
+
+GetPercentage returns the Percentage field if non-nil, zero value otherwise.
+
+### GetPercentageOk
+
+`func (o *RoundingPolicyUpdateDto) GetPercentageOk() (*float64, bool)`
+
+GetPercentageOk returns a tuple with the Percentage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPercentage
+
+`func (o *RoundingPolicyUpdateDto) SetPercentage(v float64)`
+
+SetPercentage sets Percentage field to given value.
+
+### HasPercentage
+
+`func (o *RoundingPolicyUpdateDto) HasPercentage() bool`
+
+HasPercentage returns a boolean if a field has been set.
+
+### GetCurrencyId
+
+`func (o *RoundingPolicyUpdateDto) GetCurrencyId() string`
+
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
+
+### GetCurrencyIdOk
+
+`func (o *RoundingPolicyUpdateDto) GetCurrencyIdOk() (*string, bool)`
+
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrencyId
+
+`func (o *RoundingPolicyUpdateDto) SetCurrencyId(v string)`
+
+SetCurrencyId sets CurrencyId field to given value.
+
+### HasCurrencyId
+
+`func (o *RoundingPolicyUpdateDto) HasCurrencyId() bool`
+
+HasCurrencyId returns a boolean if a field has been set.
+
+### SetCurrencyIdNil
+
+`func (o *RoundingPolicyUpdateDto) SetCurrencyIdNil(b bool)`
+
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
+
+### UnsetCurrencyId
+`func (o *RoundingPolicyUpdateDto) UnsetCurrencyId()`
+
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
+### GetCountryId
+
+`func (o *RoundingPolicyUpdateDto) GetCountryId() string`
+
+GetCountryId returns the CountryId field if non-nil, zero value otherwise.
+
+### GetCountryIdOk
+
+`func (o *RoundingPolicyUpdateDto) GetCountryIdOk() (*string, bool)`
+
+GetCountryIdOk returns a tuple with the CountryId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountryId
+
+`func (o *RoundingPolicyUpdateDto) SetCountryId(v string)`
+
+SetCountryId sets CountryId field to given value.
+
+### HasCountryId
+
+`func (o *RoundingPolicyUpdateDto) HasCountryId() bool`
+
+HasCountryId returns a boolean if a field has been set.
+
+### SetCountryIdNil
+
+`func (o *RoundingPolicyUpdateDto) SetCountryIdNil(b bool)`
+
+ SetCountryIdNil sets the value for CountryId to be an explicit nil
+
+### UnsetCountryId
+`func (o *RoundingPolicyUpdateDto) UnsetCountryId()`
+
+UnsetCountryId ensures that no value is present for CountryId, not even an explicit nil
+### GetCountryStateId
+
+`func (o *RoundingPolicyUpdateDto) GetCountryStateId() string`
+
+GetCountryStateId returns the CountryStateId field if non-nil, zero value otherwise.
+
+### GetCountryStateIdOk
+
+`func (o *RoundingPolicyUpdateDto) GetCountryStateIdOk() (*string, bool)`
+
+GetCountryStateIdOk returns a tuple with the CountryStateId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountryStateId
+
+`func (o *RoundingPolicyUpdateDto) SetCountryStateId(v string)`
+
+SetCountryStateId sets CountryStateId field to given value.
+
+### HasCountryStateId
+
+`func (o *RoundingPolicyUpdateDto) HasCountryStateId() bool`
+
+HasCountryStateId returns a boolean if a field has been set.
+
+### SetCountryStateIdNil
+
+`func (o *RoundingPolicyUpdateDto) SetCountryStateIdNil(b bool)`
+
+ SetCountryStateIdNil sets the value for CountryStateId to be an explicit nil
+
+### UnsetCountryStateId
+`func (o *RoundingPolicyUpdateDto) UnsetCountryStateId()`
+
+UnsetCountryStateId ensures that no value is present for CountryStateId, not even an explicit nil
+### GetCustomState
+
+`func (o *RoundingPolicyUpdateDto) GetCustomState() string`
+
+GetCustomState returns the CustomState field if non-nil, zero value otherwise.
+
+### GetCustomStateOk
+
+`func (o *RoundingPolicyUpdateDto) GetCustomStateOk() (*string, bool)`
+
+GetCustomStateOk returns a tuple with the CustomState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomState
+
+`func (o *RoundingPolicyUpdateDto) SetCustomState(v string)`
+
+SetCustomState sets CustomState field to given value.
+
+### HasCustomState
+
+`func (o *RoundingPolicyUpdateDto) HasCustomState() bool`
+
+HasCustomState returns a boolean if a field has been set.
+
+### SetCustomStateNil
+
+`func (o *RoundingPolicyUpdateDto) SetCustomStateNil(b bool)`
+
+ SetCustomStateNil sets the value for CustomState to be an explicit nil
+
+### UnsetCustomState
+`func (o *RoundingPolicyUpdateDto) UnsetCustomState()`
+
+UnsetCustomState ensures that no value is present for CustomState, not even an explicit nil
+### GetCustomCity
+
+`func (o *RoundingPolicyUpdateDto) GetCustomCity() string`
+
+GetCustomCity returns the CustomCity field if non-nil, zero value otherwise.
+
+### GetCustomCityOk
+
+`func (o *RoundingPolicyUpdateDto) GetCustomCityOk() (*string, bool)`
+
+GetCustomCityOk returns a tuple with the CustomCity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomCity
+
+`func (o *RoundingPolicyUpdateDto) SetCustomCity(v string)`
+
+SetCustomCity sets CustomCity field to given value.
+
+### HasCustomCity
+
+`func (o *RoundingPolicyUpdateDto) HasCustomCity() bool`
+
+HasCustomCity returns a boolean if a field has been set.
+
+### SetCustomCityNil
+
+`func (o *RoundingPolicyUpdateDto) SetCustomCityNil(b bool)`
+
+ SetCustomCityNil sets the value for CustomCity to be an explicit nil
+
+### UnsetCustomCity
+`func (o *RoundingPolicyUpdateDto) UnsetCustomCity()`
+
+UnsetCustomCity ensures that no value is present for CustomCity, not even an explicit nil
+### GetCityId
+
+`func (o *RoundingPolicyUpdateDto) GetCityId() string`
+
+GetCityId returns the CityId field if non-nil, zero value otherwise.
+
+### GetCityIdOk
+
+`func (o *RoundingPolicyUpdateDto) GetCityIdOk() (*string, bool)`
+
+GetCityIdOk returns a tuple with the CityId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCityId
+
+`func (o *RoundingPolicyUpdateDto) SetCityId(v string)`
+
+SetCityId sets CityId field to given value.
+
+### HasCityId
+
+`func (o *RoundingPolicyUpdateDto) HasCityId() bool`
+
+HasCityId returns a boolean if a field has been set.
+
+### SetCityIdNil
+
+`func (o *RoundingPolicyUpdateDto) SetCityIdNil(b bool)`
+
+ SetCityIdNil sets the value for CityId to be an explicit nil
+
+### UnsetCityId
+`func (o *RoundingPolicyUpdateDto) UnsetCityId()`
+
+UnsetCityId ensures that no value is present for CityId, not even an explicit nil
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

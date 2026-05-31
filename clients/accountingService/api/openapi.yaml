@@ -9,29 +9,24 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: AccountingService
-  version: 2.0.0.0
+  version: 2.1.2.5401
 servers:
-- description: Alliance Business Suite API
-  url: "{server}"
-  variables:
-    server:
-      default: https://absuite.net
-      description: ABS instance base URL
-      enum:
-      - https://absuite.net
-      - https://test.absuite.net
-      - https://dev.absuite.net
-      - https://localhost:44388
+- url: /
 tags:
 - name: AccountGroups
 - name: AccountingPeriods
 - name: Accounts
 - name: Banking
+- name: BankProfiles
+- name: BillableLineTaxes
 - name: BillingProfiles
 - name: Budgets
 - name: Commissions
+- name: Completions
 - name: CostCentres
-- name: FenixAlliance.ABS.Web
+- name: ExpenseClaims
+- name: ExpenseTypes
+- name: FenixAlliance.Portals.Website
 - name: FinancialBooks
 - name: FiscalAuthorities
 - name: FiscalAuthorityYears
@@ -51,6 +46,7 @@ tags:
 - name: Loans
 - name: Receipts
 - name: Shares
+- name: TaxClasses
 - name: TaxPolicies
 - name: TaxRates
 - name: Transactions
@@ -2535,6 +2531,72 @@ paths:
       summary: Get account credits count
       tags:
       - Accounts
+  /api/v2/AccountingService/Accounts/Aggregate/Balance:
+    get:
+      description: "Returns the sum of all account balances matching OData filters,\
+        \ normalized to the target currency using stored USD values."
+      operationId: AggregateAccountsBalanceAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Aggregate accounts balance
+      tags:
+      - Accounts
   /api/v2/AccountingService/Accounts/Aggregate:
     post:
       description: Get account aggregate.
@@ -2627,14 +2689,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: accountTypeId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: api-version
         required: false
         schema:
@@ -2685,14 +2739,6 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: accountId
         required: true
         schema:
           format: uuid
@@ -2766,14 +2812,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: accountTypeId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: api-version
         required: false
         schema:
@@ -2840,14 +2878,6 @@ paths:
         style: simple
       - explode: true
         in: query
-        name: accountId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: api-version
         required: false
         schema:
@@ -2891,6 +2921,71 @@ paths:
       summary: Delete account type
       tags:
       - Accounts
+    get:
+      description: Get account type by ID.
+      operationId: GetAccountTypeByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: accountTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountTypeDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AccountTypeDtoEnvelope'
+          description: OK
+      summary: Get account type by ID
+      tags:
+      - Accounts
     put:
       description: Update account type.
       operationId: UpdateAccountTypeAsync
@@ -2911,14 +3006,6 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: accountId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
       - explode: true
         in: query
         name: api-version
@@ -3330,6 +3417,122 @@ paths:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
       summary: Update account relation
+      tags:
+      - Accounts
+  /api/v2/AccountingService/Accounts/ChartsOfAccounts:
+    get:
+      description: Get available charts of accounts.
+      operationId: GetChartsOfAccountsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartOfAccountsListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ChartOfAccountsListEnvelope'
+          description: OK
+      summary: Get charts of accounts
+      tags:
+      - Accounts
+  /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed:
+    post:
+      description: Seed a chart of accounts from a file URL.
+      operationId: SeedChartOfAccountsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SeedChartOfAccountsRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SeedChartOfAccountsRequest'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Seed chart of accounts
       tags:
       - Accounts
   /api/v2/AccountingService/Banking:
@@ -5133,6 +5336,394 @@ paths:
       summary: Updates a bank transaction
       tags:
       - Banking
+  /api/v2/AccountingService/BankProfiles:
+    get:
+      description: Retrieves all bank profiles for the specified tenant using OData
+        query options.
+      operationId: GetBankProfiles
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankProfileDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BankProfileDtoListEnvelope'
+          description: OK
+      summary: Get all bank profiles for a tenant
+      tags:
+      - BankProfiles
+  /api/v2/AccountingService/BankProfiles/Count:
+    get:
+      description: Returns the count of bank profiles for the specified tenant.
+      operationId: GetBankProfilesCount
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get bank profiles count
+      tags:
+      - BankProfiles
+  /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes:
+    get:
+      description: Retrieves the taxes applied to the specified billable line.
+      operationId: GetBillableLineTaxes
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billableLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppliedItemTaxRecordDtoIReadOnlyListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AppliedItemTaxRecordDtoIReadOnlyListEnvelope'
+          description: OK
+      summary: Get taxes for a billable line.
+      tags:
+      - BillableLineTaxes
+    post:
+      description: Creates a new tax entry for the specified billable line.
+      operationId: CreateBillableLineTax
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billableLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppliedItemTaxRecordCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AppliedItemTaxRecordCreateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a new tax for a billable line.
+      tags:
+      - BillableLineTaxes
+  /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/Count:
+    get:
+      description: Retrieves the total count of taxes applied to the specified billable
+        line.
+      operationId: GetBillableLineTaxesCount
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billableLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of taxes for a billable line.
+      tags:
+      - BillableLineTaxes
+  /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/{taxId}:
+    delete:
+      description: Deletes the specified tax entry from the billable line.
+      operationId: DeleteBillableLineTax
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billableLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: taxId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a tax from a billable line.
+      tags:
+      - BillableLineTaxes
+    put:
+      description: Updates the specified tax entry for the billable line.
+      operationId: UpdateBillableLineTax
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billableLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: taxId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppliedItemTaxRecordUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AppliedItemTaxRecordUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a tax for a billable line.
+      tags:
+      - BillableLineTaxes
   /api/v2/AccountingService/BillingProfiles/{billingProfileId}:
     delete:
       description: Removes a billing profile from the system using its unique identifier.
@@ -5741,6 +6332,64 @@ paths:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
       summary: Creates a budget
+      tags:
+      - Budgets
+  /api/v2/AccountingService/Budgets/Count:
+    get:
+      description: Get the count of budgets.
+      operationId: GetBudgetsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of budgets
       tags:
       - Budgets
   /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries:
@@ -6890,6 +7539,288 @@ paths:
       summary: Update a payment commission
       tags:
       - Commissions
+  /api/v2/AiService/Completions/Complete:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: conversationId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - Completions
   /api/v2/AccountingService/CostCentres:
     get:
       description: Retrieves all cost centres for the specified tenant using OData
@@ -7998,27 +8929,805 @@ paths:
       summary: Update a cost centre budget
       tags:
       - CostCentres
+  /api/v2/AccountingService/ExpenseClaims:
+    get:
+      description: Retrieves all expense claims for the specified tenant using OData
+        query options.
+      operationId: GetExpenseClaims
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExpenseClaimDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExpenseClaimDtoListEnvelope'
+          description: OK
+      summary: Get all expense claims for a tenant
+      tags:
+      - ExpenseClaims
+    post:
+      description: Creates a new expense claim.
+      operationId: CreateExpenseClaim
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExpenseClaimCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ExpenseClaimCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create an expense claim
+      tags:
+      - ExpenseClaims
+  /api/v2/AccountingService/ExpenseClaims/Count:
+    get:
+      description: Retrieves the count of expense claims for the specified tenant
+        using OData query options.
+      operationId: GetExpenseClaimsCount
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of expense claims for a tenant
+      tags:
+      - ExpenseClaims
+  /api/v2/AccountingService/ExpenseClaims/{expenseClaimId}:
+    delete:
+      description: Deletes an expense claim.
+      operationId: DeleteExpenseClaim
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: expenseClaimId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete an expense claim
+      tags:
+      - ExpenseClaims
+    get:
+      description: Retrieves an expense claim by its identifier.
+      operationId: GetExpenseClaim
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: expenseClaimId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExpenseClaimDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExpenseClaimDtoEnvelope'
+          description: OK
+      summary: Get an expense claim by id
+      tags:
+      - ExpenseClaims
+    put:
+      description: Updates an existing expense claim.
+      operationId: UpdateExpenseClaim
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: expenseClaimId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExpenseClaimUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ExpenseClaimUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update an expense claim
+      tags:
+      - ExpenseClaims
+  /api/v2/AccountingService/ExpenseTypes:
+    get:
+      description: Retrieves all expense types for the specified tenant using OData
+        query options.
+      operationId: GetExpenseTypes
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExpenseTypeDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExpenseTypeDtoListEnvelope'
+          description: OK
+      summary: Get all expense types for a tenant
+      tags:
+      - ExpenseTypes
+    post:
+      description: Creates a new expense type.
+      operationId: CreateExpenseType
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExpenseTypeCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ExpenseTypeCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create an expense type
+      tags:
+      - ExpenseTypes
+  /api/v2/AccountingService/ExpenseTypes/Count:
+    get:
+      description: Retrieves the count of expense types for the specified tenant using
+        OData query options.
+      operationId: GetExpenseTypesCount
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of expense types for a tenant
+      tags:
+      - ExpenseTypes
+  /api/v2/AccountingService/ExpenseTypes/{expenseTypeId}:
+    delete:
+      description: Deletes an expense type.
+      operationId: DeleteExpenseType
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: expenseTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete an expense type
+      tags:
+      - ExpenseTypes
+    get:
+      description: Retrieves an expense type by its identifier.
+      operationId: GetExpenseType
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: expenseTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExpenseTypeDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExpenseTypeDtoEnvelope'
+          description: OK
+      summary: Get an expense type by id
+      tags:
+      - ExpenseTypes
+    put:
+      description: Updates an existing expense type.
+      operationId: UpdateExpenseType
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: expenseTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExpenseTypeUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ExpenseTypeUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update an expense type
+      tags:
+      - ExpenseTypes
   /version:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /health:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /hello:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /register:
     post:
       requestBody:
@@ -8037,7 +9746,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /login:
     post:
       parameters:
@@ -8069,7 +9778,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /refresh:
     post:
       requestBody:
@@ -8086,7 +9795,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /confirmEmail:
     get:
       operationId: MapIdentityApi-/confirmEmail
@@ -8116,7 +9825,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /resendConfirmationEmail:
     post:
       requestBody:
@@ -8129,7 +9838,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /forgotPassword:
     post:
       requestBody:
@@ -8148,7 +9857,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /resetPassword:
     post:
       requestBody:
@@ -8167,7 +9876,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /manage/2fa:
     post:
       requestBody:
@@ -8192,7 +9901,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /manage/info:
     get:
       responses:
@@ -8211,7 +9920,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
     post:
       requestBody:
         content:
@@ -8235,7 +9944,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /Account/PerformExternalLogin:
     post:
       requestBody:
@@ -8260,7 +9969,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /Account/Logout:
     post:
       requestBody:
@@ -8281,7 +9990,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /Account/Manage/LinkExternalLogin:
     post:
       requestBody:
@@ -8302,14 +10011,14 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /Account/Manage/DownloadPersonalData:
     post:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
   /api/v2/AccountingService/FinancialBooks:
     get:
       description: Retrieves all financial books for the specified tenant using OData
@@ -9150,7 +10859,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: true
         in: query
@@ -9223,7 +10933,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -9289,7 +11000,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -9362,7 +11074,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: true
         in: query
@@ -9427,7 +11140,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -9491,7 +11205,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -9562,6 +11277,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: fiscalAuthorityId
         required: true
         schema:
@@ -9626,6 +11349,14 @@ paths:
         fiscal authority.
       operationId: GetInvoiceEnumerationRangesCount
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: fiscalAuthorityId
@@ -9689,7 +11420,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -9762,7 +11494,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: true
         in: query
@@ -9827,7 +11560,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -9892,7 +11626,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -9961,6 +11696,14 @@ paths:
         authority.
       operationId: GetFiscalIdentificationTypes
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: authorityId
@@ -10020,6 +11763,14 @@ paths:
         specified fiscal authority.
       operationId: GetFiscalIdentificationTypesCount
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: authorityId
@@ -10083,7 +11834,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -10156,7 +11908,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: true
         in: query
@@ -10221,7 +11974,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -10286,7 +12040,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -10360,7 +12115,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: true
         in: query
@@ -10441,7 +12197,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -10515,7 +12272,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -10596,7 +12354,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: true
         in: query
@@ -10661,7 +12420,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -10725,7 +12485,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -10795,6 +12556,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: fiscalAuthorityId
         required: true
         schema:
@@ -10859,6 +12628,14 @@ paths:
         authority.
       operationId: GetFiscalRegimesCount
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: fiscalAuthorityId
@@ -10922,7 +12699,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -10995,7 +12773,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: true
         in: query
@@ -11060,7 +12839,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -11124,7 +12904,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -11195,6 +12976,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: fiscalAuthorityId
         required: true
         schema:
@@ -11259,6 +13048,14 @@ paths:
         fiscal authority.
       operationId: GetFiscalResponsibilitiesCount
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: fiscalAuthorityId
@@ -11322,7 +13119,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -11395,7 +13193,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: true
         in: query
@@ -11460,7 +13259,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -11525,7 +13325,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -11599,7 +13400,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -11673,7 +13475,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -11747,7 +13550,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -11828,7 +13632,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: true
         in: query
@@ -11894,7 +13699,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -11959,7 +13765,8 @@ paths:
         name: tenantId
         required: true
         schema:
-          $ref: '#/components/schemas/TenantId'
+          format: uuid
+          type: string
         style: form
       - explode: false
         in: path
@@ -13537,6 +15344,154 @@ paths:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
       summary: Count journal entries
+      tags:
+      - Journals
+  /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits:
+    get:
+      description: "Returns the sum of all debit amounts for entries in the specified\
+        \ journal, normalized to the target currency."
+      operationId: AggregateJournalEntryDebitsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: journalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Aggregate journal entry debits
+      tags:
+      - Journals
+  /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits:
+    get:
+      description: "Returns the sum of all credit amounts for entries in the specified\
+        \ journal, normalized to the target currency."
+      operationId: AggregateJournalEntryCreditsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: journalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Aggregate journal entry credits
       tags:
       - Journals
   /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}:
@@ -15515,6 +17470,393 @@ paths:
       summary: Updates a loan application
       tags:
       - Loans
+  /api/v2/AccountingService/Loans/Types:
+    get:
+      description: Retrieves all loan types for the current tenant with OData support.
+      operationId: GetLoanTypesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanTypeDtoIReadOnlyListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LoanTypeDtoIReadOnlyListEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Gets all loan types
+      tags:
+      - Loans
+    post:
+      description: Creates a new loan type for the current tenant.
+      operationId: CreateLoanTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoanTypeCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LoanTypeCreateDto'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Creates a loan type
+      tags:
+      - Loans
+  /api/v2/AccountingService/Loans/Types/Count:
+    get:
+      description: Gets the count of loan types for the current tenant.
+      operationId: GetLoanTypesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Counts loan types
+      tags:
+      - Loans
+  /api/v2/AccountingService/Loans/Types/{loanTypeId}:
+    delete:
+      description: Deletes the specified loan type.
+      operationId: DeleteLoanTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: loanTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Deletes a loan type
+      tags:
+      - Loans
+    get:
+      description: Retrieves the details of a loan type using its unique ID.
+      operationId: GetLoanTypeByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: loanTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanTypeDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LoanTypeDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Gets a loan type by ID
+      tags:
+      - Loans
+    put:
+      description: Updates the specified loan type.
+      operationId: UpdateLoanTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: loanTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoanTypeUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LoanTypeUpdateDto'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Updates a loan type
+      tags:
+      - Loans
   /api/v2/AccountingService/Receipts:
     get:
       description: Fetches all receipts for a given tenant with OData support.
@@ -17395,6 +19737,392 @@ paths:
       summary: Updates an existing share transfer reason
       tags:
       - Shares
+  /api/v2/AccountingService/TaxClasses:
+    get:
+      description: Retrieves all tax classes for the specified tenant using OData
+        query options.
+      operationId: GetTaxClasses
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxClassDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaxClassDtoListEnvelope'
+          description: OK
+      summary: Get all tax classes for a tenant
+      tags:
+      - TaxClasses
+    post:
+      description: Creates a new tax class for the specified tenant.
+      operationId: CreateTaxClass
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxClassCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TaxClassCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a tax class
+      tags:
+      - TaxClasses
+  /api/v2/AccountingService/TaxClasses/Count:
+    get:
+      description: Returns the count of tax classes for the specified tenant.
+      operationId: GetTaxClassesCount
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get tax classes count
+      tags:
+      - TaxClasses
+  /api/v2/AccountingService/TaxClasses/{id}:
+    delete:
+      description: Deletes a tax class identified by its unique identifier.
+      operationId: DeleteTaxClass
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a tax class
+      tags:
+      - TaxClasses
+    get:
+      description: Retrieves a specific tax class by its unique identifier.
+      operationId: GetTaxClass
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxClassDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaxClassDtoEnvelope'
+          description: OK
+      summary: Get tax class by ID
+      tags:
+      - TaxClasses
+    put:
+      description: Updates an existing tax class identified by its unique identifier.
+      operationId: UpdateTaxClass
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxClassUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TaxClassUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Update a tax class
+      tags:
+      - TaxClasses
   /api/v2/AccountingService/TaxPolicies:
     get:
       description: Retrieves all tax policies for the specified tenant using OData
@@ -19910,6 +22638,31 @@ components:
       - expiresIn
       - refreshToken
       type: object
+    Account:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        type: type
+        childs:
+        - null
+        - null
+      properties:
+        name:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        childs:
+          items:
+            $ref: '#/components/schemas/Account'
+          nullable: true
+          type: array
+        type:
+          nullable: true
+          type: string
+      type: object
     AccountCreateDto:
       additionalProperties: false
       example:
@@ -19973,22 +22726,13 @@ components:
     AccountDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         code: code
         accountCategory: Assets
         prefix: prefix
-        qualifiedName: qualifiedName
-        accountType: accountType
-        frozen: true
+        balanceInUsd: 5.962133916683182
         title: title
-        balanceAmount:
-          amount: 5.637376656633329
-          currency:
-            country: country
-            code: code
-            value: value
         creditsBalanceAmount:
-          amount: 5.637376656633329
+          amount: 3.616076749251911
           currency:
             country: country
             code: code
@@ -19996,22 +22740,53 @@ components:
         debitsBalance: 6.027456183070403
         parentAccountId: parentAccountId
         path: path
-        creditsBalance: 1.4658129805029452
         debitsBalanceAmount:
-          amount: 5.637376656633329
+          amount: 3.616076749251911
           currency:
             country: country
             code: code
             value: value
-        accountTypeId: accountTypeId
         balance: 0.8008281904610115
-        childrenAccountsCount: 5
-        name: name
-        tenantId: tenantId
+        balanceAmountInUsd:
+          amount: 3.616076749251911
+          currency:
+            country: country
+            code: code
+            value: value
         id: id
         currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
         group: true
+        enrollmentId: enrollmentId
+        qualifiedName: qualifiedName
+        debitsBalanceAmountInUsd:
+          amount: 3.616076749251911
+          currency:
+            country: country
+            code: code
+            value: value
+        creditsBalanceAmountInUsd:
+          amount: 3.616076749251911
+          currency:
+            country: country
+            code: code
+            value: value
+        accountType: accountType
+        debitsBalanceInUsd: 5.637376656633329
+        frozen: true
+        balanceAmount:
+          amount: 3.616076749251911
+          currency:
+            country: country
+            code: code
+            value: value
+        creditsBalance: 1.4658129805029452
+        creditsBalanceInUsd: 2.3021358869347655
+        accountTypeId: accountTypeId
+        forexRate: 7.061401241503109
+        childrenAccountsCount: 9
+        name: name
+        tenantId: tenantId
       properties:
         id:
           nullable: true
@@ -20060,6 +22835,18 @@ components:
         creditsBalance:
           format: double
           type: number
+        balanceInUsd:
+          format: double
+          type: number
+        debitsBalanceInUsd:
+          format: double
+          type: number
+        creditsBalanceInUsd:
+          format: double
+          type: number
+        forexRate:
+          format: double
+          type: number
         parentAccountId:
           nullable: true
           type: string
@@ -20086,27 +22873,24 @@ components:
           $ref: '#/components/schemas/Money'
         debitsBalanceAmount:
           $ref: '#/components/schemas/Money'
+        balanceAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        debitsBalanceAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        creditsBalanceAmountInUsd:
+          $ref: '#/components/schemas/Money'
       type: object
     AccountDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          enrollmentId: enrollmentId
           code: code
           accountCategory: Assets
           prefix: prefix
-          qualifiedName: qualifiedName
-          accountType: accountType
-          frozen: true
+          balanceInUsd: 5.962133916683182
           title: title
-          balanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
           creditsBalanceAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -20114,22 +22898,53 @@ components:
           debitsBalance: 6.027456183070403
           parentAccountId: parentAccountId
           path: path
-          creditsBalance: 1.4658129805029452
           debitsBalanceAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
               value: value
-          accountTypeId: accountTypeId
           balance: 0.8008281904610115
-          childrenAccountsCount: 5
-          name: name
-          tenantId: tenantId
+          balanceAmountInUsd:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
           group: true
+          enrollmentId: enrollmentId
+          qualifiedName: qualifiedName
+          debitsBalanceAmountInUsd:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
+          creditsBalanceAmountInUsd:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
+          accountType: accountType
+          debitsBalanceInUsd: 5.637376656633329
+          frozen: true
+          balanceAmount:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
+          creditsBalance: 1.4658129805029452
+          creditsBalanceInUsd: 2.3021358869347655
+          accountTypeId: accountTypeId
+          forexRate: 7.061401241503109
+          childrenAccountsCount: 9
+          name: name
+          tenantId: tenantId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -20160,22 +22975,13 @@ components:
       additionalProperties: false
       example:
         result:
-        - enrollmentId: enrollmentId
-          code: code
+        - code: code
           accountCategory: Assets
           prefix: prefix
-          qualifiedName: qualifiedName
-          accountType: accountType
-          frozen: true
+          balanceInUsd: 5.962133916683182
           title: title
-          balanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
           creditsBalanceAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -20183,38 +22989,60 @@ components:
           debitsBalance: 6.027456183070403
           parentAccountId: parentAccountId
           path: path
-          creditsBalance: 1.4658129805029452
           debitsBalanceAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
               value: value
-          accountTypeId: accountTypeId
           balance: 0.8008281904610115
-          childrenAccountsCount: 5
-          name: name
-          tenantId: tenantId
+          balanceAmountInUsd:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
           group: true
-        - enrollmentId: enrollmentId
-          code: code
-          accountCategory: Assets
-          prefix: prefix
+          enrollmentId: enrollmentId
           qualifiedName: qualifiedName
-          accountType: accountType
-          frozen: true
-          title: title
-          balanceAmount:
-            amount: 5.637376656633329
+          debitsBalanceAmountInUsd:
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
               value: value
+          creditsBalanceAmountInUsd:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
+          accountType: accountType
+          debitsBalanceInUsd: 5.637376656633329
+          frozen: true
+          balanceAmount:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
+          creditsBalance: 1.4658129805029452
+          creditsBalanceInUsd: 2.3021358869347655
+          accountTypeId: accountTypeId
+          forexRate: 7.061401241503109
+          childrenAccountsCount: 9
+          name: name
+          tenantId: tenantId
+        - code: code
+          accountCategory: Assets
+          prefix: prefix
+          balanceInUsd: 5.962133916683182
+          title: title
           creditsBalanceAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -20222,22 +23050,53 @@ components:
           debitsBalance: 6.027456183070403
           parentAccountId: parentAccountId
           path: path
-          creditsBalance: 1.4658129805029452
           debitsBalanceAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
               value: value
-          accountTypeId: accountTypeId
           balance: 0.8008281904610115
-          childrenAccountsCount: 5
-          name: name
-          tenantId: tenantId
+          balanceAmountInUsd:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
           group: true
+          enrollmentId: enrollmentId
+          qualifiedName: qualifiedName
+          debitsBalanceAmountInUsd:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
+          creditsBalanceAmountInUsd:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
+          accountType: accountType
+          debitsBalanceInUsd: 5.637376656633329
+          frozen: true
+          balanceAmount:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
+          creditsBalance: 1.4658129805029452
+          creditsBalanceInUsd: 2.3021358869347655
+          accountTypeId: accountTypeId
+          forexRate: 7.061401241503109
+          childrenAccountsCount: 9
+          name: name
+          tenantId: tenantId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -20593,6 +23452,42 @@ components:
           nullable: true
           type: string
       type: object
+    AccountTypeDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/AccountTypeDto'
+      type: object
     AccountTypeDtoListEnvelope:
       additionalProperties: false
       example:
@@ -20768,7 +23663,7 @@ components:
         description: description
         debitAccountId: debitAccountId
         debitAmount:
-          amount: 5.637376656633329
+          amount: 3.616076749251911
           currency:
             country: country
             code: code
@@ -20784,7 +23679,7 @@ components:
         credit: 6.027456183070403
         currencyId: currencyId
         creditAmount:
-          amount: 5.637376656633329
+          amount: 3.616076749251911
           currency:
             country: country
             code: code
@@ -20863,7 +23758,7 @@ components:
           description: description
           debitAccountId: debitAccountId
           debitAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -20879,7 +23774,7 @@ components:
           credit: 6.027456183070403
           currencyId: currencyId
           creditAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -20922,7 +23817,7 @@ components:
           description: description
           debitAccountId: debitAccountId
           debitAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -20938,7 +23833,7 @@ components:
           credit: 6.027456183070403
           currencyId: currencyId
           creditAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -20951,7 +23846,7 @@ components:
           description: description
           debitAccountId: debitAccountId
           debitAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -20967,7 +23862,7 @@ components:
           credit: 6.027456183070403
           currencyId: currencyId
           creditAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -21216,6 +24111,187 @@ components:
           format: date-time
           type: string
       type: object
+    AppliedItemTaxRecordCreateDto:
+      additionalProperties: false
+      example:
+        taxAmountInUSD: 0.8008281904610115
+        itemId: itemId
+        taxPolicyId: taxPolicyId
+        taxBaseAmountInUSD: 6.027456183070403
+        billingItemRecordId: billingItemRecordId
+        invoiceId: invoiceId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        taxPolicyId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        invoiceId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        itemId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        taxAmountInUSD:
+          format: double
+          type: number
+        taxBaseAmountInUSD:
+          format: double
+          type: number
+        billingItemRecordId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    AppliedItemTaxRecordDto:
+      additionalProperties: false
+      example:
+        taxAmountInUSD: 0.8008281904610115
+        enrollmentId: enrollmentId
+        itemId: itemId
+        taxPolicyId: taxPolicyId
+        taxBaseAmountInUSD: 6.027456183070403
+        tenantId: tenantId
+        billingItemRecordId: billingItemRecordId
+        invoiceId: invoiceId
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        taxPolicyId:
+          nullable: true
+          type: string
+        invoiceId:
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+        taxAmountInUSD:
+          format: double
+          type: number
+        taxBaseAmountInUSD:
+          format: double
+          type: number
+        billingItemRecordId:
+          nullable: true
+          type: string
+      type: object
+    AppliedItemTaxRecordDtoIReadOnlyListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - taxAmountInUSD: 0.8008281904610115
+          enrollmentId: enrollmentId
+          itemId: itemId
+          taxPolicyId: taxPolicyId
+          taxBaseAmountInUSD: 6.027456183070403
+          tenantId: tenantId
+          billingItemRecordId: billingItemRecordId
+          invoiceId: invoiceId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - taxAmountInUSD: 0.8008281904610115
+          enrollmentId: enrollmentId
+          itemId: itemId
+          taxPolicyId: taxPolicyId
+          taxBaseAmountInUSD: 6.027456183070403
+          tenantId: tenantId
+          billingItemRecordId: billingItemRecordId
+          invoiceId: invoiceId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/AppliedItemTaxRecordDto'
+          nullable: true
+          type: array
+      type: object
+    AppliedItemTaxRecordUpdateDto:
+      additionalProperties: false
+      example:
+        taxAmountInUSD: 0.8008281904610115
+        itemId: itemId
+        taxPolicyId: taxPolicyId
+        taxBaseAmountInUSD: 6.027456183070403
+        billingItemRecordId: billingItemRecordId
+        invoiceId: invoiceId
+      properties:
+        taxPolicyId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        invoiceId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        itemId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        taxAmountInUSD:
+          format: double
+          type: number
+        taxBaseAmountInUSD:
+          format: double
+          type: number
+        billingItemRecordId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
     AppliedTaxPolicyRecordCreateDto:
       additionalProperties: false
       example:
@@ -21421,24 +24497,15 @@ components:
     BankAccountCreateDto:
       additionalProperties: false
       example:
-        code: code
-        accountCategory: Assets
-        prefix: prefix
-        qualifiedName: qualifiedName
-        frozen: true
-        parentAccountId: parentAccountId
         branchCode: branchCode
-        path: path
         bankId: bankId
-        accountTypeId: accountTypeId
+        qualifiedName: qualifiedName
         iban: iban
         name: name
         bankAccountNumber: bankAccountNumber
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        currencyId: currencyId
         bankProfileId: bankProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        group: true
         swift: swift
       properties:
         id:
@@ -21447,38 +24514,8 @@ components:
         timestamp:
           format: date-time
           type: string
-        group:
-          type: boolean
-        frozen:
-          type: boolean
         name:
-          minLength: 1
-          type: string
-        code:
           nullable: true
-          type: string
-        path:
-          nullable: true
-          type: string
-        prefix:
-          nullable: true
-          type: string
-        currencyId:
-          minLength: 1
-          type: string
-        accountTypeId:
-          nullable: true
-          type: string
-        parentAccountId:
-          nullable: true
-          type: string
-        accountCategory:
-          enum:
-          - Assets
-          - Equity
-          - Revenue
-          - Expense
-          - Liabilities
           type: string
         iban:
           nullable: true
@@ -21505,59 +24542,23 @@ components:
           minLength: 0
           nullable: true
           type: string
-      required:
-      - accountCategory
-      - currencyId
-      - name
       type: object
     BankAccountDto:
       additionalProperties: false
       example:
-        code: code
-        accountCategory: Assets
-        prefix: prefix
-        title: title
-        creditsBalanceAmount:
-          amount: 5.637376656633329
-          currency:
-            country: country
-            code: code
-            value: value
-        debitsBalance: 6.027456183070403
-        parentAccountId: parentAccountId
-        path: path
-        debitsBalanceAmount:
-          amount: 5.637376656633329
-          currency:
-            country: country
-            code: code
-            value: value
-        balance: 0.8008281904610115
-        bankAccountNumber: bankAccountNumber
-        id: id
-        currencyId: currencyId
-        timestamp: 2000-01-23T04:56:07.000+00:00
-        group: true
-        swift: swift
+        walletId: walletId
         enrollmentId: enrollmentId
         qualifiedName: qualifiedName
-        accountType: accountType
-        frozen: true
-        balanceAmount:
-          amount: 5.637376656633329
-          currency:
-            country: country
-            code: code
-            value: value
         branchCode: branchCode
-        creditsBalance: 1.4658129805029452
         bankId: bankId
-        accountTypeId: accountTypeId
-        childrenAccountsCount: 5
         iban: iban
         name: name
         tenantId: tenantId
+        bankAccountNumber: bankAccountNumber
+        id: id
         bankProfileId: bankProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        swift: swift
       properties:
         id:
           nullable: true
@@ -21566,69 +24567,9 @@ components:
           format: date-time
           nullable: true
           type: string
-        group:
-          type: boolean
-        frozen:
-          type: boolean
         name:
           nullable: true
           type: string
-        code:
-          nullable: true
-          type: string
-        path:
-          nullable: true
-          type: string
-        title:
-          nullable: true
-          type: string
-        prefix:
-          nullable: true
-          type: string
-        balance:
-          format: double
-          type: number
-        currencyId:
-          nullable: true
-          type: string
-        accountType:
-          nullable: true
-          type: string
-        accountTypeId:
-          nullable: true
-          type: string
-        debitsBalance:
-          format: double
-          type: number
-        creditsBalance:
-          format: double
-          type: number
-        parentAccountId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
-          type: string
-        childrenAccountsCount:
-          format: int32
-          type: integer
-        accountCategory:
-          enum:
-          - Assets
-          - Equity
-          - Revenue
-          - Expense
-          - Liabilities
-          type: string
-        balanceAmount:
-          $ref: '#/components/schemas/Money'
-        creditsBalanceAmount:
-          $ref: '#/components/schemas/Money'
-        debitsBalanceAmount:
-          $ref: '#/components/schemas/Money'
         iban:
           nullable: true
           type: string
@@ -21650,56 +24591,33 @@ components:
         bankProfileId:
           nullable: true
           type: string
+        walletId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
       type: object
     BankAccountDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          code: code
-          accountCategory: Assets
-          prefix: prefix
-          title: title
-          creditsBalanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
-          debitsBalance: 6.027456183070403
-          parentAccountId: parentAccountId
-          path: path
-          debitsBalanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
-          balance: 0.8008281904610115
-          bankAccountNumber: bankAccountNumber
-          id: id
-          currencyId: currencyId
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          group: true
-          swift: swift
+          walletId: walletId
           enrollmentId: enrollmentId
           qualifiedName: qualifiedName
-          accountType: accountType
-          frozen: true
-          balanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
           branchCode: branchCode
-          creditsBalance: 1.4658129805029452
           bankId: bankId
-          accountTypeId: accountTypeId
-          childrenAccountsCount: 5
           iban: iban
           name: name
           tenantId: tenantId
+          bankAccountNumber: bankAccountNumber
+          id: id
           bankProfileId: bankProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          swift: swift
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -21730,96 +24648,32 @@ components:
       additionalProperties: false
       example:
         result:
-        - code: code
-          accountCategory: Assets
-          prefix: prefix
-          title: title
-          creditsBalanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
-          debitsBalance: 6.027456183070403
-          parentAccountId: parentAccountId
-          path: path
-          debitsBalanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
-          balance: 0.8008281904610115
-          bankAccountNumber: bankAccountNumber
-          id: id
-          currencyId: currencyId
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          group: true
-          swift: swift
+        - walletId: walletId
           enrollmentId: enrollmentId
           qualifiedName: qualifiedName
-          accountType: accountType
-          frozen: true
-          balanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
           branchCode: branchCode
-          creditsBalance: 1.4658129805029452
           bankId: bankId
-          accountTypeId: accountTypeId
-          childrenAccountsCount: 5
           iban: iban
           name: name
           tenantId: tenantId
-          bankProfileId: bankProfileId
-        - code: code
-          accountCategory: Assets
-          prefix: prefix
-          title: title
-          creditsBalanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
-          debitsBalance: 6.027456183070403
-          parentAccountId: parentAccountId
-          path: path
-          debitsBalanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
-          balance: 0.8008281904610115
           bankAccountNumber: bankAccountNumber
           id: id
-          currencyId: currencyId
+          bankProfileId: bankProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
-          group: true
           swift: swift
+        - walletId: walletId
           enrollmentId: enrollmentId
           qualifiedName: qualifiedName
-          accountType: accountType
-          frozen: true
-          balanceAmount:
-            amount: 5.637376656633329
-            currency:
-              country: country
-              code: code
-              value: value
           branchCode: branchCode
-          creditsBalance: 1.4658129805029452
           bankId: bankId
-          accountTypeId: accountTypeId
-          childrenAccountsCount: 5
           iban: iban
           name: name
           tenantId: tenantId
+          bankAccountNumber: bankAccountNumber
+          id: id
           bankProfileId: bankProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          swift: swift
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -21852,56 +24706,17 @@ components:
     BankAccountUpdateDto:
       additionalProperties: false
       example:
-        code: code
-        accountCategory: Assets
-        prefix: prefix
-        qualifiedName: qualifiedName
-        frozen: true
-        parentAccountId: parentAccountId
         branchCode: branchCode
-        path: path
         bankId: bankId
-        accountTypeId: accountTypeId
+        qualifiedName: qualifiedName
         iban: iban
         name: name
         bankAccountNumber: bankAccountNumber
-        currencyId: currencyId
         bankProfileId: bankProfileId
-        group: true
         swift: swift
       properties:
-        group:
-          type: boolean
-        frozen:
-          type: boolean
         name:
-          minLength: 1
-          type: string
-        code:
           nullable: true
-          type: string
-        path:
-          nullable: true
-          type: string
-        prefix:
-          nullable: true
-          type: string
-        currencyId:
-          minLength: 1
-          type: string
-        accountTypeId:
-          nullable: true
-          type: string
-        parentAccountId:
-          nullable: true
-          type: string
-        accountCategory:
-          enum:
-          - Assets
-          - Equity
-          - Revenue
-          - Expense
-          - Liabilities
           type: string
         iban:
           nullable: true
@@ -21928,9 +24743,6 @@ components:
           minLength: 0
           nullable: true
           type: string
-      required:
-      - currencyId
-      - name
       type: object
     BankCreateDto:
       additionalProperties: false
@@ -22446,6 +25258,431 @@ components:
           nullable: true
           type: string
       type: object
+    BankProfileDto:
+      additionalProperties: false
+      example:
+        data: data
+        about: about
+        data8Label: data8Label
+        bankName: bankName
+        type: type
+        contact:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: https://openapi-generator.tech
+          postalCode: postalCode
+          tikTokUrl: https://openapi-generator.tech
+          about: about
+          cityId: cityId
+          type: Individual
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: https://openapi-generator.tech
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: https://openapi-generator.tech
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: https://openapi-generator.tech
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          phone: phone
+          webUrl: https://openapi-generator.tech
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: https://openapi-generator.tech
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: https://openapi-generator.tech
+        data5Label: data5Label
+        id: id
+        data2Label: data2Label
+        verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        enrollmentId: enrollmentId
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        contactId: contactId
+        avatarUrl: avatarUrl
+        data4: data4
+        qualifiedName: qualifiedName
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        verified: true
+        dataLabel: dataLabel
+        data1: data1
+        data3Label: data3Label
+        data6Label: data6Label
+        data1Label: data1Label
+        data4Label: data4Label
+        bankId: bankId
+        submitted: true
+        tenantId: tenantId
+        data7Label: data7Label
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        submitted:
+          type: boolean
+        avatarUrl:
+          nullable: true
+          type: string
+        contact:
+          $ref: '#/components/schemas/ContactDto'
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        verificationTimestamp:
+          format: date-time
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+        bankId:
+          nullable: true
+          type: string
+        bankName:
+          nullable: true
+          type: string
+      type: object
+    BankProfileDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - data: data
+          about: about
+          data8Label: data8Label
+          bankName: bankName
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          data5Label: data5Label
+          id: id
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          data3Label: data3Label
+          data6Label: data6Label
+          data1Label: data1Label
+          data4Label: data4Label
+          bankId: bankId
+          submitted: true
+          tenantId: tenantId
+          data7Label: data7Label
+        - data: data
+          about: about
+          data8Label: data8Label
+          bankName: bankName
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          data5Label: data5Label
+          id: id
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          data3Label: data3Label
+          data6Label: data6Label
+          data1Label: data1Label
+          data4Label: data4Label
+          bankId: bankId
+          submitted: true
+          tenantId: tenantId
+          data7Label: data7Label
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BankProfileDto'
+          nullable: true
+          type: array
+      type: object
     BankTransactionCreateDto:
       additionalProperties: false
       example:
@@ -22866,7 +26103,68 @@ components:
         data8Label: data8Label
         businessName: businessName
         cityId: cityId
+        type: type
         isFactaCustomer: true
+        contact:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: https://openapi-generator.tech
+          postalCode: postalCode
+          tikTokUrl: https://openapi-generator.tech
+          about: about
+          cityId: cityId
+          type: Individual
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: https://openapi-generator.tech
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: https://openapi-generator.tech
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: https://openapi-generator.tech
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          phone: phone
+          webUrl: https://openapi-generator.tech
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: https://openapi-generator.tech
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: https://openapi-generator.tech
         isPublicCompany: true
         id: id
         data2Label: data2Label
@@ -22919,11 +26217,15 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
           type: string
         tenantId:
           nullable: true
           type: string
-        contactId:
+        type:
           nullable: true
           type: string
         enrollmentId:
@@ -22939,8 +26241,11 @@ components:
         avatarUrl:
           nullable: true
           type: string
+        contact:
+          $ref: '#/components/schemas/ContactDto'
         qualifiedName:
           nullable: true
+          readOnly: true
           type: string
         verificationTimestamp:
           format: date-time
@@ -23091,7 +26396,68 @@ components:
           data8Label: data8Label
           businessName: businessName
           cityId: cityId
+          type: type
           isFactaCustomer: true
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
           isPublicCompany: true
           id: id
           data2Label: data2Label
@@ -23175,7 +26541,68 @@ components:
           data8Label: data8Label
           businessName: businessName
           cityId: cityId
+          type: type
           isFactaCustomer: true
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
           isPublicCompany: true
           id: id
           data2Label: data2Label
@@ -23229,7 +26656,68 @@ components:
           data8Label: data8Label
           businessName: businessName
           cityId: cityId
+          type: type
           isFactaCustomer: true
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
           isPublicCompany: true
           id: id
           data2Label: data2Label
@@ -23456,7 +26944,7 @@ components:
         description: description
         debitAccountId: debitAccountId
         debitAmount:
-          amount: 5.637376656633329
+          amount: 3.616076749251911
           currency:
             country: country
             code: code
@@ -23473,7 +26961,7 @@ components:
         credit: 6.027456183070403
         currencyId: currencyId
         creditAmount:
-          amount: 5.637376656633329
+          amount: 3.616076749251911
           currency:
             country: country
             code: code
@@ -23555,7 +27043,7 @@ components:
           description: description
           debitAccountId: debitAccountId
           debitAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -23572,7 +27060,7 @@ components:
           credit: 6.027456183070403
           currencyId: currencyId
           creditAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -23615,7 +27103,7 @@ components:
           description: description
           debitAccountId: debitAccountId
           debitAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -23632,7 +27120,7 @@ components:
           credit: 6.027456183070403
           currencyId: currencyId
           creditAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -23645,7 +27133,7 @@ components:
           description: description
           debitAccountId: debitAccountId
           debitAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -23662,7 +27150,7 @@ components:
           credit: 6.027456183070403
           currencyId: currencyId
           creditAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
@@ -23890,6 +27378,105 @@ components:
         fiscalYearId:
           nullable: true
           type: string
+      type: object
+    ChartOfAccounts:
+      additionalProperties: false
+      example:
+        name: name
+        verified: true
+        fileUrl: fileUrl
+        childs:
+        - code: code
+          name: name
+          type: type
+          childs:
+          - null
+          - null
+        - code: code
+          name: name
+          type: type
+          childs:
+          - null
+          - null
+      properties:
+        name:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        fileUrl:
+          nullable: true
+          type: string
+        childs:
+          items:
+            $ref: '#/components/schemas/Account'
+          nullable: true
+          type: array
+      type: object
+    ChartOfAccountsListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - name: name
+          verified: true
+          fileUrl: fileUrl
+          childs:
+          - code: code
+            name: name
+            type: type
+            childs:
+            - null
+            - null
+          - code: code
+            name: name
+            type: type
+            childs:
+            - null
+            - null
+        - name: name
+          verified: true
+          fileUrl: fileUrl
+          childs:
+          - code: code
+            name: name
+            type: type
+            childs:
+            - null
+            - null
+          - code: code
+            name: name
+            type: type
+            childs:
+            - null
+            - null
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ChartOfAccounts'
+          nullable: true
+          type: array
       type: object
     CommissionCreateDto:
       additionalProperties: false
@@ -24196,6 +27783,265 @@ components:
         receiverContactId:
           maxLength: 36
           minLength: 0
+          nullable: true
+          type: string
+      type: object
+    ContactDto:
+      additionalProperties: false
+      example:
+        streetLine2: streetLine2
+        zipCode: zipCode
+        streetLine1: streetLine1
+        jobTitle: jobTitle
+        twitterUrl: https://openapi-generator.tech
+        postalCode: postalCode
+        tikTokUrl: https://openapi-generator.tech
+        about: about
+        cityId: cityId
+        type: Individual
+        identityProvider: identityProvider
+        publicName: publicName
+        id: id
+        currencyId: currencyId
+        gitHubUrl: https://openapi-generator.tech
+        walletId: walletId
+        enrollmentId: enrollmentId
+        parentContactId: parentContactId
+        activeDirectoryId: activeDirectoryId
+        linkedInUrl: https://openapi-generator.tech
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        relatedTenantId: relatedTenantId
+        twitchUrl: https://openapi-generator.tech
+        ownerContactId: ownerContactId
+        coverUrl: coverUrl
+        firstName: firstName
+        activityFeedId: activityFeedId
+        mobilePhone: mobilePhone
+        phone: phone
+        webUrl: https://openapi-generator.tech
+        taxId: taxId
+        duns: duns
+        businessPhone: businessPhone
+        youTubeUrl: https://openapi-generator.tech
+        annualRevenue: annualRevenue
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        relatedUserId: relatedUserId
+        countryId: countryId
+        redditUrl: https://openapi-generator.tech
+        facebookUrl: https://openapi-generator.tech
+        websiteUrl: https://openapi-generator.tech
+        street: street
+        territoryId: territoryId
+        socialProfileId: socialProfileId
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        partnerProfileId: partnerProfileId
+        stateId: stateId
+        languageId: languageId
+        primaryContactId: primaryContactId
+        identityProviderAccessToken: identityProviderAccessToken
+        githubUsername: githubUsername
+        tenantId: tenantId
+        timezoneId: timezoneId
+        faxNumber: faxNumber
+        instagramUrl: https://openapi-generator.tech
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          enum:
+          - Individual
+          - Organization
+          type: string
+        email:
+          format: email
+          nullable: true
+          type: string
+        phone:
+          format: tel
+          nullable: true
+          type: string
+        publicName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        webUrl:
+          format: uri
+          nullable: true
+          type: string
+        gitHubUrl:
+          format: uri
+          nullable: true
+          type: string
+        twitchUrl:
+          format: uri
+          nullable: true
+          type: string
+        redditUrl:
+          format: uri
+          nullable: true
+          type: string
+        tikTokUrl:
+          format: uri
+          nullable: true
+          type: string
+        websiteUrl:
+          format: uri
+          nullable: true
+          type: string
+        twitterUrl:
+          format: uri
+          nullable: true
+          type: string
+        facebookUrl:
+          format: uri
+          nullable: true
+          type: string
+        youTubeUrl:
+          format: uri
+          nullable: true
+          type: string
+        linkedInUrl:
+          format: uri
+          nullable: true
+          type: string
+        instagramUrl:
+          format: uri
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+        duns:
+          nullable: true
+          type: string
+        taxId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        street:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        zipCode:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        faxNumber:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        streetLine1:
+          nullable: true
+          type: string
+        streetLine2:
+          nullable: true
+          type: string
+        territoryId:
+          nullable: true
+          type: string
+        mobilePhone:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        annualRevenue:
+          nullable: true
+          type: string
+        relatedUserId:
+          nullable: true
+          type: string
+        businessPhone:
+          nullable: true
+          type: string
+        ownerContactId:
+          nullable: true
+          type: string
+        relatedTenantId:
+          nullable: true
+          type: string
+        activityFeedId:
+          nullable: true
+          type: string
+        parentContactId:
+          nullable: true
+          type: string
+        identityProvider:
+          nullable: true
+          type: string
+        partnerProfileId:
+          nullable: true
+          type: string
+        primaryContactId:
+          nullable: true
+          type: string
+        activeDirectoryId:
+          nullable: true
+          type: string
+        identityProviderAccessToken:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
           nullable: true
           type: string
       type: object
@@ -24868,6 +28714,286 @@ components:
           nullable: true
           readOnly: true
           type: string
+      type: object
+    ExpenseClaimCreateDto:
+      additionalProperties: false
+      example:
+        expenseTypeId: expenseTypeId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        expenseTypeId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    ExpenseClaimDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        tenantId: tenantId
+        expenseTypeId: expenseTypeId
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        expenseTypeId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    ExpenseClaimDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          tenantId: tenantId
+          expenseTypeId: expenseTypeId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ExpenseClaimDto'
+      type: object
+    ExpenseClaimDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
+          expenseTypeId: expenseTypeId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
+          expenseTypeId: expenseTypeId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ExpenseClaimDto'
+          nullable: true
+          type: array
+      type: object
+    ExpenseClaimUpdateDto:
+      additionalProperties: false
+      example:
+        expenseTypeId: expenseTypeId
+      properties:
+        expenseTypeId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    ExpenseTypeCreateDto:
+      additionalProperties: false
+      example:
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        enabled: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+      type: object
+    ExpenseTypeDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        name: name
+        tenantId: tenantId
+        id: id
+        enabled: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    ExpenseTypeDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ExpenseTypeDto'
+      type: object
+    ExpenseTypeDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ExpenseTypeDto'
+          nullable: true
+          type: array
+      type: object
+    ExpenseTypeUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        enabled: true
+      properties:
+        name:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
       type: object
     FinancialBookCreateDto:
       additionalProperties: false
@@ -27230,39 +31356,53 @@ components:
       additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
-        forexRatesSnapshot: forexRatesSnapshot
         creditAccountName: creditAccountName
         journalName: journalName
         journalId: journalId
         description: description
+        journalCode: journalCode
+        id: id
+        creditInUsd: 5.962133916683182
+        credit: 6.027456183070403
+        debit: 1.4658129805029452
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        group: true
+        enrollmentId: enrollmentId
+        forexRatesSnapshot: forexRatesSnapshot
+        creditAmountInUsd:
+          amount: 3.616076749251911
+          currency:
+            country: country
+            code: code
+            value: value
         debitAccountId: debitAccountId
         debitAmount:
-          amount: 5.637376656633329
+          amount: 3.616076749251911
           currency:
             country: country
             code: code
             value: value
         opening: true
         invoiceCode: invoiceCode
-        forexRate: 0.8008281904610115
-        tenantId: tenantId
-        journalCode: journalCode
-        debitAccountName: debitAccountName
-        id: id
-        creditAccountId: creditAccountId
-        credit: 6.027456183070403
-        debit: 1.4658129805029452
-        currencyId: currencyId
-        parentJournalEntryId: parentJournalEntryId
-        creditAmount:
-          amount: 5.637376656633329
+        debitInUsd: 5.637376656633329
+        debitAmountInUsd:
+          amount: 3.616076749251911
           currency:
             country: country
             code: code
             value: value
-        timestamp: 2000-01-23T04:56:07.000+00:00
-        group: true
+        forexRate: 0.8008281904610115
+        tenantId: tenantId
+        debitAccountName: debitAccountName
+        creditAccountId: creditAccountId
+        parentJournalEntryId: parentJournalEntryId
+        creditAmount:
+          amount: 3.616076749251911
+          currency:
+            country: country
+            code: code
+            value: value
       properties:
         id:
           nullable: true
@@ -27292,6 +31432,12 @@ components:
           format: double
           type: number
         debit:
+          format: double
+          type: number
+        creditInUsd:
+          format: double
+          type: number
+        debitInUsd:
           format: double
           type: number
         currencyId:
@@ -27334,79 +31480,111 @@ components:
           $ref: '#/components/schemas/Money'
         debitAmount:
           $ref: '#/components/schemas/Money'
+        creditAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        debitAmountInUsd:
+          $ref: '#/components/schemas/Money'
       type: object
     JournalEntryDtoIReadOnlyListEnvelope:
       additionalProperties: false
       example:
         result:
         - date: 2000-01-23T04:56:07.000+00:00
-          enrollmentId: enrollmentId
-          forexRatesSnapshot: forexRatesSnapshot
           creditAccountName: creditAccountName
           journalName: journalName
           journalId: journalId
           description: description
+          journalCode: journalCode
+          id: id
+          creditInUsd: 5.962133916683182
+          credit: 6.027456183070403
+          debit: 1.4658129805029452
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          group: true
+          enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          creditAmountInUsd:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
           debitAccountId: debitAccountId
           debitAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
               value: value
           opening: true
           invoiceCode: invoiceCode
-          forexRate: 0.8008281904610115
-          tenantId: tenantId
-          journalCode: journalCode
-          debitAccountName: debitAccountName
-          id: id
-          creditAccountId: creditAccountId
-          credit: 6.027456183070403
-          debit: 1.4658129805029452
-          currencyId: currencyId
-          parentJournalEntryId: parentJournalEntryId
-          creditAmount:
-            amount: 5.637376656633329
+          debitInUsd: 5.637376656633329
+          debitAmountInUsd:
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
               value: value
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          group: true
+          forexRate: 0.8008281904610115
+          tenantId: tenantId
+          debitAccountName: debitAccountName
+          creditAccountId: creditAccountId
+          parentJournalEntryId: parentJournalEntryId
+          creditAmount:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
         - date: 2000-01-23T04:56:07.000+00:00
-          enrollmentId: enrollmentId
-          forexRatesSnapshot: forexRatesSnapshot
           creditAccountName: creditAccountName
           journalName: journalName
           journalId: journalId
           description: description
+          journalCode: journalCode
+          id: id
+          creditInUsd: 5.962133916683182
+          credit: 6.027456183070403
+          debit: 1.4658129805029452
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          group: true
+          enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          creditAmountInUsd:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
           debitAccountId: debitAccountId
           debitAmount:
-            amount: 5.637376656633329
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
               value: value
           opening: true
           invoiceCode: invoiceCode
-          forexRate: 0.8008281904610115
-          tenantId: tenantId
-          journalCode: journalCode
-          debitAccountName: debitAccountName
-          id: id
-          creditAccountId: creditAccountId
-          credit: 6.027456183070403
-          debit: 1.4658129805029452
-          currencyId: currencyId
-          parentJournalEntryId: parentJournalEntryId
-          creditAmount:
-            amount: 5.637376656633329
+          debitInUsd: 5.637376656633329
+          debitAmountInUsd:
+            amount: 3.616076749251911
             currency:
               country: country
               code: code
               value: value
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          group: true
+          forexRate: 0.8008281904610115
+          tenantId: tenantId
+          debitAccountName: debitAccountName
+          creditAccountId: creditAccountId
+          parentJournalEntryId: parentJournalEntryId
+          creditAmount:
+            amount: 3.616076749251911
+            currency:
+              country: country
+              code: code
+              value: value
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -28258,6 +32436,161 @@ components:
           nullable: true
           type: array
       type: object
+    LoanTypeCreateDto:
+      additionalProperties: false
+      example:
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 100
+          minLength: 0
+          type: string
+        description:
+          maxLength: 500
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    LoanTypeDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        name: name
+        tenantId: tenantId
+        description: description
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    LoanTypeDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/LoanTypeDto'
+      type: object
+    LoanTypeDtoIReadOnlyListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/LoanTypeDto'
+          nullable: true
+          type: array
+      type: object
+    LoanTypeUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        description: description
+      properties:
+        name:
+          maxLength: 100
+          minLength: 0
+          type: string
+        description:
+          maxLength: 500
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
     LoanUpdateDto:
       additionalProperties: false
       example:
@@ -28317,7 +32650,7 @@ components:
     Money:
       additionalProperties: false
       example:
-        amount: 5.637376656633329
+        amount: 3.616076749251911
         currency:
           country: country
           code: code
@@ -28328,6 +32661,41 @@ components:
           type: number
         currency:
           $ref: '#/components/schemas/CurrencyId'
+      type: object
+    MoneyEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          amount: 3.616076749251911
+          currency:
+            country: country
+            code: code
+            value: value
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/Money'
       type: object
     Operation:
       additionalProperties: false
@@ -29106,6 +33474,15 @@ components:
       - newPassword
       - resetCode
       type: object
+    SeedChartOfAccountsRequest:
+      additionalProperties: false
+      example:
+        fileUrl: fileUrl
+      properties:
+        fileUrl:
+          nullable: true
+          type: string
+      type: object
     ShareClassCreateDto:
       additionalProperties: false
       example:
@@ -29819,6 +34196,180 @@ components:
           nullable: true
           type: string
         shareTransferReasonId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    TaxClassCreateDto:
+      additionalProperties: false
+      example:
+        name: name
+        fiscalAuthorityId: fiscalAuthorityId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: Tax
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        type:
+          enum:
+          - Tax
+          - Withholding
+          type: string
+        fiscalAuthorityId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    TaxClassDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        name: name
+        tenantId: tenantId
+        fiscalAuthorityId: fiscalAuthorityId
+        id: id
+        type: Tax
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          enum:
+          - Tax
+          - Withholding
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        fiscalAuthorityId:
+          nullable: true
+          type: string
+      type: object
+    TaxClassDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          fiscalAuthorityId: fiscalAuthorityId
+          id: id
+          type: Tax
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/TaxClassDto'
+      type: object
+    TaxClassDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          fiscalAuthorityId: fiscalAuthorityId
+          id: id
+          type: Tax
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          fiscalAuthorityId: fiscalAuthorityId
+          id: id
+          type: Tax
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/TaxClassDto'
+          nullable: true
+          type: array
+      type: object
+    TaxClassUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        fiscalAuthorityId: fiscalAuthorityId
+        type: Tax
+      properties:
+        name:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        type:
+          enum:
+          - Tax
+          - Withholding
+          type: string
+        fiscalAuthorityId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -30713,10 +35264,6 @@ components:
           minLength: 0
           nullable: true
           type: string
-      type: object
-    TenantId:
-      additionalProperties: false
-      format: uuid
       type: object
     TransactionCategoryCreateDto:
       additionalProperties: false

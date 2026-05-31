@@ -2,7 +2,8 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_fenix_alliance_abs_web.go
+api_completions.go
+api_fenix_alliance_portals_website.go
 api_social_feeds.go
 api_social_groups.go
 api_social_posts.go
@@ -11,12 +12,13 @@ client.go
 configuration.go
 docs/AccessTokenResponse.md
 docs/BooleanEnvelope.md
+docs/CompletionsAPI.md
 docs/ConversationCreateDto.md
 docs/ConversationDto.md
 docs/ConversationDtoListEnvelope.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABSWebAPI.md
+docs/FenixAlliancePortalsWebsiteAPI.md
 docs/FollowRecordDto.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -26,6 +28,7 @@ docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
 docs/NotificationDto.md
+docs/NotificationDtoEnvelope.md
 docs/NotificationDtoListEnvelope.md
 docs/PrivateMessageCreateDto.md
 docs/PrivateMessageDto.md
@@ -96,6 +99,7 @@ model_info_response.go
 model_int32_envelope.go
 model_login_request.go
 model_notification_dto.go
+model_notification_dto_envelope.go
 model_notification_dto_list_envelope.go
 model_private_message_create_dto.go
 model_private_message_dto.go
@@ -144,5 +148,6 @@ model_social_reaction_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_fenix_alliance_abs_web_test.go
+test/api_completions_test.go
+test/api_fenix_alliance_portals_website_test.go
 utils.go

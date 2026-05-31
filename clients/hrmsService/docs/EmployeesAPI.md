@@ -1,6 +1,6 @@
 # \EmployeesAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -379,7 +379,7 @@ No authorization required
 
 ## UpdateEmployeeAsync
 
-> EmptyEnvelope UpdateEmployeeAsync(ctx, employeeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+> EmptyEnvelope UpdateEmployeeAsync(ctx, employeeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployeeProfileUpdateDto(employeeProfileUpdateDto).Execute()
 
 Update an employee
 
@@ -402,11 +402,11 @@ func main() {
 	employeeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+	employeeProfileUpdateDto := *openapiclient.NewEmployeeProfileUpdateDto() // EmployeeProfileUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmployeesAPI.UpdateEmployeeAsync(context.Background(), employeeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+	resp, r, err := apiClient.EmployeesAPI.UpdateEmployeeAsync(context.Background(), employeeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployeeProfileUpdateDto(employeeProfileUpdateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmployeesAPI.UpdateEmployeeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **body** | **map[string]interface{}** |  | 
+ **employeeProfileUpdateDto** | [**EmployeeProfileUpdateDto**](EmployeeProfileUpdateDto.md) |  | 
 
 ### Return type
 

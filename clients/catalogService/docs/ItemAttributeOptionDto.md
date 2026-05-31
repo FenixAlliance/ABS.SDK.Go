@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
+**ItemAttributeId** | Pointer to **NullableString** |  | [optional] 
 **BusinessID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -169,6 +170,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *ItemAttributeOptionDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetItemAttributeId
+
+`func (o *ItemAttributeOptionDto) GetItemAttributeId() string`
+
+GetItemAttributeId returns the ItemAttributeId field if non-nil, zero value otherwise.
+
+### GetItemAttributeIdOk
+
+`func (o *ItemAttributeOptionDto) GetItemAttributeIdOk() (*string, bool)`
+
+GetItemAttributeIdOk returns a tuple with the ItemAttributeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItemAttributeId
+
+`func (o *ItemAttributeOptionDto) SetItemAttributeId(v string)`
+
+SetItemAttributeId sets ItemAttributeId field to given value.
+
+### HasItemAttributeId
+
+`func (o *ItemAttributeOptionDto) HasItemAttributeId() bool`
+
+HasItemAttributeId returns a boolean if a field has been set.
+
+### SetItemAttributeIdNil
+
+`func (o *ItemAttributeOptionDto) SetItemAttributeIdNil(b bool)`
+
+ SetItemAttributeIdNil sets the value for ItemAttributeId to be an explicit nil
+
+### UnsetItemAttributeId
+`func (o *ItemAttributeOptionDto) UnsetItemAttributeId()`
+
+UnsetItemAttributeId ensures that no value is present for ItemAttributeId, not even an explicit nil
 ### GetBusinessID
 
 `func (o *ItemAttributeOptionDto) GetBusinessID() string`

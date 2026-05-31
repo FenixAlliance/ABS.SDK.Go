@@ -20,6 +20,10 @@ Name | Type | Description | Notes
 **AccountTypeId** | Pointer to **NullableString** |  | [optional] 
 **DebitsBalance** | Pointer to **float64** |  | [optional] 
 **CreditsBalance** | Pointer to **float64** |  | [optional] 
+**BalanceInUsd** | Pointer to **float64** |  | [optional] 
+**DebitsBalanceInUsd** | Pointer to **float64** |  | [optional] 
+**CreditsBalanceInUsd** | Pointer to **float64** |  | [optional] 
+**ForexRate** | Pointer to **float64** |  | [optional] 
 **ParentAccountId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
@@ -28,6 +32,9 @@ Name | Type | Description | Notes
 **BalanceAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
 **CreditsBalanceAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
 **DebitsBalanceAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
+**BalanceAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
+**DebitsBalanceAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
+**CreditsBalanceAmountInUsd** | Pointer to [**Money**](Money.md) |  | [optional] 
 
 ## Methods
 
@@ -558,6 +565,106 @@ SetCreditsBalance sets CreditsBalance field to given value.
 
 HasCreditsBalance returns a boolean if a field has been set.
 
+### GetBalanceInUsd
+
+`func (o *AccountDto) GetBalanceInUsd() float64`
+
+GetBalanceInUsd returns the BalanceInUsd field if non-nil, zero value otherwise.
+
+### GetBalanceInUsdOk
+
+`func (o *AccountDto) GetBalanceInUsdOk() (*float64, bool)`
+
+GetBalanceInUsdOk returns a tuple with the BalanceInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBalanceInUsd
+
+`func (o *AccountDto) SetBalanceInUsd(v float64)`
+
+SetBalanceInUsd sets BalanceInUsd field to given value.
+
+### HasBalanceInUsd
+
+`func (o *AccountDto) HasBalanceInUsd() bool`
+
+HasBalanceInUsd returns a boolean if a field has been set.
+
+### GetDebitsBalanceInUsd
+
+`func (o *AccountDto) GetDebitsBalanceInUsd() float64`
+
+GetDebitsBalanceInUsd returns the DebitsBalanceInUsd field if non-nil, zero value otherwise.
+
+### GetDebitsBalanceInUsdOk
+
+`func (o *AccountDto) GetDebitsBalanceInUsdOk() (*float64, bool)`
+
+GetDebitsBalanceInUsdOk returns a tuple with the DebitsBalanceInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDebitsBalanceInUsd
+
+`func (o *AccountDto) SetDebitsBalanceInUsd(v float64)`
+
+SetDebitsBalanceInUsd sets DebitsBalanceInUsd field to given value.
+
+### HasDebitsBalanceInUsd
+
+`func (o *AccountDto) HasDebitsBalanceInUsd() bool`
+
+HasDebitsBalanceInUsd returns a boolean if a field has been set.
+
+### GetCreditsBalanceInUsd
+
+`func (o *AccountDto) GetCreditsBalanceInUsd() float64`
+
+GetCreditsBalanceInUsd returns the CreditsBalanceInUsd field if non-nil, zero value otherwise.
+
+### GetCreditsBalanceInUsdOk
+
+`func (o *AccountDto) GetCreditsBalanceInUsdOk() (*float64, bool)`
+
+GetCreditsBalanceInUsdOk returns a tuple with the CreditsBalanceInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreditsBalanceInUsd
+
+`func (o *AccountDto) SetCreditsBalanceInUsd(v float64)`
+
+SetCreditsBalanceInUsd sets CreditsBalanceInUsd field to given value.
+
+### HasCreditsBalanceInUsd
+
+`func (o *AccountDto) HasCreditsBalanceInUsd() bool`
+
+HasCreditsBalanceInUsd returns a boolean if a field has been set.
+
+### GetForexRate
+
+`func (o *AccountDto) GetForexRate() float64`
+
+GetForexRate returns the ForexRate field if non-nil, zero value otherwise.
+
+### GetForexRateOk
+
+`func (o *AccountDto) GetForexRateOk() (*float64, bool)`
+
+GetForexRateOk returns a tuple with the ForexRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexRate
+
+`func (o *AccountDto) SetForexRate(v float64)`
+
+SetForexRate sets ForexRate field to given value.
+
+### HasForexRate
+
+`func (o *AccountDto) HasForexRate() bool`
+
+HasForexRate returns a boolean if a field has been set.
+
 ### GetParentAccountId
 
 `func (o *AccountDto) GetParentAccountId() string`
@@ -787,6 +894,81 @@ SetDebitsBalanceAmount sets DebitsBalanceAmount field to given value.
 `func (o *AccountDto) HasDebitsBalanceAmount() bool`
 
 HasDebitsBalanceAmount returns a boolean if a field has been set.
+
+### GetBalanceAmountInUsd
+
+`func (o *AccountDto) GetBalanceAmountInUsd() Money`
+
+GetBalanceAmountInUsd returns the BalanceAmountInUsd field if non-nil, zero value otherwise.
+
+### GetBalanceAmountInUsdOk
+
+`func (o *AccountDto) GetBalanceAmountInUsdOk() (*Money, bool)`
+
+GetBalanceAmountInUsdOk returns a tuple with the BalanceAmountInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBalanceAmountInUsd
+
+`func (o *AccountDto) SetBalanceAmountInUsd(v Money)`
+
+SetBalanceAmountInUsd sets BalanceAmountInUsd field to given value.
+
+### HasBalanceAmountInUsd
+
+`func (o *AccountDto) HasBalanceAmountInUsd() bool`
+
+HasBalanceAmountInUsd returns a boolean if a field has been set.
+
+### GetDebitsBalanceAmountInUsd
+
+`func (o *AccountDto) GetDebitsBalanceAmountInUsd() Money`
+
+GetDebitsBalanceAmountInUsd returns the DebitsBalanceAmountInUsd field if non-nil, zero value otherwise.
+
+### GetDebitsBalanceAmountInUsdOk
+
+`func (o *AccountDto) GetDebitsBalanceAmountInUsdOk() (*Money, bool)`
+
+GetDebitsBalanceAmountInUsdOk returns a tuple with the DebitsBalanceAmountInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDebitsBalanceAmountInUsd
+
+`func (o *AccountDto) SetDebitsBalanceAmountInUsd(v Money)`
+
+SetDebitsBalanceAmountInUsd sets DebitsBalanceAmountInUsd field to given value.
+
+### HasDebitsBalanceAmountInUsd
+
+`func (o *AccountDto) HasDebitsBalanceAmountInUsd() bool`
+
+HasDebitsBalanceAmountInUsd returns a boolean if a field has been set.
+
+### GetCreditsBalanceAmountInUsd
+
+`func (o *AccountDto) GetCreditsBalanceAmountInUsd() Money`
+
+GetCreditsBalanceAmountInUsd returns the CreditsBalanceAmountInUsd field if non-nil, zero value otherwise.
+
+### GetCreditsBalanceAmountInUsdOk
+
+`func (o *AccountDto) GetCreditsBalanceAmountInUsdOk() (*Money, bool)`
+
+GetCreditsBalanceAmountInUsdOk returns a tuple with the CreditsBalanceAmountInUsd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreditsBalanceAmountInUsd
+
+`func (o *AccountDto) SetCreditsBalanceAmountInUsd(v Money)`
+
+SetCreditsBalanceAmountInUsd sets CreditsBalanceAmountInUsd field to given value.
+
+### HasCreditsBalanceAmountInUsd
+
+`func (o *AccountDto) HasCreditsBalanceAmountInUsd() bool`
+
+HasCreditsBalanceAmountInUsd returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

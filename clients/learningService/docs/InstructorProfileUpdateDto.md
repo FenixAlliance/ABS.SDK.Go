@@ -4,15 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **NullableString** |  | [optional] 
-**Timestamp** | Pointer to **NullableTime** |  | [optional] 
-**Authorized** | Pointer to **bool** |  | [optional] 
+**Type** | Pointer to **NullableString** |  | [optional] 
+**ContactId** | Pointer to **NullableString** |  | [optional] 
 **About** | Pointer to **NullableString** |  | [optional] 
-**Verified** | Pointer to **bool** |  | [optional] 
-**Submitted** | Pointer to **bool** |  | [optional] 
 **AvatarUrl** | Pointer to **NullableString** |  | [optional] 
-**QualifiedName** | Pointer to **NullableString** |  | [optional] 
-**VerificationTimestamp** | Pointer to **time.Time** |  | [optional] 
 **Data** | Pointer to **NullableString** |  | [optional] 
 **DataLabel** | Pointer to **NullableString** |  | [optional] 
 **Data1** | Pointer to **NullableString** |  | [optional] 
@@ -33,6 +28,7 @@ Name | Type | Description | Notes
 **Data8Label** | Pointer to **NullableString** |  | [optional] 
 **Data9** | Pointer to **NullableString** |  | [optional] 
 **Data9Label** | Pointer to **NullableString** |  | [optional] 
+**Authorized** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -53,101 +49,76 @@ NewInstructorProfileUpdateDtoWithDefaults instantiates a new InstructorProfileUp
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetId
+### GetType
 
-`func (o *InstructorProfileUpdateDto) GetId() string`
+`func (o *InstructorProfileUpdateDto) GetType() string`
 
-GetId returns the Id field if non-nil, zero value otherwise.
+GetType returns the Type field if non-nil, zero value otherwise.
 
-### GetIdOk
+### GetTypeOk
 
-`func (o *InstructorProfileUpdateDto) GetIdOk() (*string, bool)`
+`func (o *InstructorProfileUpdateDto) GetTypeOk() (*string, bool)`
 
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetId
+### SetType
 
-`func (o *InstructorProfileUpdateDto) SetId(v string)`
+`func (o *InstructorProfileUpdateDto) SetType(v string)`
 
-SetId sets Id field to given value.
+SetType sets Type field to given value.
 
-### HasId
+### HasType
 
-`func (o *InstructorProfileUpdateDto) HasId() bool`
+`func (o *InstructorProfileUpdateDto) HasType() bool`
 
-HasId returns a boolean if a field has been set.
+HasType returns a boolean if a field has been set.
 
-### SetIdNil
+### SetTypeNil
 
-`func (o *InstructorProfileUpdateDto) SetIdNil(b bool)`
+`func (o *InstructorProfileUpdateDto) SetTypeNil(b bool)`
 
- SetIdNil sets the value for Id to be an explicit nil
+ SetTypeNil sets the value for Type to be an explicit nil
 
-### UnsetId
-`func (o *InstructorProfileUpdateDto) UnsetId()`
+### UnsetType
+`func (o *InstructorProfileUpdateDto) UnsetType()`
 
-UnsetId ensures that no value is present for Id, not even an explicit nil
-### GetTimestamp
+UnsetType ensures that no value is present for Type, not even an explicit nil
+### GetContactId
 
-`func (o *InstructorProfileUpdateDto) GetTimestamp() time.Time`
+`func (o *InstructorProfileUpdateDto) GetContactId() string`
 
-GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
+GetContactId returns the ContactId field if non-nil, zero value otherwise.
 
-### GetTimestampOk
+### GetContactIdOk
 
-`func (o *InstructorProfileUpdateDto) GetTimestampOk() (*time.Time, bool)`
+`func (o *InstructorProfileUpdateDto) GetContactIdOk() (*string, bool)`
 
-GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
+GetContactIdOk returns a tuple with the ContactId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTimestamp
+### SetContactId
 
-`func (o *InstructorProfileUpdateDto) SetTimestamp(v time.Time)`
+`func (o *InstructorProfileUpdateDto) SetContactId(v string)`
 
-SetTimestamp sets Timestamp field to given value.
+SetContactId sets ContactId field to given value.
 
-### HasTimestamp
+### HasContactId
 
-`func (o *InstructorProfileUpdateDto) HasTimestamp() bool`
+`func (o *InstructorProfileUpdateDto) HasContactId() bool`
 
-HasTimestamp returns a boolean if a field has been set.
+HasContactId returns a boolean if a field has been set.
 
-### SetTimestampNil
+### SetContactIdNil
 
-`func (o *InstructorProfileUpdateDto) SetTimestampNil(b bool)`
+`func (o *InstructorProfileUpdateDto) SetContactIdNil(b bool)`
 
- SetTimestampNil sets the value for Timestamp to be an explicit nil
+ SetContactIdNil sets the value for ContactId to be an explicit nil
 
-### UnsetTimestamp
-`func (o *InstructorProfileUpdateDto) UnsetTimestamp()`
+### UnsetContactId
+`func (o *InstructorProfileUpdateDto) UnsetContactId()`
 
-UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-### GetAuthorized
-
-`func (o *InstructorProfileUpdateDto) GetAuthorized() bool`
-
-GetAuthorized returns the Authorized field if non-nil, zero value otherwise.
-
-### GetAuthorizedOk
-
-`func (o *InstructorProfileUpdateDto) GetAuthorizedOk() (*bool, bool)`
-
-GetAuthorizedOk returns a tuple with the Authorized field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAuthorized
-
-`func (o *InstructorProfileUpdateDto) SetAuthorized(v bool)`
-
-SetAuthorized sets Authorized field to given value.
-
-### HasAuthorized
-
-`func (o *InstructorProfileUpdateDto) HasAuthorized() bool`
-
-HasAuthorized returns a boolean if a field has been set.
-
+UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
 ### GetAbout
 
 `func (o *InstructorProfileUpdateDto) GetAbout() string`
@@ -183,56 +154,6 @@ HasAbout returns a boolean if a field has been set.
 `func (o *InstructorProfileUpdateDto) UnsetAbout()`
 
 UnsetAbout ensures that no value is present for About, not even an explicit nil
-### GetVerified
-
-`func (o *InstructorProfileUpdateDto) GetVerified() bool`
-
-GetVerified returns the Verified field if non-nil, zero value otherwise.
-
-### GetVerifiedOk
-
-`func (o *InstructorProfileUpdateDto) GetVerifiedOk() (*bool, bool)`
-
-GetVerifiedOk returns a tuple with the Verified field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVerified
-
-`func (o *InstructorProfileUpdateDto) SetVerified(v bool)`
-
-SetVerified sets Verified field to given value.
-
-### HasVerified
-
-`func (o *InstructorProfileUpdateDto) HasVerified() bool`
-
-HasVerified returns a boolean if a field has been set.
-
-### GetSubmitted
-
-`func (o *InstructorProfileUpdateDto) GetSubmitted() bool`
-
-GetSubmitted returns the Submitted field if non-nil, zero value otherwise.
-
-### GetSubmittedOk
-
-`func (o *InstructorProfileUpdateDto) GetSubmittedOk() (*bool, bool)`
-
-GetSubmittedOk returns a tuple with the Submitted field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSubmitted
-
-`func (o *InstructorProfileUpdateDto) SetSubmitted(v bool)`
-
-SetSubmitted sets Submitted field to given value.
-
-### HasSubmitted
-
-`func (o *InstructorProfileUpdateDto) HasSubmitted() bool`
-
-HasSubmitted returns a boolean if a field has been set.
-
 ### GetAvatarUrl
 
 `func (o *InstructorProfileUpdateDto) GetAvatarUrl() string`
@@ -268,66 +189,6 @@ HasAvatarUrl returns a boolean if a field has been set.
 `func (o *InstructorProfileUpdateDto) UnsetAvatarUrl()`
 
 UnsetAvatarUrl ensures that no value is present for AvatarUrl, not even an explicit nil
-### GetQualifiedName
-
-`func (o *InstructorProfileUpdateDto) GetQualifiedName() string`
-
-GetQualifiedName returns the QualifiedName field if non-nil, zero value otherwise.
-
-### GetQualifiedNameOk
-
-`func (o *InstructorProfileUpdateDto) GetQualifiedNameOk() (*string, bool)`
-
-GetQualifiedNameOk returns a tuple with the QualifiedName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetQualifiedName
-
-`func (o *InstructorProfileUpdateDto) SetQualifiedName(v string)`
-
-SetQualifiedName sets QualifiedName field to given value.
-
-### HasQualifiedName
-
-`func (o *InstructorProfileUpdateDto) HasQualifiedName() bool`
-
-HasQualifiedName returns a boolean if a field has been set.
-
-### SetQualifiedNameNil
-
-`func (o *InstructorProfileUpdateDto) SetQualifiedNameNil(b bool)`
-
- SetQualifiedNameNil sets the value for QualifiedName to be an explicit nil
-
-### UnsetQualifiedName
-`func (o *InstructorProfileUpdateDto) UnsetQualifiedName()`
-
-UnsetQualifiedName ensures that no value is present for QualifiedName, not even an explicit nil
-### GetVerificationTimestamp
-
-`func (o *InstructorProfileUpdateDto) GetVerificationTimestamp() time.Time`
-
-GetVerificationTimestamp returns the VerificationTimestamp field if non-nil, zero value otherwise.
-
-### GetVerificationTimestampOk
-
-`func (o *InstructorProfileUpdateDto) GetVerificationTimestampOk() (*time.Time, bool)`
-
-GetVerificationTimestampOk returns a tuple with the VerificationTimestamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVerificationTimestamp
-
-`func (o *InstructorProfileUpdateDto) SetVerificationTimestamp(v time.Time)`
-
-SetVerificationTimestamp sets VerificationTimestamp field to given value.
-
-### HasVerificationTimestamp
-
-`func (o *InstructorProfileUpdateDto) HasVerificationTimestamp() bool`
-
-HasVerificationTimestamp returns a boolean if a field has been set.
-
 ### GetData
 
 `func (o *InstructorProfileUpdateDto) GetData() string`
@@ -1028,6 +889,31 @@ HasData9Label returns a boolean if a field has been set.
 `func (o *InstructorProfileUpdateDto) UnsetData9Label()`
 
 UnsetData9Label ensures that no value is present for Data9Label, not even an explicit nil
+### GetAuthorized
+
+`func (o *InstructorProfileUpdateDto) GetAuthorized() bool`
+
+GetAuthorized returns the Authorized field if non-nil, zero value otherwise.
+
+### GetAuthorizedOk
+
+`func (o *InstructorProfileUpdateDto) GetAuthorizedOk() (*bool, bool)`
+
+GetAuthorizedOk returns a tuple with the Authorized field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthorized
+
+`func (o *InstructorProfileUpdateDto) SetAuthorized(v bool)`
+
+SetAuthorized sets Authorized field to given value.
+
+### HasAuthorized
+
+`func (o *InstructorProfileUpdateDto) HasAuthorized() bool`
+
+HasAuthorized returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

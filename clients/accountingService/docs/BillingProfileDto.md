@@ -5,15 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
+**Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **ContactId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to **NullableString** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **About** | Pointer to **NullableString** |  | [optional] 
 **Verified** | Pointer to **bool** |  | [optional] 
 **Submitted** | Pointer to **bool** |  | [optional] 
 **AvatarUrl** | Pointer to **NullableString** |  | [optional] 
-**QualifiedName** | Pointer to **NullableString** |  | [optional] 
+**Contact** | Pointer to [**ContactDto**](ContactDto.md) |  | [optional] 
+**QualifiedName** | Pointer to **NullableString** |  | [optional] [readonly] 
 **VerificationTimestamp** | Pointer to **NullableTime** |  | [optional] 
 **Data** | Pointer to **NullableString** |  | [optional] 
 **DataLabel** | Pointer to **NullableString** |  | [optional] 
@@ -138,41 +140,16 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetTenantId
+### SetTimestampNil
 
-`func (o *BillingProfileDto) GetTenantId() string`
+`func (o *BillingProfileDto) SetTimestampNil(b bool)`
 
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
+ SetTimestampNil sets the value for Timestamp to be an explicit nil
 
-### GetTenantIdOk
+### UnsetTimestamp
+`func (o *BillingProfileDto) UnsetTimestamp()`
 
-`func (o *BillingProfileDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *BillingProfileDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *BillingProfileDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *BillingProfileDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *BillingProfileDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetContactId
 
 `func (o *BillingProfileDto) GetContactId() string`
@@ -208,6 +185,76 @@ HasContactId returns a boolean if a field has been set.
 `func (o *BillingProfileDto) UnsetContactId()`
 
 UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
+### GetTenantId
+
+`func (o *BillingProfileDto) GetTenantId() string`
+
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
+
+### GetTenantIdOk
+
+`func (o *BillingProfileDto) GetTenantIdOk() (*string, bool)`
+
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTenantId
+
+`func (o *BillingProfileDto) SetTenantId(v string)`
+
+SetTenantId sets TenantId field to given value.
+
+### HasTenantId
+
+`func (o *BillingProfileDto) HasTenantId() bool`
+
+HasTenantId returns a boolean if a field has been set.
+
+### SetTenantIdNil
+
+`func (o *BillingProfileDto) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *BillingProfileDto) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetType
+
+`func (o *BillingProfileDto) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *BillingProfileDto) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *BillingProfileDto) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *BillingProfileDto) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetTypeNil
+
+`func (o *BillingProfileDto) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *BillingProfileDto) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetEnrollmentId
 
 `func (o *BillingProfileDto) GetEnrollmentId() string`
@@ -363,6 +410,31 @@ HasAvatarUrl returns a boolean if a field has been set.
 `func (o *BillingProfileDto) UnsetAvatarUrl()`
 
 UnsetAvatarUrl ensures that no value is present for AvatarUrl, not even an explicit nil
+### GetContact
+
+`func (o *BillingProfileDto) GetContact() ContactDto`
+
+GetContact returns the Contact field if non-nil, zero value otherwise.
+
+### GetContactOk
+
+`func (o *BillingProfileDto) GetContactOk() (*ContactDto, bool)`
+
+GetContactOk returns a tuple with the Contact field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContact
+
+`func (o *BillingProfileDto) SetContact(v ContactDto)`
+
+SetContact sets Contact field to given value.
+
+### HasContact
+
+`func (o *BillingProfileDto) HasContact() bool`
+
+HasContact returns a boolean if a field has been set.
+
 ### GetQualifiedName
 
 `func (o *BillingProfileDto) GetQualifiedName() string`

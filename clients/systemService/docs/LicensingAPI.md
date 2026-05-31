@@ -1,6 +1,6 @@
 # \LicensingAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,8 +36,8 @@ import (
 )
 
 func main() {
-	licenseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	licenseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -68,8 +68,8 @@ Other parameters are passed through a pointer to a apiGetLicenseAssignmentsAsync
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -112,8 +112,8 @@ import (
 )
 
 func main() {
-	licenseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	licenseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -144,8 +144,8 @@ Other parameters are passed through a pointer to a apiGetLicenseAttributesAsyncR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -169,7 +169,7 @@ No authorization required
 
 ## GetLicenseByIdAsync
 
-> SuiteLicenseDtoEnvelope GetLicenseByIdAsync(ctx, licenseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SuiteLicenseDtoEnvelope GetLicenseByIdAsync(ctx, licenseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Retrieve a license by ID
 
@@ -188,13 +188,14 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	licenseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LicensingAPI.GetLicenseByIdAsync(context.Background(), licenseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.LicensingAPI.GetLicenseByIdAsync(context.Background(), licenseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LicensingAPI.GetLicenseByIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -219,6 +220,7 @@ Other parameters are passed through a pointer to a apiGetLicenseByIdAsyncRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -262,8 +264,8 @@ import (
 )
 
 func main() {
-	licenseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	licenseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -294,8 +296,8 @@ Other parameters are passed through a pointer to a apiGetLicenseFeaturesAsyncReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -338,8 +340,8 @@ import (
 )
 
 func main() {
-	licenseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	licenseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -370,8 +372,8 @@ Other parameters are passed through a pointer to a apiGetLicenseRecordsQuotaAsyn
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 

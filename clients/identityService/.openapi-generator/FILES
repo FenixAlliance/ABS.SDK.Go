@@ -4,7 +4,8 @@ README.md
 api/openapi.yaml
 api_applications.go
 api_checker.go
-api_fenix_alliance_abs_web.go
+api_completions.go
+api_fenix_alliance_portals_website.go
 api_o_auth.go
 api_resource.go
 api_user_info.go
@@ -13,10 +14,11 @@ configuration.go
 docs/AccessTokenResponse.md
 docs/ApplicationsAPI.md
 docs/AuthResult.md
-docs/AuthorizationResultEnvelope.md
+docs/AuthResultEnvelope.md
 docs/CheckerAPI.md
+docs/CompletionsAPI.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABSWebAPI.md
+docs/FenixAlliancePortalsWebsiteAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -49,8 +51,8 @@ git_push.sh
 go.mod
 go.sum
 model_access_token_response.go
-model_authorization_result.go
-model_authorization_result_envelope.go
+model_auth_result.go
+model_auth_result_envelope.go
 model_error_envelope.go
 model_forgot_password_request.go
 model_http_validation_problem_details.go
@@ -78,4 +80,6 @@ model_two_factor_response.go
 model_user_create_dto.go
 model_user_create_dto_envelope.go
 response.go
+test/api_completions_test.go
+test/api_fenix_alliance_portals_website_test.go
 utils.go

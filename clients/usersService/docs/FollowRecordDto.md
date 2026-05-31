@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
+**Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **Type** | Pointer to **NullableString** |  | [optional] 
 **FollowerId** | Pointer to **NullableString** |  | [optional] 
 **FollowedId** | Pointer to **NullableString** |  | [optional] 
@@ -64,6 +65,41 @@ HasId returns a boolean if a field has been set.
 `func (o *FollowRecordDto) UnsetId()`
 
 UnsetId ensures that no value is present for Id, not even an explicit nil
+### GetTimestamp
+
+`func (o *FollowRecordDto) GetTimestamp() time.Time`
+
+GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
+
+### GetTimestampOk
+
+`func (o *FollowRecordDto) GetTimestampOk() (*time.Time, bool)`
+
+GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimestamp
+
+`func (o *FollowRecordDto) SetTimestamp(v time.Time)`
+
+SetTimestamp sets Timestamp field to given value.
+
+### HasTimestamp
+
+`func (o *FollowRecordDto) HasTimestamp() bool`
+
+HasTimestamp returns a boolean if a field has been set.
+
+### SetTimestampNil
+
+`func (o *FollowRecordDto) SetTimestampNil(b bool)`
+
+ SetTimestampNil sets the value for Timestamp to be an explicit nil
+
+### UnsetTimestamp
+`func (o *FollowRecordDto) UnsetTimestamp()`
+
+UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetType
 
 `func (o *FollowRecordDto) GetType() string`

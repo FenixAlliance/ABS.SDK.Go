@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **CustomerNotes** | Pointer to **NullableString** |  | [optional] 
 **TaxCalculationMethod** | Pointer to **string** |  | [optional] 
 **ForexRate** | Pointer to **float64** |  | [optional] 
+**ForexRatesSnapshot** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TotalDetail** | Pointer to **float64** |  | [optional] 
 **TotalDetailCurrencyId** | Pointer to **NullableString** |  | [optional] 
@@ -995,6 +996,41 @@ SetForexRate sets ForexRate field to given value.
 
 HasForexRate returns a boolean if a field has been set.
 
+### GetForexRatesSnapshot
+
+`func (o *ExtendedOrderDto) GetForexRatesSnapshot() string`
+
+GetForexRatesSnapshot returns the ForexRatesSnapshot field if non-nil, zero value otherwise.
+
+### GetForexRatesSnapshotOk
+
+`func (o *ExtendedOrderDto) GetForexRatesSnapshotOk() (*string, bool)`
+
+GetForexRatesSnapshotOk returns a tuple with the ForexRatesSnapshot field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexRatesSnapshot
+
+`func (o *ExtendedOrderDto) SetForexRatesSnapshot(v string)`
+
+SetForexRatesSnapshot sets ForexRatesSnapshot field to given value.
+
+### HasForexRatesSnapshot
+
+`func (o *ExtendedOrderDto) HasForexRatesSnapshot() bool`
+
+HasForexRatesSnapshot returns a boolean if a field has been set.
+
+### SetForexRatesSnapshotNil
+
+`func (o *ExtendedOrderDto) SetForexRatesSnapshotNil(b bool)`
+
+ SetForexRatesSnapshotNil sets the value for ForexRatesSnapshot to be an explicit nil
+
+### UnsetForexRatesSnapshot
+`func (o *ExtendedOrderDto) UnsetForexRatesSnapshot()`
+
+UnsetForexRatesSnapshot ensures that no value is present for ForexRatesSnapshot, not even an explicit nil
 ### GetCurrencyId
 
 `func (o *ExtendedOrderDto) GetCurrencyId() string`

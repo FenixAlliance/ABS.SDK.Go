@@ -1,6 +1,6 @@
 # \OAuthAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -84,7 +84,7 @@ No authorization required
 
 ## Get
 
-> AuthorizationResultEnvelope Get(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AuthResultEnvelope Get(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get current user identity
 
@@ -114,7 +114,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `OAuthAPI.Get``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `Get`: AuthorizationResultEnvelope
+	// response from `Get`: AuthResultEnvelope
 	fmt.Fprintf(os.Stdout, "Response from `OAuthAPI.Get`: %v\n", resp)
 }
 ```
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthorizationResultEnvelope**](AuthorizationResultEnvelope.md)
+[**AuthResultEnvelope**](AuthResultEnvelope.md)
 
 ### Authorization
 

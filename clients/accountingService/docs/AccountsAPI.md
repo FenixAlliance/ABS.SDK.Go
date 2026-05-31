@@ -1,9 +1,10 @@
 # \AccountsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AggregateAccountsBalanceAsync**](AccountsAPI.md#AggregateAccountsBalanceAsync) | **Get** /api/v2/AccountingService/Accounts/Aggregate/Balance | Aggregate accounts balance
 [**BalanceAccountAsync**](AccountsAPI.md#BalanceAccountAsync) | **Post** /api/v2/AccountingService/Accounts/{accountId}/Balance | Balance account
 [**BalanceRootAccountAsync**](AccountsAPI.md#BalanceRootAccountAsync) | **Post** /api/v2/AccountingService/Accounts/Root/Balance | Balance root account
 [**CreateAccountAsync**](AccountsAPI.md#CreateAccountAsync) | **Post** /api/v2/AccountingService/Accounts | Get root accounts
@@ -26,20 +27,95 @@ Method | HTTP request | Description
 [**GetAccountEntryAsync**](AccountsAPI.md#GetAccountEntryAsync) | **Get** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Get account entry
 [**GetAccountRelationsAsync**](AccountsAPI.md#GetAccountRelationsAsync) | **Get** /api/v2/AccountingService/Accounts/Relations | Get account relations
 [**GetAccountRelationsCountAsync**](AccountsAPI.md#GetAccountRelationsCountAsync) | **Get** /api/v2/AccountingService/Accounts/Relations/Count | Get account relations count
+[**GetAccountTypeByIdAsync**](AccountsAPI.md#GetAccountTypeByIdAsync) | **Get** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Get account type by ID
 [**GetAccountTypesAsync**](AccountsAPI.md#GetAccountTypesAsync) | **Get** /api/v2/AccountingService/Accounts/Types | Get account types
 [**GetAccountTypesCountAsync**](AccountsAPI.md#GetAccountTypesCountAsync) | **Get** /api/v2/AccountingService/Accounts/Types/Count | Get account types count
 [**GetAccountsAsync**](AccountsAPI.md#GetAccountsAsync) | **Get** /api/v2/AccountingService/Accounts | Creates a new account
 [**GetAccountsCountAsync**](AccountsAPI.md#GetAccountsCountAsync) | **Get** /api/v2/AccountingService/Accounts/Count | Get the number of accounts
+[**GetChartsOfAccountsAsync**](AccountsAPI.md#GetChartsOfAccountsAsync) | **Get** /api/v2/AccountingService/Accounts/ChartsOfAccounts | Get charts of accounts
 [**GetChildAccountsAsync**](AccountsAPI.md#GetChildAccountsAsync) | **Get** /api/v2/AccountingService/Accounts/{accountId}/Children | Get child accounts
 [**GetCreditAccountEntriesAsync**](AccountsAPI.md#GetCreditAccountEntriesAsync) | **Get** /api/v2/AccountingService/Accounts/{accountId}/Entries/Credit | Get credit account entries
 [**GetDebitAccountEntriesAsync**](AccountsAPI.md#GetDebitAccountEntriesAsync) | **Get** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries
 [**GetRootAccountsAsync**](AccountsAPI.md#GetRootAccountsAsync) | **Get** /api/v2/AccountingService/Accounts/Root | Get root accounts
 [**PatchAccountAsync**](AccountsAPI.md#PatchAccountAsync) | **Patch** /api/v2/AccountingService/Accounts/{accountId} | Patch an account
+[**SeedChartOfAccountsAsync**](AccountsAPI.md#SeedChartOfAccountsAsync) | **Post** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts
 [**UpdateAccountAsync**](AccountsAPI.md#UpdateAccountAsync) | **Put** /api/v2/AccountingService/Accounts/{accountId} | Update an account
 [**UpdateAccountEntryAsync**](AccountsAPI.md#UpdateAccountEntryAsync) | **Put** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry
 [**UpdateAccountRelationAsync**](AccountsAPI.md#UpdateAccountRelationAsync) | **Put** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Update account relation
 [**UpdateAccountTypeAsync**](AccountsAPI.md#UpdateAccountTypeAsync) | **Put** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Update account type
 
+
+
+## AggregateAccountsBalanceAsync
+
+> MoneyEnvelope AggregateAccountsBalanceAsync(ctx).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Aggregate accounts balance
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	currencyId := "currencyId_example" // string |  (optional)
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountsAPI.AggregateAccountsBalanceAsync(context.Background()).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.AggregateAccountsBalanceAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AggregateAccountsBalanceAsync`: MoneyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.AggregateAccountsBalanceAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAggregateAccountsBalanceAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **currencyId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## BalanceAccountAsync
@@ -570,7 +646,7 @@ No authorization required
 
 ## CreateAccountTypeAsync
 
-> EmptyEnvelope CreateAccountTypeAsync(ctx).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeCreateDto(accountTypeCreateDto).Execute()
+> EmptyEnvelope CreateAccountTypeAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeCreateDto(accountTypeCreateDto).Execute()
 
 Create account type
 
@@ -590,14 +666,13 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	accountTypeCreateDto := *openapiclient.NewAccountTypeCreateDto() // AccountTypeCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.CreateAccountTypeAsync(context.Background()).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeCreateDto(accountTypeCreateDto).Execute()
+	resp, r, err := apiClient.AccountsAPI.CreateAccountTypeAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeCreateDto(accountTypeCreateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.CreateAccountTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -619,7 +694,6 @@ Other parameters are passed through a pointer to a apiCreateAccountTypeAsyncRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
- **accountId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **accountTypeCreateDto** | [**AccountTypeCreateDto**](AccountTypeCreateDto.md) |  | 
@@ -877,7 +951,7 @@ No authorization required
 
 ## DeleteAccountTypeAsync
 
-> EmptyEnvelope DeleteAccountTypeAsync(ctx, accountTypeId).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope DeleteAccountTypeAsync(ctx, accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Delete account type
 
@@ -898,13 +972,12 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	accountTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.DeleteAccountTypeAsync(context.Background(), accountTypeId).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.DeleteAccountTypeAsync(context.Background(), accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DeleteAccountTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -931,7 +1004,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **accountId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -1706,11 +1778,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetAccountTypesAsync
+## GetAccountTypeByIdAsync
 
-> AccountTypeDtoListEnvelope GetAccountTypesAsync(ctx).TenantId(tenantId).AccountTypeId(accountTypeId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountTypeDtoEnvelope GetAccountTypeByIdAsync(ctx, accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
-Get account types
+Get account type by ID
 
 
 
@@ -1734,7 +1806,82 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountTypesAsync(context.Background()).TenantId(tenantId).AccountTypeId(accountTypeId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountTypeByIdAsync(context.Background(), accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountTypeByIdAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAccountTypeByIdAsync`: AccountTypeDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.GetAccountTypeByIdAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAccountTypeByIdAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**AccountTypeDtoEnvelope**](AccountTypeDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAccountTypesAsync
+
+> AccountTypeDtoListEnvelope GetAccountTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get account types
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountsAPI.GetAccountTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountTypesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1756,7 +1903,6 @@ Other parameters are passed through a pointer to a apiGetAccountTypesAsyncReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
- **accountTypeId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -1780,7 +1926,7 @@ No authorization required
 
 ## GetAccountTypesCountAsync
 
-> Int32Envelope GetAccountTypesCountAsync(ctx).TenantId(tenantId).AccountTypeId(accountTypeId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetAccountTypesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get account types count
 
@@ -1800,13 +1946,12 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	accountTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountTypesCountAsync(context.Background()).TenantId(tenantId).AccountTypeId(accountTypeId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountTypesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountTypesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1828,7 +1973,6 @@ Other parameters are passed through a pointer to a apiGetAccountTypesCountAsyncR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
- **accountTypeId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -1975,6 +2119,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetChartsOfAccountsAsync
+
+> ChartOfAccountsListEnvelope GetChartsOfAccountsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get charts of accounts
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountsAPI.GetChartsOfAccountsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetChartsOfAccountsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetChartsOfAccountsAsync`: ChartOfAccountsListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.GetChartsOfAccountsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetChartsOfAccountsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**ChartOfAccountsListEnvelope**](ChartOfAccountsListEnvelope.md)
 
 ### Authorization
 
@@ -2366,6 +2578,78 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## SeedChartOfAccountsAsync
+
+> EmptyEnvelope SeedChartOfAccountsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SeedChartOfAccountsRequest(seedChartOfAccountsRequest).Execute()
+
+Seed chart of accounts
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	seedChartOfAccountsRequest := *openapiclient.NewSeedChartOfAccountsRequest() // SeedChartOfAccountsRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountsAPI.SeedChartOfAccountsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SeedChartOfAccountsRequest(seedChartOfAccountsRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.SeedChartOfAccountsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SeedChartOfAccountsAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.SeedChartOfAccountsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSeedChartOfAccountsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **seedChartOfAccountsRequest** | [**SeedChartOfAccountsRequest**](SeedChartOfAccountsRequest.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateAccountAsync
 
 > AccountDtoEnvelope UpdateAccountAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountUpdateDto(accountUpdateDto).Execute()
@@ -2607,7 +2891,7 @@ No authorization required
 
 ## UpdateAccountTypeAsync
 
-> EmptyEnvelope UpdateAccountTypeAsync(ctx, accountTypeId).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeUpdateDto(accountTypeUpdateDto).Execute()
+> EmptyEnvelope UpdateAccountTypeAsync(ctx, accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeUpdateDto(accountTypeUpdateDto).Execute()
 
 Update account type
 
@@ -2628,14 +2912,13 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	accountTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	accountTypeUpdateDto := *openapiclient.NewAccountTypeUpdateDto() // AccountTypeUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.UpdateAccountTypeAsync(context.Background(), accountTypeId).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeUpdateDto(accountTypeUpdateDto).Execute()
+	resp, r, err := apiClient.AccountsAPI.UpdateAccountTypeAsync(context.Background(), accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeUpdateDto(accountTypeUpdateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.UpdateAccountTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2662,7 +2945,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **accountId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **accountTypeUpdateDto** | [**AccountTypeUpdateDto**](AccountTypeUpdateDto.md) |  | 

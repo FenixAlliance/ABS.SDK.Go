@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] 
+**Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **BusinessName** | Pointer to **NullableString** |  | [optional] 
 **BusinessProfileRecordId** | Pointer to **NullableString** |  | [optional] 
@@ -114,6 +114,16 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
+### SetTimestampNil
+
+`func (o *AssetDto) SetTimestampNil(b bool)`
+
+ SetTimestampNil sets the value for Timestamp to be an explicit nil
+
+### UnsetTimestamp
+`func (o *AssetDto) UnsetTimestamp()`
+
+UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetTenantId
 
 `func (o *AssetDto) GetTenantId() string`

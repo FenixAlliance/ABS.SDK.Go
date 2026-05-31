@@ -5,12 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
+**Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **TrackingCode** | Pointer to **NullableString** |  | [optional] 
 **IsInternational** | Pointer to **bool** |  | [optional] 
+**Shipped** | Pointer to **bool** |  | [optional] 
+**Delivered** | Pointer to **bool** |  | [optional] 
 **ShipmentTimestamp** | Pointer to **time.Time** |  | [optional] 
 **DeliveryTimestamp** | Pointer to **time.Time** |  | [optional] 
 **ExpectedShippingDate** | Pointer to **time.Time** |  | [optional] 
 **ExpectedDeliveryDate** | Pointer to **time.Time** |  | [optional] 
+**ShippingTerms** | Pointer to **string** |  | [optional] 
+**OrderID** | Pointer to **NullableString** |  | [optional] 
+**BusinessID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -66,6 +72,41 @@ HasId returns a boolean if a field has been set.
 `func (o *ShipmentDto) UnsetId()`
 
 UnsetId ensures that no value is present for Id, not even an explicit nil
+### GetTimestamp
+
+`func (o *ShipmentDto) GetTimestamp() time.Time`
+
+GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
+
+### GetTimestampOk
+
+`func (o *ShipmentDto) GetTimestampOk() (*time.Time, bool)`
+
+GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimestamp
+
+`func (o *ShipmentDto) SetTimestamp(v time.Time)`
+
+SetTimestamp sets Timestamp field to given value.
+
+### HasTimestamp
+
+`func (o *ShipmentDto) HasTimestamp() bool`
+
+HasTimestamp returns a boolean if a field has been set.
+
+### SetTimestampNil
+
+`func (o *ShipmentDto) SetTimestampNil(b bool)`
+
+ SetTimestampNil sets the value for Timestamp to be an explicit nil
+
+### UnsetTimestamp
+`func (o *ShipmentDto) UnsetTimestamp()`
+
+UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetTrackingCode
 
 `func (o *ShipmentDto) GetTrackingCode() string`
@@ -125,6 +166,56 @@ SetIsInternational sets IsInternational field to given value.
 `func (o *ShipmentDto) HasIsInternational() bool`
 
 HasIsInternational returns a boolean if a field has been set.
+
+### GetShipped
+
+`func (o *ShipmentDto) GetShipped() bool`
+
+GetShipped returns the Shipped field if non-nil, zero value otherwise.
+
+### GetShippedOk
+
+`func (o *ShipmentDto) GetShippedOk() (*bool, bool)`
+
+GetShippedOk returns a tuple with the Shipped field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShipped
+
+`func (o *ShipmentDto) SetShipped(v bool)`
+
+SetShipped sets Shipped field to given value.
+
+### HasShipped
+
+`func (o *ShipmentDto) HasShipped() bool`
+
+HasShipped returns a boolean if a field has been set.
+
+### GetDelivered
+
+`func (o *ShipmentDto) GetDelivered() bool`
+
+GetDelivered returns the Delivered field if non-nil, zero value otherwise.
+
+### GetDeliveredOk
+
+`func (o *ShipmentDto) GetDeliveredOk() (*bool, bool)`
+
+GetDeliveredOk returns a tuple with the Delivered field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDelivered
+
+`func (o *ShipmentDto) SetDelivered(v bool)`
+
+SetDelivered sets Delivered field to given value.
+
+### HasDelivered
+
+`func (o *ShipmentDto) HasDelivered() bool`
+
+HasDelivered returns a boolean if a field has been set.
 
 ### GetShipmentTimestamp
 
@@ -226,6 +317,101 @@ SetExpectedDeliveryDate sets ExpectedDeliveryDate field to given value.
 
 HasExpectedDeliveryDate returns a boolean if a field has been set.
 
+### GetShippingTerms
+
+`func (o *ShipmentDto) GetShippingTerms() string`
+
+GetShippingTerms returns the ShippingTerms field if non-nil, zero value otherwise.
+
+### GetShippingTermsOk
+
+`func (o *ShipmentDto) GetShippingTermsOk() (*string, bool)`
+
+GetShippingTermsOk returns a tuple with the ShippingTerms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShippingTerms
+
+`func (o *ShipmentDto) SetShippingTerms(v string)`
+
+SetShippingTerms sets ShippingTerms field to given value.
+
+### HasShippingTerms
+
+`func (o *ShipmentDto) HasShippingTerms() bool`
+
+HasShippingTerms returns a boolean if a field has been set.
+
+### GetOrderID
+
+`func (o *ShipmentDto) GetOrderID() string`
+
+GetOrderID returns the OrderID field if non-nil, zero value otherwise.
+
+### GetOrderIDOk
+
+`func (o *ShipmentDto) GetOrderIDOk() (*string, bool)`
+
+GetOrderIDOk returns a tuple with the OrderID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrderID
+
+`func (o *ShipmentDto) SetOrderID(v string)`
+
+SetOrderID sets OrderID field to given value.
+
+### HasOrderID
+
+`func (o *ShipmentDto) HasOrderID() bool`
+
+HasOrderID returns a boolean if a field has been set.
+
+### SetOrderIDNil
+
+`func (o *ShipmentDto) SetOrderIDNil(b bool)`
+
+ SetOrderIDNil sets the value for OrderID to be an explicit nil
+
+### UnsetOrderID
+`func (o *ShipmentDto) UnsetOrderID()`
+
+UnsetOrderID ensures that no value is present for OrderID, not even an explicit nil
+### GetBusinessID
+
+`func (o *ShipmentDto) GetBusinessID() string`
+
+GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+
+### GetBusinessIDOk
+
+`func (o *ShipmentDto) GetBusinessIDOk() (*string, bool)`
+
+GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessID
+
+`func (o *ShipmentDto) SetBusinessID(v string)`
+
+SetBusinessID sets BusinessID field to given value.
+
+### HasBusinessID
+
+`func (o *ShipmentDto) HasBusinessID() bool`
+
+HasBusinessID returns a boolean if a field has been set.
+
+### SetBusinessIDNil
+
+`func (o *ShipmentDto) SetBusinessIDNil(b bool)`
+
+ SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+
+### UnsetBusinessID
+`func (o *ShipmentDto) UnsetBusinessID()`
+
+UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

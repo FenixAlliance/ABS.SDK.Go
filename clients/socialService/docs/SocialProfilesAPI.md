@@ -1,6 +1,6 @@
 # \SocialProfilesAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**GetFollowersAsync**](SocialProfilesAPI.md#GetFollowersAsync) | **Get** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers | Get Followers
 [**GetFollowsAsync**](SocialProfilesAPI.md#GetFollowsAsync) | **Get** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows | Get Follows
 [**GetMessagesAsync**](SocialProfilesAPI.md#GetMessagesAsync) | **Get** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages
+[**GetNotificationByIdAsync**](SocialProfilesAPI.md#GetNotificationByIdAsync) | **Get** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification
 [**GetNotificationsAsync**](SocialProfilesAPI.md#GetNotificationsAsync) | **Get** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications
 [**GetSocialProfileAsync**](SocialProfilesAPI.md#GetSocialProfileAsync) | **Get** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile
 [**GetSocialProfilesAsync**](SocialProfilesAPI.md#GetSocialProfilesAsync) | **Get** /api/v2/SocialService/SocialProfiles | Get Social Profiles
@@ -403,7 +404,7 @@ No authorization required
 
 ## CountMessagesAsync
 
-> Int32Envelope CountMessagesAsync(ctx, conversationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountMessagesAsync(ctx, conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Count Messages
 
@@ -422,13 +423,14 @@ import (
 )
 
 func main() {
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	conversationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.CountMessagesAsync(context.Background(), conversationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.CountMessagesAsync(context.Background(), conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.CountMessagesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -453,6 +455,7 @@ Other parameters are passed through a pointer to a apiCountMessagesAsyncRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **socialProfileId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -1376,7 +1379,7 @@ No authorization required
 
 ## GetMessagesAsync
 
-> PrivateMessageDtoListEnvelope GetMessagesAsync(ctx, conversationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> PrivateMessageDtoListEnvelope GetMessagesAsync(ctx, conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get Messages
 
@@ -1395,13 +1398,14 @@ import (
 )
 
 func main() {
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	conversationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.GetMessagesAsync(context.Background(), conversationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.GetMessagesAsync(context.Background(), conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetMessagesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1426,6 +1430,7 @@ Other parameters are passed through a pointer to a apiGetMessagesAsyncRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **socialProfileId** | **string** |  | 
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
@@ -1433,6 +1438,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PrivateMessageDtoListEnvelope**](PrivateMessageDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetNotificationByIdAsync
+
+> NotificationDtoEnvelope GetNotificationByIdAsync(ctx, socialProfileId, notificationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get Notification
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	notificationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialProfilesAPI.GetNotificationByIdAsync(context.Background(), socialProfileId, notificationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetNotificationByIdAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationByIdAsync`: NotificationDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialProfilesAPI.GetNotificationByIdAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialProfileId** | **string** |  | 
+**notificationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetNotificationByIdAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**NotificationDtoEnvelope**](NotificationDtoEnvelope.md)
 
 ### Authorization
 

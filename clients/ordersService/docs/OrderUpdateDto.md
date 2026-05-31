@@ -4,6 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Closed** | Pointer to **bool** |  | [optional] 
+**Title** | Pointer to **NullableString** |  | [optional] 
+**UserId** | Pointer to **NullableString** |  | [optional] 
+**PriceListId** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
+**IndividualId** | Pointer to **NullableString** |  | [optional] 
+**PaymentTermId** | Pointer to **NullableString** |  | [optional] 
+**OrganizationId** | Pointer to **NullableString** |  | [optional] 
+**ReceiverTenantId** | Pointer to **NullableString** |  | [optional] 
 **FirstName** | Pointer to **NullableString** |  | [optional] 
 **LastName** | Pointer to **NullableString** |  | [optional] 
 **CompanyName** | Pointer to **NullableString** |  | [optional] 
@@ -17,6 +26,8 @@ Name | Type | Description | Notes
 **BillingLocationId** | Pointer to **NullableString** |  | [optional] 
 **ShippingLocationId** | Pointer to **NullableString** |  | [optional] 
 **ShippingMethodId** | Pointer to **NullableString** |  | [optional] 
+**ForexRate** | Pointer to **float64** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TotalDetail** | Pointer to **float64** |  | [optional] 
 **TotalDetailCurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TotalProfit** | Pointer to **float64** |  | [optional] 
@@ -44,22 +55,11 @@ Name | Type | Description | Notes
 **CostCalculationMethod** | Pointer to **string** |  | [optional] 
 **TaxCalculationMethod** | Pointer to **string** |  | [optional] 
 **CartId** | Pointer to **NullableString** |  | [optional] 
-**UserId** | Pointer to **NullableString** |  | [optional] 
-**ForexRate** | Pointer to **float64** |  | [optional] 
-**CurrencyId** | Pointer to **NullableString** |  | [optional] 
-**IndividualId** | Pointer to **NullableString** |  | [optional] 
-**OrganizationId** | Pointer to **NullableString** |  | [optional] 
 **TotalAmountInUsd** | Pointer to **float64** |  | [optional] 
 **TotalTaxesInUsd** | Pointer to **float64** |  | [optional] 
-**ReceiverTenantId** | Pointer to **NullableString** |  | [optional] 
-**Closed** | Pointer to **bool** |  | [optional] 
-**PriceListId** | Pointer to **NullableString** |  | [optional] 
-**PaymentTermId** | Pointer to **NullableString** |  | [optional] 
 **QuoteStatus** | Pointer to **NullableString** |  | [optional] 
 **EffectiveTo** | Pointer to **NullableTime** |  | [optional] 
 **EffectiveFrom** | Pointer to **NullableTime** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Title** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -80,6 +80,311 @@ NewOrderUpdateDtoWithDefaults instantiates a new OrderUpdateDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetClosed
+
+`func (o *OrderUpdateDto) GetClosed() bool`
+
+GetClosed returns the Closed field if non-nil, zero value otherwise.
+
+### GetClosedOk
+
+`func (o *OrderUpdateDto) GetClosedOk() (*bool, bool)`
+
+GetClosedOk returns a tuple with the Closed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClosed
+
+`func (o *OrderUpdateDto) SetClosed(v bool)`
+
+SetClosed sets Closed field to given value.
+
+### HasClosed
+
+`func (o *OrderUpdateDto) HasClosed() bool`
+
+HasClosed returns a boolean if a field has been set.
+
+### GetTitle
+
+`func (o *OrderUpdateDto) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *OrderUpdateDto) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *OrderUpdateDto) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *OrderUpdateDto) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### SetTitleNil
+
+`func (o *OrderUpdateDto) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *OrderUpdateDto) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
+### GetUserId
+
+`func (o *OrderUpdateDto) GetUserId() string`
+
+GetUserId returns the UserId field if non-nil, zero value otherwise.
+
+### GetUserIdOk
+
+`func (o *OrderUpdateDto) GetUserIdOk() (*string, bool)`
+
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserId
+
+`func (o *OrderUpdateDto) SetUserId(v string)`
+
+SetUserId sets UserId field to given value.
+
+### HasUserId
+
+`func (o *OrderUpdateDto) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
+
+### SetUserIdNil
+
+`func (o *OrderUpdateDto) SetUserIdNil(b bool)`
+
+ SetUserIdNil sets the value for UserId to be an explicit nil
+
+### UnsetUserId
+`func (o *OrderUpdateDto) UnsetUserId()`
+
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
+### GetPriceListId
+
+`func (o *OrderUpdateDto) GetPriceListId() string`
+
+GetPriceListId returns the PriceListId field if non-nil, zero value otherwise.
+
+### GetPriceListIdOk
+
+`func (o *OrderUpdateDto) GetPriceListIdOk() (*string, bool)`
+
+GetPriceListIdOk returns a tuple with the PriceListId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPriceListId
+
+`func (o *OrderUpdateDto) SetPriceListId(v string)`
+
+SetPriceListId sets PriceListId field to given value.
+
+### HasPriceListId
+
+`func (o *OrderUpdateDto) HasPriceListId() bool`
+
+HasPriceListId returns a boolean if a field has been set.
+
+### SetPriceListIdNil
+
+`func (o *OrderUpdateDto) SetPriceListIdNil(b bool)`
+
+ SetPriceListIdNil sets the value for PriceListId to be an explicit nil
+
+### UnsetPriceListId
+`func (o *OrderUpdateDto) UnsetPriceListId()`
+
+UnsetPriceListId ensures that no value is present for PriceListId, not even an explicit nil
+### GetDescription
+
+`func (o *OrderUpdateDto) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *OrderUpdateDto) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *OrderUpdateDto) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *OrderUpdateDto) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *OrderUpdateDto) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *OrderUpdateDto) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetIndividualId
+
+`func (o *OrderUpdateDto) GetIndividualId() string`
+
+GetIndividualId returns the IndividualId field if non-nil, zero value otherwise.
+
+### GetIndividualIdOk
+
+`func (o *OrderUpdateDto) GetIndividualIdOk() (*string, bool)`
+
+GetIndividualIdOk returns a tuple with the IndividualId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIndividualId
+
+`func (o *OrderUpdateDto) SetIndividualId(v string)`
+
+SetIndividualId sets IndividualId field to given value.
+
+### HasIndividualId
+
+`func (o *OrderUpdateDto) HasIndividualId() bool`
+
+HasIndividualId returns a boolean if a field has been set.
+
+### SetIndividualIdNil
+
+`func (o *OrderUpdateDto) SetIndividualIdNil(b bool)`
+
+ SetIndividualIdNil sets the value for IndividualId to be an explicit nil
+
+### UnsetIndividualId
+`func (o *OrderUpdateDto) UnsetIndividualId()`
+
+UnsetIndividualId ensures that no value is present for IndividualId, not even an explicit nil
+### GetPaymentTermId
+
+`func (o *OrderUpdateDto) GetPaymentTermId() string`
+
+GetPaymentTermId returns the PaymentTermId field if non-nil, zero value otherwise.
+
+### GetPaymentTermIdOk
+
+`func (o *OrderUpdateDto) GetPaymentTermIdOk() (*string, bool)`
+
+GetPaymentTermIdOk returns a tuple with the PaymentTermId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentTermId
+
+`func (o *OrderUpdateDto) SetPaymentTermId(v string)`
+
+SetPaymentTermId sets PaymentTermId field to given value.
+
+### HasPaymentTermId
+
+`func (o *OrderUpdateDto) HasPaymentTermId() bool`
+
+HasPaymentTermId returns a boolean if a field has been set.
+
+### SetPaymentTermIdNil
+
+`func (o *OrderUpdateDto) SetPaymentTermIdNil(b bool)`
+
+ SetPaymentTermIdNil sets the value for PaymentTermId to be an explicit nil
+
+### UnsetPaymentTermId
+`func (o *OrderUpdateDto) UnsetPaymentTermId()`
+
+UnsetPaymentTermId ensures that no value is present for PaymentTermId, not even an explicit nil
+### GetOrganizationId
+
+`func (o *OrderUpdateDto) GetOrganizationId() string`
+
+GetOrganizationId returns the OrganizationId field if non-nil, zero value otherwise.
+
+### GetOrganizationIdOk
+
+`func (o *OrderUpdateDto) GetOrganizationIdOk() (*string, bool)`
+
+GetOrganizationIdOk returns a tuple with the OrganizationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrganizationId
+
+`func (o *OrderUpdateDto) SetOrganizationId(v string)`
+
+SetOrganizationId sets OrganizationId field to given value.
+
+### HasOrganizationId
+
+`func (o *OrderUpdateDto) HasOrganizationId() bool`
+
+HasOrganizationId returns a boolean if a field has been set.
+
+### SetOrganizationIdNil
+
+`func (o *OrderUpdateDto) SetOrganizationIdNil(b bool)`
+
+ SetOrganizationIdNil sets the value for OrganizationId to be an explicit nil
+
+### UnsetOrganizationId
+`func (o *OrderUpdateDto) UnsetOrganizationId()`
+
+UnsetOrganizationId ensures that no value is present for OrganizationId, not even an explicit nil
+### GetReceiverTenantId
+
+`func (o *OrderUpdateDto) GetReceiverTenantId() string`
+
+GetReceiverTenantId returns the ReceiverTenantId field if non-nil, zero value otherwise.
+
+### GetReceiverTenantIdOk
+
+`func (o *OrderUpdateDto) GetReceiverTenantIdOk() (*string, bool)`
+
+GetReceiverTenantIdOk returns a tuple with the ReceiverTenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReceiverTenantId
+
+`func (o *OrderUpdateDto) SetReceiverTenantId(v string)`
+
+SetReceiverTenantId sets ReceiverTenantId field to given value.
+
+### HasReceiverTenantId
+
+`func (o *OrderUpdateDto) HasReceiverTenantId() bool`
+
+HasReceiverTenantId returns a boolean if a field has been set.
+
+### SetReceiverTenantIdNil
+
+`func (o *OrderUpdateDto) SetReceiverTenantIdNil(b bool)`
+
+ SetReceiverTenantIdNil sets the value for ReceiverTenantId to be an explicit nil
+
+### UnsetReceiverTenantId
+`func (o *OrderUpdateDto) UnsetReceiverTenantId()`
+
+UnsetReceiverTenantId ensures that no value is present for ReceiverTenantId, not even an explicit nil
 ### GetFirstName
 
 `func (o *OrderUpdateDto) GetFirstName() string`
@@ -535,6 +840,66 @@ HasShippingMethodId returns a boolean if a field has been set.
 `func (o *OrderUpdateDto) UnsetShippingMethodId()`
 
 UnsetShippingMethodId ensures that no value is present for ShippingMethodId, not even an explicit nil
+### GetForexRate
+
+`func (o *OrderUpdateDto) GetForexRate() float64`
+
+GetForexRate returns the ForexRate field if non-nil, zero value otherwise.
+
+### GetForexRateOk
+
+`func (o *OrderUpdateDto) GetForexRateOk() (*float64, bool)`
+
+GetForexRateOk returns a tuple with the ForexRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexRate
+
+`func (o *OrderUpdateDto) SetForexRate(v float64)`
+
+SetForexRate sets ForexRate field to given value.
+
+### HasForexRate
+
+`func (o *OrderUpdateDto) HasForexRate() bool`
+
+HasForexRate returns a boolean if a field has been set.
+
+### GetCurrencyId
+
+`func (o *OrderUpdateDto) GetCurrencyId() string`
+
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
+
+### GetCurrencyIdOk
+
+`func (o *OrderUpdateDto) GetCurrencyIdOk() (*string, bool)`
+
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrencyId
+
+`func (o *OrderUpdateDto) SetCurrencyId(v string)`
+
+SetCurrencyId sets CurrencyId field to given value.
+
+### HasCurrencyId
+
+`func (o *OrderUpdateDto) HasCurrencyId() bool`
+
+HasCurrencyId returns a boolean if a field has been set.
+
+### SetCurrencyIdNil
+
+`func (o *OrderUpdateDto) SetCurrencyIdNil(b bool)`
+
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
+
+### UnsetCurrencyId
+`func (o *OrderUpdateDto) UnsetCurrencyId()`
+
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
 ### GetTotalDetail
 
 `func (o *OrderUpdateDto) GetTotalDetail() float64`
@@ -1340,171 +1705,6 @@ HasCartId returns a boolean if a field has been set.
 `func (o *OrderUpdateDto) UnsetCartId()`
 
 UnsetCartId ensures that no value is present for CartId, not even an explicit nil
-### GetUserId
-
-`func (o *OrderUpdateDto) GetUserId() string`
-
-GetUserId returns the UserId field if non-nil, zero value otherwise.
-
-### GetUserIdOk
-
-`func (o *OrderUpdateDto) GetUserIdOk() (*string, bool)`
-
-GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUserId
-
-`func (o *OrderUpdateDto) SetUserId(v string)`
-
-SetUserId sets UserId field to given value.
-
-### HasUserId
-
-`func (o *OrderUpdateDto) HasUserId() bool`
-
-HasUserId returns a boolean if a field has been set.
-
-### SetUserIdNil
-
-`func (o *OrderUpdateDto) SetUserIdNil(b bool)`
-
- SetUserIdNil sets the value for UserId to be an explicit nil
-
-### UnsetUserId
-`func (o *OrderUpdateDto) UnsetUserId()`
-
-UnsetUserId ensures that no value is present for UserId, not even an explicit nil
-### GetForexRate
-
-`func (o *OrderUpdateDto) GetForexRate() float64`
-
-GetForexRate returns the ForexRate field if non-nil, zero value otherwise.
-
-### GetForexRateOk
-
-`func (o *OrderUpdateDto) GetForexRateOk() (*float64, bool)`
-
-GetForexRateOk returns a tuple with the ForexRate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetForexRate
-
-`func (o *OrderUpdateDto) SetForexRate(v float64)`
-
-SetForexRate sets ForexRate field to given value.
-
-### HasForexRate
-
-`func (o *OrderUpdateDto) HasForexRate() bool`
-
-HasForexRate returns a boolean if a field has been set.
-
-### GetCurrencyId
-
-`func (o *OrderUpdateDto) GetCurrencyId() string`
-
-GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
-
-### GetCurrencyIdOk
-
-`func (o *OrderUpdateDto) GetCurrencyIdOk() (*string, bool)`
-
-GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCurrencyId
-
-`func (o *OrderUpdateDto) SetCurrencyId(v string)`
-
-SetCurrencyId sets CurrencyId field to given value.
-
-### HasCurrencyId
-
-`func (o *OrderUpdateDto) HasCurrencyId() bool`
-
-HasCurrencyId returns a boolean if a field has been set.
-
-### SetCurrencyIdNil
-
-`func (o *OrderUpdateDto) SetCurrencyIdNil(b bool)`
-
- SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
-
-### UnsetCurrencyId
-`func (o *OrderUpdateDto) UnsetCurrencyId()`
-
-UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
-### GetIndividualId
-
-`func (o *OrderUpdateDto) GetIndividualId() string`
-
-GetIndividualId returns the IndividualId field if non-nil, zero value otherwise.
-
-### GetIndividualIdOk
-
-`func (o *OrderUpdateDto) GetIndividualIdOk() (*string, bool)`
-
-GetIndividualIdOk returns a tuple with the IndividualId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIndividualId
-
-`func (o *OrderUpdateDto) SetIndividualId(v string)`
-
-SetIndividualId sets IndividualId field to given value.
-
-### HasIndividualId
-
-`func (o *OrderUpdateDto) HasIndividualId() bool`
-
-HasIndividualId returns a boolean if a field has been set.
-
-### SetIndividualIdNil
-
-`func (o *OrderUpdateDto) SetIndividualIdNil(b bool)`
-
- SetIndividualIdNil sets the value for IndividualId to be an explicit nil
-
-### UnsetIndividualId
-`func (o *OrderUpdateDto) UnsetIndividualId()`
-
-UnsetIndividualId ensures that no value is present for IndividualId, not even an explicit nil
-### GetOrganizationId
-
-`func (o *OrderUpdateDto) GetOrganizationId() string`
-
-GetOrganizationId returns the OrganizationId field if non-nil, zero value otherwise.
-
-### GetOrganizationIdOk
-
-`func (o *OrderUpdateDto) GetOrganizationIdOk() (*string, bool)`
-
-GetOrganizationIdOk returns a tuple with the OrganizationId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOrganizationId
-
-`func (o *OrderUpdateDto) SetOrganizationId(v string)`
-
-SetOrganizationId sets OrganizationId field to given value.
-
-### HasOrganizationId
-
-`func (o *OrderUpdateDto) HasOrganizationId() bool`
-
-HasOrganizationId returns a boolean if a field has been set.
-
-### SetOrganizationIdNil
-
-`func (o *OrderUpdateDto) SetOrganizationIdNil(b bool)`
-
- SetOrganizationIdNil sets the value for OrganizationId to be an explicit nil
-
-### UnsetOrganizationId
-`func (o *OrderUpdateDto) UnsetOrganizationId()`
-
-UnsetOrganizationId ensures that no value is present for OrganizationId, not even an explicit nil
 ### GetTotalAmountInUsd
 
 `func (o *OrderUpdateDto) GetTotalAmountInUsd() float64`
@@ -1555,136 +1755,6 @@ SetTotalTaxesInUsd sets TotalTaxesInUsd field to given value.
 
 HasTotalTaxesInUsd returns a boolean if a field has been set.
 
-### GetReceiverTenantId
-
-`func (o *OrderUpdateDto) GetReceiverTenantId() string`
-
-GetReceiverTenantId returns the ReceiverTenantId field if non-nil, zero value otherwise.
-
-### GetReceiverTenantIdOk
-
-`func (o *OrderUpdateDto) GetReceiverTenantIdOk() (*string, bool)`
-
-GetReceiverTenantIdOk returns a tuple with the ReceiverTenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReceiverTenantId
-
-`func (o *OrderUpdateDto) SetReceiverTenantId(v string)`
-
-SetReceiverTenantId sets ReceiverTenantId field to given value.
-
-### HasReceiverTenantId
-
-`func (o *OrderUpdateDto) HasReceiverTenantId() bool`
-
-HasReceiverTenantId returns a boolean if a field has been set.
-
-### SetReceiverTenantIdNil
-
-`func (o *OrderUpdateDto) SetReceiverTenantIdNil(b bool)`
-
- SetReceiverTenantIdNil sets the value for ReceiverTenantId to be an explicit nil
-
-### UnsetReceiverTenantId
-`func (o *OrderUpdateDto) UnsetReceiverTenantId()`
-
-UnsetReceiverTenantId ensures that no value is present for ReceiverTenantId, not even an explicit nil
-### GetClosed
-
-`func (o *OrderUpdateDto) GetClosed() bool`
-
-GetClosed returns the Closed field if non-nil, zero value otherwise.
-
-### GetClosedOk
-
-`func (o *OrderUpdateDto) GetClosedOk() (*bool, bool)`
-
-GetClosedOk returns a tuple with the Closed field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetClosed
-
-`func (o *OrderUpdateDto) SetClosed(v bool)`
-
-SetClosed sets Closed field to given value.
-
-### HasClosed
-
-`func (o *OrderUpdateDto) HasClosed() bool`
-
-HasClosed returns a boolean if a field has been set.
-
-### GetPriceListId
-
-`func (o *OrderUpdateDto) GetPriceListId() string`
-
-GetPriceListId returns the PriceListId field if non-nil, zero value otherwise.
-
-### GetPriceListIdOk
-
-`func (o *OrderUpdateDto) GetPriceListIdOk() (*string, bool)`
-
-GetPriceListIdOk returns a tuple with the PriceListId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPriceListId
-
-`func (o *OrderUpdateDto) SetPriceListId(v string)`
-
-SetPriceListId sets PriceListId field to given value.
-
-### HasPriceListId
-
-`func (o *OrderUpdateDto) HasPriceListId() bool`
-
-HasPriceListId returns a boolean if a field has been set.
-
-### SetPriceListIdNil
-
-`func (o *OrderUpdateDto) SetPriceListIdNil(b bool)`
-
- SetPriceListIdNil sets the value for PriceListId to be an explicit nil
-
-### UnsetPriceListId
-`func (o *OrderUpdateDto) UnsetPriceListId()`
-
-UnsetPriceListId ensures that no value is present for PriceListId, not even an explicit nil
-### GetPaymentTermId
-
-`func (o *OrderUpdateDto) GetPaymentTermId() string`
-
-GetPaymentTermId returns the PaymentTermId field if non-nil, zero value otherwise.
-
-### GetPaymentTermIdOk
-
-`func (o *OrderUpdateDto) GetPaymentTermIdOk() (*string, bool)`
-
-GetPaymentTermIdOk returns a tuple with the PaymentTermId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPaymentTermId
-
-`func (o *OrderUpdateDto) SetPaymentTermId(v string)`
-
-SetPaymentTermId sets PaymentTermId field to given value.
-
-### HasPaymentTermId
-
-`func (o *OrderUpdateDto) HasPaymentTermId() bool`
-
-HasPaymentTermId returns a boolean if a field has been set.
-
-### SetPaymentTermIdNil
-
-`func (o *OrderUpdateDto) SetPaymentTermIdNil(b bool)`
-
- SetPaymentTermIdNil sets the value for PaymentTermId to be an explicit nil
-
-### UnsetPaymentTermId
-`func (o *OrderUpdateDto) UnsetPaymentTermId()`
-
-UnsetPaymentTermId ensures that no value is present for PaymentTermId, not even an explicit nil
 ### GetQuoteStatus
 
 `func (o *OrderUpdateDto) GetQuoteStatus() string`
@@ -1790,76 +1860,6 @@ HasEffectiveFrom returns a boolean if a field has been set.
 `func (o *OrderUpdateDto) UnsetEffectiveFrom()`
 
 UnsetEffectiveFrom ensures that no value is present for EffectiveFrom, not even an explicit nil
-### GetDescription
-
-`func (o *OrderUpdateDto) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *OrderUpdateDto) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *OrderUpdateDto) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *OrderUpdateDto) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
-### SetDescriptionNil
-
-`func (o *OrderUpdateDto) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *OrderUpdateDto) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetTitle
-
-`func (o *OrderUpdateDto) GetTitle() string`
-
-GetTitle returns the Title field if non-nil, zero value otherwise.
-
-### GetTitleOk
-
-`func (o *OrderUpdateDto) GetTitleOk() (*string, bool)`
-
-GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTitle
-
-`func (o *OrderUpdateDto) SetTitle(v string)`
-
-SetTitle sets Title field to given value.
-
-### HasTitle
-
-`func (o *OrderUpdateDto) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
-### SetTitleNil
-
-`func (o *OrderUpdateDto) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *OrderUpdateDto) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

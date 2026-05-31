@@ -1,6 +1,6 @@
 # \PaymentsAPI
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -155,7 +155,7 @@ No authorization required
 
 ## GetPaymentAsync
 
-> PaymentDtoListEnvelope GetPaymentAsync(ctx, paymentId).Execute()
+> PaymentDtoListEnvelope GetPaymentAsync(ctx, paymentId).TenantId(tenantId).Execute()
 
 Gets a payment by ID (deprecated)
 
@@ -174,11 +174,12 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	paymentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.GetPaymentAsync(context.Background(), paymentId).Execute()
+	resp, r, err := apiClient.PaymentsAPI.GetPaymentAsync(context.Background(), paymentId).TenantId(tenantId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.GetPaymentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -203,6 +204,7 @@ Other parameters are passed through a pointer to a apiGetPaymentAsyncRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
 
 ### Return type
@@ -225,7 +227,7 @@ No authorization required
 
 ## GetPaymentAsyncV2
 
-> PaymentDtoListEnvelope GetPaymentAsyncV2(ctx, paymentId).Execute()
+> PaymentDtoListEnvelope GetPaymentAsyncV2(ctx, paymentId).TenantId(tenantId).Execute()
 
 Gets a payment by ID
 
@@ -244,11 +246,12 @@ import (
 )
 
 func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	paymentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.GetPaymentAsyncV2(context.Background(), paymentId).Execute()
+	resp, r, err := apiClient.PaymentsAPI.GetPaymentAsyncV2(context.Background(), paymentId).TenantId(tenantId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.GetPaymentAsyncV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -273,6 +276,7 @@ Other parameters are passed through a pointer to a apiGetPaymentAsyncV2Request s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
 
 ### Return type
