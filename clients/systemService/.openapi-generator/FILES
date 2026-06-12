@@ -214,5 +214,4 @@ model_web_portal_dto_envelope.go
 model_web_portal_dto_list_envelope.go
 model_web_portal_update_dto.go
 response.go
-test/api_business_domains_test.go
 utils.go

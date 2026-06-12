@@ -580,7 +580,4 @@ model_x500_distinguished_name.go
 model_x509_certificate2.go
 model_x509_extension.go
 response.go
-test/api_localization_strings_test.go
-test/api_menu_contexts_test.go
-test/api_web_components_test.go
 utils.go
