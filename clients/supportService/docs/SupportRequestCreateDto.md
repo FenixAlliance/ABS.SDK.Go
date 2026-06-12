@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Approved** | Pointer to **bool** |  | [optional] 
 **ApprovedTimestamp** | Pointer to **time.Time** |  | [optional] 
-**SupportEntitlementID** | Pointer to **NullableString** |  | [optional] 
-**ContactID** | Pointer to **NullableString** |  | [optional] 
+**SupportEntitlementId** | Pointer to **NullableString** |  | [optional] 
+**ContactId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -187,76 +187,76 @@ SetApprovedTimestamp sets ApprovedTimestamp field to given value.
 
 HasApprovedTimestamp returns a boolean if a field has been set.
 
-### GetSupportEntitlementID
+### GetSupportEntitlementId
 
-`func (o *SupportRequestCreateDto) GetSupportEntitlementID() string`
+`func (o *SupportRequestCreateDto) GetSupportEntitlementId() string`
 
-GetSupportEntitlementID returns the SupportEntitlementID field if non-nil, zero value otherwise.
+GetSupportEntitlementId returns the SupportEntitlementId field if non-nil, zero value otherwise.
 
-### GetSupportEntitlementIDOk
+### GetSupportEntitlementIdOk
 
-`func (o *SupportRequestCreateDto) GetSupportEntitlementIDOk() (*string, bool)`
+`func (o *SupportRequestCreateDto) GetSupportEntitlementIdOk() (*string, bool)`
 
-GetSupportEntitlementIDOk returns a tuple with the SupportEntitlementID field if it's non-nil, zero value otherwise
+GetSupportEntitlementIdOk returns a tuple with the SupportEntitlementId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportEntitlementID
+### SetSupportEntitlementId
 
-`func (o *SupportRequestCreateDto) SetSupportEntitlementID(v string)`
+`func (o *SupportRequestCreateDto) SetSupportEntitlementId(v string)`
 
-SetSupportEntitlementID sets SupportEntitlementID field to given value.
+SetSupportEntitlementId sets SupportEntitlementId field to given value.
 
-### HasSupportEntitlementID
+### HasSupportEntitlementId
 
-`func (o *SupportRequestCreateDto) HasSupportEntitlementID() bool`
+`func (o *SupportRequestCreateDto) HasSupportEntitlementId() bool`
 
-HasSupportEntitlementID returns a boolean if a field has been set.
+HasSupportEntitlementId returns a boolean if a field has been set.
 
-### SetSupportEntitlementIDNil
+### SetSupportEntitlementIdNil
 
-`func (o *SupportRequestCreateDto) SetSupportEntitlementIDNil(b bool)`
+`func (o *SupportRequestCreateDto) SetSupportEntitlementIdNil(b bool)`
 
- SetSupportEntitlementIDNil sets the value for SupportEntitlementID to be an explicit nil
+ SetSupportEntitlementIdNil sets the value for SupportEntitlementId to be an explicit nil
 
-### UnsetSupportEntitlementID
-`func (o *SupportRequestCreateDto) UnsetSupportEntitlementID()`
+### UnsetSupportEntitlementId
+`func (o *SupportRequestCreateDto) UnsetSupportEntitlementId()`
 
-UnsetSupportEntitlementID ensures that no value is present for SupportEntitlementID, not even an explicit nil
-### GetContactID
+UnsetSupportEntitlementId ensures that no value is present for SupportEntitlementId, not even an explicit nil
+### GetContactId
 
-`func (o *SupportRequestCreateDto) GetContactID() string`
+`func (o *SupportRequestCreateDto) GetContactId() string`
 
-GetContactID returns the ContactID field if non-nil, zero value otherwise.
+GetContactId returns the ContactId field if non-nil, zero value otherwise.
 
-### GetContactIDOk
+### GetContactIdOk
 
-`func (o *SupportRequestCreateDto) GetContactIDOk() (*string, bool)`
+`func (o *SupportRequestCreateDto) GetContactIdOk() (*string, bool)`
 
-GetContactIDOk returns a tuple with the ContactID field if it's non-nil, zero value otherwise
+GetContactIdOk returns a tuple with the ContactId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetContactID
+### SetContactId
 
-`func (o *SupportRequestCreateDto) SetContactID(v string)`
+`func (o *SupportRequestCreateDto) SetContactId(v string)`
 
-SetContactID sets ContactID field to given value.
+SetContactId sets ContactId field to given value.
 
-### HasContactID
+### HasContactId
 
-`func (o *SupportRequestCreateDto) HasContactID() bool`
+`func (o *SupportRequestCreateDto) HasContactId() bool`
 
-HasContactID returns a boolean if a field has been set.
+HasContactId returns a boolean if a field has been set.
 
-### SetContactIDNil
+### SetContactIdNil
 
-`func (o *SupportRequestCreateDto) SetContactIDNil(b bool)`
+`func (o *SupportRequestCreateDto) SetContactIdNil(b bool)`
 
- SetContactIDNil sets the value for ContactID to be an explicit nil
+ SetContactIdNil sets the value for ContactId to be an explicit nil
 
-### UnsetContactID
-`func (o *SupportRequestCreateDto) UnsetContactID()`
+### UnsetContactId
+`func (o *SupportRequestCreateDto) UnsetContactId()`
 
-UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
+UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

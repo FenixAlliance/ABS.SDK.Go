@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**ParentTerritoryID** | Pointer to **NullableString** |  | [optional] 
+**ParentTerritoryId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -101,76 +101,76 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *TenantTerritoryDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-### GetBusinessID
+### GetTenantId
 
-`func (o *TenantTerritoryDto) GetBusinessID() string`
+`func (o *TenantTerritoryDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *TenantTerritoryDto) GetBusinessIDOk() (*string, bool)`
+`func (o *TenantTerritoryDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *TenantTerritoryDto) SetBusinessID(v string)`
+`func (o *TenantTerritoryDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *TenantTerritoryDto) HasBusinessID() bool`
+`func (o *TenantTerritoryDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *TenantTerritoryDto) SetBusinessIDNil(b bool)`
+`func (o *TenantTerritoryDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *TenantTerritoryDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *TenantTerritoryDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *TenantTerritoryDto) GetBusinessProfileRecordID() string`
+`func (o *TenantTerritoryDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetEnrollmentIdOk
 
-`func (o *TenantTerritoryDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *TenantTerritoryDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetEnrollmentId
 
-`func (o *TenantTerritoryDto) SetBusinessProfileRecordID(v string)`
+`func (o *TenantTerritoryDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordID
+### HasEnrollmentId
 
-`func (o *TenantTerritoryDto) HasBusinessProfileRecordID() bool`
+`func (o *TenantTerritoryDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetEnrollmentIdNil
 
-`func (o *TenantTerritoryDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *TenantTerritoryDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *TenantTerritoryDto) UnsetBusinessProfileRecordID()`
+### UnsetEnrollmentId
+`func (o *TenantTerritoryDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetName
 
 `func (o *TenantTerritoryDto) GetName() string`
@@ -241,41 +241,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *TenantTerritoryDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetParentTerritoryID
+### GetParentTerritoryId
 
-`func (o *TenantTerritoryDto) GetParentTerritoryID() string`
+`func (o *TenantTerritoryDto) GetParentTerritoryId() string`
 
-GetParentTerritoryID returns the ParentTerritoryID field if non-nil, zero value otherwise.
+GetParentTerritoryId returns the ParentTerritoryId field if non-nil, zero value otherwise.
 
-### GetParentTerritoryIDOk
+### GetParentTerritoryIdOk
 
-`func (o *TenantTerritoryDto) GetParentTerritoryIDOk() (*string, bool)`
+`func (o *TenantTerritoryDto) GetParentTerritoryIdOk() (*string, bool)`
 
-GetParentTerritoryIDOk returns a tuple with the ParentTerritoryID field if it's non-nil, zero value otherwise
+GetParentTerritoryIdOk returns a tuple with the ParentTerritoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentTerritoryID
+### SetParentTerritoryId
 
-`func (o *TenantTerritoryDto) SetParentTerritoryID(v string)`
+`func (o *TenantTerritoryDto) SetParentTerritoryId(v string)`
 
-SetParentTerritoryID sets ParentTerritoryID field to given value.
+SetParentTerritoryId sets ParentTerritoryId field to given value.
 
-### HasParentTerritoryID
+### HasParentTerritoryId
 
-`func (o *TenantTerritoryDto) HasParentTerritoryID() bool`
+`func (o *TenantTerritoryDto) HasParentTerritoryId() bool`
 
-HasParentTerritoryID returns a boolean if a field has been set.
+HasParentTerritoryId returns a boolean if a field has been set.
 
-### SetParentTerritoryIDNil
+### SetParentTerritoryIdNil
 
-`func (o *TenantTerritoryDto) SetParentTerritoryIDNil(b bool)`
+`func (o *TenantTerritoryDto) SetParentTerritoryIdNil(b bool)`
 
- SetParentTerritoryIDNil sets the value for ParentTerritoryID to be an explicit nil
+ SetParentTerritoryIdNil sets the value for ParentTerritoryId to be an explicit nil
 
-### UnsetParentTerritoryID
-`func (o *TenantTerritoryDto) UnsetParentTerritoryID()`
+### UnsetParentTerritoryId
+`func (o *TenantTerritoryDto) UnsetParentTerritoryId()`
 
-UnsetParentTerritoryID ensures that no value is present for ParentTerritoryID, not even an explicit nil
+UnsetParentTerritoryId ensures that no value is present for ParentTerritoryId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

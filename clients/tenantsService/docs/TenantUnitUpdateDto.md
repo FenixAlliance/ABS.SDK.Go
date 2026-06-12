@@ -7,10 +7,9 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Disabled** | Pointer to **bool** |  | [optional] 
-**BusinessUnitQualifiedName** | Pointer to **NullableString** |  | [optional] 
-**CountryID** | Pointer to **NullableString** |  | [optional] 
-**OrganizationProfileID** | Pointer to **NullableString** |  | [optional] 
-**ParentBusinessUnitID** | Pointer to **NullableString** |  | [optional] 
+**CountryId** | Pointer to **NullableString** |  | [optional] 
+**OrganizationProfileId** | Pointer to **NullableString** |  | [optional] 
+**ParentBusinessUnitId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -126,146 +125,111 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### GetBusinessUnitQualifiedName
+### GetCountryId
 
-`func (o *TenantUnitUpdateDto) GetBusinessUnitQualifiedName() string`
+`func (o *TenantUnitUpdateDto) GetCountryId() string`
 
-GetBusinessUnitQualifiedName returns the BusinessUnitQualifiedName field if non-nil, zero value otherwise.
+GetCountryId returns the CountryId field if non-nil, zero value otherwise.
 
-### GetBusinessUnitQualifiedNameOk
+### GetCountryIdOk
 
-`func (o *TenantUnitUpdateDto) GetBusinessUnitQualifiedNameOk() (*string, bool)`
+`func (o *TenantUnitUpdateDto) GetCountryIdOk() (*string, bool)`
 
-GetBusinessUnitQualifiedNameOk returns a tuple with the BusinessUnitQualifiedName field if it's non-nil, zero value otherwise
+GetCountryIdOk returns a tuple with the CountryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessUnitQualifiedName
+### SetCountryId
 
-`func (o *TenantUnitUpdateDto) SetBusinessUnitQualifiedName(v string)`
+`func (o *TenantUnitUpdateDto) SetCountryId(v string)`
 
-SetBusinessUnitQualifiedName sets BusinessUnitQualifiedName field to given value.
+SetCountryId sets CountryId field to given value.
 
-### HasBusinessUnitQualifiedName
+### HasCountryId
 
-`func (o *TenantUnitUpdateDto) HasBusinessUnitQualifiedName() bool`
+`func (o *TenantUnitUpdateDto) HasCountryId() bool`
 
-HasBusinessUnitQualifiedName returns a boolean if a field has been set.
+HasCountryId returns a boolean if a field has been set.
 
-### SetBusinessUnitQualifiedNameNil
+### SetCountryIdNil
 
-`func (o *TenantUnitUpdateDto) SetBusinessUnitQualifiedNameNil(b bool)`
+`func (o *TenantUnitUpdateDto) SetCountryIdNil(b bool)`
 
- SetBusinessUnitQualifiedNameNil sets the value for BusinessUnitQualifiedName to be an explicit nil
+ SetCountryIdNil sets the value for CountryId to be an explicit nil
 
-### UnsetBusinessUnitQualifiedName
-`func (o *TenantUnitUpdateDto) UnsetBusinessUnitQualifiedName()`
+### UnsetCountryId
+`func (o *TenantUnitUpdateDto) UnsetCountryId()`
 
-UnsetBusinessUnitQualifiedName ensures that no value is present for BusinessUnitQualifiedName, not even an explicit nil
-### GetCountryID
+UnsetCountryId ensures that no value is present for CountryId, not even an explicit nil
+### GetOrganizationProfileId
 
-`func (o *TenantUnitUpdateDto) GetCountryID() string`
+`func (o *TenantUnitUpdateDto) GetOrganizationProfileId() string`
 
-GetCountryID returns the CountryID field if non-nil, zero value otherwise.
+GetOrganizationProfileId returns the OrganizationProfileId field if non-nil, zero value otherwise.
 
-### GetCountryIDOk
+### GetOrganizationProfileIdOk
 
-`func (o *TenantUnitUpdateDto) GetCountryIDOk() (*string, bool)`
+`func (o *TenantUnitUpdateDto) GetOrganizationProfileIdOk() (*string, bool)`
 
-GetCountryIDOk returns a tuple with the CountryID field if it's non-nil, zero value otherwise
+GetOrganizationProfileIdOk returns a tuple with the OrganizationProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCountryID
+### SetOrganizationProfileId
 
-`func (o *TenantUnitUpdateDto) SetCountryID(v string)`
+`func (o *TenantUnitUpdateDto) SetOrganizationProfileId(v string)`
 
-SetCountryID sets CountryID field to given value.
+SetOrganizationProfileId sets OrganizationProfileId field to given value.
 
-### HasCountryID
+### HasOrganizationProfileId
 
-`func (o *TenantUnitUpdateDto) HasCountryID() bool`
+`func (o *TenantUnitUpdateDto) HasOrganizationProfileId() bool`
 
-HasCountryID returns a boolean if a field has been set.
+HasOrganizationProfileId returns a boolean if a field has been set.
 
-### SetCountryIDNil
+### SetOrganizationProfileIdNil
 
-`func (o *TenantUnitUpdateDto) SetCountryIDNil(b bool)`
+`func (o *TenantUnitUpdateDto) SetOrganizationProfileIdNil(b bool)`
 
- SetCountryIDNil sets the value for CountryID to be an explicit nil
+ SetOrganizationProfileIdNil sets the value for OrganizationProfileId to be an explicit nil
 
-### UnsetCountryID
-`func (o *TenantUnitUpdateDto) UnsetCountryID()`
+### UnsetOrganizationProfileId
+`func (o *TenantUnitUpdateDto) UnsetOrganizationProfileId()`
 
-UnsetCountryID ensures that no value is present for CountryID, not even an explicit nil
-### GetOrganizationProfileID
+UnsetOrganizationProfileId ensures that no value is present for OrganizationProfileId, not even an explicit nil
+### GetParentBusinessUnitId
 
-`func (o *TenantUnitUpdateDto) GetOrganizationProfileID() string`
+`func (o *TenantUnitUpdateDto) GetParentBusinessUnitId() string`
 
-GetOrganizationProfileID returns the OrganizationProfileID field if non-nil, zero value otherwise.
+GetParentBusinessUnitId returns the ParentBusinessUnitId field if non-nil, zero value otherwise.
 
-### GetOrganizationProfileIDOk
+### GetParentBusinessUnitIdOk
 
-`func (o *TenantUnitUpdateDto) GetOrganizationProfileIDOk() (*string, bool)`
+`func (o *TenantUnitUpdateDto) GetParentBusinessUnitIdOk() (*string, bool)`
 
-GetOrganizationProfileIDOk returns a tuple with the OrganizationProfileID field if it's non-nil, zero value otherwise
+GetParentBusinessUnitIdOk returns a tuple with the ParentBusinessUnitId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrganizationProfileID
+### SetParentBusinessUnitId
 
-`func (o *TenantUnitUpdateDto) SetOrganizationProfileID(v string)`
+`func (o *TenantUnitUpdateDto) SetParentBusinessUnitId(v string)`
 
-SetOrganizationProfileID sets OrganizationProfileID field to given value.
+SetParentBusinessUnitId sets ParentBusinessUnitId field to given value.
 
-### HasOrganizationProfileID
+### HasParentBusinessUnitId
 
-`func (o *TenantUnitUpdateDto) HasOrganizationProfileID() bool`
+`func (o *TenantUnitUpdateDto) HasParentBusinessUnitId() bool`
 
-HasOrganizationProfileID returns a boolean if a field has been set.
+HasParentBusinessUnitId returns a boolean if a field has been set.
 
-### SetOrganizationProfileIDNil
+### SetParentBusinessUnitIdNil
 
-`func (o *TenantUnitUpdateDto) SetOrganizationProfileIDNil(b bool)`
+`func (o *TenantUnitUpdateDto) SetParentBusinessUnitIdNil(b bool)`
 
- SetOrganizationProfileIDNil sets the value for OrganizationProfileID to be an explicit nil
+ SetParentBusinessUnitIdNil sets the value for ParentBusinessUnitId to be an explicit nil
 
-### UnsetOrganizationProfileID
-`func (o *TenantUnitUpdateDto) UnsetOrganizationProfileID()`
+### UnsetParentBusinessUnitId
+`func (o *TenantUnitUpdateDto) UnsetParentBusinessUnitId()`
 
-UnsetOrganizationProfileID ensures that no value is present for OrganizationProfileID, not even an explicit nil
-### GetParentBusinessUnitID
-
-`func (o *TenantUnitUpdateDto) GetParentBusinessUnitID() string`
-
-GetParentBusinessUnitID returns the ParentBusinessUnitID field if non-nil, zero value otherwise.
-
-### GetParentBusinessUnitIDOk
-
-`func (o *TenantUnitUpdateDto) GetParentBusinessUnitIDOk() (*string, bool)`
-
-GetParentBusinessUnitIDOk returns a tuple with the ParentBusinessUnitID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetParentBusinessUnitID
-
-`func (o *TenantUnitUpdateDto) SetParentBusinessUnitID(v string)`
-
-SetParentBusinessUnitID sets ParentBusinessUnitID field to given value.
-
-### HasParentBusinessUnitID
-
-`func (o *TenantUnitUpdateDto) HasParentBusinessUnitID() bool`
-
-HasParentBusinessUnitID returns a boolean if a field has been set.
-
-### SetParentBusinessUnitIDNil
-
-`func (o *TenantUnitUpdateDto) SetParentBusinessUnitIDNil(b bool)`
-
- SetParentBusinessUnitIDNil sets the value for ParentBusinessUnitID to be an explicit nil
-
-### UnsetParentBusinessUnitID
-`func (o *TenantUnitUpdateDto) UnsetParentBusinessUnitID()`
-
-UnsetParentBusinessUnitID ensures that no value is present for ParentBusinessUnitID, not even an explicit nil
+UnsetParentBusinessUnitId ensures that no value is present for ParentBusinessUnitId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

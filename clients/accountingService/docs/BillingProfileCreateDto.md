@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **Duns** | Pointer to **NullableString** |  | [optional] 
 **IsPublicCompany** | Pointer to **bool** |  | [optional] 
 **IsFactaCustomer** | Pointer to **bool** |  | [optional] 
+**TaxPayerType** | Pointer to **string** |  | [optional] 
 **CountryId** | **string** |  | 
 **StateId** | **string** |  | 
 **CityId** | **string** |  | 
@@ -460,6 +461,31 @@ SetIsFactaCustomer sets IsFactaCustomer field to given value.
 `func (o *BillingProfileCreateDto) HasIsFactaCustomer() bool`
 
 HasIsFactaCustomer returns a boolean if a field has been set.
+
+### GetTaxPayerType
+
+`func (o *BillingProfileCreateDto) GetTaxPayerType() string`
+
+GetTaxPayerType returns the TaxPayerType field if non-nil, zero value otherwise.
+
+### GetTaxPayerTypeOk
+
+`func (o *BillingProfileCreateDto) GetTaxPayerTypeOk() (*string, bool)`
+
+GetTaxPayerTypeOk returns a tuple with the TaxPayerType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaxPayerType
+
+`func (o *BillingProfileCreateDto) SetTaxPayerType(v string)`
+
+SetTaxPayerType sets TaxPayerType field to given value.
+
+### HasTaxPayerType
+
+`func (o *BillingProfileCreateDto) HasTaxPayerType() bool`
+
+HasTaxPayerType returns a boolean if a field has been set.
 
 ### GetCountryId
 

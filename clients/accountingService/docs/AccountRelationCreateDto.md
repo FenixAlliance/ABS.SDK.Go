@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **AccountId** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -112,6 +113,41 @@ HasAccountId returns a boolean if a field has been set.
 `func (o *AccountRelationCreateDto) UnsetAccountId()`
 
 UnsetAccountId ensures that no value is present for AccountId, not even an explicit nil
+### GetType
+
+`func (o *AccountRelationCreateDto) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *AccountRelationCreateDto) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *AccountRelationCreateDto) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *AccountRelationCreateDto) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetTypeNil
+
+`func (o *AccountRelationCreateDto) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *AccountRelationCreateDto) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

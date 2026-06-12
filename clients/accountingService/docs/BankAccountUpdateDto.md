@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **Swift** | Pointer to **NullableString** |  | [optional] 
 **BranchCode** | Pointer to **NullableString** |  | [optional] 
 **BankAccountNumber** | Pointer to **NullableString** |  | [optional] 
-**QualifiedName** | Pointer to **NullableString** |  | [optional] 
 **BankId** | Pointer to **NullableString** |  | [optional] 
 **BankProfileId** | Pointer to **NullableString** |  | [optional] 
+**WalletId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -207,41 +207,6 @@ HasBankAccountNumber returns a boolean if a field has been set.
 `func (o *BankAccountUpdateDto) UnsetBankAccountNumber()`
 
 UnsetBankAccountNumber ensures that no value is present for BankAccountNumber, not even an explicit nil
-### GetQualifiedName
-
-`func (o *BankAccountUpdateDto) GetQualifiedName() string`
-
-GetQualifiedName returns the QualifiedName field if non-nil, zero value otherwise.
-
-### GetQualifiedNameOk
-
-`func (o *BankAccountUpdateDto) GetQualifiedNameOk() (*string, bool)`
-
-GetQualifiedNameOk returns a tuple with the QualifiedName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetQualifiedName
-
-`func (o *BankAccountUpdateDto) SetQualifiedName(v string)`
-
-SetQualifiedName sets QualifiedName field to given value.
-
-### HasQualifiedName
-
-`func (o *BankAccountUpdateDto) HasQualifiedName() bool`
-
-HasQualifiedName returns a boolean if a field has been set.
-
-### SetQualifiedNameNil
-
-`func (o *BankAccountUpdateDto) SetQualifiedNameNil(b bool)`
-
- SetQualifiedNameNil sets the value for QualifiedName to be an explicit nil
-
-### UnsetQualifiedName
-`func (o *BankAccountUpdateDto) UnsetQualifiedName()`
-
-UnsetQualifiedName ensures that no value is present for QualifiedName, not even an explicit nil
 ### GetBankId
 
 `func (o *BankAccountUpdateDto) GetBankId() string`
@@ -312,6 +277,41 @@ HasBankProfileId returns a boolean if a field has been set.
 `func (o *BankAccountUpdateDto) UnsetBankProfileId()`
 
 UnsetBankProfileId ensures that no value is present for BankProfileId, not even an explicit nil
+### GetWalletId
+
+`func (o *BankAccountUpdateDto) GetWalletId() string`
+
+GetWalletId returns the WalletId field if non-nil, zero value otherwise.
+
+### GetWalletIdOk
+
+`func (o *BankAccountUpdateDto) GetWalletIdOk() (*string, bool)`
+
+GetWalletIdOk returns a tuple with the WalletId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWalletId
+
+`func (o *BankAccountUpdateDto) SetWalletId(v string)`
+
+SetWalletId sets WalletId field to given value.
+
+### HasWalletId
+
+`func (o *BankAccountUpdateDto) HasWalletId() bool`
+
+HasWalletId returns a boolean if a field has been set.
+
+### SetWalletIdNil
+
+`func (o *BankAccountUpdateDto) SetWalletIdNil(b bool)`
+
+ SetWalletIdNil sets the value for WalletId to be an explicit nil
+
+### UnsetWalletId
+`func (o *BankAccountUpdateDto) UnsetWalletId()`
+
+UnsetWalletId ensures that no value is present for WalletId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

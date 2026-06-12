@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**GetSupportRequestTicketsAsync**](SupportRequestsAPI.md#GetSupportRequestTicketsAsync) | **Get** /api/v2/SupportService/SupportRequests/{supportRequestId}/Tickets | Retrieve tickets for a support request
 [**GetSupportRequestsAsync**](SupportRequestsAPI.md#GetSupportRequestsAsync) | **Get** /api/v2/SupportService/SupportRequests | Retrieve a list of support requests
 [**GetSupportRequestsCountAsync**](SupportRequestsAPI.md#GetSupportRequestsCountAsync) | **Get** /api/v2/SupportService/SupportRequests/Count | Get the count of support requests
+[**PatchSupportRequestAsync**](SupportRequestsAPI.md#PatchSupportRequestAsync) | **Patch** /api/v2/SupportService/SupportRequests/{supportRequestId} | Patch a support request
 [**RelateSupportRequestToAttachmentAsync**](SupportRequestsAPI.md#RelateSupportRequestToAttachmentAsync) | **Post** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | Add an attachment to a support request
 [**UpdateSupportRequestAsync**](SupportRequestsAPI.md#UpdateSupportRequestAsync) | **Put** /api/v2/SupportService/SupportRequests/{supportRequestId} | Update a support request
 
@@ -682,6 +683,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchSupportRequestAsync
+
+> EmptyEnvelope PatchSupportRequestAsync(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a support request
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SupportRequestsAPI.PatchSupportRequestAsync(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.PatchSupportRequestAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchSupportRequestAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupportRequestsAPI.PatchSupportRequestAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**supportRequestId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchSupportRequestAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: SupportService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -842,6 +842,83 @@ paths:
       summary: Retrieve an inquiry request by ID
       tags:
       - InquiryRequests
+    patch:
+      description: Partially updates an existing inquiry request by its unique identifier.
+      operationId: PatchInquiryRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: inquiryRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an inquiry request
+      tags:
+      - InquiryRequests
     put:
       operationId: UpdateInquiryRequestAsync
       parameters:
@@ -1113,6 +1190,83 @@ paths:
       summary: Retrieve a knowledge article by ID
       tags:
       - KnowledgeArticles
+    patch:
+      description: Partially updates an existing knowledge article by its unique identifier.
+      operationId: PatchKnowledgeArticleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: knowledgeArticleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a knowledge article
+      tags:
+      - KnowledgeArticles
     put:
       operationId: UpdateKnowledgeArticleAsync
       parameters:
@@ -1382,6 +1536,83 @@ paths:
                 $ref: '#/components/schemas/MaintenanceVisitDtoEnvelope'
           description: OK
       summary: Retrieve a maintenance visit by ID
+      tags:
+      - MaintenanceVisits
+    patch:
+      description: Partially updates an existing maintenance visit by its unique identifier.
+      operationId: PatchMaintenanceVisitAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: maintenanceVisitId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a maintenance visit
       tags:
       - MaintenanceVisits
     put:
@@ -1745,6 +1976,83 @@ paths:
       summary: Retrieve a refund policy by ID
       tags:
       - RefundPolicies
+    patch:
+      description: Partially updates an existing refund policy by its unique identifier.
+      operationId: PatchRefundPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: refundPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a refund policy
+      tags:
+      - RefundPolicies
     put:
       operationId: UpdateRefundPolicyAsync
       parameters:
@@ -2032,6 +2340,83 @@ paths:
                 $ref: '#/components/schemas/RefundRequestDtoEnvelope'
           description: OK
       summary: Retrieve a refund request by ID
+      tags:
+      - RefundRequests
+    patch:
+      description: Partially updates an existing refund request by its unique identifier.
+      operationId: PatchRefundRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: refundRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a refund request
       tags:
       - RefundRequests
     put:
@@ -2395,6 +2780,83 @@ paths:
       summary: Retrieve a return policy by ID
       tags:
       - ReturnPolicies
+    patch:
+      description: Partially updates an existing return policy by its unique identifier.
+      operationId: PatchReturnPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: returnPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a return policy
+      tags:
+      - ReturnPolicies
     put:
       operationId: UpdateReturnPolicyAsync
       parameters:
@@ -2682,6 +3144,83 @@ paths:
                 $ref: '#/components/schemas/ReturnRequestDtoEnvelope'
           description: OK
       summary: Retrieve a return request by ID
+      tags:
+      - ReturnRequests
+    patch:
+      description: Partially updates an existing return request by its unique identifier.
+      operationId: PatchReturnRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: returnRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a return request
       tags:
       - ReturnRequests
     put:
@@ -3050,6 +3589,84 @@ paths:
                 $ref: '#/components/schemas/SupportEntitlementDtoEnvelope'
           description: OK
       summary: Retrieve a support entitlement by ID
+      tags:
+      - SupportEntitlements
+    patch:
+      description: Partially updates an existing support entitlement by its unique
+        identifier.
+      operationId: PatchSupportEntitlementAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportEntitlementId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a support entitlement
       tags:
       - SupportEntitlements
     put:
@@ -3439,6 +4056,84 @@ paths:
       summary: Retrieve a support request attachment by ID
       tags:
       - SupportRequestAttachments
+    patch:
+      description: Partially updates an existing support request attachment by its
+        unique identifier.
+      operationId: PatchSupportRequestAttachmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportRequestAttachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a support request attachment
+      tags:
+      - SupportRequestAttachments
     put:
       description: Updates an existing support request attachment by its unique identifier.
       operationId: UpdateSupportRequestAttachmentAsync
@@ -3824,6 +4519,83 @@ paths:
                 $ref: '#/components/schemas/SupportRequestDtoEnvelope'
           description: OK
       summary: Retrieve a support request by ID
+      tags:
+      - SupportRequests
+    patch:
+      description: Partially updates an existing support request by its unique identifier.
+      operationId: PatchSupportRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a support request
       tags:
       - SupportRequests
     put:
@@ -4562,6 +5334,84 @@ paths:
       summary: Retrieve a support ticket priority by ID
       tags:
       - SupportTicketPriorities
+    patch:
+      description: Partially updates an existing support ticket priority by its unique
+        identifier.
+      operationId: PatchSupportTicketPriorityAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketPriorityId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a support ticket priority
+      tags:
+      - SupportTicketPriorities
     put:
       description: Updates an existing support ticket priority by its unique identifier.
       operationId: UpdateSupportTicketPriorityAsync
@@ -4947,6 +5797,83 @@ paths:
                 $ref: '#/components/schemas/SupportTicketDtoEnvelope'
           description: OK
       summary: Retrieve a support ticket by ID
+      tags:
+      - SupportTickets
+    patch:
+      description: Partially updates an existing support ticket by its unique identifier.
+      operationId: PatchSupportTicketAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a support ticket
       tags:
       - SupportTickets
     put:
@@ -5720,6 +6647,84 @@ paths:
       summary: Retrieve a support ticket type by ID
       tags:
       - SupportTicketTypes
+    patch:
+      description: Partially updates an existing support ticket type by its unique
+        identifier.
+      operationId: PatchSupportTicketTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a support ticket type
+      tags:
+      - SupportTicketTypes
     put:
       description: Updates an existing support ticket type by its unique identifier.
       operationId: UpdateSupportTicketTypeAsync
@@ -6100,6 +7105,83 @@ paths:
       summary: Retrieve a warranty policy by ID
       tags:
       - WarrantyPolicies
+    patch:
+      description: Partially updates an existing warranty policy by its unique identifier.
+      operationId: PatchWarrantyPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: warrantyPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a warranty policy
+      tags:
+      - WarrantyPolicies
     put:
       operationId: UpdateWarrantyPolicyAsync
       parameters:
@@ -6389,6 +7471,83 @@ paths:
       summary: Retrieve a warranty request by ID
       tags:
       - WarrantyRequests
+    patch:
+      description: Partially updates an existing warranty request by its unique identifier.
+      operationId: PatchWarrantyRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: warrantyRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a warranty request
+      tags:
+      - WarrantyRequests
     put:
       operationId: UpdateWarrantyRequestAsync
       parameters:
@@ -6664,12 +7823,12 @@ components:
       additionalProperties: false
       example:
         lastName: lastName
-        accountHolderId: accountHolderId
+        enrollmentId: enrollmentId
         organizationDomain: organizationDomain
         organizationName: organizationName
         type: type
         message: message
-        businessProfileRecordId: businessProfileRecordId
+        userId: userId
         countryId: countryId
         phone: phone
         name: name
@@ -6720,10 +7879,10 @@ components:
         tenantId:
           nullable: true
           type: string
-        businessProfileRecordId:
+        enrollmentId:
           nullable: true
           type: string
-        accountHolderId:
+        userId:
           nullable: true
           type: string
         socialProfileId:
@@ -6735,12 +7894,12 @@ components:
       example:
         result:
           lastName: lastName
-          accountHolderId: accountHolderId
+          enrollmentId: enrollmentId
           organizationDomain: organizationDomain
           organizationName: organizationName
           type: type
           message: message
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           countryId: countryId
           phone: phone
           name: name
@@ -6781,12 +7940,12 @@ components:
       example:
         result:
         - lastName: lastName
-          accountHolderId: accountHolderId
+          enrollmentId: enrollmentId
           organizationDomain: organizationDomain
           organizationName: organizationName
           type: type
           message: message
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           countryId: countryId
           phone: phone
           name: name
@@ -6797,12 +7956,12 @@ components:
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
         - lastName: lastName
-          accountHolderId: accountHolderId
+          enrollmentId: enrollmentId
           organizationDomain: organizationDomain
           organizationName: organizationName
           type: type
           message: message
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           countryId: countryId
           phone: phone
           name: name
@@ -6931,19 +8090,19 @@ components:
         months: 5
         customState: customState
         description: description
-        countryStateID: countryStateID
-        cityID: cityID
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 5
-        countryID: countryID
+        countryId: countryId
         isDefault: true
         isFree: true
         isEnabled: true
         percentage: 7.061401241503109
         days: 6
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        currencyID: currencyID
+        currencyId: currencyId
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6993,13 +8152,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -7008,7 +8167,7 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
       required:
@@ -7020,30 +8179,30 @@ components:
         code: code
         weeks: 1
         customState: customState
+        shippingCourierId: shippingCourierId
         description: description
+        countryStateId: countryStateId
+        cityId: cityId
         type: type
         title: title
         customCity: customCity
         years: 5
+        countryId: countryId
         isFree: true
         percentage: 7.061401241503109
         id: id
+        currencyId: currencyId
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
+        enrollmentId: enrollmentId
         allowInternational: true
         hours: 0
         months: 5
-        shippingCourierID: shippingCourierID
-        businessID: businessID
-        countryStateID: countryStateID
-        cityID: cityID
-        businessProfileRecordID: businessProfileRecordID
-        countryID: countryID
         isDefault: true
         isEnabled: true
+        tenantId: tenantId
         days: 6
-        currencyID: currencyID
       properties:
         id:
           nullable: true
@@ -7052,7 +8211,7 @@ components:
           format: date-time
           nullable: true
           type: string
-        shippingCourierID:
+        shippingCourierId:
           nullable: true
           type: string
         type:
@@ -7098,13 +8257,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -7113,13 +8272,13 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -7130,30 +8289,30 @@ components:
           code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -7187,57 +8346,57 @@ components:
         - code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         - code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -7277,18 +8436,18 @@ components:
         months: 5
         customState: customState
         description: description
-        countryStateID: countryStateID
-        cityID: cityID
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 5
-        countryID: countryID
+        countryId: countryId
         isDefault: true
         isFree: true
         isEnabled: true
         percentage: 7.061401241503109
         days: 6
-        currencyID: currencyID
+        currencyId: currencyId
         value: 2.3021358869347655
       properties:
         title:
@@ -7332,13 +8491,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -7347,7 +8506,7 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
       type: object
@@ -7360,21 +8519,21 @@ components:
         weeks: 1
         months: 5
         customState: customState
-        shippingCourierID: shippingCourierID
+        shippingCourierId: shippingCourierId
         description: description
-        countryStateID: countryStateID
-        cityID: cityID
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 5
-        countryID: countryID
+        countryId: countryId
         isDefault: true
         isFree: true
         isEnabled: true
         percentage: 7.061401241503109
         days: 6
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        currencyID: currencyID
+        currencyId: currencyId
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7393,7 +8552,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        shippingCourierID:
+        shippingCourierId:
           nullable: true
           type: string
         isFree:
@@ -7427,13 +8586,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -7442,7 +8601,7 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
       required:
@@ -7454,30 +8613,30 @@ components:
         code: code
         weeks: 1
         customState: customState
+        shippingCourierId: shippingCourierId
         description: description
+        countryStateId: countryStateId
+        cityId: cityId
         type: type
         title: title
         customCity: customCity
         years: 5
+        countryId: countryId
         isFree: true
         percentage: 7.061401241503109
         id: id
+        currencyId: currencyId
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
+        enrollmentId: enrollmentId
         allowInternational: true
         hours: 0
         months: 5
-        shippingCourierID: shippingCourierID
-        businessID: businessID
-        countryStateID: countryStateID
-        cityID: cityID
-        businessProfileRecordID: businessProfileRecordID
-        countryID: countryID
         isDefault: true
         isEnabled: true
+        tenantId: tenantId
         days: 6
-        currencyID: currencyID
       properties:
         id:
           nullable: true
@@ -7486,7 +8645,7 @@ components:
           format: date-time
           nullable: true
           type: string
-        shippingCourierID:
+        shippingCourierId:
           nullable: true
           type: string
         type:
@@ -7532,13 +8691,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -7547,13 +8706,13 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -7564,30 +8723,30 @@ components:
           code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -7621,57 +8780,57 @@ components:
         - code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         - code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -7710,20 +8869,20 @@ components:
         weeks: 1
         months: 5
         customState: customState
-        shippingCourierID: shippingCourierID
+        shippingCourierId: shippingCourierId
         description: description
-        countryStateID: countryStateID
-        cityID: cityID
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 5
-        countryID: countryID
+        countryId: countryId
         isDefault: true
         isFree: true
         isEnabled: true
         percentage: 7.061401241503109
         days: 6
-        currencyID: currencyID
+        currencyId: currencyId
         value: 2.3021358869347655
       properties:
         title:
@@ -7736,7 +8895,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        shippingCourierID:
+        shippingCourierId:
           nullable: true
           type: string
         isFree:
@@ -7770,13 +8929,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -7785,7 +8944,7 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
       type: object
@@ -7800,19 +8959,19 @@ components:
         months: 5
         customState: customState
         description: description
-        countryStateID: countryStateID
-        cityID: cityID
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 5
-        countryID: countryID
+        countryId: countryId
         isDefault: true
         isFree: true
         isEnabled: true
         percentage: 7.061401241503109
         days: 6
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        currencyID: currencyID
+        currencyId: currencyId
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7864,13 +9023,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -7879,7 +9038,7 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
       required:
@@ -7893,27 +9052,27 @@ components:
         weeks: 314780940
         customState: customState
         description: description
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 1210617418
+        countryId: countryId
         isFree: true
         percentage: 70.61401241503108
         id: id
+        currencyId: currencyId
         value: 230213588693476.28
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
+        enrollmentId: enrollmentId
         allowInternational: true
         hours: 171976544
         months: 1280358508
-        businessID: businessID
-        countryStateID: countryStateID
-        cityID: cityID
-        businessProfileRecordID: businessProfileRecordID
-        countryID: countryID
         isDefault: true
         isEnabled: true
+        tenantId: tenantId
         days: 1294386358
-        currencyID: currencyID
       properties:
         id:
           nullable: true
@@ -7982,17 +9141,17 @@ components:
           maximum: 100
           minimum: 0
           type: number
-        currencyID:
+        currencyId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        countryID:
+        countryId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -8007,22 +9166,18 @@ components:
           minLength: 0
           nullable: true
           type: string
-        cityID:
+        cityId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
+        tenantId:
+          nullable: true
           type: string
-        businessProfileRecordID:
-          maxLength: 36
-          minLength: 36
+        enrollmentId:
           nullable: true
           type: string
       required:
-      - businessID
       - code
       - title
       type: object
@@ -8035,27 +9190,27 @@ components:
           weeks: 314780940
           customState: customState
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 1210617418
+          countryId: countryId
           isFree: true
           percentage: 70.61401241503108
           id: id
+          currencyId: currencyId
           value: 230213588693476.28
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 171976544
           months: 1280358508
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 1294386358
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -8091,53 +9246,53 @@ components:
           weeks: 314780940
           customState: customState
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 1210617418
+          countryId: countryId
           isFree: true
           percentage: 70.61401241503108
           id: id
+          currencyId: currencyId
           value: 230213588693476.28
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 171976544
           months: 1280358508
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 1294386358
-          currencyID: currencyID
         - isExtendedWarranty: true
           code: code
           weeks: 314780940
           customState: customState
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 1210617418
+          countryId: countryId
           isFree: true
           percentage: 70.61401241503108
           id: id
+          currencyId: currencyId
           value: 230213588693476.28
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 171976544
           months: 1280358508
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 1294386358
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -8178,18 +9333,18 @@ components:
         months: 5
         customState: customState
         description: description
-        countryStateID: countryStateID
-        cityID: cityID
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 5
-        countryID: countryID
+        countryId: countryId
         isDefault: true
         isFree: true
         isEnabled: true
         percentage: 7.061401241503109
         days: 6
-        currencyID: currencyID
+        currencyId: currencyId
         value: 2.3021358869347655
       properties:
         title:
@@ -8235,13 +9390,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -8250,7 +9405,7 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
       type: object
@@ -8315,12 +9470,12 @@ components:
     KnowledgeArticleDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         description: description
         published: true
         title: title
         seoTitle: seoTitle
         metaDescription: metaDescription
-        businessProfileRecordId: businessProfileRecordId
         content: content
         seoKeyWords: seoKeyWords
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
@@ -8379,7 +9534,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        businessProfileRecordId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -8387,12 +9542,12 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           description: description
           published: true
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordId: businessProfileRecordId
           content: content
           seoKeyWords: seoKeyWords
           releaseDateTime: 2000-01-23T04:56:07.000+00:00
@@ -8434,12 +9589,12 @@ components:
       additionalProperties: false
       example:
         result:
-        - description: description
+        - enrollmentId: enrollmentId
+          description: description
           published: true
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordId: businessProfileRecordId
           content: content
           seoKeyWords: seoKeyWords
           releaseDateTime: 2000-01-23T04:56:07.000+00:00
@@ -8451,12 +9606,12 @@ components:
           excerpt: excerpt
           slug: slug
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - description: description
+        - enrollmentId: enrollmentId
+          description: description
           published: true
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordId: businessProfileRecordId
           content: content
           seoKeyWords: seoKeyWords
           releaseDateTime: 2000-01-23T04:56:07.000+00:00
@@ -8584,9 +9739,9 @@ components:
     MaintenanceVisitDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         tenantId: tenantId
         id: id
-        businessProfileRecordId: businessProfileRecordId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -8599,7 +9754,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        businessProfileRecordId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -8607,9 +9762,9 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           tenantId: tenantId
           id: id
-          businessProfileRecordId: businessProfileRecordId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -8641,13 +9796,13 @@ components:
       additionalProperties: false
       example:
         result:
-        - tenantId: tenantId
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
           id: id
-          businessProfileRecordId: businessProfileRecordId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - tenantId: tenantId
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
           id: id
-          businessProfileRecordId: businessProfileRecordId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -8681,6 +9836,38 @@ components:
     MaintenanceVisitUpdateDto:
       additionalProperties: false
       type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
     PrivateMessageDto:
       additionalProperties: false
       example:
@@ -8690,7 +9877,7 @@ components:
         conversationId: conversationId
         sentTimestamp: 2000-01-23T04:56:07.000+00:00
         senderSocialProfileId: senderSocialProfileId
-        receiverSocialProfileID: receiverSocialProfileID
+        receiverSocialProfileId: receiverSocialProfileId
         id: id
         title: title
         message: message
@@ -8717,7 +9904,7 @@ components:
         senderSocialProfileId:
           nullable: true
           type: string
-        receiverSocialProfileID:
+        receiverSocialProfileId:
           nullable: true
           type: string
         sentTimestamp:
@@ -8740,7 +9927,7 @@ components:
           conversationId: conversationId
           sentTimestamp: 2000-01-23T04:56:07.000+00:00
           senderSocialProfileId: senderSocialProfileId
-          receiverSocialProfileID: receiverSocialProfileID
+          receiverSocialProfileId: receiverSocialProfileId
           id: id
           title: title
           message: message
@@ -8751,7 +9938,7 @@ components:
           conversationId: conversationId
           sentTimestamp: 2000-01-23T04:56:07.000+00:00
           senderSocialProfileId: senderSocialProfileId
-          receiverSocialProfileID: receiverSocialProfileID
+          receiverSocialProfileId: receiverSocialProfileId
           id: id
           title: title
           message: message
@@ -8848,12 +10035,12 @@ components:
     RefundRequestDto:
       additionalProperties: false
       example:
-        accountHolderId: accountHolderId
+        enrollmentId: enrollmentId
         contactId: contactId
         refundPolicyId: refundPolicyId
         description: description
         title: title
-        businessProfileRecordId: businessProfileRecordId
+        userId: userId
         supportEntitlementId: supportEntitlementId
         approved: true
         paymentId: paymentId
@@ -8882,7 +10069,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        businessProfileRecordId:
+        enrollmentId:
           nullable: true
           type: string
         supportEntitlementId:
@@ -8891,7 +10078,7 @@ components:
         contactId:
           nullable: true
           type: string
-        accountHolderId:
+        userId:
           nullable: true
           type: string
         refundPolicyId:
@@ -8905,12 +10092,12 @@ components:
       additionalProperties: false
       example:
         result:
-          accountHolderId: accountHolderId
+          enrollmentId: enrollmentId
           contactId: contactId
           refundPolicyId: refundPolicyId
           description: description
           title: title
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           supportEntitlementId: supportEntitlementId
           approved: true
           paymentId: paymentId
@@ -8948,12 +10135,12 @@ components:
       additionalProperties: false
       example:
         result:
-        - accountHolderId: accountHolderId
+        - enrollmentId: enrollmentId
           contactId: contactId
           refundPolicyId: refundPolicyId
           description: description
           title: title
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           supportEntitlementId: supportEntitlementId
           approved: true
           paymentId: paymentId
@@ -8961,12 +10148,12 @@ components:
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - accountHolderId: accountHolderId
+        - enrollmentId: enrollmentId
           contactId: contactId
           refundPolicyId: refundPolicyId
           description: description
           title: title
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           supportEntitlementId: supportEntitlementId
           approved: true
           paymentId: paymentId
@@ -9132,7 +10319,7 @@ components:
       additionalProperties: false
       example:
         supportEntitlementId: supportEntitlementId
-        accountHolderId: accountHolderId
+        enrollmentId: enrollmentId
         approved: true
         returnPolicyId: returnPolicyId
         contactId: contactId
@@ -9141,7 +10328,7 @@ components:
         description: description
         id: id
         title: title
-        businessProfileRecordId: businessProfileRecordId
+        userId: userId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -9164,7 +10351,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        businessProfileRecordId:
+        enrollmentId:
           nullable: true
           type: string
         supportEntitlementId:
@@ -9173,7 +10360,7 @@ components:
         contactId:
           nullable: true
           type: string
-        accountHolderId:
+        userId:
           nullable: true
           type: string
         returnPolicyId:
@@ -9185,7 +10372,7 @@ components:
       example:
         result:
           supportEntitlementId: supportEntitlementId
-          accountHolderId: accountHolderId
+          enrollmentId: enrollmentId
           approved: true
           returnPolicyId: returnPolicyId
           contactId: contactId
@@ -9194,7 +10381,7 @@ components:
           description: description
           id: id
           title: title
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -9227,7 +10414,7 @@ components:
       example:
         result:
         - supportEntitlementId: supportEntitlementId
-          accountHolderId: accountHolderId
+          enrollmentId: enrollmentId
           approved: true
           returnPolicyId: returnPolicyId
           contactId: contactId
@@ -9236,10 +10423,10 @@ components:
           description: description
           id: id
           title: title
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - supportEntitlementId: supportEntitlementId
-          accountHolderId: accountHolderId
+          enrollmentId: enrollmentId
           approved: true
           returnPolicyId: returnPolicyId
           contactId: contactId
@@ -9248,7 +10435,7 @@ components:
           description: description
           id: id
           title: title
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -9310,28 +10497,29 @@ components:
     SupportEntitlementCreateDto:
       additionalProperties: false
       example:
-        walletAccountID: walletAccountID
         code: code
         data: data
         signature: signature
         data8Label: data8Label
         description: description
         customRenewalPeriod: 2
+        individualId: individualId
         title: title
         repetitions: 6
         usageThreshold: 7
+        organizationId: organizationId
         data5Label: data5Label
-        paymentTokenID: paymentTokenID
         nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
         enableAutomaticRenew: true
+        receiverTenantId: receiverTenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         data2Label: data2Label
         timestamp: 2000-01-23T04:56:07.000+00:00
-        securityCertificateID: securityCertificateID
         data9: data9
         data8: data8
         enableAutomaticPayments: true
         data7: data7
+        walletAccountId: walletAccountId
         quantity: 0
         data6: data6
         data5: data5
@@ -9343,20 +10531,19 @@ components:
         dataLabel: dataLabel
         data1: data1
         gracePeriodInDays: 5
-        individualID: individualID
         endDateTime: 2000-01-23T04:56:07.000+00:00
         data3Label: data3Label
         data6Label: data6Label
-        receiverBusinessID: receiverBusinessID
         enableProRateBilling: true
         data1Label: data1Label
-        organizationID: organizationID
         data4Label: data4Label
         startDateTime: 2000-01-23T04:56:07.000+00:00
         enableUsageThreshold: true
+        paymentTokenId: paymentTokenId
         chargeAttempts: 1
         freeTrialInDays: 5
         data7Label: data7Label
+        securityCertificateId: securityCertificateId
       properties:
         id:
           format: uuid
@@ -9480,22 +10667,22 @@ components:
         data9Label:
           nullable: true
           type: string
-        individualID:
+        individualId:
           nullable: true
           type: string
-        organizationID:
+        organizationId:
           nullable: true
           type: string
-        receiverBusinessID:
+        receiverTenantId:
           nullable: true
           type: string
-        paymentTokenID:
+        paymentTokenId:
           nullable: true
           type: string
-        walletAccountID:
+        walletAccountId:
           nullable: true
           type: string
-        securityCertificateID:
+        securityCertificateId:
           nullable: true
           type: string
       type: object
@@ -9507,39 +10694,37 @@ components:
         customRenewalPeriod: 2
         repetitions: 6
         usageThreshold: 7
-        paymentTokenID: paymentTokenID
+        organizationId: organizationId
         enableAutomaticRenew: true
         id: id
         data2Label: data2Label
-        securityCertificateID: securityCertificateID
+        enrollmentId: enrollmentId
         enableAutomaticDisable: true
         dataLabel: dataLabel
-        businessID: businessID
         gracePeriodInDays: 5
-        individualID: individualID
         endDateTime: 2000-01-23T04:56:07.000+00:00
-        businessProfileRecordID: businessProfileRecordID
-        receiverBusinessID: receiverBusinessID
         enableProRateBilling: true
         data1Label: data1Label
-        organizationID: organizationID
         data4Label: data4Label
         enableUsageThreshold: true
         freeTrialInDays: 5
         data7Label: data7Label
-        accountHolderID: accountHolderID
-        walletAccountID: walletAccountID
+        status: Active
+        securityCertificateId: securityCertificateId
         code: code
         signature: signature
         description: description
+        individualId: individualId
         title: title
         data5Label: data5Label
         nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
+        receiverTenantId: receiverTenantId
         timestamp: 2000-01-23T04:56:07.000+00:00
         data9: data9
         data8: data8
         enableAutomaticPayments: true
         data7: data7
+        walletAccountId: walletAccountId
         quantity: 0
         data6: data6
         data5: data5
@@ -9550,7 +10735,10 @@ components:
         data1: data1
         data3Label: data3Label
         data6Label: data6Label
+        userId: userId
         startDateTime: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
+        paymentTokenId: paymentTokenId
         chargeAttempts: 1
       properties:
         id:
@@ -9565,6 +10753,13 @@ components:
           type: string
         description:
           nullable: true
+          type: string
+        status:
+          enum:
+          - Active
+          - GracePeriod
+          - Disabled
+          - Deleted
           type: string
         startDateTime:
           format: date-time
@@ -9672,31 +10867,31 @@ components:
         data9Label:
           nullable: true
           type: string
-        accountHolderID:
+        userId:
           nullable: true
           type: string
-        individualID:
+        individualId:
           nullable: true
           type: string
-        organizationID:
+        organizationId:
           nullable: true
           type: string
-        receiverBusinessID:
+        receiverTenantId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
-        paymentTokenID:
+        paymentTokenId:
           nullable: true
           type: string
-        walletAccountID:
+        walletAccountId:
           nullable: true
           type: string
-        securityCertificateID:
+        securityCertificateId:
           nullable: true
           type: string
       type: object
@@ -9709,39 +10904,37 @@ components:
           customRenewalPeriod: 2
           repetitions: 6
           usageThreshold: 7
-          paymentTokenID: paymentTokenID
+          organizationId: organizationId
           enableAutomaticRenew: true
           id: id
           data2Label: data2Label
-          securityCertificateID: securityCertificateID
+          enrollmentId: enrollmentId
           enableAutomaticDisable: true
           dataLabel: dataLabel
-          businessID: businessID
           gracePeriodInDays: 5
-          individualID: individualID
           endDateTime: 2000-01-23T04:56:07.000+00:00
-          businessProfileRecordID: businessProfileRecordID
-          receiverBusinessID: receiverBusinessID
           enableProRateBilling: true
           data1Label: data1Label
-          organizationID: organizationID
           data4Label: data4Label
           enableUsageThreshold: true
           freeTrialInDays: 5
           data7Label: data7Label
-          accountHolderID: accountHolderID
-          walletAccountID: walletAccountID
+          status: Active
+          securityCertificateId: securityCertificateId
           code: code
           signature: signature
           description: description
+          individualId: individualId
           title: title
           data5Label: data5Label
           nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
+          receiverTenantId: receiverTenantId
           timestamp: 2000-01-23T04:56:07.000+00:00
           data9: data9
           data8: data8
           enableAutomaticPayments: true
           data7: data7
+          walletAccountId: walletAccountId
           quantity: 0
           data6: data6
           data5: data5
@@ -9752,7 +10945,10 @@ components:
           data1: data1
           data3Label: data3Label
           data6Label: data6Label
+          userId: userId
           startDateTime: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          paymentTokenId: paymentTokenId
           chargeAttempts: 1
         activityId: activityId
         errorMessage: errorMessage
@@ -9789,39 +10985,37 @@ components:
           customRenewalPeriod: 2
           repetitions: 6
           usageThreshold: 7
-          paymentTokenID: paymentTokenID
+          organizationId: organizationId
           enableAutomaticRenew: true
           id: id
           data2Label: data2Label
-          securityCertificateID: securityCertificateID
+          enrollmentId: enrollmentId
           enableAutomaticDisable: true
           dataLabel: dataLabel
-          businessID: businessID
           gracePeriodInDays: 5
-          individualID: individualID
           endDateTime: 2000-01-23T04:56:07.000+00:00
-          businessProfileRecordID: businessProfileRecordID
-          receiverBusinessID: receiverBusinessID
           enableProRateBilling: true
           data1Label: data1Label
-          organizationID: organizationID
           data4Label: data4Label
           enableUsageThreshold: true
           freeTrialInDays: 5
           data7Label: data7Label
-          accountHolderID: accountHolderID
-          walletAccountID: walletAccountID
+          status: Active
+          securityCertificateId: securityCertificateId
           code: code
           signature: signature
           description: description
+          individualId: individualId
           title: title
           data5Label: data5Label
           nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
+          receiverTenantId: receiverTenantId
           timestamp: 2000-01-23T04:56:07.000+00:00
           data9: data9
           data8: data8
           enableAutomaticPayments: true
           data7: data7
+          walletAccountId: walletAccountId
           quantity: 0
           data6: data6
           data5: data5
@@ -9832,46 +11026,47 @@ components:
           data1: data1
           data3Label: data3Label
           data6Label: data6Label
+          userId: userId
           startDateTime: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          paymentTokenId: paymentTokenId
           chargeAttempts: 1
         - data: data
           data8Label: data8Label
           customRenewalPeriod: 2
           repetitions: 6
           usageThreshold: 7
-          paymentTokenID: paymentTokenID
+          organizationId: organizationId
           enableAutomaticRenew: true
           id: id
           data2Label: data2Label
-          securityCertificateID: securityCertificateID
+          enrollmentId: enrollmentId
           enableAutomaticDisable: true
           dataLabel: dataLabel
-          businessID: businessID
           gracePeriodInDays: 5
-          individualID: individualID
           endDateTime: 2000-01-23T04:56:07.000+00:00
-          businessProfileRecordID: businessProfileRecordID
-          receiverBusinessID: receiverBusinessID
           enableProRateBilling: true
           data1Label: data1Label
-          organizationID: organizationID
           data4Label: data4Label
           enableUsageThreshold: true
           freeTrialInDays: 5
           data7Label: data7Label
-          accountHolderID: accountHolderID
-          walletAccountID: walletAccountID
+          status: Active
+          securityCertificateId: securityCertificateId
           code: code
           signature: signature
           description: description
+          individualId: individualId
           title: title
           data5Label: data5Label
           nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
+          receiverTenantId: receiverTenantId
           timestamp: 2000-01-23T04:56:07.000+00:00
           data9: data9
           data8: data8
           enableAutomaticPayments: true
           data7: data7
+          walletAccountId: walletAccountId
           quantity: 0
           data6: data6
           data5: data5
@@ -9882,7 +11077,10 @@ components:
           data1: data1
           data3Label: data3Label
           data6Label: data6Label
+          userId: userId
           startDateTime: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          paymentTokenId: paymentTokenId
           chargeAttempts: 1
         activityId: activityId
         errorMessage: errorMessage
@@ -9916,26 +11114,27 @@ components:
     SupportEntitlementUpdateDto:
       additionalProperties: false
       example:
-        walletAccountID: walletAccountID
         code: code
         data: data
         signature: signature
         data8Label: data8Label
         description: description
         customRenewalPeriod: 2
+        individualId: individualId
         title: title
         repetitions: 6
         usageThreshold: 7
+        organizationId: organizationId
         data5Label: data5Label
-        paymentTokenID: paymentTokenID
         nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
         enableAutomaticRenew: true
+        receiverTenantId: receiverTenantId
         data2Label: data2Label
-        securityCertificateID: securityCertificateID
         data9: data9
         data8: data8
         enableAutomaticPayments: true
         data7: data7
+        walletAccountId: walletAccountId
         quantity: 0
         data6: data6
         data5: data5
@@ -9947,19 +11146,18 @@ components:
         dataLabel: dataLabel
         data1: data1
         gracePeriodInDays: 5
-        individualID: individualID
         endDateTime: 2000-01-23T04:56:07.000+00:00
         data3Label: data3Label
         data6Label: data6Label
-        receiverBusinessID: receiverBusinessID
         enableProRateBilling: true
         data1Label: data1Label
-        organizationID: organizationID
         data4Label: data4Label
         enableUsageThreshold: true
+        paymentTokenId: paymentTokenId
         chargeAttempts: 1
         freeTrialInDays: 5
         data7Label: data7Label
+        securityCertificateId: securityCertificateId
       properties:
         title:
           nullable: true
@@ -10070,22 +11268,22 @@ components:
         data9Label:
           nullable: true
           type: string
-        individualID:
+        individualId:
           nullable: true
           type: string
-        organizationID:
+        organizationId:
           nullable: true
           type: string
-        receiverBusinessID:
+        receiverTenantId:
           nullable: true
           type: string
-        paymentTokenID:
+        paymentTokenId:
           nullable: true
           type: string
-        walletAccountID:
+        walletAccountId:
           nullable: true
           type: string
-        securityCertificateID:
+        securityCertificateId:
           nullable: true
           type: string
       type: object
@@ -10098,7 +11296,7 @@ components:
         metadata: metadata
         notes: notes
         author: author
-        supportRequestID: supportRequestID
+        supportRequestId: supportRequestId
         filePath: filePath
         abstract: abstract
         title: title
@@ -10144,7 +11342,7 @@ components:
         metadata:
           nullable: true
           type: string
-        supportRequestID:
+        supportRequestId:
           nullable: true
           type: string
       type: object
@@ -10158,7 +11356,7 @@ components:
         metadata: metadata
         notes: notes
         author: author
-        supportRequestID: supportRequestID
+        supportRequestId: supportRequestId
         filePath: filePath
         abstract: abstract
         title: title
@@ -10240,7 +11438,7 @@ components:
         folderPath:
           nullable: true
           type: string
-        supportRequestID:
+        supportRequestId:
           nullable: true
           type: string
       type: object
@@ -10255,7 +11453,7 @@ components:
           metadata: metadata
           notes: notes
           author: author
-          supportRequestID: supportRequestID
+          supportRequestId: supportRequestId
           filePath: filePath
           abstract: abstract
           title: title
@@ -10308,7 +11506,7 @@ components:
           metadata: metadata
           notes: notes
           author: author
-          supportRequestID: supportRequestID
+          supportRequestId: supportRequestId
           filePath: filePath
           abstract: abstract
           title: title
@@ -10331,7 +11529,7 @@ components:
           metadata: metadata
           notes: notes
           author: author
-          supportRequestID: supportRequestID
+          supportRequestId: supportRequestId
           filePath: filePath
           abstract: abstract
           title: title
@@ -10434,9 +11632,9 @@ components:
     SupportRequestCreateDto:
       additionalProperties: false
       example:
-        supportEntitlementID: supportEntitlementID
+        supportEntitlementId: supportEntitlementId
         approved: true
-        contactID: contactID
+        contactId: contactId
         approvedTimestamp: 2000-01-23T04:56:07.000+00:00
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10463,10 +11661,10 @@ components:
         approvedTimestamp:
           format: date-time
           type: string
-        supportEntitlementID:
+        supportEntitlementId:
           nullable: true
           type: string
-        contactID:
+        contactId:
           nullable: true
           type: string
       required:
@@ -10475,16 +11673,16 @@ components:
     SupportRequestDto:
       additionalProperties: false
       example:
-        supportEntitlementID: supportEntitlementID
-        accountHolderID: accountHolderID
+        supportEntitlementId: supportEntitlementId
+        enrollmentId: enrollmentId
         approved: true
-        contactID: contactID
+        contactId: contactId
         approvedTimestamp: 2000-01-23T04:56:07.000+00:00
-        businessID: businessID
+        tenantId: tenantId
         description: description
         id: id
         title: title
-        businessProfileRecordID: businessProfileRecordID
+        userId: userId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -10505,19 +11703,19 @@ components:
         approvedTimestamp:
           format: date-time
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
-        supportEntitlementID:
+        supportEntitlementId:
           nullable: true
           type: string
-        contactID:
+        contactId:
           nullable: true
           type: string
-        accountHolderID:
+        userId:
           nullable: true
           type: string
       type: object
@@ -10525,16 +11723,16 @@ components:
       additionalProperties: false
       example:
         result:
-          supportEntitlementID: supportEntitlementID
-          accountHolderID: accountHolderID
+          supportEntitlementId: supportEntitlementId
+          enrollmentId: enrollmentId
           approved: true
-          contactID: contactID
+          contactId: contactId
           approvedTimestamp: 2000-01-23T04:56:07.000+00:00
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           title: title
-          businessProfileRecordID: businessProfileRecordID
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -10566,27 +11764,27 @@ components:
       additionalProperties: false
       example:
         result:
-        - supportEntitlementID: supportEntitlementID
-          accountHolderID: accountHolderID
+        - supportEntitlementId: supportEntitlementId
+          enrollmentId: enrollmentId
           approved: true
-          contactID: contactID
+          contactId: contactId
           approvedTimestamp: 2000-01-23T04:56:07.000+00:00
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           title: title
-          businessProfileRecordID: businessProfileRecordID
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - supportEntitlementID: supportEntitlementID
-          accountHolderID: accountHolderID
+        - supportEntitlementId: supportEntitlementId
+          enrollmentId: enrollmentId
           approved: true
-          contactID: contactID
+          contactId: contactId
           approvedTimestamp: 2000-01-23T04:56:07.000+00:00
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           title: title
-          businessProfileRecordID: businessProfileRecordID
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -10620,7 +11818,7 @@ components:
     SupportRequestUpdateDto:
       additionalProperties: false
       example:
-        supportEntitlementID: supportEntitlementID
+        supportEntitlementId: supportEntitlementId
         approved: true
         approvedTimestamp: 2000-01-23T04:56:07.000+00:00
         description: description
@@ -10637,7 +11835,7 @@ components:
         approvedTimestamp:
           format: date-time
           type: string
-        supportEntitlementID:
+        supportEntitlementId:
           nullable: true
           type: string
       type: object
@@ -10648,7 +11846,7 @@ components:
         topic: topic
         closed: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        socialProfileID: socialProfileID
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -10665,7 +11863,7 @@ components:
         closedTimestamp:
           format: date-time
           type: string
-        socialProfileID:
+        socialProfileId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -10678,8 +11876,8 @@ components:
         topic: topic
         closed: true
         id: id
-        supportTicketID: supportTicketID
-        socialProfileID: socialProfileID
+        supportTicketId: supportTicketId
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -10689,7 +11887,7 @@ components:
           format: date-time
           nullable: true
           type: string
-        supportTicketID:
+        supportTicketId:
           nullable: true
           type: string
         topic:
@@ -10700,7 +11898,7 @@ components:
         closedTimestamp:
           format: date-time
           type: string
-        socialProfileID:
+        socialProfileId:
           nullable: true
           type: string
       type: object
@@ -10712,8 +11910,8 @@ components:
           topic: topic
           closed: true
           id: id
-          supportTicketID: supportTicketID
-          socialProfileID: socialProfileID
+          supportTicketId: supportTicketId
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -10749,15 +11947,15 @@ components:
           topic: topic
           closed: true
           id: id
-          supportTicketID: supportTicketID
-          socialProfileID: socialProfileID
+          supportTicketId: supportTicketId
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - closedTimestamp: 2000-01-23T04:56:07.000+00:00
           topic: topic
           closed: true
           id: id
-          supportTicketID: supportTicketID
-          socialProfileID: socialProfileID
+          supportTicketId: supportTicketId
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -10791,12 +11989,14 @@ components:
     SupportTicketCreateDto:
       additionalProperties: false
       example:
-        supportEntitlementID: supportEntitlementID
-        supportPriorityID: supportPriorityID
-        contactID: contactID
-        supportTicketTypeID: supportTicketTypeID
+        supportEntitlementId: supportEntitlementId
+        supportPriorityId: supportPriorityId
+        contactId: contactId
+        supportTicketTypeId: supportTicketTypeId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        supportTicketStatus: New
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -10805,27 +12005,39 @@ components:
         timestamp:
           format: date-time
           type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
         description:
           maxLength: 1000
           minLength: 0
           nullable: true
           type: string
-        contactID:
+        supportTicketStatus:
+          enum:
+          - New
+          - OpenAndWaitingForAgent
+          - OpenAndWaitingForCustomer
+          - Closed
+          type: string
+        contactId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        supportTicketTypeID:
+        supportTicketTypeId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        supportEntitlementID:
+        supportEntitlementId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        supportPriorityID:
+        supportPriorityId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -10834,15 +12046,17 @@ components:
     SupportTicketDto:
       additionalProperties: false
       example:
-        supportEntitlementID: supportEntitlementID
-        supportPriorityID: supportPriorityID
-        accountHolderID: accountHolderID
-        contactID: contactID
-        supportTicketTypeID: supportTicketTypeID
-        businessID: businessID
+        supportEntitlementId: supportEntitlementId
+        supportPriorityId: supportPriorityId
+        enrollmentId: enrollmentId
+        contactId: contactId
+        supportTicketTypeId: supportTicketTypeId
+        tenantId: tenantId
         description: description
         id: id
-        businessProfileRecordID: businessProfileRecordID
+        title: title
+        userId: userId
+        supportTicketStatus: New
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -10852,28 +12066,38 @@ components:
           format: date-time
           nullable: true
           type: string
+        title:
+          nullable: true
+          type: string
         description:
           nullable: true
           type: string
-        accountHolderID:
+        supportTicketStatus:
+          enum:
+          - New
+          - OpenAndWaitingForAgent
+          - OpenAndWaitingForCustomer
+          - Closed
+          type: string
+        userId:
           nullable: true
           type: string
-        contactID:
+        contactId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
-        supportTicketTypeID:
+        supportTicketTypeId:
           nullable: true
           type: string
-        supportEntitlementID:
+        supportEntitlementId:
           nullable: true
           type: string
-        supportPriorityID:
+        supportPriorityId:
           nullable: true
           type: string
       type: object
@@ -10881,15 +12105,17 @@ components:
       additionalProperties: false
       example:
         result:
-          supportEntitlementID: supportEntitlementID
-          supportPriorityID: supportPriorityID
-          accountHolderID: accountHolderID
-          contactID: contactID
-          supportTicketTypeID: supportTicketTypeID
-          businessID: businessID
+          supportEntitlementId: supportEntitlementId
+          supportPriorityId: supportPriorityId
+          enrollmentId: enrollmentId
+          contactId: contactId
+          supportTicketTypeId: supportTicketTypeId
+          tenantId: tenantId
           description: description
           id: id
-          businessProfileRecordID: businessProfileRecordID
+          title: title
+          userId: userId
+          supportTicketStatus: New
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -10921,25 +12147,29 @@ components:
       additionalProperties: false
       example:
         result:
-        - supportEntitlementID: supportEntitlementID
-          supportPriorityID: supportPriorityID
-          accountHolderID: accountHolderID
-          contactID: contactID
-          supportTicketTypeID: supportTicketTypeID
-          businessID: businessID
+        - supportEntitlementId: supportEntitlementId
+          supportPriorityId: supportPriorityId
+          enrollmentId: enrollmentId
+          contactId: contactId
+          supportTicketTypeId: supportTicketTypeId
+          tenantId: tenantId
           description: description
           id: id
-          businessProfileRecordID: businessProfileRecordID
+          title: title
+          userId: userId
+          supportTicketStatus: New
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - supportEntitlementID: supportEntitlementID
-          supportPriorityID: supportPriorityID
-          accountHolderID: accountHolderID
-          contactID: contactID
-          supportTicketTypeID: supportTicketTypeID
-          businessID: businessID
+        - supportEntitlementId: supportEntitlementId
+          supportPriorityId: supportPriorityId
+          enrollmentId: enrollmentId
+          contactId: contactId
+          supportTicketTypeId: supportTicketTypeId
+          tenantId: tenantId
           description: description
           id: id
-          businessProfileRecordID: businessProfileRecordID
+          title: title
+          userId: userId
+          supportTicketStatus: New
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -10973,7 +12203,7 @@ components:
     SupportTicketPriorityCreateDto:
       additionalProperties: false
       example:
-        supportEntitlementID: supportEntitlementID
+        supportEntitlementId: supportEntitlementId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -10995,7 +12225,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        supportEntitlementID:
+        supportEntitlementId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -11004,8 +12234,8 @@ components:
     SupportTicketPriorityDto:
       additionalProperties: false
       example:
-        supportEntitlementID: supportEntitlementID
-        businessID: businessID
+        supportEntitlementId: supportEntitlementId
+        tenantId: tenantId
         description: description
         id: id
         title: title
@@ -11024,10 +12254,10 @@ components:
         description:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        supportEntitlementID:
+        supportEntitlementId:
           nullable: true
           type: string
       type: object
@@ -11035,8 +12265,8 @@ components:
       additionalProperties: false
       example:
         result:
-          supportEntitlementID: supportEntitlementID
-          businessID: businessID
+          supportEntitlementId: supportEntitlementId
+          tenantId: tenantId
           description: description
           id: id
           title: title
@@ -11071,14 +12301,14 @@ components:
       additionalProperties: false
       example:
         result:
-        - supportEntitlementID: supportEntitlementID
-          businessID: businessID
+        - supportEntitlementId: supportEntitlementId
+          tenantId: tenantId
           description: description
           id: id
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - supportEntitlementID: supportEntitlementID
-          businessID: businessID
+        - supportEntitlementId: supportEntitlementId
+          tenantId: tenantId
           description: description
           id: id
           title: title
@@ -11115,6 +12345,7 @@ components:
     SupportTicketPriorityUpdateDto:
       additionalProperties: false
       example:
+        supportEntitlementId: supportEntitlementId
         description: description
         title: title
       properties:
@@ -11122,6 +12353,9 @@ components:
           nullable: true
           type: string
         description:
+          nullable: true
+          type: string
+        supportEntitlementId:
           nullable: true
           type: string
       type: object
@@ -11153,7 +12387,7 @@ components:
     SupportTicketTypeDto:
       additionalProperties: false
       example:
-        businessID: businessID
+        tenantId: tenantId
         description: description
         id: id
         title: title
@@ -11172,7 +12406,7 @@ components:
         description:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -11180,7 +12414,7 @@ components:
       additionalProperties: false
       example:
         result:
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           title: title
@@ -11215,12 +12449,12 @@ components:
       additionalProperties: false
       example:
         result:
-        - businessID: businessID
+        - tenantId: tenantId
           description: description
           id: id
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - businessID: businessID
+        - tenantId: tenantId
           description: description
           id: id
           title: title
@@ -11283,25 +12517,37 @@ components:
     SupportTicketUpdateDto:
       additionalProperties: false
       example:
-        supportEntitlementID: supportEntitlementID
-        supportPriorityID: supportPriorityID
-        contactID: contactID
-        supportTicketTypeID: supportTicketTypeID
+        supportEntitlementId: supportEntitlementId
+        supportPriorityId: supportPriorityId
+        contactId: contactId
+        supportTicketTypeId: supportTicketTypeId
         description: description
+        title: title
+        supportTicketStatus: New
       properties:
+        title:
+          nullable: true
+          type: string
         description:
           nullable: true
           type: string
-        contactID:
+        supportTicketStatus:
+          enum:
+          - New
+          - OpenAndWaitingForAgent
+          - OpenAndWaitingForCustomer
+          - Closed
+          type: string
+        contactId:
           nullable: true
           type: string
-        supportTicketTypeID:
+        supportTicketTypeId:
           nullable: true
           type: string
-        supportEntitlementID:
+        supportEntitlementId:
           nullable: true
           type: string
-        supportPriorityID:
+        supportPriorityId:
           nullable: true
           type: string
       type: object
@@ -11408,7 +12654,7 @@ components:
       additionalProperties: false
       example:
         supportEntitlementId: supportEntitlementId
-        accountHolderId: accountHolderId
+        enrollmentId: enrollmentId
         approved: true
         contactId: contactId
         approvedTimestamp: 2000-01-23T04:56:07.000+00:00
@@ -11417,7 +12663,7 @@ components:
         id: id
         title: title
         warrantyPolicyId: warrantyPolicyId
-        businessProfileRecordId: businessProfileRecordId
+        userId: userId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -11440,7 +12686,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        businessProfileRecordId:
+        enrollmentId:
           nullable: true
           type: string
         supportEntitlementId:
@@ -11449,7 +12695,7 @@ components:
         contactId:
           nullable: true
           type: string
-        accountHolderId:
+        userId:
           nullable: true
           type: string
         warrantyPolicyId:
@@ -11461,7 +12707,7 @@ components:
       example:
         result:
           supportEntitlementId: supportEntitlementId
-          accountHolderId: accountHolderId
+          enrollmentId: enrollmentId
           approved: true
           contactId: contactId
           approvedTimestamp: 2000-01-23T04:56:07.000+00:00
@@ -11470,7 +12716,7 @@ components:
           id: id
           title: title
           warrantyPolicyId: warrantyPolicyId
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -11503,7 +12749,7 @@ components:
       example:
         result:
         - supportEntitlementId: supportEntitlementId
-          accountHolderId: accountHolderId
+          enrollmentId: enrollmentId
           approved: true
           contactId: contactId
           approvedTimestamp: 2000-01-23T04:56:07.000+00:00
@@ -11512,10 +12758,10 @@ components:
           id: id
           title: title
           warrantyPolicyId: warrantyPolicyId
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - supportEntitlementId: supportEntitlementId
-          accountHolderId: accountHolderId
+          enrollmentId: enrollmentId
           approved: true
           contactId: contactId
           approvedTimestamp: 2000-01-23T04:56:07.000+00:00
@@ -11524,7 +12770,7 @@ components:
           id: id
           title: title
           warrantyPolicyId: warrantyPolicyId
-          businessProfileRecordId: businessProfileRecordId
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage

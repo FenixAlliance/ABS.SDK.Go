@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**ParentTerritoryID** | Pointer to **NullableString** |  | [optional] 
+**ParentTerritoryId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -149,41 +149,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *TenantTerritoryCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetParentTerritoryID
+### GetParentTerritoryId
 
-`func (o *TenantTerritoryCreateDto) GetParentTerritoryID() string`
+`func (o *TenantTerritoryCreateDto) GetParentTerritoryId() string`
 
-GetParentTerritoryID returns the ParentTerritoryID field if non-nil, zero value otherwise.
+GetParentTerritoryId returns the ParentTerritoryId field if non-nil, zero value otherwise.
 
-### GetParentTerritoryIDOk
+### GetParentTerritoryIdOk
 
-`func (o *TenantTerritoryCreateDto) GetParentTerritoryIDOk() (*string, bool)`
+`func (o *TenantTerritoryCreateDto) GetParentTerritoryIdOk() (*string, bool)`
 
-GetParentTerritoryIDOk returns a tuple with the ParentTerritoryID field if it's non-nil, zero value otherwise
+GetParentTerritoryIdOk returns a tuple with the ParentTerritoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentTerritoryID
+### SetParentTerritoryId
 
-`func (o *TenantTerritoryCreateDto) SetParentTerritoryID(v string)`
+`func (o *TenantTerritoryCreateDto) SetParentTerritoryId(v string)`
 
-SetParentTerritoryID sets ParentTerritoryID field to given value.
+SetParentTerritoryId sets ParentTerritoryId field to given value.
 
-### HasParentTerritoryID
+### HasParentTerritoryId
 
-`func (o *TenantTerritoryCreateDto) HasParentTerritoryID() bool`
+`func (o *TenantTerritoryCreateDto) HasParentTerritoryId() bool`
 
-HasParentTerritoryID returns a boolean if a field has been set.
+HasParentTerritoryId returns a boolean if a field has been set.
 
-### SetParentTerritoryIDNil
+### SetParentTerritoryIdNil
 
-`func (o *TenantTerritoryCreateDto) SetParentTerritoryIDNil(b bool)`
+`func (o *TenantTerritoryCreateDto) SetParentTerritoryIdNil(b bool)`
 
- SetParentTerritoryIDNil sets the value for ParentTerritoryID to be an explicit nil
+ SetParentTerritoryIdNil sets the value for ParentTerritoryId to be an explicit nil
 
-### UnsetParentTerritoryID
-`func (o *TenantTerritoryCreateDto) UnsetParentTerritoryID()`
+### UnsetParentTerritoryId
+`func (o *TenantTerritoryCreateDto) UnsetParentTerritoryId()`
 
-UnsetParentTerritoryID ensures that no value is present for ParentTerritoryID, not even an explicit nil
+UnsetParentTerritoryId ensures that no value is present for ParentTerritoryId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

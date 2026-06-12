@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetTenantOptionByKey**](OptionsAPI.md#GetTenantOptionByKey) | **Get** /api/v2/TenantsService/Options/Key/{key} | Retrieve a single tenant option by its key
 [**GetTenantOptions**](OptionsAPI.md#GetTenantOptions) | **Get** /api/v2/TenantsService/Options | Retrieve a list of tenant options
 [**GetTenantOptionsCount**](OptionsAPI.md#GetTenantOptionsCount) | **Get** /api/v2/TenantsService/Options/Count | Get the count of tenant options
+[**PatchTenantOption**](OptionsAPI.md#PatchTenantOption) | **Patch** /api/v2/TenantsService/Options/{optionId} | Patch a tenant option
 [**UpdateTenantOption**](OptionsAPI.md#UpdateTenantOption) | **Put** /api/v2/TenantsService/Options/{optionId} | Update a tenant option
 [**UpsertTenantOption**](OptionsAPI.md#UpsertTenantOption) | **Put** /api/v2/TenantsService/Options/Upsert/{key} | Create or update a tenant option by key
 
@@ -458,6 +459,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchTenantOption
+
+> EmptyEnvelope PatchTenantOption(ctx, optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a tenant option
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	optionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionsAPI.PatchTenantOption(context.Background(), optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.PatchTenantOption``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchTenantOption`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `OptionsAPI.PatchTenantOption`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**optionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchTenantOptionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

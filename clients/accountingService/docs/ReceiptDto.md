@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **PaymentId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **Closed** | Pointer to **bool** |  | [optional] 
-**AccountHolderId** | Pointer to **NullableString** |  | [optional] 
+**UserId** | Pointer to **NullableString** |  | [optional] 
 **ContactId** | Pointer to **NullableString** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **ReceiptType** | Pointer to **string** |  | [optional] 
@@ -200,41 +200,41 @@ SetClosed sets Closed field to given value.
 
 HasClosed returns a boolean if a field has been set.
 
-### GetAccountHolderId
+### GetUserId
 
-`func (o *ReceiptDto) GetAccountHolderId() string`
+`func (o *ReceiptDto) GetUserId() string`
 
-GetAccountHolderId returns the AccountHolderId field if non-nil, zero value otherwise.
+GetUserId returns the UserId field if non-nil, zero value otherwise.
 
-### GetAccountHolderIdOk
+### GetUserIdOk
 
-`func (o *ReceiptDto) GetAccountHolderIdOk() (*string, bool)`
+`func (o *ReceiptDto) GetUserIdOk() (*string, bool)`
 
-GetAccountHolderIdOk returns a tuple with the AccountHolderId field if it's non-nil, zero value otherwise
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountHolderId
+### SetUserId
 
-`func (o *ReceiptDto) SetAccountHolderId(v string)`
+`func (o *ReceiptDto) SetUserId(v string)`
 
-SetAccountHolderId sets AccountHolderId field to given value.
+SetUserId sets UserId field to given value.
 
-### HasAccountHolderId
+### HasUserId
 
-`func (o *ReceiptDto) HasAccountHolderId() bool`
+`func (o *ReceiptDto) HasUserId() bool`
 
-HasAccountHolderId returns a boolean if a field has been set.
+HasUserId returns a boolean if a field has been set.
 
-### SetAccountHolderIdNil
+### SetUserIdNil
 
-`func (o *ReceiptDto) SetAccountHolderIdNil(b bool)`
+`func (o *ReceiptDto) SetUserIdNil(b bool)`
 
- SetAccountHolderIdNil sets the value for AccountHolderId to be an explicit nil
+ SetUserIdNil sets the value for UserId to be an explicit nil
 
-### UnsetAccountHolderId
-`func (o *ReceiptDto) UnsetAccountHolderId()`
+### UnsetUserId
+`func (o *ReceiptDto) UnsetUserId()`
 
-UnsetAccountHolderId ensures that no value is present for AccountHolderId, not even an explicit nil
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 ### GetContactId
 
 `func (o *ReceiptDto) GetContactId() string`

@@ -9,11 +9,12 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: SystemService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
 - name: Antiforgery
+- name: BusinessDomains
 - name: Carts
 - name: Completions
 - name: ContactOptions
@@ -84,6 +85,291 @@ paths:
       summary: Validate antiforgery request
       tags:
       - Antiforgery
+  /api/v2/SystemService/BusinessDomains:
+    get:
+      description: Retrieve all registered business domains across every tenant (global
+        administrators only).
+      operationId: GetSystemBusinessDomains
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessDomainDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BusinessDomainDtoListEnvelope'
+          description: OK
+      summary: Retrieve all business domains in the system
+      tags:
+      - BusinessDomains
+  /api/v2/SystemService/BusinessDomains/Count:
+    get:
+      description: Get the count of all registered business domains across every tenant.
+      operationId: GetSystemBusinessDomainsCount
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of all business domains in the system
+      tags:
+      - BusinessDomains
+  /api/v2/SystemService/BusinessDomains/{businessDomainId}:
+    delete:
+      description: "Removes any business domain from the system, regardless of owning\
+        \ tenant."
+      operationId: DeleteSystemBusinessDomain
+      parameters:
+      - explode: false
+        in: path
+        name: businessDomainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a business domain
+      tags:
+      - BusinessDomains
+    get:
+      description: "Retrieve any business domain by its ID, regardless of owning tenant."
+      operationId: GetSystemBusinessDomainById
+      parameters:
+      - explode: false
+        in: path
+        name: businessDomainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessDomainDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BusinessDomainDtoEnvelope'
+          description: OK
+      summary: Retrieve a business domain by its ID
+      tags:
+      - BusinessDomains
+  /api/v2/SystemService/BusinessDomains/{businessDomainId}/Verify:
+    post:
+      description: Checks the domain's DNS TXT records for the verification token
+        and marks it verified.
+      operationId: VerifySystemBusinessDomain
+      parameters:
+      - explode: false
+        in: path
+        name: businessDomainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Verify a business domain
+      tags:
+      - BusinessDomains
   /api/v2/SystemService/Carts:
     get:
       description: Retrieve a list of all carts in the system
@@ -922,6 +1208,84 @@ paths:
                 $ref: '#/components/schemas/OptionDtoEnvelope'
           description: OK
       summary: Retrieve a single contact option by its ID (admin)
+      tags:
+      - ContactOptions
+    patch:
+      description: Admin endpoint to partially update an option for any contact using
+        a JSON Patch document
+      operationId: PatchSystemContactOption
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially update a contact option (admin)
       tags:
       - ContactOptions
     put:
@@ -4951,6 +5315,75 @@ paths:
       summary: Retrieve a single system option by its ID
       tags:
       - Options
+    patch:
+      description: Partially update a system option using a JSON Patch document
+      operationId: PatchSystemOption
+      parameters:
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially update a system option
+      tags:
+      - Options
     put:
       description: Update a system option
       operationId: UpdateSystemOption
@@ -5477,6 +5910,76 @@ paths:
       summary: Retrieve a single system portal by its ID
       tags:
       - Portals
+    patch:
+      description: Partially update an existing web portal in the system using a JSON
+        Patch document
+      operationId: PatchSystemPortal
+      parameters:
+      - explode: false
+        in: path
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially update a system portal
+      tags:
+      - Portals
     put:
       description: Update an existing web portal in the system
       operationId: UpdateSystemPortal
@@ -5883,6 +6386,84 @@ paths:
                 $ref: '#/components/schemas/OptionDtoEnvelope'
           description: OK
       summary: Retrieve a single tenant option by its ID (admin)
+      tags:
+      - TenantOptions
+    patch:
+      description: Admin endpoint to partially update an option for any tenant using
+        a JSON Patch document
+      operationId: PatchSystemTenantOption
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially update a tenant option (admin)
       tags:
       - TenantOptions
     put:
@@ -6329,6 +6910,75 @@ paths:
                 $ref: '#/components/schemas/TenantDtoEnvelope'
           description: OK
       summary: Get a specific tenant by ID.
+      tags:
+      - Tenants
+    patch:
+      description: This action is only available for global administrators.
+      operationId: PatchTenant
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially update a specific tenant by ID.
       tags:
       - Tenants
     put:
@@ -6821,6 +7471,84 @@ paths:
       summary: Retrieve a single user option by its ID (admin)
       tags:
       - UserOptions
+    patch:
+      description: Admin endpoint to partially update an option for any user using
+        a JSON Patch document
+      operationId: PatchSystemUserOption
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially update a user option (admin)
+      tags:
+      - UserOptions
     put:
       description: Admin endpoint to update an option for any user
       operationId: UpdateSystemUserOption
@@ -7265,6 +7993,75 @@ paths:
       summary: Retrieve a user by ID
       tags:
       - Users
+    patch:
+      description: This action is only available for global administrators.
+      operationId: PatchAccountHolderAsync
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially update a user
+      tags:
+      - Users
     put:
       description: This action is only available for global administrators.
       operationId: UpdateAccountHolderAsync
@@ -7580,6 +8377,116 @@ components:
           type: string
         result:
           type: boolean
+      type: object
+    BusinessDomainDto:
+      additionalProperties: false
+      example:
+        domain: domain
+        verified: true
+        businessID: businessID
+        id: id
+        txtRecord: txtRecord
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        txtRecord:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    BusinessDomainDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          domain: domain
+          verified: true
+          businessID: businessID
+          id: id
+          txtRecord: txtRecord
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/BusinessDomainDto'
+      type: object
+    BusinessDomainDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - domain: domain
+          verified: true
+          businessID: businessID
+          id: id
+          txtRecord: txtRecord
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - domain: domain
+          verified: true
+          businessID: businessID
+          id: id
+          txtRecord: txtRecord
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BusinessDomainDto'
+          nullable: true
+          type: array
       type: object
     CartDto:
       additionalProperties: false
@@ -10091,6 +10998,38 @@ components:
       - title
       - uiCulture
       type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
     OptionCreateDto:
       additionalProperties: false
       example:
@@ -12320,13 +13259,13 @@ components:
         root: true
         domain: domain
         description: description
-        businessPortalApplicationID: businessPortalApplicationID
+        businessPortalApplicationId: businessPortalApplicationId
         disabled: true
-        businessDomainID: businessDomainID
+        businessDomainId: businessDomainId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
-        websiteThemeID: websiteThemeID
+        websiteThemeId: websiteThemeId
       properties:
         id:
           format: uuid
@@ -12347,13 +13286,13 @@ components:
         description:
           nullable: true
           type: string
-        websiteThemeID:
+        websiteThemeId:
           nullable: true
           type: string
-        businessDomainID:
+        businessDomainId:
           nullable: true
           type: string
-        businessPortalApplicationID:
+        businessPortalApplicationId:
           nullable: true
           type: string
       type: object
@@ -12514,11 +13453,11 @@ components:
         root: true
         domain: domain
         description: description
-        businessPortalApplicationID: businessPortalApplicationID
+        businessPortalApplicationId: businessPortalApplicationId
         disabled: true
-        businessDomainID: businessDomainID
+        businessDomainId: businessDomainId
         title: title
-        websiteThemeID: websiteThemeID
+        websiteThemeId: websiteThemeId
       properties:
         root:
           type: boolean
@@ -12533,13 +13472,13 @@ components:
         description:
           nullable: true
           type: string
-        websiteThemeID:
+        websiteThemeId:
           nullable: true
           type: string
-        businessDomainID:
+        businessDomainId:
           nullable: true
           type: string
-        businessPortalApplicationID:
+        businessPortalApplicationId:
           nullable: true
           type: string
       type: object

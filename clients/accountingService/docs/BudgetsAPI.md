@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**GetBudgetDetailsAsync**](BudgetsAPI.md#GetBudgetDetailsAsync) | **Get** /api/v2/AccountingService/Budgets/{budgetId} | Gets a budget by id
 [**GetBudgetsAsync**](BudgetsAPI.md#GetBudgetsAsync) | **Get** /api/v2/AccountingService/Budgets | Gets all budgets
 [**GetBudgetsCountAsync**](BudgetsAPI.md#GetBudgetsCountAsync) | **Get** /api/v2/AccountingService/Budgets/Count | Get the count of budgets
+[**PatchBudgetAccountEntryAsync**](BudgetsAPI.md#PatchBudgetAccountEntryAsync) | **Patch** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Patches a budget account entry
+[**PatchBudgetAsync**](BudgetsAPI.md#PatchBudgetAsync) | **Patch** /api/v2/AccountingService/Budgets/{budgetId} | Patches a budget
 [**UpdateBudgetAccountEntryAsync**](BudgetsAPI.md#UpdateBudgetAccountEntryAsync) | **Put** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Updates a budget account entry
 [**UpdateBudgetAsync**](BudgetsAPI.md#UpdateBudgetAsync) | **Put** /api/v2/AccountingService/Budgets/{budgetId} | Updates a budget
 
@@ -687,6 +689,165 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchBudgetAccountEntryAsync
+
+> EmptyEnvelope PatchBudgetAccountEntryAsync(ctx, budgetId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patches a budget account entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	budgetId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BudgetsAPI.PatchBudgetAccountEntryAsync(context.Background(), budgetId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BudgetsAPI.PatchBudgetAccountEntryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchBudgetAccountEntryAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `BudgetsAPI.PatchBudgetAccountEntryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**budgetId** | **string** |  | 
+**entryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchBudgetAccountEntryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchBudgetAsync
+
+> EmptyEnvelope PatchBudgetAsync(ctx, budgetId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patches a budget
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	budgetId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BudgetsAPI.PatchBudgetAsync(context.Background(), budgetId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BudgetsAPI.PatchBudgetAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchBudgetAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `BudgetsAPI.PatchBudgetAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**budgetId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchBudgetAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

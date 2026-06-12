@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Path** | Pointer to **NullableString** |  | [optional] 
 **Prefix** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | **string** |  | 
+**ContactId** | Pointer to **NullableString** |  | [optional] 
 **AccountTypeId** | Pointer to **NullableString** |  | [optional] 
 **ParentAccountId** | Pointer to **NullableString** |  | [optional] 
 **AccountCategory** | **string** |  | 
@@ -281,6 +282,41 @@ and a boolean to check if the value has been set.
 SetCurrencyId sets CurrencyId field to given value.
 
 
+### GetContactId
+
+`func (o *AccountCreateDto) GetContactId() string`
+
+GetContactId returns the ContactId field if non-nil, zero value otherwise.
+
+### GetContactIdOk
+
+`func (o *AccountCreateDto) GetContactIdOk() (*string, bool)`
+
+GetContactIdOk returns a tuple with the ContactId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactId
+
+`func (o *AccountCreateDto) SetContactId(v string)`
+
+SetContactId sets ContactId field to given value.
+
+### HasContactId
+
+`func (o *AccountCreateDto) HasContactId() bool`
+
+HasContactId returns a boolean if a field has been set.
+
+### SetContactIdNil
+
+`func (o *AccountCreateDto) SetContactIdNil(b bool)`
+
+ SetContactIdNil sets the value for ContactId to be an explicit nil
+
+### UnsetContactId
+`func (o *AccountCreateDto) UnsetContactId()`
+
+UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
 ### GetAccountTypeId
 
 `func (o *AccountCreateDto) GetAccountTypeId() string`

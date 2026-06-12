@@ -6,9 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**ParentBusinessIndustryID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
+**ParentBusinessIndustryId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -99,6 +100,76 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *TenantIndustryDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+### GetTenantId
+
+`func (o *TenantIndustryDto) GetTenantId() string`
+
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
+
+### GetTenantIdOk
+
+`func (o *TenantIndustryDto) GetTenantIdOk() (*string, bool)`
+
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTenantId
+
+`func (o *TenantIndustryDto) SetTenantId(v string)`
+
+SetTenantId sets TenantId field to given value.
+
+### HasTenantId
+
+`func (o *TenantIndustryDto) HasTenantId() bool`
+
+HasTenantId returns a boolean if a field has been set.
+
+### SetTenantIdNil
+
+`func (o *TenantIndustryDto) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *TenantIndustryDto) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
+
+`func (o *TenantIndustryDto) GetEnrollmentId() string`
+
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
+
+### GetEnrollmentIdOk
+
+`func (o *TenantIndustryDto) GetEnrollmentIdOk() (*string, bool)`
+
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnrollmentId
+
+`func (o *TenantIndustryDto) SetEnrollmentId(v string)`
+
+SetEnrollmentId sets EnrollmentId field to given value.
+
+### HasEnrollmentId
+
+`func (o *TenantIndustryDto) HasEnrollmentId() bool`
+
+HasEnrollmentId returns a boolean if a field has been set.
+
+### SetEnrollmentIdNil
+
+`func (o *TenantIndustryDto) SetEnrollmentIdNil(b bool)`
+
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+
+### UnsetEnrollmentId
+`func (o *TenantIndustryDto) UnsetEnrollmentId()`
+
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetName
 
 `func (o *TenantIndustryDto) GetName() string`
@@ -134,76 +205,41 @@ HasName returns a boolean if a field has been set.
 `func (o *TenantIndustryDto) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
-### GetParentBusinessIndustryID
+### GetParentBusinessIndustryId
 
-`func (o *TenantIndustryDto) GetParentBusinessIndustryID() string`
+`func (o *TenantIndustryDto) GetParentBusinessIndustryId() string`
 
-GetParentBusinessIndustryID returns the ParentBusinessIndustryID field if non-nil, zero value otherwise.
+GetParentBusinessIndustryId returns the ParentBusinessIndustryId field if non-nil, zero value otherwise.
 
-### GetParentBusinessIndustryIDOk
+### GetParentBusinessIndustryIdOk
 
-`func (o *TenantIndustryDto) GetParentBusinessIndustryIDOk() (*string, bool)`
+`func (o *TenantIndustryDto) GetParentBusinessIndustryIdOk() (*string, bool)`
 
-GetParentBusinessIndustryIDOk returns a tuple with the ParentBusinessIndustryID field if it's non-nil, zero value otherwise
+GetParentBusinessIndustryIdOk returns a tuple with the ParentBusinessIndustryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentBusinessIndustryID
+### SetParentBusinessIndustryId
 
-`func (o *TenantIndustryDto) SetParentBusinessIndustryID(v string)`
+`func (o *TenantIndustryDto) SetParentBusinessIndustryId(v string)`
 
-SetParentBusinessIndustryID sets ParentBusinessIndustryID field to given value.
+SetParentBusinessIndustryId sets ParentBusinessIndustryId field to given value.
 
-### HasParentBusinessIndustryID
+### HasParentBusinessIndustryId
 
-`func (o *TenantIndustryDto) HasParentBusinessIndustryID() bool`
+`func (o *TenantIndustryDto) HasParentBusinessIndustryId() bool`
 
-HasParentBusinessIndustryID returns a boolean if a field has been set.
+HasParentBusinessIndustryId returns a boolean if a field has been set.
 
-### SetParentBusinessIndustryIDNil
+### SetParentBusinessIndustryIdNil
 
-`func (o *TenantIndustryDto) SetParentBusinessIndustryIDNil(b bool)`
+`func (o *TenantIndustryDto) SetParentBusinessIndustryIdNil(b bool)`
 
- SetParentBusinessIndustryIDNil sets the value for ParentBusinessIndustryID to be an explicit nil
+ SetParentBusinessIndustryIdNil sets the value for ParentBusinessIndustryId to be an explicit nil
 
-### UnsetParentBusinessIndustryID
-`func (o *TenantIndustryDto) UnsetParentBusinessIndustryID()`
+### UnsetParentBusinessIndustryId
+`func (o *TenantIndustryDto) UnsetParentBusinessIndustryId()`
 
-UnsetParentBusinessIndustryID ensures that no value is present for ParentBusinessIndustryID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *TenantIndustryDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *TenantIndustryDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *TenantIndustryDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *TenantIndustryDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *TenantIndustryDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *TenantIndustryDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
+UnsetParentBusinessIndustryId ensures that no value is present for ParentBusinessIndustryId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

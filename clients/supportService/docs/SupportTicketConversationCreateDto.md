@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Topic** | Pointer to **NullableString** |  | [optional] 
 **Closed** | Pointer to **bool** |  | [optional] 
 **ClosedTimestamp** | Pointer to **time.Time** |  | [optional] 
-**SocialProfileID** | Pointer to **NullableString** |  | [optional] 
+**SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -165,41 +165,41 @@ SetClosedTimestamp sets ClosedTimestamp field to given value.
 
 HasClosedTimestamp returns a boolean if a field has been set.
 
-### GetSocialProfileID
+### GetSocialProfileId
 
-`func (o *SupportTicketConversationCreateDto) GetSocialProfileID() string`
+`func (o *SupportTicketConversationCreateDto) GetSocialProfileId() string`
 
-GetSocialProfileID returns the SocialProfileID field if non-nil, zero value otherwise.
+GetSocialProfileId returns the SocialProfileId field if non-nil, zero value otherwise.
 
-### GetSocialProfileIDOk
+### GetSocialProfileIdOk
 
-`func (o *SupportTicketConversationCreateDto) GetSocialProfileIDOk() (*string, bool)`
+`func (o *SupportTicketConversationCreateDto) GetSocialProfileIdOk() (*string, bool)`
 
-GetSocialProfileIDOk returns a tuple with the SocialProfileID field if it's non-nil, zero value otherwise
+GetSocialProfileIdOk returns a tuple with the SocialProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSocialProfileID
+### SetSocialProfileId
 
-`func (o *SupportTicketConversationCreateDto) SetSocialProfileID(v string)`
+`func (o *SupportTicketConversationCreateDto) SetSocialProfileId(v string)`
 
-SetSocialProfileID sets SocialProfileID field to given value.
+SetSocialProfileId sets SocialProfileId field to given value.
 
-### HasSocialProfileID
+### HasSocialProfileId
 
-`func (o *SupportTicketConversationCreateDto) HasSocialProfileID() bool`
+`func (o *SupportTicketConversationCreateDto) HasSocialProfileId() bool`
 
-HasSocialProfileID returns a boolean if a field has been set.
+HasSocialProfileId returns a boolean if a field has been set.
 
-### SetSocialProfileIDNil
+### SetSocialProfileIdNil
 
-`func (o *SupportTicketConversationCreateDto) SetSocialProfileIDNil(b bool)`
+`func (o *SupportTicketConversationCreateDto) SetSocialProfileIdNil(b bool)`
 
- SetSocialProfileIDNil sets the value for SocialProfileID to be an explicit nil
+ SetSocialProfileIdNil sets the value for SocialProfileId to be an explicit nil
 
-### UnsetSocialProfileID
-`func (o *SupportTicketConversationCreateDto) UnsetSocialProfileID()`
+### UnsetSocialProfileId
+`func (o *SupportTicketConversationCreateDto) UnsetSocialProfileId()`
 
-UnsetSocialProfileID ensures that no value is present for SocialProfileID, not even an explicit nil
+UnsetSocialProfileId ensures that no value is present for SocialProfileId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

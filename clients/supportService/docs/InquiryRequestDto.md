@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 **Phone** | Pointer to **NullableString** |  | [optional] 
 **Message** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **NullableString** |  | [optional] 
-**AccountHolderId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**UserId** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -495,76 +495,76 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *InquiryRequestDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetBusinessProfileRecordId
+### GetEnrollmentId
 
-`func (o *InquiryRequestDto) GetBusinessProfileRecordId() string`
+`func (o *InquiryRequestDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIdOk
+### GetEnrollmentIdOk
 
-`func (o *InquiryRequestDto) GetBusinessProfileRecordIdOk() (*string, bool)`
+`func (o *InquiryRequestDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordId
+### SetEnrollmentId
 
-`func (o *InquiryRequestDto) SetBusinessProfileRecordId(v string)`
+`func (o *InquiryRequestDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordId
+### HasEnrollmentId
 
-`func (o *InquiryRequestDto) HasBusinessProfileRecordId() bool`
+`func (o *InquiryRequestDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIdNil
+### SetEnrollmentIdNil
 
-`func (o *InquiryRequestDto) SetBusinessProfileRecordIdNil(b bool)`
+`func (o *InquiryRequestDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIdNil sets the value for BusinessProfileRecordId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordId
-`func (o *InquiryRequestDto) UnsetBusinessProfileRecordId()`
+### UnsetEnrollmentId
+`func (o *InquiryRequestDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordId ensures that no value is present for BusinessProfileRecordId, not even an explicit nil
-### GetAccountHolderId
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
+### GetUserId
 
-`func (o *InquiryRequestDto) GetAccountHolderId() string`
+`func (o *InquiryRequestDto) GetUserId() string`
 
-GetAccountHolderId returns the AccountHolderId field if non-nil, zero value otherwise.
+GetUserId returns the UserId field if non-nil, zero value otherwise.
 
-### GetAccountHolderIdOk
+### GetUserIdOk
 
-`func (o *InquiryRequestDto) GetAccountHolderIdOk() (*string, bool)`
+`func (o *InquiryRequestDto) GetUserIdOk() (*string, bool)`
 
-GetAccountHolderIdOk returns a tuple with the AccountHolderId field if it's non-nil, zero value otherwise
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountHolderId
+### SetUserId
 
-`func (o *InquiryRequestDto) SetAccountHolderId(v string)`
+`func (o *InquiryRequestDto) SetUserId(v string)`
 
-SetAccountHolderId sets AccountHolderId field to given value.
+SetUserId sets UserId field to given value.
 
-### HasAccountHolderId
+### HasUserId
 
-`func (o *InquiryRequestDto) HasAccountHolderId() bool`
+`func (o *InquiryRequestDto) HasUserId() bool`
 
-HasAccountHolderId returns a boolean if a field has been set.
+HasUserId returns a boolean if a field has been set.
 
-### SetAccountHolderIdNil
+### SetUserIdNil
 
-`func (o *InquiryRequestDto) SetAccountHolderIdNil(b bool)`
+`func (o *InquiryRequestDto) SetUserIdNil(b bool)`
 
- SetAccountHolderIdNil sets the value for AccountHolderId to be an explicit nil
+ SetUserIdNil sets the value for UserId to be an explicit nil
 
-### UnsetAccountHolderId
-`func (o *InquiryRequestDto) UnsetAccountHolderId()`
+### UnsetUserId
+`func (o *InquiryRequestDto) UnsetUserId()`
 
-UnsetAccountHolderId ensures that no value is present for AccountHolderId, not even an explicit nil
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 ### GetSocialProfileId
 
 `func (o *InquiryRequestDto) GetSocialProfileId() string`

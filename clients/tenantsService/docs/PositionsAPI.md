@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetTenantPositionById**](PositionsAPI.md#GetTenantPositionById) | **Get** /api/v2/TenantsService/Positions/{tenantPositionId} | Retrieve a single tenant position by its ID
 [**GetTenantPositions**](PositionsAPI.md#GetTenantPositions) | **Get** /api/v2/TenantsService/Positions | Retrieve a list of tenant positions
 [**GetTenantPositionsCount**](PositionsAPI.md#GetTenantPositionsCount) | **Get** /api/v2/TenantsService/Positions/Count | Get the count of tenant positions
+[**PatchTenantPosition**](PositionsAPI.md#PatchTenantPosition) | **Patch** /api/v2/TenantsService/Positions/{tenantPositionId} | Patch a tenant position
 [**UpdateTenantPosition**](PositionsAPI.md#UpdateTenantPosition) | **Put** /api/v2/TenantsService/Positions/{tenantPositionId} | Update a tenant position
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchTenantPosition
+
+> EmptyEnvelope PatchTenantPosition(ctx, tenantPositionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a tenant position
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantPositionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PositionsAPI.PatchTenantPosition(context.Background(), tenantPositionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PositionsAPI.PatchTenantPosition``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchTenantPosition`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PositionsAPI.PatchTenantPosition`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantPositionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchTenantPositionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

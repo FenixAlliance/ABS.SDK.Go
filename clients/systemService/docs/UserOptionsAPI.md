@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetSystemUserOptionById**](UserOptionsAPI.md#GetSystemUserOptionById) | **Get** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Retrieve a single user option by its ID (admin)
 [**GetSystemUserOptions**](UserOptionsAPI.md#GetSystemUserOptions) | **Get** /api/v2/SystemService/Users/{userId}/Options | Retrieve a list of user options (admin)
 [**GetSystemUserOptionsCount**](UserOptionsAPI.md#GetSystemUserOptionsCount) | **Get** /api/v2/SystemService/Users/{userId}/Options/Count | Get the count of user options (admin)
+[**PatchSystemUserOption**](UserOptionsAPI.md#PatchSystemUserOption) | **Patch** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Partially update a user option (admin)
 [**UpdateSystemUserOption**](UserOptionsAPI.md#UpdateSystemUserOption) | **Put** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Update a user option (admin)
 
 
@@ -392,6 +393,85 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchSystemUserOption
+
+> EmptyEnvelope PatchSystemUserOption(ctx, userId, optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Partially update a user option (admin)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	userId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	optionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserOptionsAPI.PatchSystemUserOption(context.Background(), userId, optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserOptionsAPI.PatchSystemUserOption``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchSystemUserOption`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `UserOptionsAPI.PatchSystemUserOption`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+**optionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchSystemUserOptionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

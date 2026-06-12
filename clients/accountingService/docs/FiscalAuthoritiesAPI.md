@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetFiscalAuthorities**](FiscalAuthoritiesAPI.md#GetFiscalAuthorities) | **Get** /api/v2/AccountingService/Fiscals/Authorities | Get fiscal authorities
 [**GetFiscalAuthoritiesCount**](FiscalAuthoritiesAPI.md#GetFiscalAuthoritiesCount) | **Get** /api/v2/AccountingService/Fiscals/Authorities/Count | Get fiscal authorities count
 [**GetFiscalAuthority**](FiscalAuthoritiesAPI.md#GetFiscalAuthority) | **Get** /api/v2/AccountingService/Fiscals/Authorities/{authorityId} | Get fiscal authority by ID
+[**PatchFiscalAuthorityAsync**](FiscalAuthoritiesAPI.md#PatchFiscalAuthorityAsync) | **Patch** /api/v2/AccountingService/Fiscals/Authorities/{authorityId} | Patch a fiscal authority
 [**UpdateFiscalAuthority**](FiscalAuthoritiesAPI.md#UpdateFiscalAuthority) | **Put** /api/v2/AccountingService/Fiscals/Authorities/{authorityId} | Update a fiscal authority
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchFiscalAuthorityAsync
+
+> EmptyEnvelope PatchFiscalAuthorityAsync(ctx, authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a fiscal authority
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	authorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.FiscalAuthoritiesAPI.PatchFiscalAuthorityAsync(context.Background(), authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `FiscalAuthoritiesAPI.PatchFiscalAuthorityAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchFiscalAuthorityAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `FiscalAuthoritiesAPI.PatchFiscalAuthorityAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**authorityId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchFiscalAuthorityAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

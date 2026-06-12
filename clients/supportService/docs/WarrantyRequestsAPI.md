@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetWarrantyRequestAsync**](WarrantyRequestsAPI.md#GetWarrantyRequestAsync) | **Get** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Retrieve a warranty request by ID
 [**GetWarrantyRequestsAsync**](WarrantyRequestsAPI.md#GetWarrantyRequestsAsync) | **Get** /api/v2/SupportService/WarrantyRequests | Retrieve warranty requests
 [**GetWarrantyRequestsCountAsync**](WarrantyRequestsAPI.md#GetWarrantyRequestsCountAsync) | **Get** /api/v2/SupportService/WarrantyRequests/Count | Get warranty requests count
+[**PatchWarrantyRequestAsync**](WarrantyRequestsAPI.md#PatchWarrantyRequestAsync) | **Patch** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Patch a warranty request
 [**UpdateWarrantyRequestAsync**](WarrantyRequestsAPI.md#UpdateWarrantyRequestAsync) | **Put** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Update a warranty request
 
 
@@ -360,6 +361,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchWarrantyRequestAsync
+
+> EmptyEnvelope PatchWarrantyRequestAsync(ctx, warrantyRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a warranty request
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	warrantyRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WarrantyRequestsAPI.PatchWarrantyRequestAsync(context.Background(), warrantyRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WarrantyRequestsAPI.PatchWarrantyRequestAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchWarrantyRequestAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `WarrantyRequestsAPI.PatchWarrantyRequestAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**warrantyRequestId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchWarrantyRequestAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

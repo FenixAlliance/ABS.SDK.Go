@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**GetUserAsync**](UsersAPI.md#GetUserAsync) | **Get** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID
 [**GetUsersAsync**](UsersAPI.md#GetUsersAsync) | **Get** /api/v2/SystemService/Users | Retrieve a list of users
 [**GetUsersCountAsync**](UsersAPI.md#GetUsersCountAsync) | **Get** /api/v2/SystemService/Users/Count | Get the count of users
+[**PatchAccountHolderAsync**](UsersAPI.md#PatchAccountHolderAsync) | **Patch** /api/v2/SystemService/Users/{userId} | Partially update a user
 [**UpdateAccountHolderAsync**](UsersAPI.md#UpdateAccountHolderAsync) | **Put** /api/v2/SystemService/Users/{userId} | Update a user
 
 
@@ -725,6 +726,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchAccountHolderAsync
+
+> EmptyEnvelope PatchAccountHolderAsync(ctx, userId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Partially update a user
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	userId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.PatchAccountHolderAsync(context.Background(), userId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.PatchAccountHolderAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchAccountHolderAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.PatchAccountHolderAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchAccountHolderAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

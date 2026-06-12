@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**AvatarURL** | Pointer to **NullableString** |  | [optional] 
+**AvatarUrl** | Pointer to **NullableString** |  | [optional] 
 **IsPublic** | Pointer to **bool** |  | [optional] 
-**BusinessUnitID** | Pointer to **NullableString** |  | [optional] 
-**OrganizationProfileID** | Pointer to **NullableString** |  | [optional] 
+**BusinessUnitId** | Pointer to **NullableString** |  | [optional] 
+**OrganizationProfileId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -104,76 +104,76 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *TenantTeamDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-### GetBusinessID
+### GetTenantId
 
-`func (o *TenantTeamDto) GetBusinessID() string`
+`func (o *TenantTeamDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *TenantTeamDto) GetBusinessIDOk() (*string, bool)`
+`func (o *TenantTeamDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *TenantTeamDto) SetBusinessID(v string)`
+`func (o *TenantTeamDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *TenantTeamDto) HasBusinessID() bool`
+`func (o *TenantTeamDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *TenantTeamDto) SetBusinessIDNil(b bool)`
+`func (o *TenantTeamDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *TenantTeamDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *TenantTeamDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *TenantTeamDto) GetBusinessProfileRecordID() string`
+`func (o *TenantTeamDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetEnrollmentIdOk
 
-`func (o *TenantTeamDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *TenantTeamDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetEnrollmentId
 
-`func (o *TenantTeamDto) SetBusinessProfileRecordID(v string)`
+`func (o *TenantTeamDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordID
+### HasEnrollmentId
 
-`func (o *TenantTeamDto) HasBusinessProfileRecordID() bool`
+`func (o *TenantTeamDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetEnrollmentIdNil
 
-`func (o *TenantTeamDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *TenantTeamDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *TenantTeamDto) UnsetBusinessProfileRecordID()`
+### UnsetEnrollmentId
+`func (o *TenantTeamDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetName
 
 `func (o *TenantTeamDto) GetName() string`
@@ -244,41 +244,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *TenantTeamDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetAvatarURL
+### GetAvatarUrl
 
-`func (o *TenantTeamDto) GetAvatarURL() string`
+`func (o *TenantTeamDto) GetAvatarUrl() string`
 
-GetAvatarURL returns the AvatarURL field if non-nil, zero value otherwise.
+GetAvatarUrl returns the AvatarUrl field if non-nil, zero value otherwise.
 
-### GetAvatarURLOk
+### GetAvatarUrlOk
 
-`func (o *TenantTeamDto) GetAvatarURLOk() (*string, bool)`
+`func (o *TenantTeamDto) GetAvatarUrlOk() (*string, bool)`
 
-GetAvatarURLOk returns a tuple with the AvatarURL field if it's non-nil, zero value otherwise
+GetAvatarUrlOk returns a tuple with the AvatarUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAvatarURL
+### SetAvatarUrl
 
-`func (o *TenantTeamDto) SetAvatarURL(v string)`
+`func (o *TenantTeamDto) SetAvatarUrl(v string)`
 
-SetAvatarURL sets AvatarURL field to given value.
+SetAvatarUrl sets AvatarUrl field to given value.
 
-### HasAvatarURL
+### HasAvatarUrl
 
-`func (o *TenantTeamDto) HasAvatarURL() bool`
+`func (o *TenantTeamDto) HasAvatarUrl() bool`
 
-HasAvatarURL returns a boolean if a field has been set.
+HasAvatarUrl returns a boolean if a field has been set.
 
-### SetAvatarURLNil
+### SetAvatarUrlNil
 
-`func (o *TenantTeamDto) SetAvatarURLNil(b bool)`
+`func (o *TenantTeamDto) SetAvatarUrlNil(b bool)`
 
- SetAvatarURLNil sets the value for AvatarURL to be an explicit nil
+ SetAvatarUrlNil sets the value for AvatarUrl to be an explicit nil
 
-### UnsetAvatarURL
-`func (o *TenantTeamDto) UnsetAvatarURL()`
+### UnsetAvatarUrl
+`func (o *TenantTeamDto) UnsetAvatarUrl()`
 
-UnsetAvatarURL ensures that no value is present for AvatarURL, not even an explicit nil
+UnsetAvatarUrl ensures that no value is present for AvatarUrl, not even an explicit nil
 ### GetIsPublic
 
 `func (o *TenantTeamDto) GetIsPublic() bool`
@@ -304,76 +304,76 @@ SetIsPublic sets IsPublic field to given value.
 
 HasIsPublic returns a boolean if a field has been set.
 
-### GetBusinessUnitID
+### GetBusinessUnitId
 
-`func (o *TenantTeamDto) GetBusinessUnitID() string`
+`func (o *TenantTeamDto) GetBusinessUnitId() string`
 
-GetBusinessUnitID returns the BusinessUnitID field if non-nil, zero value otherwise.
+GetBusinessUnitId returns the BusinessUnitId field if non-nil, zero value otherwise.
 
-### GetBusinessUnitIDOk
+### GetBusinessUnitIdOk
 
-`func (o *TenantTeamDto) GetBusinessUnitIDOk() (*string, bool)`
+`func (o *TenantTeamDto) GetBusinessUnitIdOk() (*string, bool)`
 
-GetBusinessUnitIDOk returns a tuple with the BusinessUnitID field if it's non-nil, zero value otherwise
+GetBusinessUnitIdOk returns a tuple with the BusinessUnitId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessUnitID
+### SetBusinessUnitId
 
-`func (o *TenantTeamDto) SetBusinessUnitID(v string)`
+`func (o *TenantTeamDto) SetBusinessUnitId(v string)`
 
-SetBusinessUnitID sets BusinessUnitID field to given value.
+SetBusinessUnitId sets BusinessUnitId field to given value.
 
-### HasBusinessUnitID
+### HasBusinessUnitId
 
-`func (o *TenantTeamDto) HasBusinessUnitID() bool`
+`func (o *TenantTeamDto) HasBusinessUnitId() bool`
 
-HasBusinessUnitID returns a boolean if a field has been set.
+HasBusinessUnitId returns a boolean if a field has been set.
 
-### SetBusinessUnitIDNil
+### SetBusinessUnitIdNil
 
-`func (o *TenantTeamDto) SetBusinessUnitIDNil(b bool)`
+`func (o *TenantTeamDto) SetBusinessUnitIdNil(b bool)`
 
- SetBusinessUnitIDNil sets the value for BusinessUnitID to be an explicit nil
+ SetBusinessUnitIdNil sets the value for BusinessUnitId to be an explicit nil
 
-### UnsetBusinessUnitID
-`func (o *TenantTeamDto) UnsetBusinessUnitID()`
+### UnsetBusinessUnitId
+`func (o *TenantTeamDto) UnsetBusinessUnitId()`
 
-UnsetBusinessUnitID ensures that no value is present for BusinessUnitID, not even an explicit nil
-### GetOrganizationProfileID
+UnsetBusinessUnitId ensures that no value is present for BusinessUnitId, not even an explicit nil
+### GetOrganizationProfileId
 
-`func (o *TenantTeamDto) GetOrganizationProfileID() string`
+`func (o *TenantTeamDto) GetOrganizationProfileId() string`
 
-GetOrganizationProfileID returns the OrganizationProfileID field if non-nil, zero value otherwise.
+GetOrganizationProfileId returns the OrganizationProfileId field if non-nil, zero value otherwise.
 
-### GetOrganizationProfileIDOk
+### GetOrganizationProfileIdOk
 
-`func (o *TenantTeamDto) GetOrganizationProfileIDOk() (*string, bool)`
+`func (o *TenantTeamDto) GetOrganizationProfileIdOk() (*string, bool)`
 
-GetOrganizationProfileIDOk returns a tuple with the OrganizationProfileID field if it's non-nil, zero value otherwise
+GetOrganizationProfileIdOk returns a tuple with the OrganizationProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrganizationProfileID
+### SetOrganizationProfileId
 
-`func (o *TenantTeamDto) SetOrganizationProfileID(v string)`
+`func (o *TenantTeamDto) SetOrganizationProfileId(v string)`
 
-SetOrganizationProfileID sets OrganizationProfileID field to given value.
+SetOrganizationProfileId sets OrganizationProfileId field to given value.
 
-### HasOrganizationProfileID
+### HasOrganizationProfileId
 
-`func (o *TenantTeamDto) HasOrganizationProfileID() bool`
+`func (o *TenantTeamDto) HasOrganizationProfileId() bool`
 
-HasOrganizationProfileID returns a boolean if a field has been set.
+HasOrganizationProfileId returns a boolean if a field has been set.
 
-### SetOrganizationProfileIDNil
+### SetOrganizationProfileIdNil
 
-`func (o *TenantTeamDto) SetOrganizationProfileIDNil(b bool)`
+`func (o *TenantTeamDto) SetOrganizationProfileIdNil(b bool)`
 
- SetOrganizationProfileIDNil sets the value for OrganizationProfileID to be an explicit nil
+ SetOrganizationProfileIdNil sets the value for OrganizationProfileId to be an explicit nil
 
-### UnsetOrganizationProfileID
-`func (o *TenantTeamDto) UnsetOrganizationProfileID()`
+### UnsetOrganizationProfileId
+`func (o *TenantTeamDto) UnsetOrganizationProfileId()`
 
-UnsetOrganizationProfileID ensures that no value is present for OrganizationProfileID, not even an explicit nil
+UnsetOrganizationProfileId ensures that no value is present for OrganizationProfileId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

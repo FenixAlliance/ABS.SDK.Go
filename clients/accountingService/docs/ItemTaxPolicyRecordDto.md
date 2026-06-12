@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **TaxPolicyId** | Pointer to **NullableString** |  | [optional] 
 **ItemPriceId** | Pointer to **NullableString** |  | [optional] 
 **ItemId** | Pointer to **NullableString** |  | [optional] 
@@ -99,6 +101,76 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *ItemTaxPolicyRecordDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+### GetTenantId
+
+`func (o *ItemTaxPolicyRecordDto) GetTenantId() string`
+
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
+
+### GetTenantIdOk
+
+`func (o *ItemTaxPolicyRecordDto) GetTenantIdOk() (*string, bool)`
+
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTenantId
+
+`func (o *ItemTaxPolicyRecordDto) SetTenantId(v string)`
+
+SetTenantId sets TenantId field to given value.
+
+### HasTenantId
+
+`func (o *ItemTaxPolicyRecordDto) HasTenantId() bool`
+
+HasTenantId returns a boolean if a field has been set.
+
+### SetTenantIdNil
+
+`func (o *ItemTaxPolicyRecordDto) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *ItemTaxPolicyRecordDto) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
+
+`func (o *ItemTaxPolicyRecordDto) GetEnrollmentId() string`
+
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
+
+### GetEnrollmentIdOk
+
+`func (o *ItemTaxPolicyRecordDto) GetEnrollmentIdOk() (*string, bool)`
+
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnrollmentId
+
+`func (o *ItemTaxPolicyRecordDto) SetEnrollmentId(v string)`
+
+SetEnrollmentId sets EnrollmentId field to given value.
+
+### HasEnrollmentId
+
+`func (o *ItemTaxPolicyRecordDto) HasEnrollmentId() bool`
+
+HasEnrollmentId returns a boolean if a field has been set.
+
+### SetEnrollmentIdNil
+
+`func (o *ItemTaxPolicyRecordDto) SetEnrollmentIdNil(b bool)`
+
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+
+### UnsetEnrollmentId
+`func (o *ItemTaxPolicyRecordDto) UnsetEnrollmentId()`
+
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetTaxPolicyId
 
 `func (o *ItemTaxPolicyRecordDto) GetTaxPolicyId() string`

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetJournalTypeDetailsAsync**](JournalTypesAPI.md#GetJournalTypeDetailsAsync) | **Get** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Retrieves a journal type by ID
 [**GetJournalTypesAsync**](JournalTypesAPI.md#GetJournalTypesAsync) | **Get** /api/v2/AccountingService/JournalTypes | Retrieves all journal types
 [**GetJournalTypesCountAsync**](JournalTypesAPI.md#GetJournalTypesCountAsync) | **Get** /api/v2/AccountingService/JournalTypes/Count | Counts journal types
+[**PatchJournalTypeAsync**](JournalTypesAPI.md#PatchJournalTypeAsync) | **Patch** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Patch a journal type
 [**UpdateJournalTypeAsync**](JournalTypesAPI.md#UpdateJournalTypeAsync) | **Put** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Updates an existing journal type
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchJournalTypeAsync
+
+> EmptyEnvelope PatchJournalTypeAsync(ctx, journalTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a journal type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	journalTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JournalTypesAPI.PatchJournalTypeAsync(context.Background(), journalTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JournalTypesAPI.PatchJournalTypeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchJournalTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JournalTypesAPI.PatchJournalTypeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**journalTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchJournalTypeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

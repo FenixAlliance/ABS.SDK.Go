@@ -636,11 +636,4 @@ model_two_factor_request.go
 model_two_factor_response.go
 model_update_ledger_dto.go
 response.go
-test/api_bank_profiles_test.go
-test/api_billable_line_taxes_test.go
-test/api_completions_test.go
-test/api_expense_claims_test.go
-test/api_expense_types_test.go
-test/api_fenix_alliance_portals_website_test.go
-test/api_tax_classes_test.go
 utils.go

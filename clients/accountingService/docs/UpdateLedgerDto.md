@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
-**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **LedgerTypeId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -99,76 +97,6 @@ HasDescription returns a boolean if a field has been set.
 `func (o *UpdateLedgerDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetTenantId
-
-`func (o *UpdateLedgerDto) GetTenantId() string`
-
-GetTenantId returns the TenantId field if non-nil, zero value otherwise.
-
-### GetTenantIdOk
-
-`func (o *UpdateLedgerDto) GetTenantIdOk() (*string, bool)`
-
-GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenantId
-
-`func (o *UpdateLedgerDto) SetTenantId(v string)`
-
-SetTenantId sets TenantId field to given value.
-
-### HasTenantId
-
-`func (o *UpdateLedgerDto) HasTenantId() bool`
-
-HasTenantId returns a boolean if a field has been set.
-
-### SetTenantIdNil
-
-`func (o *UpdateLedgerDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *UpdateLedgerDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetEnrollmentId
-
-`func (o *UpdateLedgerDto) GetEnrollmentId() string`
-
-GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
-
-### GetEnrollmentIdOk
-
-`func (o *UpdateLedgerDto) GetEnrollmentIdOk() (*string, bool)`
-
-GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnrollmentId
-
-`func (o *UpdateLedgerDto) SetEnrollmentId(v string)`
-
-SetEnrollmentId sets EnrollmentId field to given value.
-
-### HasEnrollmentId
-
-`func (o *UpdateLedgerDto) HasEnrollmentId() bool`
-
-HasEnrollmentId returns a boolean if a field has been set.
-
-### SetEnrollmentIdNil
-
-`func (o *UpdateLedgerDto) SetEnrollmentIdNil(b bool)`
-
- SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
-
-### UnsetEnrollmentId
-`func (o *UpdateLedgerDto) UnsetEnrollmentId()`
-
-UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetLedgerTypeId
 
 `func (o *UpdateLedgerDto) GetLedgerTypeId() string`

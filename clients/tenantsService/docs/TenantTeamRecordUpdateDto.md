@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BusinessTeamID** | Pointer to **NullableString** |  | [optional] 
+**BusinessTeamId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -25,41 +25,41 @@ NewTenantTeamRecordUpdateDtoWithDefaults instantiates a new TenantTeamRecordUpda
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetBusinessTeamID
+### GetBusinessTeamId
 
-`func (o *TenantTeamRecordUpdateDto) GetBusinessTeamID() string`
+`func (o *TenantTeamRecordUpdateDto) GetBusinessTeamId() string`
 
-GetBusinessTeamID returns the BusinessTeamID field if non-nil, zero value otherwise.
+GetBusinessTeamId returns the BusinessTeamId field if non-nil, zero value otherwise.
 
-### GetBusinessTeamIDOk
+### GetBusinessTeamIdOk
 
-`func (o *TenantTeamRecordUpdateDto) GetBusinessTeamIDOk() (*string, bool)`
+`func (o *TenantTeamRecordUpdateDto) GetBusinessTeamIdOk() (*string, bool)`
 
-GetBusinessTeamIDOk returns a tuple with the BusinessTeamID field if it's non-nil, zero value otherwise
+GetBusinessTeamIdOk returns a tuple with the BusinessTeamId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessTeamID
+### SetBusinessTeamId
 
-`func (o *TenantTeamRecordUpdateDto) SetBusinessTeamID(v string)`
+`func (o *TenantTeamRecordUpdateDto) SetBusinessTeamId(v string)`
 
-SetBusinessTeamID sets BusinessTeamID field to given value.
+SetBusinessTeamId sets BusinessTeamId field to given value.
 
-### HasBusinessTeamID
+### HasBusinessTeamId
 
-`func (o *TenantTeamRecordUpdateDto) HasBusinessTeamID() bool`
+`func (o *TenantTeamRecordUpdateDto) HasBusinessTeamId() bool`
 
-HasBusinessTeamID returns a boolean if a field has been set.
+HasBusinessTeamId returns a boolean if a field has been set.
 
-### SetBusinessTeamIDNil
+### SetBusinessTeamIdNil
 
-`func (o *TenantTeamRecordUpdateDto) SetBusinessTeamIDNil(b bool)`
+`func (o *TenantTeamRecordUpdateDto) SetBusinessTeamIdNil(b bool)`
 
- SetBusinessTeamIDNil sets the value for BusinessTeamID to be an explicit nil
+ SetBusinessTeamIdNil sets the value for BusinessTeamId to be an explicit nil
 
-### UnsetBusinessTeamID
-`func (o *TenantTeamRecordUpdateDto) UnsetBusinessTeamID()`
+### UnsetBusinessTeamId
+`func (o *TenantTeamRecordUpdateDto) UnsetBusinessTeamId()`
 
-UnsetBusinessTeamID ensures that no value is present for BusinessTeamID, not even an explicit nil
+UnsetBusinessTeamId ensures that no value is present for BusinessTeamId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

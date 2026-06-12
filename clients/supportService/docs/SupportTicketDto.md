@@ -6,14 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
+**Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**AccountHolderID** | Pointer to **NullableString** |  | [optional] 
-**ContactID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
-**SupportTicketTypeID** | Pointer to **NullableString** |  | [optional] 
-**SupportEntitlementID** | Pointer to **NullableString** |  | [optional] 
-**SupportPriorityID** | Pointer to **NullableString** |  | [optional] 
+**SupportTicketStatus** | Pointer to **string** |  | [optional] 
+**UserId** | Pointer to **NullableString** |  | [optional] 
+**ContactId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**SupportTicketTypeId** | Pointer to **NullableString** |  | [optional] 
+**SupportEntitlementId** | Pointer to **NullableString** |  | [optional] 
+**SupportPriorityId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -104,6 +106,41 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *SupportTicketDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+### GetTitle
+
+`func (o *SupportTicketDto) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *SupportTicketDto) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *SupportTicketDto) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *SupportTicketDto) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### SetTitleNil
+
+`func (o *SupportTicketDto) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *SupportTicketDto) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetDescription
 
 `func (o *SupportTicketDto) GetDescription() string`
@@ -139,251 +176,276 @@ HasDescription returns a boolean if a field has been set.
 `func (o *SupportTicketDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetAccountHolderID
+### GetSupportTicketStatus
 
-`func (o *SupportTicketDto) GetAccountHolderID() string`
+`func (o *SupportTicketDto) GetSupportTicketStatus() string`
 
-GetAccountHolderID returns the AccountHolderID field if non-nil, zero value otherwise.
+GetSupportTicketStatus returns the SupportTicketStatus field if non-nil, zero value otherwise.
 
-### GetAccountHolderIDOk
+### GetSupportTicketStatusOk
 
-`func (o *SupportTicketDto) GetAccountHolderIDOk() (*string, bool)`
+`func (o *SupportTicketDto) GetSupportTicketStatusOk() (*string, bool)`
 
-GetAccountHolderIDOk returns a tuple with the AccountHolderID field if it's non-nil, zero value otherwise
+GetSupportTicketStatusOk returns a tuple with the SupportTicketStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountHolderID
+### SetSupportTicketStatus
 
-`func (o *SupportTicketDto) SetAccountHolderID(v string)`
+`func (o *SupportTicketDto) SetSupportTicketStatus(v string)`
 
-SetAccountHolderID sets AccountHolderID field to given value.
+SetSupportTicketStatus sets SupportTicketStatus field to given value.
 
-### HasAccountHolderID
+### HasSupportTicketStatus
 
-`func (o *SupportTicketDto) HasAccountHolderID() bool`
+`func (o *SupportTicketDto) HasSupportTicketStatus() bool`
 
-HasAccountHolderID returns a boolean if a field has been set.
+HasSupportTicketStatus returns a boolean if a field has been set.
 
-### SetAccountHolderIDNil
+### GetUserId
 
-`func (o *SupportTicketDto) SetAccountHolderIDNil(b bool)`
+`func (o *SupportTicketDto) GetUserId() string`
 
- SetAccountHolderIDNil sets the value for AccountHolderID to be an explicit nil
+GetUserId returns the UserId field if non-nil, zero value otherwise.
 
-### UnsetAccountHolderID
-`func (o *SupportTicketDto) UnsetAccountHolderID()`
+### GetUserIdOk
 
-UnsetAccountHolderID ensures that no value is present for AccountHolderID, not even an explicit nil
-### GetContactID
+`func (o *SupportTicketDto) GetUserIdOk() (*string, bool)`
 
-`func (o *SupportTicketDto) GetContactID() string`
-
-GetContactID returns the ContactID field if non-nil, zero value otherwise.
-
-### GetContactIDOk
-
-`func (o *SupportTicketDto) GetContactIDOk() (*string, bool)`
-
-GetContactIDOk returns a tuple with the ContactID field if it's non-nil, zero value otherwise
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetContactID
+### SetUserId
 
-`func (o *SupportTicketDto) SetContactID(v string)`
+`func (o *SupportTicketDto) SetUserId(v string)`
 
-SetContactID sets ContactID field to given value.
+SetUserId sets UserId field to given value.
 
-### HasContactID
+### HasUserId
 
-`func (o *SupportTicketDto) HasContactID() bool`
+`func (o *SupportTicketDto) HasUserId() bool`
 
-HasContactID returns a boolean if a field has been set.
+HasUserId returns a boolean if a field has been set.
 
-### SetContactIDNil
+### SetUserIdNil
 
-`func (o *SupportTicketDto) SetContactIDNil(b bool)`
+`func (o *SupportTicketDto) SetUserIdNil(b bool)`
 
- SetContactIDNil sets the value for ContactID to be an explicit nil
+ SetUserIdNil sets the value for UserId to be an explicit nil
 
-### UnsetContactID
-`func (o *SupportTicketDto) UnsetContactID()`
+### UnsetUserId
+`func (o *SupportTicketDto) UnsetUserId()`
 
-UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
-### GetBusinessID
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
+### GetContactId
 
-`func (o *SupportTicketDto) GetBusinessID() string`
+`func (o *SupportTicketDto) GetContactId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetContactId returns the ContactId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetContactIdOk
 
-`func (o *SupportTicketDto) GetBusinessIDOk() (*string, bool)`
+`func (o *SupportTicketDto) GetContactIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetContactIdOk returns a tuple with the ContactId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetContactId
 
-`func (o *SupportTicketDto) SetBusinessID(v string)`
+`func (o *SupportTicketDto) SetContactId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetContactId sets ContactId field to given value.
 
-### HasBusinessID
+### HasContactId
 
-`func (o *SupportTicketDto) HasBusinessID() bool`
+`func (o *SupportTicketDto) HasContactId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasContactId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetContactIdNil
 
-`func (o *SupportTicketDto) SetBusinessIDNil(b bool)`
+`func (o *SupportTicketDto) SetContactIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetContactIdNil sets the value for ContactId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *SupportTicketDto) UnsetBusinessID()`
+### UnsetContactId
+`func (o *SupportTicketDto) UnsetContactId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
+### GetTenantId
 
-`func (o *SupportTicketDto) GetBusinessProfileRecordID() string`
+`func (o *SupportTicketDto) GetTenantId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetTenantIdOk
 
-`func (o *SupportTicketDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *SupportTicketDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetTenantId
 
-`func (o *SupportTicketDto) SetBusinessProfileRecordID(v string)`
+`func (o *SupportTicketDto) SetTenantId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessProfileRecordID
+### HasTenantId
 
-`func (o *SupportTicketDto) HasBusinessProfileRecordID() bool`
+`func (o *SupportTicketDto) HasTenantId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetTenantIdNil
 
-`func (o *SupportTicketDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *SupportTicketDto) SetTenantIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *SupportTicketDto) UnsetBusinessProfileRecordID()`
+### UnsetTenantId
+`func (o *SupportTicketDto) UnsetTenantId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-### GetSupportTicketTypeID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *SupportTicketDto) GetSupportTicketTypeID() string`
+`func (o *SupportTicketDto) GetEnrollmentId() string`
 
-GetSupportTicketTypeID returns the SupportTicketTypeID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetSupportTicketTypeIDOk
+### GetEnrollmentIdOk
 
-`func (o *SupportTicketDto) GetSupportTicketTypeIDOk() (*string, bool)`
+`func (o *SupportTicketDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetSupportTicketTypeIDOk returns a tuple with the SupportTicketTypeID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportTicketTypeID
+### SetEnrollmentId
 
-`func (o *SupportTicketDto) SetSupportTicketTypeID(v string)`
+`func (o *SupportTicketDto) SetEnrollmentId(v string)`
 
-SetSupportTicketTypeID sets SupportTicketTypeID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasSupportTicketTypeID
+### HasEnrollmentId
 
-`func (o *SupportTicketDto) HasSupportTicketTypeID() bool`
+`func (o *SupportTicketDto) HasEnrollmentId() bool`
 
-HasSupportTicketTypeID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetSupportTicketTypeIDNil
+### SetEnrollmentIdNil
 
-`func (o *SupportTicketDto) SetSupportTicketTypeIDNil(b bool)`
+`func (o *SupportTicketDto) SetEnrollmentIdNil(b bool)`
 
- SetSupportTicketTypeIDNil sets the value for SupportTicketTypeID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetSupportTicketTypeID
-`func (o *SupportTicketDto) UnsetSupportTicketTypeID()`
+### UnsetEnrollmentId
+`func (o *SupportTicketDto) UnsetEnrollmentId()`
 
-UnsetSupportTicketTypeID ensures that no value is present for SupportTicketTypeID, not even an explicit nil
-### GetSupportEntitlementID
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
+### GetSupportTicketTypeId
 
-`func (o *SupportTicketDto) GetSupportEntitlementID() string`
+`func (o *SupportTicketDto) GetSupportTicketTypeId() string`
 
-GetSupportEntitlementID returns the SupportEntitlementID field if non-nil, zero value otherwise.
+GetSupportTicketTypeId returns the SupportTicketTypeId field if non-nil, zero value otherwise.
 
-### GetSupportEntitlementIDOk
+### GetSupportTicketTypeIdOk
 
-`func (o *SupportTicketDto) GetSupportEntitlementIDOk() (*string, bool)`
+`func (o *SupportTicketDto) GetSupportTicketTypeIdOk() (*string, bool)`
 
-GetSupportEntitlementIDOk returns a tuple with the SupportEntitlementID field if it's non-nil, zero value otherwise
+GetSupportTicketTypeIdOk returns a tuple with the SupportTicketTypeId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportEntitlementID
+### SetSupportTicketTypeId
 
-`func (o *SupportTicketDto) SetSupportEntitlementID(v string)`
+`func (o *SupportTicketDto) SetSupportTicketTypeId(v string)`
 
-SetSupportEntitlementID sets SupportEntitlementID field to given value.
+SetSupportTicketTypeId sets SupportTicketTypeId field to given value.
 
-### HasSupportEntitlementID
+### HasSupportTicketTypeId
 
-`func (o *SupportTicketDto) HasSupportEntitlementID() bool`
+`func (o *SupportTicketDto) HasSupportTicketTypeId() bool`
 
-HasSupportEntitlementID returns a boolean if a field has been set.
+HasSupportTicketTypeId returns a boolean if a field has been set.
 
-### SetSupportEntitlementIDNil
+### SetSupportTicketTypeIdNil
 
-`func (o *SupportTicketDto) SetSupportEntitlementIDNil(b bool)`
+`func (o *SupportTicketDto) SetSupportTicketTypeIdNil(b bool)`
 
- SetSupportEntitlementIDNil sets the value for SupportEntitlementID to be an explicit nil
+ SetSupportTicketTypeIdNil sets the value for SupportTicketTypeId to be an explicit nil
 
-### UnsetSupportEntitlementID
-`func (o *SupportTicketDto) UnsetSupportEntitlementID()`
+### UnsetSupportTicketTypeId
+`func (o *SupportTicketDto) UnsetSupportTicketTypeId()`
 
-UnsetSupportEntitlementID ensures that no value is present for SupportEntitlementID, not even an explicit nil
-### GetSupportPriorityID
+UnsetSupportTicketTypeId ensures that no value is present for SupportTicketTypeId, not even an explicit nil
+### GetSupportEntitlementId
 
-`func (o *SupportTicketDto) GetSupportPriorityID() string`
+`func (o *SupportTicketDto) GetSupportEntitlementId() string`
 
-GetSupportPriorityID returns the SupportPriorityID field if non-nil, zero value otherwise.
+GetSupportEntitlementId returns the SupportEntitlementId field if non-nil, zero value otherwise.
 
-### GetSupportPriorityIDOk
+### GetSupportEntitlementIdOk
 
-`func (o *SupportTicketDto) GetSupportPriorityIDOk() (*string, bool)`
+`func (o *SupportTicketDto) GetSupportEntitlementIdOk() (*string, bool)`
 
-GetSupportPriorityIDOk returns a tuple with the SupportPriorityID field if it's non-nil, zero value otherwise
+GetSupportEntitlementIdOk returns a tuple with the SupportEntitlementId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportPriorityID
+### SetSupportEntitlementId
 
-`func (o *SupportTicketDto) SetSupportPriorityID(v string)`
+`func (o *SupportTicketDto) SetSupportEntitlementId(v string)`
 
-SetSupportPriorityID sets SupportPriorityID field to given value.
+SetSupportEntitlementId sets SupportEntitlementId field to given value.
 
-### HasSupportPriorityID
+### HasSupportEntitlementId
 
-`func (o *SupportTicketDto) HasSupportPriorityID() bool`
+`func (o *SupportTicketDto) HasSupportEntitlementId() bool`
 
-HasSupportPriorityID returns a boolean if a field has been set.
+HasSupportEntitlementId returns a boolean if a field has been set.
 
-### SetSupportPriorityIDNil
+### SetSupportEntitlementIdNil
 
-`func (o *SupportTicketDto) SetSupportPriorityIDNil(b bool)`
+`func (o *SupportTicketDto) SetSupportEntitlementIdNil(b bool)`
 
- SetSupportPriorityIDNil sets the value for SupportPriorityID to be an explicit nil
+ SetSupportEntitlementIdNil sets the value for SupportEntitlementId to be an explicit nil
 
-### UnsetSupportPriorityID
-`func (o *SupportTicketDto) UnsetSupportPriorityID()`
+### UnsetSupportEntitlementId
+`func (o *SupportTicketDto) UnsetSupportEntitlementId()`
 
-UnsetSupportPriorityID ensures that no value is present for SupportPriorityID, not even an explicit nil
+UnsetSupportEntitlementId ensures that no value is present for SupportEntitlementId, not even an explicit nil
+### GetSupportPriorityId
+
+`func (o *SupportTicketDto) GetSupportPriorityId() string`
+
+GetSupportPriorityId returns the SupportPriorityId field if non-nil, zero value otherwise.
+
+### GetSupportPriorityIdOk
+
+`func (o *SupportTicketDto) GetSupportPriorityIdOk() (*string, bool)`
+
+GetSupportPriorityIdOk returns a tuple with the SupportPriorityId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportPriorityId
+
+`func (o *SupportTicketDto) SetSupportPriorityId(v string)`
+
+SetSupportPriorityId sets SupportPriorityId field to given value.
+
+### HasSupportPriorityId
+
+`func (o *SupportTicketDto) HasSupportPriorityId() bool`
+
+HasSupportPriorityId returns a boolean if a field has been set.
+
+### SetSupportPriorityIdNil
+
+`func (o *SupportTicketDto) SetSupportPriorityIdNil(b bool)`
+
+ SetSupportPriorityIdNil sets the value for SupportPriorityId to be an explicit nil
+
+### UnsetSupportPriorityId
+`func (o *SupportTicketDto) UnsetSupportPriorityId()`
+
+UnsetSupportPriorityId ensures that no value is present for SupportPriorityId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **AccountId** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
@@ -134,6 +135,41 @@ HasAccountId returns a boolean if a field has been set.
 `func (o *AccountRelationDto) UnsetAccountId()`
 
 UnsetAccountId ensures that no value is present for AccountId, not even an explicit nil
+### GetType
+
+`func (o *AccountRelationDto) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *AccountRelationDto) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *AccountRelationDto) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *AccountRelationDto) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetTypeNil
+
+`func (o *AccountRelationDto) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *AccountRelationDto) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetTenantId
 
 `func (o *AccountRelationDto) GetTenantId() string`

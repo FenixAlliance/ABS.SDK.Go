@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetAccountGroup**](AccountGroupsAPI.md#GetAccountGroup) | **Get** /api/v2/AccountingService/AccountGroups/{accountGroupId} | Gets the current tenant account group
 [**GetAccountGroups**](AccountGroupsAPI.md#GetAccountGroups) | **Get** /api/v2/AccountingService/AccountGroups | Gets the current tenant account groups
 [**GetAccountGroupsCountAsync**](AccountGroupsAPI.md#GetAccountGroupsCountAsync) | **Get** /api/v2/AccountingService/AccountGroups/Count | Gets the current tenant accounts count
+[**PatchAccountGroupAsync**](AccountGroupsAPI.md#PatchAccountGroupAsync) | **Patch** /api/v2/AccountingService/AccountGroups/{accountGroupId} | Patch an account group
 [**UpdateAccountGroup**](AccountGroupsAPI.md#UpdateAccountGroup) | **Put** /api/v2/AccountingService/AccountGroups/{accountGroupId} | Updates an existing account group
 
 
@@ -368,6 +369,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchAccountGroupAsync
+
+> EmptyEnvelope PatchAccountGroupAsync(ctx, accountGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch an account group
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	accountGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountGroupsAPI.PatchAccountGroupAsync(context.Background(), accountGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountGroupsAPI.PatchAccountGroupAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchAccountGroupAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `AccountGroupsAPI.PatchAccountGroupAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountGroupId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchAccountGroupAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

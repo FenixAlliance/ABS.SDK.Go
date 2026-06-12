@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **ReceiverWalletAccountId** | Pointer to **NullableString** |  | [optional] 
 **EmisorContactId** | Pointer to **NullableString** |  | [optional] 
 **ReceiverContactId** | Pointer to **NullableString** |  | [optional] 
-**PaymentID** | Pointer to **NullableString** |  | [optional] 
+**PaymentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -525,41 +525,41 @@ HasReceiverContactId returns a boolean if a field has been set.
 `func (o *PaymentCommissionDto) UnsetReceiverContactId()`
 
 UnsetReceiverContactId ensures that no value is present for ReceiverContactId, not even an explicit nil
-### GetPaymentID
+### GetPaymentId
 
-`func (o *PaymentCommissionDto) GetPaymentID() string`
+`func (o *PaymentCommissionDto) GetPaymentId() string`
 
-GetPaymentID returns the PaymentID field if non-nil, zero value otherwise.
+GetPaymentId returns the PaymentId field if non-nil, zero value otherwise.
 
-### GetPaymentIDOk
+### GetPaymentIdOk
 
-`func (o *PaymentCommissionDto) GetPaymentIDOk() (*string, bool)`
+`func (o *PaymentCommissionDto) GetPaymentIdOk() (*string, bool)`
 
-GetPaymentIDOk returns a tuple with the PaymentID field if it's non-nil, zero value otherwise
+GetPaymentIdOk returns a tuple with the PaymentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPaymentID
+### SetPaymentId
 
-`func (o *PaymentCommissionDto) SetPaymentID(v string)`
+`func (o *PaymentCommissionDto) SetPaymentId(v string)`
 
-SetPaymentID sets PaymentID field to given value.
+SetPaymentId sets PaymentId field to given value.
 
-### HasPaymentID
+### HasPaymentId
 
-`func (o *PaymentCommissionDto) HasPaymentID() bool`
+`func (o *PaymentCommissionDto) HasPaymentId() bool`
 
-HasPaymentID returns a boolean if a field has been set.
+HasPaymentId returns a boolean if a field has been set.
 
-### SetPaymentIDNil
+### SetPaymentIdNil
 
-`func (o *PaymentCommissionDto) SetPaymentIDNil(b bool)`
+`func (o *PaymentCommissionDto) SetPaymentIdNil(b bool)`
 
- SetPaymentIDNil sets the value for PaymentID to be an explicit nil
+ SetPaymentIdNil sets the value for PaymentId to be an explicit nil
 
-### UnsetPaymentID
-`func (o *PaymentCommissionDto) UnsetPaymentID()`
+### UnsetPaymentId
+`func (o *PaymentCommissionDto) UnsetPaymentId()`
 
-UnsetPaymentID ensures that no value is present for PaymentID, not even an explicit nil
+UnsetPaymentId ensures that no value is present for PaymentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

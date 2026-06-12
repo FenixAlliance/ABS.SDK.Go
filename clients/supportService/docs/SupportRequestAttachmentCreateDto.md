@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **ParentFileUploadId** | Pointer to **NullableString** |  | [optional] 
 **FilePath** | Pointer to **NullableString** |  | [optional] 
 **Metadata** | Pointer to **NullableString** |  | [optional] 
-**SupportRequestID** | Pointer to **NullableString** |  | [optional] 
+**SupportRequestId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -453,41 +453,41 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *SupportRequestAttachmentCreateDto) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
-### GetSupportRequestID
+### GetSupportRequestId
 
-`func (o *SupportRequestAttachmentCreateDto) GetSupportRequestID() string`
+`func (o *SupportRequestAttachmentCreateDto) GetSupportRequestId() string`
 
-GetSupportRequestID returns the SupportRequestID field if non-nil, zero value otherwise.
+GetSupportRequestId returns the SupportRequestId field if non-nil, zero value otherwise.
 
-### GetSupportRequestIDOk
+### GetSupportRequestIdOk
 
-`func (o *SupportRequestAttachmentCreateDto) GetSupportRequestIDOk() (*string, bool)`
+`func (o *SupportRequestAttachmentCreateDto) GetSupportRequestIdOk() (*string, bool)`
 
-GetSupportRequestIDOk returns a tuple with the SupportRequestID field if it's non-nil, zero value otherwise
+GetSupportRequestIdOk returns a tuple with the SupportRequestId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportRequestID
+### SetSupportRequestId
 
-`func (o *SupportRequestAttachmentCreateDto) SetSupportRequestID(v string)`
+`func (o *SupportRequestAttachmentCreateDto) SetSupportRequestId(v string)`
 
-SetSupportRequestID sets SupportRequestID field to given value.
+SetSupportRequestId sets SupportRequestId field to given value.
 
-### HasSupportRequestID
+### HasSupportRequestId
 
-`func (o *SupportRequestAttachmentCreateDto) HasSupportRequestID() bool`
+`func (o *SupportRequestAttachmentCreateDto) HasSupportRequestId() bool`
 
-HasSupportRequestID returns a boolean if a field has been set.
+HasSupportRequestId returns a boolean if a field has been set.
 
-### SetSupportRequestIDNil
+### SetSupportRequestIdNil
 
-`func (o *SupportRequestAttachmentCreateDto) SetSupportRequestIDNil(b bool)`
+`func (o *SupportRequestAttachmentCreateDto) SetSupportRequestIdNil(b bool)`
 
- SetSupportRequestIDNil sets the value for SupportRequestID to be an explicit nil
+ SetSupportRequestIdNil sets the value for SupportRequestId to be an explicit nil
 
-### UnsetSupportRequestID
-`func (o *SupportRequestAttachmentCreateDto) UnsetSupportRequestID()`
+### UnsetSupportRequestId
+`func (o *SupportRequestAttachmentCreateDto) UnsetSupportRequestId()`
 
-UnsetSupportRequestID ensures that no value is present for SupportRequestID, not even an explicit nil
+UnsetSupportRequestId ensures that no value is present for SupportRequestId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetSystemOptionByKey**](OptionsAPI.md#GetSystemOptionByKey) | **Get** /api/v2/SystemService/Options/Key/{key} | Retrieve a single system option by its key
 [**GetSystemOptions**](OptionsAPI.md#GetSystemOptions) | **Get** /api/v2/SystemService/Options | Retrieve a list of system options
 [**GetSystemOptionsCount**](OptionsAPI.md#GetSystemOptionsCount) | **Get** /api/v2/SystemService/Options/Count | Get the count of system options
+[**PatchSystemOption**](OptionsAPI.md#PatchSystemOption) | **Patch** /api/v2/SystemService/Options/{optionId} | Partially update a system option
 [**UpdateSystemOption**](OptionsAPI.md#UpdateSystemOption) | **Put** /api/v2/SystemService/Options/{optionId} | Update a system option
 [**UpsertSystemOption**](OptionsAPI.md#UpsertSystemOption) | **Put** /api/v2/SystemService/Options/Upsert/{key} | Create or update a system option by key
 
@@ -446,6 +447,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchSystemOption
+
+> EmptyEnvelope PatchSystemOption(ctx, optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Partially update a system option
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	optionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionsAPI.PatchSystemOption(context.Background(), optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.PatchSystemOption``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchSystemOption`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `OptionsAPI.PatchSystemOption`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**optionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchSystemOptionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

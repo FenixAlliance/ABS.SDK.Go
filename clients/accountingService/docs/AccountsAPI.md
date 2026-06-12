@@ -38,6 +38,9 @@ Method | HTTP request | Description
 [**GetDebitAccountEntriesAsync**](AccountsAPI.md#GetDebitAccountEntriesAsync) | **Get** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries
 [**GetRootAccountsAsync**](AccountsAPI.md#GetRootAccountsAsync) | **Get** /api/v2/AccountingService/Accounts/Root | Get root accounts
 [**PatchAccountAsync**](AccountsAPI.md#PatchAccountAsync) | **Patch** /api/v2/AccountingService/Accounts/{accountId} | Patch an account
+[**PatchAccountEntryAsync**](AccountsAPI.md#PatchAccountEntryAsync) | **Patch** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Patch account entry
+[**PatchAccountRelationAsync**](AccountsAPI.md#PatchAccountRelationAsync) | **Patch** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Patch account relation
+[**PatchAccountTypeAsync**](AccountsAPI.md#PatchAccountTypeAsync) | **Patch** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Patch account type
 [**SeedChartOfAccountsAsync**](AccountsAPI.md#SeedChartOfAccountsAsync) | **Post** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts
 [**UpdateAccountAsync**](AccountsAPI.md#UpdateAccountAsync) | **Put** /api/v2/AccountingService/Accounts/{accountId} | Update an account
 [**UpdateAccountEntryAsync**](AccountsAPI.md#UpdateAccountEntryAsync) | **Put** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry
@@ -2550,6 +2553,245 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiPatchAccountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchAccountEntryAsync
+
+> EmptyEnvelope PatchAccountEntryAsync(ctx, accountId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch account entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountsAPI.PatchAccountEntryAsync(context.Background(), accountId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.PatchAccountEntryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchAccountEntryAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.PatchAccountEntryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **string** |  | 
+**entryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchAccountEntryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchAccountRelationAsync
+
+> EmptyEnvelope PatchAccountRelationAsync(ctx, accountRelationId).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch account relation
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	accountRelationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountsAPI.PatchAccountRelationAsync(context.Background(), accountRelationId).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.PatchAccountRelationAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchAccountRelationAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.PatchAccountRelationAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountRelationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchAccountRelationAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **accountId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchAccountTypeAsync
+
+> EmptyEnvelope PatchAccountTypeAsync(ctx, accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch account type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	accountTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountsAPI.PatchAccountTypeAsync(context.Background(), accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.PatchAccountTypeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchAccountTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.PatchAccountTypeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchAccountTypeAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

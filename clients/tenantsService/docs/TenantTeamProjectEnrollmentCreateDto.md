@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessTeamID** | **string** |  | 
-**ProjectID** | **string** |  | 
+**BusinessTeamId** | **string** |  | 
+**ProjectId** | **string** |  | 
 
 ## Methods
 
 ### NewTenantTeamProjectEnrollmentCreateDto
 
-`func NewTenantTeamProjectEnrollmentCreateDto(businessTeamID string, projectID string, ) *TenantTeamProjectEnrollmentCreateDto`
+`func NewTenantTeamProjectEnrollmentCreateDto(businessTeamId string, projectId string, ) *TenantTeamProjectEnrollmentCreateDto`
 
 NewTenantTeamProjectEnrollmentCreateDto instantiates a new TenantTeamProjectEnrollmentCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -78,44 +78,44 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetBusinessTeamID
+### GetBusinessTeamId
 
-`func (o *TenantTeamProjectEnrollmentCreateDto) GetBusinessTeamID() string`
+`func (o *TenantTeamProjectEnrollmentCreateDto) GetBusinessTeamId() string`
 
-GetBusinessTeamID returns the BusinessTeamID field if non-nil, zero value otherwise.
+GetBusinessTeamId returns the BusinessTeamId field if non-nil, zero value otherwise.
 
-### GetBusinessTeamIDOk
+### GetBusinessTeamIdOk
 
-`func (o *TenantTeamProjectEnrollmentCreateDto) GetBusinessTeamIDOk() (*string, bool)`
+`func (o *TenantTeamProjectEnrollmentCreateDto) GetBusinessTeamIdOk() (*string, bool)`
 
-GetBusinessTeamIDOk returns a tuple with the BusinessTeamID field if it's non-nil, zero value otherwise
+GetBusinessTeamIdOk returns a tuple with the BusinessTeamId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessTeamID
+### SetBusinessTeamId
 
-`func (o *TenantTeamProjectEnrollmentCreateDto) SetBusinessTeamID(v string)`
+`func (o *TenantTeamProjectEnrollmentCreateDto) SetBusinessTeamId(v string)`
 
-SetBusinessTeamID sets BusinessTeamID field to given value.
+SetBusinessTeamId sets BusinessTeamId field to given value.
 
 
-### GetProjectID
+### GetProjectId
 
-`func (o *TenantTeamProjectEnrollmentCreateDto) GetProjectID() string`
+`func (o *TenantTeamProjectEnrollmentCreateDto) GetProjectId() string`
 
-GetProjectID returns the ProjectID field if non-nil, zero value otherwise.
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
 
-### GetProjectIDOk
+### GetProjectIdOk
 
-`func (o *TenantTeamProjectEnrollmentCreateDto) GetProjectIDOk() (*string, bool)`
+`func (o *TenantTeamProjectEnrollmentCreateDto) GetProjectIdOk() (*string, bool)`
 
-GetProjectIDOk returns a tuple with the ProjectID field if it's non-nil, zero value otherwise
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProjectID
+### SetProjectId
 
-`func (o *TenantTeamProjectEnrollmentCreateDto) SetProjectID(v string)`
+`func (o *TenantTeamProjectEnrollmentCreateDto) SetProjectId(v string)`
 
-SetProjectID sets ProjectID field to given value.
+SetProjectId sets ProjectId field to given value.
 
 
 

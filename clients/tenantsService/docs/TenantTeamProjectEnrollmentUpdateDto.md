@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BusinessTeamID** | Pointer to **NullableString** |  | [optional] 
-**ProjectID** | Pointer to **NullableString** |  | [optional] 
+**BusinessTeamId** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -26,76 +26,76 @@ NewTenantTeamProjectEnrollmentUpdateDtoWithDefaults instantiates a new TenantTea
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetBusinessTeamID
+### GetBusinessTeamId
 
-`func (o *TenantTeamProjectEnrollmentUpdateDto) GetBusinessTeamID() string`
+`func (o *TenantTeamProjectEnrollmentUpdateDto) GetBusinessTeamId() string`
 
-GetBusinessTeamID returns the BusinessTeamID field if non-nil, zero value otherwise.
+GetBusinessTeamId returns the BusinessTeamId field if non-nil, zero value otherwise.
 
-### GetBusinessTeamIDOk
+### GetBusinessTeamIdOk
 
-`func (o *TenantTeamProjectEnrollmentUpdateDto) GetBusinessTeamIDOk() (*string, bool)`
+`func (o *TenantTeamProjectEnrollmentUpdateDto) GetBusinessTeamIdOk() (*string, bool)`
 
-GetBusinessTeamIDOk returns a tuple with the BusinessTeamID field if it's non-nil, zero value otherwise
+GetBusinessTeamIdOk returns a tuple with the BusinessTeamId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessTeamID
+### SetBusinessTeamId
 
-`func (o *TenantTeamProjectEnrollmentUpdateDto) SetBusinessTeamID(v string)`
+`func (o *TenantTeamProjectEnrollmentUpdateDto) SetBusinessTeamId(v string)`
 
-SetBusinessTeamID sets BusinessTeamID field to given value.
+SetBusinessTeamId sets BusinessTeamId field to given value.
 
-### HasBusinessTeamID
+### HasBusinessTeamId
 
-`func (o *TenantTeamProjectEnrollmentUpdateDto) HasBusinessTeamID() bool`
+`func (o *TenantTeamProjectEnrollmentUpdateDto) HasBusinessTeamId() bool`
 
-HasBusinessTeamID returns a boolean if a field has been set.
+HasBusinessTeamId returns a boolean if a field has been set.
 
-### SetBusinessTeamIDNil
+### SetBusinessTeamIdNil
 
-`func (o *TenantTeamProjectEnrollmentUpdateDto) SetBusinessTeamIDNil(b bool)`
+`func (o *TenantTeamProjectEnrollmentUpdateDto) SetBusinessTeamIdNil(b bool)`
 
- SetBusinessTeamIDNil sets the value for BusinessTeamID to be an explicit nil
+ SetBusinessTeamIdNil sets the value for BusinessTeamId to be an explicit nil
 
-### UnsetBusinessTeamID
-`func (o *TenantTeamProjectEnrollmentUpdateDto) UnsetBusinessTeamID()`
+### UnsetBusinessTeamId
+`func (o *TenantTeamProjectEnrollmentUpdateDto) UnsetBusinessTeamId()`
 
-UnsetBusinessTeamID ensures that no value is present for BusinessTeamID, not even an explicit nil
-### GetProjectID
+UnsetBusinessTeamId ensures that no value is present for BusinessTeamId, not even an explicit nil
+### GetProjectId
 
-`func (o *TenantTeamProjectEnrollmentUpdateDto) GetProjectID() string`
+`func (o *TenantTeamProjectEnrollmentUpdateDto) GetProjectId() string`
 
-GetProjectID returns the ProjectID field if non-nil, zero value otherwise.
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
 
-### GetProjectIDOk
+### GetProjectIdOk
 
-`func (o *TenantTeamProjectEnrollmentUpdateDto) GetProjectIDOk() (*string, bool)`
+`func (o *TenantTeamProjectEnrollmentUpdateDto) GetProjectIdOk() (*string, bool)`
 
-GetProjectIDOk returns a tuple with the ProjectID field if it's non-nil, zero value otherwise
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProjectID
+### SetProjectId
 
-`func (o *TenantTeamProjectEnrollmentUpdateDto) SetProjectID(v string)`
+`func (o *TenantTeamProjectEnrollmentUpdateDto) SetProjectId(v string)`
 
-SetProjectID sets ProjectID field to given value.
+SetProjectId sets ProjectId field to given value.
 
-### HasProjectID
+### HasProjectId
 
-`func (o *TenantTeamProjectEnrollmentUpdateDto) HasProjectID() bool`
+`func (o *TenantTeamProjectEnrollmentUpdateDto) HasProjectId() bool`
 
-HasProjectID returns a boolean if a field has been set.
+HasProjectId returns a boolean if a field has been set.
 
-### SetProjectIDNil
+### SetProjectIdNil
 
-`func (o *TenantTeamProjectEnrollmentUpdateDto) SetProjectIDNil(b bool)`
+`func (o *TenantTeamProjectEnrollmentUpdateDto) SetProjectIdNil(b bool)`
 
- SetProjectIDNil sets the value for ProjectID to be an explicit nil
+ SetProjectIdNil sets the value for ProjectId to be an explicit nil
 
-### UnsetProjectID
-`func (o *TenantTeamProjectEnrollmentUpdateDto) UnsetProjectID()`
+### UnsetProjectId
+`func (o *TenantTeamProjectEnrollmentUpdateDto) UnsetProjectId()`
 
-UnsetProjectID ensures that no value is present for ProjectID, not even an explicit nil
+UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

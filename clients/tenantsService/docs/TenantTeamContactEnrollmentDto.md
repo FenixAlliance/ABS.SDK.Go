@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **TeamId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
-**ContactID** | Pointer to **NullableString** |  | [optional] 
+**ContactId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -205,41 +205,41 @@ HasEnrollmentId returns a boolean if a field has been set.
 `func (o *TenantTeamContactEnrollmentDto) UnsetEnrollmentId()`
 
 UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
-### GetContactID
+### GetContactId
 
-`func (o *TenantTeamContactEnrollmentDto) GetContactID() string`
+`func (o *TenantTeamContactEnrollmentDto) GetContactId() string`
 
-GetContactID returns the ContactID field if non-nil, zero value otherwise.
+GetContactId returns the ContactId field if non-nil, zero value otherwise.
 
-### GetContactIDOk
+### GetContactIdOk
 
-`func (o *TenantTeamContactEnrollmentDto) GetContactIDOk() (*string, bool)`
+`func (o *TenantTeamContactEnrollmentDto) GetContactIdOk() (*string, bool)`
 
-GetContactIDOk returns a tuple with the ContactID field if it's non-nil, zero value otherwise
+GetContactIdOk returns a tuple with the ContactId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetContactID
+### SetContactId
 
-`func (o *TenantTeamContactEnrollmentDto) SetContactID(v string)`
+`func (o *TenantTeamContactEnrollmentDto) SetContactId(v string)`
 
-SetContactID sets ContactID field to given value.
+SetContactId sets ContactId field to given value.
 
-### HasContactID
+### HasContactId
 
-`func (o *TenantTeamContactEnrollmentDto) HasContactID() bool`
+`func (o *TenantTeamContactEnrollmentDto) HasContactId() bool`
 
-HasContactID returns a boolean if a field has been set.
+HasContactId returns a boolean if a field has been set.
 
-### SetContactIDNil
+### SetContactIdNil
 
-`func (o *TenantTeamContactEnrollmentDto) SetContactIDNil(b bool)`
+`func (o *TenantTeamContactEnrollmentDto) SetContactIdNil(b bool)`
 
- SetContactIDNil sets the value for ContactID to be an explicit nil
+ SetContactIdNil sets the value for ContactId to be an explicit nil
 
-### UnsetContactID
-`func (o *TenantTeamContactEnrollmentDto) UnsetContactID()`
+### UnsetContactId
+`func (o *TenantTeamContactEnrollmentDto) UnsetContactId()`
 
-UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
+UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Type** | Pointer to **NullableString** |  | [optional] 
@@ -101,76 +101,76 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *TenantPositionDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-### GetBusinessID
+### GetTenantId
 
-`func (o *TenantPositionDto) GetBusinessID() string`
+`func (o *TenantPositionDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *TenantPositionDto) GetBusinessIDOk() (*string, bool)`
+`func (o *TenantPositionDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *TenantPositionDto) SetBusinessID(v string)`
+`func (o *TenantPositionDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *TenantPositionDto) HasBusinessID() bool`
+`func (o *TenantPositionDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *TenantPositionDto) SetBusinessIDNil(b bool)`
+`func (o *TenantPositionDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *TenantPositionDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *TenantPositionDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *TenantPositionDto) GetBusinessProfileRecordID() string`
+`func (o *TenantPositionDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetEnrollmentIdOk
 
-`func (o *TenantPositionDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *TenantPositionDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetEnrollmentId
 
-`func (o *TenantPositionDto) SetBusinessProfileRecordID(v string)`
+`func (o *TenantPositionDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordID
+### HasEnrollmentId
 
-`func (o *TenantPositionDto) HasBusinessProfileRecordID() bool`
+`func (o *TenantPositionDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetEnrollmentIdNil
 
-`func (o *TenantPositionDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *TenantPositionDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *TenantPositionDto) UnsetBusinessProfileRecordID()`
+### UnsetEnrollmentId
+`func (o *TenantPositionDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetTitle
 
 `func (o *TenantPositionDto) GetTitle() string`

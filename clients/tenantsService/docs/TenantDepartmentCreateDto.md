@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Disabled** | Pointer to **bool** |  | [optional] 
-**OrganizationProfileID** | Pointer to **NullableString** |  | [optional] 
-**ParentDepartmentID** | Pointer to **NullableString** |  | [optional] 
+**OrganizationProfileId** | Pointer to **NullableString** |  | [optional] 
+**ParentDepartmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -176,76 +176,76 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### GetOrganizationProfileID
+### GetOrganizationProfileId
 
-`func (o *TenantDepartmentCreateDto) GetOrganizationProfileID() string`
+`func (o *TenantDepartmentCreateDto) GetOrganizationProfileId() string`
 
-GetOrganizationProfileID returns the OrganizationProfileID field if non-nil, zero value otherwise.
+GetOrganizationProfileId returns the OrganizationProfileId field if non-nil, zero value otherwise.
 
-### GetOrganizationProfileIDOk
+### GetOrganizationProfileIdOk
 
-`func (o *TenantDepartmentCreateDto) GetOrganizationProfileIDOk() (*string, bool)`
+`func (o *TenantDepartmentCreateDto) GetOrganizationProfileIdOk() (*string, bool)`
 
-GetOrganizationProfileIDOk returns a tuple with the OrganizationProfileID field if it's non-nil, zero value otherwise
+GetOrganizationProfileIdOk returns a tuple with the OrganizationProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrganizationProfileID
+### SetOrganizationProfileId
 
-`func (o *TenantDepartmentCreateDto) SetOrganizationProfileID(v string)`
+`func (o *TenantDepartmentCreateDto) SetOrganizationProfileId(v string)`
 
-SetOrganizationProfileID sets OrganizationProfileID field to given value.
+SetOrganizationProfileId sets OrganizationProfileId field to given value.
 
-### HasOrganizationProfileID
+### HasOrganizationProfileId
 
-`func (o *TenantDepartmentCreateDto) HasOrganizationProfileID() bool`
+`func (o *TenantDepartmentCreateDto) HasOrganizationProfileId() bool`
 
-HasOrganizationProfileID returns a boolean if a field has been set.
+HasOrganizationProfileId returns a boolean if a field has been set.
 
-### SetOrganizationProfileIDNil
+### SetOrganizationProfileIdNil
 
-`func (o *TenantDepartmentCreateDto) SetOrganizationProfileIDNil(b bool)`
+`func (o *TenantDepartmentCreateDto) SetOrganizationProfileIdNil(b bool)`
 
- SetOrganizationProfileIDNil sets the value for OrganizationProfileID to be an explicit nil
+ SetOrganizationProfileIdNil sets the value for OrganizationProfileId to be an explicit nil
 
-### UnsetOrganizationProfileID
-`func (o *TenantDepartmentCreateDto) UnsetOrganizationProfileID()`
+### UnsetOrganizationProfileId
+`func (o *TenantDepartmentCreateDto) UnsetOrganizationProfileId()`
 
-UnsetOrganizationProfileID ensures that no value is present for OrganizationProfileID, not even an explicit nil
-### GetParentDepartmentID
+UnsetOrganizationProfileId ensures that no value is present for OrganizationProfileId, not even an explicit nil
+### GetParentDepartmentId
 
-`func (o *TenantDepartmentCreateDto) GetParentDepartmentID() string`
+`func (o *TenantDepartmentCreateDto) GetParentDepartmentId() string`
 
-GetParentDepartmentID returns the ParentDepartmentID field if non-nil, zero value otherwise.
+GetParentDepartmentId returns the ParentDepartmentId field if non-nil, zero value otherwise.
 
-### GetParentDepartmentIDOk
+### GetParentDepartmentIdOk
 
-`func (o *TenantDepartmentCreateDto) GetParentDepartmentIDOk() (*string, bool)`
+`func (o *TenantDepartmentCreateDto) GetParentDepartmentIdOk() (*string, bool)`
 
-GetParentDepartmentIDOk returns a tuple with the ParentDepartmentID field if it's non-nil, zero value otherwise
+GetParentDepartmentIdOk returns a tuple with the ParentDepartmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentDepartmentID
+### SetParentDepartmentId
 
-`func (o *TenantDepartmentCreateDto) SetParentDepartmentID(v string)`
+`func (o *TenantDepartmentCreateDto) SetParentDepartmentId(v string)`
 
-SetParentDepartmentID sets ParentDepartmentID field to given value.
+SetParentDepartmentId sets ParentDepartmentId field to given value.
 
-### HasParentDepartmentID
+### HasParentDepartmentId
 
-`func (o *TenantDepartmentCreateDto) HasParentDepartmentID() bool`
+`func (o *TenantDepartmentCreateDto) HasParentDepartmentId() bool`
 
-HasParentDepartmentID returns a boolean if a field has been set.
+HasParentDepartmentId returns a boolean if a field has been set.
 
-### SetParentDepartmentIDNil
+### SetParentDepartmentIdNil
 
-`func (o *TenantDepartmentCreateDto) SetParentDepartmentIDNil(b bool)`
+`func (o *TenantDepartmentCreateDto) SetParentDepartmentIdNil(b bool)`
 
- SetParentDepartmentIDNil sets the value for ParentDepartmentID to be an explicit nil
+ SetParentDepartmentIdNil sets the value for ParentDepartmentId to be an explicit nil
 
-### UnsetParentDepartmentID
-`func (o *TenantDepartmentCreateDto) UnsetParentDepartmentID()`
+### UnsetParentDepartmentId
+`func (o *TenantDepartmentCreateDto) UnsetParentDepartmentId()`
 
-UnsetParentDepartmentID ensures that no value is present for ParentDepartmentID, not even an explicit nil
+UnsetParentDepartmentId ensures that no value is present for ParentDepartmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

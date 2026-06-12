@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**ParentBusinessIndustryID** | Pointer to **NullableString** |  | [optional] 
+**ParentBusinessIndustryId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -113,41 +113,41 @@ HasName returns a boolean if a field has been set.
 `func (o *TenantIndustryCreateDto) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
-### GetParentBusinessIndustryID
+### GetParentBusinessIndustryId
 
-`func (o *TenantIndustryCreateDto) GetParentBusinessIndustryID() string`
+`func (o *TenantIndustryCreateDto) GetParentBusinessIndustryId() string`
 
-GetParentBusinessIndustryID returns the ParentBusinessIndustryID field if non-nil, zero value otherwise.
+GetParentBusinessIndustryId returns the ParentBusinessIndustryId field if non-nil, zero value otherwise.
 
-### GetParentBusinessIndustryIDOk
+### GetParentBusinessIndustryIdOk
 
-`func (o *TenantIndustryCreateDto) GetParentBusinessIndustryIDOk() (*string, bool)`
+`func (o *TenantIndustryCreateDto) GetParentBusinessIndustryIdOk() (*string, bool)`
 
-GetParentBusinessIndustryIDOk returns a tuple with the ParentBusinessIndustryID field if it's non-nil, zero value otherwise
+GetParentBusinessIndustryIdOk returns a tuple with the ParentBusinessIndustryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentBusinessIndustryID
+### SetParentBusinessIndustryId
 
-`func (o *TenantIndustryCreateDto) SetParentBusinessIndustryID(v string)`
+`func (o *TenantIndustryCreateDto) SetParentBusinessIndustryId(v string)`
 
-SetParentBusinessIndustryID sets ParentBusinessIndustryID field to given value.
+SetParentBusinessIndustryId sets ParentBusinessIndustryId field to given value.
 
-### HasParentBusinessIndustryID
+### HasParentBusinessIndustryId
 
-`func (o *TenantIndustryCreateDto) HasParentBusinessIndustryID() bool`
+`func (o *TenantIndustryCreateDto) HasParentBusinessIndustryId() bool`
 
-HasParentBusinessIndustryID returns a boolean if a field has been set.
+HasParentBusinessIndustryId returns a boolean if a field has been set.
 
-### SetParentBusinessIndustryIDNil
+### SetParentBusinessIndustryIdNil
 
-`func (o *TenantIndustryCreateDto) SetParentBusinessIndustryIDNil(b bool)`
+`func (o *TenantIndustryCreateDto) SetParentBusinessIndustryIdNil(b bool)`
 
- SetParentBusinessIndustryIDNil sets the value for ParentBusinessIndustryID to be an explicit nil
+ SetParentBusinessIndustryIdNil sets the value for ParentBusinessIndustryId to be an explicit nil
 
-### UnsetParentBusinessIndustryID
-`func (o *TenantIndustryCreateDto) UnsetParentBusinessIndustryID()`
+### UnsetParentBusinessIndustryId
+`func (o *TenantIndustryCreateDto) UnsetParentBusinessIndustryId()`
 
-UnsetParentBusinessIndustryID ensures that no value is present for ParentBusinessIndustryID, not even an explicit nil
+UnsetParentBusinessIndustryId ensures that no value is present for ParentBusinessIndustryId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

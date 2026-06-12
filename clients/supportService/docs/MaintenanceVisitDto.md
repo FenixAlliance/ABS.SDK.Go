@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -133,41 +133,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *MaintenanceVisitDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetBusinessProfileRecordId
+### GetEnrollmentId
 
-`func (o *MaintenanceVisitDto) GetBusinessProfileRecordId() string`
+`func (o *MaintenanceVisitDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIdOk
+### GetEnrollmentIdOk
 
-`func (o *MaintenanceVisitDto) GetBusinessProfileRecordIdOk() (*string, bool)`
+`func (o *MaintenanceVisitDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordId
+### SetEnrollmentId
 
-`func (o *MaintenanceVisitDto) SetBusinessProfileRecordId(v string)`
+`func (o *MaintenanceVisitDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordId
+### HasEnrollmentId
 
-`func (o *MaintenanceVisitDto) HasBusinessProfileRecordId() bool`
+`func (o *MaintenanceVisitDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIdNil
+### SetEnrollmentIdNil
 
-`func (o *MaintenanceVisitDto) SetBusinessProfileRecordIdNil(b bool)`
+`func (o *MaintenanceVisitDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIdNil sets the value for BusinessProfileRecordId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordId
-`func (o *MaintenanceVisitDto) UnsetBusinessProfileRecordId()`
+### UnsetEnrollmentId
+`func (o *MaintenanceVisitDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordId ensures that no value is present for BusinessProfileRecordId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

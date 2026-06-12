@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetReceiptDetailsAsync**](ReceiptsAPI.md#GetReceiptDetailsAsync) | **Get** /api/v2/AccountingService/Receipts/{receiptId} | Gets details of a receipt
 [**GetReceiptsAsync**](ReceiptsAPI.md#GetReceiptsAsync) | **Get** /api/v2/AccountingService/Receipts | Retrieves tenant receipts
 [**GetReceiptsCountAsync**](ReceiptsAPI.md#GetReceiptsCountAsync) | **Get** /api/v2/AccountingService/Receipts/Count | Gets count of tenant receipts
+[**PatchReceiptAsync**](ReceiptsAPI.md#PatchReceiptAsync) | **Patch** /api/v2/AccountingService/Receipts/{receiptId} | Patches a receipt
 [**UpdateReceiptAsync**](ReceiptsAPI.md#UpdateReceiptAsync) | **Put** /api/v2/AccountingService/Receipts/{receiptId} | Updates a receipt
 
 
@@ -350,6 +351,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchReceiptAsync
+
+> EmptyEnvelope PatchReceiptAsync(ctx, receiptId).TenantId(tenantId).Operation(operation).Execute()
+
+Patches a receipt
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	receiptId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ReceiptsAPI.PatchReceiptAsync(context.Background(), receiptId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ReceiptsAPI.PatchReceiptAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchReceiptAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ReceiptsAPI.PatchReceiptAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**receiptId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchReceiptAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetFinancialBookDetailsAsync**](FinancialBooksAPI.md#GetFinancialBookDetailsAsync) | **Get** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Gets the details of a specific financial book
 [**GetFinancialBooksAsync**](FinancialBooksAPI.md#GetFinancialBooksAsync) | **Get** /api/v2/AccountingService/FinancialBooks | Get all financial books for a tenant
 [**GetFinancialBooksCountAsync**](FinancialBooksAPI.md#GetFinancialBooksCountAsync) | **Get** /api/v2/AccountingService/FinancialBooks/Count | Get the count of financial books
+[**PatchFinancialBookAsync**](FinancialBooksAPI.md#PatchFinancialBookAsync) | **Patch** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Patch a financial book
 [**UpdateFinancialBookAsync**](FinancialBooksAPI.md#UpdateFinancialBookAsync) | **Put** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Updates an existing financial book
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchFinancialBookAsync
+
+> EmptyEnvelope PatchFinancialBookAsync(ctx, financialBookId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a financial book
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	financialBookId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.FinancialBooksAPI.PatchFinancialBookAsync(context.Background(), financialBookId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `FinancialBooksAPI.PatchFinancialBookAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchFinancialBookAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `FinancialBooksAPI.PatchFinancialBookAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**financialBookId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchFinancialBookAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

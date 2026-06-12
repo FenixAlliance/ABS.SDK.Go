@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Message** | Pointer to **NullableString** |  | [optional] 
 **ConversationId** | Pointer to **NullableString** |  | [optional] 
 **SenderSocialProfileId** | Pointer to **NullableString** |  | [optional] 
-**ReceiverSocialProfileID** | Pointer to **NullableString** |  | [optional] 
+**ReceiverSocialProfileId** | Pointer to **NullableString** |  | [optional] 
 **SentTimestamp** | Pointer to **time.Time** |  | [optional] 
 **ReadTimestamp** | Pointer to **time.Time** |  | [optional] 
 **ReceivedTimestamp** | Pointer to **time.Time** |  | [optional] 
@@ -270,41 +270,41 @@ HasSenderSocialProfileId returns a boolean if a field has been set.
 `func (o *PrivateMessageDto) UnsetSenderSocialProfileId()`
 
 UnsetSenderSocialProfileId ensures that no value is present for SenderSocialProfileId, not even an explicit nil
-### GetReceiverSocialProfileID
+### GetReceiverSocialProfileId
 
-`func (o *PrivateMessageDto) GetReceiverSocialProfileID() string`
+`func (o *PrivateMessageDto) GetReceiverSocialProfileId() string`
 
-GetReceiverSocialProfileID returns the ReceiverSocialProfileID field if non-nil, zero value otherwise.
+GetReceiverSocialProfileId returns the ReceiverSocialProfileId field if non-nil, zero value otherwise.
 
-### GetReceiverSocialProfileIDOk
+### GetReceiverSocialProfileIdOk
 
-`func (o *PrivateMessageDto) GetReceiverSocialProfileIDOk() (*string, bool)`
+`func (o *PrivateMessageDto) GetReceiverSocialProfileIdOk() (*string, bool)`
 
-GetReceiverSocialProfileIDOk returns a tuple with the ReceiverSocialProfileID field if it's non-nil, zero value otherwise
+GetReceiverSocialProfileIdOk returns a tuple with the ReceiverSocialProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetReceiverSocialProfileID
+### SetReceiverSocialProfileId
 
-`func (o *PrivateMessageDto) SetReceiverSocialProfileID(v string)`
+`func (o *PrivateMessageDto) SetReceiverSocialProfileId(v string)`
 
-SetReceiverSocialProfileID sets ReceiverSocialProfileID field to given value.
+SetReceiverSocialProfileId sets ReceiverSocialProfileId field to given value.
 
-### HasReceiverSocialProfileID
+### HasReceiverSocialProfileId
 
-`func (o *PrivateMessageDto) HasReceiverSocialProfileID() bool`
+`func (o *PrivateMessageDto) HasReceiverSocialProfileId() bool`
 
-HasReceiverSocialProfileID returns a boolean if a field has been set.
+HasReceiverSocialProfileId returns a boolean if a field has been set.
 
-### SetReceiverSocialProfileIDNil
+### SetReceiverSocialProfileIdNil
 
-`func (o *PrivateMessageDto) SetReceiverSocialProfileIDNil(b bool)`
+`func (o *PrivateMessageDto) SetReceiverSocialProfileIdNil(b bool)`
 
- SetReceiverSocialProfileIDNil sets the value for ReceiverSocialProfileID to be an explicit nil
+ SetReceiverSocialProfileIdNil sets the value for ReceiverSocialProfileId to be an explicit nil
 
-### UnsetReceiverSocialProfileID
-`func (o *PrivateMessageDto) UnsetReceiverSocialProfileID()`
+### UnsetReceiverSocialProfileId
+`func (o *PrivateMessageDto) UnsetReceiverSocialProfileId()`
 
-UnsetReceiverSocialProfileID ensures that no value is present for ReceiverSocialProfileID, not even an explicit nil
+UnsetReceiverSocialProfileId ensures that no value is present for ReceiverSocialProfileId, not even an explicit nil
 ### GetSentTimestamp
 
 `func (o *PrivateMessageDto) GetSentTimestamp() time.Time`

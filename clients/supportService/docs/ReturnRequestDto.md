@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **Approved** | Pointer to **bool** |  | [optional] 
 **ApprovedTimestamp** | Pointer to **time.Time** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **SupportEntitlementId** | Pointer to **NullableString** |  | [optional] 
 **ContactId** | Pointer to **NullableString** |  | [optional] 
-**AccountHolderId** | Pointer to **NullableString** |  | [optional] 
+**UserId** | Pointer to **NullableString** |  | [optional] 
 **ReturnPolicyId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -251,41 +251,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *ReturnRequestDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetBusinessProfileRecordId
+### GetEnrollmentId
 
-`func (o *ReturnRequestDto) GetBusinessProfileRecordId() string`
+`func (o *ReturnRequestDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIdOk
+### GetEnrollmentIdOk
 
-`func (o *ReturnRequestDto) GetBusinessProfileRecordIdOk() (*string, bool)`
+`func (o *ReturnRequestDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordId
+### SetEnrollmentId
 
-`func (o *ReturnRequestDto) SetBusinessProfileRecordId(v string)`
+`func (o *ReturnRequestDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordId
+### HasEnrollmentId
 
-`func (o *ReturnRequestDto) HasBusinessProfileRecordId() bool`
+`func (o *ReturnRequestDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIdNil
+### SetEnrollmentIdNil
 
-`func (o *ReturnRequestDto) SetBusinessProfileRecordIdNil(b bool)`
+`func (o *ReturnRequestDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIdNil sets the value for BusinessProfileRecordId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordId
-`func (o *ReturnRequestDto) UnsetBusinessProfileRecordId()`
+### UnsetEnrollmentId
+`func (o *ReturnRequestDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordId ensures that no value is present for BusinessProfileRecordId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetSupportEntitlementId
 
 `func (o *ReturnRequestDto) GetSupportEntitlementId() string`
@@ -356,41 +356,41 @@ HasContactId returns a boolean if a field has been set.
 `func (o *ReturnRequestDto) UnsetContactId()`
 
 UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
-### GetAccountHolderId
+### GetUserId
 
-`func (o *ReturnRequestDto) GetAccountHolderId() string`
+`func (o *ReturnRequestDto) GetUserId() string`
 
-GetAccountHolderId returns the AccountHolderId field if non-nil, zero value otherwise.
+GetUserId returns the UserId field if non-nil, zero value otherwise.
 
-### GetAccountHolderIdOk
+### GetUserIdOk
 
-`func (o *ReturnRequestDto) GetAccountHolderIdOk() (*string, bool)`
+`func (o *ReturnRequestDto) GetUserIdOk() (*string, bool)`
 
-GetAccountHolderIdOk returns a tuple with the AccountHolderId field if it's non-nil, zero value otherwise
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountHolderId
+### SetUserId
 
-`func (o *ReturnRequestDto) SetAccountHolderId(v string)`
+`func (o *ReturnRequestDto) SetUserId(v string)`
 
-SetAccountHolderId sets AccountHolderId field to given value.
+SetUserId sets UserId field to given value.
 
-### HasAccountHolderId
+### HasUserId
 
-`func (o *ReturnRequestDto) HasAccountHolderId() bool`
+`func (o *ReturnRequestDto) HasUserId() bool`
 
-HasAccountHolderId returns a boolean if a field has been set.
+HasUserId returns a boolean if a field has been set.
 
-### SetAccountHolderIdNil
+### SetUserIdNil
 
-`func (o *ReturnRequestDto) SetAccountHolderIdNil(b bool)`
+`func (o *ReturnRequestDto) SetUserIdNil(b bool)`
 
- SetAccountHolderIdNil sets the value for AccountHolderId to be an explicit nil
+ SetUserIdNil sets the value for UserId to be an explicit nil
 
-### UnsetAccountHolderId
-`func (o *ReturnRequestDto) UnsetAccountHolderId()`
+### UnsetUserId
+`func (o *ReturnRequestDto) UnsetUserId()`
 
-UnsetAccountHolderId ensures that no value is present for AccountHolderId, not even an explicit nil
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 ### GetReturnPolicyId
 
 `func (o *ReturnRequestDto) GetReturnPolicyId() string`

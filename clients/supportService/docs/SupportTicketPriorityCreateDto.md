@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**SupportEntitlementID** | Pointer to **NullableString** |  | [optional] 
+**SupportEntitlementId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -149,41 +149,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *SupportTicketPriorityCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetSupportEntitlementID
+### GetSupportEntitlementId
 
-`func (o *SupportTicketPriorityCreateDto) GetSupportEntitlementID() string`
+`func (o *SupportTicketPriorityCreateDto) GetSupportEntitlementId() string`
 
-GetSupportEntitlementID returns the SupportEntitlementID field if non-nil, zero value otherwise.
+GetSupportEntitlementId returns the SupportEntitlementId field if non-nil, zero value otherwise.
 
-### GetSupportEntitlementIDOk
+### GetSupportEntitlementIdOk
 
-`func (o *SupportTicketPriorityCreateDto) GetSupportEntitlementIDOk() (*string, bool)`
+`func (o *SupportTicketPriorityCreateDto) GetSupportEntitlementIdOk() (*string, bool)`
 
-GetSupportEntitlementIDOk returns a tuple with the SupportEntitlementID field if it's non-nil, zero value otherwise
+GetSupportEntitlementIdOk returns a tuple with the SupportEntitlementId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportEntitlementID
+### SetSupportEntitlementId
 
-`func (o *SupportTicketPriorityCreateDto) SetSupportEntitlementID(v string)`
+`func (o *SupportTicketPriorityCreateDto) SetSupportEntitlementId(v string)`
 
-SetSupportEntitlementID sets SupportEntitlementID field to given value.
+SetSupportEntitlementId sets SupportEntitlementId field to given value.
 
-### HasSupportEntitlementID
+### HasSupportEntitlementId
 
-`func (o *SupportTicketPriorityCreateDto) HasSupportEntitlementID() bool`
+`func (o *SupportTicketPriorityCreateDto) HasSupportEntitlementId() bool`
 
-HasSupportEntitlementID returns a boolean if a field has been set.
+HasSupportEntitlementId returns a boolean if a field has been set.
 
-### SetSupportEntitlementIDNil
+### SetSupportEntitlementIdNil
 
-`func (o *SupportTicketPriorityCreateDto) SetSupportEntitlementIDNil(b bool)`
+`func (o *SupportTicketPriorityCreateDto) SetSupportEntitlementIdNil(b bool)`
 
- SetSupportEntitlementIDNil sets the value for SupportEntitlementID to be an explicit nil
+ SetSupportEntitlementIdNil sets the value for SupportEntitlementId to be an explicit nil
 
-### UnsetSupportEntitlementID
-`func (o *SupportTicketPriorityCreateDto) UnsetSupportEntitlementID()`
+### UnsetSupportEntitlementId
+`func (o *SupportTicketPriorityCreateDto) UnsetSupportEntitlementId()`
 
-UnsetSupportEntitlementID ensures that no value is present for SupportEntitlementID, not even an explicit nil
+UnsetSupportEntitlementId ensures that no value is present for SupportEntitlementId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

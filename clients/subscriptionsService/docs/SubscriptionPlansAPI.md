@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetSubscriptionPlanByIdAsync**](SubscriptionPlansAPI.md#GetSubscriptionPlanByIdAsync) | **Get** /api/v2/SubscriptionsService/SubscriptionPlans/{planId} | Get a subscription plan by ID
 [**GetSubscriptionPlansAsync**](SubscriptionPlansAPI.md#GetSubscriptionPlansAsync) | **Get** /api/v2/SubscriptionsService/SubscriptionPlans | Get all subscription plans
 [**GetSubscriptionPlansCountAsync**](SubscriptionPlansAPI.md#GetSubscriptionPlansCountAsync) | **Get** /api/v2/SubscriptionsService/SubscriptionPlans/Count | Get subscription plans count
+[**PatchSubscriptionPlanAsync**](SubscriptionPlansAPI.md#PatchSubscriptionPlanAsync) | **Patch** /api/v2/SubscriptionsService/SubscriptionPlans/{planId} | Patch a subscription plan
 [**UpdateSubscriptionPlanAsync**](SubscriptionPlansAPI.md#UpdateSubscriptionPlanAsync) | **Put** /api/v2/SubscriptionsService/SubscriptionPlans/{planId} | Update a subscription plan
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchSubscriptionPlanAsync
+
+> EmptyEnvelope PatchSubscriptionPlanAsync(ctx, planId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a subscription plan
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	planId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionPlansAPI.PatchSubscriptionPlanAsync(context.Background(), planId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionPlansAPI.PatchSubscriptionPlanAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchSubscriptionPlanAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionPlansAPI.PatchSubscriptionPlanAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**planId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchSubscriptionPlanAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

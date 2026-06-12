@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetWarrantyPoliciesAsync**](WarrantyPoliciesAPI.md#GetWarrantyPoliciesAsync) | **Get** /api/v2/SupportService/WarrantyPolicies | Retrieve a list of warranty policies
 [**GetWarrantyPoliciesCountAsync**](WarrantyPoliciesAPI.md#GetWarrantyPoliciesCountAsync) | **Get** /api/v2/SupportService/WarrantyPolicies/Count | Get the count of warranty policies
 [**GetWarrantyPolicyAsync**](WarrantyPoliciesAPI.md#GetWarrantyPolicyAsync) | **Get** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Retrieve a warranty policy by ID
+[**PatchWarrantyPolicyAsync**](WarrantyPoliciesAPI.md#PatchWarrantyPolicyAsync) | **Patch** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Patch a warranty policy
 [**UpdateWarrantyPolicyAsync**](WarrantyPoliciesAPI.md#UpdateWarrantyPolicyAsync) | **Put** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Update a warranty policy
 
 
@@ -360,6 +361,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchWarrantyPolicyAsync
+
+> EmptyEnvelope PatchWarrantyPolicyAsync(ctx, warrantyPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a warranty policy
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	warrantyPolicyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WarrantyPoliciesAPI.PatchWarrantyPolicyAsync(context.Background(), warrantyPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WarrantyPoliciesAPI.PatchWarrantyPolicyAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchWarrantyPolicyAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `WarrantyPoliciesAPI.PatchWarrantyPolicyAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**warrantyPolicyId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchWarrantyPolicyAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

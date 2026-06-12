@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Revenue** | Pointer to **NullableString** |  | [optional] 
 **MinEmployees** | Pointer to **float64** |  | [optional] 
 **MaxEmployees** | Pointer to **float64** |  | [optional] 
 
@@ -27,41 +26,6 @@ NewTenantSegmentUpdateDtoWithDefaults instantiates a new TenantSegmentUpdateDto 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetRevenue
-
-`func (o *TenantSegmentUpdateDto) GetRevenue() string`
-
-GetRevenue returns the Revenue field if non-nil, zero value otherwise.
-
-### GetRevenueOk
-
-`func (o *TenantSegmentUpdateDto) GetRevenueOk() (*string, bool)`
-
-GetRevenueOk returns a tuple with the Revenue field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRevenue
-
-`func (o *TenantSegmentUpdateDto) SetRevenue(v string)`
-
-SetRevenue sets Revenue field to given value.
-
-### HasRevenue
-
-`func (o *TenantSegmentUpdateDto) HasRevenue() bool`
-
-HasRevenue returns a boolean if a field has been set.
-
-### SetRevenueNil
-
-`func (o *TenantSegmentUpdateDto) SetRevenueNil(b bool)`
-
- SetRevenueNil sets the value for Revenue to be an explicit nil
-
-### UnsetRevenue
-`func (o *TenantSegmentUpdateDto) UnsetRevenue()`
-
-UnsetRevenue ensures that no value is present for Revenue, not even an explicit nil
 ### GetMinEmployees
 
 `func (o *TenantSegmentUpdateDto) GetMinEmployees() float64`

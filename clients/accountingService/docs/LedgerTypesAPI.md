@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetLedgerTypeDetailsAsync**](LedgerTypesAPI.md#GetLedgerTypeDetailsAsync) | **Get** /api/v2/AccountingService/LedgerTypes/{ledgerTypeId} | Gets a ledger type by ID
 [**GetLedgerTypesAsync**](LedgerTypesAPI.md#GetLedgerTypesAsync) | **Get** /api/v2/AccountingService/LedgerTypes | Retrieves all ledger types
 [**GetLedgerTypesCountAsync**](LedgerTypesAPI.md#GetLedgerTypesCountAsync) | **Get** /api/v2/AccountingService/LedgerTypes/Count | Counts ledger types
+[**PatchLedgerTypeAsync**](LedgerTypesAPI.md#PatchLedgerTypeAsync) | **Patch** /api/v2/AccountingService/LedgerTypes/{ledgerTypeId} | Patches a ledger type
 [**UpdateLedgerTypeAsync**](LedgerTypesAPI.md#UpdateLedgerTypeAsync) | **Put** /api/v2/AccountingService/LedgerTypes/{ledgerTypeId} | Updates a ledger type
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchLedgerTypeAsync
+
+> EmptyEnvelope PatchLedgerTypeAsync(ctx, ledgerTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patches a ledger type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	ledgerTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LedgerTypesAPI.PatchLedgerTypeAsync(context.Background(), ledgerTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LedgerTypesAPI.PatchLedgerTypeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchLedgerTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `LedgerTypesAPI.PatchLedgerTypeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ledgerTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchLedgerTypeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

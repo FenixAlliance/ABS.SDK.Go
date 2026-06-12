@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetTenantTeamContactEnrollmentById**](TeamContactEnrollmentsAPI.md#GetTenantTeamContactEnrollmentById) | **Get** /api/v2/TenantsService/TeamContactEnrollments/{tenantTeamContactEnrollmentId} | Retrieve a single tenant team contact enrollment by its ID
 [**GetTenantTeamContactEnrollments**](TeamContactEnrollmentsAPI.md#GetTenantTeamContactEnrollments) | **Get** /api/v2/TenantsService/TeamContactEnrollments | Retrieve a list of tenant team contact enrollments
 [**GetTenantTeamContactEnrollmentsCount**](TeamContactEnrollmentsAPI.md#GetTenantTeamContactEnrollmentsCount) | **Get** /api/v2/TenantsService/TeamContactEnrollments/Count | Get the count of tenant team contact enrollments
+[**PatchTenantTeamContactEnrollment**](TeamContactEnrollmentsAPI.md#PatchTenantTeamContactEnrollment) | **Patch** /api/v2/TenantsService/TeamContactEnrollments/{tenantTeamContactEnrollmentId} | Patch a tenant team contact enrollment
 [**UpdateTenantTeamContactEnrollment**](TeamContactEnrollmentsAPI.md#UpdateTenantTeamContactEnrollment) | **Put** /api/v2/TenantsService/TeamContactEnrollments/{tenantTeamContactEnrollmentId} | Update a tenant team contact enrollment
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	tenantTeamContactEnrollmentCreateDto := *openapiclient.NewTenantTeamContactEnrollmentCreateDto("BusinessTeamID_example", "ContactID_example") // TenantTeamContactEnrollmentCreateDto |  (optional)
+	tenantTeamContactEnrollmentCreateDto := *openapiclient.NewTenantTeamContactEnrollmentCreateDto("BusinessTeamId_example", "ContactId_example") // TenantTeamContactEnrollmentCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchTenantTeamContactEnrollment
+
+> EmptyEnvelope PatchTenantTeamContactEnrollment(ctx, tenantTeamContactEnrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a tenant team contact enrollment
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantTeamContactEnrollmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TeamContactEnrollmentsAPI.PatchTenantTeamContactEnrollment(context.Background(), tenantTeamContactEnrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TeamContactEnrollmentsAPI.PatchTenantTeamContactEnrollment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchTenantTeamContactEnrollment`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `TeamContactEnrollmentsAPI.PatchTenantTeamContactEnrollment`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantTeamContactEnrollmentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchTenantTeamContactEnrollmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

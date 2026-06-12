@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **Zero** | Pointer to **bool** |  | [optional] 
 **Reduced** | Pointer to **bool** |  | [optional] 
 **Withholding** | Pointer to **bool** |  | [optional] 
-**FiscalAuthorityID** | Pointer to **NullableString** |  | [optional] 
+**FiscalAuthorityId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -883,41 +883,41 @@ SetWithholding sets Withholding field to given value.
 
 HasWithholding returns a boolean if a field has been set.
 
-### GetFiscalAuthorityID
+### GetFiscalAuthorityId
 
-`func (o *TaxPolicyDto) GetFiscalAuthorityID() string`
+`func (o *TaxPolicyDto) GetFiscalAuthorityId() string`
 
-GetFiscalAuthorityID returns the FiscalAuthorityID field if non-nil, zero value otherwise.
+GetFiscalAuthorityId returns the FiscalAuthorityId field if non-nil, zero value otherwise.
 
-### GetFiscalAuthorityIDOk
+### GetFiscalAuthorityIdOk
 
-`func (o *TaxPolicyDto) GetFiscalAuthorityIDOk() (*string, bool)`
+`func (o *TaxPolicyDto) GetFiscalAuthorityIdOk() (*string, bool)`
 
-GetFiscalAuthorityIDOk returns a tuple with the FiscalAuthorityID field if it's non-nil, zero value otherwise
+GetFiscalAuthorityIdOk returns a tuple with the FiscalAuthorityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFiscalAuthorityID
+### SetFiscalAuthorityId
 
-`func (o *TaxPolicyDto) SetFiscalAuthorityID(v string)`
+`func (o *TaxPolicyDto) SetFiscalAuthorityId(v string)`
 
-SetFiscalAuthorityID sets FiscalAuthorityID field to given value.
+SetFiscalAuthorityId sets FiscalAuthorityId field to given value.
 
-### HasFiscalAuthorityID
+### HasFiscalAuthorityId
 
-`func (o *TaxPolicyDto) HasFiscalAuthorityID() bool`
+`func (o *TaxPolicyDto) HasFiscalAuthorityId() bool`
 
-HasFiscalAuthorityID returns a boolean if a field has been set.
+HasFiscalAuthorityId returns a boolean if a field has been set.
 
-### SetFiscalAuthorityIDNil
+### SetFiscalAuthorityIdNil
 
-`func (o *TaxPolicyDto) SetFiscalAuthorityIDNil(b bool)`
+`func (o *TaxPolicyDto) SetFiscalAuthorityIdNil(b bool)`
 
- SetFiscalAuthorityIDNil sets the value for FiscalAuthorityID to be an explicit nil
+ SetFiscalAuthorityIdNil sets the value for FiscalAuthorityId to be an explicit nil
 
-### UnsetFiscalAuthorityID
-`func (o *TaxPolicyDto) UnsetFiscalAuthorityID()`
+### UnsetFiscalAuthorityId
+`func (o *TaxPolicyDto) UnsetFiscalAuthorityId()`
 
-UnsetFiscalAuthorityID ensures that no value is present for FiscalAuthorityID, not even an explicit nil
+UnsetFiscalAuthorityId ensures that no value is present for FiscalAuthorityId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

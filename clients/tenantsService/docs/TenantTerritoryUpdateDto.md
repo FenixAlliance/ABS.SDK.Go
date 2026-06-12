@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
+**ParentTerritoryId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -96,6 +97,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *TenantTerritoryUpdateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetParentTerritoryId
+
+`func (o *TenantTerritoryUpdateDto) GetParentTerritoryId() string`
+
+GetParentTerritoryId returns the ParentTerritoryId field if non-nil, zero value otherwise.
+
+### GetParentTerritoryIdOk
+
+`func (o *TenantTerritoryUpdateDto) GetParentTerritoryIdOk() (*string, bool)`
+
+GetParentTerritoryIdOk returns a tuple with the ParentTerritoryId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentTerritoryId
+
+`func (o *TenantTerritoryUpdateDto) SetParentTerritoryId(v string)`
+
+SetParentTerritoryId sets ParentTerritoryId field to given value.
+
+### HasParentTerritoryId
+
+`func (o *TenantTerritoryUpdateDto) HasParentTerritoryId() bool`
+
+HasParentTerritoryId returns a boolean if a field has been set.
+
+### SetParentTerritoryIdNil
+
+`func (o *TenantTerritoryUpdateDto) SetParentTerritoryIdNil(b bool)`
+
+ SetParentTerritoryIdNil sets the value for ParentTerritoryId to be an explicit nil
+
+### UnsetParentTerritoryId
+`func (o *TenantTerritoryUpdateDto) UnsetParentTerritoryId()`
+
+UnsetParentTerritoryId ensures that no value is present for ParentTerritoryId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

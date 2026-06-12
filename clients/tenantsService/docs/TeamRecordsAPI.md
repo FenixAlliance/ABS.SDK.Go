@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetTenantTeamRecordById**](TeamRecordsAPI.md#GetTenantTeamRecordById) | **Get** /api/v2/TenantsService/TeamRecords/{tenantTeamRecordId} | Retrieve a single tenant team record by its ID
 [**GetTenantTeamRecords**](TeamRecordsAPI.md#GetTenantTeamRecords) | **Get** /api/v2/TenantsService/TeamRecords | Retrieve a list of tenant team records
 [**GetTenantTeamRecordsCount**](TeamRecordsAPI.md#GetTenantTeamRecordsCount) | **Get** /api/v2/TenantsService/TeamRecords/Count | Get the count of tenant team records
+[**PatchTenantTeamRecord**](TeamRecordsAPI.md#PatchTenantTeamRecord) | **Patch** /api/v2/TenantsService/TeamRecords/{tenantTeamRecordId} | Patch a tenant team record
 [**UpdateTenantTeamRecord**](TeamRecordsAPI.md#UpdateTenantTeamRecord) | **Put** /api/v2/TenantsService/TeamRecords/{tenantTeamRecordId} | Update a tenant team record
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	tenantTeamRecordCreateDto := *openapiclient.NewTenantTeamRecordCreateDto("BusinessTeamID_example") // TenantTeamRecordCreateDto |  (optional)
+	tenantTeamRecordCreateDto := *openapiclient.NewTenantTeamRecordCreateDto("BusinessTeamId_example") // TenantTeamRecordCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchTenantTeamRecord
+
+> EmptyEnvelope PatchTenantTeamRecord(ctx, tenantTeamRecordId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a tenant team record
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantTeamRecordId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TeamRecordsAPI.PatchTenantTeamRecord(context.Background(), tenantTeamRecordId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TeamRecordsAPI.PatchTenantTeamRecord``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchTenantTeamRecord`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `TeamRecordsAPI.PatchTenantTeamRecord`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantTeamRecordId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchTenantTeamRecordRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

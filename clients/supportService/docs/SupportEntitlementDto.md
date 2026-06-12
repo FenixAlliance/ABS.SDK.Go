@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
 **StartDateTime** | Pointer to **time.Time** |  | [optional] 
 **EndDateTime** | Pointer to **time.Time** |  | [optional] 
 **NextInvoiceDateTime** | Pointer to **time.Time** |  | [optional] 
@@ -45,15 +46,15 @@ Name | Type | Description | Notes
 **Data8Label** | Pointer to **NullableString** |  | [optional] 
 **Data9** | Pointer to **NullableString** |  | [optional] 
 **Data9Label** | Pointer to **NullableString** |  | [optional] 
-**AccountHolderID** | Pointer to **NullableString** |  | [optional] 
-**IndividualID** | Pointer to **NullableString** |  | [optional] 
-**OrganizationID** | Pointer to **NullableString** |  | [optional] 
-**ReceiverBusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
-**PaymentTokenID** | Pointer to **NullableString** |  | [optional] 
-**WalletAccountID** | Pointer to **NullableString** |  | [optional] 
-**SecurityCertificateID** | Pointer to **NullableString** |  | [optional] 
+**UserId** | Pointer to **NullableString** |  | [optional] 
+**IndividualId** | Pointer to **NullableString** |  | [optional] 
+**OrganizationId** | Pointer to **NullableString** |  | [optional] 
+**ReceiverTenantId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**PaymentTokenId** | Pointer to **NullableString** |  | [optional] 
+**WalletAccountId** | Pointer to **NullableString** |  | [optional] 
+**SecurityCertificateId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -214,6 +215,31 @@ HasDescription returns a boolean if a field has been set.
 `func (o *SupportEntitlementDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetStatus
+
+`func (o *SupportEntitlementDto) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *SupportEntitlementDto) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *SupportEntitlementDto) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *SupportEntitlementDto) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
 ### GetStartDateTime
 
 `func (o *SupportEntitlementDto) GetStartDateTime() time.Time`
@@ -1359,321 +1385,321 @@ HasData9Label returns a boolean if a field has been set.
 `func (o *SupportEntitlementDto) UnsetData9Label()`
 
 UnsetData9Label ensures that no value is present for Data9Label, not even an explicit nil
-### GetAccountHolderID
+### GetUserId
 
-`func (o *SupportEntitlementDto) GetAccountHolderID() string`
+`func (o *SupportEntitlementDto) GetUserId() string`
 
-GetAccountHolderID returns the AccountHolderID field if non-nil, zero value otherwise.
+GetUserId returns the UserId field if non-nil, zero value otherwise.
 
-### GetAccountHolderIDOk
+### GetUserIdOk
 
-`func (o *SupportEntitlementDto) GetAccountHolderIDOk() (*string, bool)`
+`func (o *SupportEntitlementDto) GetUserIdOk() (*string, bool)`
 
-GetAccountHolderIDOk returns a tuple with the AccountHolderID field if it's non-nil, zero value otherwise
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountHolderID
+### SetUserId
 
-`func (o *SupportEntitlementDto) SetAccountHolderID(v string)`
+`func (o *SupportEntitlementDto) SetUserId(v string)`
 
-SetAccountHolderID sets AccountHolderID field to given value.
+SetUserId sets UserId field to given value.
 
-### HasAccountHolderID
+### HasUserId
 
-`func (o *SupportEntitlementDto) HasAccountHolderID() bool`
+`func (o *SupportEntitlementDto) HasUserId() bool`
 
-HasAccountHolderID returns a boolean if a field has been set.
+HasUserId returns a boolean if a field has been set.
 
-### SetAccountHolderIDNil
+### SetUserIdNil
 
-`func (o *SupportEntitlementDto) SetAccountHolderIDNil(b bool)`
+`func (o *SupportEntitlementDto) SetUserIdNil(b bool)`
 
- SetAccountHolderIDNil sets the value for AccountHolderID to be an explicit nil
+ SetUserIdNil sets the value for UserId to be an explicit nil
 
-### UnsetAccountHolderID
-`func (o *SupportEntitlementDto) UnsetAccountHolderID()`
+### UnsetUserId
+`func (o *SupportEntitlementDto) UnsetUserId()`
 
-UnsetAccountHolderID ensures that no value is present for AccountHolderID, not even an explicit nil
-### GetIndividualID
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
+### GetIndividualId
 
-`func (o *SupportEntitlementDto) GetIndividualID() string`
+`func (o *SupportEntitlementDto) GetIndividualId() string`
 
-GetIndividualID returns the IndividualID field if non-nil, zero value otherwise.
+GetIndividualId returns the IndividualId field if non-nil, zero value otherwise.
 
-### GetIndividualIDOk
+### GetIndividualIdOk
 
-`func (o *SupportEntitlementDto) GetIndividualIDOk() (*string, bool)`
+`func (o *SupportEntitlementDto) GetIndividualIdOk() (*string, bool)`
 
-GetIndividualIDOk returns a tuple with the IndividualID field if it's non-nil, zero value otherwise
+GetIndividualIdOk returns a tuple with the IndividualId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIndividualID
+### SetIndividualId
 
-`func (o *SupportEntitlementDto) SetIndividualID(v string)`
+`func (o *SupportEntitlementDto) SetIndividualId(v string)`
 
-SetIndividualID sets IndividualID field to given value.
+SetIndividualId sets IndividualId field to given value.
 
-### HasIndividualID
+### HasIndividualId
 
-`func (o *SupportEntitlementDto) HasIndividualID() bool`
+`func (o *SupportEntitlementDto) HasIndividualId() bool`
 
-HasIndividualID returns a boolean if a field has been set.
+HasIndividualId returns a boolean if a field has been set.
 
-### SetIndividualIDNil
+### SetIndividualIdNil
 
-`func (o *SupportEntitlementDto) SetIndividualIDNil(b bool)`
+`func (o *SupportEntitlementDto) SetIndividualIdNil(b bool)`
 
- SetIndividualIDNil sets the value for IndividualID to be an explicit nil
+ SetIndividualIdNil sets the value for IndividualId to be an explicit nil
 
-### UnsetIndividualID
-`func (o *SupportEntitlementDto) UnsetIndividualID()`
+### UnsetIndividualId
+`func (o *SupportEntitlementDto) UnsetIndividualId()`
 
-UnsetIndividualID ensures that no value is present for IndividualID, not even an explicit nil
-### GetOrganizationID
+UnsetIndividualId ensures that no value is present for IndividualId, not even an explicit nil
+### GetOrganizationId
 
-`func (o *SupportEntitlementDto) GetOrganizationID() string`
+`func (o *SupportEntitlementDto) GetOrganizationId() string`
 
-GetOrganizationID returns the OrganizationID field if non-nil, zero value otherwise.
+GetOrganizationId returns the OrganizationId field if non-nil, zero value otherwise.
 
-### GetOrganizationIDOk
+### GetOrganizationIdOk
 
-`func (o *SupportEntitlementDto) GetOrganizationIDOk() (*string, bool)`
+`func (o *SupportEntitlementDto) GetOrganizationIdOk() (*string, bool)`
 
-GetOrganizationIDOk returns a tuple with the OrganizationID field if it's non-nil, zero value otherwise
+GetOrganizationIdOk returns a tuple with the OrganizationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrganizationID
+### SetOrganizationId
 
-`func (o *SupportEntitlementDto) SetOrganizationID(v string)`
+`func (o *SupportEntitlementDto) SetOrganizationId(v string)`
 
-SetOrganizationID sets OrganizationID field to given value.
+SetOrganizationId sets OrganizationId field to given value.
 
-### HasOrganizationID
+### HasOrganizationId
 
-`func (o *SupportEntitlementDto) HasOrganizationID() bool`
+`func (o *SupportEntitlementDto) HasOrganizationId() bool`
 
-HasOrganizationID returns a boolean if a field has been set.
+HasOrganizationId returns a boolean if a field has been set.
 
-### SetOrganizationIDNil
+### SetOrganizationIdNil
 
-`func (o *SupportEntitlementDto) SetOrganizationIDNil(b bool)`
+`func (o *SupportEntitlementDto) SetOrganizationIdNil(b bool)`
 
- SetOrganizationIDNil sets the value for OrganizationID to be an explicit nil
+ SetOrganizationIdNil sets the value for OrganizationId to be an explicit nil
 
-### UnsetOrganizationID
-`func (o *SupportEntitlementDto) UnsetOrganizationID()`
+### UnsetOrganizationId
+`func (o *SupportEntitlementDto) UnsetOrganizationId()`
 
-UnsetOrganizationID ensures that no value is present for OrganizationID, not even an explicit nil
-### GetReceiverBusinessID
+UnsetOrganizationId ensures that no value is present for OrganizationId, not even an explicit nil
+### GetReceiverTenantId
 
-`func (o *SupportEntitlementDto) GetReceiverBusinessID() string`
+`func (o *SupportEntitlementDto) GetReceiverTenantId() string`
 
-GetReceiverBusinessID returns the ReceiverBusinessID field if non-nil, zero value otherwise.
+GetReceiverTenantId returns the ReceiverTenantId field if non-nil, zero value otherwise.
 
-### GetReceiverBusinessIDOk
+### GetReceiverTenantIdOk
 
-`func (o *SupportEntitlementDto) GetReceiverBusinessIDOk() (*string, bool)`
+`func (o *SupportEntitlementDto) GetReceiverTenantIdOk() (*string, bool)`
 
-GetReceiverBusinessIDOk returns a tuple with the ReceiverBusinessID field if it's non-nil, zero value otherwise
+GetReceiverTenantIdOk returns a tuple with the ReceiverTenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetReceiverBusinessID
+### SetReceiverTenantId
 
-`func (o *SupportEntitlementDto) SetReceiverBusinessID(v string)`
+`func (o *SupportEntitlementDto) SetReceiverTenantId(v string)`
 
-SetReceiverBusinessID sets ReceiverBusinessID field to given value.
+SetReceiverTenantId sets ReceiverTenantId field to given value.
 
-### HasReceiverBusinessID
+### HasReceiverTenantId
 
-`func (o *SupportEntitlementDto) HasReceiverBusinessID() bool`
+`func (o *SupportEntitlementDto) HasReceiverTenantId() bool`
 
-HasReceiverBusinessID returns a boolean if a field has been set.
+HasReceiverTenantId returns a boolean if a field has been set.
 
-### SetReceiverBusinessIDNil
+### SetReceiverTenantIdNil
 
-`func (o *SupportEntitlementDto) SetReceiverBusinessIDNil(b bool)`
+`func (o *SupportEntitlementDto) SetReceiverTenantIdNil(b bool)`
 
- SetReceiverBusinessIDNil sets the value for ReceiverBusinessID to be an explicit nil
+ SetReceiverTenantIdNil sets the value for ReceiverTenantId to be an explicit nil
 
-### UnsetReceiverBusinessID
-`func (o *SupportEntitlementDto) UnsetReceiverBusinessID()`
+### UnsetReceiverTenantId
+`func (o *SupportEntitlementDto) UnsetReceiverTenantId()`
 
-UnsetReceiverBusinessID ensures that no value is present for ReceiverBusinessID, not even an explicit nil
-### GetBusinessID
+UnsetReceiverTenantId ensures that no value is present for ReceiverTenantId, not even an explicit nil
+### GetTenantId
 
-`func (o *SupportEntitlementDto) GetBusinessID() string`
+`func (o *SupportEntitlementDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *SupportEntitlementDto) GetBusinessIDOk() (*string, bool)`
+`func (o *SupportEntitlementDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *SupportEntitlementDto) SetBusinessID(v string)`
+`func (o *SupportEntitlementDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *SupportEntitlementDto) HasBusinessID() bool`
+`func (o *SupportEntitlementDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *SupportEntitlementDto) SetBusinessIDNil(b bool)`
+`func (o *SupportEntitlementDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *SupportEntitlementDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *SupportEntitlementDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *SupportEntitlementDto) GetBusinessProfileRecordID() string`
+`func (o *SupportEntitlementDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetEnrollmentIdOk
 
-`func (o *SupportEntitlementDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *SupportEntitlementDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetEnrollmentId
 
-`func (o *SupportEntitlementDto) SetBusinessProfileRecordID(v string)`
+`func (o *SupportEntitlementDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordID
+### HasEnrollmentId
 
-`func (o *SupportEntitlementDto) HasBusinessProfileRecordID() bool`
+`func (o *SupportEntitlementDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetEnrollmentIdNil
 
-`func (o *SupportEntitlementDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *SupportEntitlementDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *SupportEntitlementDto) UnsetBusinessProfileRecordID()`
+### UnsetEnrollmentId
+`func (o *SupportEntitlementDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-### GetPaymentTokenID
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
+### GetPaymentTokenId
 
-`func (o *SupportEntitlementDto) GetPaymentTokenID() string`
+`func (o *SupportEntitlementDto) GetPaymentTokenId() string`
 
-GetPaymentTokenID returns the PaymentTokenID field if non-nil, zero value otherwise.
+GetPaymentTokenId returns the PaymentTokenId field if non-nil, zero value otherwise.
 
-### GetPaymentTokenIDOk
+### GetPaymentTokenIdOk
 
-`func (o *SupportEntitlementDto) GetPaymentTokenIDOk() (*string, bool)`
+`func (o *SupportEntitlementDto) GetPaymentTokenIdOk() (*string, bool)`
 
-GetPaymentTokenIDOk returns a tuple with the PaymentTokenID field if it's non-nil, zero value otherwise
+GetPaymentTokenIdOk returns a tuple with the PaymentTokenId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPaymentTokenID
+### SetPaymentTokenId
 
-`func (o *SupportEntitlementDto) SetPaymentTokenID(v string)`
+`func (o *SupportEntitlementDto) SetPaymentTokenId(v string)`
 
-SetPaymentTokenID sets PaymentTokenID field to given value.
+SetPaymentTokenId sets PaymentTokenId field to given value.
 
-### HasPaymentTokenID
+### HasPaymentTokenId
 
-`func (o *SupportEntitlementDto) HasPaymentTokenID() bool`
+`func (o *SupportEntitlementDto) HasPaymentTokenId() bool`
 
-HasPaymentTokenID returns a boolean if a field has been set.
+HasPaymentTokenId returns a boolean if a field has been set.
 
-### SetPaymentTokenIDNil
+### SetPaymentTokenIdNil
 
-`func (o *SupportEntitlementDto) SetPaymentTokenIDNil(b bool)`
+`func (o *SupportEntitlementDto) SetPaymentTokenIdNil(b bool)`
 
- SetPaymentTokenIDNil sets the value for PaymentTokenID to be an explicit nil
+ SetPaymentTokenIdNil sets the value for PaymentTokenId to be an explicit nil
 
-### UnsetPaymentTokenID
-`func (o *SupportEntitlementDto) UnsetPaymentTokenID()`
+### UnsetPaymentTokenId
+`func (o *SupportEntitlementDto) UnsetPaymentTokenId()`
 
-UnsetPaymentTokenID ensures that no value is present for PaymentTokenID, not even an explicit nil
-### GetWalletAccountID
+UnsetPaymentTokenId ensures that no value is present for PaymentTokenId, not even an explicit nil
+### GetWalletAccountId
 
-`func (o *SupportEntitlementDto) GetWalletAccountID() string`
+`func (o *SupportEntitlementDto) GetWalletAccountId() string`
 
-GetWalletAccountID returns the WalletAccountID field if non-nil, zero value otherwise.
+GetWalletAccountId returns the WalletAccountId field if non-nil, zero value otherwise.
 
-### GetWalletAccountIDOk
+### GetWalletAccountIdOk
 
-`func (o *SupportEntitlementDto) GetWalletAccountIDOk() (*string, bool)`
+`func (o *SupportEntitlementDto) GetWalletAccountIdOk() (*string, bool)`
 
-GetWalletAccountIDOk returns a tuple with the WalletAccountID field if it's non-nil, zero value otherwise
+GetWalletAccountIdOk returns a tuple with the WalletAccountId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWalletAccountID
+### SetWalletAccountId
 
-`func (o *SupportEntitlementDto) SetWalletAccountID(v string)`
+`func (o *SupportEntitlementDto) SetWalletAccountId(v string)`
 
-SetWalletAccountID sets WalletAccountID field to given value.
+SetWalletAccountId sets WalletAccountId field to given value.
 
-### HasWalletAccountID
+### HasWalletAccountId
 
-`func (o *SupportEntitlementDto) HasWalletAccountID() bool`
+`func (o *SupportEntitlementDto) HasWalletAccountId() bool`
 
-HasWalletAccountID returns a boolean if a field has been set.
+HasWalletAccountId returns a boolean if a field has been set.
 
-### SetWalletAccountIDNil
+### SetWalletAccountIdNil
 
-`func (o *SupportEntitlementDto) SetWalletAccountIDNil(b bool)`
+`func (o *SupportEntitlementDto) SetWalletAccountIdNil(b bool)`
 
- SetWalletAccountIDNil sets the value for WalletAccountID to be an explicit nil
+ SetWalletAccountIdNil sets the value for WalletAccountId to be an explicit nil
 
-### UnsetWalletAccountID
-`func (o *SupportEntitlementDto) UnsetWalletAccountID()`
+### UnsetWalletAccountId
+`func (o *SupportEntitlementDto) UnsetWalletAccountId()`
 
-UnsetWalletAccountID ensures that no value is present for WalletAccountID, not even an explicit nil
-### GetSecurityCertificateID
+UnsetWalletAccountId ensures that no value is present for WalletAccountId, not even an explicit nil
+### GetSecurityCertificateId
 
-`func (o *SupportEntitlementDto) GetSecurityCertificateID() string`
+`func (o *SupportEntitlementDto) GetSecurityCertificateId() string`
 
-GetSecurityCertificateID returns the SecurityCertificateID field if non-nil, zero value otherwise.
+GetSecurityCertificateId returns the SecurityCertificateId field if non-nil, zero value otherwise.
 
-### GetSecurityCertificateIDOk
+### GetSecurityCertificateIdOk
 
-`func (o *SupportEntitlementDto) GetSecurityCertificateIDOk() (*string, bool)`
+`func (o *SupportEntitlementDto) GetSecurityCertificateIdOk() (*string, bool)`
 
-GetSecurityCertificateIDOk returns a tuple with the SecurityCertificateID field if it's non-nil, zero value otherwise
+GetSecurityCertificateIdOk returns a tuple with the SecurityCertificateId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSecurityCertificateID
+### SetSecurityCertificateId
 
-`func (o *SupportEntitlementDto) SetSecurityCertificateID(v string)`
+`func (o *SupportEntitlementDto) SetSecurityCertificateId(v string)`
 
-SetSecurityCertificateID sets SecurityCertificateID field to given value.
+SetSecurityCertificateId sets SecurityCertificateId field to given value.
 
-### HasSecurityCertificateID
+### HasSecurityCertificateId
 
-`func (o *SupportEntitlementDto) HasSecurityCertificateID() bool`
+`func (o *SupportEntitlementDto) HasSecurityCertificateId() bool`
 
-HasSecurityCertificateID returns a boolean if a field has been set.
+HasSecurityCertificateId returns a boolean if a field has been set.
 
-### SetSecurityCertificateIDNil
+### SetSecurityCertificateIdNil
 
-`func (o *SupportEntitlementDto) SetSecurityCertificateIDNil(b bool)`
+`func (o *SupportEntitlementDto) SetSecurityCertificateIdNil(b bool)`
 
- SetSecurityCertificateIDNil sets the value for SecurityCertificateID to be an explicit nil
+ SetSecurityCertificateIdNil sets the value for SecurityCertificateId to be an explicit nil
 
-### UnsetSecurityCertificateID
-`func (o *SupportEntitlementDto) UnsetSecurityCertificateID()`
+### UnsetSecurityCertificateId
+`func (o *SupportEntitlementDto) UnsetSecurityCertificateId()`
 
-UnsetSecurityCertificateID ensures that no value is present for SecurityCertificateID, not even an explicit nil
+UnsetSecurityCertificateId ensures that no value is present for SecurityCertificateId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

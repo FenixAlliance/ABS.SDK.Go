@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **Approved** | Pointer to **bool** |  | [optional] 
 **ApprovedTimestamp** | Pointer to **time.Time** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **SupportEntitlementId** | Pointer to **NullableString** |  | [optional] 
 **ContactId** | Pointer to **NullableString** |  | [optional] 
-**AccountHolderId** | Pointer to **NullableString** |  | [optional] 
+**UserId** | Pointer to **NullableString** |  | [optional] 
 **WarrantyPolicyId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -251,41 +251,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *WarrantyRequestDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetBusinessProfileRecordId
+### GetEnrollmentId
 
-`func (o *WarrantyRequestDto) GetBusinessProfileRecordId() string`
+`func (o *WarrantyRequestDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIdOk
+### GetEnrollmentIdOk
 
-`func (o *WarrantyRequestDto) GetBusinessProfileRecordIdOk() (*string, bool)`
+`func (o *WarrantyRequestDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordId
+### SetEnrollmentId
 
-`func (o *WarrantyRequestDto) SetBusinessProfileRecordId(v string)`
+`func (o *WarrantyRequestDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordId
+### HasEnrollmentId
 
-`func (o *WarrantyRequestDto) HasBusinessProfileRecordId() bool`
+`func (o *WarrantyRequestDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIdNil
+### SetEnrollmentIdNil
 
-`func (o *WarrantyRequestDto) SetBusinessProfileRecordIdNil(b bool)`
+`func (o *WarrantyRequestDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIdNil sets the value for BusinessProfileRecordId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordId
-`func (o *WarrantyRequestDto) UnsetBusinessProfileRecordId()`
+### UnsetEnrollmentId
+`func (o *WarrantyRequestDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordId ensures that no value is present for BusinessProfileRecordId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetSupportEntitlementId
 
 `func (o *WarrantyRequestDto) GetSupportEntitlementId() string`
@@ -356,41 +356,41 @@ HasContactId returns a boolean if a field has been set.
 `func (o *WarrantyRequestDto) UnsetContactId()`
 
 UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
-### GetAccountHolderId
+### GetUserId
 
-`func (o *WarrantyRequestDto) GetAccountHolderId() string`
+`func (o *WarrantyRequestDto) GetUserId() string`
 
-GetAccountHolderId returns the AccountHolderId field if non-nil, zero value otherwise.
+GetUserId returns the UserId field if non-nil, zero value otherwise.
 
-### GetAccountHolderIdOk
+### GetUserIdOk
 
-`func (o *WarrantyRequestDto) GetAccountHolderIdOk() (*string, bool)`
+`func (o *WarrantyRequestDto) GetUserIdOk() (*string, bool)`
 
-GetAccountHolderIdOk returns a tuple with the AccountHolderId field if it's non-nil, zero value otherwise
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountHolderId
+### SetUserId
 
-`func (o *WarrantyRequestDto) SetAccountHolderId(v string)`
+`func (o *WarrantyRequestDto) SetUserId(v string)`
 
-SetAccountHolderId sets AccountHolderId field to given value.
+SetUserId sets UserId field to given value.
 
-### HasAccountHolderId
+### HasUserId
 
-`func (o *WarrantyRequestDto) HasAccountHolderId() bool`
+`func (o *WarrantyRequestDto) HasUserId() bool`
 
-HasAccountHolderId returns a boolean if a field has been set.
+HasUserId returns a boolean if a field has been set.
 
-### SetAccountHolderIdNil
+### SetUserIdNil
 
-`func (o *WarrantyRequestDto) SetAccountHolderIdNil(b bool)`
+`func (o *WarrantyRequestDto) SetUserIdNil(b bool)`
 
- SetAccountHolderIdNil sets the value for AccountHolderId to be an explicit nil
+ SetUserIdNil sets the value for UserId to be an explicit nil
 
-### UnsetAccountHolderId
-`func (o *WarrantyRequestDto) UnsetAccountHolderId()`
+### UnsetUserId
+`func (o *WarrantyRequestDto) UnsetUserId()`
 
-UnsetAccountHolderId ensures that no value is present for AccountHolderId, not even an explicit nil
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 ### GetWarrantyPolicyId
 
 `func (o *WarrantyRequestDto) GetWarrantyPolicyId() string`

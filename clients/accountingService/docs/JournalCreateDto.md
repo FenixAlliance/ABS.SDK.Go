@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **DateTime** | Pointer to **time.Time** |  | [optional] 
-**ParentJournalID** | Pointer to **NullableString** |  | [optional] 
-**JournalTypeID** | Pointer to **NullableString** |  | [optional] 
-**LedgerID** | Pointer to **NullableString** |  | [optional] 
+**ParentJournalId** | Pointer to **NullableString** |  | [optional] 
+**JournalTypeId** | Pointer to **NullableString** |  | [optional] 
+**LedgerId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -162,111 +162,111 @@ SetDateTime sets DateTime field to given value.
 
 HasDateTime returns a boolean if a field has been set.
 
-### GetParentJournalID
+### GetParentJournalId
 
-`func (o *JournalCreateDto) GetParentJournalID() string`
+`func (o *JournalCreateDto) GetParentJournalId() string`
 
-GetParentJournalID returns the ParentJournalID field if non-nil, zero value otherwise.
+GetParentJournalId returns the ParentJournalId field if non-nil, zero value otherwise.
 
-### GetParentJournalIDOk
+### GetParentJournalIdOk
 
-`func (o *JournalCreateDto) GetParentJournalIDOk() (*string, bool)`
+`func (o *JournalCreateDto) GetParentJournalIdOk() (*string, bool)`
 
-GetParentJournalIDOk returns a tuple with the ParentJournalID field if it's non-nil, zero value otherwise
+GetParentJournalIdOk returns a tuple with the ParentJournalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentJournalID
+### SetParentJournalId
 
-`func (o *JournalCreateDto) SetParentJournalID(v string)`
+`func (o *JournalCreateDto) SetParentJournalId(v string)`
 
-SetParentJournalID sets ParentJournalID field to given value.
+SetParentJournalId sets ParentJournalId field to given value.
 
-### HasParentJournalID
+### HasParentJournalId
 
-`func (o *JournalCreateDto) HasParentJournalID() bool`
+`func (o *JournalCreateDto) HasParentJournalId() bool`
 
-HasParentJournalID returns a boolean if a field has been set.
+HasParentJournalId returns a boolean if a field has been set.
 
-### SetParentJournalIDNil
+### SetParentJournalIdNil
 
-`func (o *JournalCreateDto) SetParentJournalIDNil(b bool)`
+`func (o *JournalCreateDto) SetParentJournalIdNil(b bool)`
 
- SetParentJournalIDNil sets the value for ParentJournalID to be an explicit nil
+ SetParentJournalIdNil sets the value for ParentJournalId to be an explicit nil
 
-### UnsetParentJournalID
-`func (o *JournalCreateDto) UnsetParentJournalID()`
+### UnsetParentJournalId
+`func (o *JournalCreateDto) UnsetParentJournalId()`
 
-UnsetParentJournalID ensures that no value is present for ParentJournalID, not even an explicit nil
-### GetJournalTypeID
+UnsetParentJournalId ensures that no value is present for ParentJournalId, not even an explicit nil
+### GetJournalTypeId
 
-`func (o *JournalCreateDto) GetJournalTypeID() string`
+`func (o *JournalCreateDto) GetJournalTypeId() string`
 
-GetJournalTypeID returns the JournalTypeID field if non-nil, zero value otherwise.
+GetJournalTypeId returns the JournalTypeId field if non-nil, zero value otherwise.
 
-### GetJournalTypeIDOk
+### GetJournalTypeIdOk
 
-`func (o *JournalCreateDto) GetJournalTypeIDOk() (*string, bool)`
+`func (o *JournalCreateDto) GetJournalTypeIdOk() (*string, bool)`
 
-GetJournalTypeIDOk returns a tuple with the JournalTypeID field if it's non-nil, zero value otherwise
+GetJournalTypeIdOk returns a tuple with the JournalTypeId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetJournalTypeID
+### SetJournalTypeId
 
-`func (o *JournalCreateDto) SetJournalTypeID(v string)`
+`func (o *JournalCreateDto) SetJournalTypeId(v string)`
 
-SetJournalTypeID sets JournalTypeID field to given value.
+SetJournalTypeId sets JournalTypeId field to given value.
 
-### HasJournalTypeID
+### HasJournalTypeId
 
-`func (o *JournalCreateDto) HasJournalTypeID() bool`
+`func (o *JournalCreateDto) HasJournalTypeId() bool`
 
-HasJournalTypeID returns a boolean if a field has been set.
+HasJournalTypeId returns a boolean if a field has been set.
 
-### SetJournalTypeIDNil
+### SetJournalTypeIdNil
 
-`func (o *JournalCreateDto) SetJournalTypeIDNil(b bool)`
+`func (o *JournalCreateDto) SetJournalTypeIdNil(b bool)`
 
- SetJournalTypeIDNil sets the value for JournalTypeID to be an explicit nil
+ SetJournalTypeIdNil sets the value for JournalTypeId to be an explicit nil
 
-### UnsetJournalTypeID
-`func (o *JournalCreateDto) UnsetJournalTypeID()`
+### UnsetJournalTypeId
+`func (o *JournalCreateDto) UnsetJournalTypeId()`
 
-UnsetJournalTypeID ensures that no value is present for JournalTypeID, not even an explicit nil
-### GetLedgerID
+UnsetJournalTypeId ensures that no value is present for JournalTypeId, not even an explicit nil
+### GetLedgerId
 
-`func (o *JournalCreateDto) GetLedgerID() string`
+`func (o *JournalCreateDto) GetLedgerId() string`
 
-GetLedgerID returns the LedgerID field if non-nil, zero value otherwise.
+GetLedgerId returns the LedgerId field if non-nil, zero value otherwise.
 
-### GetLedgerIDOk
+### GetLedgerIdOk
 
-`func (o *JournalCreateDto) GetLedgerIDOk() (*string, bool)`
+`func (o *JournalCreateDto) GetLedgerIdOk() (*string, bool)`
 
-GetLedgerIDOk returns a tuple with the LedgerID field if it's non-nil, zero value otherwise
+GetLedgerIdOk returns a tuple with the LedgerId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLedgerID
+### SetLedgerId
 
-`func (o *JournalCreateDto) SetLedgerID(v string)`
+`func (o *JournalCreateDto) SetLedgerId(v string)`
 
-SetLedgerID sets LedgerID field to given value.
+SetLedgerId sets LedgerId field to given value.
 
-### HasLedgerID
+### HasLedgerId
 
-`func (o *JournalCreateDto) HasLedgerID() bool`
+`func (o *JournalCreateDto) HasLedgerId() bool`
 
-HasLedgerID returns a boolean if a field has been set.
+HasLedgerId returns a boolean if a field has been set.
 
-### SetLedgerIDNil
+### SetLedgerIdNil
 
-`func (o *JournalCreateDto) SetLedgerIDNil(b bool)`
+`func (o *JournalCreateDto) SetLedgerIdNil(b bool)`
 
- SetLedgerIDNil sets the value for LedgerID to be an explicit nil
+ SetLedgerIdNil sets the value for LedgerId to be an explicit nil
 
-### UnsetLedgerID
-`func (o *JournalCreateDto) UnsetLedgerID()`
+### UnsetLedgerId
+`func (o *JournalCreateDto) UnsetLedgerId()`
 
-UnsetLedgerID ensures that no value is present for LedgerID, not even an explicit nil
+UnsetLedgerId ensures that no value is present for LedgerId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

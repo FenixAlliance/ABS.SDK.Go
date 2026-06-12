@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: TenantsService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -628,6 +628,83 @@ paths:
       summary: Retrieve a single tenant department by its ID
       tags:
       - Departments
+    patch:
+      description: Patch a tenant department
+      operationId: PatchTenantDepartmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantDepartmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant department
+      tags:
+      - Departments
     put:
       description: Update a tenant department
       operationId: UpdateTenantDepartment
@@ -1011,6 +1088,83 @@ paths:
                 $ref: '#/components/schemas/TenantTeamEmployeeEnrollmentDtoEnvelope'
           description: OK
       summary: Retrieve a single tenant employee enrollment by its ID
+      tags:
+      - EmployeeEnrollments
+    patch:
+      description: Patch a tenant employee enrollment
+      operationId: PatchTenantEmployeeEnrollmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantEmployeeEnrollmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant employee enrollment
       tags:
       - EmployeeEnrollments
     put:
@@ -1520,6 +1674,83 @@ paths:
                 $ref: '#/components/schemas/TenantEnrollmentDtoEnvelope'
           description: OK
       summary: Retrieve a single tenant enrollment by its ID
+      tags:
+      - Enrollments
+    patch:
+      description: Patch a tenant enrollment
+      operationId: PatchTenantEnrollmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: enrollmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant enrollment
       tags:
       - Enrollments
     put:
@@ -2217,6 +2448,83 @@ paths:
                 $ref: '#/components/schemas/TenantIndustryDtoEnvelope'
           description: OK
       summary: Retrieve a single tenant industry by its ID
+      tags:
+      - Industries
+    patch:
+      description: Patch a tenant industry
+      operationId: PatchTenantIndustryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantIndustryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant industry
       tags:
       - Industries
     put:
@@ -3063,6 +3371,83 @@ paths:
       summary: Retrieve a single tenant option by its ID
       tags:
       - Options
+    patch:
+      description: Patch a tenant option
+      operationId: PatchTenantOption
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant option
+      tags:
+      - Options
     put:
       description: Update a tenant option
       operationId: UpdateTenantOption
@@ -3602,6 +3987,83 @@ paths:
       summary: Retrieve a single tenant position by its ID
       tags:
       - Positions
+    patch:
+      description: Patch a tenant position
+      operationId: PatchTenantPosition
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantPositionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant position
+      tags:
+      - Positions
     put:
       description: Update a tenant position
       operationId: UpdateTenantPosition
@@ -3985,6 +4447,83 @@ paths:
                 $ref: '#/components/schemas/TenantSegmentDtoEnvelope'
           description: OK
       summary: Retrieve a single tenant segment by its ID
+      tags:
+      - Segments
+    patch:
+      description: Patch a tenant segment
+      operationId: PatchTenantSegment
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantSegmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant segment
       tags:
       - Segments
     put:
@@ -4372,6 +4911,83 @@ paths:
       summary: Retrieve a single tenant size by its ID
       tags:
       - Sizes
+    patch:
+      description: Patch a tenant size
+      operationId: PatchTenantSize
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantSizeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant size
+      tags:
+      - Sizes
     put:
       description: Update a tenant size
       operationId: UpdateTenantSize
@@ -4755,6 +5371,83 @@ paths:
                 $ref: '#/components/schemas/TenantTeamContactEnrollmentDtoEnvelope'
           description: OK
       summary: Retrieve a single tenant team contact enrollment by its ID
+      tags:
+      - TeamContactEnrollments
+    patch:
+      description: Patch a tenant team contact enrollment
+      operationId: PatchTenantTeamContactEnrollment
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantTeamContactEnrollmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant team contact enrollment
       tags:
       - TeamContactEnrollments
     put:
@@ -5142,6 +5835,83 @@ paths:
       summary: Retrieve a single tenant team project enrollment by its ID
       tags:
       - TeamProjectEnrollments
+    patch:
+      description: Patch a tenant team project enrollment
+      operationId: PatchTenantTeamProjectEnrollment
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantTeamProjectEnrollmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant team project enrollment
+      tags:
+      - TeamProjectEnrollments
     put:
       description: Update a tenant team project enrollment
       operationId: UpdateTenantTeamProjectEnrollment
@@ -5527,6 +6297,83 @@ paths:
       summary: Retrieve a single tenant team record by its ID
       tags:
       - TeamRecords
+    patch:
+      description: Patch a tenant team record
+      operationId: PatchTenantTeamRecord
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantTeamRecordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant team record
+      tags:
+      - TeamRecords
     put:
       description: Update a tenant team record
       operationId: UpdateTenantTeamRecord
@@ -5910,6 +6757,83 @@ paths:
                 $ref: '#/components/schemas/TenantTeamDtoEnvelope'
           description: OK
       summary: Retrieve a single tenant team by its ID
+      tags:
+      - Teams
+    patch:
+      description: Patch a tenant team
+      operationId: PatchTenantTeam
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantTeamId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant team
       tags:
       - Teams
     put:
@@ -8467,6 +9391,83 @@ paths:
       summary: Retrieve a single tenant territory by its ID
       tags:
       - Territories
+    patch:
+      description: Patch a tenant territory
+      operationId: PatchTenantTerritory
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantTerritoryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant territory
+      tags:
+      - Territories
     put:
       description: Update a tenant territory
       operationId: UpdateTenantTerritory
@@ -8850,6 +9851,83 @@ paths:
                 $ref: '#/components/schemas/TenantTypeDtoEnvelope'
           description: OK
       summary: Retrieve a single tenant type by its ID
+      tags:
+      - Types
+    patch:
+      description: Patch a tenant type
+      operationId: PatchTenantType
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant type
       tags:
       - Types
     put:
@@ -9237,6 +10315,83 @@ paths:
                 $ref: '#/components/schemas/UnitGroupDtoEnvelope'
           description: OK
       summary: Retrieve a unit group by ID
+      tags:
+      - UnitGroups
+    patch:
+      description: Partially updates an existing unit group by its unique identifier.
+      operationId: PatchUnitGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: unitGroupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a unit group
       tags:
       - UnitGroups
     put:
@@ -9665,6 +10820,91 @@ paths:
       summary: Retrieve a unit by ID within a unit group
       tags:
       - UnitGroups
+    patch:
+      description: Partially updates an existing unit within a specific unit group.
+      operationId: PatchUnitAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: unitGroupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: unitId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a unit within a unit group
+      tags:
+      - UnitGroups
     put:
       description: Updates an existing unit within a specific unit group.
       operationId: UpdateUnitAsync
@@ -10056,6 +11296,83 @@ paths:
                 $ref: '#/components/schemas/TenantUnitDtoEnvelope'
           description: OK
       summary: Retrieve a single tenant unit by its ID
+      tags:
+      - Units
+    patch:
+      description: Patch a tenant unit
+      operationId: PatchTenantUnit
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: tenantUnitId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tenant unit
       tags:
       - Units
     put:
@@ -11068,11 +12385,13 @@ components:
         readTimestamp: 2000-01-23T04:56:07.000+00:00
         read: true
         redirectUrl: redirectUrl
+        imageUrl: imageUrl
         icon: icon
         issuedTimestamp: 2000-01-23T04:56:07.000+00:00
         id: id
         message: message
-        socialProfileID: socialProfileID
+        type: Event
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -11090,10 +12409,19 @@ components:
         message:
           nullable: true
           type: string
+        imageUrl:
+          nullable: true
+          type: string
         redirectUrl:
           nullable: true
           type: string
-        socialProfileID:
+        type:
+          enum:
+          - Event
+          - Alert
+          - Log
+          type: string
+        socialProfileId:
           nullable: true
           type: string
         readTimestamp:
@@ -11110,20 +12438,24 @@ components:
         - readTimestamp: 2000-01-23T04:56:07.000+00:00
           read: true
           redirectUrl: redirectUrl
+          imageUrl: imageUrl
           icon: icon
           issuedTimestamp: 2000-01-23T04:56:07.000+00:00
           id: id
           message: message
-          socialProfileID: socialProfileID
+          type: Event
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - readTimestamp: 2000-01-23T04:56:07.000+00:00
           read: true
           redirectUrl: redirectUrl
+          imageUrl: imageUrl
           icon: icon
           issuedTimestamp: 2000-01-23T04:56:07.000+00:00
           id: id
           message: message
-          socialProfileID: socialProfileID
+          type: Event
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -12005,12 +13337,12 @@ components:
     TenantDepartmentCreateDto:
       additionalProperties: false
       example:
-        parentDepartmentID: parentDepartmentID
+        parentDepartmentId: parentDepartmentId
         name: name
         description: description
         disabled: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        organizationProfileID: organizationProfileID
+        organizationProfileId: organizationProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -12027,24 +13359,24 @@ components:
           type: string
         disabled:
           type: boolean
-        organizationProfileID:
+        organizationProfileId:
           nullable: true
           type: string
-        parentDepartmentID:
+        parentDepartmentId:
           nullable: true
           type: string
       type: object
     TenantDepartmentDto:
       additionalProperties: false
       example:
-        parentDepartmentID: parentDepartmentID
-        businessID: businessID
+        parentDepartmentId: parentDepartmentId
+        enrollmentId: enrollmentId
+        tenantId: tenantId
         name: name
         description: description
         disabled: true
         id: id
-        businessProfileRecordID: businessProfileRecordID
-        organizationProfileID: organizationProfileID
+        organizationProfileId: organizationProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -12054,10 +13386,10 @@ components:
           format: date-time
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
         name:
@@ -12068,10 +13400,10 @@ components:
           type: string
         disabled:
           type: boolean
-        organizationProfileID:
+        organizationProfileId:
           nullable: true
           type: string
-        parentDepartmentID:
+        parentDepartmentId:
           nullable: true
           type: string
       type: object
@@ -12079,14 +13411,14 @@ components:
       additionalProperties: false
       example:
         result:
-          parentDepartmentID: parentDepartmentID
-          businessID: businessID
+          parentDepartmentId: parentDepartmentId
+          enrollmentId: enrollmentId
+          tenantId: tenantId
           name: name
           description: description
           disabled: true
           id: id
-          businessProfileRecordID: businessProfileRecordID
-          organizationProfileID: organizationProfileID
+          organizationProfileId: organizationProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -12118,23 +13450,23 @@ components:
       additionalProperties: false
       example:
         result:
-        - parentDepartmentID: parentDepartmentID
-          businessID: businessID
+        - parentDepartmentId: parentDepartmentId
+          enrollmentId: enrollmentId
+          tenantId: tenantId
           name: name
           description: description
           disabled: true
           id: id
-          businessProfileRecordID: businessProfileRecordID
-          organizationProfileID: organizationProfileID
+          organizationProfileId: organizationProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - parentDepartmentID: parentDepartmentID
-          businessID: businessID
+        - parentDepartmentId: parentDepartmentId
+          enrollmentId: enrollmentId
+          tenantId: tenantId
           name: name
           description: description
           disabled: true
           id: id
-          businessProfileRecordID: businessProfileRecordID
-          organizationProfileID: organizationProfileID
+          organizationProfileId: organizationProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -12168,11 +13500,11 @@ components:
     TenantDepartmentUpdateDto:
       additionalProperties: false
       example:
-        parentDepartmentID: parentDepartmentID
+        parentDepartmentId: parentDepartmentId
         name: name
         description: description
         disabled: true
-        organizationProfileID: organizationProfileID
+        organizationProfileId: organizationProfileId
       properties:
         name:
           nullable: true
@@ -12182,10 +13514,10 @@ components:
           type: string
         disabled:
           type: boolean
-        organizationProfileID:
+        organizationProfileId:
           nullable: true
           type: string
-        parentDepartmentID:
+        parentDepartmentId:
           nullable: true
           type: string
       type: object
@@ -12569,7 +13901,7 @@ components:
     TenantIndustryCreateDto:
       additionalProperties: false
       example:
-        parentBusinessIndustryID: parentBusinessIndustryID
+        parentBusinessIndustryId: parentBusinessIndustryId
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -12583,17 +13915,18 @@ components:
         name:
           nullable: true
           type: string
-        parentBusinessIndustryID:
+        parentBusinessIndustryId:
           nullable: true
           type: string
       type: object
     TenantIndustryDto:
       additionalProperties: false
       example:
-        parentBusinessIndustryID: parentBusinessIndustryID
+        enrollmentId: enrollmentId
+        parentBusinessIndustryId: parentBusinessIndustryId
+        tenantId: tenantId
         name: name
         id: id
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -12603,13 +13936,16 @@ components:
           format: date-time
           nullable: true
           type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
         name:
           nullable: true
           type: string
-        parentBusinessIndustryID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
+        parentBusinessIndustryId:
           nullable: true
           type: string
       type: object
@@ -12617,10 +13953,11 @@ components:
       additionalProperties: false
       example:
         result:
-          parentBusinessIndustryID: parentBusinessIndustryID
+          enrollmentId: enrollmentId
+          parentBusinessIndustryId: parentBusinessIndustryId
+          tenantId: tenantId
           name: name
           id: id
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -12652,15 +13989,17 @@ components:
       additionalProperties: false
       example:
         result:
-        - parentBusinessIndustryID: parentBusinessIndustryID
+        - enrollmentId: enrollmentId
+          parentBusinessIndustryId: parentBusinessIndustryId
+          tenantId: tenantId
           name: name
           id: id
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - parentBusinessIndustryID: parentBusinessIndustryID
+        - enrollmentId: enrollmentId
+          parentBusinessIndustryId: parentBusinessIndustryId
+          tenantId: tenantId
           name: name
           id: id
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -12694,13 +14033,13 @@ components:
     TenantIndustryUpdateDto:
       additionalProperties: false
       example:
-        parentBusinessIndustryID: parentBusinessIndustryID
+        parentBusinessIndustryId: parentBusinessIndustryId
         name: name
       properties:
         name:
           nullable: true
           type: string
-        parentBusinessIndustryID:
+        parentBusinessIndustryId:
           nullable: true
           type: string
       type: object
@@ -12861,6 +14200,7 @@ components:
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
+        type: type
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -12875,16 +14215,19 @@ components:
         description:
           nullable: true
           type: string
+        type:
+          nullable: true
+          type: string
       type: object
     TenantPositionDto:
       additionalProperties: false
       example:
-        businessID: businessID
+        enrollmentId: enrollmentId
+        tenantId: tenantId
         description: description
         id: id
         title: title
         type: type
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -12894,10 +14237,10 @@ components:
           format: date-time
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
         title:
@@ -12914,12 +14257,12 @@ components:
       additionalProperties: false
       example:
         result:
-          businessID: businessID
+          enrollmentId: enrollmentId
+          tenantId: tenantId
           description: description
           id: id
           title: title
           type: type
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -12951,19 +14294,19 @@ components:
       additionalProperties: false
       example:
         result:
-        - businessID: businessID
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
           description: description
           id: id
           title: title
           type: type
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - businessID: businessID
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
           description: description
           id: id
           title: title
           type: type
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -13014,7 +14357,6 @@ components:
     TenantSegmentCreateDto:
       additionalProperties: false
       example:
-        revenue: revenue
         maxEmployees: 6.027456183070403
         minEmployees: 0.8008281904610115
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -13025,9 +14367,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        revenue:
-          nullable: true
           type: string
         minEmployees:
           format: double
@@ -13041,6 +14380,7 @@ components:
       example:
         revenue: revenue
         maxEmployees: 6.027456183070403
+        tenantId: tenantId
         minEmployees: 0.8008281904610115
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -13050,6 +14390,9 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
+          type: string
+        tenantId:
           nullable: true
           type: string
         revenue:
@@ -13068,6 +14411,7 @@ components:
         result:
           revenue: revenue
           maxEmployees: 6.027456183070403
+          tenantId: tenantId
           minEmployees: 0.8008281904610115
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -13103,11 +14447,13 @@ components:
         result:
         - revenue: revenue
           maxEmployees: 6.027456183070403
+          tenantId: tenantId
           minEmployees: 0.8008281904610115
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - revenue: revenue
           maxEmployees: 6.027456183070403
+          tenantId: tenantId
           minEmployees: 0.8008281904610115
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -13143,13 +14489,9 @@ components:
     TenantSegmentUpdateDto:
       additionalProperties: false
       example:
-        revenue: revenue
         maxEmployees: 6.027456183070403
         minEmployees: 0.8008281904610115
       properties:
-        revenue:
-          nullable: true
-          type: string
         minEmployees:
           format: double
           type: number
@@ -13162,7 +14504,6 @@ components:
       example:
         employeeHighRangeValue: 6
         employeeLowRangeValue: 0
-        name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -13171,9 +14512,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        name:
-          nullable: true
           type: string
         employeeLowRangeValue:
           format: int32
@@ -13187,6 +14525,7 @@ components:
       example:
         employeeHighRangeValue: 6
         employeeLowRangeValue: 0
+        tenantId: tenantId
         name: name
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -13196,6 +14535,9 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
+          type: string
+        tenantId:
           nullable: true
           type: string
         name:
@@ -13214,6 +14556,7 @@ components:
         result:
           employeeHighRangeValue: 6
           employeeLowRangeValue: 0
+          tenantId: tenantId
           name: name
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -13249,11 +14592,13 @@ components:
         result:
         - employeeHighRangeValue: 6
           employeeLowRangeValue: 0
+          tenantId: tenantId
           name: name
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - employeeHighRangeValue: 6
           employeeLowRangeValue: 0
+          tenantId: tenantId
           name: name
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -13291,11 +14636,7 @@ components:
       example:
         employeeHighRangeValue: 6
         employeeLowRangeValue: 0
-        name: name
       properties:
-        name:
-          nullable: true
-          type: string
         employeeLowRangeValue:
           format: int32
           type: integer
@@ -13306,8 +14647,8 @@ components:
     TenantTeamContactEnrollmentCreateDto:
       additionalProperties: false
       example:
-        businessTeamID: businessTeamID
-        contactID: contactID
+        businessTeamId: businessTeamId
+        contactId: contactId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -13317,23 +14658,23 @@ components:
         timestamp:
           format: date-time
           type: string
-        businessTeamID:
+        businessTeamId:
           maxLength: 36
           minLength: 36
           type: string
-        contactID:
+        contactId:
           maxLength: 36
           minLength: 36
           type: string
       required:
-      - businessTeamID
-      - contactID
+      - businessTeamId
+      - contactId
       type: object
     TenantTeamContactEnrollmentDto:
       additionalProperties: false
       example:
         enrollmentId: enrollmentId
-        contactID: contactID
+        contactId: contactId
         teamId: teamId
         tenantId: tenantId
         id: id
@@ -13355,7 +14696,7 @@ components:
         enrollmentId:
           nullable: true
           type: string
-        contactID:
+        contactId:
           nullable: true
           type: string
       type: object
@@ -13364,7 +14705,7 @@ components:
       example:
         result:
           enrollmentId: enrollmentId
-          contactID: contactID
+          contactId: contactId
           teamId: teamId
           tenantId: tenantId
           id: id
@@ -13400,13 +14741,13 @@ components:
       example:
         result:
         - enrollmentId: enrollmentId
-          contactID: contactID
+          contactId: contactId
           teamId: teamId
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - enrollmentId: enrollmentId
-          contactID: contactID
+          contactId: contactId
           teamId: teamId
           tenantId: tenantId
           id: id
@@ -13443,26 +14784,26 @@ components:
     TenantTeamContactEnrollmentUpdateDto:
       additionalProperties: false
       example:
-        businessTeamID: businessTeamID
-        contactID: contactID
+        businessTeamId: businessTeamId
+        contactId: contactId
       properties:
-        businessTeamID:
+        businessTeamId:
           nullable: true
           type: string
-        contactID:
+        contactId:
           nullable: true
           type: string
       type: object
     TenantTeamCreateDto:
       additionalProperties: false
       example:
-        avatarURL: https://openapi-generator.tech
+        avatarUrl: https://openapi-generator.tech
         name: name
         description: description
         isPublic: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        organizationProfileID: organizationProfileID
-        businessUnitID: businessUnitID
+        organizationProfileId: organizationProfileId
+        businessUnitId: businessUnitId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13481,18 +14822,18 @@ components:
           minLength: 0
           nullable: true
           type: string
-        avatarURL:
+        avatarUrl:
           format: uri
           nullable: true
           type: string
         isPublic:
           type: boolean
-        businessUnitID:
+        businessUnitId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        organizationProfileID:
+        organizationProfileId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -13501,15 +14842,15 @@ components:
     TenantTeamDto:
       additionalProperties: false
       example:
-        avatarURL: avatarURL
-        businessID: businessID
+        enrollmentId: enrollmentId
+        avatarUrl: avatarUrl
+        tenantId: tenantId
         name: name
         description: description
         isPublic: true
         id: id
-        businessProfileRecordID: businessProfileRecordID
-        organizationProfileID: organizationProfileID
-        businessUnitID: businessUnitID
+        organizationProfileId: organizationProfileId
+        businessUnitId: businessUnitId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13519,10 +14860,10 @@ components:
           format: date-time
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
         name:
@@ -13531,15 +14872,15 @@ components:
         description:
           nullable: true
           type: string
-        avatarURL:
+        avatarUrl:
           nullable: true
           type: string
         isPublic:
           type: boolean
-        businessUnitID:
+        businessUnitId:
           nullable: true
           type: string
-        organizationProfileID:
+        organizationProfileId:
           nullable: true
           type: string
       type: object
@@ -13547,15 +14888,15 @@ components:
       additionalProperties: false
       example:
         result:
-          avatarURL: avatarURL
-          businessID: businessID
+          enrollmentId: enrollmentId
+          avatarUrl: avatarUrl
+          tenantId: tenantId
           name: name
           description: description
           isPublic: true
           id: id
-          businessProfileRecordID: businessProfileRecordID
-          organizationProfileID: organizationProfileID
-          businessUnitID: businessUnitID
+          organizationProfileId: organizationProfileId
+          businessUnitId: businessUnitId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -13587,25 +14928,25 @@ components:
       additionalProperties: false
       example:
         result:
-        - avatarURL: avatarURL
-          businessID: businessID
+        - enrollmentId: enrollmentId
+          avatarUrl: avatarUrl
+          tenantId: tenantId
           name: name
           description: description
           isPublic: true
           id: id
-          businessProfileRecordID: businessProfileRecordID
-          organizationProfileID: organizationProfileID
-          businessUnitID: businessUnitID
+          organizationProfileId: organizationProfileId
+          businessUnitId: businessUnitId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - avatarURL: avatarURL
-          businessID: businessID
+        - enrollmentId: enrollmentId
+          avatarUrl: avatarUrl
+          tenantId: tenantId
           name: name
           description: description
           isPublic: true
           id: id
-          businessProfileRecordID: businessProfileRecordID
-          organizationProfileID: organizationProfileID
-          businessUnitID: businessUnitID
+          organizationProfileId: organizationProfileId
+          businessUnitId: businessUnitId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -13639,8 +14980,8 @@ components:
     TenantTeamEmployeeEnrollmentCreateDto:
       additionalProperties: false
       example:
-        businessTeamID: businessTeamID
-        employeeProfileID: employeeProfileID
+        businessTeamId: businessTeamId
+        employeeProfileId: employeeProfileId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -13650,17 +14991,17 @@ components:
         timestamp:
           format: date-time
           type: string
-        businessTeamID:
+        businessTeamId:
           maxLength: 36
           minLength: 36
           type: string
-        employeeProfileID:
+        employeeProfileId:
           maxLength: 36
           minLength: 36
           type: string
       required:
-      - businessTeamID
-      - employeeProfileID
+      - businessTeamId
+      - employeeProfileId
       type: object
     TenantTeamEmployeeEnrollmentDto:
       additionalProperties: false
@@ -13776,22 +15117,22 @@ components:
     TenantTeamEmployeeEnrollmentUpdateDto:
       additionalProperties: false
       example:
-        businessTeamID: businessTeamID
-        employeeProfileID: employeeProfileID
+        businessTeamId: businessTeamId
+        employeeProfileId: employeeProfileId
       properties:
-        businessTeamID:
+        businessTeamId:
           nullable: true
           type: string
-        employeeProfileID:
+        employeeProfileId:
           nullable: true
           type: string
       type: object
     TenantTeamProjectEnrollmentCreateDto:
       additionalProperties: false
       example:
-        businessTeamID: businessTeamID
+        businessTeamId: businessTeamId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        projectID: projectID
+        projectId: projectId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13800,17 +15141,17 @@ components:
         timestamp:
           format: date-time
           type: string
-        businessTeamID:
+        businessTeamId:
           maxLength: 36
           minLength: 36
           type: string
-        projectID:
+        projectId:
           maxLength: 36
           minLength: 36
           type: string
       required:
-      - businessTeamID
-      - projectID
+      - businessTeamId
+      - projectId
       type: object
     TenantTeamProjectEnrollmentDto:
       additionalProperties: false
@@ -13819,7 +15160,7 @@ components:
         teamId: teamId
         tenantId: tenantId
         id: id
-        projectID: projectID
+        projectId: projectId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13838,7 +15179,7 @@ components:
         enrollmentId:
           nullable: true
           type: string
-        projectID:
+        projectId:
           nullable: true
           type: string
       type: object
@@ -13850,7 +15191,7 @@ components:
           teamId: teamId
           tenantId: tenantId
           id: id
-          projectID: projectID
+          projectId: projectId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -13886,13 +15227,13 @@ components:
           teamId: teamId
           tenantId: tenantId
           id: id
-          projectID: projectID
+          projectId: projectId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - enrollmentId: enrollmentId
           teamId: teamId
           tenantId: tenantId
           id: id
-          projectID: projectID
+          projectId: projectId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -13926,20 +15267,20 @@ components:
     TenantTeamProjectEnrollmentUpdateDto:
       additionalProperties: false
       example:
-        businessTeamID: businessTeamID
-        projectID: projectID
+        businessTeamId: businessTeamId
+        projectId: projectId
       properties:
-        businessTeamID:
+        businessTeamId:
           nullable: true
           type: string
-        projectID:
+        projectId:
           nullable: true
           type: string
       type: object
     TenantTeamRecordCreateDto:
       additionalProperties: false
       example:
-        businessTeamID: businessTeamID
+        businessTeamId: businessTeamId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -13949,12 +15290,12 @@ components:
         timestamp:
           format: date-time
           type: string
-        businessTeamID:
+        businessTeamId:
           maxLength: 36
           minLength: 36
           type: string
       required:
-      - businessTeamID
+      - businessTeamId
       type: object
     TenantTeamRecordDto:
       additionalProperties: false
@@ -14063,53 +15404,44 @@ components:
     TenantTeamRecordUpdateDto:
       additionalProperties: false
       example:
-        businessTeamID: businessTeamID
+        businessTeamId: businessTeamId
       properties:
-        businessTeamID:
+        businessTeamId:
           nullable: true
           type: string
       type: object
     TenantTeamUpdateDto:
       additionalProperties: false
       example:
-        avatarURL: avatarURL
+        avatarUrl: avatarUrl
         name: name
         description: description
         isPublic: true
-        id: id
-        organizationProfileID: organizationProfileID
-        businessUnitID: businessUnitID
-        timestamp: 2000-01-23T04:56:07.000+00:00
+        organizationProfileId: organizationProfileId
+        businessUnitId: businessUnitId
       properties:
-        id:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          nullable: true
-          type: string
         name:
           nullable: true
           type: string
         description:
           nullable: true
           type: string
-        avatarURL:
+        avatarUrl:
           nullable: true
           type: string
         isPublic:
           type: boolean
-        businessUnitID:
+        businessUnitId:
           nullable: true
           type: string
-        organizationProfileID:
+        organizationProfileId:
           nullable: true
           type: string
       type: object
     TenantTerritoryCreateDto:
       additionalProperties: false
       example:
-        parentTerritoryID: parentTerritoryID
+        parentTerritoryId: parentTerritoryId
         name: name
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14127,19 +15459,19 @@ components:
         description:
           nullable: true
           type: string
-        parentTerritoryID:
+        parentTerritoryId:
           nullable: true
           type: string
       type: object
     TenantTerritoryDto:
       additionalProperties: false
       example:
-        parentTerritoryID: parentTerritoryID
-        businessID: businessID
+        enrollmentId: enrollmentId
+        parentTerritoryId: parentTerritoryId
+        tenantId: tenantId
         name: name
         description: description
         id: id
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -14149,10 +15481,10 @@ components:
           format: date-time
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
         name:
@@ -14161,7 +15493,7 @@ components:
         description:
           nullable: true
           type: string
-        parentTerritoryID:
+        parentTerritoryId:
           nullable: true
           type: string
       type: object
@@ -14169,12 +15501,12 @@ components:
       additionalProperties: false
       example:
         result:
-          parentTerritoryID: parentTerritoryID
-          businessID: businessID
+          enrollmentId: enrollmentId
+          parentTerritoryId: parentTerritoryId
+          tenantId: tenantId
           name: name
           description: description
           id: id
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -14206,19 +15538,19 @@ components:
       additionalProperties: false
       example:
         result:
-        - parentTerritoryID: parentTerritoryID
-          businessID: businessID
+        - enrollmentId: enrollmentId
+          parentTerritoryId: parentTerritoryId
+          tenantId: tenantId
           name: name
           description: description
           id: id
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - parentTerritoryID: parentTerritoryID
-          businessID: businessID
+        - enrollmentId: enrollmentId
+          parentTerritoryId: parentTerritoryId
+          tenantId: tenantId
           name: name
           description: description
           id: id
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -14252,6 +15584,7 @@ components:
     TenantTerritoryUpdateDto:
       additionalProperties: false
       example:
+        parentTerritoryId: parentTerritoryId
         name: name
         description: description
       properties:
@@ -14259,6 +15592,9 @@ components:
           nullable: true
           type: string
         description:
+          nullable: true
+          type: string
+        parentTerritoryId:
           nullable: true
           type: string
       type: object
@@ -14286,6 +15622,7 @@ components:
     TenantTypeDto:
       additionalProperties: false
       example:
+        tenantId: tenantId
         name: name
         description: description
         id: id
@@ -14296,6 +15633,9 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
+          type: string
+        tenantId:
           nullable: true
           type: string
         name:
@@ -14309,6 +15649,7 @@ components:
       additionalProperties: false
       example:
         result:
+          tenantId: tenantId
           name: name
           description: description
           id: id
@@ -14343,11 +15684,13 @@ components:
       additionalProperties: false
       example:
         result:
-        - name: name
+        - tenantId: tenantId
+          name: name
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - name: name
+        - tenantId: tenantId
+          name: name
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -14396,14 +15739,13 @@ components:
     TenantUnitCreateDto:
       additionalProperties: false
       example:
-        parentBusinessUnitID: parentBusinessUnitID
+        parentBusinessUnitId: parentBusinessUnitId
         name: name
         description: description
         disabled: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        organizationProfileID: organizationProfileID
-        businessUnitQualifiedName: businessUnitQualifiedName
-        countryID: countryID
+        organizationProfileId: organizationProfileId
+        countryId: countryId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -14420,32 +15762,29 @@ components:
           type: string
         disabled:
           type: boolean
-        businessUnitQualifiedName:
+        countryId:
           nullable: true
           type: string
-        countryID:
+        organizationProfileId:
           nullable: true
           type: string
-        organizationProfileID:
-          nullable: true
-          type: string
-        parentBusinessUnitID:
+        parentBusinessUnitId:
           nullable: true
           type: string
       type: object
     TenantUnitDto:
       additionalProperties: false
       example:
-        parentBusinessUnitID: parentBusinessUnitID
-        businessID: businessID
+        parentBusinessUnitId: parentBusinessUnitId
+        enrollmentId: enrollmentId
+        tenantId: tenantId
         name: name
         description: description
         disabled: true
         id: id
-        businessProfileRecordID: businessProfileRecordID
-        organizationProfileID: organizationProfileID
+        organizationProfileId: organizationProfileId
         businessUnitQualifiedName: businessUnitQualifiedName
-        countryID: countryID
+        countryId: countryId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -14455,10 +15794,10 @@ components:
           format: date-time
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
         name:
@@ -14472,13 +15811,13 @@ components:
         businessUnitQualifiedName:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        organizationProfileID:
+        organizationProfileId:
           nullable: true
           type: string
-        parentBusinessUnitID:
+        parentBusinessUnitId:
           nullable: true
           type: string
       type: object
@@ -14486,16 +15825,16 @@ components:
       additionalProperties: false
       example:
         result:
-          parentBusinessUnitID: parentBusinessUnitID
-          businessID: businessID
+          parentBusinessUnitId: parentBusinessUnitId
+          enrollmentId: enrollmentId
+          tenantId: tenantId
           name: name
           description: description
           disabled: true
           id: id
-          businessProfileRecordID: businessProfileRecordID
-          organizationProfileID: organizationProfileID
+          organizationProfileId: organizationProfileId
           businessUnitQualifiedName: businessUnitQualifiedName
-          countryID: countryID
+          countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -14527,27 +15866,27 @@ components:
       additionalProperties: false
       example:
         result:
-        - parentBusinessUnitID: parentBusinessUnitID
-          businessID: businessID
+        - parentBusinessUnitId: parentBusinessUnitId
+          enrollmentId: enrollmentId
+          tenantId: tenantId
           name: name
           description: description
           disabled: true
           id: id
-          businessProfileRecordID: businessProfileRecordID
-          organizationProfileID: organizationProfileID
+          organizationProfileId: organizationProfileId
           businessUnitQualifiedName: businessUnitQualifiedName
-          countryID: countryID
+          countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - parentBusinessUnitID: parentBusinessUnitID
-          businessID: businessID
+        - parentBusinessUnitId: parentBusinessUnitId
+          enrollmentId: enrollmentId
+          tenantId: tenantId
           name: name
           description: description
           disabled: true
           id: id
-          businessProfileRecordID: businessProfileRecordID
-          organizationProfileID: organizationProfileID
+          organizationProfileId: organizationProfileId
           businessUnitQualifiedName: businessUnitQualifiedName
-          countryID: countryID
+          countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -14581,13 +15920,12 @@ components:
     TenantUnitUpdateDto:
       additionalProperties: false
       example:
-        parentBusinessUnitID: parentBusinessUnitID
+        parentBusinessUnitId: parentBusinessUnitId
         name: name
         description: description
         disabled: true
-        organizationProfileID: organizationProfileID
-        businessUnitQualifiedName: businessUnitQualifiedName
-        countryID: countryID
+        organizationProfileId: organizationProfileId
+        countryId: countryId
       properties:
         name:
           nullable: true
@@ -14597,16 +15935,13 @@ components:
           type: string
         disabled:
           type: boolean
-        businessUnitQualifiedName:
+        countryId:
           nullable: true
           type: string
-        countryID:
+        organizationProfileId:
           nullable: true
           type: string
-        organizationProfileID:
-          nullable: true
-          type: string
-        parentBusinessUnitID:
+        parentBusinessUnitId:
           nullable: true
           type: string
       type: object

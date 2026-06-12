@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetTenantSizeById**](SizesAPI.md#GetTenantSizeById) | **Get** /api/v2/TenantsService/Sizes/{tenantSizeId} | Retrieve a single tenant size by its ID
 [**GetTenantSizes**](SizesAPI.md#GetTenantSizes) | **Get** /api/v2/TenantsService/Sizes | Retrieve a list of tenant sizes
 [**GetTenantSizesCount**](SizesAPI.md#GetTenantSizesCount) | **Get** /api/v2/TenantsService/Sizes/Count | Get the count of tenant sizes
+[**PatchTenantSize**](SizesAPI.md#PatchTenantSize) | **Patch** /api/v2/TenantsService/Sizes/{tenantSizeId} | Patch a tenant size
 [**UpdateTenantSize**](SizesAPI.md#UpdateTenantSize) | **Put** /api/v2/TenantsService/Sizes/{tenantSizeId} | Update a tenant size
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchTenantSize
+
+> EmptyEnvelope PatchTenantSize(ctx, tenantSizeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a tenant size
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantSizeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SizesAPI.PatchTenantSize(context.Background(), tenantSizeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SizesAPI.PatchTenantSize``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchTenantSize`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SizesAPI.PatchTenantSize`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantSizeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchTenantSizeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

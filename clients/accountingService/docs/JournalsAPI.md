@@ -15,6 +15,8 @@ Method | HTTP request | Description
 [**GetJournalEntriesAsync**](JournalsAPI.md#GetJournalEntriesAsync) | **Get** /api/v2/AccountingService/Journals/{journalId}/Entries | Get journal entries
 [**GetJournalEntriesCountAsync**](JournalsAPI.md#GetJournalEntriesCountAsync) | **Get** /api/v2/AccountingService/Journals/{journalId}/Entries/Count | Count journal entries
 [**GetJournalsAsync**](JournalsAPI.md#GetJournalsAsync) | **Get** /api/v2/AccountingService/Journals | Get all journals
+[**PatchJournalAsync**](JournalsAPI.md#PatchJournalAsync) | **Patch** /api/v2/AccountingService/Journals/{journalId} | Patch a journal
+[**PatchJournalEntryAsync**](JournalsAPI.md#PatchJournalEntryAsync) | **Patch** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Patch a journal entry
 [**UpdateJournalAsync**](JournalsAPI.md#UpdateJournalAsync) | **Put** /api/v2/AccountingService/Journals/{journalId} | Update journal
 [**UpdateJournalEntryAsync**](JournalsAPI.md#UpdateJournalEntryAsync) | **Put** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Update journal entry
 
@@ -843,6 +845,165 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchJournalAsync
+
+> EmptyEnvelope PatchJournalAsync(ctx, journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a journal
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JournalsAPI.PatchJournalAsync(context.Background(), journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.PatchJournalAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchJournalAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JournalsAPI.PatchJournalAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**journalId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchJournalAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchJournalEntryAsync
+
+> EmptyEnvelope PatchJournalEntryAsync(ctx, journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a journal entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JournalsAPI.PatchJournalEntryAsync(context.Background(), journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.PatchJournalEntryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchJournalEntryAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JournalsAPI.PatchJournalEntryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**journalId** | **string** |  | 
+**entryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchJournalEntryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

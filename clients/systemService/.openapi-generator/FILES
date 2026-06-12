@@ -3,6 +3,7 @@
 README.md
 api/openapi.yaml
 api_antiforgery.go
+api_business_domains.go
 api_carts.go
 api_completions.go
 api_contact_options.go
@@ -26,6 +27,10 @@ docs/AccessTokenResponse.md
 docs/AdditionalAttribute.md
 docs/AntiforgeryAPI.md
 docs/BooleanEnvelope.md
+docs/BusinessDomainDto.md
+docs/BusinessDomainDtoEnvelope.md
+docs/BusinessDomainDtoListEnvelope.md
+docs/BusinessDomainsAPI.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
 docs/CartDtoListEnvelope.md
@@ -73,6 +78,7 @@ docs/Module.md
 docs/ModuleListEnvelope.md
 docs/ModulesAPI.md
 docs/ObjectEmailDispatchRequest.md
+docs/Operation.md
 docs/OptionCreateDto.md
 docs/OptionDto.md
 docs/OptionDtoEnvelope.md
@@ -126,6 +132,9 @@ go.sum
 model_access_token_response.go
 model_additional_attribute.go
 model_boolean_envelope.go
+model_business_domain_dto.go
+model_business_domain_dto_envelope.go
+model_business_domain_dto_list_envelope.go
 model_cart_dto.go
 model_cart_dto_envelope.go
 model_cart_dto_list_envelope.go
@@ -163,6 +172,7 @@ model_login_request.go
 model_module.go
 model_module_list_envelope.go
 model_object_email_dispatch_request.go
+model_operation.go
 model_option_create_dto.go
 model_option_dto.go
 model_option_dto_envelope.go
@@ -204,14 +214,5 @@ model_web_portal_dto_envelope.go
 model_web_portal_dto_list_envelope.go
 model_web_portal_update_dto.go
 response.go
-test/api_carts_test.go
-test/api_completions_test.go
-test/api_contact_options_test.go
-test/api_fenix_alliance_portals_website_test.go
-test/api_ip_lookups_test.go
-test/api_licenses_test.go
-test/api_overview_test.go
-test/api_portals_test.go
-test/api_tenant_options_test.go
-test/api_user_options_test.go
+test/api_business_domains_test.go
 utils.go

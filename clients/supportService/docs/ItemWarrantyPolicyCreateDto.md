@@ -21,12 +21,12 @@ Name | Type | Description | Notes
 **Years** | Pointer to **int32** |  | [optional] 
 **Value** | Pointer to **float64** |  | [optional] 
 **Percentage** | Pointer to **float64** |  | [optional] 
-**CurrencyID** | Pointer to **NullableString** |  | [optional] 
-**CountryID** | Pointer to **NullableString** |  | [optional] 
-**CountryStateID** | Pointer to **NullableString** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
+**CountryId** | Pointer to **NullableString** |  | [optional] 
+**CountryStateId** | Pointer to **NullableString** |  | [optional] 
 **CustomState** | Pointer to **NullableString** |  | [optional] 
 **CustomCity** | Pointer to **NullableString** |  | [optional] 
-**CityID** | Pointer to **NullableString** |  | [optional] 
+**CityId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -477,111 +477,111 @@ SetPercentage sets Percentage field to given value.
 
 HasPercentage returns a boolean if a field has been set.
 
-### GetCurrencyID
+### GetCurrencyId
 
-`func (o *ItemWarrantyPolicyCreateDto) GetCurrencyID() string`
+`func (o *ItemWarrantyPolicyCreateDto) GetCurrencyId() string`
 
-GetCurrencyID returns the CurrencyID field if non-nil, zero value otherwise.
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
 
-### GetCurrencyIDOk
+### GetCurrencyIdOk
 
-`func (o *ItemWarrantyPolicyCreateDto) GetCurrencyIDOk() (*string, bool)`
+`func (o *ItemWarrantyPolicyCreateDto) GetCurrencyIdOk() (*string, bool)`
 
-GetCurrencyIDOk returns a tuple with the CurrencyID field if it's non-nil, zero value otherwise
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrencyID
+### SetCurrencyId
 
-`func (o *ItemWarrantyPolicyCreateDto) SetCurrencyID(v string)`
+`func (o *ItemWarrantyPolicyCreateDto) SetCurrencyId(v string)`
 
-SetCurrencyID sets CurrencyID field to given value.
+SetCurrencyId sets CurrencyId field to given value.
 
-### HasCurrencyID
+### HasCurrencyId
 
-`func (o *ItemWarrantyPolicyCreateDto) HasCurrencyID() bool`
+`func (o *ItemWarrantyPolicyCreateDto) HasCurrencyId() bool`
 
-HasCurrencyID returns a boolean if a field has been set.
+HasCurrencyId returns a boolean if a field has been set.
 
-### SetCurrencyIDNil
+### SetCurrencyIdNil
 
-`func (o *ItemWarrantyPolicyCreateDto) SetCurrencyIDNil(b bool)`
+`func (o *ItemWarrantyPolicyCreateDto) SetCurrencyIdNil(b bool)`
 
- SetCurrencyIDNil sets the value for CurrencyID to be an explicit nil
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
 
-### UnsetCurrencyID
-`func (o *ItemWarrantyPolicyCreateDto) UnsetCurrencyID()`
+### UnsetCurrencyId
+`func (o *ItemWarrantyPolicyCreateDto) UnsetCurrencyId()`
 
-UnsetCurrencyID ensures that no value is present for CurrencyID, not even an explicit nil
-### GetCountryID
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
+### GetCountryId
 
-`func (o *ItemWarrantyPolicyCreateDto) GetCountryID() string`
+`func (o *ItemWarrantyPolicyCreateDto) GetCountryId() string`
 
-GetCountryID returns the CountryID field if non-nil, zero value otherwise.
+GetCountryId returns the CountryId field if non-nil, zero value otherwise.
 
-### GetCountryIDOk
+### GetCountryIdOk
 
-`func (o *ItemWarrantyPolicyCreateDto) GetCountryIDOk() (*string, bool)`
+`func (o *ItemWarrantyPolicyCreateDto) GetCountryIdOk() (*string, bool)`
 
-GetCountryIDOk returns a tuple with the CountryID field if it's non-nil, zero value otherwise
+GetCountryIdOk returns a tuple with the CountryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCountryID
+### SetCountryId
 
-`func (o *ItemWarrantyPolicyCreateDto) SetCountryID(v string)`
+`func (o *ItemWarrantyPolicyCreateDto) SetCountryId(v string)`
 
-SetCountryID sets CountryID field to given value.
+SetCountryId sets CountryId field to given value.
 
-### HasCountryID
+### HasCountryId
 
-`func (o *ItemWarrantyPolicyCreateDto) HasCountryID() bool`
+`func (o *ItemWarrantyPolicyCreateDto) HasCountryId() bool`
 
-HasCountryID returns a boolean if a field has been set.
+HasCountryId returns a boolean if a field has been set.
 
-### SetCountryIDNil
+### SetCountryIdNil
 
-`func (o *ItemWarrantyPolicyCreateDto) SetCountryIDNil(b bool)`
+`func (o *ItemWarrantyPolicyCreateDto) SetCountryIdNil(b bool)`
 
- SetCountryIDNil sets the value for CountryID to be an explicit nil
+ SetCountryIdNil sets the value for CountryId to be an explicit nil
 
-### UnsetCountryID
-`func (o *ItemWarrantyPolicyCreateDto) UnsetCountryID()`
+### UnsetCountryId
+`func (o *ItemWarrantyPolicyCreateDto) UnsetCountryId()`
 
-UnsetCountryID ensures that no value is present for CountryID, not even an explicit nil
-### GetCountryStateID
+UnsetCountryId ensures that no value is present for CountryId, not even an explicit nil
+### GetCountryStateId
 
-`func (o *ItemWarrantyPolicyCreateDto) GetCountryStateID() string`
+`func (o *ItemWarrantyPolicyCreateDto) GetCountryStateId() string`
 
-GetCountryStateID returns the CountryStateID field if non-nil, zero value otherwise.
+GetCountryStateId returns the CountryStateId field if non-nil, zero value otherwise.
 
-### GetCountryStateIDOk
+### GetCountryStateIdOk
 
-`func (o *ItemWarrantyPolicyCreateDto) GetCountryStateIDOk() (*string, bool)`
+`func (o *ItemWarrantyPolicyCreateDto) GetCountryStateIdOk() (*string, bool)`
 
-GetCountryStateIDOk returns a tuple with the CountryStateID field if it's non-nil, zero value otherwise
+GetCountryStateIdOk returns a tuple with the CountryStateId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCountryStateID
+### SetCountryStateId
 
-`func (o *ItemWarrantyPolicyCreateDto) SetCountryStateID(v string)`
+`func (o *ItemWarrantyPolicyCreateDto) SetCountryStateId(v string)`
 
-SetCountryStateID sets CountryStateID field to given value.
+SetCountryStateId sets CountryStateId field to given value.
 
-### HasCountryStateID
+### HasCountryStateId
 
-`func (o *ItemWarrantyPolicyCreateDto) HasCountryStateID() bool`
+`func (o *ItemWarrantyPolicyCreateDto) HasCountryStateId() bool`
 
-HasCountryStateID returns a boolean if a field has been set.
+HasCountryStateId returns a boolean if a field has been set.
 
-### SetCountryStateIDNil
+### SetCountryStateIdNil
 
-`func (o *ItemWarrantyPolicyCreateDto) SetCountryStateIDNil(b bool)`
+`func (o *ItemWarrantyPolicyCreateDto) SetCountryStateIdNil(b bool)`
 
- SetCountryStateIDNil sets the value for CountryStateID to be an explicit nil
+ SetCountryStateIdNil sets the value for CountryStateId to be an explicit nil
 
-### UnsetCountryStateID
-`func (o *ItemWarrantyPolicyCreateDto) UnsetCountryStateID()`
+### UnsetCountryStateId
+`func (o *ItemWarrantyPolicyCreateDto) UnsetCountryStateId()`
 
-UnsetCountryStateID ensures that no value is present for CountryStateID, not even an explicit nil
+UnsetCountryStateId ensures that no value is present for CountryStateId, not even an explicit nil
 ### GetCustomState
 
 `func (o *ItemWarrantyPolicyCreateDto) GetCustomState() string`
@@ -652,41 +652,41 @@ HasCustomCity returns a boolean if a field has been set.
 `func (o *ItemWarrantyPolicyCreateDto) UnsetCustomCity()`
 
 UnsetCustomCity ensures that no value is present for CustomCity, not even an explicit nil
-### GetCityID
+### GetCityId
 
-`func (o *ItemWarrantyPolicyCreateDto) GetCityID() string`
+`func (o *ItemWarrantyPolicyCreateDto) GetCityId() string`
 
-GetCityID returns the CityID field if non-nil, zero value otherwise.
+GetCityId returns the CityId field if non-nil, zero value otherwise.
 
-### GetCityIDOk
+### GetCityIdOk
 
-`func (o *ItemWarrantyPolicyCreateDto) GetCityIDOk() (*string, bool)`
+`func (o *ItemWarrantyPolicyCreateDto) GetCityIdOk() (*string, bool)`
 
-GetCityIDOk returns a tuple with the CityID field if it's non-nil, zero value otherwise
+GetCityIdOk returns a tuple with the CityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCityID
+### SetCityId
 
-`func (o *ItemWarrantyPolicyCreateDto) SetCityID(v string)`
+`func (o *ItemWarrantyPolicyCreateDto) SetCityId(v string)`
 
-SetCityID sets CityID field to given value.
+SetCityId sets CityId field to given value.
 
-### HasCityID
+### HasCityId
 
-`func (o *ItemWarrantyPolicyCreateDto) HasCityID() bool`
+`func (o *ItemWarrantyPolicyCreateDto) HasCityId() bool`
 
-HasCityID returns a boolean if a field has been set.
+HasCityId returns a boolean if a field has been set.
 
-### SetCityIDNil
+### SetCityIdNil
 
-`func (o *ItemWarrantyPolicyCreateDto) SetCityIDNil(b bool)`
+`func (o *ItemWarrantyPolicyCreateDto) SetCityIdNil(b bool)`
 
- SetCityIDNil sets the value for CityID to be an explicit nil
+ SetCityIdNil sets the value for CityId to be an explicit nil
 
-### UnsetCityID
-`func (o *ItemWarrantyPolicyCreateDto) UnsetCityID()`
+### UnsetCityId
+`func (o *ItemWarrantyPolicyCreateDto) UnsetCityId()`
 
-UnsetCityID ensures that no value is present for CityID, not even an explicit nil
+UnsetCityId ensures that no value is present for CityId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

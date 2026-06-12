@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Disabled** | Pointer to **bool** |  | [optional] 
 **BusinessUnitQualifiedName** | Pointer to **NullableString** |  | [optional] 
-**CountryID** | Pointer to **NullableString** |  | [optional] 
-**OrganizationProfileID** | Pointer to **NullableString** |  | [optional] 
-**ParentBusinessUnitID** | Pointer to **NullableString** |  | [optional] 
+**CountryId** | Pointer to **NullableString** |  | [optional] 
+**OrganizationProfileId** | Pointer to **NullableString** |  | [optional] 
+**ParentBusinessUnitId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -105,76 +105,76 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *TenantUnitDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-### GetBusinessID
+### GetTenantId
 
-`func (o *TenantUnitDto) GetBusinessID() string`
+`func (o *TenantUnitDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *TenantUnitDto) GetBusinessIDOk() (*string, bool)`
+`func (o *TenantUnitDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *TenantUnitDto) SetBusinessID(v string)`
+`func (o *TenantUnitDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *TenantUnitDto) HasBusinessID() bool`
+`func (o *TenantUnitDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *TenantUnitDto) SetBusinessIDNil(b bool)`
+`func (o *TenantUnitDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *TenantUnitDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *TenantUnitDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *TenantUnitDto) GetBusinessProfileRecordID() string`
+`func (o *TenantUnitDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetEnrollmentIdOk
 
-`func (o *TenantUnitDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *TenantUnitDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetEnrollmentId
 
-`func (o *TenantUnitDto) SetBusinessProfileRecordID(v string)`
+`func (o *TenantUnitDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordID
+### HasEnrollmentId
 
-`func (o *TenantUnitDto) HasBusinessProfileRecordID() bool`
+`func (o *TenantUnitDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetEnrollmentIdNil
 
-`func (o *TenantUnitDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *TenantUnitDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *TenantUnitDto) UnsetBusinessProfileRecordID()`
+### UnsetEnrollmentId
+`func (o *TenantUnitDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetName
 
 `func (o *TenantUnitDto) GetName() string`
@@ -305,111 +305,111 @@ HasBusinessUnitQualifiedName returns a boolean if a field has been set.
 `func (o *TenantUnitDto) UnsetBusinessUnitQualifiedName()`
 
 UnsetBusinessUnitQualifiedName ensures that no value is present for BusinessUnitQualifiedName, not even an explicit nil
-### GetCountryID
+### GetCountryId
 
-`func (o *TenantUnitDto) GetCountryID() string`
+`func (o *TenantUnitDto) GetCountryId() string`
 
-GetCountryID returns the CountryID field if non-nil, zero value otherwise.
+GetCountryId returns the CountryId field if non-nil, zero value otherwise.
 
-### GetCountryIDOk
+### GetCountryIdOk
 
-`func (o *TenantUnitDto) GetCountryIDOk() (*string, bool)`
+`func (o *TenantUnitDto) GetCountryIdOk() (*string, bool)`
 
-GetCountryIDOk returns a tuple with the CountryID field if it's non-nil, zero value otherwise
+GetCountryIdOk returns a tuple with the CountryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCountryID
+### SetCountryId
 
-`func (o *TenantUnitDto) SetCountryID(v string)`
+`func (o *TenantUnitDto) SetCountryId(v string)`
 
-SetCountryID sets CountryID field to given value.
+SetCountryId sets CountryId field to given value.
 
-### HasCountryID
+### HasCountryId
 
-`func (o *TenantUnitDto) HasCountryID() bool`
+`func (o *TenantUnitDto) HasCountryId() bool`
 
-HasCountryID returns a boolean if a field has been set.
+HasCountryId returns a boolean if a field has been set.
 
-### SetCountryIDNil
+### SetCountryIdNil
 
-`func (o *TenantUnitDto) SetCountryIDNil(b bool)`
+`func (o *TenantUnitDto) SetCountryIdNil(b bool)`
 
- SetCountryIDNil sets the value for CountryID to be an explicit nil
+ SetCountryIdNil sets the value for CountryId to be an explicit nil
 
-### UnsetCountryID
-`func (o *TenantUnitDto) UnsetCountryID()`
+### UnsetCountryId
+`func (o *TenantUnitDto) UnsetCountryId()`
 
-UnsetCountryID ensures that no value is present for CountryID, not even an explicit nil
-### GetOrganizationProfileID
+UnsetCountryId ensures that no value is present for CountryId, not even an explicit nil
+### GetOrganizationProfileId
 
-`func (o *TenantUnitDto) GetOrganizationProfileID() string`
+`func (o *TenantUnitDto) GetOrganizationProfileId() string`
 
-GetOrganizationProfileID returns the OrganizationProfileID field if non-nil, zero value otherwise.
+GetOrganizationProfileId returns the OrganizationProfileId field if non-nil, zero value otherwise.
 
-### GetOrganizationProfileIDOk
+### GetOrganizationProfileIdOk
 
-`func (o *TenantUnitDto) GetOrganizationProfileIDOk() (*string, bool)`
+`func (o *TenantUnitDto) GetOrganizationProfileIdOk() (*string, bool)`
 
-GetOrganizationProfileIDOk returns a tuple with the OrganizationProfileID field if it's non-nil, zero value otherwise
+GetOrganizationProfileIdOk returns a tuple with the OrganizationProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrganizationProfileID
+### SetOrganizationProfileId
 
-`func (o *TenantUnitDto) SetOrganizationProfileID(v string)`
+`func (o *TenantUnitDto) SetOrganizationProfileId(v string)`
 
-SetOrganizationProfileID sets OrganizationProfileID field to given value.
+SetOrganizationProfileId sets OrganizationProfileId field to given value.
 
-### HasOrganizationProfileID
+### HasOrganizationProfileId
 
-`func (o *TenantUnitDto) HasOrganizationProfileID() bool`
+`func (o *TenantUnitDto) HasOrganizationProfileId() bool`
 
-HasOrganizationProfileID returns a boolean if a field has been set.
+HasOrganizationProfileId returns a boolean if a field has been set.
 
-### SetOrganizationProfileIDNil
+### SetOrganizationProfileIdNil
 
-`func (o *TenantUnitDto) SetOrganizationProfileIDNil(b bool)`
+`func (o *TenantUnitDto) SetOrganizationProfileIdNil(b bool)`
 
- SetOrganizationProfileIDNil sets the value for OrganizationProfileID to be an explicit nil
+ SetOrganizationProfileIdNil sets the value for OrganizationProfileId to be an explicit nil
 
-### UnsetOrganizationProfileID
-`func (o *TenantUnitDto) UnsetOrganizationProfileID()`
+### UnsetOrganizationProfileId
+`func (o *TenantUnitDto) UnsetOrganizationProfileId()`
 
-UnsetOrganizationProfileID ensures that no value is present for OrganizationProfileID, not even an explicit nil
-### GetParentBusinessUnitID
+UnsetOrganizationProfileId ensures that no value is present for OrganizationProfileId, not even an explicit nil
+### GetParentBusinessUnitId
 
-`func (o *TenantUnitDto) GetParentBusinessUnitID() string`
+`func (o *TenantUnitDto) GetParentBusinessUnitId() string`
 
-GetParentBusinessUnitID returns the ParentBusinessUnitID field if non-nil, zero value otherwise.
+GetParentBusinessUnitId returns the ParentBusinessUnitId field if non-nil, zero value otherwise.
 
-### GetParentBusinessUnitIDOk
+### GetParentBusinessUnitIdOk
 
-`func (o *TenantUnitDto) GetParentBusinessUnitIDOk() (*string, bool)`
+`func (o *TenantUnitDto) GetParentBusinessUnitIdOk() (*string, bool)`
 
-GetParentBusinessUnitIDOk returns a tuple with the ParentBusinessUnitID field if it's non-nil, zero value otherwise
+GetParentBusinessUnitIdOk returns a tuple with the ParentBusinessUnitId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentBusinessUnitID
+### SetParentBusinessUnitId
 
-`func (o *TenantUnitDto) SetParentBusinessUnitID(v string)`
+`func (o *TenantUnitDto) SetParentBusinessUnitId(v string)`
 
-SetParentBusinessUnitID sets ParentBusinessUnitID field to given value.
+SetParentBusinessUnitId sets ParentBusinessUnitId field to given value.
 
-### HasParentBusinessUnitID
+### HasParentBusinessUnitId
 
-`func (o *TenantUnitDto) HasParentBusinessUnitID() bool`
+`func (o *TenantUnitDto) HasParentBusinessUnitId() bool`
 
-HasParentBusinessUnitID returns a boolean if a field has been set.
+HasParentBusinessUnitId returns a boolean if a field has been set.
 
-### SetParentBusinessUnitIDNil
+### SetParentBusinessUnitIdNil
 
-`func (o *TenantUnitDto) SetParentBusinessUnitIDNil(b bool)`
+`func (o *TenantUnitDto) SetParentBusinessUnitIdNil(b bool)`
 
- SetParentBusinessUnitIDNil sets the value for ParentBusinessUnitID to be an explicit nil
+ SetParentBusinessUnitIdNil sets the value for ParentBusinessUnitId to be an explicit nil
 
-### UnsetParentBusinessUnitID
-`func (o *TenantUnitDto) UnsetParentBusinessUnitID()`
+### UnsetParentBusinessUnitId
+`func (o *TenantUnitDto) UnsetParentBusinessUnitId()`
 
-UnsetParentBusinessUnitID ensures that no value is present for ParentBusinessUnitID, not even an explicit nil
+UnsetParentBusinessUnitId ensures that no value is present for ParentBusinessUnitId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
 **EmployeeLowRangeValue** | Pointer to **int32** |  | [optional] 
 **EmployeeHighRangeValue** | Pointer to **int32** |  | [optional] 
 
@@ -79,41 +78,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetName
-
-`func (o *TenantSizeCreateDto) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *TenantSizeCreateDto) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *TenantSizeCreateDto) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *TenantSizeCreateDto) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *TenantSizeCreateDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TenantSizeCreateDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetEmployeeLowRangeValue
 
 `func (o *TenantSizeCreateDto) GetEmployeeLowRangeValue() int32`

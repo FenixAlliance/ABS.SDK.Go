@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetRefundPoliciesAsync**](RefundPoliciesAPI.md#GetRefundPoliciesAsync) | **Get** /api/v2/SupportService/RefundPolicies | Retrieve a list of refund policies
 [**GetRefundPoliciesCountAsync**](RefundPoliciesAPI.md#GetRefundPoliciesCountAsync) | **Get** /api/v2/SupportService/RefundPolicies/Count | Get the count of refund policies
 [**GetRefundPolicyAsync**](RefundPoliciesAPI.md#GetRefundPolicyAsync) | **Get** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Retrieve a refund policy by ID
+[**PatchRefundPolicyAsync**](RefundPoliciesAPI.md#PatchRefundPolicyAsync) | **Patch** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Patch a refund policy
 [**UpdateRefundPolicyAsync**](RefundPoliciesAPI.md#UpdateRefundPolicyAsync) | **Put** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Update a refund policy
 
 
@@ -360,6 +361,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchRefundPolicyAsync
+
+> EmptyEnvelope PatchRefundPolicyAsync(ctx, refundPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a refund policy
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	refundPolicyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RefundPoliciesAPI.PatchRefundPolicyAsync(context.Background(), refundPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RefundPoliciesAPI.PatchRefundPolicyAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchRefundPolicyAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RefundPoliciesAPI.PatchRefundPolicyAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**refundPolicyId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchRefundPolicyAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

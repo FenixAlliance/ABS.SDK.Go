@@ -10,6 +10,7 @@ client.go
 configuration.go
 docs/AccessTokenResponse.md
 docs/CompletionsAPI.md
+docs/EmptyEnvelope.md
 docs/Envelope.md
 docs/ErrorEnvelope.md
 docs/FenixAlliancePortalsWebsiteAPI.md
@@ -19,6 +20,7 @@ docs/InfoRequest.md
 docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
+docs/Operation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -41,6 +43,7 @@ git_push.sh
 go.mod
 go.sum
 model_access_token_response.go
+model_empty_envelope.go
 model_envelope.go
 model_error_envelope.go
 model_forgot_password_request.go
@@ -49,6 +52,7 @@ model_info_request.go
 model_info_response.go
 model_int32_envelope.go
 model_login_request.go
+model_operation.go
 model_refresh_request.go
 model_register_request.go
 model_resend_confirmation_email_request.go
@@ -66,6 +70,4 @@ model_subscription_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_completions_test.go
-test/api_fenix_alliance_portals_website_test.go
 utils.go

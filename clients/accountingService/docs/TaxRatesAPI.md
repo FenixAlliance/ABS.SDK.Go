@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetTaxRate**](TaxRatesAPI.md#GetTaxRate) | **Get** /api/v2/AccountingService/TaxRates/{id} | Get tax rate by ID
 [**GetTaxRates**](TaxRatesAPI.md#GetTaxRates) | **Get** /api/v2/AccountingService/TaxRates | Get all tax rates for a tenant
 [**GetTaxRatesCount**](TaxRatesAPI.md#GetTaxRatesCount) | **Get** /api/v2/AccountingService/TaxRates/Count | Get tax rates count
+[**PatchTaxRate**](TaxRatesAPI.md#PatchTaxRate) | **Patch** /api/v2/AccountingService/TaxRates/{id} | Patch a tax rate
 [**UpdateTaxRate**](TaxRatesAPI.md#UpdateTaxRate) | **Put** /api/v2/AccountingService/TaxRates/{id} | Update a tax rate
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchTaxRate
+
+> EmptyEnvelope PatchTaxRate(ctx, id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a tax rate
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TaxRatesAPI.PatchTaxRate(context.Background(), id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.PatchTaxRate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchTaxRate`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.PatchTaxRate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchTaxRateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

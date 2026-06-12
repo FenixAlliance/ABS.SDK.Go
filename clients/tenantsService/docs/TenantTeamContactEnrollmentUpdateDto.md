@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BusinessTeamID** | Pointer to **NullableString** |  | [optional] 
-**ContactID** | Pointer to **NullableString** |  | [optional] 
+**BusinessTeamId** | Pointer to **NullableString** |  | [optional] 
+**ContactId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -26,76 +26,76 @@ NewTenantTeamContactEnrollmentUpdateDtoWithDefaults instantiates a new TenantTea
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetBusinessTeamID
+### GetBusinessTeamId
 
-`func (o *TenantTeamContactEnrollmentUpdateDto) GetBusinessTeamID() string`
+`func (o *TenantTeamContactEnrollmentUpdateDto) GetBusinessTeamId() string`
 
-GetBusinessTeamID returns the BusinessTeamID field if non-nil, zero value otherwise.
+GetBusinessTeamId returns the BusinessTeamId field if non-nil, zero value otherwise.
 
-### GetBusinessTeamIDOk
+### GetBusinessTeamIdOk
 
-`func (o *TenantTeamContactEnrollmentUpdateDto) GetBusinessTeamIDOk() (*string, bool)`
+`func (o *TenantTeamContactEnrollmentUpdateDto) GetBusinessTeamIdOk() (*string, bool)`
 
-GetBusinessTeamIDOk returns a tuple with the BusinessTeamID field if it's non-nil, zero value otherwise
+GetBusinessTeamIdOk returns a tuple with the BusinessTeamId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessTeamID
+### SetBusinessTeamId
 
-`func (o *TenantTeamContactEnrollmentUpdateDto) SetBusinessTeamID(v string)`
+`func (o *TenantTeamContactEnrollmentUpdateDto) SetBusinessTeamId(v string)`
 
-SetBusinessTeamID sets BusinessTeamID field to given value.
+SetBusinessTeamId sets BusinessTeamId field to given value.
 
-### HasBusinessTeamID
+### HasBusinessTeamId
 
-`func (o *TenantTeamContactEnrollmentUpdateDto) HasBusinessTeamID() bool`
+`func (o *TenantTeamContactEnrollmentUpdateDto) HasBusinessTeamId() bool`
 
-HasBusinessTeamID returns a boolean if a field has been set.
+HasBusinessTeamId returns a boolean if a field has been set.
 
-### SetBusinessTeamIDNil
+### SetBusinessTeamIdNil
 
-`func (o *TenantTeamContactEnrollmentUpdateDto) SetBusinessTeamIDNil(b bool)`
+`func (o *TenantTeamContactEnrollmentUpdateDto) SetBusinessTeamIdNil(b bool)`
 
- SetBusinessTeamIDNil sets the value for BusinessTeamID to be an explicit nil
+ SetBusinessTeamIdNil sets the value for BusinessTeamId to be an explicit nil
 
-### UnsetBusinessTeamID
-`func (o *TenantTeamContactEnrollmentUpdateDto) UnsetBusinessTeamID()`
+### UnsetBusinessTeamId
+`func (o *TenantTeamContactEnrollmentUpdateDto) UnsetBusinessTeamId()`
 
-UnsetBusinessTeamID ensures that no value is present for BusinessTeamID, not even an explicit nil
-### GetContactID
+UnsetBusinessTeamId ensures that no value is present for BusinessTeamId, not even an explicit nil
+### GetContactId
 
-`func (o *TenantTeamContactEnrollmentUpdateDto) GetContactID() string`
+`func (o *TenantTeamContactEnrollmentUpdateDto) GetContactId() string`
 
-GetContactID returns the ContactID field if non-nil, zero value otherwise.
+GetContactId returns the ContactId field if non-nil, zero value otherwise.
 
-### GetContactIDOk
+### GetContactIdOk
 
-`func (o *TenantTeamContactEnrollmentUpdateDto) GetContactIDOk() (*string, bool)`
+`func (o *TenantTeamContactEnrollmentUpdateDto) GetContactIdOk() (*string, bool)`
 
-GetContactIDOk returns a tuple with the ContactID field if it's non-nil, zero value otherwise
+GetContactIdOk returns a tuple with the ContactId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetContactID
+### SetContactId
 
-`func (o *TenantTeamContactEnrollmentUpdateDto) SetContactID(v string)`
+`func (o *TenantTeamContactEnrollmentUpdateDto) SetContactId(v string)`
 
-SetContactID sets ContactID field to given value.
+SetContactId sets ContactId field to given value.
 
-### HasContactID
+### HasContactId
 
-`func (o *TenantTeamContactEnrollmentUpdateDto) HasContactID() bool`
+`func (o *TenantTeamContactEnrollmentUpdateDto) HasContactId() bool`
 
-HasContactID returns a boolean if a field has been set.
+HasContactId returns a boolean if a field has been set.
 
-### SetContactIDNil
+### SetContactIdNil
 
-`func (o *TenantTeamContactEnrollmentUpdateDto) SetContactIDNil(b bool)`
+`func (o *TenantTeamContactEnrollmentUpdateDto) SetContactIdNil(b bool)`
 
- SetContactIDNil sets the value for ContactID to be an explicit nil
+ SetContactIdNil sets the value for ContactId to be an explicit nil
 
-### UnsetContactID
-`func (o *TenantTeamContactEnrollmentUpdateDto) UnsetContactID()`
+### UnsetContactId
+`func (o *TenantTeamContactEnrollmentUpdateDto) UnsetContactId()`
 
-UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
+UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

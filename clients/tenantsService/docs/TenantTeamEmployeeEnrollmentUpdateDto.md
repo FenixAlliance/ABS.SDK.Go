@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BusinessTeamID** | Pointer to **NullableString** |  | [optional] 
-**EmployeeProfileID** | Pointer to **NullableString** |  | [optional] 
+**BusinessTeamId** | Pointer to **NullableString** |  | [optional] 
+**EmployeeProfileId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -26,76 +26,76 @@ NewTenantTeamEmployeeEnrollmentUpdateDtoWithDefaults instantiates a new TenantTe
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetBusinessTeamID
+### GetBusinessTeamId
 
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) GetBusinessTeamID() string`
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) GetBusinessTeamId() string`
 
-GetBusinessTeamID returns the BusinessTeamID field if non-nil, zero value otherwise.
+GetBusinessTeamId returns the BusinessTeamId field if non-nil, zero value otherwise.
 
-### GetBusinessTeamIDOk
+### GetBusinessTeamIdOk
 
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) GetBusinessTeamIDOk() (*string, bool)`
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) GetBusinessTeamIdOk() (*string, bool)`
 
-GetBusinessTeamIDOk returns a tuple with the BusinessTeamID field if it's non-nil, zero value otherwise
+GetBusinessTeamIdOk returns a tuple with the BusinessTeamId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessTeamID
+### SetBusinessTeamId
 
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) SetBusinessTeamID(v string)`
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) SetBusinessTeamId(v string)`
 
-SetBusinessTeamID sets BusinessTeamID field to given value.
+SetBusinessTeamId sets BusinessTeamId field to given value.
 
-### HasBusinessTeamID
+### HasBusinessTeamId
 
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) HasBusinessTeamID() bool`
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) HasBusinessTeamId() bool`
 
-HasBusinessTeamID returns a boolean if a field has been set.
+HasBusinessTeamId returns a boolean if a field has been set.
 
-### SetBusinessTeamIDNil
+### SetBusinessTeamIdNil
 
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) SetBusinessTeamIDNil(b bool)`
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) SetBusinessTeamIdNil(b bool)`
 
- SetBusinessTeamIDNil sets the value for BusinessTeamID to be an explicit nil
+ SetBusinessTeamIdNil sets the value for BusinessTeamId to be an explicit nil
 
-### UnsetBusinessTeamID
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) UnsetBusinessTeamID()`
+### UnsetBusinessTeamId
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) UnsetBusinessTeamId()`
 
-UnsetBusinessTeamID ensures that no value is present for BusinessTeamID, not even an explicit nil
-### GetEmployeeProfileID
+UnsetBusinessTeamId ensures that no value is present for BusinessTeamId, not even an explicit nil
+### GetEmployeeProfileId
 
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) GetEmployeeProfileID() string`
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) GetEmployeeProfileId() string`
 
-GetEmployeeProfileID returns the EmployeeProfileID field if non-nil, zero value otherwise.
+GetEmployeeProfileId returns the EmployeeProfileId field if non-nil, zero value otherwise.
 
-### GetEmployeeProfileIDOk
+### GetEmployeeProfileIdOk
 
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) GetEmployeeProfileIDOk() (*string, bool)`
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) GetEmployeeProfileIdOk() (*string, bool)`
 
-GetEmployeeProfileIDOk returns a tuple with the EmployeeProfileID field if it's non-nil, zero value otherwise
+GetEmployeeProfileIdOk returns a tuple with the EmployeeProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEmployeeProfileID
+### SetEmployeeProfileId
 
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) SetEmployeeProfileID(v string)`
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) SetEmployeeProfileId(v string)`
 
-SetEmployeeProfileID sets EmployeeProfileID field to given value.
+SetEmployeeProfileId sets EmployeeProfileId field to given value.
 
-### HasEmployeeProfileID
+### HasEmployeeProfileId
 
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) HasEmployeeProfileID() bool`
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) HasEmployeeProfileId() bool`
 
-HasEmployeeProfileID returns a boolean if a field has been set.
+HasEmployeeProfileId returns a boolean if a field has been set.
 
-### SetEmployeeProfileIDNil
+### SetEmployeeProfileIdNil
 
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) SetEmployeeProfileIDNil(b bool)`
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) SetEmployeeProfileIdNil(b bool)`
 
- SetEmployeeProfileIDNil sets the value for EmployeeProfileID to be an explicit nil
+ SetEmployeeProfileIdNil sets the value for EmployeeProfileId to be an explicit nil
 
-### UnsetEmployeeProfileID
-`func (o *TenantTeamEmployeeEnrollmentUpdateDto) UnsetEmployeeProfileID()`
+### UnsetEmployeeProfileId
+`func (o *TenantTeamEmployeeEnrollmentUpdateDto) UnsetEmployeeProfileId()`
 
-UnsetEmployeeProfileID ensures that no value is present for EmployeeProfileID, not even an explicit nil
+UnsetEmployeeProfileId ensures that no value is present for EmployeeProfileId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
