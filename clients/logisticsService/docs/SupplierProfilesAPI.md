@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetSupplierProfileByIdAsync**](SupplierProfilesAPI.md#GetSupplierProfileByIdAsync) | **Get** /api/v2/LogisticsService/SupplierProfiles/{supplierProfileId} | Get supplier profile by ID
 [**GetSupplierProfilesAsync**](SupplierProfilesAPI.md#GetSupplierProfilesAsync) | **Get** /api/v2/LogisticsService/SupplierProfiles | Get all supplier profiles
 [**GetSupplierProfilesCountAsync**](SupplierProfilesAPI.md#GetSupplierProfilesCountAsync) | **Get** /api/v2/LogisticsService/SupplierProfiles/Count | Get supplier profiles count
+[**PatchSupplierProfileAsync**](SupplierProfilesAPI.md#PatchSupplierProfileAsync) | **Patch** /api/v2/LogisticsService/SupplierProfiles/{supplierProfileId} | Patch a supplier profile
 [**UpdateSupplierProfileAsync**](SupplierProfilesAPI.md#UpdateSupplierProfileAsync) | **Put** /api/v2/LogisticsService/SupplierProfiles/{supplierProfileId} | Update a supplier profile
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchSupplierProfileAsync
+
+> EmptyEnvelope PatchSupplierProfileAsync(ctx, supplierProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a supplier profile
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	supplierProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SupplierProfilesAPI.PatchSupplierProfileAsync(context.Background(), supplierProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SupplierProfilesAPI.PatchSupplierProfileAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchSupplierProfileAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SupplierProfilesAPI.PatchSupplierProfileAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**supplierProfileId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchSupplierProfileAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

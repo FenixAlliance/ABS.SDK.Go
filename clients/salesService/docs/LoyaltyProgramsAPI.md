@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**DeleteLoyaltyProgramAsync**](LoyaltyProgramsAPI.md#DeleteLoyaltyProgramAsync) | **Delete** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Delete a loyalty program
 [**GetLoyaltyProgramAsync**](LoyaltyProgramsAPI.md#GetLoyaltyProgramAsync) | **Get** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Get loyalty program by ID
 [**GetLoyaltyProgramsAsync**](LoyaltyProgramsAPI.md#GetLoyaltyProgramsAsync) | **Get** /api/v2/SalesService/LoyaltyPrograms | Get loyalty programs
+[**PatchLoyaltyProgramAsync**](LoyaltyProgramsAPI.md#PatchLoyaltyProgramAsync) | **Patch** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Patch a loyalty program
 [**UpdateLoyaltyProgramAsync**](LoyaltyProgramsAPI.md#UpdateLoyaltyProgramAsync) | **Put** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Update a loyalty program
 
 
@@ -350,6 +351,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchLoyaltyProgramAsync
+
+> EmptyEnvelope PatchLoyaltyProgramAsync(ctx, loyaltyProgramId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a loyalty program
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	loyaltyProgramId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LoyaltyProgramsAPI.PatchLoyaltyProgramAsync(context.Background(), loyaltyProgramId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LoyaltyProgramsAPI.PatchLoyaltyProgramAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchLoyaltyProgramAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `LoyaltyProgramsAPI.PatchLoyaltyProgramAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**loyaltyProgramId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchLoyaltyProgramAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

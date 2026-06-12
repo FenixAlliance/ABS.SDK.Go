@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**GetBillOfLadingLinesCountAsync**](BillsOfLadingAPI.md#GetBillOfLadingLinesCountAsync) | **Get** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/Count | Get bill of lading lines count
 [**GetBillsOfLadingAsync**](BillsOfLadingAPI.md#GetBillsOfLadingAsync) | **Get** /api/v2/ShipmentsService/BillsOfLading | Get all bills of lading
 [**GetBillsOfLadingCountAsync**](BillsOfLadingAPI.md#GetBillsOfLadingCountAsync) | **Get** /api/v2/ShipmentsService/BillsOfLading/Count | Get bills of lading count
+[**PatchBillOfLadingAsync**](BillsOfLadingAPI.md#PatchBillOfLadingAsync) | **Patch** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId} | Patch a bill of lading
+[**PatchBillOfLadingLineAsync**](BillsOfLadingAPI.md#PatchBillOfLadingLineAsync) | **Patch** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/{lineId} | Patch a bill of lading line
 [**UpdateBillOfLadingAsync**](BillsOfLadingAPI.md#UpdateBillOfLadingAsync) | **Put** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId} | Update a bill of lading
 [**UpdateBillOfLadingLineAsync**](BillsOfLadingAPI.md#UpdateBillOfLadingLineAsync) | **Put** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/{lineId} | Update a bill of lading line
 
@@ -764,6 +766,165 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchBillOfLadingAsync
+
+> EmptyEnvelope PatchBillOfLadingAsync(ctx, billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a bill of lading
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	billOfLadingId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BillsOfLadingAPI.PatchBillOfLadingAsync(context.Background(), billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BillsOfLadingAPI.PatchBillOfLadingAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchBillOfLadingAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `BillsOfLadingAPI.PatchBillOfLadingAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**billOfLadingId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchBillOfLadingAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchBillOfLadingLineAsync
+
+> EmptyEnvelope PatchBillOfLadingLineAsync(ctx, billOfLadingId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a bill of lading line
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	billOfLadingId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	lineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BillsOfLadingAPI.PatchBillOfLadingLineAsync(context.Background(), billOfLadingId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BillsOfLadingAPI.PatchBillOfLadingLineAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchBillOfLadingLineAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `BillsOfLadingAPI.PatchBillOfLadingLineAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**billOfLadingId** | **string** |  | 
+**lineId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchBillOfLadingLineAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

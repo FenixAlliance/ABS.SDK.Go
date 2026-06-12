@@ -11,15 +11,15 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **ImageURL** | Pointer to **NullableString** |  | [optional] 
 **GoogleCategoryTaxonomy** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | **string** |  | 
-**ItemCategoryID** | **string** |  | 
-**ItemGoogleCategoryID** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | **string** |  | 
+**ItemCategoryId** | **string** |  | 
+**ItemGoogleCategoryId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewItemTypeDto
 
-`func NewItemTypeDto(pluralTitle string, singularTitle string, businessID string, itemCategoryID string, ) *ItemTypeDto`
+`func NewItemTypeDto(pluralTitle string, singularTitle string, tenantId string, itemCategoryId string, ) *ItemTypeDto`
 
 NewItemTypeDto instantiates a new ItemTypeDto object
 This constructor will assign default values to properties that have it defined,
@@ -249,81 +249,81 @@ HasGoogleCategoryTaxonomy returns a boolean if a field has been set.
 `func (o *ItemTypeDto) UnsetGoogleCategoryTaxonomy()`
 
 UnsetGoogleCategoryTaxonomy ensures that no value is present for GoogleCategoryTaxonomy, not even an explicit nil
-### GetBusinessID
+### GetTenantId
 
-`func (o *ItemTypeDto) GetBusinessID() string`
+`func (o *ItemTypeDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *ItemTypeDto) GetBusinessIDOk() (*string, bool)`
+`func (o *ItemTypeDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *ItemTypeDto) SetBusinessID(v string)`
+`func (o *ItemTypeDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
 
-### GetItemCategoryID
+### GetItemCategoryId
 
-`func (o *ItemTypeDto) GetItemCategoryID() string`
+`func (o *ItemTypeDto) GetItemCategoryId() string`
 
-GetItemCategoryID returns the ItemCategoryID field if non-nil, zero value otherwise.
+GetItemCategoryId returns the ItemCategoryId field if non-nil, zero value otherwise.
 
-### GetItemCategoryIDOk
+### GetItemCategoryIdOk
 
-`func (o *ItemTypeDto) GetItemCategoryIDOk() (*string, bool)`
+`func (o *ItemTypeDto) GetItemCategoryIdOk() (*string, bool)`
 
-GetItemCategoryIDOk returns a tuple with the ItemCategoryID field if it's non-nil, zero value otherwise
+GetItemCategoryIdOk returns a tuple with the ItemCategoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItemCategoryID
+### SetItemCategoryId
 
-`func (o *ItemTypeDto) SetItemCategoryID(v string)`
+`func (o *ItemTypeDto) SetItemCategoryId(v string)`
 
-SetItemCategoryID sets ItemCategoryID field to given value.
+SetItemCategoryId sets ItemCategoryId field to given value.
 
 
-### GetItemGoogleCategoryID
+### GetItemGoogleCategoryId
 
-`func (o *ItemTypeDto) GetItemGoogleCategoryID() string`
+`func (o *ItemTypeDto) GetItemGoogleCategoryId() string`
 
-GetItemGoogleCategoryID returns the ItemGoogleCategoryID field if non-nil, zero value otherwise.
+GetItemGoogleCategoryId returns the ItemGoogleCategoryId field if non-nil, zero value otherwise.
 
-### GetItemGoogleCategoryIDOk
+### GetItemGoogleCategoryIdOk
 
-`func (o *ItemTypeDto) GetItemGoogleCategoryIDOk() (*string, bool)`
+`func (o *ItemTypeDto) GetItemGoogleCategoryIdOk() (*string, bool)`
 
-GetItemGoogleCategoryIDOk returns a tuple with the ItemGoogleCategoryID field if it's non-nil, zero value otherwise
+GetItemGoogleCategoryIdOk returns a tuple with the ItemGoogleCategoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItemGoogleCategoryID
+### SetItemGoogleCategoryId
 
-`func (o *ItemTypeDto) SetItemGoogleCategoryID(v string)`
+`func (o *ItemTypeDto) SetItemGoogleCategoryId(v string)`
 
-SetItemGoogleCategoryID sets ItemGoogleCategoryID field to given value.
+SetItemGoogleCategoryId sets ItemGoogleCategoryId field to given value.
 
-### HasItemGoogleCategoryID
+### HasItemGoogleCategoryId
 
-`func (o *ItemTypeDto) HasItemGoogleCategoryID() bool`
+`func (o *ItemTypeDto) HasItemGoogleCategoryId() bool`
 
-HasItemGoogleCategoryID returns a boolean if a field has been set.
+HasItemGoogleCategoryId returns a boolean if a field has been set.
 
-### SetItemGoogleCategoryIDNil
+### SetItemGoogleCategoryIdNil
 
-`func (o *ItemTypeDto) SetItemGoogleCategoryIDNil(b bool)`
+`func (o *ItemTypeDto) SetItemGoogleCategoryIdNil(b bool)`
 
- SetItemGoogleCategoryIDNil sets the value for ItemGoogleCategoryID to be an explicit nil
+ SetItemGoogleCategoryIdNil sets the value for ItemGoogleCategoryId to be an explicit nil
 
-### UnsetItemGoogleCategoryID
-`func (o *ItemTypeDto) UnsetItemGoogleCategoryID()`
+### UnsetItemGoogleCategoryId
+`func (o *ItemTypeDto) UnsetItemGoogleCategoryId()`
 
-UnsetItemGoogleCategoryID ensures that no value is present for ItemGoogleCategoryID, not even an explicit nil
+UnsetItemGoogleCategoryId ensures that no value is present for ItemGoogleCategoryId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

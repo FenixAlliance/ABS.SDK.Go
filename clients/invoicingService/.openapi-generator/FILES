@@ -51,6 +51,7 @@ docs/InvoicesAPI.md
 docs/LoginRequest.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PaymentDto.md
 docs/PaymentDtoIReadOnlyListEnvelope.md
 docs/RefreshRequest.md
@@ -107,6 +108,7 @@ model_invoice_update_dto.go
 model_login_request.go
 model_money.go
 model_money_envelope.go
+model_operation.go
 model_payment_dto.go
 model_payment_dto_i_read_only_list_envelope.go
 model_refresh_request.go
@@ -120,6 +122,4 @@ model_tenant_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_completions_test.go
-test/api_fenix_alliance_portals_website_test.go
 utils.go

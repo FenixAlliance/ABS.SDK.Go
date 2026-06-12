@@ -4,19 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **map[string]interface{}** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessId** | Pointer to **map[string]interface{}** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **map[string]interface{}** |  | [optional] 
-**AssetId** | Pointer to **map[string]interface{}** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**AssetId** | Pointer to **NullableString** |  | [optional] 
 **AssetName** | Pointer to **NullableString** |  | [optional] 
 **PreviousValue** | Pointer to **float64** |  | [optional] 
 **NewValue** | Pointer to **float64** |  | [optional] 
 **AmendmentAmount** | Pointer to **float64** |  | [optional] 
 **Reason** | Pointer to **NullableString** |  | [optional] 
 **AmendmentDate** | Pointer to **time.Time** |  | [optional] 
-**ApprovedBy** | Pointer to **NullableString** |  | [optional] 
-**ApprovalDate** | Pointer to **NullableTime** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -39,20 +38,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *AssetValueAmendDto) GetId() map[string]interface{}`
+`func (o *AssetValueAmendDto) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *AssetValueAmendDto) GetIdOk() (*map[string]interface{}, bool)`
+`func (o *AssetValueAmendDto) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *AssetValueAmendDto) SetId(v map[string]interface{})`
+`func (o *AssetValueAmendDto) SetId(v string)`
 
 SetId sets Id field to given value.
 
@@ -62,6 +61,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *AssetValueAmendDto) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AssetValueAmendDto) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetTimestamp
 
 `func (o *AssetValueAmendDto) GetTimestamp() time.Time`
@@ -87,72 +96,92 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetBusinessId
+### GetTenantId
 
-`func (o *AssetValueAmendDto) GetBusinessId() map[string]interface{}`
+`func (o *AssetValueAmendDto) GetTenantId() string`
 
-GetBusinessId returns the BusinessId field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIdOk
+### GetTenantIdOk
 
-`func (o *AssetValueAmendDto) GetBusinessIdOk() (*map[string]interface{}, bool)`
+`func (o *AssetValueAmendDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIdOk returns a tuple with the BusinessId field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessId
+### SetTenantId
 
-`func (o *AssetValueAmendDto) SetBusinessId(v map[string]interface{})`
+`func (o *AssetValueAmendDto) SetTenantId(v string)`
 
-SetBusinessId sets BusinessId field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessId
+### HasTenantId
 
-`func (o *AssetValueAmendDto) HasBusinessId() bool`
+`func (o *AssetValueAmendDto) HasTenantId() bool`
 
-HasBusinessId returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### GetBusinessProfileRecordId
+### SetTenantIdNil
 
-`func (o *AssetValueAmendDto) GetBusinessProfileRecordId() map[string]interface{}`
+`func (o *AssetValueAmendDto) SetTenantIdNil(b bool)`
 
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### GetBusinessProfileRecordIdOk
+### UnsetTenantId
+`func (o *AssetValueAmendDto) UnsetTenantId()`
 
-`func (o *AssetValueAmendDto) GetBusinessProfileRecordIdOk() (*map[string]interface{}, bool)`
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
+`func (o *AssetValueAmendDto) GetEnrollmentId() string`
+
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
+
+### GetEnrollmentIdOk
+
+`func (o *AssetValueAmendDto) GetEnrollmentIdOk() (*string, bool)`
+
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordId
+### SetEnrollmentId
 
-`func (o *AssetValueAmendDto) SetBusinessProfileRecordId(v map[string]interface{})`
+`func (o *AssetValueAmendDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordId
+### HasEnrollmentId
 
-`func (o *AssetValueAmendDto) HasBusinessProfileRecordId() bool`
+`func (o *AssetValueAmendDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
+### SetEnrollmentIdNil
+
+`func (o *AssetValueAmendDto) SetEnrollmentIdNil(b bool)`
+
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+
+### UnsetEnrollmentId
+`func (o *AssetValueAmendDto) UnsetEnrollmentId()`
+
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetAssetId
 
-`func (o *AssetValueAmendDto) GetAssetId() map[string]interface{}`
+`func (o *AssetValueAmendDto) GetAssetId() string`
 
 GetAssetId returns the AssetId field if non-nil, zero value otherwise.
 
 ### GetAssetIdOk
 
-`func (o *AssetValueAmendDto) GetAssetIdOk() (*map[string]interface{}, bool)`
+`func (o *AssetValueAmendDto) GetAssetIdOk() (*string, bool)`
 
 GetAssetIdOk returns a tuple with the AssetId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAssetId
 
-`func (o *AssetValueAmendDto) SetAssetId(v map[string]interface{})`
+`func (o *AssetValueAmendDto) SetAssetId(v string)`
 
 SetAssetId sets AssetId field to given value.
 
@@ -162,6 +191,16 @@ SetAssetId sets AssetId field to given value.
 
 HasAssetId returns a boolean if a field has been set.
 
+### SetAssetIdNil
+
+`func (o *AssetValueAmendDto) SetAssetIdNil(b bool)`
+
+ SetAssetIdNil sets the value for AssetId to be an explicit nil
+
+### UnsetAssetId
+`func (o *AssetValueAmendDto) UnsetAssetId()`
+
+UnsetAssetId ensures that no value is present for AssetId, not even an explicit nil
 ### GetAssetName
 
 `func (o *AssetValueAmendDto) GetAssetName() string`
@@ -332,76 +371,41 @@ SetAmendmentDate sets AmendmentDate field to given value.
 
 HasAmendmentDate returns a boolean if a field has been set.
 
-### GetApprovedBy
+### GetCurrencyId
 
-`func (o *AssetValueAmendDto) GetApprovedBy() string`
+`func (o *AssetValueAmendDto) GetCurrencyId() string`
 
-GetApprovedBy returns the ApprovedBy field if non-nil, zero value otherwise.
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
 
-### GetApprovedByOk
+### GetCurrencyIdOk
 
-`func (o *AssetValueAmendDto) GetApprovedByOk() (*string, bool)`
+`func (o *AssetValueAmendDto) GetCurrencyIdOk() (*string, bool)`
 
-GetApprovedByOk returns a tuple with the ApprovedBy field if it's non-nil, zero value otherwise
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApprovedBy
+### SetCurrencyId
 
-`func (o *AssetValueAmendDto) SetApprovedBy(v string)`
+`func (o *AssetValueAmendDto) SetCurrencyId(v string)`
 
-SetApprovedBy sets ApprovedBy field to given value.
+SetCurrencyId sets CurrencyId field to given value.
 
-### HasApprovedBy
+### HasCurrencyId
 
-`func (o *AssetValueAmendDto) HasApprovedBy() bool`
+`func (o *AssetValueAmendDto) HasCurrencyId() bool`
 
-HasApprovedBy returns a boolean if a field has been set.
+HasCurrencyId returns a boolean if a field has been set.
 
-### SetApprovedByNil
+### SetCurrencyIdNil
 
-`func (o *AssetValueAmendDto) SetApprovedByNil(b bool)`
+`func (o *AssetValueAmendDto) SetCurrencyIdNil(b bool)`
 
- SetApprovedByNil sets the value for ApprovedBy to be an explicit nil
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
 
-### UnsetApprovedBy
-`func (o *AssetValueAmendDto) UnsetApprovedBy()`
+### UnsetCurrencyId
+`func (o *AssetValueAmendDto) UnsetCurrencyId()`
 
-UnsetApprovedBy ensures that no value is present for ApprovedBy, not even an explicit nil
-### GetApprovalDate
-
-`func (o *AssetValueAmendDto) GetApprovalDate() time.Time`
-
-GetApprovalDate returns the ApprovalDate field if non-nil, zero value otherwise.
-
-### GetApprovalDateOk
-
-`func (o *AssetValueAmendDto) GetApprovalDateOk() (*time.Time, bool)`
-
-GetApprovalDateOk returns a tuple with the ApprovalDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApprovalDate
-
-`func (o *AssetValueAmendDto) SetApprovalDate(v time.Time)`
-
-SetApprovalDate sets ApprovalDate field to given value.
-
-### HasApprovalDate
-
-`func (o *AssetValueAmendDto) HasApprovalDate() bool`
-
-HasApprovalDate returns a boolean if a field has been set.
-
-### SetApprovalDateNil
-
-`func (o *AssetValueAmendDto) SetApprovalDateNil(b bool)`
-
- SetApprovalDateNil sets the value for ApprovalDate to be an explicit nil
-
-### UnsetApprovalDate
-`func (o *AssetValueAmendDto) UnsetApprovalDate()`
-
-UnsetApprovalDate ensures that no value is present for ApprovalDate, not even an explicit nil
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

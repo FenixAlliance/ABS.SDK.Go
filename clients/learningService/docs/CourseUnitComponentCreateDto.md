@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Content** | Pointer to **NullableString** |  | [optional] 
 **Order** | Pointer to **int32** |  | [optional] 
-**CourseID** | **string** |  | 
-**CourseUnitID** | Pointer to **NullableString** |  | [optional] 
+**CourseId** | **string** |  | 
+**CourseUnitId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCourseUnitComponentCreateDto
 
-`func NewCourseUnitComponentCreateDto(title string, courseID string, ) *CourseUnitComponentCreateDto`
+`func NewCourseUnitComponentCreateDto(title string, courseId string, ) *CourseUnitComponentCreateDto`
 
 NewCourseUnitComponentCreateDto instantiates a new CourseUnitComponentCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -197,61 +197,61 @@ SetOrder sets Order field to given value.
 
 HasOrder returns a boolean if a field has been set.
 
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseUnitComponentCreateDto) GetCourseID() string`
+`func (o *CourseUnitComponentCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseUnitComponentCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseUnitComponentCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseUnitComponentCreateDto) SetCourseID(v string)`
+`func (o *CourseUnitComponentCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
-### GetCourseUnitID
+### GetCourseUnitId
 
-`func (o *CourseUnitComponentCreateDto) GetCourseUnitID() string`
+`func (o *CourseUnitComponentCreateDto) GetCourseUnitId() string`
 
-GetCourseUnitID returns the CourseUnitID field if non-nil, zero value otherwise.
+GetCourseUnitId returns the CourseUnitId field if non-nil, zero value otherwise.
 
-### GetCourseUnitIDOk
+### GetCourseUnitIdOk
 
-`func (o *CourseUnitComponentCreateDto) GetCourseUnitIDOk() (*string, bool)`
+`func (o *CourseUnitComponentCreateDto) GetCourseUnitIdOk() (*string, bool)`
 
-GetCourseUnitIDOk returns a tuple with the CourseUnitID field if it's non-nil, zero value otherwise
+GetCourseUnitIdOk returns a tuple with the CourseUnitId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseUnitID
+### SetCourseUnitId
 
-`func (o *CourseUnitComponentCreateDto) SetCourseUnitID(v string)`
+`func (o *CourseUnitComponentCreateDto) SetCourseUnitId(v string)`
 
-SetCourseUnitID sets CourseUnitID field to given value.
+SetCourseUnitId sets CourseUnitId field to given value.
 
-### HasCourseUnitID
+### HasCourseUnitId
 
-`func (o *CourseUnitComponentCreateDto) HasCourseUnitID() bool`
+`func (o *CourseUnitComponentCreateDto) HasCourseUnitId() bool`
 
-HasCourseUnitID returns a boolean if a field has been set.
+HasCourseUnitId returns a boolean if a field has been set.
 
-### SetCourseUnitIDNil
+### SetCourseUnitIdNil
 
-`func (o *CourseUnitComponentCreateDto) SetCourseUnitIDNil(b bool)`
+`func (o *CourseUnitComponentCreateDto) SetCourseUnitIdNil(b bool)`
 
- SetCourseUnitIDNil sets the value for CourseUnitID to be an explicit nil
+ SetCourseUnitIdNil sets the value for CourseUnitId to be an explicit nil
 
-### UnsetCourseUnitID
-`func (o *CourseUnitComponentCreateDto) UnsetCourseUnitID()`
+### UnsetCourseUnitId
+`func (o *CourseUnitComponentCreateDto) UnsetCourseUnitId()`
 
-UnsetCourseUnitID ensures that no value is present for CourseUnitID, not even an explicit nil
+UnsetCourseUnitId ensures that no value is present for CourseUnitId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

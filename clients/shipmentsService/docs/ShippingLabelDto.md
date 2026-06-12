@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **TrackingCode** | Pointer to **NullableString** |  | [optional] 
 **ExpectedDelivery** | Pointer to **time.Time** |  | [optional] 
-**LocationID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**ShipmentID** | Pointer to **NullableString** |  | [optional] 
-**ShippingCourierID** | Pointer to **NullableString** |  | [optional] 
+**LocationId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**ShipmentId** | Pointer to **NullableString** |  | [optional] 
+**ShippingCourierId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -162,146 +162,146 @@ SetExpectedDelivery sets ExpectedDelivery field to given value.
 
 HasExpectedDelivery returns a boolean if a field has been set.
 
-### GetLocationID
+### GetLocationId
 
-`func (o *ShippingLabelDto) GetLocationID() string`
+`func (o *ShippingLabelDto) GetLocationId() string`
 
-GetLocationID returns the LocationID field if non-nil, zero value otherwise.
+GetLocationId returns the LocationId field if non-nil, zero value otherwise.
 
-### GetLocationIDOk
+### GetLocationIdOk
 
-`func (o *ShippingLabelDto) GetLocationIDOk() (*string, bool)`
+`func (o *ShippingLabelDto) GetLocationIdOk() (*string, bool)`
 
-GetLocationIDOk returns a tuple with the LocationID field if it's non-nil, zero value otherwise
+GetLocationIdOk returns a tuple with the LocationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLocationID
+### SetLocationId
 
-`func (o *ShippingLabelDto) SetLocationID(v string)`
+`func (o *ShippingLabelDto) SetLocationId(v string)`
 
-SetLocationID sets LocationID field to given value.
+SetLocationId sets LocationId field to given value.
 
-### HasLocationID
+### HasLocationId
 
-`func (o *ShippingLabelDto) HasLocationID() bool`
+`func (o *ShippingLabelDto) HasLocationId() bool`
 
-HasLocationID returns a boolean if a field has been set.
+HasLocationId returns a boolean if a field has been set.
 
-### SetLocationIDNil
+### SetLocationIdNil
 
-`func (o *ShippingLabelDto) SetLocationIDNil(b bool)`
+`func (o *ShippingLabelDto) SetLocationIdNil(b bool)`
 
- SetLocationIDNil sets the value for LocationID to be an explicit nil
+ SetLocationIdNil sets the value for LocationId to be an explicit nil
 
-### UnsetLocationID
-`func (o *ShippingLabelDto) UnsetLocationID()`
+### UnsetLocationId
+`func (o *ShippingLabelDto) UnsetLocationId()`
 
-UnsetLocationID ensures that no value is present for LocationID, not even an explicit nil
-### GetBusinessID
+UnsetLocationId ensures that no value is present for LocationId, not even an explicit nil
+### GetTenantId
 
-`func (o *ShippingLabelDto) GetBusinessID() string`
+`func (o *ShippingLabelDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *ShippingLabelDto) GetBusinessIDOk() (*string, bool)`
+`func (o *ShippingLabelDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *ShippingLabelDto) SetBusinessID(v string)`
+`func (o *ShippingLabelDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *ShippingLabelDto) HasBusinessID() bool`
+`func (o *ShippingLabelDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *ShippingLabelDto) SetBusinessIDNil(b bool)`
+`func (o *ShippingLabelDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *ShippingLabelDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *ShippingLabelDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetShipmentID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetShipmentId
 
-`func (o *ShippingLabelDto) GetShipmentID() string`
+`func (o *ShippingLabelDto) GetShipmentId() string`
 
-GetShipmentID returns the ShipmentID field if non-nil, zero value otherwise.
+GetShipmentId returns the ShipmentId field if non-nil, zero value otherwise.
 
-### GetShipmentIDOk
+### GetShipmentIdOk
 
-`func (o *ShippingLabelDto) GetShipmentIDOk() (*string, bool)`
+`func (o *ShippingLabelDto) GetShipmentIdOk() (*string, bool)`
 
-GetShipmentIDOk returns a tuple with the ShipmentID field if it's non-nil, zero value otherwise
+GetShipmentIdOk returns a tuple with the ShipmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetShipmentID
+### SetShipmentId
 
-`func (o *ShippingLabelDto) SetShipmentID(v string)`
+`func (o *ShippingLabelDto) SetShipmentId(v string)`
 
-SetShipmentID sets ShipmentID field to given value.
+SetShipmentId sets ShipmentId field to given value.
 
-### HasShipmentID
+### HasShipmentId
 
-`func (o *ShippingLabelDto) HasShipmentID() bool`
+`func (o *ShippingLabelDto) HasShipmentId() bool`
 
-HasShipmentID returns a boolean if a field has been set.
+HasShipmentId returns a boolean if a field has been set.
 
-### SetShipmentIDNil
+### SetShipmentIdNil
 
-`func (o *ShippingLabelDto) SetShipmentIDNil(b bool)`
+`func (o *ShippingLabelDto) SetShipmentIdNil(b bool)`
 
- SetShipmentIDNil sets the value for ShipmentID to be an explicit nil
+ SetShipmentIdNil sets the value for ShipmentId to be an explicit nil
 
-### UnsetShipmentID
-`func (o *ShippingLabelDto) UnsetShipmentID()`
+### UnsetShipmentId
+`func (o *ShippingLabelDto) UnsetShipmentId()`
 
-UnsetShipmentID ensures that no value is present for ShipmentID, not even an explicit nil
-### GetShippingCourierID
+UnsetShipmentId ensures that no value is present for ShipmentId, not even an explicit nil
+### GetShippingCourierId
 
-`func (o *ShippingLabelDto) GetShippingCourierID() string`
+`func (o *ShippingLabelDto) GetShippingCourierId() string`
 
-GetShippingCourierID returns the ShippingCourierID field if non-nil, zero value otherwise.
+GetShippingCourierId returns the ShippingCourierId field if non-nil, zero value otherwise.
 
-### GetShippingCourierIDOk
+### GetShippingCourierIdOk
 
-`func (o *ShippingLabelDto) GetShippingCourierIDOk() (*string, bool)`
+`func (o *ShippingLabelDto) GetShippingCourierIdOk() (*string, bool)`
 
-GetShippingCourierIDOk returns a tuple with the ShippingCourierID field if it's non-nil, zero value otherwise
+GetShippingCourierIdOk returns a tuple with the ShippingCourierId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetShippingCourierID
+### SetShippingCourierId
 
-`func (o *ShippingLabelDto) SetShippingCourierID(v string)`
+`func (o *ShippingLabelDto) SetShippingCourierId(v string)`
 
-SetShippingCourierID sets ShippingCourierID field to given value.
+SetShippingCourierId sets ShippingCourierId field to given value.
 
-### HasShippingCourierID
+### HasShippingCourierId
 
-`func (o *ShippingLabelDto) HasShippingCourierID() bool`
+`func (o *ShippingLabelDto) HasShippingCourierId() bool`
 
-HasShippingCourierID returns a boolean if a field has been set.
+HasShippingCourierId returns a boolean if a field has been set.
 
-### SetShippingCourierIDNil
+### SetShippingCourierIdNil
 
-`func (o *ShippingLabelDto) SetShippingCourierIDNil(b bool)`
+`func (o *ShippingLabelDto) SetShippingCourierIdNil(b bool)`
 
- SetShippingCourierIDNil sets the value for ShippingCourierID to be an explicit nil
+ SetShippingCourierIdNil sets the value for ShippingCourierId to be an explicit nil
 
-### UnsetShippingCourierID
-`func (o *ShippingLabelDto) UnsetShippingCourierID()`
+### UnsetShippingCourierId
+`func (o *ShippingLabelDto) UnsetShippingCourierId()`
 
-UnsetShippingCourierID ensures that no value is present for ShippingCourierID, not even an explicit nil
+UnsetShippingCourierId ensures that no value is present for ShippingCourierId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

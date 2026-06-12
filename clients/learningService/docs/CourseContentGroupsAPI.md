@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**GetCourseContentGroupsByCourseAsync**](CourseContentGroupsAPI.md#GetCourseContentGroupsByCourseAsync) | **Get** /api/v2/LearningService/Courses/{courseId}/ContentGroups | Get course content groups by course
 [**GetCourseContentGroupsByCourseCountAsync**](CourseContentGroupsAPI.md#GetCourseContentGroupsByCourseCountAsync) | **Get** /api/v2/LearningService/Courses/{courseId}/ContentGroups/Count | Get course content groups count by course
 [**GetCourseContentGroupsCountAsync**](CourseContentGroupsAPI.md#GetCourseContentGroupsCountAsync) | **Get** /api/v2/LearningService/CourseContentGroups/Count | Get course content groups count
+[**PatchCourseContentGroupAsync**](CourseContentGroupsAPI.md#PatchCourseContentGroupAsync) | **Patch** /api/v2/LearningService/CourseContentGroups/{groupId} | Patch a course content group
 [**UpdateCourseContentGroupAsync**](CourseContentGroupsAPI.md#UpdateCourseContentGroupAsync) | **Put** /api/v2/LearningService/CourseContentGroups/{groupId} | Update a course content group
 
 
@@ -39,7 +40,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseContentGroupCreateDto := *openapiclient.NewCourseContentGroupCreateDto("Name_example", "CourseID_example") // CourseContentGroupCreateDto |  (optional)
+	courseContentGroupCreateDto := *openapiclient.NewCourseContentGroupCreateDto("Name_example", "CourseId_example") // CourseContentGroupCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -514,6 +515,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseContentGroupAsync
+
+> EmptyEnvelope PatchCourseContentGroupAsync(ctx, groupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course content group
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	groupId := "groupId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CourseContentGroupsAPI.PatchCourseContentGroupAsync(context.Background(), groupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseContentGroupsAPI.PatchCourseContentGroupAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchCourseContentGroupAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CourseContentGroupsAPI.PatchCourseContentGroupAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**groupId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseContentGroupAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

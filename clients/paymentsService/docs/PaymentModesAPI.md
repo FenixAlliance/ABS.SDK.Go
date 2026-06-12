@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetPaymentModeDetailsAsync**](PaymentModesAPI.md#GetPaymentModeDetailsAsync) | **Get** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Gets a payment mode by ID
 [**GetPaymentModesAsync**](PaymentModesAPI.md#GetPaymentModesAsync) | **Get** /api/v2/PaymentsService/PaymentModes | Retrieves all payment modes
 [**GetPaymentModesCountAsync**](PaymentModesAPI.md#GetPaymentModesCountAsync) | **Get** /api/v2/PaymentsService/PaymentModes/Count | Counts payment modes
+[**PatchPaymentModeAsync**](PaymentModesAPI.md#PatchPaymentModeAsync) | **Patch** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Patch a payment mode
 [**UpdatePaymentModeAsync**](PaymentModesAPI.md#UpdatePaymentModeAsync) | **Put** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Updates a payment mode
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchPaymentModeAsync
+
+> EmptyEnvelope PatchPaymentModeAsync(ctx, paymentModeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a payment mode
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	paymentModeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PaymentModesAPI.PatchPaymentModeAsync(context.Background(), paymentModeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentModesAPI.PatchPaymentModeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchPaymentModeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PaymentModesAPI.PatchPaymentModeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**paymentModeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchPaymentModeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

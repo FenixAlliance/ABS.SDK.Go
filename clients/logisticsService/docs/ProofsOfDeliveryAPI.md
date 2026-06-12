@@ -17,6 +17,8 @@ Method | HTTP request | Description
 [**GetProofOfDeliveryLinesCountAsync**](ProofsOfDeliveryAPI.md#GetProofOfDeliveryLinesCountAsync) | **Get** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/Count | Get proof of delivery lines count
 [**GetProofsOfDeliveryAsync**](ProofsOfDeliveryAPI.md#GetProofsOfDeliveryAsync) | **Get** /api/v2/LogisticsService/ProofsOfDelivery | Get all proofs of delivery
 [**GetProofsOfDeliveryCountAsync**](ProofsOfDeliveryAPI.md#GetProofsOfDeliveryCountAsync) | **Get** /api/v2/LogisticsService/ProofsOfDelivery/Count | Get proofs of delivery count
+[**PatchProofOfDeliveryAsync**](ProofsOfDeliveryAPI.md#PatchProofOfDeliveryAsync) | **Patch** /api/v2/LogisticsService/ProofsOfDelivery/{podId} | Patch a proof of delivery
+[**PatchProofOfDeliveryLineAsync**](ProofsOfDeliveryAPI.md#PatchProofOfDeliveryLineAsync) | **Patch** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/{lineId} | Patch a proof of delivery line
 [**RejectProofOfDeliveryAsync**](ProofsOfDeliveryAPI.md#RejectProofOfDeliveryAsync) | **Post** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Reject | Reject a proof of delivery
 [**RemoveProofOfDeliveryLineAsync**](ProofsOfDeliveryAPI.md#RemoveProofOfDeliveryLineAsync) | **Delete** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/{lineId} | Remove a proof of delivery line
 [**SignProofOfDeliveryAsync**](ProofsOfDeliveryAPI.md#SignProofOfDeliveryAsync) | **Post** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Sign | Sign a proof of delivery
@@ -1000,6 +1002,165 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchProofOfDeliveryAsync
+
+> EmptyEnvelope PatchProofOfDeliveryAsync(ctx, podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a proof of delivery
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	podId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProofsOfDeliveryAPI.PatchProofOfDeliveryAsync(context.Background(), podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProofsOfDeliveryAPI.PatchProofOfDeliveryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchProofOfDeliveryAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ProofsOfDeliveryAPI.PatchProofOfDeliveryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**podId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchProofOfDeliveryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchProofOfDeliveryLineAsync
+
+> EmptyEnvelope PatchProofOfDeliveryLineAsync(ctx, podId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a proof of delivery line
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	podId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	lineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProofsOfDeliveryAPI.PatchProofOfDeliveryLineAsync(context.Background(), podId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProofsOfDeliveryAPI.PatchProofOfDeliveryLineAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchProofOfDeliveryLineAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ProofsOfDeliveryAPI.PatchProofOfDeliveryLineAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**podId** | **string** |  | 
+**lineId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchProofOfDeliveryLineAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

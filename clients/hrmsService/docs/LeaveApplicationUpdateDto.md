@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Justification** | Pointer to **NullableString** |  | [optional] 
-**Approved** | Pointer to **NullableBool** |  | [optional] 
-**OnReview** | Pointer to **NullableBool** |  | [optional] 
+**Approved** | Pointer to **bool** |  | [optional] 
+**OnReview** | Pointer to **bool** |  | [optional] 
 **LeaveTypeId** | Pointer to **NullableString** |  | [optional] 
 **EmployeeProfileId** | Pointer to **NullableString** |  | [optional] 
 
@@ -89,16 +89,6 @@ SetApproved sets Approved field to given value.
 
 HasApproved returns a boolean if a field has been set.
 
-### SetApprovedNil
-
-`func (o *LeaveApplicationUpdateDto) SetApprovedNil(b bool)`
-
- SetApprovedNil sets the value for Approved to be an explicit nil
-
-### UnsetApproved
-`func (o *LeaveApplicationUpdateDto) UnsetApproved()`
-
-UnsetApproved ensures that no value is present for Approved, not even an explicit nil
 ### GetOnReview
 
 `func (o *LeaveApplicationUpdateDto) GetOnReview() bool`
@@ -124,16 +114,6 @@ SetOnReview sets OnReview field to given value.
 
 HasOnReview returns a boolean if a field has been set.
 
-### SetOnReviewNil
-
-`func (o *LeaveApplicationUpdateDto) SetOnReviewNil(b bool)`
-
- SetOnReviewNil sets the value for OnReview to be an explicit nil
-
-### UnsetOnReview
-`func (o *LeaveApplicationUpdateDto) UnsetOnReview()`
-
-UnsetOnReview ensures that no value is present for OnReview, not even an explicit nil
 ### GetLeaveTypeId
 
 `func (o *LeaveApplicationUpdateDto) GetLeaveTypeId() string`

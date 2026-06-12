@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetJobTitleByIdAsync**](JobTitlesAPI.md#GetJobTitleByIdAsync) | **Get** /api/v2/HrmsService/JobTitles/{jobTitleId} | Get job title by ID
 [**GetJobTitlesAsync**](JobTitlesAPI.md#GetJobTitlesAsync) | **Get** /api/v2/HrmsService/JobTitles | Get job titles
 [**GetJobTitlesCountAsync**](JobTitlesAPI.md#GetJobTitlesCountAsync) | **Get** /api/v2/HrmsService/JobTitles/Count | Count job titles
+[**PatchJobTitleAsync**](JobTitlesAPI.md#PatchJobTitleAsync) | **Patch** /api/v2/HrmsService/JobTitles/{jobTitleId} | Patch a job title
 [**UpdateJobTitleAsync**](JobTitlesAPI.md#UpdateJobTitleAsync) | **Put** /api/v2/HrmsService/JobTitles/{jobTitleId} | Update a job title
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchJobTitleAsync
+
+> EmptyEnvelope PatchJobTitleAsync(ctx, jobTitleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a job title
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	jobTitleId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JobTitlesAPI.PatchJobTitleAsync(context.Background(), jobTitleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JobTitlesAPI.PatchJobTitleAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchJobTitleAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JobTitlesAPI.PatchJobTitleAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**jobTitleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchJobTitleAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetAssetType**](AssetTypesAPI.md#GetAssetType) | **Get** /api/v2/AssetsService/AssetTypes/{typeId} | Gets a specific asset type
 [**GetAssetTypes**](AssetTypesAPI.md#GetAssetTypes) | **Get** /api/v2/AssetsService/AssetTypes | Gets all asset types for the current tenant
 [**GetAssetTypesCount**](AssetTypesAPI.md#GetAssetTypesCount) | **Get** /api/v2/AssetsService/AssetTypes/count | Gets the count of asset types
+[**PatchAssetType**](AssetTypesAPI.md#PatchAssetType) | **Patch** /api/v2/AssetsService/AssetTypes/{typeId} | Partially updates an existing asset type
 [**UpdateAssetType**](AssetTypesAPI.md#UpdateAssetType) | **Put** /api/v2/AssetsService/AssetTypes/{typeId} | Updates an existing asset type
 
 
@@ -348,6 +349,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchAssetType
+
+> EmptyEnvelope PatchAssetType(ctx, typeId).TenantId(tenantId).Operation(operation).Execute()
+
+Partially updates an existing asset type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	typeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AssetTypesAPI.PatchAssetType(context.Background(), typeId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AssetTypesAPI.PatchAssetType``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchAssetType`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `AssetTypesAPI.PatchAssetType`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**typeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchAssetTypeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

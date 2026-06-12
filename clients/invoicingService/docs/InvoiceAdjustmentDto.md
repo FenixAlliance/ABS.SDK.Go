@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **InvoiceId** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**Priority** | Pointer to **int32** |  | [optional] 
+**Code** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **SurchargePercent** | Pointer to **float64** |  | [optional] 
 **SurchargeAmount** | Pointer to **float64** |  | [optional] 
@@ -248,6 +250,66 @@ HasEnrollmentId returns a boolean if a field has been set.
 `func (o *InvoiceAdjustmentDto) UnsetEnrollmentId()`
 
 UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
+### GetPriority
+
+`func (o *InvoiceAdjustmentDto) GetPriority() int32`
+
+GetPriority returns the Priority field if non-nil, zero value otherwise.
+
+### GetPriorityOk
+
+`func (o *InvoiceAdjustmentDto) GetPriorityOk() (*int32, bool)`
+
+GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPriority
+
+`func (o *InvoiceAdjustmentDto) SetPriority(v int32)`
+
+SetPriority sets Priority field to given value.
+
+### HasPriority
+
+`func (o *InvoiceAdjustmentDto) HasPriority() bool`
+
+HasPriority returns a boolean if a field has been set.
+
+### GetCode
+
+`func (o *InvoiceAdjustmentDto) GetCode() string`
+
+GetCode returns the Code field if non-nil, zero value otherwise.
+
+### GetCodeOk
+
+`func (o *InvoiceAdjustmentDto) GetCodeOk() (*string, bool)`
+
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCode
+
+`func (o *InvoiceAdjustmentDto) SetCode(v string)`
+
+SetCode sets Code field to given value.
+
+### HasCode
+
+`func (o *InvoiceAdjustmentDto) HasCode() bool`
+
+HasCode returns a boolean if a field has been set.
+
+### SetCodeNil
+
+`func (o *InvoiceAdjustmentDto) SetCodeNil(b bool)`
+
+ SetCodeNil sets the value for Code to be an explicit nil
+
+### UnsetCode
+`func (o *InvoiceAdjustmentDto) UnsetCode()`
+
+UnsetCode ensures that no value is present for Code, not even an explicit nil
 ### GetDescription
 
 `func (o *InvoiceAdjustmentDto) GetDescription() string`

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetPaymentAsync**](PaymentsAPI.md#GetPaymentAsync) | **Get** /api/v2/PaymentsService/Payments/{paymentId}/Details | Gets a payment by ID (deprecated)
 [**GetPaymentAsyncV2**](PaymentsAPI.md#GetPaymentAsyncV2) | **Get** /api/v2/PaymentsService/Payments/{paymentId} | Gets a payment by ID
 [**GetPaymentsAsync**](PaymentsAPI.md#GetPaymentsAsync) | **Get** /api/v2/PaymentsService/Payments | Retrieves all payments
+[**PatchPaymentAsync**](PaymentsAPI.md#PatchPaymentAsync) | **Patch** /api/v2/PaymentsService/Payments/{paymentId} | Patch a payment
 [**UpdatePaymentAsync**](PaymentsAPI.md#UpdatePaymentAsync) | **Put** /api/v2/PaymentsService/Payments/{paymentId} | Updates a payment
 
 
@@ -356,6 +357,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchPaymentAsync
+
+> EmptyEnvelope PatchPaymentAsync(ctx, paymentId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a payment
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	paymentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PaymentsAPI.PatchPaymentAsync(context.Background(), paymentId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.PatchPaymentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchPaymentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.PatchPaymentAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**paymentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchPaymentAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

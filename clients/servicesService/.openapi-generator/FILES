@@ -23,6 +23,7 @@ docs/InfoRequest.md
 docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
+docs/Operation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -77,6 +78,7 @@ model_info_request.go
 model_info_response.go
 model_int32_envelope.go
 model_login_request.go
+model_operation.go
 model_refresh_request.go
 model_register_request.go
 model_resend_confirmation_email_request.go
@@ -114,6 +116,4 @@ model_service_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_completions_test.go
-test/api_fenix_alliance_portals_website_test.go
 utils.go

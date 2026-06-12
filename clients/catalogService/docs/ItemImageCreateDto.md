@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**ItemID** | Pointer to **NullableString** |  | [optional] 
+**ItemId** | Pointer to **NullableString** |  | [optional] 
 **IsItemMozaicBG** | Pointer to **bool** |  | [optional] 
 **MD5Hash** | Pointer to **NullableString** |  | [optional] 
 **Metadata** | Pointer to **NullableString** |  | [optional] 
@@ -20,8 +20,8 @@ Name | Type | Description | Notes
 **ContentType** | Pointer to **NullableString** |  | [optional] 
 **FileLength** | Pointer to **int64** |  | [optional] 
 **ValidResponse** | Pointer to **bool** |  | [optional] 
-**SocialProfileID** | Pointer to **NullableString** |  | [optional] 
-**ParentFileUploadID** | Pointer to **NullableString** |  | [optional] 
+**SocialProfileId** | Pointer to **NullableString** |  | [optional] 
+**ParentFileUploadId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -92,41 +92,41 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetItemID
+### GetItemId
 
-`func (o *ItemImageCreateDto) GetItemID() string`
+`func (o *ItemImageCreateDto) GetItemId() string`
 
-GetItemID returns the ItemID field if non-nil, zero value otherwise.
+GetItemId returns the ItemId field if non-nil, zero value otherwise.
 
-### GetItemIDOk
+### GetItemIdOk
 
-`func (o *ItemImageCreateDto) GetItemIDOk() (*string, bool)`
+`func (o *ItemImageCreateDto) GetItemIdOk() (*string, bool)`
 
-GetItemIDOk returns a tuple with the ItemID field if it's non-nil, zero value otherwise
+GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItemID
+### SetItemId
 
-`func (o *ItemImageCreateDto) SetItemID(v string)`
+`func (o *ItemImageCreateDto) SetItemId(v string)`
 
-SetItemID sets ItemID field to given value.
+SetItemId sets ItemId field to given value.
 
-### HasItemID
+### HasItemId
 
-`func (o *ItemImageCreateDto) HasItemID() bool`
+`func (o *ItemImageCreateDto) HasItemId() bool`
 
-HasItemID returns a boolean if a field has been set.
+HasItemId returns a boolean if a field has been set.
 
-### SetItemIDNil
+### SetItemIdNil
 
-`func (o *ItemImageCreateDto) SetItemIDNil(b bool)`
+`func (o *ItemImageCreateDto) SetItemIdNil(b bool)`
 
- SetItemIDNil sets the value for ItemID to be an explicit nil
+ SetItemIdNil sets the value for ItemId to be an explicit nil
 
-### UnsetItemID
-`func (o *ItemImageCreateDto) UnsetItemID()`
+### UnsetItemId
+`func (o *ItemImageCreateDto) UnsetItemId()`
 
-UnsetItemID ensures that no value is present for ItemID, not even an explicit nil
+UnsetItemId ensures that no value is present for ItemId, not even an explicit nil
 ### GetIsItemMozaicBG
 
 `func (o *ItemImageCreateDto) GetIsItemMozaicBG() bool`
@@ -537,76 +537,76 @@ SetValidResponse sets ValidResponse field to given value.
 
 HasValidResponse returns a boolean if a field has been set.
 
-### GetSocialProfileID
+### GetSocialProfileId
 
-`func (o *ItemImageCreateDto) GetSocialProfileID() string`
+`func (o *ItemImageCreateDto) GetSocialProfileId() string`
 
-GetSocialProfileID returns the SocialProfileID field if non-nil, zero value otherwise.
+GetSocialProfileId returns the SocialProfileId field if non-nil, zero value otherwise.
 
-### GetSocialProfileIDOk
+### GetSocialProfileIdOk
 
-`func (o *ItemImageCreateDto) GetSocialProfileIDOk() (*string, bool)`
+`func (o *ItemImageCreateDto) GetSocialProfileIdOk() (*string, bool)`
 
-GetSocialProfileIDOk returns a tuple with the SocialProfileID field if it's non-nil, zero value otherwise
+GetSocialProfileIdOk returns a tuple with the SocialProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSocialProfileID
+### SetSocialProfileId
 
-`func (o *ItemImageCreateDto) SetSocialProfileID(v string)`
+`func (o *ItemImageCreateDto) SetSocialProfileId(v string)`
 
-SetSocialProfileID sets SocialProfileID field to given value.
+SetSocialProfileId sets SocialProfileId field to given value.
 
-### HasSocialProfileID
+### HasSocialProfileId
 
-`func (o *ItemImageCreateDto) HasSocialProfileID() bool`
+`func (o *ItemImageCreateDto) HasSocialProfileId() bool`
 
-HasSocialProfileID returns a boolean if a field has been set.
+HasSocialProfileId returns a boolean if a field has been set.
 
-### SetSocialProfileIDNil
+### SetSocialProfileIdNil
 
-`func (o *ItemImageCreateDto) SetSocialProfileIDNil(b bool)`
+`func (o *ItemImageCreateDto) SetSocialProfileIdNil(b bool)`
 
- SetSocialProfileIDNil sets the value for SocialProfileID to be an explicit nil
+ SetSocialProfileIdNil sets the value for SocialProfileId to be an explicit nil
 
-### UnsetSocialProfileID
-`func (o *ItemImageCreateDto) UnsetSocialProfileID()`
+### UnsetSocialProfileId
+`func (o *ItemImageCreateDto) UnsetSocialProfileId()`
 
-UnsetSocialProfileID ensures that no value is present for SocialProfileID, not even an explicit nil
-### GetParentFileUploadID
+UnsetSocialProfileId ensures that no value is present for SocialProfileId, not even an explicit nil
+### GetParentFileUploadId
 
-`func (o *ItemImageCreateDto) GetParentFileUploadID() string`
+`func (o *ItemImageCreateDto) GetParentFileUploadId() string`
 
-GetParentFileUploadID returns the ParentFileUploadID field if non-nil, zero value otherwise.
+GetParentFileUploadId returns the ParentFileUploadId field if non-nil, zero value otherwise.
 
-### GetParentFileUploadIDOk
+### GetParentFileUploadIdOk
 
-`func (o *ItemImageCreateDto) GetParentFileUploadIDOk() (*string, bool)`
+`func (o *ItemImageCreateDto) GetParentFileUploadIdOk() (*string, bool)`
 
-GetParentFileUploadIDOk returns a tuple with the ParentFileUploadID field if it's non-nil, zero value otherwise
+GetParentFileUploadIdOk returns a tuple with the ParentFileUploadId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentFileUploadID
+### SetParentFileUploadId
 
-`func (o *ItemImageCreateDto) SetParentFileUploadID(v string)`
+`func (o *ItemImageCreateDto) SetParentFileUploadId(v string)`
 
-SetParentFileUploadID sets ParentFileUploadID field to given value.
+SetParentFileUploadId sets ParentFileUploadId field to given value.
 
-### HasParentFileUploadID
+### HasParentFileUploadId
 
-`func (o *ItemImageCreateDto) HasParentFileUploadID() bool`
+`func (o *ItemImageCreateDto) HasParentFileUploadId() bool`
 
-HasParentFileUploadID returns a boolean if a field has been set.
+HasParentFileUploadId returns a boolean if a field has been set.
 
-### SetParentFileUploadIDNil
+### SetParentFileUploadIdNil
 
-`func (o *ItemImageCreateDto) SetParentFileUploadIDNil(b bool)`
+`func (o *ItemImageCreateDto) SetParentFileUploadIdNil(b bool)`
 
- SetParentFileUploadIDNil sets the value for ParentFileUploadID to be an explicit nil
+ SetParentFileUploadIdNil sets the value for ParentFileUploadId to be an explicit nil
 
-### UnsetParentFileUploadID
-`func (o *ItemImageCreateDto) UnsetParentFileUploadID()`
+### UnsetParentFileUploadId
+`func (o *ItemImageCreateDto) UnsetParentFileUploadId()`
 
-UnsetParentFileUploadID ensures that no value is present for ParentFileUploadID, not even an explicit nil
+UnsetParentFileUploadId ensures that no value is present for ParentFileUploadId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

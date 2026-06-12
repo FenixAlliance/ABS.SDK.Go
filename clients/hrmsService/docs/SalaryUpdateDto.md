@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | Pointer to **NullableFloat64** |  | [optional] 
+**Amount** | Pointer to **float64** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **EmployeeProfileId** | Pointer to **NullableString** |  | [optional] 
 
@@ -52,16 +52,6 @@ SetAmount sets Amount field to given value.
 
 HasAmount returns a boolean if a field has been set.
 
-### SetAmountNil
-
-`func (o *SalaryUpdateDto) SetAmountNil(b bool)`
-
- SetAmountNil sets the value for Amount to be an explicit nil
-
-### UnsetAmount
-`func (o *SalaryUpdateDto) UnsetAmount()`
-
-UnsetAmount ensures that no value is present for Amount, not even an explicit nil
 ### GetCurrencyId
 
 `func (o *SalaryUpdateDto) GetCurrencyId() string`

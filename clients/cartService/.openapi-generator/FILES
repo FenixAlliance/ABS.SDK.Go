@@ -42,6 +42,7 @@ docs/ItemToCompareCartRecordDtoEnvelope.md
 docs/ItemToCompareCartRecordDtoListEnvelope.md
 docs/LoginRequest.md
 docs/NewWishListRequest.md
+docs/Operation.md
 docs/ProductToWishListRequest.md
 docs/RecordsAPI.md
 docs/RefreshRequest.md
@@ -86,6 +87,7 @@ model_item_to_compare_cart_record_dto_envelope.go
 model_item_to_compare_cart_record_dto_list_envelope.go
 model_login_request.go
 model_new_wish_list_request.go
+model_operation.go
 model_product_to_wish_list_request.go
 model_refresh_request.go
 model_register_request.go
@@ -98,6 +100,4 @@ model_wish_list_dto_envelope.go
 model_wish_list_item_record_dto.go
 model_wish_list_update_dto.go
 response.go
-test/api_completions_test.go
-test/api_fenix_alliance_portals_website_test.go
 utils.go

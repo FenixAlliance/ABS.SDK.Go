@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **AvatarURL** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
-**SocialProfileID** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -207,111 +207,111 @@ HasAvatarURL returns a boolean if a field has been set.
 `func (o *SocialGroupDto) UnsetAvatarURL()`
 
 UnsetAvatarURL ensures that no value is present for AvatarURL, not even an explicit nil
-### GetBusinessID
+### GetTenantId
 
-`func (o *SocialGroupDto) GetBusinessID() string`
+`func (o *SocialGroupDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *SocialGroupDto) GetBusinessIDOk() (*string, bool)`
+`func (o *SocialGroupDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *SocialGroupDto) SetBusinessID(v string)`
+`func (o *SocialGroupDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *SocialGroupDto) HasBusinessID() bool`
+`func (o *SocialGroupDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *SocialGroupDto) SetBusinessIDNil(b bool)`
+`func (o *SocialGroupDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *SocialGroupDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *SocialGroupDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *SocialGroupDto) GetBusinessProfileRecordID() string`
+`func (o *SocialGroupDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetEnrollmentIdOk
 
-`func (o *SocialGroupDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *SocialGroupDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetEnrollmentId
 
-`func (o *SocialGroupDto) SetBusinessProfileRecordID(v string)`
+`func (o *SocialGroupDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordID
+### HasEnrollmentId
 
-`func (o *SocialGroupDto) HasBusinessProfileRecordID() bool`
+`func (o *SocialGroupDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetEnrollmentIdNil
 
-`func (o *SocialGroupDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *SocialGroupDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *SocialGroupDto) UnsetBusinessProfileRecordID()`
+### UnsetEnrollmentId
+`func (o *SocialGroupDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-### GetSocialProfileID
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
+### GetSocialProfileId
 
-`func (o *SocialGroupDto) GetSocialProfileID() string`
+`func (o *SocialGroupDto) GetSocialProfileId() string`
 
-GetSocialProfileID returns the SocialProfileID field if non-nil, zero value otherwise.
+GetSocialProfileId returns the SocialProfileId field if non-nil, zero value otherwise.
 
-### GetSocialProfileIDOk
+### GetSocialProfileIdOk
 
-`func (o *SocialGroupDto) GetSocialProfileIDOk() (*string, bool)`
+`func (o *SocialGroupDto) GetSocialProfileIdOk() (*string, bool)`
 
-GetSocialProfileIDOk returns a tuple with the SocialProfileID field if it's non-nil, zero value otherwise
+GetSocialProfileIdOk returns a tuple with the SocialProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSocialProfileID
+### SetSocialProfileId
 
-`func (o *SocialGroupDto) SetSocialProfileID(v string)`
+`func (o *SocialGroupDto) SetSocialProfileId(v string)`
 
-SetSocialProfileID sets SocialProfileID field to given value.
+SetSocialProfileId sets SocialProfileId field to given value.
 
-### HasSocialProfileID
+### HasSocialProfileId
 
-`func (o *SocialGroupDto) HasSocialProfileID() bool`
+`func (o *SocialGroupDto) HasSocialProfileId() bool`
 
-HasSocialProfileID returns a boolean if a field has been set.
+HasSocialProfileId returns a boolean if a field has been set.
 
-### SetSocialProfileIDNil
+### SetSocialProfileIdNil
 
-`func (o *SocialGroupDto) SetSocialProfileIDNil(b bool)`
+`func (o *SocialGroupDto) SetSocialProfileIdNil(b bool)`
 
- SetSocialProfileIDNil sets the value for SocialProfileID to be an explicit nil
+ SetSocialProfileIdNil sets the value for SocialProfileId to be an explicit nil
 
-### UnsetSocialProfileID
-`func (o *SocialGroupDto) UnsetSocialProfileID()`
+### UnsetSocialProfileId
+`func (o *SocialGroupDto) UnsetSocialProfileId()`
 
-UnsetSocialProfileID ensures that no value is present for SocialProfileID, not even an explicit nil
+UnsetSocialProfileId ensures that no value is present for SocialProfileId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

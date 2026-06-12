@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**GetDealUnitFlowStagesCountAsync**](DealUnitFlowsAPI.md#GetDealUnitFlowStagesCountAsync) | **Get** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/Count | Get stages count for a deal unit flow
 [**GetDealUnitFlowsAsync**](DealUnitFlowsAPI.md#GetDealUnitFlowsAsync) | **Get** /api/v2/DealsService/DealUnitFlows | Get deal unit flows
 [**GetDealUnitFlowsCountAsync**](DealUnitFlowsAPI.md#GetDealUnitFlowsCountAsync) | **Get** /api/v2/DealsService/DealUnitFlows/Count | Get deal unit flows count
+[**PatchDealUnitFlowAsync**](DealUnitFlowsAPI.md#PatchDealUnitFlowAsync) | **Patch** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Patch a deal unit flow
+[**PatchDealUnitFlowStageAsync**](DealUnitFlowsAPI.md#PatchDealUnitFlowStageAsync) | **Patch** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Patch a deal unit flow stage
 [**UpdateDealUnitFlowAsync**](DealUnitFlowsAPI.md#UpdateDealUnitFlowAsync) | **Put** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Update a deal unit flow
 [**UpdateDealUnitFlowStageAsync**](DealUnitFlowsAPI.md#UpdateDealUnitFlowStageAsync) | **Put** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Update a deal unit flow stage
 
@@ -724,6 +726,157 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchDealUnitFlowAsync
+
+> EmptyEnvelope PatchDealUnitFlowAsync(ctx, dealUnitFlowId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a deal unit flow
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.PatchDealUnitFlowAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.PatchDealUnitFlowAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchDealUnitFlowAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.PatchDealUnitFlowAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchDealUnitFlowAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchDealUnitFlowStageAsync
+
+> EmptyEnvelope PatchDealUnitFlowStageAsync(ctx, dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a deal unit flow stage
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowStageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitFlowsAPI.PatchDealUnitFlowStageAsync(context.Background(), dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.PatchDealUnitFlowStageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchDealUnitFlowStageAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitFlowsAPI.PatchDealUnitFlowStageAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitFlowId** | **string** |  | 
+**dealUnitFlowStageId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchDealUnitFlowStageAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

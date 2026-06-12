@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstructorProfileID** | Pointer to **NullableString** |  | [optional] 
+**InstructorProfileId** | Pointer to **NullableString** |  | [optional] 
 **CourseTeamMembershipType** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -26,41 +26,41 @@ NewCourseTeamMembershipUpdateDtoWithDefaults instantiates a new CourseTeamMember
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetInstructorProfileID
+### GetInstructorProfileId
 
-`func (o *CourseTeamMembershipUpdateDto) GetInstructorProfileID() string`
+`func (o *CourseTeamMembershipUpdateDto) GetInstructorProfileId() string`
 
-GetInstructorProfileID returns the InstructorProfileID field if non-nil, zero value otherwise.
+GetInstructorProfileId returns the InstructorProfileId field if non-nil, zero value otherwise.
 
-### GetInstructorProfileIDOk
+### GetInstructorProfileIdOk
 
-`func (o *CourseTeamMembershipUpdateDto) GetInstructorProfileIDOk() (*string, bool)`
+`func (o *CourseTeamMembershipUpdateDto) GetInstructorProfileIdOk() (*string, bool)`
 
-GetInstructorProfileIDOk returns a tuple with the InstructorProfileID field if it's non-nil, zero value otherwise
+GetInstructorProfileIdOk returns a tuple with the InstructorProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetInstructorProfileID
+### SetInstructorProfileId
 
-`func (o *CourseTeamMembershipUpdateDto) SetInstructorProfileID(v string)`
+`func (o *CourseTeamMembershipUpdateDto) SetInstructorProfileId(v string)`
 
-SetInstructorProfileID sets InstructorProfileID field to given value.
+SetInstructorProfileId sets InstructorProfileId field to given value.
 
-### HasInstructorProfileID
+### HasInstructorProfileId
 
-`func (o *CourseTeamMembershipUpdateDto) HasInstructorProfileID() bool`
+`func (o *CourseTeamMembershipUpdateDto) HasInstructorProfileId() bool`
 
-HasInstructorProfileID returns a boolean if a field has been set.
+HasInstructorProfileId returns a boolean if a field has been set.
 
-### SetInstructorProfileIDNil
+### SetInstructorProfileIdNil
 
-`func (o *CourseTeamMembershipUpdateDto) SetInstructorProfileIDNil(b bool)`
+`func (o *CourseTeamMembershipUpdateDto) SetInstructorProfileIdNil(b bool)`
 
- SetInstructorProfileIDNil sets the value for InstructorProfileID to be an explicit nil
+ SetInstructorProfileIdNil sets the value for InstructorProfileId to be an explicit nil
 
-### UnsetInstructorProfileID
-`func (o *CourseTeamMembershipUpdateDto) UnsetInstructorProfileID()`
+### UnsetInstructorProfileId
+`func (o *CourseTeamMembershipUpdateDto) UnsetInstructorProfileId()`
 
-UnsetInstructorProfileID ensures that no value is present for InstructorProfileID, not even an explicit nil
+UnsetInstructorProfileId ensures that no value is present for InstructorProfileId, not even an explicit nil
 ### GetCourseTeamMembershipType
 
 `func (o *CourseTeamMembershipUpdateDto) GetCourseTeamMembershipType() string`

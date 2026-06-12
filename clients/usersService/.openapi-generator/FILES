@@ -122,6 +122,4 @@ model_user_update_dto.go
 model_wallet_dto.go
 model_wallet_dto_envelope.go
 response.go
-test/api_completions_test.go
-test/api_fenix_alliance_portals_website_test.go
 utils.go

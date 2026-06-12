@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**DeletePointOfSaleAsync**](PointOfSalesAPI.md#DeletePointOfSaleAsync) | **Delete** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Delete a point of sale
 [**GetPointOfSaleAsync**](PointOfSalesAPI.md#GetPointOfSaleAsync) | **Get** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Get point of sale by ID
 [**GetPointOfSalesAsync**](PointOfSalesAPI.md#GetPointOfSalesAsync) | **Get** /api/v2/SalesService/PointOfSales | Get point of sales
+[**PatchPointOfSaleAsync**](PointOfSalesAPI.md#PatchPointOfSaleAsync) | **Patch** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Patch a point of sale
 [**UpdatePointOfSaleAsync**](PointOfSalesAPI.md#UpdatePointOfSaleAsync) | **Put** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Update a point of sale
 
 
@@ -350,6 +351,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchPointOfSaleAsync
+
+> EmptyEnvelope PatchPointOfSaleAsync(ctx, pointOfSaleId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a point of sale
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	pointOfSaleId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PointOfSalesAPI.PatchPointOfSaleAsync(context.Background(), pointOfSaleId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PointOfSalesAPI.PatchPointOfSaleAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchPointOfSaleAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PointOfSalesAPI.PatchPointOfSaleAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pointOfSaleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchPointOfSaleAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

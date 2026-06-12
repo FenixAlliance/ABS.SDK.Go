@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetItemRetainSampleByIdAsync**](ItemRetainSamplesAPI.md#GetItemRetainSampleByIdAsync) | **Get** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Get item retain sample by ID
 [**GetItemRetainSamplesAsync**](ItemRetainSamplesAPI.md#GetItemRetainSamplesAsync) | **Get** /api/v2/LogisticsService/ItemRetainSamples | Get all item retain samples
 [**GetItemRetainSamplesCountAsync**](ItemRetainSamplesAPI.md#GetItemRetainSamplesCountAsync) | **Get** /api/v2/LogisticsService/ItemRetainSamples/Count | Get item retain samples count
+[**PatchItemRetainSampleAsync**](ItemRetainSamplesAPI.md#PatchItemRetainSampleAsync) | **Patch** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Patch an item retain sample
 [**UpdateItemRetainSampleAsync**](ItemRetainSamplesAPI.md#UpdateItemRetainSampleAsync) | **Put** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Update an item retain sample
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchItemRetainSampleAsync
+
+> EmptyEnvelope PatchItemRetainSampleAsync(ctx, retainSampleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch an item retain sample
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	retainSampleId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ItemRetainSamplesAPI.PatchItemRetainSampleAsync(context.Background(), retainSampleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemRetainSamplesAPI.PatchItemRetainSampleAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchItemRetainSampleAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ItemRetainSamplesAPI.PatchItemRetainSampleAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**retainSampleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchItemRetainSampleAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

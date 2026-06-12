@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseSectionByIdAsync**](CourseSectionsAPI.md#GetCourseSectionByIdAsync) | **Get** /api/v2/LearningService/CourseSections/{sectionId} | Get course section by ID
 [**GetCourseSectionsAsync**](CourseSectionsAPI.md#GetCourseSectionsAsync) | **Get** /api/v2/LearningService/CourseSections | Get all course sections
 [**GetCourseSectionsCountAsync**](CourseSectionsAPI.md#GetCourseSectionsCountAsync) | **Get** /api/v2/LearningService/CourseSections/Count | Get course sections count
+[**PatchCourseSectionAsync**](CourseSectionsAPI.md#PatchCourseSectionAsync) | **Patch** /api/v2/LearningService/CourseSections/{sectionId} | Patch a course section
 [**UpdateCourseSectionAsync**](CourseSectionsAPI.md#UpdateCourseSectionAsync) | **Put** /api/v2/LearningService/CourseSections/{sectionId} | Update a course section
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseSectionCreateDto := *openapiclient.NewCourseSectionCreateDto("Name_example", "CourseID_example") // CourseSectionCreateDto |  (optional)
+	courseSectionCreateDto := *openapiclient.NewCourseSectionCreateDto("Name_example", "CourseId_example") // CourseSectionCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,6 +365,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseSectionAsync
+
+> EmptyEnvelope PatchCourseSectionAsync(ctx, sectionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course section
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	sectionId := "sectionId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CourseSectionsAPI.PatchCourseSectionAsync(context.Background(), sectionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseSectionsAPI.PatchCourseSectionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchCourseSectionAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CourseSectionsAPI.PatchCourseSectionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sectionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseSectionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

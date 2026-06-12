@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Content** | Pointer to **NullableString** |  | [optional] 
 **Order** | Pointer to **NullableInt32** |  | [optional] 
-**CourseAssignmentID** | Pointer to **NullableString** |  | [optional] 
+**CourseAssignmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -169,41 +169,41 @@ HasOrder returns a boolean if a field has been set.
 `func (o *CourseAssignmentComponentUpdateDto) UnsetOrder()`
 
 UnsetOrder ensures that no value is present for Order, not even an explicit nil
-### GetCourseAssignmentID
+### GetCourseAssignmentId
 
-`func (o *CourseAssignmentComponentUpdateDto) GetCourseAssignmentID() string`
+`func (o *CourseAssignmentComponentUpdateDto) GetCourseAssignmentId() string`
 
-GetCourseAssignmentID returns the CourseAssignmentID field if non-nil, zero value otherwise.
+GetCourseAssignmentId returns the CourseAssignmentId field if non-nil, zero value otherwise.
 
-### GetCourseAssignmentIDOk
+### GetCourseAssignmentIdOk
 
-`func (o *CourseAssignmentComponentUpdateDto) GetCourseAssignmentIDOk() (*string, bool)`
+`func (o *CourseAssignmentComponentUpdateDto) GetCourseAssignmentIdOk() (*string, bool)`
 
-GetCourseAssignmentIDOk returns a tuple with the CourseAssignmentID field if it's non-nil, zero value otherwise
+GetCourseAssignmentIdOk returns a tuple with the CourseAssignmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseAssignmentID
+### SetCourseAssignmentId
 
-`func (o *CourseAssignmentComponentUpdateDto) SetCourseAssignmentID(v string)`
+`func (o *CourseAssignmentComponentUpdateDto) SetCourseAssignmentId(v string)`
 
-SetCourseAssignmentID sets CourseAssignmentID field to given value.
+SetCourseAssignmentId sets CourseAssignmentId field to given value.
 
-### HasCourseAssignmentID
+### HasCourseAssignmentId
 
-`func (o *CourseAssignmentComponentUpdateDto) HasCourseAssignmentID() bool`
+`func (o *CourseAssignmentComponentUpdateDto) HasCourseAssignmentId() bool`
 
-HasCourseAssignmentID returns a boolean if a field has been set.
+HasCourseAssignmentId returns a boolean if a field has been set.
 
-### SetCourseAssignmentIDNil
+### SetCourseAssignmentIdNil
 
-`func (o *CourseAssignmentComponentUpdateDto) SetCourseAssignmentIDNil(b bool)`
+`func (o *CourseAssignmentComponentUpdateDto) SetCourseAssignmentIdNil(b bool)`
 
- SetCourseAssignmentIDNil sets the value for CourseAssignmentID to be an explicit nil
+ SetCourseAssignmentIdNil sets the value for CourseAssignmentId to be an explicit nil
 
-### UnsetCourseAssignmentID
-`func (o *CourseAssignmentComponentUpdateDto) UnsetCourseAssignmentID()`
+### UnsetCourseAssignmentId
+`func (o *CourseAssignmentComponentUpdateDto) UnsetCourseAssignmentId()`
 
-UnsetCourseAssignmentID ensures that no value is present for CourseAssignmentID, not even an explicit nil
+UnsetCourseAssignmentId ensures that no value is present for CourseAssignmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

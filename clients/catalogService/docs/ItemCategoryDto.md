@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **EnableForLicenses** | Pointer to **bool** |  | [optional] 
 **EnableForServices** | Pointer to **bool** |  | [optional] 
 **EnableForSubscriptions** | Pointer to **bool** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
-**ParentItemCategoryID** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**ParentItemCategoryId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -363,111 +363,111 @@ SetEnableForSubscriptions sets EnableForSubscriptions field to given value.
 
 HasEnableForSubscriptions returns a boolean if a field has been set.
 
-### GetBusinessID
+### GetTenantId
 
-`func (o *ItemCategoryDto) GetBusinessID() string`
+`func (o *ItemCategoryDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *ItemCategoryDto) GetBusinessIDOk() (*string, bool)`
+`func (o *ItemCategoryDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *ItemCategoryDto) SetBusinessID(v string)`
+`func (o *ItemCategoryDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *ItemCategoryDto) HasBusinessID() bool`
+`func (o *ItemCategoryDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *ItemCategoryDto) SetBusinessIDNil(b bool)`
+`func (o *ItemCategoryDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *ItemCategoryDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *ItemCategoryDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *ItemCategoryDto) GetBusinessProfileRecordID() string`
+`func (o *ItemCategoryDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetEnrollmentIdOk
 
-`func (o *ItemCategoryDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *ItemCategoryDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetEnrollmentId
 
-`func (o *ItemCategoryDto) SetBusinessProfileRecordID(v string)`
+`func (o *ItemCategoryDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordID
+### HasEnrollmentId
 
-`func (o *ItemCategoryDto) HasBusinessProfileRecordID() bool`
+`func (o *ItemCategoryDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetEnrollmentIdNil
 
-`func (o *ItemCategoryDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *ItemCategoryDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *ItemCategoryDto) UnsetBusinessProfileRecordID()`
+### UnsetEnrollmentId
+`func (o *ItemCategoryDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
-### GetParentItemCategoryID
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
+### GetParentItemCategoryId
 
-`func (o *ItemCategoryDto) GetParentItemCategoryID() string`
+`func (o *ItemCategoryDto) GetParentItemCategoryId() string`
 
-GetParentItemCategoryID returns the ParentItemCategoryID field if non-nil, zero value otherwise.
+GetParentItemCategoryId returns the ParentItemCategoryId field if non-nil, zero value otherwise.
 
-### GetParentItemCategoryIDOk
+### GetParentItemCategoryIdOk
 
-`func (o *ItemCategoryDto) GetParentItemCategoryIDOk() (*string, bool)`
+`func (o *ItemCategoryDto) GetParentItemCategoryIdOk() (*string, bool)`
 
-GetParentItemCategoryIDOk returns a tuple with the ParentItemCategoryID field if it's non-nil, zero value otherwise
+GetParentItemCategoryIdOk returns a tuple with the ParentItemCategoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentItemCategoryID
+### SetParentItemCategoryId
 
-`func (o *ItemCategoryDto) SetParentItemCategoryID(v string)`
+`func (o *ItemCategoryDto) SetParentItemCategoryId(v string)`
 
-SetParentItemCategoryID sets ParentItemCategoryID field to given value.
+SetParentItemCategoryId sets ParentItemCategoryId field to given value.
 
-### HasParentItemCategoryID
+### HasParentItemCategoryId
 
-`func (o *ItemCategoryDto) HasParentItemCategoryID() bool`
+`func (o *ItemCategoryDto) HasParentItemCategoryId() bool`
 
-HasParentItemCategoryID returns a boolean if a field has been set.
+HasParentItemCategoryId returns a boolean if a field has been set.
 
-### SetParentItemCategoryIDNil
+### SetParentItemCategoryIdNil
 
-`func (o *ItemCategoryDto) SetParentItemCategoryIDNil(b bool)`
+`func (o *ItemCategoryDto) SetParentItemCategoryIdNil(b bool)`
 
- SetParentItemCategoryIDNil sets the value for ParentItemCategoryID to be an explicit nil
+ SetParentItemCategoryIdNil sets the value for ParentItemCategoryId to be an explicit nil
 
-### UnsetParentItemCategoryID
-`func (o *ItemCategoryDto) UnsetParentItemCategoryID()`
+### UnsetParentItemCategoryId
+`func (o *ItemCategoryDto) UnsetParentItemCategoryId()`
 
-UnsetParentItemCategoryID ensures that no value is present for ParentItemCategoryID, not even an explicit nil
+UnsetParentItemCategoryId ensures that no value is present for ParentItemCategoryId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

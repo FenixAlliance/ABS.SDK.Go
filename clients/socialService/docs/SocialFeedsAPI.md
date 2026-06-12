@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**GetFeedPostsCountAsync**](SocialFeedsAPI.md#GetFeedPostsCountAsync) | **Get** /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/Count | Count social feed posts
 [**GetNotificationAsync**](SocialFeedsAPI.md#GetNotificationAsync) | **Get** /api/v2/SocialService/SocialFeeds/{socialFeedId} | Get social feed by ID
 [**GetNotificationsCountAsync**](SocialFeedsAPI.md#GetNotificationsCountAsync) | **Get** /api/v2/SocialService/SocialFeeds/Count | Count social feeds
+[**PatchFeedPostAsync**](SocialFeedsAPI.md#PatchFeedPostAsync) | **Patch** /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/{feedPostId} | Patch a social feed post
 [**UpdateFeedPostAsync**](SocialFeedsAPI.md#UpdateFeedPostAsync) | **Put** /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/{feedPostId} | Update a social feed post
 
 
@@ -613,6 +614,87 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchFeedPostAsync
+
+> EmptyEnvelope PatchFeedPostAsync(ctx, socialFeedId, feedPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a social feed post
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialFeedId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	feedPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialFeedsAPI.PatchFeedPostAsync(context.Background(), socialFeedId, feedPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialFeedsAPI.PatchFeedPostAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchFeedPostAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialFeedsAPI.PatchFeedPostAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialFeedId** | **string** |  | 
+**feedPostId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchFeedPostAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **socialProfileId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

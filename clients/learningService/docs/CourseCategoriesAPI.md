@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseCategoriesAsync**](CourseCategoriesAPI.md#GetCourseCategoriesAsync) | **Get** /api/v2/LearningService/CourseCategories | Get all course categories
 [**GetCourseCategoriesCountAsync**](CourseCategoriesAPI.md#GetCourseCategoriesCountAsync) | **Get** /api/v2/LearningService/CourseCategories/Count | Get course categories count
 [**GetCourseCategoryByIdAsync**](CourseCategoriesAPI.md#GetCourseCategoryByIdAsync) | **Get** /api/v2/LearningService/CourseCategories/{categoryId} | Get course category by ID
+[**PatchCourseCategoryAsync**](CourseCategoriesAPI.md#PatchCourseCategoryAsync) | **Patch** /api/v2/LearningService/CourseCategories/{categoryId} | Patch a course category
 [**UpdateCourseCategoryAsync**](CourseCategoriesAPI.md#UpdateCourseCategoryAsync) | **Put** /api/v2/LearningService/CourseCategories/{categoryId} | Update a course category
 
 
@@ -364,6 +365,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseCategoryAsync
+
+> EmptyEnvelope PatchCourseCategoryAsync(ctx, categoryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course category
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	categoryId := "categoryId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CourseCategoriesAPI.PatchCourseCategoryAsync(context.Background(), categoryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseCategoriesAPI.PatchCourseCategoryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchCourseCategoryAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CourseCategoriesAPI.PatchCourseCategoryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**categoryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseCategoryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

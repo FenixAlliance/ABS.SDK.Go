@@ -47,6 +47,7 @@ docs/OAuthApplicationsAPI.md
 docs/OAuthAuthorizationDto.md
 docs/OAuthAuthorizationDtoEnvelope.md
 docs/OAuthAuthorizationDtoListEnvelope.md
+docs/Operation.md
 docs/PermissionsAPI.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
@@ -105,6 +106,7 @@ model_o_auth_application_update_dto.go
 model_o_auth_authorization_dto.go
 model_o_auth_authorization_dto_envelope.go
 model_o_auth_authorization_dto_list_envelope.go
+model_operation.go
 model_refresh_request.go
 model_register_request.go
 model_resend_confirmation_email_request.go
@@ -128,6 +130,4 @@ model_two_factor_response.go
 model_webhook_request_dto.go
 model_webhook_request_dto_list_envelope.go
 response.go
-test/api_completions_test.go
-test/api_fenix_alliance_portals_website_test.go
 utils.go

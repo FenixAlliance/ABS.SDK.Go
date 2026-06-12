@@ -11,8 +11,7 @@ Name | Type | Description | Notes
 **NewValue** | Pointer to **float64** |  | [optional] 
 **Reason** | Pointer to **NullableString** |  | [optional] 
 **AmendmentDate** | Pointer to **time.Time** |  | [optional] 
-**ApprovedBy** | Pointer to **NullableString** |  | [optional] 
-**ApprovalDate** | Pointer to **NullableTime** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -228,76 +227,41 @@ SetAmendmentDate sets AmendmentDate field to given value.
 
 HasAmendmentDate returns a boolean if a field has been set.
 
-### GetApprovedBy
+### GetCurrencyId
 
-`func (o *AssetValueAmendCreateDto) GetApprovedBy() string`
+`func (o *AssetValueAmendCreateDto) GetCurrencyId() string`
 
-GetApprovedBy returns the ApprovedBy field if non-nil, zero value otherwise.
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
 
-### GetApprovedByOk
+### GetCurrencyIdOk
 
-`func (o *AssetValueAmendCreateDto) GetApprovedByOk() (*string, bool)`
+`func (o *AssetValueAmendCreateDto) GetCurrencyIdOk() (*string, bool)`
 
-GetApprovedByOk returns a tuple with the ApprovedBy field if it's non-nil, zero value otherwise
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApprovedBy
+### SetCurrencyId
 
-`func (o *AssetValueAmendCreateDto) SetApprovedBy(v string)`
+`func (o *AssetValueAmendCreateDto) SetCurrencyId(v string)`
 
-SetApprovedBy sets ApprovedBy field to given value.
+SetCurrencyId sets CurrencyId field to given value.
 
-### HasApprovedBy
+### HasCurrencyId
 
-`func (o *AssetValueAmendCreateDto) HasApprovedBy() bool`
+`func (o *AssetValueAmendCreateDto) HasCurrencyId() bool`
 
-HasApprovedBy returns a boolean if a field has been set.
+HasCurrencyId returns a boolean if a field has been set.
 
-### SetApprovedByNil
+### SetCurrencyIdNil
 
-`func (o *AssetValueAmendCreateDto) SetApprovedByNil(b bool)`
+`func (o *AssetValueAmendCreateDto) SetCurrencyIdNil(b bool)`
 
- SetApprovedByNil sets the value for ApprovedBy to be an explicit nil
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
 
-### UnsetApprovedBy
-`func (o *AssetValueAmendCreateDto) UnsetApprovedBy()`
+### UnsetCurrencyId
+`func (o *AssetValueAmendCreateDto) UnsetCurrencyId()`
 
-UnsetApprovedBy ensures that no value is present for ApprovedBy, not even an explicit nil
-### GetApprovalDate
-
-`func (o *AssetValueAmendCreateDto) GetApprovalDate() time.Time`
-
-GetApprovalDate returns the ApprovalDate field if non-nil, zero value otherwise.
-
-### GetApprovalDateOk
-
-`func (o *AssetValueAmendCreateDto) GetApprovalDateOk() (*time.Time, bool)`
-
-GetApprovalDateOk returns a tuple with the ApprovalDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApprovalDate
-
-`func (o *AssetValueAmendCreateDto) SetApprovalDate(v time.Time)`
-
-SetApprovalDate sets ApprovalDate field to given value.
-
-### HasApprovalDate
-
-`func (o *AssetValueAmendCreateDto) HasApprovalDate() bool`
-
-HasApprovalDate returns a boolean if a field has been set.
-
-### SetApprovalDateNil
-
-`func (o *AssetValueAmendCreateDto) SetApprovalDateNil(b bool)`
-
- SetApprovalDateNil sets the value for ApprovalDate to be an explicit nil
-
-### UnsetApprovalDate
-`func (o *AssetValueAmendCreateDto) UnsetApprovalDate()`
-
-UnsetApprovalDate ensures that no value is present for ApprovalDate, not even an explicit nil
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

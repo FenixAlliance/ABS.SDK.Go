@@ -63,6 +63,8 @@ Name | Type | Description | Notes
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **BankId** | Pointer to **NullableString** |  | [optional] 
 **PaymentTokenId** | Pointer to **NullableString** |  | [optional] 
+**EmisorWalletAccountId** | Pointer to **NullableString** |  | [optional] 
+**ReceiverWalletAccountId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -1978,6 +1980,76 @@ HasPaymentTokenId returns a boolean if a field has been set.
 `func (o *PaymentDto) UnsetPaymentTokenId()`
 
 UnsetPaymentTokenId ensures that no value is present for PaymentTokenId, not even an explicit nil
+### GetEmisorWalletAccountId
+
+`func (o *PaymentDto) GetEmisorWalletAccountId() string`
+
+GetEmisorWalletAccountId returns the EmisorWalletAccountId field if non-nil, zero value otherwise.
+
+### GetEmisorWalletAccountIdOk
+
+`func (o *PaymentDto) GetEmisorWalletAccountIdOk() (*string, bool)`
+
+GetEmisorWalletAccountIdOk returns a tuple with the EmisorWalletAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmisorWalletAccountId
+
+`func (o *PaymentDto) SetEmisorWalletAccountId(v string)`
+
+SetEmisorWalletAccountId sets EmisorWalletAccountId field to given value.
+
+### HasEmisorWalletAccountId
+
+`func (o *PaymentDto) HasEmisorWalletAccountId() bool`
+
+HasEmisorWalletAccountId returns a boolean if a field has been set.
+
+### SetEmisorWalletAccountIdNil
+
+`func (o *PaymentDto) SetEmisorWalletAccountIdNil(b bool)`
+
+ SetEmisorWalletAccountIdNil sets the value for EmisorWalletAccountId to be an explicit nil
+
+### UnsetEmisorWalletAccountId
+`func (o *PaymentDto) UnsetEmisorWalletAccountId()`
+
+UnsetEmisorWalletAccountId ensures that no value is present for EmisorWalletAccountId, not even an explicit nil
+### GetReceiverWalletAccountId
+
+`func (o *PaymentDto) GetReceiverWalletAccountId() string`
+
+GetReceiverWalletAccountId returns the ReceiverWalletAccountId field if non-nil, zero value otherwise.
+
+### GetReceiverWalletAccountIdOk
+
+`func (o *PaymentDto) GetReceiverWalletAccountIdOk() (*string, bool)`
+
+GetReceiverWalletAccountIdOk returns a tuple with the ReceiverWalletAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReceiverWalletAccountId
+
+`func (o *PaymentDto) SetReceiverWalletAccountId(v string)`
+
+SetReceiverWalletAccountId sets ReceiverWalletAccountId field to given value.
+
+### HasReceiverWalletAccountId
+
+`func (o *PaymentDto) HasReceiverWalletAccountId() bool`
+
+HasReceiverWalletAccountId returns a boolean if a field has been set.
+
+### SetReceiverWalletAccountIdNil
+
+`func (o *PaymentDto) SetReceiverWalletAccountIdNil(b bool)`
+
+ SetReceiverWalletAccountIdNil sets the value for ReceiverWalletAccountId to be an explicit nil
+
+### UnsetReceiverWalletAccountId
+`func (o *PaymentDto) UnsetReceiverWalletAccountId()`
+
+UnsetReceiverWalletAccountId ensures that no value is present for ReceiverWalletAccountId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

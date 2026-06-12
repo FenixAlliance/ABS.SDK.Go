@@ -4,6 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**BatchUpdateStockItems**](ItemsAPI.md#BatchUpdateStockItems) | **Post** /api/v2/CatalogService/Items/Batch | Bulk-update stock items
+[**BulkUpsertStockItems**](ItemsAPI.md#BulkUpsertStockItems) | **Post** /api/v2/CatalogService/Items/BulkUpsert | Bulk upsert stock items from rows
 [**CountStockItemTagsByItemId**](ItemsAPI.md#CountStockItemTagsByItemId) | **Get** /api/v2/CatalogService/Items/{itemId}/Tags/Count | Count tags for a stock item
 [**CountStockItemsByBusiness**](ItemsAPI.md#CountStockItemsByBusiness) | **Get** /api/v2/CatalogService/Items/Count | Count stock items by business
 [**CreateStockItem**](ItemsAPI.md#CreateStockItem) | **Post** /api/v2/CatalogService/Items | Create a new stock item
@@ -46,6 +48,8 @@ Method | HTTP request | Description
 [**GetStockItemsOdataMaxPrice**](ItemsAPI.md#GetStockItemsOdataMaxPrice) | **Get** /api/v2/CatalogService/Items/MaxPrice | Get max price of stock items
 [**GetStockItemsOdataMinPrice**](ItemsAPI.md#GetStockItemsOdataMinPrice) | **Get** /api/v2/CatalogService/Items/MinPrice | Get min price of stock items
 [**GetStockItemsQuery**](ItemsAPI.md#GetStockItemsQuery) | **Get** /api/v2/CatalogService/Items | Get all stock items
+[**PatchStockItem**](ItemsAPI.md#PatchStockItem) | **Patch** /api/v2/CatalogService/Items/{itemId} | Patch a stock item
+[**RecalculateStockItemPrices**](ItemsAPI.md#RecalculateStockItemPrices) | **Post** /api/v2/CatalogService/Items/RecalculatePrices | Recalculate stock item prices
 [**RelateAttachmentToStockItem**](ItemsAPI.md#RelateAttachmentToStockItem) | **Post** /api/v2/CatalogService/Items/{itemId}/Attachments/{itemAttachmentId} | Relate attachment to stock item
 [**RelateAttributeOptionToStockItem**](ItemsAPI.md#RelateAttributeOptionToStockItem) | **Post** /api/v2/CatalogService/Items/{itemId}/AttributeOptions/{itemAttributeOptionId} | Relate attribute option to stock item
 [**RelateBrandToStockItem**](ItemsAPI.md#RelateBrandToStockItem) | **Post** /api/v2/CatalogService/Items/{itemId}/Brands/{itemBrandId} | Relate brand to stock item
@@ -81,6 +85,146 @@ Method | HTTP request | Description
 [**UpdateProductPrimaryImageAsync**](ItemsAPI.md#UpdateProductPrimaryImageAsync) | **Post** /api/v2/CatalogService/Items/{itemId}/Images/Primary | Update item primary image
 [**UpdateStockItem**](ItemsAPI.md#UpdateStockItem) | **Put** /api/v2/CatalogService/Items/{itemId} | Update a stock item
 
+
+
+## BatchUpdateStockItems
+
+> BatchUpdateStockItems(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BatchStockItemUpdateRequest(batchStockItemUpdateRequest).Execute()
+
+Bulk-update stock items
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	batchStockItemUpdateRequest := *openapiclient.NewBatchStockItemUpdateRequest() // BatchStockItemUpdateRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ItemsAPI.BatchUpdateStockItems(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BatchStockItemUpdateRequest(batchStockItemUpdateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.BatchUpdateStockItems``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBatchUpdateStockItemsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **batchStockItemUpdateRequest** | [**BatchStockItemUpdateRequest**](BatchStockItemUpdateRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BulkUpsertStockItems
+
+> BulkUpsertStockItems(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BulkProduct(bulkProduct).Execute()
+
+Bulk upsert stock items from rows
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bulkProduct := []openapiclient.BulkProduct{*openapiclient.NewBulkProduct()} // []BulkProduct |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ItemsAPI.BulkUpsertStockItems(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BulkProduct(bulkProduct).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.BulkUpsertStockItems``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBulkUpsertStockItemsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **bulkProduct** | [**[]BulkProduct**](BulkProduct.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CountStockItemTagsByItemId
@@ -3222,6 +3366,152 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchStockItem
+
+> PatchStockItem(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a stock item
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ItemsAPI.PatchStockItem(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.PatchStockItem``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**itemId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchStockItemRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RecalculateStockItemPrices
+
+> RecalculateStockItemPrices(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).RequestBody(requestBody).Execute()
+
+Recalculate stock item prices
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	requestBody := []string{"Property_example"} // []string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ItemsAPI.RecalculateStockItemPrices(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).RequestBody(requestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.RecalculateStockItemPrices``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRecalculateStockItemPricesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **requestBody** | **[]string** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

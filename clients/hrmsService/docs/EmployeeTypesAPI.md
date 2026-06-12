@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetEmployeeTypeByIdAsync**](EmployeeTypesAPI.md#GetEmployeeTypeByIdAsync) | **Get** /api/v2/HrmsService/EmployeeTypes/{employeeTypeId} | Get employee type by ID
 [**GetEmployeeTypesAsync**](EmployeeTypesAPI.md#GetEmployeeTypesAsync) | **Get** /api/v2/HrmsService/EmployeeTypes | Get employee types
 [**GetEmployeeTypesCountAsync**](EmployeeTypesAPI.md#GetEmployeeTypesCountAsync) | **Get** /api/v2/HrmsService/EmployeeTypes/Count | Count employee types
+[**PatchEmployeeTypeAsync**](EmployeeTypesAPI.md#PatchEmployeeTypeAsync) | **Patch** /api/v2/HrmsService/EmployeeTypes/{employeeTypeId} | Patch an employee type
 [**UpdateEmployeeTypeAsync**](EmployeeTypesAPI.md#UpdateEmployeeTypeAsync) | **Put** /api/v2/HrmsService/EmployeeTypes/{employeeTypeId} | Update an employee type
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchEmployeeTypeAsync
+
+> EmptyEnvelope PatchEmployeeTypeAsync(ctx, employeeTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch an employee type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	employeeTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EmployeeTypesAPI.PatchEmployeeTypeAsync(context.Background(), employeeTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EmployeeTypesAPI.PatchEmployeeTypeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchEmployeeTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmployeeTypesAPI.PatchEmployeeTypeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**employeeTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchEmployeeTypeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

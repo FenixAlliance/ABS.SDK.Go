@@ -31,6 +31,7 @@ docs/LoyaltyProgramDtoListEnvelope.md
 docs/LoyaltyProgramUpdateDto.md
 docs/LoyaltyProgramsAPI.md
 docs/MarginsAPI.md
+docs/Operation.md
 docs/PointOfSaleCreateDto.md
 docs/PointOfSaleDto.md
 docs/PointOfSaleDtoEnvelope.md
@@ -76,6 +77,7 @@ model_loyalty_program_dto.go
 model_loyalty_program_dto_envelope.go
 model_loyalty_program_dto_list_envelope.go
 model_loyalty_program_update_dto.go
+model_operation.go
 model_point_of_sale_create_dto.go
 model_point_of_sale_dto.go
 model_point_of_sale_dto_envelope.go
@@ -100,10 +102,4 @@ model_tenant_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_completions_test.go
-test/api_fenix_alliance_portals_website_test.go
-test/api_loyalty_programs_test.go
-test/api_point_of_sales_test.go
-test/api_sales_literatures_test.go
-test/api_stores_test.go
 utils.go

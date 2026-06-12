@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetServiceCaseByIdAsync**](ServiceCasesAPI.md#GetServiceCaseByIdAsync) | **Get** /api/v2/ServicesService/ServiceCases/{serviceCaseId} | Get a service case by ID
 [**GetServiceCasesAsync**](ServiceCasesAPI.md#GetServiceCasesAsync) | **Get** /api/v2/ServicesService/ServiceCases | Get all service cases
 [**GetServiceCasesCountAsync**](ServiceCasesAPI.md#GetServiceCasesCountAsync) | **Get** /api/v2/ServicesService/ServiceCases/Count | Get service cases count
+[**PatchServiceCaseAsync**](ServiceCasesAPI.md#PatchServiceCaseAsync) | **Patch** /api/v2/ServicesService/ServiceCases/{serviceCaseId} | Patch a service case
 [**UpdateServiceCaseAsync**](ServiceCasesAPI.md#UpdateServiceCaseAsync) | **Put** /api/v2/ServicesService/ServiceCases/{serviceCaseId} | Update a service case
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchServiceCaseAsync
+
+> Envelope PatchServiceCaseAsync(ctx, serviceCaseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a service case
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	serviceCaseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServiceCasesAPI.PatchServiceCaseAsync(context.Background(), serviceCaseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServiceCasesAPI.PatchServiceCaseAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchServiceCaseAsync`: Envelope
+	fmt.Fprintf(os.Stdout, "Response from `ServiceCasesAPI.PatchServiceCaseAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceCaseId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchServiceCaseAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**Envelope**](Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

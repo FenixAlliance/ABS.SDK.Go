@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseGradingRubricByIdAsync**](CourseGradingRubricsAPI.md#GetCourseGradingRubricByIdAsync) | **Get** /api/v2/LearningService/CourseGradingRubrics/{rubricId} | Get course grading rubric by ID
 [**GetCourseGradingRubricsAsync**](CourseGradingRubricsAPI.md#GetCourseGradingRubricsAsync) | **Get** /api/v2/LearningService/CourseGradingRubrics | Get all course grading rubrics
 [**GetCourseGradingRubricsCountAsync**](CourseGradingRubricsAPI.md#GetCourseGradingRubricsCountAsync) | **Get** /api/v2/LearningService/CourseGradingRubrics/Count | Get course grading rubrics count
+[**PatchCourseGradingRubricAsync**](CourseGradingRubricsAPI.md#PatchCourseGradingRubricAsync) | **Patch** /api/v2/LearningService/CourseGradingRubrics/{rubricId} | Patch a course grading rubric
 [**UpdateCourseGradingRubricAsync**](CourseGradingRubricsAPI.md#UpdateCourseGradingRubricAsync) | **Put** /api/v2/LearningService/CourseGradingRubrics/{rubricId} | Update a course grading rubric
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseGradingRubricCreateDto := *openapiclient.NewCourseGradingRubricCreateDto("Title_example", "CourseID_example") // CourseGradingRubricCreateDto |  (optional)
+	courseGradingRubricCreateDto := *openapiclient.NewCourseGradingRubricCreateDto("Title_example", "CourseId_example") // CourseGradingRubricCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,6 +365,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseGradingRubricAsync
+
+> PatchCourseGradingRubricAsync(ctx, rubricId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course grading rubric
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	rubricId := "rubricId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CourseGradingRubricsAPI.PatchCourseGradingRubricAsync(context.Background(), rubricId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseGradingRubricsAPI.PatchCourseGradingRubricAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**rubricId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseGradingRubricAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

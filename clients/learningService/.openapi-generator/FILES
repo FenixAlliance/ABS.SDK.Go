@@ -137,6 +137,7 @@ docs/CourseWikiDto.md
 docs/CourseWikiUpdateDto.md
 docs/CourseWikisAPI.md
 docs/CoursesAPI.md
+docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/FenixAlliancePortalsWebsiteAPI.md
 docs/ForgotPasswordRequest.md
@@ -150,6 +151,7 @@ docs/InstructorProfileUpdateDto.md
 docs/InstructorProfilesAPI.md
 docs/LoginRequest.md
 docs/MeAPI.md
+docs/Operation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -245,6 +247,7 @@ model_course_update_dto.go
 model_course_wiki_create_dto.go
 model_course_wiki_dto.go
 model_course_wiki_update_dto.go
+model_empty_envelope.go
 model_error_envelope.go
 model_forgot_password_request.go
 model_http_validation_problem_details.go
@@ -255,6 +258,7 @@ model_instructor_profile_dto.go
 model_instructor_profile_dto_i_read_only_list_envelope.go
 model_instructor_profile_update_dto.go
 model_login_request.go
+model_operation.go
 model_refresh_request.go
 model_register_request.go
 model_resend_confirmation_email_request.go
@@ -266,12 +270,4 @@ model_student_profile_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_completions_test.go
-test/api_course_assignment_components_test.go
-test/api_course_assignment_types_test.go
-test/api_course_content_groups_test.go
-test/api_course_grading_rubrics_test.go
-test/api_course_team_memberships_test.go
-test/api_fenix_alliance_portals_website_test.go
-test/api_me_test.go
 utils.go

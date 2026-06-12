@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **Cost** | Pointer to **float64** |  | [optional] 
 **Taxable** | Pointer to **bool** |  | [optional] 
 **TaxIncluded** | Pointer to **bool** |  | [optional] 
-**CurrencyID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
 **ShippingClassCalculationType** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -249,76 +249,76 @@ SetTaxIncluded sets TaxIncluded field to given value.
 
 HasTaxIncluded returns a boolean if a field has been set.
 
-### GetCurrencyID
+### GetCurrencyId
 
-`func (o *ShippingMethodDto) GetCurrencyID() string`
+`func (o *ShippingMethodDto) GetCurrencyId() string`
 
-GetCurrencyID returns the CurrencyID field if non-nil, zero value otherwise.
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
 
-### GetCurrencyIDOk
+### GetCurrencyIdOk
 
-`func (o *ShippingMethodDto) GetCurrencyIDOk() (*string, bool)`
+`func (o *ShippingMethodDto) GetCurrencyIdOk() (*string, bool)`
 
-GetCurrencyIDOk returns a tuple with the CurrencyID field if it's non-nil, zero value otherwise
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrencyID
+### SetCurrencyId
 
-`func (o *ShippingMethodDto) SetCurrencyID(v string)`
+`func (o *ShippingMethodDto) SetCurrencyId(v string)`
 
-SetCurrencyID sets CurrencyID field to given value.
+SetCurrencyId sets CurrencyId field to given value.
 
-### HasCurrencyID
+### HasCurrencyId
 
-`func (o *ShippingMethodDto) HasCurrencyID() bool`
+`func (o *ShippingMethodDto) HasCurrencyId() bool`
 
-HasCurrencyID returns a boolean if a field has been set.
+HasCurrencyId returns a boolean if a field has been set.
 
-### SetCurrencyIDNil
+### SetCurrencyIdNil
 
-`func (o *ShippingMethodDto) SetCurrencyIDNil(b bool)`
+`func (o *ShippingMethodDto) SetCurrencyIdNil(b bool)`
 
- SetCurrencyIDNil sets the value for CurrencyID to be an explicit nil
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
 
-### UnsetCurrencyID
-`func (o *ShippingMethodDto) UnsetCurrencyID()`
+### UnsetCurrencyId
+`func (o *ShippingMethodDto) UnsetCurrencyId()`
 
-UnsetCurrencyID ensures that no value is present for CurrencyID, not even an explicit nil
-### GetBusinessID
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
+### GetTenantId
 
-`func (o *ShippingMethodDto) GetBusinessID() string`
+`func (o *ShippingMethodDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *ShippingMethodDto) GetBusinessIDOk() (*string, bool)`
+`func (o *ShippingMethodDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *ShippingMethodDto) SetBusinessID(v string)`
+`func (o *ShippingMethodDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *ShippingMethodDto) HasBusinessID() bool`
+`func (o *ShippingMethodDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *ShippingMethodDto) SetBusinessIDNil(b bool)`
+`func (o *ShippingMethodDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *ShippingMethodDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *ShippingMethodDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetShippingClassCalculationType
 
 `func (o *ShippingMethodDto) GetShippingClassCalculationType() string`

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Cost** | Pointer to **float64** |  | [optional] 
 **Taxable** | Pointer to **bool** |  | [optional] 
 **TaxIncluded** | Pointer to **bool** |  | [optional] 
-**CurrencyID** | Pointer to **NullableString** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **ShippingClassCalculationType** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -176,41 +176,41 @@ SetTaxIncluded sets TaxIncluded field to given value.
 
 HasTaxIncluded returns a boolean if a field has been set.
 
-### GetCurrencyID
+### GetCurrencyId
 
-`func (o *ShippingMethodUpdateDto) GetCurrencyID() string`
+`func (o *ShippingMethodUpdateDto) GetCurrencyId() string`
 
-GetCurrencyID returns the CurrencyID field if non-nil, zero value otherwise.
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
 
-### GetCurrencyIDOk
+### GetCurrencyIdOk
 
-`func (o *ShippingMethodUpdateDto) GetCurrencyIDOk() (*string, bool)`
+`func (o *ShippingMethodUpdateDto) GetCurrencyIdOk() (*string, bool)`
 
-GetCurrencyIDOk returns a tuple with the CurrencyID field if it's non-nil, zero value otherwise
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrencyID
+### SetCurrencyId
 
-`func (o *ShippingMethodUpdateDto) SetCurrencyID(v string)`
+`func (o *ShippingMethodUpdateDto) SetCurrencyId(v string)`
 
-SetCurrencyID sets CurrencyID field to given value.
+SetCurrencyId sets CurrencyId field to given value.
 
-### HasCurrencyID
+### HasCurrencyId
 
-`func (o *ShippingMethodUpdateDto) HasCurrencyID() bool`
+`func (o *ShippingMethodUpdateDto) HasCurrencyId() bool`
 
-HasCurrencyID returns a boolean if a field has been set.
+HasCurrencyId returns a boolean if a field has been set.
 
-### SetCurrencyIDNil
+### SetCurrencyIdNil
 
-`func (o *ShippingMethodUpdateDto) SetCurrencyIDNil(b bool)`
+`func (o *ShippingMethodUpdateDto) SetCurrencyIdNil(b bool)`
 
- SetCurrencyIDNil sets the value for CurrencyID to be an explicit nil
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
 
-### UnsetCurrencyID
-`func (o *ShippingMethodUpdateDto) UnsetCurrencyID()`
+### UnsetCurrencyId
+`func (o *ShippingMethodUpdateDto) UnsetCurrencyId()`
 
-UnsetCurrencyID ensures that no value is present for CurrencyID, not even an explicit nil
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
 ### GetShippingClassCalculationType
 
 `func (o *ShippingMethodUpdateDto) GetShippingClassCalculationType() string`

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **EndQuantity** | Pointer to **float64** |  | [optional] 
 **Percent** | Pointer to **float64** |  | [optional] 
 **Value** | Pointer to **float64** |  | [optional] 
+**ItemId** | Pointer to **NullableString** |  | [optional] 
 **DiscountListId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -165,6 +166,41 @@ SetValue sets Value field to given value.
 
 HasValue returns a boolean if a field has been set.
 
+### GetItemId
+
+`func (o *DiscountUpdateDto) GetItemId() string`
+
+GetItemId returns the ItemId field if non-nil, zero value otherwise.
+
+### GetItemIdOk
+
+`func (o *DiscountUpdateDto) GetItemIdOk() (*string, bool)`
+
+GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItemId
+
+`func (o *DiscountUpdateDto) SetItemId(v string)`
+
+SetItemId sets ItemId field to given value.
+
+### HasItemId
+
+`func (o *DiscountUpdateDto) HasItemId() bool`
+
+HasItemId returns a boolean if a field has been set.
+
+### SetItemIdNil
+
+`func (o *DiscountUpdateDto) SetItemIdNil(b bool)`
+
+ SetItemIdNil sets the value for ItemId to be an explicit nil
+
+### UnsetItemId
+`func (o *DiscountUpdateDto) UnsetItemId()`
+
+UnsetItemId ensures that no value is present for ItemId, not even an explicit nil
 ### GetDiscountListId
 
 `func (o *DiscountUpdateDto) GetDiscountListId() string`

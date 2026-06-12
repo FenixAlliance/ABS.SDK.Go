@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **Summary** | Pointer to **NullableString** |  | [optional] 
 **Code** | Pointer to **NullableString** |  | [optional] 
 **Version** | Pointer to **NullableString** |  | [optional] 
-**CourseCategoryID** | Pointer to **NullableString** |  | [optional] 
-**InstructorProfileID** | Pointer to **NullableString** |  | [optional] 
-**CurrencyID** | Pointer to **NullableString** |  | [optional] 
+**CourseCategoryId** | Pointer to **NullableString** |  | [optional] 
+**InstructorProfileId** | Pointer to **NullableString** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **RegularPrice** | Pointer to **NullableFloat64** |  | [optional] 
 **MaxCourseEnrollments** | Pointer to **NullableInt32** |  | [optional] 
 **TotalEffortInWeeks** | Pointer to **NullableInt32** |  | [optional] 
@@ -253,111 +253,111 @@ HasVersion returns a boolean if a field has been set.
 `func (o *CourseUpdateDto) UnsetVersion()`
 
 UnsetVersion ensures that no value is present for Version, not even an explicit nil
-### GetCourseCategoryID
+### GetCourseCategoryId
 
-`func (o *CourseUpdateDto) GetCourseCategoryID() string`
+`func (o *CourseUpdateDto) GetCourseCategoryId() string`
 
-GetCourseCategoryID returns the CourseCategoryID field if non-nil, zero value otherwise.
+GetCourseCategoryId returns the CourseCategoryId field if non-nil, zero value otherwise.
 
-### GetCourseCategoryIDOk
+### GetCourseCategoryIdOk
 
-`func (o *CourseUpdateDto) GetCourseCategoryIDOk() (*string, bool)`
+`func (o *CourseUpdateDto) GetCourseCategoryIdOk() (*string, bool)`
 
-GetCourseCategoryIDOk returns a tuple with the CourseCategoryID field if it's non-nil, zero value otherwise
+GetCourseCategoryIdOk returns a tuple with the CourseCategoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseCategoryID
+### SetCourseCategoryId
 
-`func (o *CourseUpdateDto) SetCourseCategoryID(v string)`
+`func (o *CourseUpdateDto) SetCourseCategoryId(v string)`
 
-SetCourseCategoryID sets CourseCategoryID field to given value.
+SetCourseCategoryId sets CourseCategoryId field to given value.
 
-### HasCourseCategoryID
+### HasCourseCategoryId
 
-`func (o *CourseUpdateDto) HasCourseCategoryID() bool`
+`func (o *CourseUpdateDto) HasCourseCategoryId() bool`
 
-HasCourseCategoryID returns a boolean if a field has been set.
+HasCourseCategoryId returns a boolean if a field has been set.
 
-### SetCourseCategoryIDNil
+### SetCourseCategoryIdNil
 
-`func (o *CourseUpdateDto) SetCourseCategoryIDNil(b bool)`
+`func (o *CourseUpdateDto) SetCourseCategoryIdNil(b bool)`
 
- SetCourseCategoryIDNil sets the value for CourseCategoryID to be an explicit nil
+ SetCourseCategoryIdNil sets the value for CourseCategoryId to be an explicit nil
 
-### UnsetCourseCategoryID
-`func (o *CourseUpdateDto) UnsetCourseCategoryID()`
+### UnsetCourseCategoryId
+`func (o *CourseUpdateDto) UnsetCourseCategoryId()`
 
-UnsetCourseCategoryID ensures that no value is present for CourseCategoryID, not even an explicit nil
-### GetInstructorProfileID
+UnsetCourseCategoryId ensures that no value is present for CourseCategoryId, not even an explicit nil
+### GetInstructorProfileId
 
-`func (o *CourseUpdateDto) GetInstructorProfileID() string`
+`func (o *CourseUpdateDto) GetInstructorProfileId() string`
 
-GetInstructorProfileID returns the InstructorProfileID field if non-nil, zero value otherwise.
+GetInstructorProfileId returns the InstructorProfileId field if non-nil, zero value otherwise.
 
-### GetInstructorProfileIDOk
+### GetInstructorProfileIdOk
 
-`func (o *CourseUpdateDto) GetInstructorProfileIDOk() (*string, bool)`
+`func (o *CourseUpdateDto) GetInstructorProfileIdOk() (*string, bool)`
 
-GetInstructorProfileIDOk returns a tuple with the InstructorProfileID field if it's non-nil, zero value otherwise
+GetInstructorProfileIdOk returns a tuple with the InstructorProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetInstructorProfileID
+### SetInstructorProfileId
 
-`func (o *CourseUpdateDto) SetInstructorProfileID(v string)`
+`func (o *CourseUpdateDto) SetInstructorProfileId(v string)`
 
-SetInstructorProfileID sets InstructorProfileID field to given value.
+SetInstructorProfileId sets InstructorProfileId field to given value.
 
-### HasInstructorProfileID
+### HasInstructorProfileId
 
-`func (o *CourseUpdateDto) HasInstructorProfileID() bool`
+`func (o *CourseUpdateDto) HasInstructorProfileId() bool`
 
-HasInstructorProfileID returns a boolean if a field has been set.
+HasInstructorProfileId returns a boolean if a field has been set.
 
-### SetInstructorProfileIDNil
+### SetInstructorProfileIdNil
 
-`func (o *CourseUpdateDto) SetInstructorProfileIDNil(b bool)`
+`func (o *CourseUpdateDto) SetInstructorProfileIdNil(b bool)`
 
- SetInstructorProfileIDNil sets the value for InstructorProfileID to be an explicit nil
+ SetInstructorProfileIdNil sets the value for InstructorProfileId to be an explicit nil
 
-### UnsetInstructorProfileID
-`func (o *CourseUpdateDto) UnsetInstructorProfileID()`
+### UnsetInstructorProfileId
+`func (o *CourseUpdateDto) UnsetInstructorProfileId()`
 
-UnsetInstructorProfileID ensures that no value is present for InstructorProfileID, not even an explicit nil
-### GetCurrencyID
+UnsetInstructorProfileId ensures that no value is present for InstructorProfileId, not even an explicit nil
+### GetCurrencyId
 
-`func (o *CourseUpdateDto) GetCurrencyID() string`
+`func (o *CourseUpdateDto) GetCurrencyId() string`
 
-GetCurrencyID returns the CurrencyID field if non-nil, zero value otherwise.
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
 
-### GetCurrencyIDOk
+### GetCurrencyIdOk
 
-`func (o *CourseUpdateDto) GetCurrencyIDOk() (*string, bool)`
+`func (o *CourseUpdateDto) GetCurrencyIdOk() (*string, bool)`
 
-GetCurrencyIDOk returns a tuple with the CurrencyID field if it's non-nil, zero value otherwise
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrencyID
+### SetCurrencyId
 
-`func (o *CourseUpdateDto) SetCurrencyID(v string)`
+`func (o *CourseUpdateDto) SetCurrencyId(v string)`
 
-SetCurrencyID sets CurrencyID field to given value.
+SetCurrencyId sets CurrencyId field to given value.
 
-### HasCurrencyID
+### HasCurrencyId
 
-`func (o *CourseUpdateDto) HasCurrencyID() bool`
+`func (o *CourseUpdateDto) HasCurrencyId() bool`
 
-HasCurrencyID returns a boolean if a field has been set.
+HasCurrencyId returns a boolean if a field has been set.
 
-### SetCurrencyIDNil
+### SetCurrencyIdNil
 
-`func (o *CourseUpdateDto) SetCurrencyIDNil(b bool)`
+`func (o *CourseUpdateDto) SetCurrencyIdNil(b bool)`
 
- SetCurrencyIDNil sets the value for CurrencyID to be an explicit nil
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
 
-### UnsetCurrencyID
-`func (o *CourseUpdateDto) UnsetCurrencyID()`
+### UnsetCurrencyId
+`func (o *CourseUpdateDto) UnsetCurrencyId()`
 
-UnsetCurrencyID ensures that no value is present for CurrencyID, not even an explicit nil
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
 ### GetRegularPrice
 
 `func (o *CourseUpdateDto) GetRegularPrice() float64`

@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**GetTagsByWebPageAsync**](WebPagesAPI.md#GetTagsByWebPageAsync) | **Get** /api/v2/ContentService/WebPages/{webPageId}/Tags | Get tags by web page
 [**GetWebPageByIdAsync**](WebPagesAPI.md#GetWebPageByIdAsync) | **Get** /api/v2/ContentService/WebPages/{webPageId} | Get web page by ID
 [**GetWebPagesAsync**](WebPagesAPI.md#GetWebPagesAsync) | **Get** /api/v2/ContentService/WebPages | Get web pages
+[**PatchWebPageAsync**](WebPagesAPI.md#PatchWebPageAsync) | **Patch** /api/v2/ContentService/WebPages/{webPageId} | Patch a web page
 [**RelateWebPageToCategoryAsync**](WebPagesAPI.md#RelateWebPageToCategoryAsync) | **Post** /api/v2/ContentService/WebPages/{webPageId}/Categories/{categoryId} | Relate web page to category
 [**RelateWebPageToTagAsync**](WebPagesAPI.md#RelateWebPageToTagAsync) | **Post** /api/v2/ContentService/WebPages/{webPageId}/Tags/{tagId} | Relate web page to tag
 [**UnrelateWebPageCategoryAsync**](WebPagesAPI.md#UnrelateWebPageCategoryAsync) | **Delete** /api/v2/ContentService/WebPages/{webPageId}/Categories/{categoryId} | Unrelate web page from category
@@ -674,6 +675,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchWebPageAsync
+
+> PatchWebPageAsync(ctx, webPageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a web page
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	webPageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.WebPagesAPI.PatchWebPageAsync(context.Background(), webPageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebPagesAPI.PatchWebPageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**webPageId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchWebPageAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

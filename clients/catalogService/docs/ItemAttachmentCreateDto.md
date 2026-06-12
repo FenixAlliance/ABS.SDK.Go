@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **ValidResponse** | Pointer to **bool** |  | [optional] 
 **ParentFileUploadId** | Pointer to **NullableString** |  | [optional] 
 **FilePath** | Pointer to **NullableString** |  | [optional] 
-**ItemID** | Pointer to **NullableString** |  | [optional] 
+**ItemId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -417,41 +417,41 @@ HasFilePath returns a boolean if a field has been set.
 `func (o *ItemAttachmentCreateDto) UnsetFilePath()`
 
 UnsetFilePath ensures that no value is present for FilePath, not even an explicit nil
-### GetItemID
+### GetItemId
 
-`func (o *ItemAttachmentCreateDto) GetItemID() string`
+`func (o *ItemAttachmentCreateDto) GetItemId() string`
 
-GetItemID returns the ItemID field if non-nil, zero value otherwise.
+GetItemId returns the ItemId field if non-nil, zero value otherwise.
 
-### GetItemIDOk
+### GetItemIdOk
 
-`func (o *ItemAttachmentCreateDto) GetItemIDOk() (*string, bool)`
+`func (o *ItemAttachmentCreateDto) GetItemIdOk() (*string, bool)`
 
-GetItemIDOk returns a tuple with the ItemID field if it's non-nil, zero value otherwise
+GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItemID
+### SetItemId
 
-`func (o *ItemAttachmentCreateDto) SetItemID(v string)`
+`func (o *ItemAttachmentCreateDto) SetItemId(v string)`
 
-SetItemID sets ItemID field to given value.
+SetItemId sets ItemId field to given value.
 
-### HasItemID
+### HasItemId
 
-`func (o *ItemAttachmentCreateDto) HasItemID() bool`
+`func (o *ItemAttachmentCreateDto) HasItemId() bool`
 
-HasItemID returns a boolean if a field has been set.
+HasItemId returns a boolean if a field has been set.
 
-### SetItemIDNil
+### SetItemIdNil
 
-`func (o *ItemAttachmentCreateDto) SetItemIDNil(b bool)`
+`func (o *ItemAttachmentCreateDto) SetItemIdNil(b bool)`
 
- SetItemIDNil sets the value for ItemID to be an explicit nil
+ SetItemIdNil sets the value for ItemId to be an explicit nil
 
-### UnsetItemID
-`func (o *ItemAttachmentCreateDto) UnsetItemID()`
+### UnsetItemId
+`func (o *ItemAttachmentCreateDto) UnsetItemId()`
 
-UnsetItemID ensures that no value is present for ItemID, not even an explicit nil
+UnsetItemId ensures that no value is present for ItemId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

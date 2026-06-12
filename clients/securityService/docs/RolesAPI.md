@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**GetRolesAsync**](RolesAPI.md#GetRolesAsync) | **Get** /api/v2/SecurityService/Roles | Get all roles
 [**GetRolesByEnrollmentAsync**](RolesAPI.md#GetRolesByEnrollmentAsync) | **Get** /api/v2/SecurityService/Roles/ByEnrollment/{enrollmentId} | Get roles by enrollment
 [**GetRolesCountAsync**](RolesAPI.md#GetRolesCountAsync) | **Get** /api/v2/SecurityService/Roles/Count | Get roles count
+[**PatchRoleAsync**](RolesAPI.md#PatchRoleAsync) | **Patch** /api/v2/SecurityService/Roles/{securityRoleId} | Patch an existing role
 [**RevokePermissionFromRoleAsync**](RolesAPI.md#RevokePermissionFromRoleAsync) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Revoke a permission from a role
 [**RevokeRoleFromBusinessApplicationAsync**](RolesAPI.md#RevokeRoleFromBusinessApplicationAsync) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Revoke a role from a business application
 [**RevokeRoleFromEnrollmentAsync**](RolesAPI.md#RevokeRoleFromEnrollmentAsync) | **Delete** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Revoke a role from an enrollment
@@ -921,6 +922,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchRoleAsync
+
+> EmptyEnvelope PatchRoleAsync(ctx, securityRoleId).TenantId(tenantId).Operation(operation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Patch an existing role
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	securityRoleId := "securityRoleId_example" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RolesAPI.PatchRoleAsync(context.Background(), securityRoleId).TenantId(tenantId).Operation(operation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.PatchRoleAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchRoleAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.PatchRoleAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**securityRoleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchRoleAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

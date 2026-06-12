@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetUserOptionByKey**](OptionsAPI.md#GetUserOptionByKey) | **Get** /api/v2/Me/Options/Key/{key} | Retrieve a single user option by its key
 [**GetUserOptions**](OptionsAPI.md#GetUserOptions) | **Get** /api/v2/Me/Options | Retrieve a list of user options
 [**GetUserOptionsCount**](OptionsAPI.md#GetUserOptionsCount) | **Get** /api/v2/Me/Options/Count | Get the count of user options
+[**PatchUserOption**](OptionsAPI.md#PatchUserOption) | **Patch** /api/v2/Me/Options/{optionId} | Patch a user option
 [**UpdateUserOption**](OptionsAPI.md#UpdateUserOption) | **Put** /api/v2/Me/Options/{optionId} | Update a user option
 [**UpsertUserOption**](OptionsAPI.md#UpsertUserOption) | **Put** /api/v2/Me/Options/Upsert/{key} | Create or update a user option by key
 
@@ -446,6 +447,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchUserOption
+
+> EmptyEnvelope PatchUserOption(ctx, optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a user option
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	optionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionsAPI.PatchUserOption(context.Background(), optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.PatchUserOption``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchUserOption`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `OptionsAPI.PatchUserOption`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**optionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchUserOptionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

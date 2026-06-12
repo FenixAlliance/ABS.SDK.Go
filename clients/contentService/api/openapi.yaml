@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: ContentService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -20,8 +20,11 @@ tags:
 - name: BusinessDomains
 - name: Completions
 - name: FenixAlliance.Portals.Website
+- name: LocalizationStrings
+- name: MenuContexts
 - name: Portals
 - name: Themes
+- name: WebComponents
 - name: WebContents
 - name: WebPageCategories
 - name: WebPages
@@ -537,6 +540,84 @@ paths:
       summary: Get blog post category by ID
       tags:
       - BlogPostCategories
+    patch:
+      description: Partially updates an existing blog post category for the specified
+        tenant.
+      operationId: PatchBlogPostCategoryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: blogPostCategoryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a blog post category
+      tags:
+      - BlogPostCategories
     put:
       description: Updates an existing blog post category for the specified tenant.
       operationId: UpdateBlogPostCategoryAsync
@@ -844,6 +925,69 @@ paths:
                 $ref: '#/components/schemas/BlogPostDtoEnvelope'
           description: OK
       summary: Get a blog post by ID
+      tags:
+      - BlogPosts
+    patch:
+      description: Partially updates an existing blog post for the specified tenant.
+      operationId: PatchBlogPostAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: blogPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a blog post
       tags:
       - BlogPosts
     put:
@@ -1944,6 +2088,83 @@ paths:
       summary: Get blog post tag by ID
       tags:
       - BlogPostTags
+    patch:
+      description: Partially updates an existing blog post tag for the specified tenant.
+      operationId: PatchBlogPostTagAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: blogPostTagId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a blog post tag
+      tags:
+      - BlogPostTags
     put:
       description: Updates an existing blog post tag for the specified tenant.
       operationId: UpdateBlogPostTagAsync
@@ -2075,6 +2296,82 @@ paths:
       summary: Get business domains
       tags:
       - BusinessDomains
+    post:
+      description: Registers a new (unverified) business domain for the tenant and
+        issues a DNS TXT verification token.
+      operationId: CreateBusinessDomainAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessDomainCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BusinessDomainCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Register a business domain
+      tags:
+      - BusinessDomains
   /api/v2/ContentService/BusinessDomains/Count:
     get:
       description: Retrieves the count of business domains for the specified tenant.
@@ -2134,6 +2431,71 @@ paths:
       tags:
       - BusinessDomains
   /api/v2/ContentService/BusinessDomains/{businessDomainId}:
+    delete:
+      description: Removes a business domain from the tenant.
+      operationId: DeleteBusinessDomainAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: businessDomainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a business domain
+      tags:
+      - BusinessDomains
     get:
       description: Retrieves a specific business domain.
       operationId: GetBusinessDomainByIdAsync
@@ -2197,6 +2559,157 @@ paths:
                 $ref: '#/components/schemas/BusinessDomainDtoEnvelope'
           description: OK
       summary: Get business domain by ID
+      tags:
+      - BusinessDomains
+    put:
+      description: Updates a business domain. Changing the host re-issues the verification
+        token and clears verification.
+      operationId: UpdateBusinessDomainAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: businessDomainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessDomainUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BusinessDomainUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a business domain
+      tags:
+      - BusinessDomains
+  /api/v2/ContentService/BusinessDomains/{businessDomainId}/Verify:
+    post:
+      description: Checks the domain's DNS TXT records for the verification token
+        and marks the domain verified.
+      operationId: VerifyBusinessDomainAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: businessDomainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Verify a business domain
       tags:
       - BusinessDomains
   /api/v2/AiService/Completions/Complete:
@@ -2793,6 +3306,780 @@ paths:
           description: OK
       tags:
       - FenixAlliance.Portals.Website
+  /api/v2/ContentService/LocalizationStrings:
+    get:
+      description: Retrieves all localization strings for the specified tenant.
+      operationId: GetLocalizationStringsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalizationStringDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LocalizationStringDtoListEnvelope'
+          description: OK
+      summary: Get localization strings
+      tags:
+      - LocalizationStrings
+    post:
+      description: Creates a new localization string for the specified tenant.
+      operationId: CreateLocalizationStringAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocalizationStringCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocalizationStringCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a localization string
+      tags:
+      - LocalizationStrings
+  /api/v2/ContentService/LocalizationStrings/Count:
+    get:
+      description: Counts all localization strings for the specified tenant.
+      operationId: CountLocalizationStringsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count localization strings
+      tags:
+      - LocalizationStrings
+  /api/v2/ContentService/LocalizationStrings/{localizationStringId}:
+    delete:
+      description: Deletes a localization string for the specified tenant.
+      operationId: DeleteLocalizationStringAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: localizationStringId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a localization string
+      tags:
+      - LocalizationStrings
+    get:
+      description: Retrieves a specific localization string by its identifier.
+      operationId: GetLocalizationStringByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: localizationStringId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalizationStringDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LocalizationStringDtoEnvelope'
+          description: OK
+      summary: Get localization string by ID
+      tags:
+      - LocalizationStrings
+    put:
+      description: Updates an existing localization string for the specified tenant.
+      operationId: UpdateLocalizationStringAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: localizationStringId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocalizationStringUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocalizationStringUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a localization string
+      tags:
+      - LocalizationStrings
+  /api/v2/ContentService/MenuContexts:
+    get:
+      description: Retrieves all menu contexts for the specified tenant.
+      operationId: GetMenuContextsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuContextDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MenuContextDtoListEnvelope'
+          description: OK
+      summary: Get menu contexts
+      tags:
+      - MenuContexts
+    post:
+      description: Creates a new menu context for the specified tenant.
+      operationId: CreateMenuContextAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenuContextCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MenuContextCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a menu context
+      tags:
+      - MenuContexts
+  /api/v2/ContentService/MenuContexts/Count:
+    get:
+      description: Counts all menu contexts for the specified tenant.
+      operationId: CountMenuContextsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count menu contexts
+      tags:
+      - MenuContexts
+  /api/v2/ContentService/MenuContexts/{menuContextId}:
+    delete:
+      description: Deletes a menu context for the specified tenant.
+      operationId: DeleteMenuContextAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: menuContextId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a menu context
+      tags:
+      - MenuContexts
+    get:
+      description: Retrieves a specific menu context by its identifier.
+      operationId: GetMenuContextByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: menuContextId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuContextDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MenuContextDtoEnvelope'
+          description: OK
+      summary: Get menu context by ID
+      tags:
+      - MenuContexts
+    put:
+      description: Updates an existing menu context for the specified tenant.
+      operationId: UpdateMenuContextAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: menuContextId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenuContextUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MenuContextUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a menu context
+      tags:
+      - MenuContexts
   /api/v2/ContentService/Portals:
     get:
       description: Retrieves all portals for the specified tenant.
@@ -3562,6 +4849,79 @@ paths:
       summary: Get a web portal's settings by its ID
       tags:
       - Portals
+    put:
+      description: Update a web portal's settings (Options) by its ID
+      operationId: UpdateWebPortalSettingsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortalSettings'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PortalSettings'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a web portal's settings
+      tags:
+      - Portals
   /api/v2/ContentService/Portals/{portalId}/Options:
     get:
       description: Get a web portal's options by its ID
@@ -3620,6 +4980,219 @@ paths:
       summary: Get a web portal's options by its ID
       tags:
       - Portals
+  /api/v2/ContentService/Portals/{portalId}/DomainBindings:
+    get:
+      description: Get the BusinessDomains bound to a web portal
+      operationId: GetWebPortalDomainBindingsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessDomainDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BusinessDomainDtoListEnvelope'
+          description: OK
+      summary: Get a web portal's bound domains
+      tags:
+      - Portals
+  /api/v2/ContentService/Portals/{portalId}/DomainBindings/{businessDomainId}:
+    delete:
+      description: Unbind a BusinessDomain from a web portal
+      operationId: UnbindWebPortalDomainAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: businessDomainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Unbind a domain from a web portal
+      tags:
+      - Portals
+    post:
+      description: Bind a verified BusinessDomain to a web portal
+      operationId: BindWebPortalDomainAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: businessDomainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Bind a domain to a web portal
+      tags:
+      - Portals
   /api/v2/ContentService/Themes/Update:
     get:
       description: Triggers an update of the base web content themes.
@@ -3661,6 +5234,393 @@ paths:
       summary: Update base web content themes
       tags:
       - Themes
+  /api/v2/ContentService/WebComponents:
+    get:
+      description: Retrieves all web components for the specified tenant.
+      operationId: GetWebComponentsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebComponentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WebComponentDtoListEnvelope'
+          description: OK
+      summary: Get web components
+      tags:
+      - WebComponents
+    post:
+      description: Creates a new web component for the specified tenant.
+      operationId: CreateWebComponentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebComponentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WebComponentCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a web component
+      tags:
+      - WebComponents
+  /api/v2/ContentService/WebComponents/Count:
+    get:
+      description: Counts all web components for the specified tenant.
+      operationId: CountWebComponentsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count web components
+      tags:
+      - WebComponents
+  /api/v2/ContentService/WebComponents/{webComponentId}:
+    delete:
+      description: Deletes a web component for the specified tenant.
+      operationId: DeleteWebComponentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: webComponentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a web component
+      tags:
+      - WebComponents
+    get:
+      description: Retrieves a specific web component by its identifier.
+      operationId: GetWebComponentByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: webComponentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebComponentDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WebComponentDtoEnvelope'
+          description: OK
+      summary: Get web component by ID
+      tags:
+      - WebComponents
+    put:
+      description: Updates an existing web component for the specified tenant.
+      operationId: UpdateWebComponentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: webComponentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebComponentUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WebComponentUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a web component
+      tags:
+      - WebComponents
   /api/v2/ContentService/WebContents/Count:
     get:
       description: Counts all web contents for the specified tenant.
@@ -3971,6 +5931,83 @@ paths:
                 $ref: '#/components/schemas/WebContentDtoEnvelope'
           description: OK
       summary: Get web content by ID
+      tags:
+      - WebContents
+    patch:
+      description: Partially updates an existing web content for the specified tenant.
+      operationId: PatchWebContentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: webContentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a web content
       tags:
       - WebContents
     put:
@@ -4358,6 +6395,84 @@ paths:
       summary: Get web page category by ID
       tags:
       - WebPageCategories
+    patch:
+      description: Partially updates an existing web page category for the specified
+        tenant.
+      operationId: PatchWebPageCategoryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: webPageCategoryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a web page category
+      tags:
+      - WebPageCategories
     put:
       description: Updates an existing web page category for the specified tenant.
       operationId: UpdateWebPageCategoryAsync
@@ -4682,6 +6797,67 @@ paths:
                 $ref: '#/components/schemas/WebPageDtoEnvelope'
           description: OK
       summary: Get web page by ID
+      tags:
+      - WebPages
+    patch:
+      description: Partially updates an existing web page for the specified tenant.
+      operationId: PatchWebPageAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: webPageId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Patch a web page
       tags:
       - WebPages
     put:
@@ -5495,6 +7671,83 @@ paths:
       summary: Get web page tag by ID
       tags:
       - WebPageTags
+    patch:
+      description: Partially updates an existing web page tag for the specified tenant.
+      operationId: PatchWebPageTagAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: webPageTagId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a web page tag
+      tags:
+      - WebPageTags
     put:
       description: Updates an existing web page tag for the specified tenant.
       operationId: UpdateWebPageTagAsync
@@ -5862,6 +8115,76 @@ paths:
       summary: Get website theme by ID
       tags:
       - WebsiteThemes
+    patch:
+      description: Partially updates an existing website theme for the specified tenant.
+      operationId: PatchWebsiteThemeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Patch a website theme
+      tags:
+      - WebsiteThemes
     put:
       description: Updates an existing website theme for the specified tenant.
       operationId: UpdateWebsiteThemeAsync
@@ -6224,6 +8547,76 @@ paths:
                 $ref: '#/components/schemas/WebTemplateDtoEnvelope'
           description: OK
       summary: Get web template by ID
+      tags:
+      - WebTemplates
+    patch:
+      description: Partially updates an existing web template for the specified tenant.
+      operationId: PatchWebTemplateAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: webTemplateId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch a web template
       tags:
       - WebTemplates
     put:
@@ -7045,7 +9438,7 @@ components:
         imageURL: imageURL
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         slug: slug
-        webPortalID: webPortalID
+        webPortalId: webPortalId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -7088,7 +9481,7 @@ components:
         image:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
       type: object
@@ -7097,19 +9490,20 @@ components:
       example:
         allowSerachEngines: true
         image: image
+        enrollmentId: enrollmentId
         canonicalUrl: canonicalUrl
-        businessID: businessID
         description: description
+        type: type
         title: title
         seoTitle: seoTitle
         metaDescription: metaDescription
-        businessProfileRecordID: businessProfileRecordID
         seoKeyPhrases: seoKeyPhrases
         cornerstoneContent: true
         imageURL: imageURL
+        tenantId: tenantId
         id: id
         slug: slug
-        webPortalID: webPortalID
+        webPortalId: webPortalId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -7120,6 +9514,9 @@ components:
           nullable: true
           type: string
         slug:
+          nullable: true
+          type: string
+        type:
           nullable: true
           type: string
         title:
@@ -7150,13 +9547,13 @@ components:
         image:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -7166,19 +9563,20 @@ components:
         result:
           allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
+          type: type
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -7212,35 +9610,37 @@ components:
         result:
         - allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
+          type: type
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
+          type: type
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -7286,7 +9686,7 @@ components:
         cornerstoneContent: true
         imageURL: imageURL
         slug: slug
-        webPortalID: webPortalID
+        webPortalId: webPortalId
       properties:
         slug:
           nullable: true
@@ -7322,19 +9722,19 @@ components:
         image:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
       type: object
     BlogPostCommentCreateDto:
       additionalProperties: false
       example:
-        ownerSocialProfileID: ownerSocialProfileID
-        parentCommentID: parentCommentID
+        ownerSocialProfileId: ownerSocialProfileId
+        parentCommentId: parentCommentId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         message: message
         timestamp: 2000-01-23T04:56:07.000+00:00
-        socialPostID: socialPostID
+        socialPostId: socialPostId
       properties:
         id:
           format: uuid
@@ -7346,17 +9746,17 @@ components:
           maxLength: 1000
           minLength: 0
           type: string
-        ownerSocialProfileID:
+        ownerSocialProfileId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        socialPostID:
+        socialPostId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        parentCommentID:
+        parentCommentId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -7367,13 +9767,13 @@ components:
     BlogPostCommentDto:
       additionalProperties: false
       example:
-        ownerSocialProfileID: ownerSocialProfileID
-        parentCommentID: parentCommentID
+        ownerSocialProfileId: ownerSocialProfileId
+        parentCommentId: parentCommentId
         id: id
-        blogPostID: blogPostID
+        blogPostId: blogPostId
         message: message
         timestamp: 2000-01-23T04:56:07.000+00:00
-        socialPostID: socialPostID
+        socialPostId: socialPostId
       properties:
         id:
           nullable: true
@@ -7382,19 +9782,19 @@ components:
           format: date-time
           nullable: true
           type: string
-        blogPostID:
+        blogPostId:
           nullable: true
           type: string
         message:
           nullable: true
           type: string
-        ownerSocialProfileID:
+        ownerSocialProfileId:
           nullable: true
           type: string
-        socialPostID:
+        socialPostId:
           nullable: true
           type: string
-        parentCommentID:
+        parentCommentId:
           nullable: true
           type: string
       type: object
@@ -7402,20 +9802,20 @@ components:
       additionalProperties: false
       example:
         result:
-        - ownerSocialProfileID: ownerSocialProfileID
-          parentCommentID: parentCommentID
+        - ownerSocialProfileId: ownerSocialProfileId
+          parentCommentId: parentCommentId
           id: id
-          blogPostID: blogPostID
+          blogPostId: blogPostId
           message: message
           timestamp: 2000-01-23T04:56:07.000+00:00
-          socialPostID: socialPostID
-        - ownerSocialProfileID: ownerSocialProfileID
-          parentCommentID: parentCommentID
+          socialPostId: socialPostId
+        - ownerSocialProfileId: ownerSocialProfileId
+          parentCommentId: parentCommentId
           id: id
-          blogPostID: blogPostID
+          blogPostId: blogPostId
           message: message
           timestamp: 2000-01-23T04:56:07.000+00:00
-          socialPostID: socialPostID
+          socialPostId: socialPostId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -7457,6 +9857,7 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
         title: title
+        slug: slug
         timestamp: 2000-01-23T04:56:07.000+00:00
         webTemplateId: webTemplateId
       properties:
@@ -7493,6 +9894,9 @@ components:
           - Html5
           - Markdown
           - Markup
+          nullable: true
+          type: string
+        slug:
           nullable: true
           type: string
         blogPostCategoryId:
@@ -8010,7 +10414,7 @@ components:
         imageURL: imageURL
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         slug: slug
-        webPortalID: webPortalID
+        webPortalId: webPortalId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -8053,7 +10457,7 @@ components:
         image:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
       type: object
@@ -8062,19 +10466,20 @@ components:
       example:
         allowSerachEngines: true
         image: image
+        enrollmentId: enrollmentId
         canonicalUrl: canonicalUrl
-        businessID: businessID
         description: description
+        type: type
         title: title
         seoTitle: seoTitle
         metaDescription: metaDescription
-        businessProfileRecordID: businessProfileRecordID
         seoKeyPhrases: seoKeyPhrases
         cornerstoneContent: true
         imageURL: imageURL
+        tenantId: tenantId
         id: id
         slug: slug
-        webPortalID: webPortalID
+        webPortalId: webPortalId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -8085,6 +10490,9 @@ components:
           nullable: true
           type: string
         slug:
+          nullable: true
+          type: string
+        type:
           nullable: true
           type: string
         title:
@@ -8115,13 +10523,13 @@ components:
         image:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -8131,19 +10539,20 @@ components:
         result:
           allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
+          type: type
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -8177,35 +10586,37 @@ components:
         result:
         - allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
+          type: type
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
+          type: type
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -8251,7 +10662,7 @@ components:
         cornerstoneContent: true
         imageURL: imageURL
         slug: slug
-        webPortalID: webPortalID
+        webPortalId: webPortalId
       properties:
         slug:
           nullable: true
@@ -8287,7 +10698,7 @@ components:
         image:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
       type: object
@@ -8664,6 +11075,26 @@ components:
           nullable: true
           type: string
       type: object
+    BusinessDomainCreateDto:
+      additionalProperties: false
+      example:
+        domain: domain
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        domain:
+          maxLength: 253
+          minLength: 3
+          type: string
+      required:
+      - domain
+      type: object
     BusinessDomainDto:
       additionalProperties: false
       example:
@@ -8773,6 +11204,17 @@ components:
             $ref: '#/components/schemas/BusinessDomainDto'
           nullable: true
           type: array
+      type: object
+    BusinessDomainUpdateDto:
+      additionalProperties: false
+      example:
+        domain: domain
+      properties:
+        domain:
+          maxLength: 253
+          minLength: 3
+          nullable: true
+          type: string
       type: object
     ByteReadOnlyMemory:
       additionalProperties: false
@@ -11585,6 +14027,162 @@ components:
     LightboxOptions:
       additionalProperties: false
       type: object
+    LocalizationStringCreateDto:
+      additionalProperties: false
+      example:
+        comments: comments
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        countryLanguageId: countryLanguageId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        base: base
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        base:
+          maxLength: 2000
+          minLength: 1
+          type: string
+        comments:
+          nullable: true
+          type: string
+        countryLanguageId:
+          nullable: true
+          type: string
+      required:
+      - base
+      type: object
+    LocalizationStringDto:
+      additionalProperties: false
+      example:
+        comments: comments
+        tenantId: tenantId
+        id: id
+        countryLanguageId: countryLanguageId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        base: base
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        base:
+          nullable: true
+          type: string
+        comments:
+          nullable: true
+          type: string
+        countryLanguageId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    LocalizationStringDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          comments: comments
+          tenantId: tenantId
+          id: id
+          countryLanguageId: countryLanguageId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          base: base
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/LocalizationStringDto'
+      type: object
+    LocalizationStringDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - comments: comments
+          tenantId: tenantId
+          id: id
+          countryLanguageId: countryLanguageId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          base: base
+        - comments: comments
+          tenantId: tenantId
+          id: id
+          countryLanguageId: countryLanguageId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          base: base
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/LocalizationStringDto'
+          nullable: true
+          type: array
+      type: object
+    LocalizationStringUpdateDto:
+      additionalProperties: false
+      example:
+        comments: comments
+        countryLanguageId: countryLanguageId
+        base: base
+      properties:
+        base:
+          nullable: true
+          type: string
+        comments:
+          nullable: true
+          type: string
+        countryLanguageId:
+          nullable: true
+          type: string
+      type: object
     LoginRequest:
       additionalProperties: false
       example:
@@ -11810,6 +14408,423 @@ components:
           format: int32
           readOnly: true
           type: integer
+      type: object
+    MenuContextCreateDto:
+      additionalProperties: false
+      example:
+        backgroundImage: backgroundImage
+        loggedInOnly: loggedInOnly
+        customHtml: customHtml
+        component: component
+        studioMenu: true
+        enable: true
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        customJs: customJs
+        category: category
+        webPortalId: webPortalId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        customCss: customCss
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 150
+          minLength: 1
+          type: string
+        category:
+          nullable: true
+          type: string
+        component:
+          nullable: true
+          type: string
+        enable:
+          type: boolean
+        studioMenu:
+          type: boolean
+        customCss:
+          nullable: true
+          type: string
+        customJs:
+          nullable: true
+          type: string
+        customHtml:
+          nullable: true
+          type: string
+        loggedInOnly:
+          nullable: true
+          type: string
+        backgroundImage:
+          nullable: true
+          type: string
+        webPortalId:
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    MenuContextDto:
+      additionalProperties: false
+      example:
+        backgroundImage: backgroundImage
+        loggedInOnly: loggedInOnly
+        customHtml: customHtml
+        component: component
+        studioMenu: true
+        enable: true
+        name: name
+        tenantId: tenantId
+        id: id
+        customJs: customJs
+        category: category
+        items:
+        - menuContextId: menuContextId
+          parentMenuContextItemId: parentMenuContextItemId
+          name: name
+          icon: icon
+          tooltip: tooltip
+          id: id
+          text: text
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          order: 0
+          target: target
+        - menuContextId: menuContextId
+          parentMenuContextItemId: parentMenuContextItemId
+          name: name
+          icon: icon
+          tooltip: tooltip
+          id: id
+          text: text
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          order: 0
+          target: target
+        webPortalId: webPortalId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        customCss: customCss
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        category:
+          nullable: true
+          type: string
+        component:
+          nullable: true
+          type: string
+        enable:
+          type: boolean
+        studioMenu:
+          type: boolean
+        customCss:
+          nullable: true
+          type: string
+        customJs:
+          nullable: true
+          type: string
+        customHtml:
+          nullable: true
+          type: string
+        loggedInOnly:
+          nullable: true
+          type: string
+        backgroundImage:
+          nullable: true
+          type: string
+        webPortalId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/MenuContextItemDto'
+          nullable: true
+          type: array
+      type: object
+    MenuContextDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          backgroundImage: backgroundImage
+          loggedInOnly: loggedInOnly
+          customHtml: customHtml
+          component: component
+          studioMenu: true
+          enable: true
+          name: name
+          tenantId: tenantId
+          id: id
+          customJs: customJs
+          category: category
+          items:
+          - menuContextId: menuContextId
+            parentMenuContextItemId: parentMenuContextItemId
+            name: name
+            icon: icon
+            tooltip: tooltip
+            id: id
+            text: text
+            url: url
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            order: 0
+            target: target
+          - menuContextId: menuContextId
+            parentMenuContextItemId: parentMenuContextItemId
+            name: name
+            icon: icon
+            tooltip: tooltip
+            id: id
+            text: text
+            url: url
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            order: 0
+            target: target
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          customCss: customCss
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/MenuContextDto'
+      type: object
+    MenuContextDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - backgroundImage: backgroundImage
+          loggedInOnly: loggedInOnly
+          customHtml: customHtml
+          component: component
+          studioMenu: true
+          enable: true
+          name: name
+          tenantId: tenantId
+          id: id
+          customJs: customJs
+          category: category
+          items:
+          - menuContextId: menuContextId
+            parentMenuContextItemId: parentMenuContextItemId
+            name: name
+            icon: icon
+            tooltip: tooltip
+            id: id
+            text: text
+            url: url
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            order: 0
+            target: target
+          - menuContextId: menuContextId
+            parentMenuContextItemId: parentMenuContextItemId
+            name: name
+            icon: icon
+            tooltip: tooltip
+            id: id
+            text: text
+            url: url
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            order: 0
+            target: target
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          customCss: customCss
+        - backgroundImage: backgroundImage
+          loggedInOnly: loggedInOnly
+          customHtml: customHtml
+          component: component
+          studioMenu: true
+          enable: true
+          name: name
+          tenantId: tenantId
+          id: id
+          customJs: customJs
+          category: category
+          items:
+          - menuContextId: menuContextId
+            parentMenuContextItemId: parentMenuContextItemId
+            name: name
+            icon: icon
+            tooltip: tooltip
+            id: id
+            text: text
+            url: url
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            order: 0
+            target: target
+          - menuContextId: menuContextId
+            parentMenuContextItemId: parentMenuContextItemId
+            name: name
+            icon: icon
+            tooltip: tooltip
+            id: id
+            text: text
+            url: url
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            order: 0
+            target: target
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          customCss: customCss
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/MenuContextDto'
+          nullable: true
+          type: array
+      type: object
+    MenuContextItemDto:
+      additionalProperties: false
+      example:
+        menuContextId: menuContextId
+        parentMenuContextItemId: parentMenuContextItemId
+        name: name
+        icon: icon
+        tooltip: tooltip
+        id: id
+        text: text
+        url: url
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        order: 0
+        target: target
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        order:
+          format: int32
+          type: integer
+        name:
+          nullable: true
+          type: string
+        text:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+        icon:
+          nullable: true
+          type: string
+        target:
+          nullable: true
+          type: string
+        tooltip:
+          nullable: true
+          type: string
+        parentMenuContextItemId:
+          nullable: true
+          type: string
+        menuContextId:
+          nullable: true
+          type: string
+      type: object
+    MenuContextUpdateDto:
+      additionalProperties: false
+      example:
+        component: component
+        studioMenu: true
+        enable: true
+        backgroundImage: backgroundImage
+        name: name
+        loggedInOnly: loggedInOnly
+        customJs: customJs
+        category: category
+        webPortalId: webPortalId
+        customCss: customCss
+        customHtml: customHtml
+      properties:
+        name:
+          nullable: true
+          type: string
+        category:
+          nullable: true
+          type: string
+        component:
+          nullable: true
+          type: string
+        enable:
+          type: boolean
+        studioMenu:
+          type: boolean
+        customCss:
+          nullable: true
+          type: string
+        customJs:
+          nullable: true
+          type: string
+        customHtml:
+          nullable: true
+          type: string
+        loggedInOnly:
+          nullable: true
+          type: string
+        backgroundImage:
+          nullable: true
+          type: string
+        webPortalId:
+          nullable: true
+          type: string
       type: object
     MenuOptions:
       additionalProperties: false
@@ -18254,6 +21269,307 @@ components:
         safeWaitHandle:
           $ref: '#/components/schemas/SafeWaitHandle'
       type: object
+    WebComponentCreateDto:
+      additionalProperties: false
+      example:
+        code: code
+        codeType: Razor
+        description: description
+        published: true
+        title: title
+        cssContent: cssContent
+        htmlContent: htmlContent
+        featuredImageUrl: featuredImageUrl
+        enable: true
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        jsContent: jsContent
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 150
+          minLength: 1
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        htmlContent:
+          nullable: true
+          type: string
+        cssContent:
+          nullable: true
+          type: string
+        jsContent:
+          nullable: true
+          type: string
+        codeType:
+          enum:
+          - Razor
+          - CSharp
+          - CSHtml
+          - Liquid
+          - Html5
+          - Markdown
+          - Markup
+          nullable: true
+          type: string
+        published:
+          type: boolean
+        enable:
+          type: boolean
+        featuredImageUrl:
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    WebComponentDto:
+      additionalProperties: false
+      example:
+        code: code
+        codeType: Razor
+        description: description
+        published: true
+        title: title
+        cssContent: cssContent
+        htmlContent: htmlContent
+        featuredImageUrl: featuredImageUrl
+        enable: true
+        name: name
+        tenantId: tenantId
+        id: id
+        jsContent: jsContent
+        webPortalId: webPortalId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        htmlContent:
+          nullable: true
+          type: string
+        cssContent:
+          nullable: true
+          type: string
+        jsContent:
+          nullable: true
+          type: string
+        codeType:
+          enum:
+          - Razor
+          - CSharp
+          - CSHtml
+          - Liquid
+          - Html5
+          - Markdown
+          - Markup
+          nullable: true
+          type: string
+        published:
+          type: boolean
+        enable:
+          type: boolean
+        featuredImageUrl:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        webPortalId:
+          nullable: true
+          type: string
+      type: object
+    WebComponentDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          code: code
+          codeType: Razor
+          description: description
+          published: true
+          title: title
+          cssContent: cssContent
+          htmlContent: htmlContent
+          featuredImageUrl: featuredImageUrl
+          enable: true
+          name: name
+          tenantId: tenantId
+          id: id
+          jsContent: jsContent
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/WebComponentDto'
+      type: object
+    WebComponentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - code: code
+          codeType: Razor
+          description: description
+          published: true
+          title: title
+          cssContent: cssContent
+          htmlContent: htmlContent
+          featuredImageUrl: featuredImageUrl
+          enable: true
+          name: name
+          tenantId: tenantId
+          id: id
+          jsContent: jsContent
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - code: code
+          codeType: Razor
+          description: description
+          published: true
+          title: title
+          cssContent: cssContent
+          htmlContent: htmlContent
+          featuredImageUrl: featuredImageUrl
+          enable: true
+          name: name
+          tenantId: tenantId
+          id: id
+          jsContent: jsContent
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/WebComponentDto'
+          nullable: true
+          type: array
+      type: object
+    WebComponentUpdateDto:
+      additionalProperties: false
+      example:
+        featuredImageUrl: featuredImageUrl
+        code: code
+        codeType: Razor
+        enable: true
+        name: name
+        description: description
+        published: true
+        title: title
+        jsContent: jsContent
+        cssContent: cssContent
+        htmlContent: htmlContent
+      properties:
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        htmlContent:
+          nullable: true
+          type: string
+        cssContent:
+          nullable: true
+          type: string
+        jsContent:
+          nullable: true
+          type: string
+        codeType:
+          enum:
+          - Razor
+          - CSharp
+          - CSHtml
+          - Liquid
+          - Html5
+          - Markdown
+          - Markup
+          nullable: true
+          type: string
+        published:
+          type: boolean
+        enable:
+          type: boolean
+        featuredImageUrl:
+          nullable: true
+          type: string
+      type: object
     WebContentCreateDto:
       additionalProperties: false
       example:
@@ -19012,7 +22328,7 @@ components:
         imageURL: imageURL
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         slug: slug
-        webPortalID: webPortalID
+        webPortalId: webPortalId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -19052,7 +22368,7 @@ components:
         image:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
       type: object
@@ -19061,19 +22377,19 @@ components:
       example:
         allowSerachEngines: true
         image: image
+        enrollmentId: enrollmentId
         canonicalUrl: canonicalUrl
-        businessID: businessID
         description: description
         title: title
         seoTitle: seoTitle
         metaDescription: metaDescription
-        businessProfileRecordID: businessProfileRecordID
         seoKeyPhrases: seoKeyPhrases
         cornerstoneContent: true
         imageURL: imageURL
+        tenantId: tenantId
         id: id
         slug: slug
-        webPortalID: webPortalID
+        webPortalId: webPortalId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -19114,13 +22430,13 @@ components:
         image:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -19130,19 +22446,19 @@ components:
         result:
           allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -19176,35 +22492,35 @@ components:
         result:
         - allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -19293,8 +22609,10 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
         title: title
+        parentWebContentId: parentWebContentId
+        slug: slug
         timestamp: 2000-01-23T04:56:07.000+00:00
-        webTemplateID: webTemplateID
+        webTemplateId: webTemplateId
       properties:
         id:
           format: uuid
@@ -19331,7 +22649,13 @@ components:
           - Markup
           nullable: true
           type: string
-        webTemplateID:
+        slug:
+          nullable: true
+          type: string
+        webTemplateId:
+          nullable: true
+          type: string
+        parentWebContentId:
           nullable: true
           type: string
       required:
@@ -19358,7 +22682,6 @@ components:
         allowPingBacks: true
         slug: slug
         order: 0
-        webTemplateID: webTemplateID
         enrollmentId: enrollmentId
         twitterImage: twitterImage
         systemLocked: true
@@ -19370,9 +22693,11 @@ components:
         jsFiles: jsFiles
         twitterDescription: twitterDescription
         cornerstoneContent: true
+        authorName: authorName
         name: name
         generatedCode: generatedCode
         excerpt: excerpt
+        webTemplateId: webTemplateId
         template: true
         isAccountPage: true
         code: code
@@ -19402,6 +22727,7 @@ components:
         facebookDescription: facebookDescription
         razorGeneratedCode: razorGeneratedCode
         cSharpGeneratedCode: cSharpGeneratedCode
+        authorId: authorId
         razorContent: razorContent
         isTermsOfServicePage: true
         websiteThemeId: websiteThemeId
@@ -19583,7 +22909,13 @@ components:
         parentWebContentVersionId:
           nullable: true
           type: string
-        webTemplateID:
+        webTemplateId:
+          nullable: true
+          type: string
+        authorName:
+          nullable: true
+          type: string
+        authorId:
           nullable: true
           type: string
         isHomePage:
@@ -19629,7 +22961,6 @@ components:
           allowPingBacks: true
           slug: slug
           order: 0
-          webTemplateID: webTemplateID
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -19641,9 +22972,11 @@ components:
           jsFiles: jsFiles
           twitterDescription: twitterDescription
           cornerstoneContent: true
+          authorName: authorName
           name: name
           generatedCode: generatedCode
           excerpt: excerpt
+          webTemplateId: webTemplateId
           template: true
           isAccountPage: true
           code: code
@@ -19673,6 +23006,7 @@ components:
           facebookDescription: facebookDescription
           razorGeneratedCode: razorGeneratedCode
           cSharpGeneratedCode: cSharpGeneratedCode
+          authorId: authorId
           razorContent: razorContent
           isTermsOfServicePage: true
           websiteThemeId: websiteThemeId
@@ -19729,7 +23063,6 @@ components:
           allowPingBacks: true
           slug: slug
           order: 0
-          webTemplateID: webTemplateID
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -19741,9 +23074,11 @@ components:
           jsFiles: jsFiles
           twitterDescription: twitterDescription
           cornerstoneContent: true
+          authorName: authorName
           name: name
           generatedCode: generatedCode
           excerpt: excerpt
+          webTemplateId: webTemplateId
           template: true
           isAccountPage: true
           code: code
@@ -19773,6 +23108,7 @@ components:
           facebookDescription: facebookDescription
           razorGeneratedCode: razorGeneratedCode
           cSharpGeneratedCode: cSharpGeneratedCode
+          authorId: authorId
           razorContent: razorContent
           isTermsOfServicePage: true
           websiteThemeId: websiteThemeId
@@ -19799,7 +23135,6 @@ components:
           allowPingBacks: true
           slug: slug
           order: 0
-          webTemplateID: webTemplateID
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -19811,9 +23146,11 @@ components:
           jsFiles: jsFiles
           twitterDescription: twitterDescription
           cornerstoneContent: true
+          authorName: authorName
           name: name
           generatedCode: generatedCode
           excerpt: excerpt
+          webTemplateId: webTemplateId
           template: true
           isAccountPage: true
           code: code
@@ -19843,6 +23180,7 @@ components:
           facebookDescription: facebookDescription
           razorGeneratedCode: razorGeneratedCode
           cSharpGeneratedCode: cSharpGeneratedCode
+          authorId: authorId
           razorContent: razorContent
           isTermsOfServicePage: true
           websiteThemeId: websiteThemeId
@@ -19895,7 +23233,7 @@ components:
         imageURL: imageURL
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         slug: slug
-        webPortalID: webPortalID
+        webPortalId: webPortalId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -19935,7 +23273,7 @@ components:
         image:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
       type: object
@@ -19944,19 +23282,19 @@ components:
       example:
         allowSerachEngines: true
         image: image
+        enrollmentId: enrollmentId
         canonicalUrl: canonicalUrl
-        businessID: businessID
         description: description
         title: title
         seoTitle: seoTitle
         metaDescription: metaDescription
-        businessProfileRecordID: businessProfileRecordID
         seoKeyPhrases: seoKeyPhrases
         cornerstoneContent: true
         imageURL: imageURL
+        tenantId: tenantId
         id: id
         slug: slug
-        webPortalID: webPortalID
+        webPortalId: webPortalId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -19997,13 +23335,13 @@ components:
         image:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -20013,19 +23351,19 @@ components:
         result:
           allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -20059,35 +23397,35 @@ components:
         result:
         - allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - allowSerachEngines: true
           image: image
+          enrollmentId: enrollmentId
           canonicalUrl: canonicalUrl
-          businessID: businessID
           description: description
           title: title
           seoTitle: seoTitle
           metaDescription: metaDescription
-          businessProfileRecordID: businessProfileRecordID
           seoKeyPhrases: seoKeyPhrases
           cornerstoneContent: true
           imageURL: imageURL
+          tenantId: tenantId
           id: id
           slug: slug
-          webPortalID: webPortalID
+          webPortalId: webPortalId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -20172,6 +23510,7 @@ components:
         isCartPage: true
         twitterTitle: twitterTitle
         codeType: Razor
+        parentWebContentId: parentWebContentId
         metaDescription: metaDescription
         htmlContent: htmlContent
         featuredImageUrl: featuredImageUrl
@@ -20200,6 +23539,7 @@ components:
         excerpt: excerpt
         precompiledLogicSizeLong: 1
         precompiledLogicSize: 6
+        webTemplateId: webTemplateId
         template: true
         isAccountPage: true
         code: code
@@ -20390,6 +23730,12 @@ components:
           type: boolean
         allowSearchEngineIndexing:
           type: boolean
+        webTemplateId:
+          nullable: true
+          type: string
+        parentWebContentId:
+          nullable: true
+          type: string
         isHomePage:
           type: boolean
         isStorePage:
@@ -20417,13 +23763,13 @@ components:
         root: true
         domain: domain
         description: description
-        businessPortalApplicationID: businessPortalApplicationID
+        businessPortalApplicationId: businessPortalApplicationId
         disabled: true
-        businessDomainID: businessDomainID
+        businessDomainId: businessDomainId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
-        websiteThemeID: websiteThemeID
+        websiteThemeId: websiteThemeId
       properties:
         id:
           format: uuid
@@ -20444,13 +23790,13 @@ components:
         description:
           nullable: true
           type: string
-        websiteThemeID:
+        websiteThemeId:
           nullable: true
           type: string
-        businessDomainID:
+        businessDomainId:
           nullable: true
           type: string
-        businessPortalApplicationID:
+        businessPortalApplicationId:
           nullable: true
           type: string
       type: object
@@ -20611,11 +23957,11 @@ components:
         root: true
         domain: domain
         description: description
-        businessPortalApplicationID: businessPortalApplicationID
+        businessPortalApplicationId: businessPortalApplicationId
         disabled: true
-        businessDomainID: businessDomainID
+        businessDomainId: businessDomainId
         title: title
-        websiteThemeID: websiteThemeID
+        websiteThemeId: websiteThemeId
       properties:
         root:
           type: boolean
@@ -20630,13 +23976,13 @@ components:
         description:
           nullable: true
           type: string
-        websiteThemeID:
+        websiteThemeId:
           nullable: true
           type: string
-        businessDomainID:
+        businessDomainId:
           nullable: true
           type: string
-        businessPortalApplicationID:
+        businessPortalApplicationId:
           nullable: true
           type: string
       type: object
@@ -20713,6 +24059,7 @@ components:
     WebTemplateDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         description: description
         title: title
         cssContent: cssContent
@@ -20721,6 +24068,7 @@ components:
         htmlContent: htmlContent
         highlightImage: highlightImage
         name: name
+        tenantId: tenantId
         id: id
         jsContent: jsContent
         slug: slug
@@ -20767,11 +24115,18 @@ components:
         order:
           format: int32
           type: integer
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
       type: object
     WebTemplateDtoEnvelope:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           description: description
           title: title
           cssContent: cssContent
@@ -20780,6 +24135,7 @@ components:
           htmlContent: htmlContent
           highlightImage: highlightImage
           name: name
+          tenantId: tenantId
           id: id
           jsContent: jsContent
           slug: slug
@@ -20815,7 +24171,8 @@ components:
       additionalProperties: false
       example:
         result:
-        - description: description
+        - enrollmentId: enrollmentId
+          description: description
           title: title
           cssContent: cssContent
           content: content
@@ -20823,12 +24180,14 @@ components:
           htmlContent: htmlContent
           highlightImage: highlightImage
           name: name
+          tenantId: tenantId
           id: id
           jsContent: jsContent
           slug: slug
           timestamp: 2000-01-23T04:56:07.000+00:00
           order: 0
-        - description: description
+        - enrollmentId: enrollmentId
+          description: description
           title: title
           cssContent: cssContent
           content: content
@@ -20836,6 +24195,7 @@ components:
           htmlContent: htmlContent
           highlightImage: highlightImage
           name: name
+          tenantId: tenantId
           id: id
           jsContent: jsContent
           slug: slug

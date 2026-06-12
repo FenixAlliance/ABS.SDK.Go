@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StudentProfileID** | Pointer to **NullableString** |  | [optional] 
-**CourseEnrollmentID** | Pointer to **NullableString** |  | [optional] 
-**CourseCompletionCertificateTemplateID** | Pointer to **NullableString** |  | [optional] 
-**CourseID** | Pointer to **NullableString** |  | [optional] 
+**StudentProfileId** | Pointer to **NullableString** |  | [optional] 
+**CourseEnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**CourseCompletionCertificateTemplateId** | Pointer to **NullableString** |  | [optional] 
+**CourseId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -28,146 +28,146 @@ NewCourseCompletionCertificateUpdateDtoWithDefaults instantiates a new CourseCom
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetStudentProfileID
+### GetStudentProfileId
 
-`func (o *CourseCompletionCertificateUpdateDto) GetStudentProfileID() string`
+`func (o *CourseCompletionCertificateUpdateDto) GetStudentProfileId() string`
 
-GetStudentProfileID returns the StudentProfileID field if non-nil, zero value otherwise.
+GetStudentProfileId returns the StudentProfileId field if non-nil, zero value otherwise.
 
-### GetStudentProfileIDOk
+### GetStudentProfileIdOk
 
-`func (o *CourseCompletionCertificateUpdateDto) GetStudentProfileIDOk() (*string, bool)`
+`func (o *CourseCompletionCertificateUpdateDto) GetStudentProfileIdOk() (*string, bool)`
 
-GetStudentProfileIDOk returns a tuple with the StudentProfileID field if it's non-nil, zero value otherwise
+GetStudentProfileIdOk returns a tuple with the StudentProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStudentProfileID
+### SetStudentProfileId
 
-`func (o *CourseCompletionCertificateUpdateDto) SetStudentProfileID(v string)`
+`func (o *CourseCompletionCertificateUpdateDto) SetStudentProfileId(v string)`
 
-SetStudentProfileID sets StudentProfileID field to given value.
+SetStudentProfileId sets StudentProfileId field to given value.
 
-### HasStudentProfileID
+### HasStudentProfileId
 
-`func (o *CourseCompletionCertificateUpdateDto) HasStudentProfileID() bool`
+`func (o *CourseCompletionCertificateUpdateDto) HasStudentProfileId() bool`
 
-HasStudentProfileID returns a boolean if a field has been set.
+HasStudentProfileId returns a boolean if a field has been set.
 
-### SetStudentProfileIDNil
+### SetStudentProfileIdNil
 
-`func (o *CourseCompletionCertificateUpdateDto) SetStudentProfileIDNil(b bool)`
+`func (o *CourseCompletionCertificateUpdateDto) SetStudentProfileIdNil(b bool)`
 
- SetStudentProfileIDNil sets the value for StudentProfileID to be an explicit nil
+ SetStudentProfileIdNil sets the value for StudentProfileId to be an explicit nil
 
-### UnsetStudentProfileID
-`func (o *CourseCompletionCertificateUpdateDto) UnsetStudentProfileID()`
+### UnsetStudentProfileId
+`func (o *CourseCompletionCertificateUpdateDto) UnsetStudentProfileId()`
 
-UnsetStudentProfileID ensures that no value is present for StudentProfileID, not even an explicit nil
-### GetCourseEnrollmentID
+UnsetStudentProfileId ensures that no value is present for StudentProfileId, not even an explicit nil
+### GetCourseEnrollmentId
 
-`func (o *CourseCompletionCertificateUpdateDto) GetCourseEnrollmentID() string`
+`func (o *CourseCompletionCertificateUpdateDto) GetCourseEnrollmentId() string`
 
-GetCourseEnrollmentID returns the CourseEnrollmentID field if non-nil, zero value otherwise.
+GetCourseEnrollmentId returns the CourseEnrollmentId field if non-nil, zero value otherwise.
 
-### GetCourseEnrollmentIDOk
+### GetCourseEnrollmentIdOk
 
-`func (o *CourseCompletionCertificateUpdateDto) GetCourseEnrollmentIDOk() (*string, bool)`
+`func (o *CourseCompletionCertificateUpdateDto) GetCourseEnrollmentIdOk() (*string, bool)`
 
-GetCourseEnrollmentIDOk returns a tuple with the CourseEnrollmentID field if it's non-nil, zero value otherwise
+GetCourseEnrollmentIdOk returns a tuple with the CourseEnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseEnrollmentID
+### SetCourseEnrollmentId
 
-`func (o *CourseCompletionCertificateUpdateDto) SetCourseEnrollmentID(v string)`
+`func (o *CourseCompletionCertificateUpdateDto) SetCourseEnrollmentId(v string)`
 
-SetCourseEnrollmentID sets CourseEnrollmentID field to given value.
+SetCourseEnrollmentId sets CourseEnrollmentId field to given value.
 
-### HasCourseEnrollmentID
+### HasCourseEnrollmentId
 
-`func (o *CourseCompletionCertificateUpdateDto) HasCourseEnrollmentID() bool`
+`func (o *CourseCompletionCertificateUpdateDto) HasCourseEnrollmentId() bool`
 
-HasCourseEnrollmentID returns a boolean if a field has been set.
+HasCourseEnrollmentId returns a boolean if a field has been set.
 
-### SetCourseEnrollmentIDNil
+### SetCourseEnrollmentIdNil
 
-`func (o *CourseCompletionCertificateUpdateDto) SetCourseEnrollmentIDNil(b bool)`
+`func (o *CourseCompletionCertificateUpdateDto) SetCourseEnrollmentIdNil(b bool)`
 
- SetCourseEnrollmentIDNil sets the value for CourseEnrollmentID to be an explicit nil
+ SetCourseEnrollmentIdNil sets the value for CourseEnrollmentId to be an explicit nil
 
-### UnsetCourseEnrollmentID
-`func (o *CourseCompletionCertificateUpdateDto) UnsetCourseEnrollmentID()`
+### UnsetCourseEnrollmentId
+`func (o *CourseCompletionCertificateUpdateDto) UnsetCourseEnrollmentId()`
 
-UnsetCourseEnrollmentID ensures that no value is present for CourseEnrollmentID, not even an explicit nil
-### GetCourseCompletionCertificateTemplateID
+UnsetCourseEnrollmentId ensures that no value is present for CourseEnrollmentId, not even an explicit nil
+### GetCourseCompletionCertificateTemplateId
 
-`func (o *CourseCompletionCertificateUpdateDto) GetCourseCompletionCertificateTemplateID() string`
+`func (o *CourseCompletionCertificateUpdateDto) GetCourseCompletionCertificateTemplateId() string`
 
-GetCourseCompletionCertificateTemplateID returns the CourseCompletionCertificateTemplateID field if non-nil, zero value otherwise.
+GetCourseCompletionCertificateTemplateId returns the CourseCompletionCertificateTemplateId field if non-nil, zero value otherwise.
 
-### GetCourseCompletionCertificateTemplateIDOk
+### GetCourseCompletionCertificateTemplateIdOk
 
-`func (o *CourseCompletionCertificateUpdateDto) GetCourseCompletionCertificateTemplateIDOk() (*string, bool)`
+`func (o *CourseCompletionCertificateUpdateDto) GetCourseCompletionCertificateTemplateIdOk() (*string, bool)`
 
-GetCourseCompletionCertificateTemplateIDOk returns a tuple with the CourseCompletionCertificateTemplateID field if it's non-nil, zero value otherwise
+GetCourseCompletionCertificateTemplateIdOk returns a tuple with the CourseCompletionCertificateTemplateId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseCompletionCertificateTemplateID
+### SetCourseCompletionCertificateTemplateId
 
-`func (o *CourseCompletionCertificateUpdateDto) SetCourseCompletionCertificateTemplateID(v string)`
+`func (o *CourseCompletionCertificateUpdateDto) SetCourseCompletionCertificateTemplateId(v string)`
 
-SetCourseCompletionCertificateTemplateID sets CourseCompletionCertificateTemplateID field to given value.
+SetCourseCompletionCertificateTemplateId sets CourseCompletionCertificateTemplateId field to given value.
 
-### HasCourseCompletionCertificateTemplateID
+### HasCourseCompletionCertificateTemplateId
 
-`func (o *CourseCompletionCertificateUpdateDto) HasCourseCompletionCertificateTemplateID() bool`
+`func (o *CourseCompletionCertificateUpdateDto) HasCourseCompletionCertificateTemplateId() bool`
 
-HasCourseCompletionCertificateTemplateID returns a boolean if a field has been set.
+HasCourseCompletionCertificateTemplateId returns a boolean if a field has been set.
 
-### SetCourseCompletionCertificateTemplateIDNil
+### SetCourseCompletionCertificateTemplateIdNil
 
-`func (o *CourseCompletionCertificateUpdateDto) SetCourseCompletionCertificateTemplateIDNil(b bool)`
+`func (o *CourseCompletionCertificateUpdateDto) SetCourseCompletionCertificateTemplateIdNil(b bool)`
 
- SetCourseCompletionCertificateTemplateIDNil sets the value for CourseCompletionCertificateTemplateID to be an explicit nil
+ SetCourseCompletionCertificateTemplateIdNil sets the value for CourseCompletionCertificateTemplateId to be an explicit nil
 
-### UnsetCourseCompletionCertificateTemplateID
-`func (o *CourseCompletionCertificateUpdateDto) UnsetCourseCompletionCertificateTemplateID()`
+### UnsetCourseCompletionCertificateTemplateId
+`func (o *CourseCompletionCertificateUpdateDto) UnsetCourseCompletionCertificateTemplateId()`
 
-UnsetCourseCompletionCertificateTemplateID ensures that no value is present for CourseCompletionCertificateTemplateID, not even an explicit nil
-### GetCourseID
+UnsetCourseCompletionCertificateTemplateId ensures that no value is present for CourseCompletionCertificateTemplateId, not even an explicit nil
+### GetCourseId
 
-`func (o *CourseCompletionCertificateUpdateDto) GetCourseID() string`
+`func (o *CourseCompletionCertificateUpdateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseCompletionCertificateUpdateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseCompletionCertificateUpdateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseCompletionCertificateUpdateDto) SetCourseID(v string)`
+`func (o *CourseCompletionCertificateUpdateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
-### HasCourseID
+### HasCourseId
 
-`func (o *CourseCompletionCertificateUpdateDto) HasCourseID() bool`
+`func (o *CourseCompletionCertificateUpdateDto) HasCourseId() bool`
 
-HasCourseID returns a boolean if a field has been set.
+HasCourseId returns a boolean if a field has been set.
 
-### SetCourseIDNil
+### SetCourseIdNil
 
-`func (o *CourseCompletionCertificateUpdateDto) SetCourseIDNil(b bool)`
+`func (o *CourseCompletionCertificateUpdateDto) SetCourseIdNil(b bool)`
 
- SetCourseIDNil sets the value for CourseID to be an explicit nil
+ SetCourseIdNil sets the value for CourseId to be an explicit nil
 
-### UnsetCourseID
-`func (o *CourseCompletionCertificateUpdateDto) UnsetCourseID()`
+### UnsetCourseId
+`func (o *CourseCompletionCertificateUpdateDto) UnsetCourseId()`
 
-UnsetCourseID ensures that no value is present for CourseID, not even an explicit nil
+UnsetCourseId ensures that no value is present for CourseId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

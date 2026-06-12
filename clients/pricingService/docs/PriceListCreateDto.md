@@ -8,11 +8,14 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
+**Context** | Pointer to **string** |  | [optional] 
 **StartDate** | Pointer to **time.Time** |  | [optional] 
 **EndDate** | Pointer to **time.Time** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **UnitId** | Pointer to **NullableString** |  | [optional] 
 **UnitGroupId** | Pointer to **NullableString** |  | [optional] 
+**PartnerVisible** | Pointer to **bool** |  | [optional] 
+**UnitOfMeasureDependant** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -138,6 +141,31 @@ HasDescription returns a boolean if a field has been set.
 `func (o *PriceListCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetContext
+
+`func (o *PriceListCreateDto) GetContext() string`
+
+GetContext returns the Context field if non-nil, zero value otherwise.
+
+### GetContextOk
+
+`func (o *PriceListCreateDto) GetContextOk() (*string, bool)`
+
+GetContextOk returns a tuple with the Context field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContext
+
+`func (o *PriceListCreateDto) SetContext(v string)`
+
+SetContext sets Context field to given value.
+
+### HasContext
+
+`func (o *PriceListCreateDto) HasContext() bool`
+
+HasContext returns a boolean if a field has been set.
+
 ### GetStartDate
 
 `func (o *PriceListCreateDto) GetStartDate() time.Time`
@@ -293,6 +321,56 @@ HasUnitGroupId returns a boolean if a field has been set.
 `func (o *PriceListCreateDto) UnsetUnitGroupId()`
 
 UnsetUnitGroupId ensures that no value is present for UnitGroupId, not even an explicit nil
+### GetPartnerVisible
+
+`func (o *PriceListCreateDto) GetPartnerVisible() bool`
+
+GetPartnerVisible returns the PartnerVisible field if non-nil, zero value otherwise.
+
+### GetPartnerVisibleOk
+
+`func (o *PriceListCreateDto) GetPartnerVisibleOk() (*bool, bool)`
+
+GetPartnerVisibleOk returns a tuple with the PartnerVisible field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPartnerVisible
+
+`func (o *PriceListCreateDto) SetPartnerVisible(v bool)`
+
+SetPartnerVisible sets PartnerVisible field to given value.
+
+### HasPartnerVisible
+
+`func (o *PriceListCreateDto) HasPartnerVisible() bool`
+
+HasPartnerVisible returns a boolean if a field has been set.
+
+### GetUnitOfMeasureDependant
+
+`func (o *PriceListCreateDto) GetUnitOfMeasureDependant() bool`
+
+GetUnitOfMeasureDependant returns the UnitOfMeasureDependant field if non-nil, zero value otherwise.
+
+### GetUnitOfMeasureDependantOk
+
+`func (o *PriceListCreateDto) GetUnitOfMeasureDependantOk() (*bool, bool)`
+
+GetUnitOfMeasureDependantOk returns a tuple with the UnitOfMeasureDependant field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnitOfMeasureDependant
+
+`func (o *PriceListCreateDto) SetUnitOfMeasureDependant(v bool)`
+
+SetUnitOfMeasureDependant sets UnitOfMeasureDependant field to given value.
+
+### HasUnitOfMeasureDependant
+
+`func (o *PriceListCreateDto) HasUnitOfMeasureDependant() bool`
+
+HasUnitOfMeasureDependant returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

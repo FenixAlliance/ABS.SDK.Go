@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Content** | Pointer to **NullableString** |  | [optional] 
 **Url** | Pointer to **NullableString** |  | [optional] 
 **ReleaseDateTime** | Pointer to **NullableTime** |  | [optional] 
-**CourseUnitID** | Pointer to **NullableString** |  | [optional] 
+**CourseUnitId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -205,41 +205,41 @@ HasReleaseDateTime returns a boolean if a field has been set.
 `func (o *CourseHandoutUpdateDto) UnsetReleaseDateTime()`
 
 UnsetReleaseDateTime ensures that no value is present for ReleaseDateTime, not even an explicit nil
-### GetCourseUnitID
+### GetCourseUnitId
 
-`func (o *CourseHandoutUpdateDto) GetCourseUnitID() string`
+`func (o *CourseHandoutUpdateDto) GetCourseUnitId() string`
 
-GetCourseUnitID returns the CourseUnitID field if non-nil, zero value otherwise.
+GetCourseUnitId returns the CourseUnitId field if non-nil, zero value otherwise.
 
-### GetCourseUnitIDOk
+### GetCourseUnitIdOk
 
-`func (o *CourseHandoutUpdateDto) GetCourseUnitIDOk() (*string, bool)`
+`func (o *CourseHandoutUpdateDto) GetCourseUnitIdOk() (*string, bool)`
 
-GetCourseUnitIDOk returns a tuple with the CourseUnitID field if it's non-nil, zero value otherwise
+GetCourseUnitIdOk returns a tuple with the CourseUnitId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseUnitID
+### SetCourseUnitId
 
-`func (o *CourseHandoutUpdateDto) SetCourseUnitID(v string)`
+`func (o *CourseHandoutUpdateDto) SetCourseUnitId(v string)`
 
-SetCourseUnitID sets CourseUnitID field to given value.
+SetCourseUnitId sets CourseUnitId field to given value.
 
-### HasCourseUnitID
+### HasCourseUnitId
 
-`func (o *CourseHandoutUpdateDto) HasCourseUnitID() bool`
+`func (o *CourseHandoutUpdateDto) HasCourseUnitId() bool`
 
-HasCourseUnitID returns a boolean if a field has been set.
+HasCourseUnitId returns a boolean if a field has been set.
 
-### SetCourseUnitIDNil
+### SetCourseUnitIdNil
 
-`func (o *CourseHandoutUpdateDto) SetCourseUnitIDNil(b bool)`
+`func (o *CourseHandoutUpdateDto) SetCourseUnitIdNil(b bool)`
 
- SetCourseUnitIDNil sets the value for CourseUnitID to be an explicit nil
+ SetCourseUnitIdNil sets the value for CourseUnitId to be an explicit nil
 
-### UnsetCourseUnitID
-`func (o *CourseHandoutUpdateDto) UnsetCourseUnitID()`
+### UnsetCourseUnitId
+`func (o *CourseHandoutUpdateDto) UnsetCourseUnitId()`
 
-UnsetCourseUnitID ensures that no value is present for CourseUnitID, not even an explicit nil
+UnsetCourseUnitId ensures that no value is present for CourseUnitId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Title** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **ImageURL** | Pointer to **NullableString** |  | [optional] 
-**ParentItemCategoryID** | Pointer to **NullableString** |  | [optional] 
+**ParentItemCategoryId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -170,41 +170,41 @@ HasImageURL returns a boolean if a field has been set.
 `func (o *ItemCategoryCreateDto) UnsetImageURL()`
 
 UnsetImageURL ensures that no value is present for ImageURL, not even an explicit nil
-### GetParentItemCategoryID
+### GetParentItemCategoryId
 
-`func (o *ItemCategoryCreateDto) GetParentItemCategoryID() string`
+`func (o *ItemCategoryCreateDto) GetParentItemCategoryId() string`
 
-GetParentItemCategoryID returns the ParentItemCategoryID field if non-nil, zero value otherwise.
+GetParentItemCategoryId returns the ParentItemCategoryId field if non-nil, zero value otherwise.
 
-### GetParentItemCategoryIDOk
+### GetParentItemCategoryIdOk
 
-`func (o *ItemCategoryCreateDto) GetParentItemCategoryIDOk() (*string, bool)`
+`func (o *ItemCategoryCreateDto) GetParentItemCategoryIdOk() (*string, bool)`
 
-GetParentItemCategoryIDOk returns a tuple with the ParentItemCategoryID field if it's non-nil, zero value otherwise
+GetParentItemCategoryIdOk returns a tuple with the ParentItemCategoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentItemCategoryID
+### SetParentItemCategoryId
 
-`func (o *ItemCategoryCreateDto) SetParentItemCategoryID(v string)`
+`func (o *ItemCategoryCreateDto) SetParentItemCategoryId(v string)`
 
-SetParentItemCategoryID sets ParentItemCategoryID field to given value.
+SetParentItemCategoryId sets ParentItemCategoryId field to given value.
 
-### HasParentItemCategoryID
+### HasParentItemCategoryId
 
-`func (o *ItemCategoryCreateDto) HasParentItemCategoryID() bool`
+`func (o *ItemCategoryCreateDto) HasParentItemCategoryId() bool`
 
-HasParentItemCategoryID returns a boolean if a field has been set.
+HasParentItemCategoryId returns a boolean if a field has been set.
 
-### SetParentItemCategoryIDNil
+### SetParentItemCategoryIdNil
 
-`func (o *ItemCategoryCreateDto) SetParentItemCategoryIDNil(b bool)`
+`func (o *ItemCategoryCreateDto) SetParentItemCategoryIdNil(b bool)`
 
- SetParentItemCategoryIDNil sets the value for ParentItemCategoryID to be an explicit nil
+ SetParentItemCategoryIdNil sets the value for ParentItemCategoryId to be an explicit nil
 
-### UnsetParentItemCategoryID
-`func (o *ItemCategoryCreateDto) UnsetParentItemCategoryID()`
+### UnsetParentItemCategoryId
+`func (o *ItemCategoryCreateDto) UnsetParentItemCategoryId()`
 
-UnsetParentItemCategoryID ensures that no value is present for ParentItemCategoryID, not even an explicit nil
+UnsetParentItemCategoryId ensures that no value is present for ParentItemCategoryId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

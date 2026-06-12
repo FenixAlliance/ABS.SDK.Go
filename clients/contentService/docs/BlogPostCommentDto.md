@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
-**BlogPostID** | Pointer to **NullableString** |  | [optional] 
+**BlogPostId** | Pointer to **NullableString** |  | [optional] 
 **Message** | Pointer to **NullableString** |  | [optional] 
-**OwnerSocialProfileID** | Pointer to **NullableString** |  | [optional] 
-**SocialPostID** | Pointer to **NullableString** |  | [optional] 
-**ParentCommentID** | Pointer to **NullableString** |  | [optional] 
+**OwnerSocialProfileId** | Pointer to **NullableString** |  | [optional] 
+**SocialPostId** | Pointer to **NullableString** |  | [optional] 
+**ParentCommentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -101,41 +101,41 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *BlogPostCommentDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-### GetBlogPostID
+### GetBlogPostId
 
-`func (o *BlogPostCommentDto) GetBlogPostID() string`
+`func (o *BlogPostCommentDto) GetBlogPostId() string`
 
-GetBlogPostID returns the BlogPostID field if non-nil, zero value otherwise.
+GetBlogPostId returns the BlogPostId field if non-nil, zero value otherwise.
 
-### GetBlogPostIDOk
+### GetBlogPostIdOk
 
-`func (o *BlogPostCommentDto) GetBlogPostIDOk() (*string, bool)`
+`func (o *BlogPostCommentDto) GetBlogPostIdOk() (*string, bool)`
 
-GetBlogPostIDOk returns a tuple with the BlogPostID field if it's non-nil, zero value otherwise
+GetBlogPostIdOk returns a tuple with the BlogPostId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBlogPostID
+### SetBlogPostId
 
-`func (o *BlogPostCommentDto) SetBlogPostID(v string)`
+`func (o *BlogPostCommentDto) SetBlogPostId(v string)`
 
-SetBlogPostID sets BlogPostID field to given value.
+SetBlogPostId sets BlogPostId field to given value.
 
-### HasBlogPostID
+### HasBlogPostId
 
-`func (o *BlogPostCommentDto) HasBlogPostID() bool`
+`func (o *BlogPostCommentDto) HasBlogPostId() bool`
 
-HasBlogPostID returns a boolean if a field has been set.
+HasBlogPostId returns a boolean if a field has been set.
 
-### SetBlogPostIDNil
+### SetBlogPostIdNil
 
-`func (o *BlogPostCommentDto) SetBlogPostIDNil(b bool)`
+`func (o *BlogPostCommentDto) SetBlogPostIdNil(b bool)`
 
- SetBlogPostIDNil sets the value for BlogPostID to be an explicit nil
+ SetBlogPostIdNil sets the value for BlogPostId to be an explicit nil
 
-### UnsetBlogPostID
-`func (o *BlogPostCommentDto) UnsetBlogPostID()`
+### UnsetBlogPostId
+`func (o *BlogPostCommentDto) UnsetBlogPostId()`
 
-UnsetBlogPostID ensures that no value is present for BlogPostID, not even an explicit nil
+UnsetBlogPostId ensures that no value is present for BlogPostId, not even an explicit nil
 ### GetMessage
 
 `func (o *BlogPostCommentDto) GetMessage() string`
@@ -171,111 +171,111 @@ HasMessage returns a boolean if a field has been set.
 `func (o *BlogPostCommentDto) UnsetMessage()`
 
 UnsetMessage ensures that no value is present for Message, not even an explicit nil
-### GetOwnerSocialProfileID
+### GetOwnerSocialProfileId
 
-`func (o *BlogPostCommentDto) GetOwnerSocialProfileID() string`
+`func (o *BlogPostCommentDto) GetOwnerSocialProfileId() string`
 
-GetOwnerSocialProfileID returns the OwnerSocialProfileID field if non-nil, zero value otherwise.
+GetOwnerSocialProfileId returns the OwnerSocialProfileId field if non-nil, zero value otherwise.
 
-### GetOwnerSocialProfileIDOk
+### GetOwnerSocialProfileIdOk
 
-`func (o *BlogPostCommentDto) GetOwnerSocialProfileIDOk() (*string, bool)`
+`func (o *BlogPostCommentDto) GetOwnerSocialProfileIdOk() (*string, bool)`
 
-GetOwnerSocialProfileIDOk returns a tuple with the OwnerSocialProfileID field if it's non-nil, zero value otherwise
+GetOwnerSocialProfileIdOk returns a tuple with the OwnerSocialProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOwnerSocialProfileID
+### SetOwnerSocialProfileId
 
-`func (o *BlogPostCommentDto) SetOwnerSocialProfileID(v string)`
+`func (o *BlogPostCommentDto) SetOwnerSocialProfileId(v string)`
 
-SetOwnerSocialProfileID sets OwnerSocialProfileID field to given value.
+SetOwnerSocialProfileId sets OwnerSocialProfileId field to given value.
 
-### HasOwnerSocialProfileID
+### HasOwnerSocialProfileId
 
-`func (o *BlogPostCommentDto) HasOwnerSocialProfileID() bool`
+`func (o *BlogPostCommentDto) HasOwnerSocialProfileId() bool`
 
-HasOwnerSocialProfileID returns a boolean if a field has been set.
+HasOwnerSocialProfileId returns a boolean if a field has been set.
 
-### SetOwnerSocialProfileIDNil
+### SetOwnerSocialProfileIdNil
 
-`func (o *BlogPostCommentDto) SetOwnerSocialProfileIDNil(b bool)`
+`func (o *BlogPostCommentDto) SetOwnerSocialProfileIdNil(b bool)`
 
- SetOwnerSocialProfileIDNil sets the value for OwnerSocialProfileID to be an explicit nil
+ SetOwnerSocialProfileIdNil sets the value for OwnerSocialProfileId to be an explicit nil
 
-### UnsetOwnerSocialProfileID
-`func (o *BlogPostCommentDto) UnsetOwnerSocialProfileID()`
+### UnsetOwnerSocialProfileId
+`func (o *BlogPostCommentDto) UnsetOwnerSocialProfileId()`
 
-UnsetOwnerSocialProfileID ensures that no value is present for OwnerSocialProfileID, not even an explicit nil
-### GetSocialPostID
+UnsetOwnerSocialProfileId ensures that no value is present for OwnerSocialProfileId, not even an explicit nil
+### GetSocialPostId
 
-`func (o *BlogPostCommentDto) GetSocialPostID() string`
+`func (o *BlogPostCommentDto) GetSocialPostId() string`
 
-GetSocialPostID returns the SocialPostID field if non-nil, zero value otherwise.
+GetSocialPostId returns the SocialPostId field if non-nil, zero value otherwise.
 
-### GetSocialPostIDOk
+### GetSocialPostIdOk
 
-`func (o *BlogPostCommentDto) GetSocialPostIDOk() (*string, bool)`
+`func (o *BlogPostCommentDto) GetSocialPostIdOk() (*string, bool)`
 
-GetSocialPostIDOk returns a tuple with the SocialPostID field if it's non-nil, zero value otherwise
+GetSocialPostIdOk returns a tuple with the SocialPostId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSocialPostID
+### SetSocialPostId
 
-`func (o *BlogPostCommentDto) SetSocialPostID(v string)`
+`func (o *BlogPostCommentDto) SetSocialPostId(v string)`
 
-SetSocialPostID sets SocialPostID field to given value.
+SetSocialPostId sets SocialPostId field to given value.
 
-### HasSocialPostID
+### HasSocialPostId
 
-`func (o *BlogPostCommentDto) HasSocialPostID() bool`
+`func (o *BlogPostCommentDto) HasSocialPostId() bool`
 
-HasSocialPostID returns a boolean if a field has been set.
+HasSocialPostId returns a boolean if a field has been set.
 
-### SetSocialPostIDNil
+### SetSocialPostIdNil
 
-`func (o *BlogPostCommentDto) SetSocialPostIDNil(b bool)`
+`func (o *BlogPostCommentDto) SetSocialPostIdNil(b bool)`
 
- SetSocialPostIDNil sets the value for SocialPostID to be an explicit nil
+ SetSocialPostIdNil sets the value for SocialPostId to be an explicit nil
 
-### UnsetSocialPostID
-`func (o *BlogPostCommentDto) UnsetSocialPostID()`
+### UnsetSocialPostId
+`func (o *BlogPostCommentDto) UnsetSocialPostId()`
 
-UnsetSocialPostID ensures that no value is present for SocialPostID, not even an explicit nil
-### GetParentCommentID
+UnsetSocialPostId ensures that no value is present for SocialPostId, not even an explicit nil
+### GetParentCommentId
 
-`func (o *BlogPostCommentDto) GetParentCommentID() string`
+`func (o *BlogPostCommentDto) GetParentCommentId() string`
 
-GetParentCommentID returns the ParentCommentID field if non-nil, zero value otherwise.
+GetParentCommentId returns the ParentCommentId field if non-nil, zero value otherwise.
 
-### GetParentCommentIDOk
+### GetParentCommentIdOk
 
-`func (o *BlogPostCommentDto) GetParentCommentIDOk() (*string, bool)`
+`func (o *BlogPostCommentDto) GetParentCommentIdOk() (*string, bool)`
 
-GetParentCommentIDOk returns a tuple with the ParentCommentID field if it's non-nil, zero value otherwise
+GetParentCommentIdOk returns a tuple with the ParentCommentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentCommentID
+### SetParentCommentId
 
-`func (o *BlogPostCommentDto) SetParentCommentID(v string)`
+`func (o *BlogPostCommentDto) SetParentCommentId(v string)`
 
-SetParentCommentID sets ParentCommentID field to given value.
+SetParentCommentId sets ParentCommentId field to given value.
 
-### HasParentCommentID
+### HasParentCommentId
 
-`func (o *BlogPostCommentDto) HasParentCommentID() bool`
+`func (o *BlogPostCommentDto) HasParentCommentId() bool`
 
-HasParentCommentID returns a boolean if a field has been set.
+HasParentCommentId returns a boolean if a field has been set.
 
-### SetParentCommentIDNil
+### SetParentCommentIdNil
 
-`func (o *BlogPostCommentDto) SetParentCommentIDNil(b bool)`
+`func (o *BlogPostCommentDto) SetParentCommentIdNil(b bool)`
 
- SetParentCommentIDNil sets the value for ParentCommentID to be an explicit nil
+ SetParentCommentIdNil sets the value for ParentCommentId to be an explicit nil
 
-### UnsetParentCommentID
-`func (o *BlogPostCommentDto) UnsetParentCommentID()`
+### UnsetParentCommentId
+`func (o *BlogPostCommentDto) UnsetParentCommentId()`
 
-UnsetParentCommentID ensures that no value is present for ParentCommentID, not even an explicit nil
+UnsetParentCommentId ensures that no value is present for ParentCommentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

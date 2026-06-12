@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
-**CourseID** | **string** |  | 
+**CourseId** | **string** |  | 
 **StartDateTime** | Pointer to **NullableTime** |  | [optional] 
 **EndDateTime** | Pointer to **NullableTime** |  | [optional] 
 **ExpectedStartDateTime** | Pointer to **NullableTime** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCourseCohortCreateDto
 
-`func NewCourseCohortCreateDto(name string, courseID string, ) *CourseCohortCreateDto`
+`func NewCourseCohortCreateDto(name string, courseId string, ) *CourseCohortCreateDto`
 
 NewCourseCohortCreateDto instantiates a new CourseCohortCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -102,24 +102,24 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseCohortCreateDto) GetCourseID() string`
+`func (o *CourseCohortCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseCohortCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseCohortCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseCohortCreateDto) SetCourseID(v string)`
+`func (o *CourseCohortCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
 ### GetStartDateTime

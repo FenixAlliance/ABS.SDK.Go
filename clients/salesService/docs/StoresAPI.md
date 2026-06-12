@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**DeleteStoreAsync**](StoresAPI.md#DeleteStoreAsync) | **Delete** /api/v2/SalesService/Stores/{storeId} | Delete a store
 [**GetStoreAsync**](StoresAPI.md#GetStoreAsync) | **Get** /api/v2/SalesService/Stores/{storeId} | Get store by ID
 [**GetStoresAsync**](StoresAPI.md#GetStoresAsync) | **Get** /api/v2/SalesService/Stores | Get stores
+[**PatchStoreAsync**](StoresAPI.md#PatchStoreAsync) | **Patch** /api/v2/SalesService/Stores/{storeId} | Patch a store
 [**UpdateStoreAsync**](StoresAPI.md#UpdateStoreAsync) | **Put** /api/v2/SalesService/Stores/{storeId} | Update a store
 
 
@@ -350,6 +351,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchStoreAsync
+
+> EmptyEnvelope PatchStoreAsync(ctx, storeId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a store
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	storeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StoresAPI.PatchStoreAsync(context.Background(), storeId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StoresAPI.PatchStoreAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchStoreAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `StoresAPI.PatchStoreAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**storeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchStoreAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -19,6 +19,8 @@ Method | HTTP request | Description
 [**GetQuoteLinesCount**](QuotesAPI.md#GetQuoteLinesCount) | **Get** /api/v2/QuotesService/Quotes/{quoteId}/Lines/Count | Get the count of quote lines.
 [**GetQuotes**](QuotesAPI.md#GetQuotes) | **Get** /api/v2/QuotesService/Quotes | Get a list of quotes.
 [**GetQuotesCount**](QuotesAPI.md#GetQuotesCount) | **Get** /api/v2/QuotesService/Quotes/Count | Get the count of quotes.
+[**PatchQuoteAsync**](QuotesAPI.md#PatchQuoteAsync) | **Patch** /api/v2/QuotesService/Quotes/{quoteId} | Patch an existing quote.
+[**PatchQuoteLineAsync**](QuotesAPI.md#PatchQuoteLineAsync) | **Patch** /api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId} | Patch a quote line.
 [**PreviewQuoteEmailTemplate**](QuotesAPI.md#PreviewQuoteEmailTemplate) | **Post** /api/v2/QuotesService/Quotes/{quoteId}/Emails/Preview | Preview the rendered email for an invoice.
 [**QuoteLineExists**](QuotesAPI.md#QuoteLineExists) | **Get** /api/v2/QuotesService/Quotes/{quoteId}/Lines/Exists | Check if a quote line exists.
 [**ReopenQuote**](QuotesAPI.md#ReopenQuote) | **Put** /api/v2/QuotesService/Quotes/{quoteId}/Reopen | Reopen a closed quote.
@@ -1093,6 +1095,157 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchQuoteAsync
+
+> EmptyEnvelope PatchQuoteAsync(ctx, quoteId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch an existing quote.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	quoteId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.QuotesAPI.PatchQuoteAsync(context.Background(), quoteId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `QuotesAPI.PatchQuoteAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchQuoteAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `QuotesAPI.PatchQuoteAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**quoteId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchQuoteAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchQuoteLineAsync
+
+> EmptyEnvelope PatchQuoteLineAsync(ctx, quoteId, quoteLineId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a quote line.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	quoteId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	quoteLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.QuotesAPI.PatchQuoteLineAsync(context.Background(), quoteId, quoteLineId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `QuotesAPI.PatchQuoteLineAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchQuoteLineAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `QuotesAPI.PatchQuoteLineAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**quoteId** | **string** |  | 
+**quoteLineId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchQuoteLineAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

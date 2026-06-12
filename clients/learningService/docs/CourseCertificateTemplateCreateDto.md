@@ -6,18 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**CourseID** | **string** |  | 
-**WebPortalID** | Pointer to **NullableString** |  | [optional] 
-**WebsiteThemeID** | Pointer to **NullableString** |  | [optional] 
-**SocialProfileID** | Pointer to **NullableString** |  | [optional] 
-**ParentWebContentID** | Pointer to **NullableString** |  | [optional] 
-**ParentWebContentVersionID** | Pointer to **NullableString** |  | [optional] 
+**CourseId** | **string** |  | 
+**WebPortalId** | Pointer to **NullableString** |  | [optional] 
+**WebsiteThemeId** | Pointer to **NullableString** |  | [optional] 
+**SocialProfileId** | Pointer to **NullableString** |  | [optional] 
+**ParentWebContentId** | Pointer to **NullableString** |  | [optional] 
+**ParentWebContentVersionId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCourseCertificateTemplateCreateDto
 
-`func NewCourseCertificateTemplateCreateDto(courseID string, ) *CourseCertificateTemplateCreateDto`
+`func NewCourseCertificateTemplateCreateDto(courseId string, ) *CourseCertificateTemplateCreateDto`
 
 NewCourseCertificateTemplateCreateDto instantiates a new CourseCertificateTemplateCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -82,201 +82,201 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseCertificateTemplateCreateDto) GetCourseID() string`
+`func (o *CourseCertificateTemplateCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseCertificateTemplateCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseCertificateTemplateCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseCertificateTemplateCreateDto) SetCourseID(v string)`
+`func (o *CourseCertificateTemplateCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
-### GetWebPortalID
+### GetWebPortalId
 
-`func (o *CourseCertificateTemplateCreateDto) GetWebPortalID() string`
+`func (o *CourseCertificateTemplateCreateDto) GetWebPortalId() string`
 
-GetWebPortalID returns the WebPortalID field if non-nil, zero value otherwise.
+GetWebPortalId returns the WebPortalId field if non-nil, zero value otherwise.
 
-### GetWebPortalIDOk
+### GetWebPortalIdOk
 
-`func (o *CourseCertificateTemplateCreateDto) GetWebPortalIDOk() (*string, bool)`
+`func (o *CourseCertificateTemplateCreateDto) GetWebPortalIdOk() (*string, bool)`
 
-GetWebPortalIDOk returns a tuple with the WebPortalID field if it's non-nil, zero value otherwise
+GetWebPortalIdOk returns a tuple with the WebPortalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWebPortalID
+### SetWebPortalId
 
-`func (o *CourseCertificateTemplateCreateDto) SetWebPortalID(v string)`
+`func (o *CourseCertificateTemplateCreateDto) SetWebPortalId(v string)`
 
-SetWebPortalID sets WebPortalID field to given value.
+SetWebPortalId sets WebPortalId field to given value.
 
-### HasWebPortalID
+### HasWebPortalId
 
-`func (o *CourseCertificateTemplateCreateDto) HasWebPortalID() bool`
+`func (o *CourseCertificateTemplateCreateDto) HasWebPortalId() bool`
 
-HasWebPortalID returns a boolean if a field has been set.
+HasWebPortalId returns a boolean if a field has been set.
 
-### SetWebPortalIDNil
+### SetWebPortalIdNil
 
-`func (o *CourseCertificateTemplateCreateDto) SetWebPortalIDNil(b bool)`
+`func (o *CourseCertificateTemplateCreateDto) SetWebPortalIdNil(b bool)`
 
- SetWebPortalIDNil sets the value for WebPortalID to be an explicit nil
+ SetWebPortalIdNil sets the value for WebPortalId to be an explicit nil
 
-### UnsetWebPortalID
-`func (o *CourseCertificateTemplateCreateDto) UnsetWebPortalID()`
+### UnsetWebPortalId
+`func (o *CourseCertificateTemplateCreateDto) UnsetWebPortalId()`
 
-UnsetWebPortalID ensures that no value is present for WebPortalID, not even an explicit nil
-### GetWebsiteThemeID
+UnsetWebPortalId ensures that no value is present for WebPortalId, not even an explicit nil
+### GetWebsiteThemeId
 
-`func (o *CourseCertificateTemplateCreateDto) GetWebsiteThemeID() string`
+`func (o *CourseCertificateTemplateCreateDto) GetWebsiteThemeId() string`
 
-GetWebsiteThemeID returns the WebsiteThemeID field if non-nil, zero value otherwise.
+GetWebsiteThemeId returns the WebsiteThemeId field if non-nil, zero value otherwise.
 
-### GetWebsiteThemeIDOk
+### GetWebsiteThemeIdOk
 
-`func (o *CourseCertificateTemplateCreateDto) GetWebsiteThemeIDOk() (*string, bool)`
+`func (o *CourseCertificateTemplateCreateDto) GetWebsiteThemeIdOk() (*string, bool)`
 
-GetWebsiteThemeIDOk returns a tuple with the WebsiteThemeID field if it's non-nil, zero value otherwise
+GetWebsiteThemeIdOk returns a tuple with the WebsiteThemeId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWebsiteThemeID
+### SetWebsiteThemeId
 
-`func (o *CourseCertificateTemplateCreateDto) SetWebsiteThemeID(v string)`
+`func (o *CourseCertificateTemplateCreateDto) SetWebsiteThemeId(v string)`
 
-SetWebsiteThemeID sets WebsiteThemeID field to given value.
+SetWebsiteThemeId sets WebsiteThemeId field to given value.
 
-### HasWebsiteThemeID
+### HasWebsiteThemeId
 
-`func (o *CourseCertificateTemplateCreateDto) HasWebsiteThemeID() bool`
+`func (o *CourseCertificateTemplateCreateDto) HasWebsiteThemeId() bool`
 
-HasWebsiteThemeID returns a boolean if a field has been set.
+HasWebsiteThemeId returns a boolean if a field has been set.
 
-### SetWebsiteThemeIDNil
+### SetWebsiteThemeIdNil
 
-`func (o *CourseCertificateTemplateCreateDto) SetWebsiteThemeIDNil(b bool)`
+`func (o *CourseCertificateTemplateCreateDto) SetWebsiteThemeIdNil(b bool)`
 
- SetWebsiteThemeIDNil sets the value for WebsiteThemeID to be an explicit nil
+ SetWebsiteThemeIdNil sets the value for WebsiteThemeId to be an explicit nil
 
-### UnsetWebsiteThemeID
-`func (o *CourseCertificateTemplateCreateDto) UnsetWebsiteThemeID()`
+### UnsetWebsiteThemeId
+`func (o *CourseCertificateTemplateCreateDto) UnsetWebsiteThemeId()`
 
-UnsetWebsiteThemeID ensures that no value is present for WebsiteThemeID, not even an explicit nil
-### GetSocialProfileID
+UnsetWebsiteThemeId ensures that no value is present for WebsiteThemeId, not even an explicit nil
+### GetSocialProfileId
 
-`func (o *CourseCertificateTemplateCreateDto) GetSocialProfileID() string`
+`func (o *CourseCertificateTemplateCreateDto) GetSocialProfileId() string`
 
-GetSocialProfileID returns the SocialProfileID field if non-nil, zero value otherwise.
+GetSocialProfileId returns the SocialProfileId field if non-nil, zero value otherwise.
 
-### GetSocialProfileIDOk
+### GetSocialProfileIdOk
 
-`func (o *CourseCertificateTemplateCreateDto) GetSocialProfileIDOk() (*string, bool)`
+`func (o *CourseCertificateTemplateCreateDto) GetSocialProfileIdOk() (*string, bool)`
 
-GetSocialProfileIDOk returns a tuple with the SocialProfileID field if it's non-nil, zero value otherwise
+GetSocialProfileIdOk returns a tuple with the SocialProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSocialProfileID
+### SetSocialProfileId
 
-`func (o *CourseCertificateTemplateCreateDto) SetSocialProfileID(v string)`
+`func (o *CourseCertificateTemplateCreateDto) SetSocialProfileId(v string)`
 
-SetSocialProfileID sets SocialProfileID field to given value.
+SetSocialProfileId sets SocialProfileId field to given value.
 
-### HasSocialProfileID
+### HasSocialProfileId
 
-`func (o *CourseCertificateTemplateCreateDto) HasSocialProfileID() bool`
+`func (o *CourseCertificateTemplateCreateDto) HasSocialProfileId() bool`
 
-HasSocialProfileID returns a boolean if a field has been set.
+HasSocialProfileId returns a boolean if a field has been set.
 
-### SetSocialProfileIDNil
+### SetSocialProfileIdNil
 
-`func (o *CourseCertificateTemplateCreateDto) SetSocialProfileIDNil(b bool)`
+`func (o *CourseCertificateTemplateCreateDto) SetSocialProfileIdNil(b bool)`
 
- SetSocialProfileIDNil sets the value for SocialProfileID to be an explicit nil
+ SetSocialProfileIdNil sets the value for SocialProfileId to be an explicit nil
 
-### UnsetSocialProfileID
-`func (o *CourseCertificateTemplateCreateDto) UnsetSocialProfileID()`
+### UnsetSocialProfileId
+`func (o *CourseCertificateTemplateCreateDto) UnsetSocialProfileId()`
 
-UnsetSocialProfileID ensures that no value is present for SocialProfileID, not even an explicit nil
-### GetParentWebContentID
+UnsetSocialProfileId ensures that no value is present for SocialProfileId, not even an explicit nil
+### GetParentWebContentId
 
-`func (o *CourseCertificateTemplateCreateDto) GetParentWebContentID() string`
+`func (o *CourseCertificateTemplateCreateDto) GetParentWebContentId() string`
 
-GetParentWebContentID returns the ParentWebContentID field if non-nil, zero value otherwise.
+GetParentWebContentId returns the ParentWebContentId field if non-nil, zero value otherwise.
 
-### GetParentWebContentIDOk
+### GetParentWebContentIdOk
 
-`func (o *CourseCertificateTemplateCreateDto) GetParentWebContentIDOk() (*string, bool)`
+`func (o *CourseCertificateTemplateCreateDto) GetParentWebContentIdOk() (*string, bool)`
 
-GetParentWebContentIDOk returns a tuple with the ParentWebContentID field if it's non-nil, zero value otherwise
+GetParentWebContentIdOk returns a tuple with the ParentWebContentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentWebContentID
+### SetParentWebContentId
 
-`func (o *CourseCertificateTemplateCreateDto) SetParentWebContentID(v string)`
+`func (o *CourseCertificateTemplateCreateDto) SetParentWebContentId(v string)`
 
-SetParentWebContentID sets ParentWebContentID field to given value.
+SetParentWebContentId sets ParentWebContentId field to given value.
 
-### HasParentWebContentID
+### HasParentWebContentId
 
-`func (o *CourseCertificateTemplateCreateDto) HasParentWebContentID() bool`
+`func (o *CourseCertificateTemplateCreateDto) HasParentWebContentId() bool`
 
-HasParentWebContentID returns a boolean if a field has been set.
+HasParentWebContentId returns a boolean if a field has been set.
 
-### SetParentWebContentIDNil
+### SetParentWebContentIdNil
 
-`func (o *CourseCertificateTemplateCreateDto) SetParentWebContentIDNil(b bool)`
+`func (o *CourseCertificateTemplateCreateDto) SetParentWebContentIdNil(b bool)`
 
- SetParentWebContentIDNil sets the value for ParentWebContentID to be an explicit nil
+ SetParentWebContentIdNil sets the value for ParentWebContentId to be an explicit nil
 
-### UnsetParentWebContentID
-`func (o *CourseCertificateTemplateCreateDto) UnsetParentWebContentID()`
+### UnsetParentWebContentId
+`func (o *CourseCertificateTemplateCreateDto) UnsetParentWebContentId()`
 
-UnsetParentWebContentID ensures that no value is present for ParentWebContentID, not even an explicit nil
-### GetParentWebContentVersionID
+UnsetParentWebContentId ensures that no value is present for ParentWebContentId, not even an explicit nil
+### GetParentWebContentVersionId
 
-`func (o *CourseCertificateTemplateCreateDto) GetParentWebContentVersionID() string`
+`func (o *CourseCertificateTemplateCreateDto) GetParentWebContentVersionId() string`
 
-GetParentWebContentVersionID returns the ParentWebContentVersionID field if non-nil, zero value otherwise.
+GetParentWebContentVersionId returns the ParentWebContentVersionId field if non-nil, zero value otherwise.
 
-### GetParentWebContentVersionIDOk
+### GetParentWebContentVersionIdOk
 
-`func (o *CourseCertificateTemplateCreateDto) GetParentWebContentVersionIDOk() (*string, bool)`
+`func (o *CourseCertificateTemplateCreateDto) GetParentWebContentVersionIdOk() (*string, bool)`
 
-GetParentWebContentVersionIDOk returns a tuple with the ParentWebContentVersionID field if it's non-nil, zero value otherwise
+GetParentWebContentVersionIdOk returns a tuple with the ParentWebContentVersionId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentWebContentVersionID
+### SetParentWebContentVersionId
 
-`func (o *CourseCertificateTemplateCreateDto) SetParentWebContentVersionID(v string)`
+`func (o *CourseCertificateTemplateCreateDto) SetParentWebContentVersionId(v string)`
 
-SetParentWebContentVersionID sets ParentWebContentVersionID field to given value.
+SetParentWebContentVersionId sets ParentWebContentVersionId field to given value.
 
-### HasParentWebContentVersionID
+### HasParentWebContentVersionId
 
-`func (o *CourseCertificateTemplateCreateDto) HasParentWebContentVersionID() bool`
+`func (o *CourseCertificateTemplateCreateDto) HasParentWebContentVersionId() bool`
 
-HasParentWebContentVersionID returns a boolean if a field has been set.
+HasParentWebContentVersionId returns a boolean if a field has been set.
 
-### SetParentWebContentVersionIDNil
+### SetParentWebContentVersionIdNil
 
-`func (o *CourseCertificateTemplateCreateDto) SetParentWebContentVersionIDNil(b bool)`
+`func (o *CourseCertificateTemplateCreateDto) SetParentWebContentVersionIdNil(b bool)`
 
- SetParentWebContentVersionIDNil sets the value for ParentWebContentVersionID to be an explicit nil
+ SetParentWebContentVersionIdNil sets the value for ParentWebContentVersionId to be an explicit nil
 
-### UnsetParentWebContentVersionID
-`func (o *CourseCertificateTemplateCreateDto) UnsetParentWebContentVersionID()`
+### UnsetParentWebContentVersionId
+`func (o *CourseCertificateTemplateCreateDto) UnsetParentWebContentVersionId()`
 
-UnsetParentWebContentVersionID ensures that no value is present for ParentWebContentVersionID, not even an explicit nil
+UnsetParentWebContentVersionId ensures that no value is present for ParentWebContentVersionId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

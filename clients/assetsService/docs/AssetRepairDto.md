@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **map[string]interface{}** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessId** | Pointer to **map[string]interface{}** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **map[string]interface{}** |  | [optional] 
-**AssetId** | Pointer to **map[string]interface{}** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**AssetId** | Pointer to **NullableString** |  | [optional] 
 **AssetName** | Pointer to **NullableString** |  | [optional] 
 **RepairStatus** | Pointer to **string** |  | [optional] 
 **ScheduledDate** | Pointer to **time.Time** |  | [optional] 
@@ -43,20 +43,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *AssetRepairDto) GetId() map[string]interface{}`
+`func (o *AssetRepairDto) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *AssetRepairDto) GetIdOk() (*map[string]interface{}, bool)`
+`func (o *AssetRepairDto) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *AssetRepairDto) SetId(v map[string]interface{})`
+`func (o *AssetRepairDto) SetId(v string)`
 
 SetId sets Id field to given value.
 
@@ -66,6 +66,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *AssetRepairDto) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AssetRepairDto) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetTimestamp
 
 `func (o *AssetRepairDto) GetTimestamp() time.Time`
@@ -91,72 +101,92 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetBusinessId
+### GetTenantId
 
-`func (o *AssetRepairDto) GetBusinessId() map[string]interface{}`
+`func (o *AssetRepairDto) GetTenantId() string`
 
-GetBusinessId returns the BusinessId field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIdOk
+### GetTenantIdOk
 
-`func (o *AssetRepairDto) GetBusinessIdOk() (*map[string]interface{}, bool)`
+`func (o *AssetRepairDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIdOk returns a tuple with the BusinessId field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessId
+### SetTenantId
 
-`func (o *AssetRepairDto) SetBusinessId(v map[string]interface{})`
+`func (o *AssetRepairDto) SetTenantId(v string)`
 
-SetBusinessId sets BusinessId field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessId
+### HasTenantId
 
-`func (o *AssetRepairDto) HasBusinessId() bool`
+`func (o *AssetRepairDto) HasTenantId() bool`
 
-HasBusinessId returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### GetBusinessProfileRecordId
+### SetTenantIdNil
 
-`func (o *AssetRepairDto) GetBusinessProfileRecordId() map[string]interface{}`
+`func (o *AssetRepairDto) SetTenantIdNil(b bool)`
 
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### GetBusinessProfileRecordIdOk
+### UnsetTenantId
+`func (o *AssetRepairDto) UnsetTenantId()`
 
-`func (o *AssetRepairDto) GetBusinessProfileRecordIdOk() (*map[string]interface{}, bool)`
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
+`func (o *AssetRepairDto) GetEnrollmentId() string`
+
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
+
+### GetEnrollmentIdOk
+
+`func (o *AssetRepairDto) GetEnrollmentIdOk() (*string, bool)`
+
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordId
+### SetEnrollmentId
 
-`func (o *AssetRepairDto) SetBusinessProfileRecordId(v map[string]interface{})`
+`func (o *AssetRepairDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordId
+### HasEnrollmentId
 
-`func (o *AssetRepairDto) HasBusinessProfileRecordId() bool`
+`func (o *AssetRepairDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
+### SetEnrollmentIdNil
+
+`func (o *AssetRepairDto) SetEnrollmentIdNil(b bool)`
+
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+
+### UnsetEnrollmentId
+`func (o *AssetRepairDto) UnsetEnrollmentId()`
+
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetAssetId
 
-`func (o *AssetRepairDto) GetAssetId() map[string]interface{}`
+`func (o *AssetRepairDto) GetAssetId() string`
 
 GetAssetId returns the AssetId field if non-nil, zero value otherwise.
 
 ### GetAssetIdOk
 
-`func (o *AssetRepairDto) GetAssetIdOk() (*map[string]interface{}, bool)`
+`func (o *AssetRepairDto) GetAssetIdOk() (*string, bool)`
 
 GetAssetIdOk returns a tuple with the AssetId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAssetId
 
-`func (o *AssetRepairDto) SetAssetId(v map[string]interface{})`
+`func (o *AssetRepairDto) SetAssetId(v string)`
 
 SetAssetId sets AssetId field to given value.
 
@@ -166,6 +196,16 @@ SetAssetId sets AssetId field to given value.
 
 HasAssetId returns a boolean if a field has been set.
 
+### SetAssetIdNil
+
+`func (o *AssetRepairDto) SetAssetIdNil(b bool)`
+
+ SetAssetIdNil sets the value for AssetId to be an explicit nil
+
+### UnsetAssetId
+`func (o *AssetRepairDto) UnsetAssetId()`
+
+UnsetAssetId ensures that no value is present for AssetId, not even an explicit nil
 ### GetAssetName
 
 `func (o *AssetRepairDto) GetAssetName() string`

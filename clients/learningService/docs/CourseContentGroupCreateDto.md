@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
-**CourseID** | **string** |  | 
+**CourseId** | **string** |  | 
 
 ## Methods
 
 ### NewCourseContentGroupCreateDto
 
-`func NewCourseContentGroupCreateDto(name string, courseID string, ) *CourseContentGroupCreateDto`
+`func NewCourseContentGroupCreateDto(name string, courseId string, ) *CourseContentGroupCreateDto`
 
 NewCourseContentGroupCreateDto instantiates a new CourseContentGroupCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -98,24 +98,24 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseContentGroupCreateDto) GetCourseID() string`
+`func (o *CourseContentGroupCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseContentGroupCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseContentGroupCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseContentGroupCreateDto) SetCourseID(v string)`
+`func (o *CourseContentGroupCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
 

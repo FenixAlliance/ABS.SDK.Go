@@ -98,7 +98,4 @@ model_timezone_dto_list_envelope.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_completions_test.go
-test/api_fenix_alliance_portals_website_test.go
-test/api_migrations_test.go
 utils.go

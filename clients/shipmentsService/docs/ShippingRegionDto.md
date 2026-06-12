@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **PostalCodes** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -169,41 +169,41 @@ HasPostalCodes returns a boolean if a field has been set.
 `func (o *ShippingRegionDto) UnsetPostalCodes()`
 
 UnsetPostalCodes ensures that no value is present for PostalCodes, not even an explicit nil
-### GetBusinessID
+### GetTenantId
 
-`func (o *ShippingRegionDto) GetBusinessID() string`
+`func (o *ShippingRegionDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *ShippingRegionDto) GetBusinessIDOk() (*string, bool)`
+`func (o *ShippingRegionDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *ShippingRegionDto) SetBusinessID(v string)`
+`func (o *ShippingRegionDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *ShippingRegionDto) HasBusinessID() bool`
+`func (o *ShippingRegionDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *ShippingRegionDto) SetBusinessIDNil(b bool)`
+`func (o *ShippingRegionDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *ShippingRegionDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *ShippingRegionDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

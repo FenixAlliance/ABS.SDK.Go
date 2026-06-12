@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetEmailSignatureDetailsAsync**](EmailSignaturesAPI.md#GetEmailSignatureDetailsAsync) | **Get** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Get email signature by ID
 [**GetEmailSignaturesCountAsync**](EmailSignaturesAPI.md#GetEmailSignaturesCountAsync) | **Get** /api/v2/MarketingService/EmailSignatures/Count | Get email signatures count
 [**GetEmailSignaturesODataAsync**](EmailSignaturesAPI.md#GetEmailSignaturesODataAsync) | **Get** /api/v2/MarketingService/EmailSignatures | Get email signatures
+[**PatchEmailSignatureAsync**](EmailSignaturesAPI.md#PatchEmailSignatureAsync) | **Patch** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Patch an email signature
 [**UpdateEmailSignatureAsync**](EmailSignaturesAPI.md#UpdateEmailSignatureAsync) | **Put** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Update an email signature
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchEmailSignatureAsync
+
+> EmptyEnvelope PatchEmailSignatureAsync(ctx, emailsignatureId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch an email signature
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	emailsignatureId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EmailSignaturesAPI.PatchEmailSignatureAsync(context.Background(), emailsignatureId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailSignaturesAPI.PatchEmailSignatureAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchEmailSignatureAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmailSignaturesAPI.PatchEmailSignatureAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**emailsignatureId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchEmailSignatureAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

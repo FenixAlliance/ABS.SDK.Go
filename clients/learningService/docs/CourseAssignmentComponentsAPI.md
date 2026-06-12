@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseAssignmentComponentByIdAsync**](CourseAssignmentComponentsAPI.md#GetCourseAssignmentComponentByIdAsync) | **Get** /api/v2/LearningService/CourseAssignmentComponents/{componentId} | Get course assignment component by ID
 [**GetCourseAssignmentComponentsAsync**](CourseAssignmentComponentsAPI.md#GetCourseAssignmentComponentsAsync) | **Get** /api/v2/LearningService/CourseAssignmentComponents | Get all course assignment components
 [**GetCourseAssignmentComponentsCountAsync**](CourseAssignmentComponentsAPI.md#GetCourseAssignmentComponentsCountAsync) | **Get** /api/v2/LearningService/CourseAssignmentComponents/Count | Get course assignment components count
+[**PatchCourseAssignmentComponentAsync**](CourseAssignmentComponentsAPI.md#PatchCourseAssignmentComponentAsync) | **Patch** /api/v2/LearningService/CourseAssignmentComponents/{componentId} | Patch a course assignment component
 [**UpdateCourseAssignmentComponentAsync**](CourseAssignmentComponentsAPI.md#UpdateCourseAssignmentComponentAsync) | **Put** /api/v2/LearningService/CourseAssignmentComponents/{componentId} | Update a course assignment component
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseAssignmentComponentCreateDto := *openapiclient.NewCourseAssignmentComponentCreateDto("Title_example", "CourseAssignmentID_example", "CourseID_example") // CourseAssignmentComponentCreateDto |  (optional)
+	courseAssignmentComponentCreateDto := *openapiclient.NewCourseAssignmentComponentCreateDto("Title_example", "CourseAssignmentId_example", "CourseId_example") // CourseAssignmentComponentCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,6 +365,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseAssignmentComponentAsync
+
+> EmptyEnvelope PatchCourseAssignmentComponentAsync(ctx, componentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course assignment component
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	componentId := "componentId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CourseAssignmentComponentsAPI.PatchCourseAssignmentComponentAsync(context.Background(), componentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseAssignmentComponentsAPI.PatchCourseAssignmentComponentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchCourseAssignmentComponentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CourseAssignmentComponentsAPI.PatchCourseAssignmentComponentAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**componentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseAssignmentComponentAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

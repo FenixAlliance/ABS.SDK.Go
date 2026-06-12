@@ -63,7 +63,9 @@ Name | Type | Description | Notes
 **SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 **ParentWebContentId** | Pointer to **NullableString** |  | [optional] 
 **ParentWebContentVersionId** | Pointer to **NullableString** |  | [optional] 
-**WebTemplateID** | Pointer to **NullableString** |  | [optional] 
+**WebTemplateId** | Pointer to **NullableString** |  | [optional] 
+**AuthorName** | Pointer to **NullableString** |  | [optional] 
+**AuthorId** | Pointer to **NullableString** |  | [optional] 
 **IsHomePage** | Pointer to **bool** |  | [optional] 
 **IsStorePage** | Pointer to **bool** |  | [optional] 
 **IsCartPage** | Pointer to **bool** |  | [optional] 
@@ -2019,41 +2021,111 @@ HasParentWebContentVersionId returns a boolean if a field has been set.
 `func (o *WebPageDto) UnsetParentWebContentVersionId()`
 
 UnsetParentWebContentVersionId ensures that no value is present for ParentWebContentVersionId, not even an explicit nil
-### GetWebTemplateID
+### GetWebTemplateId
 
-`func (o *WebPageDto) GetWebTemplateID() string`
+`func (o *WebPageDto) GetWebTemplateId() string`
 
-GetWebTemplateID returns the WebTemplateID field if non-nil, zero value otherwise.
+GetWebTemplateId returns the WebTemplateId field if non-nil, zero value otherwise.
 
-### GetWebTemplateIDOk
+### GetWebTemplateIdOk
 
-`func (o *WebPageDto) GetWebTemplateIDOk() (*string, bool)`
+`func (o *WebPageDto) GetWebTemplateIdOk() (*string, bool)`
 
-GetWebTemplateIDOk returns a tuple with the WebTemplateID field if it's non-nil, zero value otherwise
+GetWebTemplateIdOk returns a tuple with the WebTemplateId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWebTemplateID
+### SetWebTemplateId
 
-`func (o *WebPageDto) SetWebTemplateID(v string)`
+`func (o *WebPageDto) SetWebTemplateId(v string)`
 
-SetWebTemplateID sets WebTemplateID field to given value.
+SetWebTemplateId sets WebTemplateId field to given value.
 
-### HasWebTemplateID
+### HasWebTemplateId
 
-`func (o *WebPageDto) HasWebTemplateID() bool`
+`func (o *WebPageDto) HasWebTemplateId() bool`
 
-HasWebTemplateID returns a boolean if a field has been set.
+HasWebTemplateId returns a boolean if a field has been set.
 
-### SetWebTemplateIDNil
+### SetWebTemplateIdNil
 
-`func (o *WebPageDto) SetWebTemplateIDNil(b bool)`
+`func (o *WebPageDto) SetWebTemplateIdNil(b bool)`
 
- SetWebTemplateIDNil sets the value for WebTemplateID to be an explicit nil
+ SetWebTemplateIdNil sets the value for WebTemplateId to be an explicit nil
 
-### UnsetWebTemplateID
-`func (o *WebPageDto) UnsetWebTemplateID()`
+### UnsetWebTemplateId
+`func (o *WebPageDto) UnsetWebTemplateId()`
 
-UnsetWebTemplateID ensures that no value is present for WebTemplateID, not even an explicit nil
+UnsetWebTemplateId ensures that no value is present for WebTemplateId, not even an explicit nil
+### GetAuthorName
+
+`func (o *WebPageDto) GetAuthorName() string`
+
+GetAuthorName returns the AuthorName field if non-nil, zero value otherwise.
+
+### GetAuthorNameOk
+
+`func (o *WebPageDto) GetAuthorNameOk() (*string, bool)`
+
+GetAuthorNameOk returns a tuple with the AuthorName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthorName
+
+`func (o *WebPageDto) SetAuthorName(v string)`
+
+SetAuthorName sets AuthorName field to given value.
+
+### HasAuthorName
+
+`func (o *WebPageDto) HasAuthorName() bool`
+
+HasAuthorName returns a boolean if a field has been set.
+
+### SetAuthorNameNil
+
+`func (o *WebPageDto) SetAuthorNameNil(b bool)`
+
+ SetAuthorNameNil sets the value for AuthorName to be an explicit nil
+
+### UnsetAuthorName
+`func (o *WebPageDto) UnsetAuthorName()`
+
+UnsetAuthorName ensures that no value is present for AuthorName, not even an explicit nil
+### GetAuthorId
+
+`func (o *WebPageDto) GetAuthorId() string`
+
+GetAuthorId returns the AuthorId field if non-nil, zero value otherwise.
+
+### GetAuthorIdOk
+
+`func (o *WebPageDto) GetAuthorIdOk() (*string, bool)`
+
+GetAuthorIdOk returns a tuple with the AuthorId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthorId
+
+`func (o *WebPageDto) SetAuthorId(v string)`
+
+SetAuthorId sets AuthorId field to given value.
+
+### HasAuthorId
+
+`func (o *WebPageDto) HasAuthorId() bool`
+
+HasAuthorId returns a boolean if a field has been set.
+
+### SetAuthorIdNil
+
+`func (o *WebPageDto) SetAuthorIdNil(b bool)`
+
+ SetAuthorIdNil sets the value for AuthorId to be an explicit nil
+
+### UnsetAuthorId
+`func (o *WebPageDto) UnsetAuthorId()`
+
+UnsetAuthorId ensures that no value is present for AuthorId, not even an explicit nil
 ### GetIsHomePage
 
 `func (o *WebPageDto) GetIsHomePage() bool`

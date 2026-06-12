@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** |  | [optional] 
+**DiscountListType** | Pointer to **string** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -61,6 +62,31 @@ HasName returns a boolean if a field has been set.
 `func (o *DiscountListUpdateDto) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
+### GetDiscountListType
+
+`func (o *DiscountListUpdateDto) GetDiscountListType() string`
+
+GetDiscountListType returns the DiscountListType field if non-nil, zero value otherwise.
+
+### GetDiscountListTypeOk
+
+`func (o *DiscountListUpdateDto) GetDiscountListTypeOk() (*string, bool)`
+
+GetDiscountListTypeOk returns a tuple with the DiscountListType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDiscountListType
+
+`func (o *DiscountListUpdateDto) SetDiscountListType(v string)`
+
+SetDiscountListType sets DiscountListType field to given value.
+
+### HasDiscountListType
+
+`func (o *DiscountListUpdateDto) HasDiscountListType() bool`
+
+HasDiscountListType returns a boolean if a field has been set.
+
 ### GetCurrencyId
 
 `func (o *DiscountListUpdateDto) GetCurrencyId() string`

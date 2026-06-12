@@ -38,9 +38,6 @@ Name | Type | Description | Notes
 **Data9** | Pointer to **NullableString** |  | [optional] 
 **Data9Label** | Pointer to **NullableString** |  | [optional] 
 **Authorized** | Pointer to **bool** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**ContactID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -1211,111 +1208,6 @@ SetAuthorized sets Authorized field to given value.
 
 HasAuthorized returns a boolean if a field has been set.
 
-### GetBusinessID
-
-`func (o *InstructorProfileDto) GetBusinessID() string`
-
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
-
-### GetBusinessIDOk
-
-`func (o *InstructorProfileDto) GetBusinessIDOk() (*string, bool)`
-
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessID
-
-`func (o *InstructorProfileDto) SetBusinessID(v string)`
-
-SetBusinessID sets BusinessID field to given value.
-
-### HasBusinessID
-
-`func (o *InstructorProfileDto) HasBusinessID() bool`
-
-HasBusinessID returns a boolean if a field has been set.
-
-### SetBusinessIDNil
-
-`func (o *InstructorProfileDto) SetBusinessIDNil(b bool)`
-
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
-
-### UnsetBusinessID
-`func (o *InstructorProfileDto) UnsetBusinessID()`
-
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetContactID
-
-`func (o *InstructorProfileDto) GetContactID() string`
-
-GetContactID returns the ContactID field if non-nil, zero value otherwise.
-
-### GetContactIDOk
-
-`func (o *InstructorProfileDto) GetContactIDOk() (*string, bool)`
-
-GetContactIDOk returns a tuple with the ContactID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetContactID
-
-`func (o *InstructorProfileDto) SetContactID(v string)`
-
-SetContactID sets ContactID field to given value.
-
-### HasContactID
-
-`func (o *InstructorProfileDto) HasContactID() bool`
-
-HasContactID returns a boolean if a field has been set.
-
-### SetContactIDNil
-
-`func (o *InstructorProfileDto) SetContactIDNil(b bool)`
-
- SetContactIDNil sets the value for ContactID to be an explicit nil
-
-### UnsetContactID
-`func (o *InstructorProfileDto) UnsetContactID()`
-
-UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
-### GetBusinessProfileRecordID
-
-`func (o *InstructorProfileDto) GetBusinessProfileRecordID() string`
-
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
-
-### GetBusinessProfileRecordIDOk
-
-`func (o *InstructorProfileDto) GetBusinessProfileRecordIDOk() (*string, bool)`
-
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBusinessProfileRecordID
-
-`func (o *InstructorProfileDto) SetBusinessProfileRecordID(v string)`
-
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
-
-### HasBusinessProfileRecordID
-
-`func (o *InstructorProfileDto) HasBusinessProfileRecordID() bool`
-
-HasBusinessProfileRecordID returns a boolean if a field has been set.
-
-### SetBusinessProfileRecordIDNil
-
-`func (o *InstructorProfileDto) SetBusinessProfileRecordIDNil(b bool)`
-
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
-
-### UnsetBusinessProfileRecordID
-`func (o *InstructorProfileDto) UnsetBusinessProfileRecordID()`
-
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

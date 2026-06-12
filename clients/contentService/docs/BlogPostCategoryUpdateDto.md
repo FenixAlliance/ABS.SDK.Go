@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **CanonicalUrl** | Pointer to **NullableString** |  | [optional] 
 **ImageURL** | Pointer to **NullableString** |  | [optional] 
 **Image** | Pointer to **NullableString** |  | [optional] 
-**WebPortalID** | Pointer to **NullableString** |  | [optional] 
+**WebPortalId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -437,41 +437,41 @@ HasImage returns a boolean if a field has been set.
 `func (o *BlogPostCategoryUpdateDto) UnsetImage()`
 
 UnsetImage ensures that no value is present for Image, not even an explicit nil
-### GetWebPortalID
+### GetWebPortalId
 
-`func (o *BlogPostCategoryUpdateDto) GetWebPortalID() string`
+`func (o *BlogPostCategoryUpdateDto) GetWebPortalId() string`
 
-GetWebPortalID returns the WebPortalID field if non-nil, zero value otherwise.
+GetWebPortalId returns the WebPortalId field if non-nil, zero value otherwise.
 
-### GetWebPortalIDOk
+### GetWebPortalIdOk
 
-`func (o *BlogPostCategoryUpdateDto) GetWebPortalIDOk() (*string, bool)`
+`func (o *BlogPostCategoryUpdateDto) GetWebPortalIdOk() (*string, bool)`
 
-GetWebPortalIDOk returns a tuple with the WebPortalID field if it's non-nil, zero value otherwise
+GetWebPortalIdOk returns a tuple with the WebPortalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWebPortalID
+### SetWebPortalId
 
-`func (o *BlogPostCategoryUpdateDto) SetWebPortalID(v string)`
+`func (o *BlogPostCategoryUpdateDto) SetWebPortalId(v string)`
 
-SetWebPortalID sets WebPortalID field to given value.
+SetWebPortalId sets WebPortalId field to given value.
 
-### HasWebPortalID
+### HasWebPortalId
 
-`func (o *BlogPostCategoryUpdateDto) HasWebPortalID() bool`
+`func (o *BlogPostCategoryUpdateDto) HasWebPortalId() bool`
 
-HasWebPortalID returns a boolean if a field has been set.
+HasWebPortalId returns a boolean if a field has been set.
 
-### SetWebPortalIDNil
+### SetWebPortalIdNil
 
-`func (o *BlogPostCategoryUpdateDto) SetWebPortalIDNil(b bool)`
+`func (o *BlogPostCategoryUpdateDto) SetWebPortalIdNil(b bool)`
 
- SetWebPortalIDNil sets the value for WebPortalID to be an explicit nil
+ SetWebPortalIdNil sets the value for WebPortalId to be an explicit nil
 
-### UnsetWebPortalID
-`func (o *BlogPostCategoryUpdateDto) UnsetWebPortalID()`
+### UnsetWebPortalId
+`func (o *BlogPostCategoryUpdateDto) UnsetWebPortalId()`
 
-UnsetWebPortalID ensures that no value is present for WebPortalID, not even an explicit nil
+UnsetWebPortalId ensures that no value is present for WebPortalId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**CourseID** | **string** |  | 
-**InstructorProfileID** | **string** |  | 
+**CourseId** | **string** |  | 
+**InstructorProfileId** | **string** |  | 
 **CourseTeamMembershipType** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewCourseTeamMembershipCreateDto
 
-`func NewCourseTeamMembershipCreateDto(courseID string, instructorProfileID string, ) *CourseTeamMembershipCreateDto`
+`func NewCourseTeamMembershipCreateDto(courseId string, instructorProfileId string, ) *CourseTeamMembershipCreateDto`
 
 NewCourseTeamMembershipCreateDto instantiates a new CourseTeamMembershipCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -79,44 +79,44 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseTeamMembershipCreateDto) GetCourseID() string`
+`func (o *CourseTeamMembershipCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseTeamMembershipCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseTeamMembershipCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseTeamMembershipCreateDto) SetCourseID(v string)`
+`func (o *CourseTeamMembershipCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
-### GetInstructorProfileID
+### GetInstructorProfileId
 
-`func (o *CourseTeamMembershipCreateDto) GetInstructorProfileID() string`
+`func (o *CourseTeamMembershipCreateDto) GetInstructorProfileId() string`
 
-GetInstructorProfileID returns the InstructorProfileID field if non-nil, zero value otherwise.
+GetInstructorProfileId returns the InstructorProfileId field if non-nil, zero value otherwise.
 
-### GetInstructorProfileIDOk
+### GetInstructorProfileIdOk
 
-`func (o *CourseTeamMembershipCreateDto) GetInstructorProfileIDOk() (*string, bool)`
+`func (o *CourseTeamMembershipCreateDto) GetInstructorProfileIdOk() (*string, bool)`
 
-GetInstructorProfileIDOk returns a tuple with the InstructorProfileID field if it's non-nil, zero value otherwise
+GetInstructorProfileIdOk returns a tuple with the InstructorProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetInstructorProfileID
+### SetInstructorProfileId
 
-`func (o *CourseTeamMembershipCreateDto) SetInstructorProfileID(v string)`
+`func (o *CourseTeamMembershipCreateDto) SetInstructorProfileId(v string)`
 
-SetInstructorProfileID sets InstructorProfileID field to given value.
+SetInstructorProfileId sets InstructorProfileId field to given value.
 
 
 ### GetCourseTeamMembershipType

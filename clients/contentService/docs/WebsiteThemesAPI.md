@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetWebsiteThemeByIdAsync**](WebsiteThemesAPI.md#GetWebsiteThemeByIdAsync) | **Get** /api/v2/ContentService/WebsiteThemes/{id} | Get website theme by ID
 [**GetWebsiteThemesAsync**](WebsiteThemesAPI.md#GetWebsiteThemesAsync) | **Get** /api/v2/ContentService/WebsiteThemes | Get all website themes
 [**GetWebsiteThemesCountAsync**](WebsiteThemesAPI.md#GetWebsiteThemesCountAsync) | **Get** /api/v2/ContentService/WebsiteThemes/Count | Get website themes count
+[**PatchWebsiteThemeAsync**](WebsiteThemesAPI.md#PatchWebsiteThemeAsync) | **Patch** /api/v2/ContentService/WebsiteThemes/{id} | Patch a website theme
 [**UpdateWebsiteThemeAsync**](WebsiteThemesAPI.md#UpdateWebsiteThemeAsync) | **Put** /api/v2/ContentService/WebsiteThemes/{id} | Update a website theme
 
 
@@ -370,6 +371,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchWebsiteThemeAsync
+
+> PatchWebsiteThemeAsync(ctx, id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a website theme
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.WebsiteThemesAPI.PatchWebsiteThemeAsync(context.Background(), id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebsiteThemesAPI.PatchWebsiteThemeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchWebsiteThemeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

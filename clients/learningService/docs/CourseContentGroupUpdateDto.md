@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** |  | [optional] 
-**CourseID** | Pointer to **NullableString** |  | [optional] 
+**CourseId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -61,41 +61,41 @@ HasName returns a boolean if a field has been set.
 `func (o *CourseContentGroupUpdateDto) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseContentGroupUpdateDto) GetCourseID() string`
+`func (o *CourseContentGroupUpdateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseContentGroupUpdateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseContentGroupUpdateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseContentGroupUpdateDto) SetCourseID(v string)`
+`func (o *CourseContentGroupUpdateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
-### HasCourseID
+### HasCourseId
 
-`func (o *CourseContentGroupUpdateDto) HasCourseID() bool`
+`func (o *CourseContentGroupUpdateDto) HasCourseId() bool`
 
-HasCourseID returns a boolean if a field has been set.
+HasCourseId returns a boolean if a field has been set.
 
-### SetCourseIDNil
+### SetCourseIdNil
 
-`func (o *CourseContentGroupUpdateDto) SetCourseIDNil(b bool)`
+`func (o *CourseContentGroupUpdateDto) SetCourseIdNil(b bool)`
 
- SetCourseIDNil sets the value for CourseID to be an explicit nil
+ SetCourseIdNil sets the value for CourseId to be an explicit nil
 
-### UnsetCourseID
-`func (o *CourseContentGroupUpdateDto) UnsetCourseID()`
+### UnsetCourseId
+`func (o *CourseContentGroupUpdateDto) UnsetCourseId()`
 
-UnsetCourseID ensures that no value is present for CourseID, not even an explicit nil
+UnsetCourseId ensures that no value is present for CourseId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

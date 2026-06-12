@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **PurchasePrice** | Pointer to **float64** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **ItemId** | Pointer to **NullableString** |  | [optional] 
+**AssetTypeId** | Pointer to **NullableString** |  | [optional] 
 **AssetCategoryId** | Pointer to **NullableString** |  | [optional] 
 **PurchaseInvoiceId** | Pointer to **NullableString** |  | [optional] 
 **PurchaseReceiptId** | Pointer to **NullableString** |  | [optional] 
@@ -434,6 +435,41 @@ HasItemId returns a boolean if a field has been set.
 `func (o *AssetCreateDto) UnsetItemId()`
 
 UnsetItemId ensures that no value is present for ItemId, not even an explicit nil
+### GetAssetTypeId
+
+`func (o *AssetCreateDto) GetAssetTypeId() string`
+
+GetAssetTypeId returns the AssetTypeId field if non-nil, zero value otherwise.
+
+### GetAssetTypeIdOk
+
+`func (o *AssetCreateDto) GetAssetTypeIdOk() (*string, bool)`
+
+GetAssetTypeIdOk returns a tuple with the AssetTypeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssetTypeId
+
+`func (o *AssetCreateDto) SetAssetTypeId(v string)`
+
+SetAssetTypeId sets AssetTypeId field to given value.
+
+### HasAssetTypeId
+
+`func (o *AssetCreateDto) HasAssetTypeId() bool`
+
+HasAssetTypeId returns a boolean if a field has been set.
+
+### SetAssetTypeIdNil
+
+`func (o *AssetCreateDto) SetAssetTypeIdNil(b bool)`
+
+ SetAssetTypeIdNil sets the value for AssetTypeId to be an explicit nil
+
+### UnsetAssetTypeId
+`func (o *AssetCreateDto) UnsetAssetTypeId()`
+
+UnsetAssetTypeId ensures that no value is present for AssetTypeId, not even an explicit nil
 ### GetAssetCategoryId
 
 `func (o *AssetCreateDto) GetAssetCategoryId() string`

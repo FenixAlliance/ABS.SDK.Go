@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**IsItemAlreadyInCartAsync**](CartsAPI.md#IsItemAlreadyInCartAsync) | **Get** /api/v2/CartService/Carts/{cartId}/Contains/{itemId} | Assesses if an Item is already in a cart
 [**IsItemInCompareTableAsync**](CartsAPI.md#IsItemInCompareTableAsync) | **Get** /api/v2/CartService/Carts/{cartId}/Compare/Contains/{itemId} | Assesses if an Item is already in the compare table
 [**IsItemInWishLists**](CartsAPI.md#IsItemInWishLists) | **Get** /api/v2/CartService/Carts/{cartId}/WishLists/Contains/{itemId} | Assesses if an Item is already in any of the cart&#39;s wishlists
+[**PatchCartAsync**](CartsAPI.md#PatchCartAsync) | **Patch** /api/v2/CartService/Carts/{cartId} | Patch a cart
 [**RemoveCartLineAsync**](CartsAPI.md#RemoveCartLineAsync) | **Delete** /api/v2/CartService/Carts/{cartId}/Lines/{lineId} | Remove a cart line
 [**RemoveItemFromCartAsync**](CartsAPI.md#RemoveItemFromCartAsync) | **Delete** /api/v2/CartService/Carts/{cartId}/Items/{itemId} | Remove an Item from a cart
 [**RemoveItemFromCompareTableAsync**](CartsAPI.md#RemoveItemFromCompareTableAsync) | **Delete** /api/v2/CartService/Carts/{cartId}/Compare/{itemId} | Remove an item from the compare table
@@ -2392,6 +2393,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCartAsync
+
+> EmptyEnvelope PatchCartAsync(ctx, cartId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a cart
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	cartId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CartsAPI.PatchCartAsync(context.Background(), cartId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CartsAPI.PatchCartAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchCartAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CartsAPI.PatchCartAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cartId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCartAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

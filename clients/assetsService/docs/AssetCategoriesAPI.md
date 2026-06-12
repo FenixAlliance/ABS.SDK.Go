@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetAssetCategories**](AssetCategoriesAPI.md#GetAssetCategories) | **Get** /api/v2/AssetsService/AssetCategories | Gets all asset categories for the current tenant
 [**GetAssetCategoriesCount**](AssetCategoriesAPI.md#GetAssetCategoriesCount) | **Get** /api/v2/AssetsService/AssetCategories/count | Gets the count of asset categories
 [**GetAssetCategory**](AssetCategoriesAPI.md#GetAssetCategory) | **Get** /api/v2/AssetsService/AssetCategories/{categoryId} | Gets a specific asset category
+[**PatchAssetCategory**](AssetCategoriesAPI.md#PatchAssetCategory) | **Patch** /api/v2/AssetsService/AssetCategories/{categoryId} | Partially updates an existing asset category
 [**UpdateAssetCategory**](AssetCategoriesAPI.md#UpdateAssetCategory) | **Put** /api/v2/AssetsService/AssetCategories/{categoryId} | Updates an existing asset category
 
 
@@ -348,6 +349,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchAssetCategory
+
+> EmptyEnvelope PatchAssetCategory(ctx, categoryId).TenantId(tenantId).Operation(operation).Execute()
+
+Partially updates an existing asset category
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	categoryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AssetCategoriesAPI.PatchAssetCategory(context.Background(), categoryId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AssetCategoriesAPI.PatchAssetCategory``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchAssetCategory`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `AssetCategoriesAPI.PatchAssetCategory`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**categoryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchAssetCategoryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

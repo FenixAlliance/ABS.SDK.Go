@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**AssetType** | Pointer to **NullableString** |  | [optional] 
+**AssetClass** | Pointer to **NullableString** |  | [optional] 
 **AssetOwner** | Pointer to **NullableString** |  | [optional] 
 **CalculateDepreciation** | Pointer to **bool** |  | [optional] 
 **AllowMonthlyDepreciation** | Pointer to **bool** |  | [optional] 
@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **PurchaseDate** | Pointer to **NullableTime** |  | [optional] 
 **PurchasePrice** | Pointer to **NullableFloat64** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
-**CurrencyCode** | Pointer to **NullableString** |  | [optional] 
 **ItemId** | Pointer to **NullableString** |  | [optional] 
+**AssetTypeId** | Pointer to **NullableString** |  | [optional] 
 **AssetCategoryId** | Pointer to **NullableString** |  | [optional] 
 **PurchaseInvoiceId** | Pointer to **NullableString** |  | [optional] 
 **PurchaseReceiptId** | Pointer to **NullableString** |  | [optional] 
@@ -112,41 +112,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *AssetUpdateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetAssetType
+### GetAssetClass
 
-`func (o *AssetUpdateDto) GetAssetType() string`
+`func (o *AssetUpdateDto) GetAssetClass() string`
 
-GetAssetType returns the AssetType field if non-nil, zero value otherwise.
+GetAssetClass returns the AssetClass field if non-nil, zero value otherwise.
 
-### GetAssetTypeOk
+### GetAssetClassOk
 
-`func (o *AssetUpdateDto) GetAssetTypeOk() (*string, bool)`
+`func (o *AssetUpdateDto) GetAssetClassOk() (*string, bool)`
 
-GetAssetTypeOk returns a tuple with the AssetType field if it's non-nil, zero value otherwise
+GetAssetClassOk returns a tuple with the AssetClass field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAssetType
+### SetAssetClass
 
-`func (o *AssetUpdateDto) SetAssetType(v string)`
+`func (o *AssetUpdateDto) SetAssetClass(v string)`
 
-SetAssetType sets AssetType field to given value.
+SetAssetClass sets AssetClass field to given value.
 
-### HasAssetType
+### HasAssetClass
 
-`func (o *AssetUpdateDto) HasAssetType() bool`
+`func (o *AssetUpdateDto) HasAssetClass() bool`
 
-HasAssetType returns a boolean if a field has been set.
+HasAssetClass returns a boolean if a field has been set.
 
-### SetAssetTypeNil
+### SetAssetClassNil
 
-`func (o *AssetUpdateDto) SetAssetTypeNil(b bool)`
+`func (o *AssetUpdateDto) SetAssetClassNil(b bool)`
 
- SetAssetTypeNil sets the value for AssetType to be an explicit nil
+ SetAssetClassNil sets the value for AssetClass to be an explicit nil
 
-### UnsetAssetType
-`func (o *AssetUpdateDto) UnsetAssetType()`
+### UnsetAssetClass
+`func (o *AssetUpdateDto) UnsetAssetClass()`
 
-UnsetAssetType ensures that no value is present for AssetType, not even an explicit nil
+UnsetAssetClass ensures that no value is present for AssetClass, not even an explicit nil
 ### GetAssetOwner
 
 `func (o *AssetUpdateDto) GetAssetOwner() string`
@@ -372,41 +372,6 @@ HasCurrencyId returns a boolean if a field has been set.
 `func (o *AssetUpdateDto) UnsetCurrencyId()`
 
 UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
-### GetCurrencyCode
-
-`func (o *AssetUpdateDto) GetCurrencyCode() string`
-
-GetCurrencyCode returns the CurrencyCode field if non-nil, zero value otherwise.
-
-### GetCurrencyCodeOk
-
-`func (o *AssetUpdateDto) GetCurrencyCodeOk() (*string, bool)`
-
-GetCurrencyCodeOk returns a tuple with the CurrencyCode field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCurrencyCode
-
-`func (o *AssetUpdateDto) SetCurrencyCode(v string)`
-
-SetCurrencyCode sets CurrencyCode field to given value.
-
-### HasCurrencyCode
-
-`func (o *AssetUpdateDto) HasCurrencyCode() bool`
-
-HasCurrencyCode returns a boolean if a field has been set.
-
-### SetCurrencyCodeNil
-
-`func (o *AssetUpdateDto) SetCurrencyCodeNil(b bool)`
-
- SetCurrencyCodeNil sets the value for CurrencyCode to be an explicit nil
-
-### UnsetCurrencyCode
-`func (o *AssetUpdateDto) UnsetCurrencyCode()`
-
-UnsetCurrencyCode ensures that no value is present for CurrencyCode, not even an explicit nil
 ### GetItemId
 
 `func (o *AssetUpdateDto) GetItemId() string`
@@ -442,6 +407,41 @@ HasItemId returns a boolean if a field has been set.
 `func (o *AssetUpdateDto) UnsetItemId()`
 
 UnsetItemId ensures that no value is present for ItemId, not even an explicit nil
+### GetAssetTypeId
+
+`func (o *AssetUpdateDto) GetAssetTypeId() string`
+
+GetAssetTypeId returns the AssetTypeId field if non-nil, zero value otherwise.
+
+### GetAssetTypeIdOk
+
+`func (o *AssetUpdateDto) GetAssetTypeIdOk() (*string, bool)`
+
+GetAssetTypeIdOk returns a tuple with the AssetTypeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssetTypeId
+
+`func (o *AssetUpdateDto) SetAssetTypeId(v string)`
+
+SetAssetTypeId sets AssetTypeId field to given value.
+
+### HasAssetTypeId
+
+`func (o *AssetUpdateDto) HasAssetTypeId() bool`
+
+HasAssetTypeId returns a boolean if a field has been set.
+
+### SetAssetTypeIdNil
+
+`func (o *AssetUpdateDto) SetAssetTypeIdNil(b bool)`
+
+ SetAssetTypeIdNil sets the value for AssetTypeId to be an explicit nil
+
+### UnsetAssetTypeId
+`func (o *AssetUpdateDto) UnsetAssetTypeId()`
+
+UnsetAssetTypeId ensures that no value is present for AssetTypeId, not even an explicit nil
 ### GetAssetCategoryId
 
 `func (o *AssetUpdateDto) GetAssetCategoryId() string`

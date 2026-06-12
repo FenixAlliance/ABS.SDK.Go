@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
-**ShippingCourierID** | Pointer to **NullableString** |  | [optional] 
+**ShippingCourierId** | Pointer to **NullableString** |  | [optional] 
 **Type** | Pointer to **NullableString** |  | [optional] 
 **Code** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
@@ -23,14 +23,14 @@ Name | Type | Description | Notes
 **Years** | Pointer to **int32** |  | [optional] 
 **Value** | Pointer to **float64** |  | [optional] 
 **Percentage** | Pointer to **float64** |  | [optional] 
-**CurrencyID** | Pointer to **NullableString** |  | [optional] 
-**CountryID** | Pointer to **NullableString** |  | [optional] 
-**CountryStateID** | Pointer to **NullableString** |  | [optional] 
+**CurrencyId** | Pointer to **NullableString** |  | [optional] 
+**CountryId** | Pointer to **NullableString** |  | [optional] 
+**CountryStateId** | Pointer to **NullableString** |  | [optional] 
 **CustomState** | Pointer to **NullableString** |  | [optional] 
 **CustomCity** | Pointer to **NullableString** |  | [optional] 
-**CityID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
+**CityId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -121,41 +121,41 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *ItemRefundPolicyDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-### GetShippingCourierID
+### GetShippingCourierId
 
-`func (o *ItemRefundPolicyDto) GetShippingCourierID() string`
+`func (o *ItemRefundPolicyDto) GetShippingCourierId() string`
 
-GetShippingCourierID returns the ShippingCourierID field if non-nil, zero value otherwise.
+GetShippingCourierId returns the ShippingCourierId field if non-nil, zero value otherwise.
 
-### GetShippingCourierIDOk
+### GetShippingCourierIdOk
 
-`func (o *ItemRefundPolicyDto) GetShippingCourierIDOk() (*string, bool)`
+`func (o *ItemRefundPolicyDto) GetShippingCourierIdOk() (*string, bool)`
 
-GetShippingCourierIDOk returns a tuple with the ShippingCourierID field if it's non-nil, zero value otherwise
+GetShippingCourierIdOk returns a tuple with the ShippingCourierId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetShippingCourierID
+### SetShippingCourierId
 
-`func (o *ItemRefundPolicyDto) SetShippingCourierID(v string)`
+`func (o *ItemRefundPolicyDto) SetShippingCourierId(v string)`
 
-SetShippingCourierID sets ShippingCourierID field to given value.
+SetShippingCourierId sets ShippingCourierId field to given value.
 
-### HasShippingCourierID
+### HasShippingCourierId
 
-`func (o *ItemRefundPolicyDto) HasShippingCourierID() bool`
+`func (o *ItemRefundPolicyDto) HasShippingCourierId() bool`
 
-HasShippingCourierID returns a boolean if a field has been set.
+HasShippingCourierId returns a boolean if a field has been set.
 
-### SetShippingCourierIDNil
+### SetShippingCourierIdNil
 
-`func (o *ItemRefundPolicyDto) SetShippingCourierIDNil(b bool)`
+`func (o *ItemRefundPolicyDto) SetShippingCourierIdNil(b bool)`
 
- SetShippingCourierIDNil sets the value for ShippingCourierID to be an explicit nil
+ SetShippingCourierIdNil sets the value for ShippingCourierId to be an explicit nil
 
-### UnsetShippingCourierID
-`func (o *ItemRefundPolicyDto) UnsetShippingCourierID()`
+### UnsetShippingCourierId
+`func (o *ItemRefundPolicyDto) UnsetShippingCourierId()`
 
-UnsetShippingCourierID ensures that no value is present for ShippingCourierID, not even an explicit nil
+UnsetShippingCourierId ensures that no value is present for ShippingCourierId, not even an explicit nil
 ### GetType
 
 `func (o *ItemRefundPolicyDto) GetType() string`
@@ -596,111 +596,111 @@ SetPercentage sets Percentage field to given value.
 
 HasPercentage returns a boolean if a field has been set.
 
-### GetCurrencyID
+### GetCurrencyId
 
-`func (o *ItemRefundPolicyDto) GetCurrencyID() string`
+`func (o *ItemRefundPolicyDto) GetCurrencyId() string`
 
-GetCurrencyID returns the CurrencyID field if non-nil, zero value otherwise.
+GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
 
-### GetCurrencyIDOk
+### GetCurrencyIdOk
 
-`func (o *ItemRefundPolicyDto) GetCurrencyIDOk() (*string, bool)`
+`func (o *ItemRefundPolicyDto) GetCurrencyIdOk() (*string, bool)`
 
-GetCurrencyIDOk returns a tuple with the CurrencyID field if it's non-nil, zero value otherwise
+GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrencyID
+### SetCurrencyId
 
-`func (o *ItemRefundPolicyDto) SetCurrencyID(v string)`
+`func (o *ItemRefundPolicyDto) SetCurrencyId(v string)`
 
-SetCurrencyID sets CurrencyID field to given value.
+SetCurrencyId sets CurrencyId field to given value.
 
-### HasCurrencyID
+### HasCurrencyId
 
-`func (o *ItemRefundPolicyDto) HasCurrencyID() bool`
+`func (o *ItemRefundPolicyDto) HasCurrencyId() bool`
 
-HasCurrencyID returns a boolean if a field has been set.
+HasCurrencyId returns a boolean if a field has been set.
 
-### SetCurrencyIDNil
+### SetCurrencyIdNil
 
-`func (o *ItemRefundPolicyDto) SetCurrencyIDNil(b bool)`
+`func (o *ItemRefundPolicyDto) SetCurrencyIdNil(b bool)`
 
- SetCurrencyIDNil sets the value for CurrencyID to be an explicit nil
+ SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
 
-### UnsetCurrencyID
-`func (o *ItemRefundPolicyDto) UnsetCurrencyID()`
+### UnsetCurrencyId
+`func (o *ItemRefundPolicyDto) UnsetCurrencyId()`
 
-UnsetCurrencyID ensures that no value is present for CurrencyID, not even an explicit nil
-### GetCountryID
+UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
+### GetCountryId
 
-`func (o *ItemRefundPolicyDto) GetCountryID() string`
+`func (o *ItemRefundPolicyDto) GetCountryId() string`
 
-GetCountryID returns the CountryID field if non-nil, zero value otherwise.
+GetCountryId returns the CountryId field if non-nil, zero value otherwise.
 
-### GetCountryIDOk
+### GetCountryIdOk
 
-`func (o *ItemRefundPolicyDto) GetCountryIDOk() (*string, bool)`
+`func (o *ItemRefundPolicyDto) GetCountryIdOk() (*string, bool)`
 
-GetCountryIDOk returns a tuple with the CountryID field if it's non-nil, zero value otherwise
+GetCountryIdOk returns a tuple with the CountryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCountryID
+### SetCountryId
 
-`func (o *ItemRefundPolicyDto) SetCountryID(v string)`
+`func (o *ItemRefundPolicyDto) SetCountryId(v string)`
 
-SetCountryID sets CountryID field to given value.
+SetCountryId sets CountryId field to given value.
 
-### HasCountryID
+### HasCountryId
 
-`func (o *ItemRefundPolicyDto) HasCountryID() bool`
+`func (o *ItemRefundPolicyDto) HasCountryId() bool`
 
-HasCountryID returns a boolean if a field has been set.
+HasCountryId returns a boolean if a field has been set.
 
-### SetCountryIDNil
+### SetCountryIdNil
 
-`func (o *ItemRefundPolicyDto) SetCountryIDNil(b bool)`
+`func (o *ItemRefundPolicyDto) SetCountryIdNil(b bool)`
 
- SetCountryIDNil sets the value for CountryID to be an explicit nil
+ SetCountryIdNil sets the value for CountryId to be an explicit nil
 
-### UnsetCountryID
-`func (o *ItemRefundPolicyDto) UnsetCountryID()`
+### UnsetCountryId
+`func (o *ItemRefundPolicyDto) UnsetCountryId()`
 
-UnsetCountryID ensures that no value is present for CountryID, not even an explicit nil
-### GetCountryStateID
+UnsetCountryId ensures that no value is present for CountryId, not even an explicit nil
+### GetCountryStateId
 
-`func (o *ItemRefundPolicyDto) GetCountryStateID() string`
+`func (o *ItemRefundPolicyDto) GetCountryStateId() string`
 
-GetCountryStateID returns the CountryStateID field if non-nil, zero value otherwise.
+GetCountryStateId returns the CountryStateId field if non-nil, zero value otherwise.
 
-### GetCountryStateIDOk
+### GetCountryStateIdOk
 
-`func (o *ItemRefundPolicyDto) GetCountryStateIDOk() (*string, bool)`
+`func (o *ItemRefundPolicyDto) GetCountryStateIdOk() (*string, bool)`
 
-GetCountryStateIDOk returns a tuple with the CountryStateID field if it's non-nil, zero value otherwise
+GetCountryStateIdOk returns a tuple with the CountryStateId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCountryStateID
+### SetCountryStateId
 
-`func (o *ItemRefundPolicyDto) SetCountryStateID(v string)`
+`func (o *ItemRefundPolicyDto) SetCountryStateId(v string)`
 
-SetCountryStateID sets CountryStateID field to given value.
+SetCountryStateId sets CountryStateId field to given value.
 
-### HasCountryStateID
+### HasCountryStateId
 
-`func (o *ItemRefundPolicyDto) HasCountryStateID() bool`
+`func (o *ItemRefundPolicyDto) HasCountryStateId() bool`
 
-HasCountryStateID returns a boolean if a field has been set.
+HasCountryStateId returns a boolean if a field has been set.
 
-### SetCountryStateIDNil
+### SetCountryStateIdNil
 
-`func (o *ItemRefundPolicyDto) SetCountryStateIDNil(b bool)`
+`func (o *ItemRefundPolicyDto) SetCountryStateIdNil(b bool)`
 
- SetCountryStateIDNil sets the value for CountryStateID to be an explicit nil
+ SetCountryStateIdNil sets the value for CountryStateId to be an explicit nil
 
-### UnsetCountryStateID
-`func (o *ItemRefundPolicyDto) UnsetCountryStateID()`
+### UnsetCountryStateId
+`func (o *ItemRefundPolicyDto) UnsetCountryStateId()`
 
-UnsetCountryStateID ensures that no value is present for CountryStateID, not even an explicit nil
+UnsetCountryStateId ensures that no value is present for CountryStateId, not even an explicit nil
 ### GetCustomState
 
 `func (o *ItemRefundPolicyDto) GetCustomState() string`
@@ -771,111 +771,111 @@ HasCustomCity returns a boolean if a field has been set.
 `func (o *ItemRefundPolicyDto) UnsetCustomCity()`
 
 UnsetCustomCity ensures that no value is present for CustomCity, not even an explicit nil
-### GetCityID
+### GetCityId
 
-`func (o *ItemRefundPolicyDto) GetCityID() string`
+`func (o *ItemRefundPolicyDto) GetCityId() string`
 
-GetCityID returns the CityID field if non-nil, zero value otherwise.
+GetCityId returns the CityId field if non-nil, zero value otherwise.
 
-### GetCityIDOk
+### GetCityIdOk
 
-`func (o *ItemRefundPolicyDto) GetCityIDOk() (*string, bool)`
+`func (o *ItemRefundPolicyDto) GetCityIdOk() (*string, bool)`
 
-GetCityIDOk returns a tuple with the CityID field if it's non-nil, zero value otherwise
+GetCityIdOk returns a tuple with the CityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCityID
+### SetCityId
 
-`func (o *ItemRefundPolicyDto) SetCityID(v string)`
+`func (o *ItemRefundPolicyDto) SetCityId(v string)`
 
-SetCityID sets CityID field to given value.
+SetCityId sets CityId field to given value.
 
-### HasCityID
+### HasCityId
 
-`func (o *ItemRefundPolicyDto) HasCityID() bool`
+`func (o *ItemRefundPolicyDto) HasCityId() bool`
 
-HasCityID returns a boolean if a field has been set.
+HasCityId returns a boolean if a field has been set.
 
-### SetCityIDNil
+### SetCityIdNil
 
-`func (o *ItemRefundPolicyDto) SetCityIDNil(b bool)`
+`func (o *ItemRefundPolicyDto) SetCityIdNil(b bool)`
 
- SetCityIDNil sets the value for CityID to be an explicit nil
+ SetCityIdNil sets the value for CityId to be an explicit nil
 
-### UnsetCityID
-`func (o *ItemRefundPolicyDto) UnsetCityID()`
+### UnsetCityId
+`func (o *ItemRefundPolicyDto) UnsetCityId()`
 
-UnsetCityID ensures that no value is present for CityID, not even an explicit nil
-### GetBusinessID
+UnsetCityId ensures that no value is present for CityId, not even an explicit nil
+### GetTenantId
 
-`func (o *ItemRefundPolicyDto) GetBusinessID() string`
+`func (o *ItemRefundPolicyDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *ItemRefundPolicyDto) GetBusinessIDOk() (*string, bool)`
+`func (o *ItemRefundPolicyDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *ItemRefundPolicyDto) SetBusinessID(v string)`
+`func (o *ItemRefundPolicyDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *ItemRefundPolicyDto) HasBusinessID() bool`
+`func (o *ItemRefundPolicyDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *ItemRefundPolicyDto) SetBusinessIDNil(b bool)`
+`func (o *ItemRefundPolicyDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *ItemRefundPolicyDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *ItemRefundPolicyDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *ItemRefundPolicyDto) GetBusinessProfileRecordID() string`
+`func (o *ItemRefundPolicyDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetEnrollmentIdOk
 
-`func (o *ItemRefundPolicyDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *ItemRefundPolicyDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetEnrollmentId
 
-`func (o *ItemRefundPolicyDto) SetBusinessProfileRecordID(v string)`
+`func (o *ItemRefundPolicyDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordID
+### HasEnrollmentId
 
-`func (o *ItemRefundPolicyDto) HasBusinessProfileRecordID() bool`
+`func (o *ItemRefundPolicyDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetEnrollmentIdNil
 
-`func (o *ItemRefundPolicyDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *ItemRefundPolicyDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *ItemRefundPolicyDto) UnsetBusinessProfileRecordID()`
+### UnsetEnrollmentId
+`func (o *ItemRefundPolicyDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

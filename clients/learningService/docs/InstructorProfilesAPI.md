@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ApiV2LearningServiceInstructorProfilesGet**](InstructorProfilesAPI.md#ApiV2LearningServiceInstructorProfilesGet) | **Get** /api/v2/LearningService/InstructorProfiles | 
 [**ApiV2LearningServiceInstructorProfilesInstructorProfileIdDelete**](InstructorProfilesAPI.md#ApiV2LearningServiceInstructorProfilesInstructorProfileIdDelete) | **Delete** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
 [**ApiV2LearningServiceInstructorProfilesInstructorProfileIdGet**](InstructorProfilesAPI.md#ApiV2LearningServiceInstructorProfilesInstructorProfileIdGet) | **Get** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
+[**ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch**](InstructorProfilesAPI.md#ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch) | **Patch** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
 [**ApiV2LearningServiceInstructorProfilesInstructorProfileIdPut**](InstructorProfilesAPI.md#ApiV2LearningServiceInstructorProfilesInstructorProfileIdPut) | **Put** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
 [**ApiV2LearningServiceInstructorProfilesPost**](InstructorProfilesAPI.md#ApiV2LearningServiceInstructorProfilesPost) | **Post** /api/v2/LearningService/InstructorProfiles | 
 
@@ -288,6 +289,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch
+
+> EmptyEnvelope ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(ctx, instructorProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	instructorProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstructorProfilesAPI.ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(context.Background(), instructorProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstructorProfilesAPI.ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `InstructorProfilesAPI.ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instructorProfileId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

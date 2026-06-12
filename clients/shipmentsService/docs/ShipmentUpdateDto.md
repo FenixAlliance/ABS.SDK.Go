@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **ExpectedShippingDate** | Pointer to **time.Time** |  | [optional] 
 **ExpectedDeliveryDate** | Pointer to **time.Time** |  | [optional] 
 **ShippingTerms** | Pointer to **string** |  | [optional] 
-**OrderID** | Pointer to **NullableString** |  | [optional] 
+**OrderId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -269,41 +269,41 @@ SetShippingTerms sets ShippingTerms field to given value.
 
 HasShippingTerms returns a boolean if a field has been set.
 
-### GetOrderID
+### GetOrderId
 
-`func (o *ShipmentUpdateDto) GetOrderID() string`
+`func (o *ShipmentUpdateDto) GetOrderId() string`
 
-GetOrderID returns the OrderID field if non-nil, zero value otherwise.
+GetOrderId returns the OrderId field if non-nil, zero value otherwise.
 
-### GetOrderIDOk
+### GetOrderIdOk
 
-`func (o *ShipmentUpdateDto) GetOrderIDOk() (*string, bool)`
+`func (o *ShipmentUpdateDto) GetOrderIdOk() (*string, bool)`
 
-GetOrderIDOk returns a tuple with the OrderID field if it's non-nil, zero value otherwise
+GetOrderIdOk returns a tuple with the OrderId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrderID
+### SetOrderId
 
-`func (o *ShipmentUpdateDto) SetOrderID(v string)`
+`func (o *ShipmentUpdateDto) SetOrderId(v string)`
 
-SetOrderID sets OrderID field to given value.
+SetOrderId sets OrderId field to given value.
 
-### HasOrderID
+### HasOrderId
 
-`func (o *ShipmentUpdateDto) HasOrderID() bool`
+`func (o *ShipmentUpdateDto) HasOrderId() bool`
 
-HasOrderID returns a boolean if a field has been set.
+HasOrderId returns a boolean if a field has been set.
 
-### SetOrderIDNil
+### SetOrderIdNil
 
-`func (o *ShipmentUpdateDto) SetOrderIDNil(b bool)`
+`func (o *ShipmentUpdateDto) SetOrderIdNil(b bool)`
 
- SetOrderIDNil sets the value for OrderID to be an explicit nil
+ SetOrderIdNil sets the value for OrderId to be an explicit nil
 
-### UnsetOrderID
-`func (o *ShipmentUpdateDto) UnsetOrderID()`
+### UnsetOrderId
+`func (o *ShipmentUpdateDto) UnsetOrderId()`
 
-UnsetOrderID ensures that no value is present for OrderID, not even an explicit nil
+UnsetOrderId ensures that no value is present for OrderId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

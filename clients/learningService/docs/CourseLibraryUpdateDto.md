@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**CourseUnitID** | Pointer to **NullableString** |  | [optional] 
+**CourseUnitId** | Pointer to **NullableString** |  | [optional] 
 **ReleaseDateTime** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
@@ -98,41 +98,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *CourseLibraryUpdateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetCourseUnitID
+### GetCourseUnitId
 
-`func (o *CourseLibraryUpdateDto) GetCourseUnitID() string`
+`func (o *CourseLibraryUpdateDto) GetCourseUnitId() string`
 
-GetCourseUnitID returns the CourseUnitID field if non-nil, zero value otherwise.
+GetCourseUnitId returns the CourseUnitId field if non-nil, zero value otherwise.
 
-### GetCourseUnitIDOk
+### GetCourseUnitIdOk
 
-`func (o *CourseLibraryUpdateDto) GetCourseUnitIDOk() (*string, bool)`
+`func (o *CourseLibraryUpdateDto) GetCourseUnitIdOk() (*string, bool)`
 
-GetCourseUnitIDOk returns a tuple with the CourseUnitID field if it's non-nil, zero value otherwise
+GetCourseUnitIdOk returns a tuple with the CourseUnitId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseUnitID
+### SetCourseUnitId
 
-`func (o *CourseLibraryUpdateDto) SetCourseUnitID(v string)`
+`func (o *CourseLibraryUpdateDto) SetCourseUnitId(v string)`
 
-SetCourseUnitID sets CourseUnitID field to given value.
+SetCourseUnitId sets CourseUnitId field to given value.
 
-### HasCourseUnitID
+### HasCourseUnitId
 
-`func (o *CourseLibraryUpdateDto) HasCourseUnitID() bool`
+`func (o *CourseLibraryUpdateDto) HasCourseUnitId() bool`
 
-HasCourseUnitID returns a boolean if a field has been set.
+HasCourseUnitId returns a boolean if a field has been set.
 
-### SetCourseUnitIDNil
+### SetCourseUnitIdNil
 
-`func (o *CourseLibraryUpdateDto) SetCourseUnitIDNil(b bool)`
+`func (o *CourseLibraryUpdateDto) SetCourseUnitIdNil(b bool)`
 
- SetCourseUnitIDNil sets the value for CourseUnitID to be an explicit nil
+ SetCourseUnitIdNil sets the value for CourseUnitId to be an explicit nil
 
-### UnsetCourseUnitID
-`func (o *CourseLibraryUpdateDto) UnsetCourseUnitID()`
+### UnsetCourseUnitId
+`func (o *CourseLibraryUpdateDto) UnsetCourseUnitId()`
 
-UnsetCourseUnitID ensures that no value is present for CourseUnitID, not even an explicit nil
+UnsetCourseUnitId ensures that no value is present for CourseUnitId, not even an explicit nil
 ### GetReleaseDateTime
 
 `func (o *CourseLibraryUpdateDto) GetReleaseDateTime() time.Time`

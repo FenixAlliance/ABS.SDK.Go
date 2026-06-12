@@ -9,8 +9,10 @@ Name | Type | Description | Notes
 **Read** | Pointer to **bool** |  | [optional] 
 **Icon** | Pointer to **NullableString** |  | [optional] 
 **Message** | Pointer to **NullableString** |  | [optional] 
+**ImageUrl** | Pointer to **NullableString** |  | [optional] 
 **RedirectUrl** | Pointer to **NullableString** |  | [optional] 
-**SocialProfileID** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
+**SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 **ReadTimestamp** | Pointer to **time.Time** |  | [optional] 
 **IssuedTimestamp** | Pointer to **time.Time** |  | [optional] 
 
@@ -198,6 +200,41 @@ HasMessage returns a boolean if a field has been set.
 `func (o *NotificationDto) UnsetMessage()`
 
 UnsetMessage ensures that no value is present for Message, not even an explicit nil
+### GetImageUrl
+
+`func (o *NotificationDto) GetImageUrl() string`
+
+GetImageUrl returns the ImageUrl field if non-nil, zero value otherwise.
+
+### GetImageUrlOk
+
+`func (o *NotificationDto) GetImageUrlOk() (*string, bool)`
+
+GetImageUrlOk returns a tuple with the ImageUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageUrl
+
+`func (o *NotificationDto) SetImageUrl(v string)`
+
+SetImageUrl sets ImageUrl field to given value.
+
+### HasImageUrl
+
+`func (o *NotificationDto) HasImageUrl() bool`
+
+HasImageUrl returns a boolean if a field has been set.
+
+### SetImageUrlNil
+
+`func (o *NotificationDto) SetImageUrlNil(b bool)`
+
+ SetImageUrlNil sets the value for ImageUrl to be an explicit nil
+
+### UnsetImageUrl
+`func (o *NotificationDto) UnsetImageUrl()`
+
+UnsetImageUrl ensures that no value is present for ImageUrl, not even an explicit nil
 ### GetRedirectUrl
 
 `func (o *NotificationDto) GetRedirectUrl() string`
@@ -233,41 +270,66 @@ HasRedirectUrl returns a boolean if a field has been set.
 `func (o *NotificationDto) UnsetRedirectUrl()`
 
 UnsetRedirectUrl ensures that no value is present for RedirectUrl, not even an explicit nil
-### GetSocialProfileID
+### GetType
 
-`func (o *NotificationDto) GetSocialProfileID() string`
+`func (o *NotificationDto) GetType() string`
 
-GetSocialProfileID returns the SocialProfileID field if non-nil, zero value otherwise.
+GetType returns the Type field if non-nil, zero value otherwise.
 
-### GetSocialProfileIDOk
+### GetTypeOk
 
-`func (o *NotificationDto) GetSocialProfileIDOk() (*string, bool)`
+`func (o *NotificationDto) GetTypeOk() (*string, bool)`
 
-GetSocialProfileIDOk returns a tuple with the SocialProfileID field if it's non-nil, zero value otherwise
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSocialProfileID
+### SetType
 
-`func (o *NotificationDto) SetSocialProfileID(v string)`
+`func (o *NotificationDto) SetType(v string)`
 
-SetSocialProfileID sets SocialProfileID field to given value.
+SetType sets Type field to given value.
 
-### HasSocialProfileID
+### HasType
 
-`func (o *NotificationDto) HasSocialProfileID() bool`
+`func (o *NotificationDto) HasType() bool`
 
-HasSocialProfileID returns a boolean if a field has been set.
+HasType returns a boolean if a field has been set.
 
-### SetSocialProfileIDNil
+### GetSocialProfileId
 
-`func (o *NotificationDto) SetSocialProfileIDNil(b bool)`
+`func (o *NotificationDto) GetSocialProfileId() string`
 
- SetSocialProfileIDNil sets the value for SocialProfileID to be an explicit nil
+GetSocialProfileId returns the SocialProfileId field if non-nil, zero value otherwise.
 
-### UnsetSocialProfileID
-`func (o *NotificationDto) UnsetSocialProfileID()`
+### GetSocialProfileIdOk
 
-UnsetSocialProfileID ensures that no value is present for SocialProfileID, not even an explicit nil
+`func (o *NotificationDto) GetSocialProfileIdOk() (*string, bool)`
+
+GetSocialProfileIdOk returns a tuple with the SocialProfileId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSocialProfileId
+
+`func (o *NotificationDto) SetSocialProfileId(v string)`
+
+SetSocialProfileId sets SocialProfileId field to given value.
+
+### HasSocialProfileId
+
+`func (o *NotificationDto) HasSocialProfileId() bool`
+
+HasSocialProfileId returns a boolean if a field has been set.
+
+### SetSocialProfileIdNil
+
+`func (o *NotificationDto) SetSocialProfileIdNil(b bool)`
+
+ SetSocialProfileIdNil sets the value for SocialProfileId to be an explicit nil
+
+### UnsetSocialProfileId
+`func (o *NotificationDto) UnsetSocialProfileId()`
+
+UnsetSocialProfileId ensures that no value is present for SocialProfileId, not even an explicit nil
 ### GetReadTimestamp
 
 `func (o *NotificationDto) GetReadTimestamp() time.Time`

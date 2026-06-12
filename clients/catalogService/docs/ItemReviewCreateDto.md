@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**ItemID** | Pointer to **NullableString** |  | [optional] 
+**ItemId** | Pointer to **NullableString** |  | [optional] 
 **ReviewScore** | Pointer to **float64** |  | [optional] 
 **ReviewMessage** | Pointer to **NullableString** |  | [optional] 
-**SocialProfileID** | Pointer to **NullableString** |  | [optional] 
+**SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -80,41 +80,41 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetItemID
+### GetItemId
 
-`func (o *ItemReviewCreateDto) GetItemID() string`
+`func (o *ItemReviewCreateDto) GetItemId() string`
 
-GetItemID returns the ItemID field if non-nil, zero value otherwise.
+GetItemId returns the ItemId field if non-nil, zero value otherwise.
 
-### GetItemIDOk
+### GetItemIdOk
 
-`func (o *ItemReviewCreateDto) GetItemIDOk() (*string, bool)`
+`func (o *ItemReviewCreateDto) GetItemIdOk() (*string, bool)`
 
-GetItemIDOk returns a tuple with the ItemID field if it's non-nil, zero value otherwise
+GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItemID
+### SetItemId
 
-`func (o *ItemReviewCreateDto) SetItemID(v string)`
+`func (o *ItemReviewCreateDto) SetItemId(v string)`
 
-SetItemID sets ItemID field to given value.
+SetItemId sets ItemId field to given value.
 
-### HasItemID
+### HasItemId
 
-`func (o *ItemReviewCreateDto) HasItemID() bool`
+`func (o *ItemReviewCreateDto) HasItemId() bool`
 
-HasItemID returns a boolean if a field has been set.
+HasItemId returns a boolean if a field has been set.
 
-### SetItemIDNil
+### SetItemIdNil
 
-`func (o *ItemReviewCreateDto) SetItemIDNil(b bool)`
+`func (o *ItemReviewCreateDto) SetItemIdNil(b bool)`
 
- SetItemIDNil sets the value for ItemID to be an explicit nil
+ SetItemIdNil sets the value for ItemId to be an explicit nil
 
-### UnsetItemID
-`func (o *ItemReviewCreateDto) UnsetItemID()`
+### UnsetItemId
+`func (o *ItemReviewCreateDto) UnsetItemId()`
 
-UnsetItemID ensures that no value is present for ItemID, not even an explicit nil
+UnsetItemId ensures that no value is present for ItemId, not even an explicit nil
 ### GetReviewScore
 
 `func (o *ItemReviewCreateDto) GetReviewScore() float64`
@@ -175,41 +175,41 @@ HasReviewMessage returns a boolean if a field has been set.
 `func (o *ItemReviewCreateDto) UnsetReviewMessage()`
 
 UnsetReviewMessage ensures that no value is present for ReviewMessage, not even an explicit nil
-### GetSocialProfileID
+### GetSocialProfileId
 
-`func (o *ItemReviewCreateDto) GetSocialProfileID() string`
+`func (o *ItemReviewCreateDto) GetSocialProfileId() string`
 
-GetSocialProfileID returns the SocialProfileID field if non-nil, zero value otherwise.
+GetSocialProfileId returns the SocialProfileId field if non-nil, zero value otherwise.
 
-### GetSocialProfileIDOk
+### GetSocialProfileIdOk
 
-`func (o *ItemReviewCreateDto) GetSocialProfileIDOk() (*string, bool)`
+`func (o *ItemReviewCreateDto) GetSocialProfileIdOk() (*string, bool)`
 
-GetSocialProfileIDOk returns a tuple with the SocialProfileID field if it's non-nil, zero value otherwise
+GetSocialProfileIdOk returns a tuple with the SocialProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSocialProfileID
+### SetSocialProfileId
 
-`func (o *ItemReviewCreateDto) SetSocialProfileID(v string)`
+`func (o *ItemReviewCreateDto) SetSocialProfileId(v string)`
 
-SetSocialProfileID sets SocialProfileID field to given value.
+SetSocialProfileId sets SocialProfileId field to given value.
 
-### HasSocialProfileID
+### HasSocialProfileId
 
-`func (o *ItemReviewCreateDto) HasSocialProfileID() bool`
+`func (o *ItemReviewCreateDto) HasSocialProfileId() bool`
 
-HasSocialProfileID returns a boolean if a field has been set.
+HasSocialProfileId returns a boolean if a field has been set.
 
-### SetSocialProfileIDNil
+### SetSocialProfileIdNil
 
-`func (o *ItemReviewCreateDto) SetSocialProfileIDNil(b bool)`
+`func (o *ItemReviewCreateDto) SetSocialProfileIdNil(b bool)`
 
- SetSocialProfileIDNil sets the value for SocialProfileID to be an explicit nil
+ SetSocialProfileIdNil sets the value for SocialProfileId to be an explicit nil
 
-### UnsetSocialProfileID
-`func (o *ItemReviewCreateDto) UnsetSocialProfileID()`
+### UnsetSocialProfileId
+`func (o *ItemReviewCreateDto) UnsetSocialProfileId()`
 
-UnsetSocialProfileID ensures that no value is present for SocialProfileID, not even an explicit nil
+UnsetSocialProfileId ensures that no value is present for SocialProfileId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

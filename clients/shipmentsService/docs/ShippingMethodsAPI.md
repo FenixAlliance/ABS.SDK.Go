@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetShippingMethodByIdAsync**](ShippingMethodsAPI.md#GetShippingMethodByIdAsync) | **Get** /api/v2/ShipmentsService/ShippingMethods/{methodId} | Get shipping method by ID
 [**GetShippingMethodsAsync**](ShippingMethodsAPI.md#GetShippingMethodsAsync) | **Get** /api/v2/ShipmentsService/ShippingMethods | Get all shipping methods
 [**GetShippingMethodsCountAsync**](ShippingMethodsAPI.md#GetShippingMethodsCountAsync) | **Get** /api/v2/ShipmentsService/ShippingMethods/Count | Get shipping methods count
+[**PatchShippingMethodAsync**](ShippingMethodsAPI.md#PatchShippingMethodAsync) | **Patch** /api/v2/ShipmentsService/ShippingMethods/{methodId} | Patch a shipping method
 [**UpdateShippingMethodAsync**](ShippingMethodsAPI.md#UpdateShippingMethodAsync) | **Put** /api/v2/ShipmentsService/ShippingMethods/{methodId} | Update a shipping method
 
 
@@ -366,6 +367,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchShippingMethodAsync
+
+> EmptyEnvelope PatchShippingMethodAsync(ctx, methodId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a shipping method
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	methodId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ShippingMethodsAPI.PatchShippingMethodAsync(context.Background(), methodId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ShippingMethodsAPI.PatchShippingMethodAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchShippingMethodAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ShippingMethodsAPI.PatchShippingMethodAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**methodId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchShippingMethodAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

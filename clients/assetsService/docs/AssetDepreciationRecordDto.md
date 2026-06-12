@@ -4,14 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **map[string]interface{}** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessId** | Pointer to **map[string]interface{}** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **map[string]interface{}** |  | [optional] 
-**AssetId** | Pointer to **map[string]interface{}** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**AssetId** | Pointer to **NullableString** |  | [optional] 
 **AssetName** | Pointer to **NullableString** |  | [optional] 
 **AssetDepreciationPolicyId** | Pointer to **NullableString** |  | [optional] 
 **AssetDepreciationPolicyName** | Pointer to **NullableString** |  | [optional] 
+**FinancialBookId** | Pointer to **NullableString** |  | [optional] 
+**StartDate** | Pointer to **time.Time** |  | [optional] 
+**TotalDepreciations** | Pointer to **int32** |  | [optional] 
+**DepreciationFrequency** | Pointer to **int32** |  | [optional] 
+**DepreciationRate** | Pointer to **float64** |  | [optional] 
+**ExpectedValueAUL** | Pointer to **float64** |  | [optional] 
 **DepreciationAmount** | Pointer to **float64** |  | [optional] 
 **AccumulatedDepreciation** | Pointer to **float64** |  | [optional] 
 **BookValue** | Pointer to **float64** |  | [optional] 
@@ -41,20 +47,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *AssetDepreciationRecordDto) GetId() map[string]interface{}`
+`func (o *AssetDepreciationRecordDto) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *AssetDepreciationRecordDto) GetIdOk() (*map[string]interface{}, bool)`
+`func (o *AssetDepreciationRecordDto) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *AssetDepreciationRecordDto) SetId(v map[string]interface{})`
+`func (o *AssetDepreciationRecordDto) SetId(v string)`
 
 SetId sets Id field to given value.
 
@@ -64,6 +70,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *AssetDepreciationRecordDto) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AssetDepreciationRecordDto) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetTimestamp
 
 `func (o *AssetDepreciationRecordDto) GetTimestamp() time.Time`
@@ -89,72 +105,92 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetBusinessId
+### GetTenantId
 
-`func (o *AssetDepreciationRecordDto) GetBusinessId() map[string]interface{}`
+`func (o *AssetDepreciationRecordDto) GetTenantId() string`
 
-GetBusinessId returns the BusinessId field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIdOk
+### GetTenantIdOk
 
-`func (o *AssetDepreciationRecordDto) GetBusinessIdOk() (*map[string]interface{}, bool)`
+`func (o *AssetDepreciationRecordDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIdOk returns a tuple with the BusinessId field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessId
+### SetTenantId
 
-`func (o *AssetDepreciationRecordDto) SetBusinessId(v map[string]interface{})`
+`func (o *AssetDepreciationRecordDto) SetTenantId(v string)`
 
-SetBusinessId sets BusinessId field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessId
+### HasTenantId
 
-`func (o *AssetDepreciationRecordDto) HasBusinessId() bool`
+`func (o *AssetDepreciationRecordDto) HasTenantId() bool`
 
-HasBusinessId returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### GetBusinessProfileRecordId
+### SetTenantIdNil
 
-`func (o *AssetDepreciationRecordDto) GetBusinessProfileRecordId() map[string]interface{}`
+`func (o *AssetDepreciationRecordDto) SetTenantIdNil(b bool)`
 
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### GetBusinessProfileRecordIdOk
+### UnsetTenantId
+`func (o *AssetDepreciationRecordDto) UnsetTenantId()`
 
-`func (o *AssetDepreciationRecordDto) GetBusinessProfileRecordIdOk() (*map[string]interface{}, bool)`
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
+`func (o *AssetDepreciationRecordDto) GetEnrollmentId() string`
+
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
+
+### GetEnrollmentIdOk
+
+`func (o *AssetDepreciationRecordDto) GetEnrollmentIdOk() (*string, bool)`
+
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordId
+### SetEnrollmentId
 
-`func (o *AssetDepreciationRecordDto) SetBusinessProfileRecordId(v map[string]interface{})`
+`func (o *AssetDepreciationRecordDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordId
+### HasEnrollmentId
 
-`func (o *AssetDepreciationRecordDto) HasBusinessProfileRecordId() bool`
+`func (o *AssetDepreciationRecordDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
+### SetEnrollmentIdNil
+
+`func (o *AssetDepreciationRecordDto) SetEnrollmentIdNil(b bool)`
+
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+
+### UnsetEnrollmentId
+`func (o *AssetDepreciationRecordDto) UnsetEnrollmentId()`
+
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetAssetId
 
-`func (o *AssetDepreciationRecordDto) GetAssetId() map[string]interface{}`
+`func (o *AssetDepreciationRecordDto) GetAssetId() string`
 
 GetAssetId returns the AssetId field if non-nil, zero value otherwise.
 
 ### GetAssetIdOk
 
-`func (o *AssetDepreciationRecordDto) GetAssetIdOk() (*map[string]interface{}, bool)`
+`func (o *AssetDepreciationRecordDto) GetAssetIdOk() (*string, bool)`
 
 GetAssetIdOk returns a tuple with the AssetId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAssetId
 
-`func (o *AssetDepreciationRecordDto) SetAssetId(v map[string]interface{})`
+`func (o *AssetDepreciationRecordDto) SetAssetId(v string)`
 
 SetAssetId sets AssetId field to given value.
 
@@ -164,6 +200,16 @@ SetAssetId sets AssetId field to given value.
 
 HasAssetId returns a boolean if a field has been set.
 
+### SetAssetIdNil
+
+`func (o *AssetDepreciationRecordDto) SetAssetIdNil(b bool)`
+
+ SetAssetIdNil sets the value for AssetId to be an explicit nil
+
+### UnsetAssetId
+`func (o *AssetDepreciationRecordDto) UnsetAssetId()`
+
+UnsetAssetId ensures that no value is present for AssetId, not even an explicit nil
 ### GetAssetName
 
 `func (o *AssetDepreciationRecordDto) GetAssetName() string`
@@ -269,6 +315,166 @@ HasAssetDepreciationPolicyName returns a boolean if a field has been set.
 `func (o *AssetDepreciationRecordDto) UnsetAssetDepreciationPolicyName()`
 
 UnsetAssetDepreciationPolicyName ensures that no value is present for AssetDepreciationPolicyName, not even an explicit nil
+### GetFinancialBookId
+
+`func (o *AssetDepreciationRecordDto) GetFinancialBookId() string`
+
+GetFinancialBookId returns the FinancialBookId field if non-nil, zero value otherwise.
+
+### GetFinancialBookIdOk
+
+`func (o *AssetDepreciationRecordDto) GetFinancialBookIdOk() (*string, bool)`
+
+GetFinancialBookIdOk returns a tuple with the FinancialBookId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFinancialBookId
+
+`func (o *AssetDepreciationRecordDto) SetFinancialBookId(v string)`
+
+SetFinancialBookId sets FinancialBookId field to given value.
+
+### HasFinancialBookId
+
+`func (o *AssetDepreciationRecordDto) HasFinancialBookId() bool`
+
+HasFinancialBookId returns a boolean if a field has been set.
+
+### SetFinancialBookIdNil
+
+`func (o *AssetDepreciationRecordDto) SetFinancialBookIdNil(b bool)`
+
+ SetFinancialBookIdNil sets the value for FinancialBookId to be an explicit nil
+
+### UnsetFinancialBookId
+`func (o *AssetDepreciationRecordDto) UnsetFinancialBookId()`
+
+UnsetFinancialBookId ensures that no value is present for FinancialBookId, not even an explicit nil
+### GetStartDate
+
+`func (o *AssetDepreciationRecordDto) GetStartDate() time.Time`
+
+GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+
+### GetStartDateOk
+
+`func (o *AssetDepreciationRecordDto) GetStartDateOk() (*time.Time, bool)`
+
+GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDate
+
+`func (o *AssetDepreciationRecordDto) SetStartDate(v time.Time)`
+
+SetStartDate sets StartDate field to given value.
+
+### HasStartDate
+
+`func (o *AssetDepreciationRecordDto) HasStartDate() bool`
+
+HasStartDate returns a boolean if a field has been set.
+
+### GetTotalDepreciations
+
+`func (o *AssetDepreciationRecordDto) GetTotalDepreciations() int32`
+
+GetTotalDepreciations returns the TotalDepreciations field if non-nil, zero value otherwise.
+
+### GetTotalDepreciationsOk
+
+`func (o *AssetDepreciationRecordDto) GetTotalDepreciationsOk() (*int32, bool)`
+
+GetTotalDepreciationsOk returns a tuple with the TotalDepreciations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalDepreciations
+
+`func (o *AssetDepreciationRecordDto) SetTotalDepreciations(v int32)`
+
+SetTotalDepreciations sets TotalDepreciations field to given value.
+
+### HasTotalDepreciations
+
+`func (o *AssetDepreciationRecordDto) HasTotalDepreciations() bool`
+
+HasTotalDepreciations returns a boolean if a field has been set.
+
+### GetDepreciationFrequency
+
+`func (o *AssetDepreciationRecordDto) GetDepreciationFrequency() int32`
+
+GetDepreciationFrequency returns the DepreciationFrequency field if non-nil, zero value otherwise.
+
+### GetDepreciationFrequencyOk
+
+`func (o *AssetDepreciationRecordDto) GetDepreciationFrequencyOk() (*int32, bool)`
+
+GetDepreciationFrequencyOk returns a tuple with the DepreciationFrequency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDepreciationFrequency
+
+`func (o *AssetDepreciationRecordDto) SetDepreciationFrequency(v int32)`
+
+SetDepreciationFrequency sets DepreciationFrequency field to given value.
+
+### HasDepreciationFrequency
+
+`func (o *AssetDepreciationRecordDto) HasDepreciationFrequency() bool`
+
+HasDepreciationFrequency returns a boolean if a field has been set.
+
+### GetDepreciationRate
+
+`func (o *AssetDepreciationRecordDto) GetDepreciationRate() float64`
+
+GetDepreciationRate returns the DepreciationRate field if non-nil, zero value otherwise.
+
+### GetDepreciationRateOk
+
+`func (o *AssetDepreciationRecordDto) GetDepreciationRateOk() (*float64, bool)`
+
+GetDepreciationRateOk returns a tuple with the DepreciationRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDepreciationRate
+
+`func (o *AssetDepreciationRecordDto) SetDepreciationRate(v float64)`
+
+SetDepreciationRate sets DepreciationRate field to given value.
+
+### HasDepreciationRate
+
+`func (o *AssetDepreciationRecordDto) HasDepreciationRate() bool`
+
+HasDepreciationRate returns a boolean if a field has been set.
+
+### GetExpectedValueAUL
+
+`func (o *AssetDepreciationRecordDto) GetExpectedValueAUL() float64`
+
+GetExpectedValueAUL returns the ExpectedValueAUL field if non-nil, zero value otherwise.
+
+### GetExpectedValueAULOk
+
+`func (o *AssetDepreciationRecordDto) GetExpectedValueAULOk() (*float64, bool)`
+
+GetExpectedValueAULOk returns a tuple with the ExpectedValueAUL field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpectedValueAUL
+
+`func (o *AssetDepreciationRecordDto) SetExpectedValueAUL(v float64)`
+
+SetExpectedValueAUL sets ExpectedValueAUL field to given value.
+
+### HasExpectedValueAUL
+
+`func (o *AssetDepreciationRecordDto) HasExpectedValueAUL() bool`
+
+HasExpectedValueAUL returns a boolean if a field has been set.
+
 ### GetDepreciationAmount
 
 `func (o *AssetDepreciationRecordDto) GetDepreciationAmount() float64`

@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**GetCartWishListItemsAsync**](WishListsAPI.md#GetCartWishListItemsAsync) | **Get** /api/v2/CartService/WishLists/{wishListId}/Records | Get wish list item records
 [**GetWishListAsync**](WishListsAPI.md#GetWishListAsync) | **Get** /api/v2/CartService/WishLists/{cartId} | Get wish lists for a cart
 [**IsProductInWishLists**](WishListsAPI.md#IsProductInWishLists) | **Get** /api/v2/CartService/WishLists/Contains | Check if a product is in any wish list
+[**PatchWishList**](WishListsAPI.md#PatchWishList) | **Patch** /api/v2/CartService/WishLists/{wishListId} | Patch a wish list
 [**UpdateProductToWishList**](WishListsAPI.md#UpdateProductToWishList) | **Put** /api/v2/CartService/WishLists/{wishListId} | Update a wish list
 [**WishListExists**](WishListsAPI.md#WishListExists) | **Get** /api/v2/CartService/WishLists/Exists | Check if a wish list exists
 [**WishListExistsHeadAsync**](WishListsAPI.md#WishListExistsHeadAsync) | **Head** /api/v2/CartService/WishLists/Exists | Check if a wish list exists (HEAD)
@@ -591,6 +592,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchWishList
+
+> EmptyEnvelope PatchWishList(ctx, wishListId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a wish list
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	wishListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WishListsAPI.PatchWishList(context.Background(), wishListId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WishListsAPI.PatchWishList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchWishList`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `WishListsAPI.PatchWishList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wishListId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchWishListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

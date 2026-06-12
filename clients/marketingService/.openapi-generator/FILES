@@ -74,6 +74,7 @@ docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersAPI.md
+docs/Operation.md
 docs/OrderDto.md
 docs/OrderDtoEnvelope.md
 docs/RefreshRequest.md
@@ -145,6 +146,7 @@ model_newsletter_create_dto.go
 model_newsletter_dto.go
 model_newsletter_dto_envelope.go
 model_newsletter_update_dto.go
+model_operation.go
 model_order_dto.go
 model_order_dto_envelope.go
 model_refresh_request.go
@@ -164,8 +166,4 @@ model_social_post_bucket_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_completions_test.go
-test/api_fenix_alliance_portals_website_test.go
-test/api_marketing_areas_test.go
-test/api_marketing_leads_test.go
 utils.go

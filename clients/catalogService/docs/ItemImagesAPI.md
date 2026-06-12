@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**DeleteItemImageAsync**](ItemImagesAPI.md#DeleteItemImageAsync) | **Delete** /api/v2/CatalogService/ItemImages/{itemImageId} | Delete an item image
 [**GetItemImageByIdAsync**](ItemImagesAPI.md#GetItemImageByIdAsync) | **Get** /api/v2/CatalogService/ItemImages/{itemImageId} | Get item image by ID
 [**GetItemImagesAsync**](ItemImagesAPI.md#GetItemImagesAsync) | **Get** /api/v2/CatalogService/ItemImages | Get all item images
+[**PatchItemImageAsync**](ItemImagesAPI.md#PatchItemImageAsync) | **Patch** /api/v2/CatalogService/ItemImages/{itemImageId} | Patch an item image
 [**UpdateItemImageAsync**](ItemImagesAPI.md#UpdateItemImageAsync) | **Put** /api/v2/CatalogService/ItemImages/{itemImageId} | Update an item image
 
 
@@ -304,6 +305,82 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## PatchItemImageAsync
+
+> PatchItemImageAsync(ctx, itemImageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch an item image
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	itemImageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ItemImagesAPI.PatchItemImageAsync(context.Background(), itemImageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemImagesAPI.PatchItemImageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**itemImageId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchItemImageAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateItemImageAsync
 
 > UpdateItemImageAsync(ctx, itemImageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemImageUpdateDto(itemImageUpdateDto).Execute()
@@ -329,7 +406,7 @@ func main() {
 	itemImageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	itemImageUpdateDto := *openapiclient.NewItemImageUpdateDto("ItemID_example", "MD5Hash_example", "FileUploadURL_example", "FileName_example", "ContentType_example") // ItemImageUpdateDto |  (optional)
+	itemImageUpdateDto := *openapiclient.NewItemImageUpdateDto("ItemId_example", "MD5Hash_example", "FileUploadURL_example", "FileName_example", "ContentType_example") // ItemImageUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

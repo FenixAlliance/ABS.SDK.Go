@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **CreditWeeks** | Pointer to **float64** |  | [optional] 
 **CreditMonths** | Pointer to **float64** |  | [optional] 
 **CreditYears** | Pointer to **float64** |  | [optional] 
-**PaymentModeID** | Pointer to **NullableString** |  | [optional] 
+**PaymentModeId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -290,41 +290,41 @@ SetCreditYears sets CreditYears field to given value.
 
 HasCreditYears returns a boolean if a field has been set.
 
-### GetPaymentModeID
+### GetPaymentModeId
 
-`func (o *PaymentTermCreateDto) GetPaymentModeID() string`
+`func (o *PaymentTermCreateDto) GetPaymentModeId() string`
 
-GetPaymentModeID returns the PaymentModeID field if non-nil, zero value otherwise.
+GetPaymentModeId returns the PaymentModeId field if non-nil, zero value otherwise.
 
-### GetPaymentModeIDOk
+### GetPaymentModeIdOk
 
-`func (o *PaymentTermCreateDto) GetPaymentModeIDOk() (*string, bool)`
+`func (o *PaymentTermCreateDto) GetPaymentModeIdOk() (*string, bool)`
 
-GetPaymentModeIDOk returns a tuple with the PaymentModeID field if it's non-nil, zero value otherwise
+GetPaymentModeIdOk returns a tuple with the PaymentModeId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPaymentModeID
+### SetPaymentModeId
 
-`func (o *PaymentTermCreateDto) SetPaymentModeID(v string)`
+`func (o *PaymentTermCreateDto) SetPaymentModeId(v string)`
 
-SetPaymentModeID sets PaymentModeID field to given value.
+SetPaymentModeId sets PaymentModeId field to given value.
 
-### HasPaymentModeID
+### HasPaymentModeId
 
-`func (o *PaymentTermCreateDto) HasPaymentModeID() bool`
+`func (o *PaymentTermCreateDto) HasPaymentModeId() bool`
 
-HasPaymentModeID returns a boolean if a field has been set.
+HasPaymentModeId returns a boolean if a field has been set.
 
-### SetPaymentModeIDNil
+### SetPaymentModeIdNil
 
-`func (o *PaymentTermCreateDto) SetPaymentModeIDNil(b bool)`
+`func (o *PaymentTermCreateDto) SetPaymentModeIdNil(b bool)`
 
- SetPaymentModeIDNil sets the value for PaymentModeID to be an explicit nil
+ SetPaymentModeIdNil sets the value for PaymentModeId to be an explicit nil
 
-### UnsetPaymentModeID
-`func (o *PaymentTermCreateDto) UnsetPaymentModeID()`
+### UnsetPaymentModeId
+`func (o *PaymentTermCreateDto) UnsetPaymentModeId()`
 
-UnsetPaymentModeID ensures that no value is present for PaymentModeID, not even an explicit nil
+UnsetPaymentModeId ensures that no value is present for PaymentModeId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

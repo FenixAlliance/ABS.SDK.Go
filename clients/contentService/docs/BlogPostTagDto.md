@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **Slug** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **SeoTitle** | Pointer to **NullableString** |  | [optional] 
@@ -17,9 +18,9 @@ Name | Type | Description | Notes
 **CanonicalUrl** | Pointer to **NullableString** |  | [optional] 
 **ImageURL** | Pointer to **NullableString** |  | [optional] 
 **Image** | Pointer to **NullableString** |  | [optional] 
-**WebPortalID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordID** | Pointer to **NullableString** |  | [optional] 
+**WebPortalId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -145,6 +146,41 @@ HasSlug returns a boolean if a field has been set.
 `func (o *BlogPostTagDto) UnsetSlug()`
 
 UnsetSlug ensures that no value is present for Slug, not even an explicit nil
+### GetType
+
+`func (o *BlogPostTagDto) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *BlogPostTagDto) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *BlogPostTagDto) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *BlogPostTagDto) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetTypeNil
+
+`func (o *BlogPostTagDto) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *BlogPostTagDto) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetTitle
 
 `func (o *BlogPostTagDto) GetTitle() string`
@@ -475,111 +511,111 @@ HasImage returns a boolean if a field has been set.
 `func (o *BlogPostTagDto) UnsetImage()`
 
 UnsetImage ensures that no value is present for Image, not even an explicit nil
-### GetWebPortalID
+### GetWebPortalId
 
-`func (o *BlogPostTagDto) GetWebPortalID() string`
+`func (o *BlogPostTagDto) GetWebPortalId() string`
 
-GetWebPortalID returns the WebPortalID field if non-nil, zero value otherwise.
+GetWebPortalId returns the WebPortalId field if non-nil, zero value otherwise.
 
-### GetWebPortalIDOk
+### GetWebPortalIdOk
 
-`func (o *BlogPostTagDto) GetWebPortalIDOk() (*string, bool)`
+`func (o *BlogPostTagDto) GetWebPortalIdOk() (*string, bool)`
 
-GetWebPortalIDOk returns a tuple with the WebPortalID field if it's non-nil, zero value otherwise
+GetWebPortalIdOk returns a tuple with the WebPortalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWebPortalID
+### SetWebPortalId
 
-`func (o *BlogPostTagDto) SetWebPortalID(v string)`
+`func (o *BlogPostTagDto) SetWebPortalId(v string)`
 
-SetWebPortalID sets WebPortalID field to given value.
+SetWebPortalId sets WebPortalId field to given value.
 
-### HasWebPortalID
+### HasWebPortalId
 
-`func (o *BlogPostTagDto) HasWebPortalID() bool`
+`func (o *BlogPostTagDto) HasWebPortalId() bool`
 
-HasWebPortalID returns a boolean if a field has been set.
+HasWebPortalId returns a boolean if a field has been set.
 
-### SetWebPortalIDNil
+### SetWebPortalIdNil
 
-`func (o *BlogPostTagDto) SetWebPortalIDNil(b bool)`
+`func (o *BlogPostTagDto) SetWebPortalIdNil(b bool)`
 
- SetWebPortalIDNil sets the value for WebPortalID to be an explicit nil
+ SetWebPortalIdNil sets the value for WebPortalId to be an explicit nil
 
-### UnsetWebPortalID
-`func (o *BlogPostTagDto) UnsetWebPortalID()`
+### UnsetWebPortalId
+`func (o *BlogPostTagDto) UnsetWebPortalId()`
 
-UnsetWebPortalID ensures that no value is present for WebPortalID, not even an explicit nil
-### GetBusinessID
+UnsetWebPortalId ensures that no value is present for WebPortalId, not even an explicit nil
+### GetTenantId
 
-`func (o *BlogPostTagDto) GetBusinessID() string`
+`func (o *BlogPostTagDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *BlogPostTagDto) GetBusinessIDOk() (*string, bool)`
+`func (o *BlogPostTagDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *BlogPostTagDto) SetBusinessID(v string)`
+`func (o *BlogPostTagDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *BlogPostTagDto) HasBusinessID() bool`
+`func (o *BlogPostTagDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *BlogPostTagDto) SetBusinessIDNil(b bool)`
+`func (o *BlogPostTagDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *BlogPostTagDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *BlogPostTagDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetBusinessProfileRecordID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *BlogPostTagDto) GetBusinessProfileRecordID() string`
+`func (o *BlogPostTagDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordID returns the BusinessProfileRecordID field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIDOk
+### GetEnrollmentIdOk
 
-`func (o *BlogPostTagDto) GetBusinessProfileRecordIDOk() (*string, bool)`
+`func (o *BlogPostTagDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIDOk returns a tuple with the BusinessProfileRecordID field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordID
+### SetEnrollmentId
 
-`func (o *BlogPostTagDto) SetBusinessProfileRecordID(v string)`
+`func (o *BlogPostTagDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordID sets BusinessProfileRecordID field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordID
+### HasEnrollmentId
 
-`func (o *BlogPostTagDto) HasBusinessProfileRecordID() bool`
+`func (o *BlogPostTagDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordID returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIDNil
+### SetEnrollmentIdNil
 
-`func (o *BlogPostTagDto) SetBusinessProfileRecordIDNil(b bool)`
+`func (o *BlogPostTagDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIDNil sets the value for BusinessProfileRecordID to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordID
-`func (o *BlogPostTagDto) UnsetBusinessProfileRecordID()`
+### UnsetEnrollmentId
+`func (o *BlogPostTagDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordID ensures that no value is present for BusinessProfileRecordID, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

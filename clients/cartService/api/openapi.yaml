@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: CartService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -76,6 +76,75 @@ paths:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
       summary: Get all business owned contacts
+      tags:
+      - Carts
+    patch:
+      description: Partially updates a cart using a JSON Patch document.
+      operationId: PatchCartAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Patch a cart
       tags:
       - Carts
     put:
@@ -4057,6 +4126,76 @@ paths:
       summary: Remove a product from a cart by record ID
       tags:
       - Records
+    patch:
+      description: Partially updates the specified item cart record using a JSON Patch
+        document.
+      operationId: PatchItemCartRecord
+      parameters:
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Patch a cart record
+      tags:
+      - Records
     put:
       description: Updates the specified item cart record with the provided data.
       operationId: UpdateItemCartRecord
@@ -4465,6 +4604,57 @@ paths:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
       summary: Delete a wish list
+      tags:
+      - WishLists
+    patch:
+      description: Partially updates the specified wish list using a JSON Patch document.
+      operationId: PatchWishList
+      parameters:
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a wish list
       tags:
       - WishLists
     put:
@@ -5249,7 +5439,6 @@ components:
         totalGlobalSurchargesInUsd: 8.762042012749001
         cartId: cartId
         dataLabel: dataLabel
-        shippingAddressID: shippingAddressID
         costCalculationMethod: Automatic
         totalShippingTax: 3.616076749251911
         itemId: itemId
@@ -5331,7 +5520,6 @@ components:
         individualId: individualId
         title: title
         countryId: countryId
-        itemID: itemID
         total: 1.2315135367772556
         totalCurrencyId: totalCurrencyId
         itemPriceId: itemPriceId
@@ -5688,12 +5876,6 @@ components:
         cartId:
           nullable: true
           type: string
-        itemID:
-          nullable: true
-          type: string
-        shippingAddressID:
-          nullable: true
-          type: string
       type: object
     ItemCartRecordDtoEnvelope:
       additionalProperties: false
@@ -5718,7 +5900,6 @@ components:
           totalGlobalSurchargesInUsd: 8.762042012749001
           cartId: cartId
           dataLabel: dataLabel
-          shippingAddressID: shippingAddressID
           costCalculationMethod: Automatic
           totalShippingTax: 3.616076749251911
           itemId: itemId
@@ -5800,7 +5981,6 @@ components:
           individualId: individualId
           title: title
           countryId: countryId
-          itemID: itemID
           total: 1.2315135367772556
           totalCurrencyId: totalCurrencyId
           itemPriceId: itemPriceId
@@ -5863,7 +6043,6 @@ components:
           totalGlobalSurchargesInUsd: 8.762042012749001
           cartId: cartId
           dataLabel: dataLabel
-          shippingAddressID: shippingAddressID
           costCalculationMethod: Automatic
           totalShippingTax: 3.616076749251911
           itemId: itemId
@@ -5945,7 +6124,6 @@ components:
           individualId: individualId
           title: title
           countryId: countryId
-          itemID: itemID
           total: 1.2315135367772556
           totalCurrencyId: totalCurrencyId
           itemPriceId: itemPriceId
@@ -5978,7 +6156,6 @@ components:
           totalGlobalSurchargesInUsd: 8.762042012749001
           cartId: cartId
           dataLabel: dataLabel
-          shippingAddressID: shippingAddressID
           costCalculationMethod: Automatic
           totalShippingTax: 3.616076749251911
           itemId: itemId
@@ -6060,7 +6237,6 @@ components:
           individualId: individualId
           title: title
           countryId: countryId
-          itemID: itemID
           total: 1.2315135367772556
           totalCurrencyId: totalCurrencyId
           itemPriceId: itemPriceId
@@ -6343,6 +6519,38 @@ components:
           type: string
         public:
           type: boolean
+      type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
       type: object
     ProductToWishListRequest:
       additionalProperties: false

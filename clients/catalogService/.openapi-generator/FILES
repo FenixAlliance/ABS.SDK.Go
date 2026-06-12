@@ -27,6 +27,8 @@ api_merchants.go
 client.go
 configuration.go
 docs/AccessTokenResponse.md
+docs/BatchStockItemUpdateRequest.md
+docs/BulkProduct.md
 docs/CatalogItemCreateDto.md
 docs/CatalogItemDto.md
 docs/CatalogItemDtoEnvelope.md
@@ -148,6 +150,7 @@ docs/MerchantDtoListEnvelope.md
 docs/MerchantsAPI.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PricingRuleDto.md
 docs/PricingRuleDtoEnvelope.md
 docs/PricingRuleDtoListEnvelope.md
@@ -162,6 +165,8 @@ git_push.sh
 go.mod
 go.sum
 model_access_token_response.go
+model_batch_stock_item_update_request.go
+model_bulk_product.go
 model_catalog_item_create_dto.go
 model_catalog_item_dto.go
 model_catalog_item_dto_envelope.go
@@ -261,6 +266,7 @@ model_merchant_dto_envelope.go
 model_merchant_dto_list_envelope.go
 model_money.go
 model_money_envelope.go
+model_operation.go
 model_pricing_rule_dto.go
 model_pricing_rule_dto_envelope.go
 model_pricing_rule_dto_list_envelope.go
@@ -272,9 +278,4 @@ model_two_factor_request.go
 model_two_factor_response.go
 model_update_product_primary_image_async_request.go
 response.go
-test/api_completions_test.go
-test/api_fenix_alliance_portals_website_test.go
-test/api_item_attribute_options_test.go
-test/api_item_bundles_test.go
-test/api_item_families_test.go
 utils.go

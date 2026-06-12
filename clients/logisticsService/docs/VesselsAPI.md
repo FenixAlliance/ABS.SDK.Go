@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetVesselByIdAsync**](VesselsAPI.md#GetVesselByIdAsync) | **Get** /api/v2/LogisticsService/Vessels/{vesselId} | Get vessel by ID
 [**GetVesselsAsync**](VesselsAPI.md#GetVesselsAsync) | **Get** /api/v2/LogisticsService/Vessels | Get all vessels
 [**GetVesselsCountAsync**](VesselsAPI.md#GetVesselsCountAsync) | **Get** /api/v2/LogisticsService/Vessels/Count | Get vessels count
+[**PatchVesselAsync**](VesselsAPI.md#PatchVesselAsync) | **Patch** /api/v2/LogisticsService/Vessels/{vesselId} | Patch a vessel
 [**UpdateVesselAsync**](VesselsAPI.md#UpdateVesselAsync) | **Put** /api/v2/LogisticsService/Vessels/{vesselId} | Update a vessel
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchVesselAsync
+
+> EmptyEnvelope PatchVesselAsync(ctx, vesselId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a vessel
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	vesselId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VesselsAPI.PatchVesselAsync(context.Background(), vesselId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VesselsAPI.PatchVesselAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchVesselAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `VesselsAPI.PatchVesselAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**vesselId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchVesselAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

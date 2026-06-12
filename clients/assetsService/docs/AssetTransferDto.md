@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**BusinessId** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **AssetId** | Pointer to **NullableString** |  | [optional] 
 **AssetName** | Pointer to **NullableString** |  | [optional] 
 **IsRootTransfer** | Pointer to **bool** |  | [optional] 
@@ -107,76 +107,76 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetBusinessId
+### GetTenantId
 
-`func (o *AssetTransferDto) GetBusinessId() string`
+`func (o *AssetTransferDto) GetTenantId() string`
 
-GetBusinessId returns the BusinessId field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIdOk
+### GetTenantIdOk
 
-`func (o *AssetTransferDto) GetBusinessIdOk() (*string, bool)`
+`func (o *AssetTransferDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIdOk returns a tuple with the BusinessId field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessId
+### SetTenantId
 
-`func (o *AssetTransferDto) SetBusinessId(v string)`
+`func (o *AssetTransferDto) SetTenantId(v string)`
 
-SetBusinessId sets BusinessId field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessId
+### HasTenantId
 
-`func (o *AssetTransferDto) HasBusinessId() bool`
+`func (o *AssetTransferDto) HasTenantId() bool`
 
-HasBusinessId returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIdNil
+### SetTenantIdNil
 
-`func (o *AssetTransferDto) SetBusinessIdNil(b bool)`
+`func (o *AssetTransferDto) SetTenantIdNil(b bool)`
 
- SetBusinessIdNil sets the value for BusinessId to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessId
-`func (o *AssetTransferDto) UnsetBusinessId()`
+### UnsetTenantId
+`func (o *AssetTransferDto) UnsetTenantId()`
 
-UnsetBusinessId ensures that no value is present for BusinessId, not even an explicit nil
-### GetBusinessProfileRecordId
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
 
-`func (o *AssetTransferDto) GetBusinessProfileRecordId() string`
+`func (o *AssetTransferDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIdOk
+### GetEnrollmentIdOk
 
-`func (o *AssetTransferDto) GetBusinessProfileRecordIdOk() (*string, bool)`
+`func (o *AssetTransferDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordId
+### SetEnrollmentId
 
-`func (o *AssetTransferDto) SetBusinessProfileRecordId(v string)`
+`func (o *AssetTransferDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordId
+### HasEnrollmentId
 
-`func (o *AssetTransferDto) HasBusinessProfileRecordId() bool`
+`func (o *AssetTransferDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIdNil
+### SetEnrollmentIdNil
 
-`func (o *AssetTransferDto) SetBusinessProfileRecordIdNil(b bool)`
+`func (o *AssetTransferDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIdNil sets the value for BusinessProfileRecordId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordId
-`func (o *AssetTransferDto) UnsetBusinessProfileRecordId()`
+### UnsetEnrollmentId
+`func (o *AssetTransferDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordId ensures that no value is present for BusinessProfileRecordId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetAssetId
 
 `func (o *AssetTransferDto) GetAssetId() string`

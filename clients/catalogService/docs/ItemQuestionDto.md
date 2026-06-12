@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** |  | [optional] 
 **NeedsRevision** | Pointer to **bool** |  | [optional] 
 **Question** | Pointer to **NullableString** |  | [optional] 
-**SocialProfileID** | Pointer to **NullableString** |  | [optional] 
-**BusinessID** | Pointer to **NullableString** |  | [optional] 
-**ItemID** | Pointer to **NullableString** |  | [optional] 
+**SocialProfileId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**ItemId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -197,111 +197,111 @@ HasQuestion returns a boolean if a field has been set.
 `func (o *ItemQuestionDto) UnsetQuestion()`
 
 UnsetQuestion ensures that no value is present for Question, not even an explicit nil
-### GetSocialProfileID
+### GetSocialProfileId
 
-`func (o *ItemQuestionDto) GetSocialProfileID() string`
+`func (o *ItemQuestionDto) GetSocialProfileId() string`
 
-GetSocialProfileID returns the SocialProfileID field if non-nil, zero value otherwise.
+GetSocialProfileId returns the SocialProfileId field if non-nil, zero value otherwise.
 
-### GetSocialProfileIDOk
+### GetSocialProfileIdOk
 
-`func (o *ItemQuestionDto) GetSocialProfileIDOk() (*string, bool)`
+`func (o *ItemQuestionDto) GetSocialProfileIdOk() (*string, bool)`
 
-GetSocialProfileIDOk returns a tuple with the SocialProfileID field if it's non-nil, zero value otherwise
+GetSocialProfileIdOk returns a tuple with the SocialProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSocialProfileID
+### SetSocialProfileId
 
-`func (o *ItemQuestionDto) SetSocialProfileID(v string)`
+`func (o *ItemQuestionDto) SetSocialProfileId(v string)`
 
-SetSocialProfileID sets SocialProfileID field to given value.
+SetSocialProfileId sets SocialProfileId field to given value.
 
-### HasSocialProfileID
+### HasSocialProfileId
 
-`func (o *ItemQuestionDto) HasSocialProfileID() bool`
+`func (o *ItemQuestionDto) HasSocialProfileId() bool`
 
-HasSocialProfileID returns a boolean if a field has been set.
+HasSocialProfileId returns a boolean if a field has been set.
 
-### SetSocialProfileIDNil
+### SetSocialProfileIdNil
 
-`func (o *ItemQuestionDto) SetSocialProfileIDNil(b bool)`
+`func (o *ItemQuestionDto) SetSocialProfileIdNil(b bool)`
 
- SetSocialProfileIDNil sets the value for SocialProfileID to be an explicit nil
+ SetSocialProfileIdNil sets the value for SocialProfileId to be an explicit nil
 
-### UnsetSocialProfileID
-`func (o *ItemQuestionDto) UnsetSocialProfileID()`
+### UnsetSocialProfileId
+`func (o *ItemQuestionDto) UnsetSocialProfileId()`
 
-UnsetSocialProfileID ensures that no value is present for SocialProfileID, not even an explicit nil
-### GetBusinessID
+UnsetSocialProfileId ensures that no value is present for SocialProfileId, not even an explicit nil
+### GetTenantId
 
-`func (o *ItemQuestionDto) GetBusinessID() string`
+`func (o *ItemQuestionDto) GetTenantId() string`
 
-GetBusinessID returns the BusinessID field if non-nil, zero value otherwise.
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
 
-### GetBusinessIDOk
+### GetTenantIdOk
 
-`func (o *ItemQuestionDto) GetBusinessIDOk() (*string, bool)`
+`func (o *ItemQuestionDto) GetTenantIdOk() (*string, bool)`
 
-GetBusinessIDOk returns a tuple with the BusinessID field if it's non-nil, zero value otherwise
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessID
+### SetTenantId
 
-`func (o *ItemQuestionDto) SetBusinessID(v string)`
+`func (o *ItemQuestionDto) SetTenantId(v string)`
 
-SetBusinessID sets BusinessID field to given value.
+SetTenantId sets TenantId field to given value.
 
-### HasBusinessID
+### HasTenantId
 
-`func (o *ItemQuestionDto) HasBusinessID() bool`
+`func (o *ItemQuestionDto) HasTenantId() bool`
 
-HasBusinessID returns a boolean if a field has been set.
+HasTenantId returns a boolean if a field has been set.
 
-### SetBusinessIDNil
+### SetTenantIdNil
 
-`func (o *ItemQuestionDto) SetBusinessIDNil(b bool)`
+`func (o *ItemQuestionDto) SetTenantIdNil(b bool)`
 
- SetBusinessIDNil sets the value for BusinessID to be an explicit nil
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
 
-### UnsetBusinessID
-`func (o *ItemQuestionDto) UnsetBusinessID()`
+### UnsetTenantId
+`func (o *ItemQuestionDto) UnsetTenantId()`
 
-UnsetBusinessID ensures that no value is present for BusinessID, not even an explicit nil
-### GetItemID
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetItemId
 
-`func (o *ItemQuestionDto) GetItemID() string`
+`func (o *ItemQuestionDto) GetItemId() string`
 
-GetItemID returns the ItemID field if non-nil, zero value otherwise.
+GetItemId returns the ItemId field if non-nil, zero value otherwise.
 
-### GetItemIDOk
+### GetItemIdOk
 
-`func (o *ItemQuestionDto) GetItemIDOk() (*string, bool)`
+`func (o *ItemQuestionDto) GetItemIdOk() (*string, bool)`
 
-GetItemIDOk returns a tuple with the ItemID field if it's non-nil, zero value otherwise
+GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItemID
+### SetItemId
 
-`func (o *ItemQuestionDto) SetItemID(v string)`
+`func (o *ItemQuestionDto) SetItemId(v string)`
 
-SetItemID sets ItemID field to given value.
+SetItemId sets ItemId field to given value.
 
-### HasItemID
+### HasItemId
 
-`func (o *ItemQuestionDto) HasItemID() bool`
+`func (o *ItemQuestionDto) HasItemId() bool`
 
-HasItemID returns a boolean if a field has been set.
+HasItemId returns a boolean if a field has been set.
 
-### SetItemIDNil
+### SetItemIdNil
 
-`func (o *ItemQuestionDto) SetItemIDNil(b bool)`
+`func (o *ItemQuestionDto) SetItemIdNil(b bool)`
 
- SetItemIDNil sets the value for ItemID to be an explicit nil
+ SetItemIdNil sets the value for ItemId to be an explicit nil
 
-### UnsetItemID
-`func (o *ItemQuestionDto) UnsetItemID()`
+### UnsetItemId
+`func (o *ItemQuestionDto) UnsetItemId()`
 
-UnsetItemID ensures that no value is present for ItemID, not even an explicit nil
+UnsetItemId ensures that no value is present for ItemId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

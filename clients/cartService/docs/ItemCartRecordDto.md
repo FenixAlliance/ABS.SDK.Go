@@ -117,8 +117,6 @@ Name | Type | Description | Notes
 **BusinessProfileRecordId** | Pointer to **NullableString** |  | [optional] 
 **ParentBillingItemRecordId** | Pointer to **NullableString** |  | [optional] 
 **CartId** | Pointer to **NullableString** |  | [optional] 
-**ItemID** | Pointer to **NullableString** |  | [optional] 
-**ShippingAddressID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -3744,76 +3742,6 @@ HasCartId returns a boolean if a field has been set.
 `func (o *ItemCartRecordDto) UnsetCartId()`
 
 UnsetCartId ensures that no value is present for CartId, not even an explicit nil
-### GetItemID
-
-`func (o *ItemCartRecordDto) GetItemID() string`
-
-GetItemID returns the ItemID field if non-nil, zero value otherwise.
-
-### GetItemIDOk
-
-`func (o *ItemCartRecordDto) GetItemIDOk() (*string, bool)`
-
-GetItemIDOk returns a tuple with the ItemID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetItemID
-
-`func (o *ItemCartRecordDto) SetItemID(v string)`
-
-SetItemID sets ItemID field to given value.
-
-### HasItemID
-
-`func (o *ItemCartRecordDto) HasItemID() bool`
-
-HasItemID returns a boolean if a field has been set.
-
-### SetItemIDNil
-
-`func (o *ItemCartRecordDto) SetItemIDNil(b bool)`
-
- SetItemIDNil sets the value for ItemID to be an explicit nil
-
-### UnsetItemID
-`func (o *ItemCartRecordDto) UnsetItemID()`
-
-UnsetItemID ensures that no value is present for ItemID, not even an explicit nil
-### GetShippingAddressID
-
-`func (o *ItemCartRecordDto) GetShippingAddressID() string`
-
-GetShippingAddressID returns the ShippingAddressID field if non-nil, zero value otherwise.
-
-### GetShippingAddressIDOk
-
-`func (o *ItemCartRecordDto) GetShippingAddressIDOk() (*string, bool)`
-
-GetShippingAddressIDOk returns a tuple with the ShippingAddressID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetShippingAddressID
-
-`func (o *ItemCartRecordDto) SetShippingAddressID(v string)`
-
-SetShippingAddressID sets ShippingAddressID field to given value.
-
-### HasShippingAddressID
-
-`func (o *ItemCartRecordDto) HasShippingAddressID() bool`
-
-HasShippingAddressID returns a boolean if a field has been set.
-
-### SetShippingAddressIDNil
-
-`func (o *ItemCartRecordDto) SetShippingAddressIDNil(b bool)`
-
- SetShippingAddressIDNil sets the value for ShippingAddressID to be an explicit nil
-
-### UnsetShippingAddressID
-`func (o *ItemCartRecordDto) UnsetShippingAddressID()`
-
-UnsetShippingAddressID ensures that no value is present for ShippingAddressID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**DeleteWebTemplateAsync**](WebTemplatesAPI.md#DeleteWebTemplateAsync) | **Delete** /api/v2/ContentService/WebTemplates/{webTemplateId} | Delete a web template
 [**GetWebTemplateByIdAsync**](WebTemplatesAPI.md#GetWebTemplateByIdAsync) | **Get** /api/v2/ContentService/WebTemplates/{webTemplateId} | Get web template by ID
 [**GetWebTemplatesAsync**](WebTemplatesAPI.md#GetWebTemplatesAsync) | **Get** /api/v2/ContentService/WebTemplates | Get web templates
+[**PatchWebTemplateAsync**](WebTemplatesAPI.md#PatchWebTemplateAsync) | **Patch** /api/v2/ContentService/WebTemplates/{webTemplateId} | Patch a web template
 [**UpdateWebTemplateAsync**](WebTemplatesAPI.md#UpdateWebTemplateAsync) | **Put** /api/v2/ContentService/WebTemplates/{webTemplateId} | Update a web template
 
 
@@ -366,6 +367,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchWebTemplateAsync
+
+> PatchWebTemplateAsync(ctx, webTemplateId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a web template
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	webTemplateId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.WebTemplatesAPI.PatchWebTemplateAsync(context.Background(), webTemplateId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebTemplatesAPI.PatchWebTemplateAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**webTemplateId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchWebTemplateAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

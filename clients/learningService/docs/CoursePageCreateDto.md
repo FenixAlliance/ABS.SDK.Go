@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Content** | Pointer to **NullableString** |  | [optional] 
 **Slug** | Pointer to **NullableString** |  | [optional] 
-**CourseID** | **string** |  | 
+**CourseId** | **string** |  | 
 
 ## Methods
 
 ### NewCoursePageCreateDto
 
-`func NewCoursePageCreateDto(title string, courseID string, ) *CoursePageCreateDto`
+`func NewCoursePageCreateDto(title string, courseId string, ) *CoursePageCreateDto`
 
 NewCoursePageCreateDto instantiates a new CoursePageCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -206,24 +206,24 @@ HasSlug returns a boolean if a field has been set.
 `func (o *CoursePageCreateDto) UnsetSlug()`
 
 UnsetSlug ensures that no value is present for Slug, not even an explicit nil
-### GetCourseID
+### GetCourseId
 
-`func (o *CoursePageCreateDto) GetCourseID() string`
+`func (o *CoursePageCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CoursePageCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CoursePageCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CoursePageCreateDto) SetCourseID(v string)`
+`func (o *CoursePageCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
 

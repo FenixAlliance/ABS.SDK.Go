@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**GetPriceListPricesAsync**](PriceListsAPI.md#GetPriceListPricesAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list
 [**GetPriceListsAsync**](PriceListsAPI.md#GetPriceListsAsync) | **Get** /api/v2/PricingService/PriceLists | Retrieves all price lists
 [**GetPriceListsCountAsync**](PriceListsAPI.md#GetPriceListsCountAsync) | **Get** /api/v2/PricingService/PriceLists/Count | Counts price lists
+[**PatchPriceListAsync**](PriceListsAPI.md#PatchPriceListAsync) | **Patch** /api/v2/PricingService/PriceLists/{priceListId} | Patches a price list
+[**PatchPriceListPriceAsync**](PriceListsAPI.md#PatchPriceListPriceAsync) | **Patch** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Patches a price list entry
 [**UpdatePriceListAsync**](PriceListsAPI.md#UpdatePriceListAsync) | **Put** /api/v2/PricingService/PriceLists/{priceListId} | Updates a price list
 [**UpdatePriceListPriceAsync**](PriceListsAPI.md#UpdatePriceListPriceAsync) | **Put** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Updates a price list entry
 
@@ -653,6 +655,157 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchPriceListAsync
+
+> EmptyEnvelope PatchPriceListAsync(ctx, priceListId).TenantId(tenantId).Operation(operation).Execute()
+
+Patches a price list
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PriceListsAPI.PatchPriceListAsync(context.Background(), priceListId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.PatchPriceListAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchPriceListAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.PatchPriceListAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**priceListId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchPriceListAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchPriceListPriceAsync
+
+> EmptyEnvelope PatchPriceListPriceAsync(ctx, priceListId, priceId).TenantId(tenantId).Operation(operation).Execute()
+
+Patches a price list entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	priceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PriceListsAPI.PatchPriceListPriceAsync(context.Background(), priceListId, priceId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.PatchPriceListPriceAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchPriceListPriceAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.PatchPriceListPriceAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**priceListId** | **string** |  | 
+**priceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchPriceListPriceAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

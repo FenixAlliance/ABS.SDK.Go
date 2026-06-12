@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **BusinessName** | Pointer to **NullableString** |  | [optional] 
-**BusinessProfileRecordId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **AssetClass** | Pointer to **string** |  | [optional] 
@@ -23,6 +23,8 @@ Name | Type | Description | Notes
 **CurrencyCode** | Pointer to **NullableString** |  | [optional] 
 **ItemId** | Pointer to **NullableString** |  | [optional] 
 **ItemName** | Pointer to **NullableString** |  | [optional] 
+**AssetTypeId** | Pointer to **NullableString** |  | [optional] 
+**AssetTypeName** | Pointer to **NullableString** |  | [optional] 
 **AssetCategoryId** | Pointer to **NullableString** |  | [optional] 
 **AssetCategoryName** | Pointer to **NullableString** |  | [optional] 
 **PurchaseInvoiceId** | Pointer to **NullableString** |  | [optional] 
@@ -194,41 +196,41 @@ HasBusinessName returns a boolean if a field has been set.
 `func (o *AssetDto) UnsetBusinessName()`
 
 UnsetBusinessName ensures that no value is present for BusinessName, not even an explicit nil
-### GetBusinessProfileRecordId
+### GetEnrollmentId
 
-`func (o *AssetDto) GetBusinessProfileRecordId() string`
+`func (o *AssetDto) GetEnrollmentId() string`
 
-GetBusinessProfileRecordId returns the BusinessProfileRecordId field if non-nil, zero value otherwise.
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
 
-### GetBusinessProfileRecordIdOk
+### GetEnrollmentIdOk
 
-`func (o *AssetDto) GetBusinessProfileRecordIdOk() (*string, bool)`
+`func (o *AssetDto) GetEnrollmentIdOk() (*string, bool)`
 
-GetBusinessProfileRecordIdOk returns a tuple with the BusinessProfileRecordId field if it's non-nil, zero value otherwise
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBusinessProfileRecordId
+### SetEnrollmentId
 
-`func (o *AssetDto) SetBusinessProfileRecordId(v string)`
+`func (o *AssetDto) SetEnrollmentId(v string)`
 
-SetBusinessProfileRecordId sets BusinessProfileRecordId field to given value.
+SetEnrollmentId sets EnrollmentId field to given value.
 
-### HasBusinessProfileRecordId
+### HasEnrollmentId
 
-`func (o *AssetDto) HasBusinessProfileRecordId() bool`
+`func (o *AssetDto) HasEnrollmentId() bool`
 
-HasBusinessProfileRecordId returns a boolean if a field has been set.
+HasEnrollmentId returns a boolean if a field has been set.
 
-### SetBusinessProfileRecordIdNil
+### SetEnrollmentIdNil
 
-`func (o *AssetDto) SetBusinessProfileRecordIdNil(b bool)`
+`func (o *AssetDto) SetEnrollmentIdNil(b bool)`
 
- SetBusinessProfileRecordIdNil sets the value for BusinessProfileRecordId to be an explicit nil
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
 
-### UnsetBusinessProfileRecordId
-`func (o *AssetDto) UnsetBusinessProfileRecordId()`
+### UnsetEnrollmentId
+`func (o *AssetDto) UnsetEnrollmentId()`
 
-UnsetBusinessProfileRecordId ensures that no value is present for BusinessProfileRecordId, not even an explicit nil
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 ### GetName
 
 `func (o *AssetDto) GetName() string`
@@ -639,6 +641,76 @@ HasItemName returns a boolean if a field has been set.
 `func (o *AssetDto) UnsetItemName()`
 
 UnsetItemName ensures that no value is present for ItemName, not even an explicit nil
+### GetAssetTypeId
+
+`func (o *AssetDto) GetAssetTypeId() string`
+
+GetAssetTypeId returns the AssetTypeId field if non-nil, zero value otherwise.
+
+### GetAssetTypeIdOk
+
+`func (o *AssetDto) GetAssetTypeIdOk() (*string, bool)`
+
+GetAssetTypeIdOk returns a tuple with the AssetTypeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssetTypeId
+
+`func (o *AssetDto) SetAssetTypeId(v string)`
+
+SetAssetTypeId sets AssetTypeId field to given value.
+
+### HasAssetTypeId
+
+`func (o *AssetDto) HasAssetTypeId() bool`
+
+HasAssetTypeId returns a boolean if a field has been set.
+
+### SetAssetTypeIdNil
+
+`func (o *AssetDto) SetAssetTypeIdNil(b bool)`
+
+ SetAssetTypeIdNil sets the value for AssetTypeId to be an explicit nil
+
+### UnsetAssetTypeId
+`func (o *AssetDto) UnsetAssetTypeId()`
+
+UnsetAssetTypeId ensures that no value is present for AssetTypeId, not even an explicit nil
+### GetAssetTypeName
+
+`func (o *AssetDto) GetAssetTypeName() string`
+
+GetAssetTypeName returns the AssetTypeName field if non-nil, zero value otherwise.
+
+### GetAssetTypeNameOk
+
+`func (o *AssetDto) GetAssetTypeNameOk() (*string, bool)`
+
+GetAssetTypeNameOk returns a tuple with the AssetTypeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssetTypeName
+
+`func (o *AssetDto) SetAssetTypeName(v string)`
+
+SetAssetTypeName sets AssetTypeName field to given value.
+
+### HasAssetTypeName
+
+`func (o *AssetDto) HasAssetTypeName() bool`
+
+HasAssetTypeName returns a boolean if a field has been set.
+
+### SetAssetTypeNameNil
+
+`func (o *AssetDto) SetAssetTypeNameNil(b bool)`
+
+ SetAssetTypeNameNil sets the value for AssetTypeName to be an explicit nil
+
+### UnsetAssetTypeName
+`func (o *AssetDto) UnsetAssetTypeName()`
+
+UnsetAssetTypeName ensures that no value is present for AssetTypeName, not even an explicit nil
 ### GetAssetCategoryId
 
 `func (o *AssetDto) GetAssetCategoryId() string`

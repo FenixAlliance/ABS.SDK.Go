@@ -11,13 +11,13 @@ Name | Type | Description | Notes
 **Weight** | Pointer to **float64** |  | [optional] 
 **Quantity** | Pointer to **int32** |  | [optional] 
 **Excluded** | Pointer to **int32** |  | [optional] 
-**CourseID** | **string** |  | 
+**CourseId** | **string** |  | 
 
 ## Methods
 
 ### NewCourseAssignmentTypeCreateDto
 
-`func NewCourseAssignmentTypeCreateDto(name string, courseID string, ) *CourseAssignmentTypeCreateDto`
+`func NewCourseAssignmentTypeCreateDto(name string, courseId string, ) *CourseAssignmentTypeCreateDto`
 
 NewCourseAssignmentTypeCreateDto instantiates a new CourseAssignmentTypeCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -212,24 +212,24 @@ SetExcluded sets Excluded field to given value.
 
 HasExcluded returns a boolean if a field has been set.
 
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseAssignmentTypeCreateDto) GetCourseID() string`
+`func (o *CourseAssignmentTypeCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseAssignmentTypeCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseAssignmentTypeCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseAssignmentTypeCreateDto) SetCourseID(v string)`
+`func (o *CourseAssignmentTypeCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetMarketingLeadDetailsAsync**](MarketingLeadsAPI.md#GetMarketingLeadDetailsAsync) | **Get** /api/v2/MarketingService/MarketingLeads/{marketingLeadId} | Get marketing lead by ID
 [**GetMarketingLeadsCountAsync**](MarketingLeadsAPI.md#GetMarketingLeadsCountAsync) | **Get** /api/v2/MarketingService/MarketingLeads/Count | Get marketing leads count
 [**GetMarketingLeadsODataAsync**](MarketingLeadsAPI.md#GetMarketingLeadsODataAsync) | **Get** /api/v2/MarketingService/MarketingLeads | Get marketing leads
+[**PatchMarketingLeadAsync**](MarketingLeadsAPI.md#PatchMarketingLeadAsync) | **Patch** /api/v2/MarketingService/MarketingLeads/{marketingLeadId} | Patch a marketing lead
 [**UpdateMarketingLeadAsync**](MarketingLeadsAPI.md#UpdateMarketingLeadAsync) | **Put** /api/v2/MarketingService/MarketingLeads/{marketingLeadId} | Update a marketing lead
 
 
@@ -362,6 +363,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchMarketingLeadAsync
+
+> EmptyEnvelope PatchMarketingLeadAsync(ctx, marketingLeadId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a marketing lead
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	marketingLeadId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarketingLeadsAPI.PatchMarketingLeadAsync(context.Background(), marketingLeadId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketingLeadsAPI.PatchMarketingLeadAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchMarketingLeadAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `MarketingLeadsAPI.PatchMarketingLeadAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**marketingLeadId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchMarketingLeadAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

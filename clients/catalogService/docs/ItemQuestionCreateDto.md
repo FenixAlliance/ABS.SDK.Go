@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **Title** | **string** |  | 
 **NeedsRevision** | **bool** |  | 
 **Question** | **string** |  | 
-**SocialProfileID** | Pointer to **NullableString** |  | [optional] 
-**ItemID** | **string** |  | 
+**SocialProfileId** | Pointer to **NullableString** |  | [optional] 
+**ItemId** | **string** |  | 
 
 ## Methods
 
 ### NewItemQuestionCreateDto
 
-`func NewItemQuestionCreateDto(title string, needsRevision bool, question string, itemID string, ) *ItemQuestionCreateDto`
+`func NewItemQuestionCreateDto(title string, needsRevision bool, question string, itemId string, ) *ItemQuestionCreateDto`
 
 NewItemQuestionCreateDto instantiates a new ItemQuestionCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -141,59 +141,59 @@ and a boolean to check if the value has been set.
 SetQuestion sets Question field to given value.
 
 
-### GetSocialProfileID
+### GetSocialProfileId
 
-`func (o *ItemQuestionCreateDto) GetSocialProfileID() string`
+`func (o *ItemQuestionCreateDto) GetSocialProfileId() string`
 
-GetSocialProfileID returns the SocialProfileID field if non-nil, zero value otherwise.
+GetSocialProfileId returns the SocialProfileId field if non-nil, zero value otherwise.
 
-### GetSocialProfileIDOk
+### GetSocialProfileIdOk
 
-`func (o *ItemQuestionCreateDto) GetSocialProfileIDOk() (*string, bool)`
+`func (o *ItemQuestionCreateDto) GetSocialProfileIdOk() (*string, bool)`
 
-GetSocialProfileIDOk returns a tuple with the SocialProfileID field if it's non-nil, zero value otherwise
+GetSocialProfileIdOk returns a tuple with the SocialProfileId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSocialProfileID
+### SetSocialProfileId
 
-`func (o *ItemQuestionCreateDto) SetSocialProfileID(v string)`
+`func (o *ItemQuestionCreateDto) SetSocialProfileId(v string)`
 
-SetSocialProfileID sets SocialProfileID field to given value.
+SetSocialProfileId sets SocialProfileId field to given value.
 
-### HasSocialProfileID
+### HasSocialProfileId
 
-`func (o *ItemQuestionCreateDto) HasSocialProfileID() bool`
+`func (o *ItemQuestionCreateDto) HasSocialProfileId() bool`
 
-HasSocialProfileID returns a boolean if a field has been set.
+HasSocialProfileId returns a boolean if a field has been set.
 
-### SetSocialProfileIDNil
+### SetSocialProfileIdNil
 
-`func (o *ItemQuestionCreateDto) SetSocialProfileIDNil(b bool)`
+`func (o *ItemQuestionCreateDto) SetSocialProfileIdNil(b bool)`
 
- SetSocialProfileIDNil sets the value for SocialProfileID to be an explicit nil
+ SetSocialProfileIdNil sets the value for SocialProfileId to be an explicit nil
 
-### UnsetSocialProfileID
-`func (o *ItemQuestionCreateDto) UnsetSocialProfileID()`
+### UnsetSocialProfileId
+`func (o *ItemQuestionCreateDto) UnsetSocialProfileId()`
 
-UnsetSocialProfileID ensures that no value is present for SocialProfileID, not even an explicit nil
-### GetItemID
+UnsetSocialProfileId ensures that no value is present for SocialProfileId, not even an explicit nil
+### GetItemId
 
-`func (o *ItemQuestionCreateDto) GetItemID() string`
+`func (o *ItemQuestionCreateDto) GetItemId() string`
 
-GetItemID returns the ItemID field if non-nil, zero value otherwise.
+GetItemId returns the ItemId field if non-nil, zero value otherwise.
 
-### GetItemIDOk
+### GetItemIdOk
 
-`func (o *ItemQuestionCreateDto) GetItemIDOk() (*string, bool)`
+`func (o *ItemQuestionCreateDto) GetItemIdOk() (*string, bool)`
 
-GetItemIDOk returns a tuple with the ItemID field if it's non-nil, zero value otherwise
+GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItemID
+### SetItemId
 
-`func (o *ItemQuestionCreateDto) SetItemID(v string)`
+`func (o *ItemQuestionCreateDto) SetItemId(v string)`
 
-SetItemID sets ItemID field to given value.
+SetItemId sets ItemId field to given value.
 
 
 

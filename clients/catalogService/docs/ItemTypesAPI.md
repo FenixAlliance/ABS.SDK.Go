@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**DeleteItemTypeAsync**](ItemTypesAPI.md#DeleteItemTypeAsync) | **Delete** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Delete an item type
 [**GetItemTypeByIdAsync**](ItemTypesAPI.md#GetItemTypeByIdAsync) | **Get** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Get item type by ID
 [**GetItemTypesAsync**](ItemTypesAPI.md#GetItemTypesAsync) | **Get** /api/v2/CatalogService/ItemTypes | Get all item types
+[**PatchItemTypeAsync**](ItemTypesAPI.md#PatchItemTypeAsync) | **Patch** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Patch an item type
 [**UpdateItemTypeAsync**](ItemTypesAPI.md#UpdateItemTypeAsync) | **Put** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Update an item type
 
 
@@ -107,7 +108,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	itemTypeCreateDto := *openapiclient.NewItemTypeCreateDto("ItemCategoryID_example") // ItemTypeCreateDto |  (optional)
+	itemTypeCreateDto := *openapiclient.NewItemTypeCreateDto("ItemCategoryId_example") // ItemTypeCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -370,6 +371,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchItemTypeAsync
+
+> PatchItemTypeAsync(ctx, itemTypeID).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch an item type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	itemTypeID := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ItemTypesAPI.PatchItemTypeAsync(context.Background(), itemTypeID).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemTypesAPI.PatchItemTypeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**itemTypeID** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchItemTypeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

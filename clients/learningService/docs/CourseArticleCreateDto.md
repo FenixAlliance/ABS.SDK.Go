@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **Title** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Content** | Pointer to **NullableString** |  | [optional] 
-**CourseID** | **string** |  | 
-**CourseWikiID** | **string** |  | 
+**CourseId** | **string** |  | 
+**CourseWikiId** | **string** |  | 
 
 ## Methods
 
 ### NewCourseArticleCreateDto
 
-`func NewCourseArticleCreateDto(title string, courseID string, courseWikiID string, ) *CourseArticleCreateDto`
+`func NewCourseArticleCreateDto(title string, courseId string, courseWikiId string, ) *CourseArticleCreateDto`
 
 NewCourseArticleCreateDto instantiates a new CourseArticleCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -171,44 +171,44 @@ HasContent returns a boolean if a field has been set.
 `func (o *CourseArticleCreateDto) UnsetContent()`
 
 UnsetContent ensures that no value is present for Content, not even an explicit nil
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseArticleCreateDto) GetCourseID() string`
+`func (o *CourseArticleCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseArticleCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseArticleCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseArticleCreateDto) SetCourseID(v string)`
+`func (o *CourseArticleCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
-### GetCourseWikiID
+### GetCourseWikiId
 
-`func (o *CourseArticleCreateDto) GetCourseWikiID() string`
+`func (o *CourseArticleCreateDto) GetCourseWikiId() string`
 
-GetCourseWikiID returns the CourseWikiID field if non-nil, zero value otherwise.
+GetCourseWikiId returns the CourseWikiId field if non-nil, zero value otherwise.
 
-### GetCourseWikiIDOk
+### GetCourseWikiIdOk
 
-`func (o *CourseArticleCreateDto) GetCourseWikiIDOk() (*string, bool)`
+`func (o *CourseArticleCreateDto) GetCourseWikiIdOk() (*string, bool)`
 
-GetCourseWikiIDOk returns a tuple with the CourseWikiID field if it's non-nil, zero value otherwise
+GetCourseWikiIdOk returns a tuple with the CourseWikiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseWikiID
+### SetCourseWikiId
 
-`func (o *CourseArticleCreateDto) SetCourseWikiID(v string)`
+`func (o *CourseArticleCreateDto) SetCourseWikiId(v string)`
 
-SetCourseWikiID sets CourseWikiID field to given value.
+SetCourseWikiId sets CourseWikiId field to given value.
 
 
 

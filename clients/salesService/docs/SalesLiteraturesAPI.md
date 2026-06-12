@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetExtendedSalesLiteraturesAsync**](SalesLiteraturesAPI.md#GetExtendedSalesLiteraturesAsync) | **Get** /api/v2/SalesService/SalesLiteratures/Extended | Get extended sales literatures
 [**GetSalesLiteratureAsync**](SalesLiteraturesAPI.md#GetSalesLiteratureAsync) | **Get** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Get sales literature by ID
 [**GetSalesLiteraturesAsync**](SalesLiteraturesAPI.md#GetSalesLiteraturesAsync) | **Get** /api/v2/SalesService/SalesLiteratures | Get sales literatures
+[**PatchSalesLiteratureAsync**](SalesLiteraturesAPI.md#PatchSalesLiteratureAsync) | **Patch** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Patch a sales literature
 [**UpdateSalesLiteratureAsync**](SalesLiteraturesAPI.md#UpdateSalesLiteratureAsync) | **Put** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Update a sales literature
 
 
@@ -417,6 +418,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchSalesLiteratureAsync
+
+> EmptyEnvelope PatchSalesLiteratureAsync(ctx, salesLiteratureId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a sales literature
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	salesLiteratureId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SalesLiteraturesAPI.PatchSalesLiteratureAsync(context.Background(), salesLiteratureId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SalesLiteraturesAPI.PatchSalesLiteratureAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchSalesLiteratureAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SalesLiteraturesAPI.PatchSalesLiteratureAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**salesLiteratureId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchSalesLiteratureAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

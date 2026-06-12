@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
+**ShipmentId** | Pointer to **NullableString** |  | [optional] 
+**ProofOfDeliveryId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -168,6 +171,111 @@ HasDescription returns a boolean if a field has been set.
 `func (o *DeliveryNoteDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetShipmentId
+
+`func (o *DeliveryNoteDto) GetShipmentId() string`
+
+GetShipmentId returns the ShipmentId field if non-nil, zero value otherwise.
+
+### GetShipmentIdOk
+
+`func (o *DeliveryNoteDto) GetShipmentIdOk() (*string, bool)`
+
+GetShipmentIdOk returns a tuple with the ShipmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShipmentId
+
+`func (o *DeliveryNoteDto) SetShipmentId(v string)`
+
+SetShipmentId sets ShipmentId field to given value.
+
+### HasShipmentId
+
+`func (o *DeliveryNoteDto) HasShipmentId() bool`
+
+HasShipmentId returns a boolean if a field has been set.
+
+### SetShipmentIdNil
+
+`func (o *DeliveryNoteDto) SetShipmentIdNil(b bool)`
+
+ SetShipmentIdNil sets the value for ShipmentId to be an explicit nil
+
+### UnsetShipmentId
+`func (o *DeliveryNoteDto) UnsetShipmentId()`
+
+UnsetShipmentId ensures that no value is present for ShipmentId, not even an explicit nil
+### GetProofOfDeliveryId
+
+`func (o *DeliveryNoteDto) GetProofOfDeliveryId() string`
+
+GetProofOfDeliveryId returns the ProofOfDeliveryId field if non-nil, zero value otherwise.
+
+### GetProofOfDeliveryIdOk
+
+`func (o *DeliveryNoteDto) GetProofOfDeliveryIdOk() (*string, bool)`
+
+GetProofOfDeliveryIdOk returns a tuple with the ProofOfDeliveryId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProofOfDeliveryId
+
+`func (o *DeliveryNoteDto) SetProofOfDeliveryId(v string)`
+
+SetProofOfDeliveryId sets ProofOfDeliveryId field to given value.
+
+### HasProofOfDeliveryId
+
+`func (o *DeliveryNoteDto) HasProofOfDeliveryId() bool`
+
+HasProofOfDeliveryId returns a boolean if a field has been set.
+
+### SetProofOfDeliveryIdNil
+
+`func (o *DeliveryNoteDto) SetProofOfDeliveryIdNil(b bool)`
+
+ SetProofOfDeliveryIdNil sets the value for ProofOfDeliveryId to be an explicit nil
+
+### UnsetProofOfDeliveryId
+`func (o *DeliveryNoteDto) UnsetProofOfDeliveryId()`
+
+UnsetProofOfDeliveryId ensures that no value is present for ProofOfDeliveryId, not even an explicit nil
+### GetTenantId
+
+`func (o *DeliveryNoteDto) GetTenantId() string`
+
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
+
+### GetTenantIdOk
+
+`func (o *DeliveryNoteDto) GetTenantIdOk() (*string, bool)`
+
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTenantId
+
+`func (o *DeliveryNoteDto) SetTenantId(v string)`
+
+SetTenantId sets TenantId field to given value.
+
+### HasTenantId
+
+`func (o *DeliveryNoteDto) HasTenantId() bool`
+
+HasTenantId returns a boolean if a field has been set.
+
+### SetTenantIdNil
+
+`func (o *DeliveryNoteDto) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *DeliveryNoteDto) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

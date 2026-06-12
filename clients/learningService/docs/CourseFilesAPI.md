@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseFileByIdAsync**](CourseFilesAPI.md#GetCourseFileByIdAsync) | **Get** /api/v2/LearningService/CourseFiles/{fileId} | Get course file by ID
 [**GetCourseFilesAsync**](CourseFilesAPI.md#GetCourseFilesAsync) | **Get** /api/v2/LearningService/CourseFiles | Get all course files
 [**GetCourseFilesCountAsync**](CourseFilesAPI.md#GetCourseFilesCountAsync) | **Get** /api/v2/LearningService/CourseFiles/Count | Get course files count
+[**PatchCourseFileAsync**](CourseFilesAPI.md#PatchCourseFileAsync) | **Patch** /api/v2/LearningService/CourseFiles/{fileId} | Patch a course file
 [**UpdateCourseFileAsync**](CourseFilesAPI.md#UpdateCourseFileAsync) | **Put** /api/v2/LearningService/CourseFiles/{fileId} | Update a course file
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseFileCreateDto := *openapiclient.NewCourseFileCreateDto("Title_example", "FileName_example", "FileUploadURL_example", "CourseID_example") // CourseFileCreateDto |  (optional)
+	courseFileCreateDto := *openapiclient.NewCourseFileCreateDto("Title_example", "FileName_example", "FileUploadURL_example", "CourseId_example") // CourseFileCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,6 +365,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseFileAsync
+
+> PatchCourseFileAsync(ctx, fileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course file
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	fileId := "fileId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CourseFilesAPI.PatchCourseFileAsync(context.Background(), fileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseFilesAPI.PatchCourseFileAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**fileId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseFileAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

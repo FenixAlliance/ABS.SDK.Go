@@ -8,15 +8,15 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Title** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**CourseID** | **string** |  | 
-**CourseUnitID** | Pointer to **NullableString** |  | [optional] 
+**CourseId** | **string** |  | 
+**CourseUnitId** | Pointer to **NullableString** |  | [optional] 
 **ReleaseDateTime** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
 ### NewCourseWikiCreateDto
 
-`func NewCourseWikiCreateDto(title string, courseID string, ) *CourseWikiCreateDto`
+`func NewCourseWikiCreateDto(title string, courseId string, ) *CourseWikiCreateDto`
 
 NewCourseWikiCreateDto instantiates a new CourseWikiCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -136,61 +136,61 @@ HasDescription returns a boolean if a field has been set.
 `func (o *CourseWikiCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseWikiCreateDto) GetCourseID() string`
+`func (o *CourseWikiCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseWikiCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseWikiCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseWikiCreateDto) SetCourseID(v string)`
+`func (o *CourseWikiCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
-### GetCourseUnitID
+### GetCourseUnitId
 
-`func (o *CourseWikiCreateDto) GetCourseUnitID() string`
+`func (o *CourseWikiCreateDto) GetCourseUnitId() string`
 
-GetCourseUnitID returns the CourseUnitID field if non-nil, zero value otherwise.
+GetCourseUnitId returns the CourseUnitId field if non-nil, zero value otherwise.
 
-### GetCourseUnitIDOk
+### GetCourseUnitIdOk
 
-`func (o *CourseWikiCreateDto) GetCourseUnitIDOk() (*string, bool)`
+`func (o *CourseWikiCreateDto) GetCourseUnitIdOk() (*string, bool)`
 
-GetCourseUnitIDOk returns a tuple with the CourseUnitID field if it's non-nil, zero value otherwise
+GetCourseUnitIdOk returns a tuple with the CourseUnitId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseUnitID
+### SetCourseUnitId
 
-`func (o *CourseWikiCreateDto) SetCourseUnitID(v string)`
+`func (o *CourseWikiCreateDto) SetCourseUnitId(v string)`
 
-SetCourseUnitID sets CourseUnitID field to given value.
+SetCourseUnitId sets CourseUnitId field to given value.
 
-### HasCourseUnitID
+### HasCourseUnitId
 
-`func (o *CourseWikiCreateDto) HasCourseUnitID() bool`
+`func (o *CourseWikiCreateDto) HasCourseUnitId() bool`
 
-HasCourseUnitID returns a boolean if a field has been set.
+HasCourseUnitId returns a boolean if a field has been set.
 
-### SetCourseUnitIDNil
+### SetCourseUnitIdNil
 
-`func (o *CourseWikiCreateDto) SetCourseUnitIDNil(b bool)`
+`func (o *CourseWikiCreateDto) SetCourseUnitIdNil(b bool)`
 
- SetCourseUnitIDNil sets the value for CourseUnitID to be an explicit nil
+ SetCourseUnitIdNil sets the value for CourseUnitId to be an explicit nil
 
-### UnsetCourseUnitID
-`func (o *CourseWikiCreateDto) UnsetCourseUnitID()`
+### UnsetCourseUnitId
+`func (o *CourseWikiCreateDto) UnsetCourseUnitId()`
 
-UnsetCourseUnitID ensures that no value is present for CourseUnitID, not even an explicit nil
+UnsetCourseUnitId ensures that no value is present for CourseUnitId, not even an explicit nil
 ### GetReleaseDateTime
 
 `func (o *CourseWikiCreateDto) GetReleaseDateTime() time.Time`

@@ -9,9 +9,10 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Content** | Pointer to **NullableString** |  | [optional] 
-**CourseWikiID** | Pointer to **NullableString** |  | [optional] 
-**CourseID** | Pointer to **NullableString** |  | [optional] 
+**CourseWikiId** | Pointer to **NullableString** |  | [optional] 
+**CourseId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -207,76 +208,76 @@ HasContent returns a boolean if a field has been set.
 `func (o *CourseArticleDto) UnsetContent()`
 
 UnsetContent ensures that no value is present for Content, not even an explicit nil
-### GetCourseWikiID
+### GetCourseWikiId
 
-`func (o *CourseArticleDto) GetCourseWikiID() string`
+`func (o *CourseArticleDto) GetCourseWikiId() string`
 
-GetCourseWikiID returns the CourseWikiID field if non-nil, zero value otherwise.
+GetCourseWikiId returns the CourseWikiId field if non-nil, zero value otherwise.
 
-### GetCourseWikiIDOk
+### GetCourseWikiIdOk
 
-`func (o *CourseArticleDto) GetCourseWikiIDOk() (*string, bool)`
+`func (o *CourseArticleDto) GetCourseWikiIdOk() (*string, bool)`
 
-GetCourseWikiIDOk returns a tuple with the CourseWikiID field if it's non-nil, zero value otherwise
+GetCourseWikiIdOk returns a tuple with the CourseWikiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseWikiID
+### SetCourseWikiId
 
-`func (o *CourseArticleDto) SetCourseWikiID(v string)`
+`func (o *CourseArticleDto) SetCourseWikiId(v string)`
 
-SetCourseWikiID sets CourseWikiID field to given value.
+SetCourseWikiId sets CourseWikiId field to given value.
 
-### HasCourseWikiID
+### HasCourseWikiId
 
-`func (o *CourseArticleDto) HasCourseWikiID() bool`
+`func (o *CourseArticleDto) HasCourseWikiId() bool`
 
-HasCourseWikiID returns a boolean if a field has been set.
+HasCourseWikiId returns a boolean if a field has been set.
 
-### SetCourseWikiIDNil
+### SetCourseWikiIdNil
 
-`func (o *CourseArticleDto) SetCourseWikiIDNil(b bool)`
+`func (o *CourseArticleDto) SetCourseWikiIdNil(b bool)`
 
- SetCourseWikiIDNil sets the value for CourseWikiID to be an explicit nil
+ SetCourseWikiIdNil sets the value for CourseWikiId to be an explicit nil
 
-### UnsetCourseWikiID
-`func (o *CourseArticleDto) UnsetCourseWikiID()`
+### UnsetCourseWikiId
+`func (o *CourseArticleDto) UnsetCourseWikiId()`
 
-UnsetCourseWikiID ensures that no value is present for CourseWikiID, not even an explicit nil
-### GetCourseID
+UnsetCourseWikiId ensures that no value is present for CourseWikiId, not even an explicit nil
+### GetCourseId
 
-`func (o *CourseArticleDto) GetCourseID() string`
+`func (o *CourseArticleDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseArticleDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseArticleDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseArticleDto) SetCourseID(v string)`
+`func (o *CourseArticleDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
-### HasCourseID
+### HasCourseId
 
-`func (o *CourseArticleDto) HasCourseID() bool`
+`func (o *CourseArticleDto) HasCourseId() bool`
 
-HasCourseID returns a boolean if a field has been set.
+HasCourseId returns a boolean if a field has been set.
 
-### SetCourseIDNil
+### SetCourseIdNil
 
-`func (o *CourseArticleDto) SetCourseIDNil(b bool)`
+`func (o *CourseArticleDto) SetCourseIdNil(b bool)`
 
- SetCourseIDNil sets the value for CourseID to be an explicit nil
+ SetCourseIdNil sets the value for CourseId to be an explicit nil
 
-### UnsetCourseID
-`func (o *CourseArticleDto) UnsetCourseID()`
+### UnsetCourseId
+`func (o *CourseArticleDto) UnsetCourseId()`
 
-UnsetCourseID ensures that no value is present for CourseID, not even an explicit nil
+UnsetCourseId ensures that no value is present for CourseId, not even an explicit nil
 ### GetTenantId
 
 `func (o *CourseArticleDto) GetTenantId() string`
@@ -312,6 +313,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *CourseArticleDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
+
+`func (o *CourseArticleDto) GetEnrollmentId() string`
+
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
+
+### GetEnrollmentIdOk
+
+`func (o *CourseArticleDto) GetEnrollmentIdOk() (*string, bool)`
+
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnrollmentId
+
+`func (o *CourseArticleDto) SetEnrollmentId(v string)`
+
+SetEnrollmentId sets EnrollmentId field to given value.
+
+### HasEnrollmentId
+
+`func (o *CourseArticleDto) HasEnrollmentId() bool`
+
+HasEnrollmentId returns a boolean if a field has been set.
+
+### SetEnrollmentIdNil
+
+`func (o *CourseArticleDto) SetEnrollmentIdNil(b bool)`
+
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+
+### UnsetEnrollmentId
+`func (o *CourseArticleDto) UnsetEnrollmentId()`
+
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

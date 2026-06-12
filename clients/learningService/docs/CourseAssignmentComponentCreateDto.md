@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Content** | Pointer to **NullableString** |  | [optional] 
 **Order** | Pointer to **int32** |  | [optional] 
-**CourseAssignmentID** | **string** |  | 
-**CourseID** | **string** |  | 
+**CourseAssignmentId** | **string** |  | 
+**CourseId** | **string** |  | 
 
 ## Methods
 
 ### NewCourseAssignmentComponentCreateDto
 
-`func NewCourseAssignmentComponentCreateDto(title string, courseAssignmentID string, courseID string, ) *CourseAssignmentComponentCreateDto`
+`func NewCourseAssignmentComponentCreateDto(title string, courseAssignmentId string, courseId string, ) *CourseAssignmentComponentCreateDto`
 
 NewCourseAssignmentComponentCreateDto instantiates a new CourseAssignmentComponentCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -197,44 +197,44 @@ SetOrder sets Order field to given value.
 
 HasOrder returns a boolean if a field has been set.
 
-### GetCourseAssignmentID
+### GetCourseAssignmentId
 
-`func (o *CourseAssignmentComponentCreateDto) GetCourseAssignmentID() string`
+`func (o *CourseAssignmentComponentCreateDto) GetCourseAssignmentId() string`
 
-GetCourseAssignmentID returns the CourseAssignmentID field if non-nil, zero value otherwise.
+GetCourseAssignmentId returns the CourseAssignmentId field if non-nil, zero value otherwise.
 
-### GetCourseAssignmentIDOk
+### GetCourseAssignmentIdOk
 
-`func (o *CourseAssignmentComponentCreateDto) GetCourseAssignmentIDOk() (*string, bool)`
+`func (o *CourseAssignmentComponentCreateDto) GetCourseAssignmentIdOk() (*string, bool)`
 
-GetCourseAssignmentIDOk returns a tuple with the CourseAssignmentID field if it's non-nil, zero value otherwise
+GetCourseAssignmentIdOk returns a tuple with the CourseAssignmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseAssignmentID
+### SetCourseAssignmentId
 
-`func (o *CourseAssignmentComponentCreateDto) SetCourseAssignmentID(v string)`
+`func (o *CourseAssignmentComponentCreateDto) SetCourseAssignmentId(v string)`
 
-SetCourseAssignmentID sets CourseAssignmentID field to given value.
+SetCourseAssignmentId sets CourseAssignmentId field to given value.
 
 
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseAssignmentComponentCreateDto) GetCourseID() string`
+`func (o *CourseAssignmentComponentCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseAssignmentComponentCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseAssignmentComponentCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseAssignmentComponentCreateDto) SetCourseID(v string)`
+`func (o *CourseAssignmentComponentCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
 

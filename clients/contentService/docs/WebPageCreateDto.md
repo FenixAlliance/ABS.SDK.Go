@@ -13,7 +13,9 @@ Name | Type | Description | Notes
 **Markup** | Pointer to **NullableString** |  | [optional] 
 **FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
 **CodeType** | Pointer to **NullableString** |  | [optional] 
-**WebTemplateID** | Pointer to **NullableString** |  | [optional] 
+**Slug** | Pointer to **NullableString** |  | [optional] 
+**WebTemplateId** | Pointer to **NullableString** |  | [optional] 
+**ParentWebContentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -304,41 +306,111 @@ HasCodeType returns a boolean if a field has been set.
 `func (o *WebPageCreateDto) UnsetCodeType()`
 
 UnsetCodeType ensures that no value is present for CodeType, not even an explicit nil
-### GetWebTemplateID
+### GetSlug
 
-`func (o *WebPageCreateDto) GetWebTemplateID() string`
+`func (o *WebPageCreateDto) GetSlug() string`
 
-GetWebTemplateID returns the WebTemplateID field if non-nil, zero value otherwise.
+GetSlug returns the Slug field if non-nil, zero value otherwise.
 
-### GetWebTemplateIDOk
+### GetSlugOk
 
-`func (o *WebPageCreateDto) GetWebTemplateIDOk() (*string, bool)`
+`func (o *WebPageCreateDto) GetSlugOk() (*string, bool)`
 
-GetWebTemplateIDOk returns a tuple with the WebTemplateID field if it's non-nil, zero value otherwise
+GetSlugOk returns a tuple with the Slug field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWebTemplateID
+### SetSlug
 
-`func (o *WebPageCreateDto) SetWebTemplateID(v string)`
+`func (o *WebPageCreateDto) SetSlug(v string)`
 
-SetWebTemplateID sets WebTemplateID field to given value.
+SetSlug sets Slug field to given value.
 
-### HasWebTemplateID
+### HasSlug
 
-`func (o *WebPageCreateDto) HasWebTemplateID() bool`
+`func (o *WebPageCreateDto) HasSlug() bool`
 
-HasWebTemplateID returns a boolean if a field has been set.
+HasSlug returns a boolean if a field has been set.
 
-### SetWebTemplateIDNil
+### SetSlugNil
 
-`func (o *WebPageCreateDto) SetWebTemplateIDNil(b bool)`
+`func (o *WebPageCreateDto) SetSlugNil(b bool)`
 
- SetWebTemplateIDNil sets the value for WebTemplateID to be an explicit nil
+ SetSlugNil sets the value for Slug to be an explicit nil
 
-### UnsetWebTemplateID
-`func (o *WebPageCreateDto) UnsetWebTemplateID()`
+### UnsetSlug
+`func (o *WebPageCreateDto) UnsetSlug()`
 
-UnsetWebTemplateID ensures that no value is present for WebTemplateID, not even an explicit nil
+UnsetSlug ensures that no value is present for Slug, not even an explicit nil
+### GetWebTemplateId
+
+`func (o *WebPageCreateDto) GetWebTemplateId() string`
+
+GetWebTemplateId returns the WebTemplateId field if non-nil, zero value otherwise.
+
+### GetWebTemplateIdOk
+
+`func (o *WebPageCreateDto) GetWebTemplateIdOk() (*string, bool)`
+
+GetWebTemplateIdOk returns a tuple with the WebTemplateId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWebTemplateId
+
+`func (o *WebPageCreateDto) SetWebTemplateId(v string)`
+
+SetWebTemplateId sets WebTemplateId field to given value.
+
+### HasWebTemplateId
+
+`func (o *WebPageCreateDto) HasWebTemplateId() bool`
+
+HasWebTemplateId returns a boolean if a field has been set.
+
+### SetWebTemplateIdNil
+
+`func (o *WebPageCreateDto) SetWebTemplateIdNil(b bool)`
+
+ SetWebTemplateIdNil sets the value for WebTemplateId to be an explicit nil
+
+### UnsetWebTemplateId
+`func (o *WebPageCreateDto) UnsetWebTemplateId()`
+
+UnsetWebTemplateId ensures that no value is present for WebTemplateId, not even an explicit nil
+### GetParentWebContentId
+
+`func (o *WebPageCreateDto) GetParentWebContentId() string`
+
+GetParentWebContentId returns the ParentWebContentId field if non-nil, zero value otherwise.
+
+### GetParentWebContentIdOk
+
+`func (o *WebPageCreateDto) GetParentWebContentIdOk() (*string, bool)`
+
+GetParentWebContentIdOk returns a tuple with the ParentWebContentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentWebContentId
+
+`func (o *WebPageCreateDto) SetParentWebContentId(v string)`
+
+SetParentWebContentId sets ParentWebContentId field to given value.
+
+### HasParentWebContentId
+
+`func (o *WebPageCreateDto) HasParentWebContentId() bool`
+
+HasParentWebContentId returns a boolean if a field has been set.
+
+### SetParentWebContentIdNil
+
+`func (o *WebPageCreateDto) SetParentWebContentIdNil(b bool)`
+
+ SetParentWebContentIdNil sets the value for ParentWebContentId to be an explicit nil
+
+### UnsetParentWebContentId
+`func (o *WebPageCreateDto) UnsetParentWebContentId()`
+
+UnsetParentWebContentId ensures that no value is present for ParentWebContentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

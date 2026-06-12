@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetJobOfferByIdAsync**](JobOffersAPI.md#GetJobOfferByIdAsync) | **Get** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID
 [**GetJobOffersAsync**](JobOffersAPI.md#GetJobOffersAsync) | **Get** /api/v2/HrmsService/JobOffers | Get job offers
 [**GetJobOffersCountAsync**](JobOffersAPI.md#GetJobOffersCountAsync) | **Get** /api/v2/HrmsService/JobOffers/Count | Count job offers
+[**PatchJobOfferAsync**](JobOffersAPI.md#PatchJobOfferAsync) | **Patch** /api/v2/HrmsService/JobOffers/{jobOfferId} | Patch a job offer
 [**UpdateJobOfferAsync**](JobOffersAPI.md#UpdateJobOfferAsync) | **Put** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer
 
 
@@ -377,9 +378,87 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## PatchJobOfferAsync
+
+> EmptyEnvelope PatchJobOfferAsync(ctx, jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a job offer
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	jobOfferId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JobOffersAPI.PatchJobOfferAsync(context.Background(), jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JobOffersAPI.PatchJobOfferAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchJobOfferAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JobOffersAPI.PatchJobOfferAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**jobOfferId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchJobOfferAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateJobOfferAsync
 
-> EmptyEnvelope UpdateJobOfferAsync(ctx, jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+> EmptyEnvelope UpdateJobOfferAsync(ctx, jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JobOfferUpdateDto(jobOfferUpdateDto).Execute()
 
 Update a job offer
 
@@ -402,11 +481,11 @@ func main() {
 	jobOfferId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+	jobOfferUpdateDto := *openapiclient.NewJobOfferUpdateDto() // JobOfferUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JobOffersAPI.UpdateJobOfferAsync(context.Background(), jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+	resp, r, err := apiClient.JobOffersAPI.UpdateJobOfferAsync(context.Background(), jobOfferId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JobOfferUpdateDto(jobOfferUpdateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JobOffersAPI.UpdateJobOfferAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -435,7 +514,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **body** | **map[string]interface{}** |  | 
+ **jobOfferUpdateDto** | [**JobOfferUpdateDto**](JobOfferUpdateDto.md) |  | 
 
 ### Return type
 

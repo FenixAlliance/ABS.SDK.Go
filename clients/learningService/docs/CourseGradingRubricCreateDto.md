@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **Title** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **EnablePoints** | Pointer to **bool** |  | [optional] 
-**CourseID** | **string** |  | 
+**CourseId** | **string** |  | 
 
 ## Methods
 
 ### NewCourseGradingRubricCreateDto
 
-`func NewCourseGradingRubricCreateDto(title string, courseID string, ) *CourseGradingRubricCreateDto`
+`func NewCourseGradingRubricCreateDto(title string, courseId string, ) *CourseGradingRubricCreateDto`
 
 NewCourseGradingRubricCreateDto instantiates a new CourseGradingRubricCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -160,24 +160,24 @@ SetEnablePoints sets EnablePoints field to given value.
 
 HasEnablePoints returns a boolean if a field has been set.
 
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseGradingRubricCreateDto) GetCourseID() string`
+`func (o *CourseGradingRubricCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseGradingRubricCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseGradingRubricCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseGradingRubricCreateDto) SetCourseID(v string)`
+`func (o *CourseGradingRubricCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
 

@@ -58,6 +58,8 @@ Name | Type | Description | Notes
 **CornerstoneContent** | Pointer to **bool** |  | [optional] 
 **IsEssentialContent** | Pointer to **bool** |  | [optional] 
 **AllowSearchEngineIndexing** | Pointer to **bool** |  | [optional] 
+**WebTemplateId** | Pointer to **NullableString** |  | [optional] 
+**ParentWebContentId** | Pointer to **NullableString** |  | [optional] 
 **IsHomePage** | Pointer to **bool** |  | [optional] 
 **IsStorePage** | Pointer to **bool** |  | [optional] 
 **IsCartPage** | Pointer to **bool** |  | [optional] 
@@ -1788,6 +1790,76 @@ SetAllowSearchEngineIndexing sets AllowSearchEngineIndexing field to given value
 
 HasAllowSearchEngineIndexing returns a boolean if a field has been set.
 
+### GetWebTemplateId
+
+`func (o *WebPageUpdateDto) GetWebTemplateId() string`
+
+GetWebTemplateId returns the WebTemplateId field if non-nil, zero value otherwise.
+
+### GetWebTemplateIdOk
+
+`func (o *WebPageUpdateDto) GetWebTemplateIdOk() (*string, bool)`
+
+GetWebTemplateIdOk returns a tuple with the WebTemplateId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWebTemplateId
+
+`func (o *WebPageUpdateDto) SetWebTemplateId(v string)`
+
+SetWebTemplateId sets WebTemplateId field to given value.
+
+### HasWebTemplateId
+
+`func (o *WebPageUpdateDto) HasWebTemplateId() bool`
+
+HasWebTemplateId returns a boolean if a field has been set.
+
+### SetWebTemplateIdNil
+
+`func (o *WebPageUpdateDto) SetWebTemplateIdNil(b bool)`
+
+ SetWebTemplateIdNil sets the value for WebTemplateId to be an explicit nil
+
+### UnsetWebTemplateId
+`func (o *WebPageUpdateDto) UnsetWebTemplateId()`
+
+UnsetWebTemplateId ensures that no value is present for WebTemplateId, not even an explicit nil
+### GetParentWebContentId
+
+`func (o *WebPageUpdateDto) GetParentWebContentId() string`
+
+GetParentWebContentId returns the ParentWebContentId field if non-nil, zero value otherwise.
+
+### GetParentWebContentIdOk
+
+`func (o *WebPageUpdateDto) GetParentWebContentIdOk() (*string, bool)`
+
+GetParentWebContentIdOk returns a tuple with the ParentWebContentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentWebContentId
+
+`func (o *WebPageUpdateDto) SetParentWebContentId(v string)`
+
+SetParentWebContentId sets ParentWebContentId field to given value.
+
+### HasParentWebContentId
+
+`func (o *WebPageUpdateDto) HasParentWebContentId() bool`
+
+HasParentWebContentId returns a boolean if a field has been set.
+
+### SetParentWebContentIdNil
+
+`func (o *WebPageUpdateDto) SetParentWebContentIdNil(b bool)`
+
+ SetParentWebContentIdNil sets the value for ParentWebContentId to be an explicit nil
+
+### UnsetParentWebContentId
+`func (o *WebPageUpdateDto) UnsetParentWebContentId()`
+
+UnsetParentWebContentId ensures that no value is present for ParentWebContentId, not even an explicit nil
 ### GetIsHomePage
 
 `func (o *WebPageUpdateDto) GetIsHomePage() bool`

@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**GetDiscountListEntry**](DiscountListsAPI.md#GetDiscountListEntry) | **Get** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Gets a discount list entry by ID
 [**GetDiscountLists**](DiscountListsAPI.md#GetDiscountLists) | **Get** /api/v2/PricingService/DiscountLists | Retrieves all discount lists
 [**GetDiscountListsCount**](DiscountListsAPI.md#GetDiscountListsCount) | **Get** /api/v2/PricingService/DiscountLists/Count | Counts discount lists
+[**PatchDiscountList**](DiscountListsAPI.md#PatchDiscountList) | **Patch** /api/v2/PricingService/DiscountLists/{discountListId} | Patches a discount list
+[**PatchDiscountListEntry**](DiscountListsAPI.md#PatchDiscountListEntry) | **Patch** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Patches a discount list entry
 [**UpdateDiscountList**](DiscountListsAPI.md#UpdateDiscountList) | **Put** /api/v2/PricingService/DiscountLists/{discountListId} | Updates a discount list
 [**UpdateDiscountListEntry**](DiscountListsAPI.md#UpdateDiscountListEntry) | **Put** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Updates a discount list entry
 
@@ -724,6 +726,157 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchDiscountList
+
+> EmptyEnvelope PatchDiscountList(ctx, discountListId).TenantId(tenantId).Operation(operation).Execute()
+
+Patches a discount list
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	discountListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DiscountListsAPI.PatchDiscountList(context.Background(), discountListId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiscountListsAPI.PatchDiscountList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchDiscountList`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DiscountListsAPI.PatchDiscountList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**discountListId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchDiscountListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchDiscountListEntry
+
+> EmptyEnvelope PatchDiscountListEntry(ctx, discountListId, discountListEntryId).TenantId(tenantId).Operation(operation).Execute()
+
+Patches a discount list entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	discountListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	discountListEntryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DiscountListsAPI.PatchDiscountListEntry(context.Background(), discountListId, discountListEntryId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiscountListsAPI.PatchDiscountListEntry``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchDiscountListEntry`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DiscountListsAPI.PatchDiscountListEntry`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**discountListId** | **string** |  | 
+**discountListEntryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchDiscountListEntryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

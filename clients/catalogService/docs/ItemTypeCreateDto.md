@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **ImageURL** | Pointer to **NullableString** |  | [optional] 
 **GoogleCategoryTaxonomy** | Pointer to **NullableString** |  | [optional] 
-**ItemCategoryID** | **string** |  | 
-**ItemGoogleCategoryID** | Pointer to **NullableString** |  | [optional] 
+**ItemCategoryId** | **string** |  | 
+**ItemGoogleCategoryId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewItemTypeCreateDto
 
-`func NewItemTypeCreateDto(itemCategoryID string, ) *ItemTypeCreateDto`
+`func NewItemTypeCreateDto(itemCategoryId string, ) *ItemTypeCreateDto`
 
 NewItemTypeCreateDto instantiates a new ItemTypeCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -258,61 +258,61 @@ HasGoogleCategoryTaxonomy returns a boolean if a field has been set.
 `func (o *ItemTypeCreateDto) UnsetGoogleCategoryTaxonomy()`
 
 UnsetGoogleCategoryTaxonomy ensures that no value is present for GoogleCategoryTaxonomy, not even an explicit nil
-### GetItemCategoryID
+### GetItemCategoryId
 
-`func (o *ItemTypeCreateDto) GetItemCategoryID() string`
+`func (o *ItemTypeCreateDto) GetItemCategoryId() string`
 
-GetItemCategoryID returns the ItemCategoryID field if non-nil, zero value otherwise.
+GetItemCategoryId returns the ItemCategoryId field if non-nil, zero value otherwise.
 
-### GetItemCategoryIDOk
+### GetItemCategoryIdOk
 
-`func (o *ItemTypeCreateDto) GetItemCategoryIDOk() (*string, bool)`
+`func (o *ItemTypeCreateDto) GetItemCategoryIdOk() (*string, bool)`
 
-GetItemCategoryIDOk returns a tuple with the ItemCategoryID field if it's non-nil, zero value otherwise
+GetItemCategoryIdOk returns a tuple with the ItemCategoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItemCategoryID
+### SetItemCategoryId
 
-`func (o *ItemTypeCreateDto) SetItemCategoryID(v string)`
+`func (o *ItemTypeCreateDto) SetItemCategoryId(v string)`
 
-SetItemCategoryID sets ItemCategoryID field to given value.
+SetItemCategoryId sets ItemCategoryId field to given value.
 
 
-### GetItemGoogleCategoryID
+### GetItemGoogleCategoryId
 
-`func (o *ItemTypeCreateDto) GetItemGoogleCategoryID() string`
+`func (o *ItemTypeCreateDto) GetItemGoogleCategoryId() string`
 
-GetItemGoogleCategoryID returns the ItemGoogleCategoryID field if non-nil, zero value otherwise.
+GetItemGoogleCategoryId returns the ItemGoogleCategoryId field if non-nil, zero value otherwise.
 
-### GetItemGoogleCategoryIDOk
+### GetItemGoogleCategoryIdOk
 
-`func (o *ItemTypeCreateDto) GetItemGoogleCategoryIDOk() (*string, bool)`
+`func (o *ItemTypeCreateDto) GetItemGoogleCategoryIdOk() (*string, bool)`
 
-GetItemGoogleCategoryIDOk returns a tuple with the ItemGoogleCategoryID field if it's non-nil, zero value otherwise
+GetItemGoogleCategoryIdOk returns a tuple with the ItemGoogleCategoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItemGoogleCategoryID
+### SetItemGoogleCategoryId
 
-`func (o *ItemTypeCreateDto) SetItemGoogleCategoryID(v string)`
+`func (o *ItemTypeCreateDto) SetItemGoogleCategoryId(v string)`
 
-SetItemGoogleCategoryID sets ItemGoogleCategoryID field to given value.
+SetItemGoogleCategoryId sets ItemGoogleCategoryId field to given value.
 
-### HasItemGoogleCategoryID
+### HasItemGoogleCategoryId
 
-`func (o *ItemTypeCreateDto) HasItemGoogleCategoryID() bool`
+`func (o *ItemTypeCreateDto) HasItemGoogleCategoryId() bool`
 
-HasItemGoogleCategoryID returns a boolean if a field has been set.
+HasItemGoogleCategoryId returns a boolean if a field has been set.
 
-### SetItemGoogleCategoryIDNil
+### SetItemGoogleCategoryIdNil
 
-`func (o *ItemTypeCreateDto) SetItemGoogleCategoryIDNil(b bool)`
+`func (o *ItemTypeCreateDto) SetItemGoogleCategoryIdNil(b bool)`
 
- SetItemGoogleCategoryIDNil sets the value for ItemGoogleCategoryID to be an explicit nil
+ SetItemGoogleCategoryIdNil sets the value for ItemGoogleCategoryId to be an explicit nil
 
-### UnsetItemGoogleCategoryID
-`func (o *ItemTypeCreateDto) UnsetItemGoogleCategoryID()`
+### UnsetItemGoogleCategoryId
+`func (o *ItemTypeCreateDto) UnsetItemGoogleCategoryId()`
 
-UnsetItemGoogleCategoryID ensures that no value is present for ItemGoogleCategoryID, not even an explicit nil
+UnsetItemGoogleCategoryId ensures that no value is present for ItemGoogleCategoryId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetMarketingCampaignDetailsAsync**](MarketingCampaignsAPI.md#GetMarketingCampaignDetailsAsync) | **Get** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | Get marketing campaign by ID
 [**GetMarketingCampaignODataAsync**](MarketingCampaignsAPI.md#GetMarketingCampaignODataAsync) | **Get** /api/v2/MarketingService/MarketingCampaigns | Get marketing campaigns
 [**GetMarketingCampaignsCountAsync**](MarketingCampaignsAPI.md#GetMarketingCampaignsCountAsync) | **Get** /api/v2/MarketingService/MarketingCampaigns/Count | Get marketing campaigns count
+[**PatchMarketingCampaignAsync**](MarketingCampaignsAPI.md#PatchMarketingCampaignAsync) | **Patch** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | Patch a marketing campaign
 [**UpdateMarketingCampaignAsync**](MarketingCampaignsAPI.md#UpdateMarketingCampaignAsync) | **Put** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | Update a marketing campaign
 
 
@@ -368,6 +369,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchMarketingCampaignAsync
+
+> EmptyEnvelope PatchMarketingCampaignAsync(ctx, marketingcampaignId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a marketing campaign
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	marketingcampaignId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarketingCampaignsAPI.PatchMarketingCampaignAsync(context.Background(), marketingcampaignId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketingCampaignsAPI.PatchMarketingCampaignAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchMarketingCampaignAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `MarketingCampaignsAPI.PatchMarketingCampaignAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**marketingcampaignId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchMarketingCampaignAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

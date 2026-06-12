@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetWarehouseByIdAsync**](WarehousesAPI.md#GetWarehouseByIdAsync) | **Get** /api/v2/LogisticsService/Warehouses/{warehouseId} | Get warehouse by ID
 [**GetWarehousesAsync**](WarehousesAPI.md#GetWarehousesAsync) | **Get** /api/v2/LogisticsService/Warehouses | Get all warehouses
 [**GetWarehousesCountAsync**](WarehousesAPI.md#GetWarehousesCountAsync) | **Get** /api/v2/LogisticsService/Warehouses/Count | Get warehouses count
+[**PatchWarehouseAsync**](WarehousesAPI.md#PatchWarehouseAsync) | **Patch** /api/v2/LogisticsService/Warehouses/{warehouseId} | Patch a warehouse
 [**UpdateWarehouseAsync**](WarehousesAPI.md#UpdateWarehouseAsync) | **Put** /api/v2/LogisticsService/Warehouses/{warehouseId} | Update a warehouse
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchWarehouseAsync
+
+> EmptyEnvelope PatchWarehouseAsync(ctx, warehouseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a warehouse
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	warehouseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WarehousesAPI.PatchWarehouseAsync(context.Background(), warehouseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WarehousesAPI.PatchWarehouseAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchWarehouseAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `WarehousesAPI.PatchWarehouseAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**warehouseId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchWarehouseAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Content** | Pointer to **NullableString** |  | [optional] 
-**CourseContentGroupID** | Pointer to **NullableString** |  | [optional] 
+**CourseContentGroupId** | Pointer to **NullableString** |  | [optional] 
 **ReleaseDateTime** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
@@ -134,41 +134,41 @@ HasContent returns a boolean if a field has been set.
 `func (o *CourseUnitUpdateDto) UnsetContent()`
 
 UnsetContent ensures that no value is present for Content, not even an explicit nil
-### GetCourseContentGroupID
+### GetCourseContentGroupId
 
-`func (o *CourseUnitUpdateDto) GetCourseContentGroupID() string`
+`func (o *CourseUnitUpdateDto) GetCourseContentGroupId() string`
 
-GetCourseContentGroupID returns the CourseContentGroupID field if non-nil, zero value otherwise.
+GetCourseContentGroupId returns the CourseContentGroupId field if non-nil, zero value otherwise.
 
-### GetCourseContentGroupIDOk
+### GetCourseContentGroupIdOk
 
-`func (o *CourseUnitUpdateDto) GetCourseContentGroupIDOk() (*string, bool)`
+`func (o *CourseUnitUpdateDto) GetCourseContentGroupIdOk() (*string, bool)`
 
-GetCourseContentGroupIDOk returns a tuple with the CourseContentGroupID field if it's non-nil, zero value otherwise
+GetCourseContentGroupIdOk returns a tuple with the CourseContentGroupId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseContentGroupID
+### SetCourseContentGroupId
 
-`func (o *CourseUnitUpdateDto) SetCourseContentGroupID(v string)`
+`func (o *CourseUnitUpdateDto) SetCourseContentGroupId(v string)`
 
-SetCourseContentGroupID sets CourseContentGroupID field to given value.
+SetCourseContentGroupId sets CourseContentGroupId field to given value.
 
-### HasCourseContentGroupID
+### HasCourseContentGroupId
 
-`func (o *CourseUnitUpdateDto) HasCourseContentGroupID() bool`
+`func (o *CourseUnitUpdateDto) HasCourseContentGroupId() bool`
 
-HasCourseContentGroupID returns a boolean if a field has been set.
+HasCourseContentGroupId returns a boolean if a field has been set.
 
-### SetCourseContentGroupIDNil
+### SetCourseContentGroupIdNil
 
-`func (o *CourseUnitUpdateDto) SetCourseContentGroupIDNil(b bool)`
+`func (o *CourseUnitUpdateDto) SetCourseContentGroupIdNil(b bool)`
 
- SetCourseContentGroupIDNil sets the value for CourseContentGroupID to be an explicit nil
+ SetCourseContentGroupIdNil sets the value for CourseContentGroupId to be an explicit nil
 
-### UnsetCourseContentGroupID
-`func (o *CourseUnitUpdateDto) UnsetCourseContentGroupID()`
+### UnsetCourseContentGroupId
+`func (o *CourseUnitUpdateDto) UnsetCourseContentGroupId()`
 
-UnsetCourseContentGroupID ensures that no value is present for CourseContentGroupID, not even an explicit nil
+UnsetCourseContentGroupId ensures that no value is present for CourseContentGroupId, not even an explicit nil
 ### GetReleaseDateTime
 
 `func (o *CourseUnitUpdateDto) GetReleaseDateTime() time.Time`

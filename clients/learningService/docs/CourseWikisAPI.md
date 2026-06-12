@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseWikiByIdAsync**](CourseWikisAPI.md#GetCourseWikiByIdAsync) | **Get** /api/v2/LearningService/CourseWikis/{wikiId} | Get course wiki by ID
 [**GetCourseWikisAsync**](CourseWikisAPI.md#GetCourseWikisAsync) | **Get** /api/v2/LearningService/CourseWikis | Get all course wikis
 [**GetCourseWikisCountAsync**](CourseWikisAPI.md#GetCourseWikisCountAsync) | **Get** /api/v2/LearningService/CourseWikis/Count | Get course wikis count
+[**PatchCourseWikiAsync**](CourseWikisAPI.md#PatchCourseWikiAsync) | **Patch** /api/v2/LearningService/CourseWikis/{wikiId} | Patch a course wiki
 [**UpdateCourseWikiAsync**](CourseWikisAPI.md#UpdateCourseWikiAsync) | **Put** /api/v2/LearningService/CourseWikis/{wikiId} | Update a course wiki
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseWikiCreateDto := *openapiclient.NewCourseWikiCreateDto("Title_example", "CourseID_example") // CourseWikiCreateDto |  (optional)
+	courseWikiCreateDto := *openapiclient.NewCourseWikiCreateDto("Title_example", "CourseId_example") // CourseWikiCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,6 +365,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseWikiAsync
+
+> EmptyEnvelope PatchCourseWikiAsync(ctx, wikiId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course wiki
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	wikiId := "wikiId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CourseWikisAPI.PatchCourseWikiAsync(context.Background(), wikiId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseWikisAPI.PatchCourseWikiAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchCourseWikiAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CourseWikisAPI.PatchCourseWikiAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wikiId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseWikiAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

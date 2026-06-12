@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**DeleteItemQuestionAsync**](ItemQuestionsAPI.md#DeleteItemQuestionAsync) | **Delete** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Delete an item question
 [**GetItemQuestionByIdAsync**](ItemQuestionsAPI.md#GetItemQuestionByIdAsync) | **Get** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Get item question by ID
 [**GetItemQuestionsAsync**](ItemQuestionsAPI.md#GetItemQuestionsAsync) | **Get** /api/v2/CatalogService/ItemQuestions | Get all item questions
+[**PatchItemQuestionAsync**](ItemQuestionsAPI.md#PatchItemQuestionAsync) | **Patch** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Patch an item question
 [**UpdateItemQuestionAsync**](ItemQuestionsAPI.md#UpdateItemQuestionAsync) | **Put** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Update an item question
 
 
@@ -36,7 +37,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	itemQuestionCreateDto := *openapiclient.NewItemQuestionCreateDto("Title_example", false, "Question_example", "ItemID_example") // ItemQuestionCreateDto |  (optional)
+	itemQuestionCreateDto := *openapiclient.NewItemQuestionCreateDto("Title_example", false, "Question_example", "ItemId_example") // ItemQuestionCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -297,6 +298,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchItemQuestionAsync
+
+> PatchItemQuestionAsync(ctx, itemQuestionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch an item question
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	itemQuestionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ItemQuestionsAPI.PatchItemQuestionAsync(context.Background(), itemQuestionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemQuestionsAPI.PatchItemQuestionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**itemQuestionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchItemQuestionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

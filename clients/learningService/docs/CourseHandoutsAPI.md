@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseHandoutByIdAsync**](CourseHandoutsAPI.md#GetCourseHandoutByIdAsync) | **Get** /api/v2/LearningService/CourseHandouts/{handoutId} | Get course handout by ID
 [**GetCourseHandoutsAsync**](CourseHandoutsAPI.md#GetCourseHandoutsAsync) | **Get** /api/v2/LearningService/CourseHandouts | Get all course handouts
 [**GetCourseHandoutsCountAsync**](CourseHandoutsAPI.md#GetCourseHandoutsCountAsync) | **Get** /api/v2/LearningService/CourseHandouts/Count | Get course handouts count
+[**PatchCourseHandoutAsync**](CourseHandoutsAPI.md#PatchCourseHandoutAsync) | **Patch** /api/v2/LearningService/CourseHandouts/{handoutId} | Patch a course handout
 [**UpdateCourseHandoutAsync**](CourseHandoutsAPI.md#UpdateCourseHandoutAsync) | **Put** /api/v2/LearningService/CourseHandouts/{handoutId} | Update a course handout
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseHandoutCreateDto := *openapiclient.NewCourseHandoutCreateDto("Name_example", "CourseID_example") // CourseHandoutCreateDto |  (optional)
+	courseHandoutCreateDto := *openapiclient.NewCourseHandoutCreateDto("Name_example", "CourseId_example") // CourseHandoutCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -366,6 +367,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseHandoutAsync
+
+> PatchCourseHandoutAsync(ctx, handoutId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course handout
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	handoutId := "handoutId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CourseHandoutsAPI.PatchCourseHandoutAsync(context.Background(), handoutId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseHandoutsAPI.PatchCourseHandoutAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**handoutId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseHandoutAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

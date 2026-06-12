@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseAssignmentByIdAsync**](CourseAssignmentsAPI.md#GetCourseAssignmentByIdAsync) | **Get** /api/v2/LearningService/CourseAssignments/{assignmentId} | Get course assignment by ID
 [**GetCourseAssignmentsAsync**](CourseAssignmentsAPI.md#GetCourseAssignmentsAsync) | **Get** /api/v2/LearningService/CourseAssignments | Get all course assignments
 [**GetCourseAssignmentsCountAsync**](CourseAssignmentsAPI.md#GetCourseAssignmentsCountAsync) | **Get** /api/v2/LearningService/CourseAssignments/Count | Get course assignments count
+[**PatchCourseAssignmentAsync**](CourseAssignmentsAPI.md#PatchCourseAssignmentAsync) | **Patch** /api/v2/LearningService/CourseAssignments/{assignmentId} | Patch a course assignment
 [**UpdateCourseAssignmentAsync**](CourseAssignmentsAPI.md#UpdateCourseAssignmentAsync) | **Put** /api/v2/LearningService/CourseAssignments/{assignmentId} | Update a course assignment
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseAssignmentCreateDto := *openapiclient.NewCourseAssignmentCreateDto("Title_example", "CourseID_example") // CourseAssignmentCreateDto |  (optional)
+	courseAssignmentCreateDto := *openapiclient.NewCourseAssignmentCreateDto("Title_example", "CourseId_example") // CourseAssignmentCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,6 +365,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseAssignmentAsync
+
+> EmptyEnvelope PatchCourseAssignmentAsync(ctx, assignmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course assignment
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	assignmentId := "assignmentId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CourseAssignmentsAPI.PatchCourseAssignmentAsync(context.Background(), assignmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseAssignmentsAPI.PatchCourseAssignmentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchCourseAssignmentAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CourseAssignmentsAPI.PatchCourseAssignmentAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**assignmentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseAssignmentAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

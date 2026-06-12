@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ItemID** | **string** |  | 
+**ItemId** | **string** |  | 
 **IsItemMozaicBG** | Pointer to **bool** |  | [optional] 
 **MD5Hash** | **string** |  | 
 **Metadata** | Pointer to **NullableString** |  | [optional] 
@@ -18,13 +18,13 @@ Name | Type | Description | Notes
 **ContentType** | **string** |  | 
 **FileLength** | Pointer to **int64** |  | [optional] 
 **ValidResponse** | Pointer to **bool** |  | [optional] 
-**ParentFileUploadID** | Pointer to **NullableString** |  | [optional] 
+**ParentFileUploadId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewItemImageUpdateDto
 
-`func NewItemImageUpdateDto(itemID string, mD5Hash string, fileUploadURL string, fileName string, contentType string, ) *ItemImageUpdateDto`
+`func NewItemImageUpdateDto(itemId string, mD5Hash string, fileUploadURL string, fileName string, contentType string, ) *ItemImageUpdateDto`
 
 NewItemImageUpdateDto instantiates a new ItemImageUpdateDto object
 This constructor will assign default values to properties that have it defined,
@@ -39,24 +39,24 @@ NewItemImageUpdateDtoWithDefaults instantiates a new ItemImageUpdateDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetItemID
+### GetItemId
 
-`func (o *ItemImageUpdateDto) GetItemID() string`
+`func (o *ItemImageUpdateDto) GetItemId() string`
 
-GetItemID returns the ItemID field if non-nil, zero value otherwise.
+GetItemId returns the ItemId field if non-nil, zero value otherwise.
 
-### GetItemIDOk
+### GetItemIdOk
 
-`func (o *ItemImageUpdateDto) GetItemIDOk() (*string, bool)`
+`func (o *ItemImageUpdateDto) GetItemIdOk() (*string, bool)`
 
-GetItemIDOk returns a tuple with the ItemID field if it's non-nil, zero value otherwise
+GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItemID
+### SetItemId
 
-`func (o *ItemImageUpdateDto) SetItemID(v string)`
+`func (o *ItemImageUpdateDto) SetItemId(v string)`
 
-SetItemID sets ItemID field to given value.
+SetItemId sets ItemId field to given value.
 
 
 ### GetIsItemMozaicBG
@@ -424,41 +424,41 @@ SetValidResponse sets ValidResponse field to given value.
 
 HasValidResponse returns a boolean if a field has been set.
 
-### GetParentFileUploadID
+### GetParentFileUploadId
 
-`func (o *ItemImageUpdateDto) GetParentFileUploadID() string`
+`func (o *ItemImageUpdateDto) GetParentFileUploadId() string`
 
-GetParentFileUploadID returns the ParentFileUploadID field if non-nil, zero value otherwise.
+GetParentFileUploadId returns the ParentFileUploadId field if non-nil, zero value otherwise.
 
-### GetParentFileUploadIDOk
+### GetParentFileUploadIdOk
 
-`func (o *ItemImageUpdateDto) GetParentFileUploadIDOk() (*string, bool)`
+`func (o *ItemImageUpdateDto) GetParentFileUploadIdOk() (*string, bool)`
 
-GetParentFileUploadIDOk returns a tuple with the ParentFileUploadID field if it's non-nil, zero value otherwise
+GetParentFileUploadIdOk returns a tuple with the ParentFileUploadId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetParentFileUploadID
+### SetParentFileUploadId
 
-`func (o *ItemImageUpdateDto) SetParentFileUploadID(v string)`
+`func (o *ItemImageUpdateDto) SetParentFileUploadId(v string)`
 
-SetParentFileUploadID sets ParentFileUploadID field to given value.
+SetParentFileUploadId sets ParentFileUploadId field to given value.
 
-### HasParentFileUploadID
+### HasParentFileUploadId
 
-`func (o *ItemImageUpdateDto) HasParentFileUploadID() bool`
+`func (o *ItemImageUpdateDto) HasParentFileUploadId() bool`
 
-HasParentFileUploadID returns a boolean if a field has been set.
+HasParentFileUploadId returns a boolean if a field has been set.
 
-### SetParentFileUploadIDNil
+### SetParentFileUploadIdNil
 
-`func (o *ItemImageUpdateDto) SetParentFileUploadIDNil(b bool)`
+`func (o *ItemImageUpdateDto) SetParentFileUploadIdNil(b bool)`
 
- SetParentFileUploadIDNil sets the value for ParentFileUploadID to be an explicit nil
+ SetParentFileUploadIdNil sets the value for ParentFileUploadId to be an explicit nil
 
-### UnsetParentFileUploadID
-`func (o *ItemImageUpdateDto) UnsetParentFileUploadID()`
+### UnsetParentFileUploadId
+`func (o *ItemImageUpdateDto) UnsetParentFileUploadId()`
 
-UnsetParentFileUploadID ensures that no value is present for ParentFileUploadID, not even an explicit nil
+UnsetParentFileUploadId ensures that no value is present for ParentFileUploadId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

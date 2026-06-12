@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetItemBundleByIdAsync**](ItemBundlesAPI.md#GetItemBundleByIdAsync) | **Get** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Get item bundle by ID
 [**GetItemBundlesAsync**](ItemBundlesAPI.md#GetItemBundlesAsync) | **Get** /api/v2/CatalogService/ItemBundles | Get all item bundles
 [**GetItemBundlesCountAsync**](ItemBundlesAPI.md#GetItemBundlesCountAsync) | **Get** /api/v2/CatalogService/ItemBundles/Count | Get item bundles count
+[**PatchItemBundleAsync**](ItemBundlesAPI.md#PatchItemBundleAsync) | **Patch** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Patch an item bundle
 [**UpdateItemBundleAsync**](ItemBundlesAPI.md#UpdateItemBundleAsync) | **Put** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Update an item bundle
 
 
@@ -368,6 +369,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchItemBundleAsync
+
+> EmptyEnvelope PatchItemBundleAsync(ctx, itemBundleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch an item bundle
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	itemBundleId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ItemBundlesAPI.PatchItemBundleAsync(context.Background(), itemBundleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemBundlesAPI.PatchItemBundleAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchItemBundleAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ItemBundlesAPI.PatchItemBundleAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**itemBundleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchItemBundleAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

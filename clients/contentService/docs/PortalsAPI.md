@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**BindWebPortalDomainAsync**](PortalsAPI.md#BindWebPortalDomainAsync) | **Post** /api/v2/ContentService/Portals/{portalId}/DomainBindings/{businessDomainId} | Bind a domain to a web portal
 [**CountPortalsAsync**](PortalsAPI.md#CountPortalsAsync) | **Get** /api/v2/ContentService/Portals/Count | Count portals
 [**CreateWebPortalAsync**](PortalsAPI.md#CreateWebPortalAsync) | **Post** /api/v2/ContentService/Portals | Create a new web portal
 [**DeleteWebPortalAsync**](PortalsAPI.md#DeleteWebPortalAsync) | **Delete** /api/v2/ContentService/Portals/{portalId} | Delete a web portal
@@ -12,13 +13,95 @@ Method | HTTP request | Description
 [**GetPortalsAsync**](PortalsAPI.md#GetPortalsAsync) | **Get** /api/v2/ContentService/Portals | Get portals
 [**GetRootWebPortalAsync**](PortalsAPI.md#GetRootWebPortalAsync) | **Get** /api/v2/ContentService/Portals/Root | Get the root portal
 [**GetWebPortalByIdAsync**](PortalsAPI.md#GetWebPortalByIdAsync) | **Get** /api/v2/ContentService/Portals/{portalId} | Get a web portal by its ID
+[**GetWebPortalDomainBindingsAsync**](PortalsAPI.md#GetWebPortalDomainBindingsAsync) | **Get** /api/v2/ContentService/Portals/{portalId}/DomainBindings | Get a web portal&#39;s bound domains
 [**GetWebPortalOptionsAsync**](PortalsAPI.md#GetWebPortalOptionsAsync) | **Get** /api/v2/ContentService/Portals/{portalId}/Options | Get a web portal&#39;s options by its ID
 [**GetWebPortalSettingsAsync**](PortalsAPI.md#GetWebPortalSettingsAsync) | **Get** /api/v2/ContentService/Portals/{portalId}/Settings | Get a web portal&#39;s settings by its ID
 [**InitializeCurrentWebPortalAsync**](PortalsAPI.md#InitializeCurrentWebPortalAsync) | **Post** /api/v2/ContentService/Portals/Initialize | Initialize the current portal
 [**PatchWebPortalAsync**](PortalsAPI.md#PatchWebPortalAsync) | **Patch** /api/v2/ContentService/Portals/{portalId} | Partially update a web portal
 [**SearchWebPortalAsync**](PortalsAPI.md#SearchWebPortalAsync) | **Get** /api/v2/ContentService/Portals/Search | Search for a portal by its domain
+[**UnbindWebPortalDomainAsync**](PortalsAPI.md#UnbindWebPortalDomainAsync) | **Delete** /api/v2/ContentService/Portals/{portalId}/DomainBindings/{businessDomainId} | Unbind a domain from a web portal
 [**UpdateWebPortalAsync**](PortalsAPI.md#UpdateWebPortalAsync) | **Put** /api/v2/ContentService/Portals/{portalId} | Update an existing web portal
+[**UpdateWebPortalSettingsAsync**](PortalsAPI.md#UpdateWebPortalSettingsAsync) | **Put** /api/v2/ContentService/Portals/{portalId}/Settings | Update a web portal&#39;s settings
 
+
+
+## BindWebPortalDomainAsync
+
+> EmptyEnvelope BindWebPortalDomainAsync(ctx, portalId, businessDomainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Bind a domain to a web portal
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	businessDomainId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PortalsAPI.BindWebPortalDomainAsync(context.Background(), portalId, businessDomainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PortalsAPI.BindWebPortalDomainAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BindWebPortalDomainAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PortalsAPI.BindWebPortalDomainAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**portalId** | **string** |  | 
+**businessDomainId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBindWebPortalDomainAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CountPortalsAsync
@@ -587,6 +670,82 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetWebPortalDomainBindingsAsync
+
+> BusinessDomainDtoListEnvelope GetWebPortalDomainBindingsAsync(ctx, portalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get a web portal's bound domains
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PortalsAPI.GetWebPortalDomainBindingsAsync(context.Background(), portalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PortalsAPI.GetWebPortalDomainBindingsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetWebPortalDomainBindingsAsync`: BusinessDomainDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PortalsAPI.GetWebPortalDomainBindingsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**portalId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetWebPortalDomainBindingsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**BusinessDomainDtoListEnvelope**](BusinessDomainDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetWebPortalOptionsAsync
 
 > PortalOptionsEnvelope GetWebPortalOptionsAsync(ctx, portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
@@ -951,6 +1110,85 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## UnbindWebPortalDomainAsync
+
+> EmptyEnvelope UnbindWebPortalDomainAsync(ctx, portalId, businessDomainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Unbind a domain from a web portal
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	businessDomainId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PortalsAPI.UnbindWebPortalDomainAsync(context.Background(), portalId, businessDomainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PortalsAPI.UnbindWebPortalDomainAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UnbindWebPortalDomainAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PortalsAPI.UnbindWebPortalDomainAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**portalId** | **string** |  | 
+**businessDomainId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUnbindWebPortalDomainAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateWebPortalAsync
 
 > EmptyEnvelope UpdateWebPortalAsync(ctx, portalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WebPortalUpdateDto(webPortalUpdateDto).Execute()
@@ -1010,6 +1248,84 @@ Name | Type | Description  | Notes
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **webPortalUpdateDto** | [**WebPortalUpdateDto**](WebPortalUpdateDto.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateWebPortalSettingsAsync
+
+> EmptyEnvelope UpdateWebPortalSettingsAsync(ctx, portalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PortalSettings(portalSettings).Execute()
+
+Update a web portal's settings
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	portalSettings := *openapiclient.NewPortalSettings() // PortalSettings |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PortalsAPI.UpdateWebPortalSettingsAsync(context.Background(), portalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PortalSettings(portalSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PortalsAPI.UpdateWebPortalSettingsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateWebPortalSettingsAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `PortalsAPI.UpdateWebPortalSettingsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**portalId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateWebPortalSettingsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **portalSettings** | [**PortalSettings**](PortalSettings.md) |  | 
 
 ### Return type
 

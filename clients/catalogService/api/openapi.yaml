@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: CatalogService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -885,6 +885,84 @@ paths:
       summary: Get item attachment by ID
       tags:
       - ItemAttachments
+    patch:
+      description: Partially updates an existing item attachment for the specified
+        tenant using a JSON Patch document.
+      operationId: PatchItemAttachmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemAttachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an item attachment
+      tags:
+      - ItemAttachments
     put:
       description: Updates an existing item attachment for the specified tenant.
       operationId: UpdateItemAttachmentAsync
@@ -1262,6 +1340,84 @@ paths:
                 $ref: '#/components/schemas/ItemAttributeOptionDtoEnvelope'
           description: OK
       summary: Get item attribute option by ID
+      tags:
+      - ItemAttributeOptions
+    patch:
+      description: Partially updates an existing item attribute option for the specified
+        tenant using a JSON Patch document.
+      operationId: PatchItemAttributeOptionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemAttributeOptionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an item attribute option
       tags:
       - ItemAttributeOptions
     put:
@@ -1643,6 +1799,77 @@ paths:
       summary: Get item attribute by ID
       tags:
       - ItemAttributes
+    patch:
+      description: Partially updates an existing item attribute for the specified
+        tenant.
+      operationId: PatchItemAttributeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemAttributeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch an item attribute
+      tags:
+      - ItemAttributes
     put:
       description: Updates an existing item attribute for the specified tenant.
       operationId: UpdateItemAttributeAsync
@@ -1955,6 +2182,76 @@ paths:
                 $ref: '#/components/schemas/ItemBrandDtoEnvelope'
           description: OK
       summary: Get item brand by ID
+      tags:
+      - ItemBrands
+    patch:
+      description: Partially updates an existing item brand for the specified tenant.
+      operationId: PatchItemBrandAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemBrandId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch an item brand
       tags:
       - ItemBrands
     put:
@@ -2336,6 +2633,84 @@ paths:
       summary: Get item bundle by ID
       tags:
       - ItemBundles
+    patch:
+      description: Partially updates an existing item bundle for the specified tenant
+        using a JSON Patch document.
+      operationId: PatchItemBundleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemBundleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an item bundle
+      tags:
+      - ItemBundles
     put:
       description: Updates an existing item bundle for the specified tenant.
       operationId: UpdateItemBundleAsync
@@ -2589,6 +2964,76 @@ paths:
                 $ref: '#/components/schemas/ItemCategoryDtoEnvelope'
           description: OK
       summary: Get item category by ID
+      tags:
+      - ItemCategories
+    patch:
+      description: Partially updates an existing item category for the specified tenant.
+      operationId: PatchItemCategoryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemCategoryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch an item category
       tags:
       - ItemCategories
     put:
@@ -3085,6 +3530,84 @@ paths:
                 $ref: '#/components/schemas/ItemFamilyDtoEnvelope'
           description: OK
       summary: Get item family by ID
+      tags:
+      - ItemFamilies
+    patch:
+      description: Partially updates an existing item family for the specified tenant
+        using a JSON Patch document.
+      operationId: PatchItemFamilyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemFamilyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an item family
       tags:
       - ItemFamilies
     put:
@@ -3831,6 +4354,77 @@ paths:
       summary: Get item image by ID
       tags:
       - ItemImages
+    patch:
+      description: Partially updates an existing item image for the specified tenant
+        using a JSON Patch document.
+      operationId: PatchItemImageAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemImageId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch an item image
+      tags:
+      - ItemImages
     put:
       description: Updates an existing item image for the specified tenant.
       operationId: UpdateItemImageAsync
@@ -4143,6 +4737,77 @@ paths:
                 $ref: '#/components/schemas/ItemQuestionDtoEnvelope'
           description: OK
       summary: Get item question by ID
+      tags:
+      - ItemQuestions
+    patch:
+      description: Partially updates an existing item question for the specified tenant
+        using a JSON Patch document.
+      operationId: PatchItemQuestionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemQuestionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch an item question
       tags:
       - ItemQuestions
     put:
@@ -5135,6 +5800,76 @@ paths:
       summary: Get item review by ID
       tags:
       - ItemReviews
+    patch:
+      description: Partially updates an existing item review for the specified tenant.
+      operationId: PatchItemReviewAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemReviewId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch an item review
+      tags:
+      - ItemReviews
     put:
       description: Updates an existing item review for the specified tenant.
       operationId: UpdateItemReviewAsync
@@ -5611,6 +6346,77 @@ paths:
       summary: Get stock item by ID
       tags:
       - Items
+    patch:
+      description: Partially updates an existing stock item for the specified tenant
+        and item ID.
+      operationId: PatchStockItem
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch a stock item
+      tags:
+      - Items
     put:
       description: Updates an existing stock item for the specified tenant and item
         ID.
@@ -5734,6 +6540,196 @@ paths:
                 $ref: '#/components/schemas/CatalogItemDtoEnvelope'
           description: OK
       summary: Get extended stock item by ID
+      tags:
+      - Items
+  /api/v2/CatalogService/Items/Batch:
+    post:
+      description: "Applies a targeted bulk operation (set flags, add/remove tax policies)\
+        \ to many items atomically."
+      operationId: BatchUpdateStockItems
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchStockItemUpdateRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BatchStockItemUpdateRequest'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Bulk-update stock items
+      tags:
+      - Items
+  /api/v2/CatalogService/Items/BulkUpsert:
+    post:
+      description: "Updates scalar fields of matching tenant-owned items or creates\
+        \ new ones, all in one transaction."
+      operationId: BulkUpsertStockItems
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/BulkProduct'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/BulkProduct'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Bulk upsert stock items from rows
+      tags:
+      - Items
+  /api/v2/CatalogService/Items/RecalculatePrices:
+    post:
+      description: "Recomputes derived prices for the given tenant-owned items via\
+        \ the pricing service, atomically."
+      operationId: RecalculateStockItemPrices
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+          application/xml:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Recalculate stock item prices
       tags:
       - Items
   /api/v2/CatalogService/Items/{itemId}/Tags:
@@ -10855,6 +11851,76 @@ paths:
       summary: Get item tag by ID
       tags:
       - ItemTags
+    patch:
+      description: Partially updates an existing item tag for the specified tenant.
+      operationId: PatchItemTagAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemTagId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch an item tag
+      tags:
+      - ItemTags
     put:
       description: Updates an existing item tag for the specified tenant.
       operationId: UpdateItemTagAsync
@@ -11572,6 +12638,76 @@ paths:
       summary: Get item type by ID
       tags:
       - ItemTypes
+    patch:
+      description: Partially updates an existing item type for the specified tenant.
+      operationId: PatchItemTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemTypeID
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch an item type
+      tags:
+      - ItemTypes
     put:
       description: Updates an existing item type for the specified tenant.
       operationId: UpdateItemTypeAsync
@@ -12162,6 +13298,155 @@ components:
       - accessToken
       - expiresIn
       - refreshToken
+      type: object
+    BatchStockItemUpdateRequest:
+      additionalProperties: false
+      example:
+        taxable: true
+        itemIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        published: true
+        removeTaxPolicyIds:
+        - removeTaxPolicyIds
+        - removeTaxPolicyIds
+        addTaxPolicyIds:
+        - addTaxPolicyIds
+        - addTaxPolicyIds
+      properties:
+        itemIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        published:
+          nullable: true
+          type: boolean
+        taxable:
+          nullable: true
+          type: boolean
+        addTaxPolicyIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        removeTaxPolicyIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    BulkProduct:
+      additionalProperties: false
+      example:
+        regularPrice: 0.8008281904610115
+        discountAmount: 1.4658129805029452
+        supplierCode: supplierCode
+        title: title
+        type: type
+        deadlineDiscountDueDate: 2000-01-23T04:56:07.000+00:00
+        discountPercentage: 6.027456183070403
+        byRequest: true
+        deadlineDiscountFromDate: 2000-01-23T04:56:07.000+00:00
+        shippingCountry: shippingCountry
+        supplier: supplier
+        isFixedDiscount: true
+        currency: currency
+        inStock: true
+        id: id
+        sku: sku
+        brand: brand
+        isDeadlineDiscount: true
+        image: image
+        onDiscount: true
+        taxable: true
+        manageInventory: true
+        taxPolicies: taxPolicies
+        googleCategory: googleCategory
+        currentStock: 5.962133916683182
+      properties:
+        id:
+          nullable: true
+          type: string
+        sku:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        image:
+          nullable: true
+          type: string
+        brand:
+          nullable: true
+          type: string
+        currency:
+          nullable: true
+          type: string
+        supplier:
+          nullable: true
+          type: string
+        taxPolicies:
+          nullable: true
+          type: string
+        supplierCode:
+          nullable: true
+          type: string
+        googleCategory:
+          nullable: true
+          type: string
+        shippingCountry:
+          nullable: true
+          type: string
+        regularPrice:
+          format: double
+          nullable: true
+          type: number
+        discountPercentage:
+          format: double
+          nullable: true
+          type: number
+        discountAmount:
+          format: double
+          nullable: true
+          type: number
+        currentStock:
+          format: double
+          nullable: true
+          type: number
+        taxable:
+          nullable: true
+          type: boolean
+        inStock:
+          nullable: true
+          type: boolean
+        onDiscount:
+          nullable: true
+          type: boolean
+        byRequest:
+          nullable: true
+          type: boolean
+        isFixedDiscount:
+          nullable: true
+          type: boolean
+        manageInventory:
+          nullable: true
+          type: boolean
+        isDeadlineDiscount:
+          nullable: true
+          type: boolean
+        deadlineDiscountFromDate:
+          format: date-time
+          nullable: true
+          type: string
+        deadlineDiscountDueDate:
+          format: date-time
+          nullable: true
+          type: string
       type: object
     CatalogItemCreateDto:
       additionalProperties: false
@@ -15095,7 +16380,7 @@ components:
         filePath: filePath
         abstract: abstract
         title: title
-        itemID: itemID
+        itemId: itemId
         isFolder: true
         parentFileUploadId: parentFileUploadId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -15135,7 +16420,7 @@ components:
         filePath:
           nullable: true
           type: string
-        itemID:
+        itemId:
           nullable: true
           type: string
       type: object
@@ -15154,7 +16439,7 @@ components:
         title: title
         userId: userId
         folderPath: folderPath
-        itemID: itemID
+        itemId: itemId
         isFolder: true
         parentFileId: parentFileId
         tenantId: tenantId
@@ -15231,7 +16516,7 @@ components:
         folderPath:
           nullable: true
           type: string
-        itemID:
+        itemId:
           nullable: true
           type: string
       type: object
@@ -15251,7 +16536,7 @@ components:
           title: title
           userId: userId
           folderPath: folderPath
-          itemID: itemID
+          itemId: itemId
           isFolder: true
           parentFileId: parentFileId
           tenantId: tenantId
@@ -15304,7 +16589,7 @@ components:
           title: title
           userId: userId
           folderPath: folderPath
-          itemID: itemID
+          itemId: itemId
           isFolder: true
           parentFileId: parentFileId
           tenantId: tenantId
@@ -15327,7 +16612,7 @@ components:
           title: title
           userId: userId
           folderPath: folderPath
-          itemID: itemID
+          itemId: itemId
           isFolder: true
           parentFileId: parentFileId
           tenantId: tenantId
@@ -15444,7 +16729,7 @@ components:
       additionalProperties: false
       example:
         name: name
-        businessID: businessID
+        tenantId: tenantId
         description: description
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -15462,7 +16747,7 @@ components:
         description:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -15471,7 +16756,7 @@ components:
       example:
         result:
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -15506,12 +16791,12 @@ components:
       example:
         result:
         - name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -15580,7 +16865,7 @@ components:
       example:
         itemAttributeId: itemAttributeId
         name: name
-        businessID: businessID
+        tenantId: tenantId
         description: description
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -15601,7 +16886,7 @@ components:
         itemAttributeId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -15611,7 +16896,7 @@ components:
         result:
           itemAttributeId: itemAttributeId
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -15647,13 +16932,13 @@ components:
         result:
         - itemAttributeId: itemAttributeId
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - itemAttributeId: itemAttributeId
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -15773,7 +17058,7 @@ components:
         code: code
         websiteURL: websiteURL
         name: name
-        businessID: businessID
+        tenantId: tenantId
         description: description
         id: id
         logoURL: logoURL
@@ -15805,7 +17090,7 @@ components:
           type: boolean
         trending:
           type: boolean
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -15818,7 +17103,7 @@ components:
           code: code
           websiteURL: websiteURL
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           logoURL: logoURL
@@ -15858,7 +17143,7 @@ components:
           code: code
           websiteURL: websiteURL
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           logoURL: logoURL
@@ -15868,7 +17153,7 @@ components:
           code: code
           websiteURL: websiteURL
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           logoURL: logoURL
@@ -15976,7 +17261,7 @@ components:
       example:
         code: code
         name: name
-        businessID: businessID
+        tenantId: tenantId
         description: description
         disabled: true
         id: id
@@ -16000,7 +17285,7 @@ components:
           type: string
         disabled:
           type: boolean
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -16010,7 +17295,7 @@ components:
         result:
           code: code
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           disabled: true
           id: id
@@ -16047,14 +17332,14 @@ components:
         result:
         - code: code
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           disabled: true
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - code: code
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           disabled: true
           id: id
@@ -16119,7 +17404,7 @@ components:
       additionalProperties: false
       example:
         imageURL: https://openapi-generator.tech
-        parentItemCategoryID: parentItemCategoryID
+        parentItemCategoryId: parentItemCategoryId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -16144,7 +17429,7 @@ components:
           format: uri
           nullable: true
           type: string
-        parentItemCategoryID:
+        parentItemCategoryId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -16155,16 +17440,16 @@ components:
     ItemCategoryDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         enableForSubscriptions: true
         enableForServices: true
-        businessID: businessID
-        parentItemCategoryID: parentItemCategoryID
+        parentItemCategoryId: parentItemCategoryId
         description: description
         title: title
-        businessProfileRecordID: businessProfileRecordID
         enableForProducts: true
         enableForLicenses: true
         imageURL: imageURL
+        tenantId: tenantId
         enableForCourses: true
         id: id
         isFeatured: true
@@ -16198,13 +17483,13 @@ components:
           type: boolean
         enableForSubscriptions:
           type: boolean
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
-        parentItemCategoryID:
+        parentItemCategoryId:
           nullable: true
           type: string
       type: object
@@ -16212,16 +17497,16 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           enableForSubscriptions: true
           enableForServices: true
-          businessID: businessID
-          parentItemCategoryID: parentItemCategoryID
+          parentItemCategoryId: parentItemCategoryId
           description: description
           title: title
-          businessProfileRecordID: businessProfileRecordID
           enableForProducts: true
           enableForLicenses: true
           imageURL: imageURL
+          tenantId: tenantId
           enableForCourses: true
           id: id
           isFeatured: true
@@ -16256,30 +17541,30 @@ components:
       additionalProperties: false
       example:
         result:
-        - enableForSubscriptions: true
+        - enrollmentId: enrollmentId
+          enableForSubscriptions: true
           enableForServices: true
-          businessID: businessID
-          parentItemCategoryID: parentItemCategoryID
+          parentItemCategoryId: parentItemCategoryId
           description: description
           title: title
-          businessProfileRecordID: businessProfileRecordID
           enableForProducts: true
           enableForLicenses: true
           imageURL: imageURL
+          tenantId: tenantId
           enableForCourses: true
           id: id
           isFeatured: true
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - enableForSubscriptions: true
+        - enrollmentId: enrollmentId
+          enableForSubscriptions: true
           enableForServices: true
-          businessID: businessID
-          parentItemCategoryID: parentItemCategoryID
+          parentItemCategoryId: parentItemCategoryId
           description: description
           title: title
-          businessProfileRecordID: businessProfileRecordID
           enableForProducts: true
           enableForLicenses: true
           imageURL: imageURL
+          tenantId: tenantId
           enableForCourses: true
           id: id
           isFeatured: true
@@ -16391,7 +17676,7 @@ components:
       example:
         code: code
         name: name
-        businessID: businessID
+        tenantId: tenantId
         description: description
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -16412,7 +17697,7 @@ components:
         description:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -16422,7 +17707,7 @@ components:
         result:
           code: code
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -16458,13 +17743,13 @@ components:
         result:
         - code: code
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - code: code
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -16500,12 +17785,18 @@ components:
     ItemFamilyUpdateDto:
       additionalProperties: false
       example:
+        code: code
         name: name
         description: description
       properties:
         name:
           maxLength: 255
           minLength: 0
+          type: string
+        code:
+          maxLength: 255
+          minLength: 0
+          nullable: true
           type: string
         description:
           maxLength: 1000
@@ -16708,12 +17999,12 @@ components:
         author: author
         abstract: abstract
         title: title
-        itemID: itemID
+        itemId: itemId
         mD5Hash: mD5Hash
-        parentFileUploadID: parentFileUploadID
+        parentFileUploadId: parentFileUploadId
         isItemMozaicBG: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        socialProfileID: socialProfileID
+        socialProfileId: socialProfileId
         contentType: contentType
         fileLength: 738633633822310400
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -16724,7 +18015,7 @@ components:
         timestamp:
           format: date-time
           type: string
-        itemID:
+        itemId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -16786,12 +18077,12 @@ components:
           type: integer
         validResponse:
           type: boolean
-        socialProfileID:
+        socialProfileId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        parentFileUploadID:
+        parentFileUploadId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -16802,24 +18093,24 @@ components:
     ItemImageDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         fileUploadURL: fileUploadURL
         keyWords: keyWords
         validResponse: true
-        accountHolderID: accountHolderID
         metadata: metadata
         fileName: fileName
         notes: notes
         author: author
-        businessID: businessID
         abstract: abstract
         title: title
-        businessProfileRecordID: businessProfileRecordID
-        itemID: itemID
+        userId: userId
+        itemId: itemId
         mD5Hash: mD5Hash
-        parentFileUploadID: parentFileUploadID
+        parentFileUploadId: parentFileUploadId
+        tenantId: tenantId
         isItemMozaicBG: true
         id: id
-        socialProfileID: socialProfileID
+        socialProfileId: socialProfileId
         contentType: contentType
         fileLength: 0
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -16831,13 +18122,13 @@ components:
           format: date-time
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
-        itemID:
+        itemId:
           nullable: true
           type: string
         isItemMozaicBG:
@@ -16877,13 +18168,13 @@ components:
           type: integer
         validResponse:
           type: boolean
-        socialProfileID:
+        socialProfileId:
           nullable: true
           type: string
-        parentFileUploadID:
+        parentFileUploadId:
           nullable: true
           type: string
-        accountHolderID:
+        userId:
           nullable: true
           type: string
       type: object
@@ -16891,24 +18182,24 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           fileUploadURL: fileUploadURL
           keyWords: keyWords
           validResponse: true
-          accountHolderID: accountHolderID
           metadata: metadata
           fileName: fileName
           notes: notes
           author: author
-          businessID: businessID
           abstract: abstract
           title: title
-          businessProfileRecordID: businessProfileRecordID
-          itemID: itemID
+          userId: userId
+          itemId: itemId
           mD5Hash: mD5Hash
-          parentFileUploadID: parentFileUploadID
+          parentFileUploadId: parentFileUploadId
+          tenantId: tenantId
           isItemMozaicBG: true
           id: id
-          socialProfileID: socialProfileID
+          socialProfileId: socialProfileId
           contentType: contentType
           fileLength: 0
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -16942,45 +18233,45 @@ components:
       additionalProperties: false
       example:
         result:
-        - fileUploadURL: fileUploadURL
+        - enrollmentId: enrollmentId
+          fileUploadURL: fileUploadURL
           keyWords: keyWords
           validResponse: true
-          accountHolderID: accountHolderID
           metadata: metadata
           fileName: fileName
           notes: notes
           author: author
-          businessID: businessID
           abstract: abstract
           title: title
-          businessProfileRecordID: businessProfileRecordID
-          itemID: itemID
+          userId: userId
+          itemId: itemId
           mD5Hash: mD5Hash
-          parentFileUploadID: parentFileUploadID
+          parentFileUploadId: parentFileUploadId
+          tenantId: tenantId
           isItemMozaicBG: true
           id: id
-          socialProfileID: socialProfileID
+          socialProfileId: socialProfileId
           contentType: contentType
           fileLength: 0
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - fileUploadURL: fileUploadURL
+        - enrollmentId: enrollmentId
+          fileUploadURL: fileUploadURL
           keyWords: keyWords
           validResponse: true
-          accountHolderID: accountHolderID
           metadata: metadata
           fileName: fileName
           notes: notes
           author: author
-          businessID: businessID
           abstract: abstract
           title: title
-          businessProfileRecordID: businessProfileRecordID
-          itemID: itemID
+          userId: userId
+          itemId: itemId
           mD5Hash: mD5Hash
-          parentFileUploadID: parentFileUploadID
+          parentFileUploadId: parentFileUploadId
+          tenantId: tenantId
           isItemMozaicBG: true
           id: id
-          socialProfileID: socialProfileID
+          socialProfileId: socialProfileId
           contentType: contentType
           fileLength: 0
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -17025,14 +18316,14 @@ components:
         author: author
         abstract: abstract
         title: title
-        itemID: itemID
+        itemId: itemId
         mD5Hash: mD5Hash
-        parentFileUploadID: parentFileUploadID
+        parentFileUploadId: parentFileUploadId
         isItemMozaicBG: true
         contentType: contentType
         fileLength: 738633633822310400
       properties:
-        itemID:
+        itemId:
           maxLength: 36
           minLength: 36
           type: string
@@ -17091,7 +18382,7 @@ components:
           type: integer
         validResponse:
           type: boolean
-        parentFileUploadID:
+        parentFileUploadId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -17100,18 +18391,18 @@ components:
       - contentType
       - fileName
       - fileUploadURL
-      - itemID
+      - itemId
       - mD5Hash
       type: object
     ItemQuestionCreateDto:
       additionalProperties: false
       example:
-        itemID: itemID
+        itemId: itemId
         needsRevision: true
         question: question
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        socialProfileID: socialProfileID
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -17130,17 +18421,17 @@ components:
           maxLength: 1000
           minLength: 0
           type: string
-        socialProfileID:
+        socialProfileId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        itemID:
+        itemId:
           maxLength: 36
           minLength: 36
           type: string
       required:
-      - itemID
+      - itemId
       - needsRevision
       - question
       - title
@@ -17148,13 +18439,13 @@ components:
     ItemQuestionDto:
       additionalProperties: false
       example:
-        itemID: itemID
+        itemId: itemId
         needsRevision: true
         question: question
-        businessID: businessID
+        tenantId: tenantId
         id: id
         title: title
-        socialProfileID: socialProfileID
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -17172,13 +18463,13 @@ components:
         question:
           nullable: true
           type: string
-        socialProfileID:
+        socialProfileId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        itemID:
+        itemId:
           nullable: true
           type: string
       type: object
@@ -17186,13 +18477,13 @@ components:
       additionalProperties: false
       example:
         result:
-          itemID: itemID
+          itemId: itemId
           needsRevision: true
           question: question
-          businessID: businessID
+          tenantId: tenantId
           id: id
           title: title
-          socialProfileID: socialProfileID
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -17224,21 +18515,21 @@ components:
       additionalProperties: false
       example:
         result:
-        - itemID: itemID
+        - itemId: itemId
           needsRevision: true
           question: question
-          businessID: businessID
+          tenantId: tenantId
           id: id
           title: title
-          socialProfileID: socialProfileID
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - itemID: itemID
+        - itemId: itemId
           needsRevision: true
           question: question
-          businessID: businessID
+          tenantId: tenantId
           id: id
           title: title
-          socialProfileID: socialProfileID
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -17276,7 +18567,7 @@ components:
         question: question
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        socialProfileID: socialProfileID
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -17295,7 +18586,7 @@ components:
           maxLength: 1000
           minLength: 0
           type: string
-        socialProfileID:
+        socialProfileId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -17333,30 +18624,30 @@ components:
         code: code
         weeks: 1
         customState: customState
+        shippingCourierId: shippingCourierId
         description: description
+        countryStateId: countryStateId
+        cityId: cityId
         type: type
         title: title
         customCity: customCity
         years: 5
+        countryId: countryId
         isFree: true
         percentage: 7.061401241503109
         id: id
+        currencyId: currencyId
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
+        enrollmentId: enrollmentId
         allowInternational: true
         hours: 0
         months: 5
-        shippingCourierID: shippingCourierID
-        businessID: businessID
-        countryStateID: countryStateID
-        cityID: cityID
-        businessProfileRecordID: businessProfileRecordID
-        countryID: countryID
         isDefault: true
         isEnabled: true
+        tenantId: tenantId
         days: 6
-        currencyID: currencyID
       properties:
         id:
           nullable: true
@@ -17365,7 +18656,7 @@ components:
           format: date-time
           nullable: true
           type: string
-        shippingCourierID:
+        shippingCourierId:
           nullable: true
           type: string
         type:
@@ -17411,13 +18702,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -17426,13 +18717,13 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -17443,30 +18734,30 @@ components:
           code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -17500,57 +18791,57 @@ components:
         - code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         - code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -17586,30 +18877,30 @@ components:
         code: code
         weeks: 1
         customState: customState
+        shippingCourierId: shippingCourierId
         description: description
+        countryStateId: countryStateId
+        cityId: cityId
         type: type
         title: title
         customCity: customCity
         years: 5
+        countryId: countryId
         isFree: true
         percentage: 7.061401241503109
         id: id
+        currencyId: currencyId
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
+        enrollmentId: enrollmentId
         allowInternational: true
         hours: 0
         months: 5
-        shippingCourierID: shippingCourierID
-        businessID: businessID
-        countryStateID: countryStateID
-        cityID: cityID
-        businessProfileRecordID: businessProfileRecordID
-        countryID: countryID
         isDefault: true
         isEnabled: true
+        tenantId: tenantId
         days: 6
-        currencyID: currencyID
       properties:
         id:
           nullable: true
@@ -17618,7 +18909,7 @@ components:
           format: date-time
           nullable: true
           type: string
-        shippingCourierID:
+        shippingCourierId:
           nullable: true
           type: string
         type:
@@ -17664,13 +18955,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -17679,13 +18970,13 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -17696,30 +18987,30 @@ components:
           code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -17753,57 +19044,57 @@ components:
         - code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         - code: code
           weeks: 1
           customState: customState
+          shippingCourierId: shippingCourierId
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           type: type
           title: title
           customCity: customCity
           years: 5
+          countryId: countryId
           isFree: true
           percentage: 7.061401241503109
           id: id
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
           months: 5
-          shippingCourierID: shippingCourierID
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 6
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -17836,11 +19127,11 @@ components:
     ItemReviewCreateDto:
       additionalProperties: false
       example:
-        itemID: itemID
+        itemId: itemId
         reviewScore: 0.8008281904610115
         reviewMessage: reviewMessage
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        socialProfileID: socialProfileID
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -17849,7 +19140,7 @@ components:
         timestamp:
           format: date-time
           type: string
-        itemID:
+        itemId:
           nullable: true
           type: string
         reviewScore:
@@ -17858,18 +19149,18 @@ components:
         reviewMessage:
           nullable: true
           type: string
-        socialProfileID:
+        socialProfileId:
           nullable: true
           type: string
       type: object
     ItemReviewDto:
       additionalProperties: false
       example:
-        itemID: itemID
+        itemId: itemId
         reviewScore: 0.8008281904610115
         reviewMessage: reviewMessage
         id: id
-        socialProfileID: socialProfileID
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -17879,7 +19170,7 @@ components:
           format: date-time
           nullable: true
           type: string
-        itemID:
+        itemId:
           nullable: true
           type: string
         reviewScore:
@@ -17888,7 +19179,7 @@ components:
         reviewMessage:
           nullable: true
           type: string
-        socialProfileID:
+        socialProfileId:
           nullable: true
           type: string
       type: object
@@ -17896,11 +19187,11 @@ components:
       additionalProperties: false
       example:
         result:
-          itemID: itemID
+          itemId: itemId
           reviewScore: 0.8008281904610115
           reviewMessage: reviewMessage
           id: id
-          socialProfileID: socialProfileID
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -17932,17 +19223,17 @@ components:
       additionalProperties: false
       example:
         result:
-        - itemID: itemID
+        - itemId: itemId
           reviewScore: 0.8008281904610115
           reviewMessage: reviewMessage
           id: id
-          socialProfileID: socialProfileID
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - itemID: itemID
+        - itemId: itemId
           reviewScore: 0.8008281904610115
           reviewMessage: reviewMessage
           id: id
-          socialProfileID: socialProfileID
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -17979,7 +19270,7 @@ components:
         reviewScore: 0.8008281904610115
         reviewMessage: reviewMessage
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        socialProfileID: socialProfileID
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -17994,7 +19285,7 @@ components:
         reviewMessage:
           nullable: true
           type: string
-        socialProfileID:
+        socialProfileId:
           nullable: true
           type: string
       type: object
@@ -18340,7 +19631,7 @@ components:
     ItemTagDto:
       additionalProperties: false
       example:
-        businessID: businessID
+        tenantId: tenantId
         description: description
         id: id
         title: title
@@ -18359,7 +19650,7 @@ components:
         description:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -18367,7 +19658,7 @@ components:
       additionalProperties: false
       example:
         result:
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           title: title
@@ -18402,12 +19693,12 @@ components:
       additionalProperties: false
       example:
         result:
-        - businessID: businessID
+        - tenantId: tenantId
           description: description
           id: id
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - businessID: businessID
+        - tenantId: tenantId
           description: description
           id: id
           title: title
@@ -18733,12 +20024,12 @@ components:
     ItemTypeCreateDto:
       additionalProperties: false
       example:
-        itemGoogleCategoryID: itemGoogleCategoryID
+        itemGoogleCategoryId: itemGoogleCategoryId
         singularTitle: singularTitle
         imageURL: https://openapi-generator.tech
         googleCategoryTaxonomy: googleCategoryTaxonomy
         description: description
-        itemCategoryID: itemCategoryID
+        itemCategoryId: itemCategoryId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         pluralTitle: pluralTitle
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -18773,28 +20064,28 @@ components:
           minLength: 0
           nullable: true
           type: string
-        itemCategoryID:
+        itemCategoryId:
           maxLength: 36
           minLength: 36
           type: string
-        itemGoogleCategoryID:
+        itemGoogleCategoryId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
       required:
-      - itemCategoryID
+      - itemCategoryId
       type: object
     ItemTypeDto:
       additionalProperties: false
       example:
-        itemGoogleCategoryID: itemGoogleCategoryID
+        itemGoogleCategoryId: itemGoogleCategoryId
         singularTitle: singularTitle
         imageURL: https://openapi-generator.tech
         googleCategoryTaxonomy: googleCategoryTaxonomy
-        businessID: businessID
+        tenantId: tenantId
         description: description
-        itemCategoryID: itemCategoryID
+        itemCategoryId: itemCategoryId
         id: id
         pluralTitle: pluralTitle
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -18828,36 +20119,36 @@ components:
           minLength: 0
           nullable: true
           type: string
-        businessID:
+        tenantId:
           maxLength: 36
           minLength: 36
           type: string
-        itemCategoryID:
+        itemCategoryId:
           maxLength: 36
           minLength: 36
           type: string
-        itemGoogleCategoryID:
+        itemGoogleCategoryId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
       required:
-      - businessID
-      - itemCategoryID
+      - itemCategoryId
       - pluralTitle
       - singularTitle
+      - tenantId
       type: object
     ItemTypeDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          itemGoogleCategoryID: itemGoogleCategoryID
+          itemGoogleCategoryId: itemGoogleCategoryId
           singularTitle: singularTitle
           imageURL: https://openapi-generator.tech
           googleCategoryTaxonomy: googleCategoryTaxonomy
-          businessID: businessID
+          tenantId: tenantId
           description: description
-          itemCategoryID: itemCategoryID
+          itemCategoryId: itemCategoryId
           id: id
           pluralTitle: pluralTitle
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -18891,23 +20182,23 @@ components:
       additionalProperties: false
       example:
         result:
-        - itemGoogleCategoryID: itemGoogleCategoryID
+        - itemGoogleCategoryId: itemGoogleCategoryId
           singularTitle: singularTitle
           imageURL: https://openapi-generator.tech
           googleCategoryTaxonomy: googleCategoryTaxonomy
-          businessID: businessID
+          tenantId: tenantId
           description: description
-          itemCategoryID: itemCategoryID
+          itemCategoryId: itemCategoryId
           id: id
           pluralTitle: pluralTitle
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - itemGoogleCategoryID: itemGoogleCategoryID
+        - itemGoogleCategoryId: itemGoogleCategoryId
           singularTitle: singularTitle
           imageURL: https://openapi-generator.tech
           googleCategoryTaxonomy: googleCategoryTaxonomy
-          businessID: businessID
+          tenantId: tenantId
           description: description
-          itemCategoryID: itemCategoryID
+          itemCategoryId: itemCategoryId
           id: id
           pluralTitle: pluralTitle
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -18984,27 +20275,27 @@ components:
         weeks: 314780940
         customState: customState
         description: description
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 1210617418
+        countryId: countryId
         isFree: true
         percentage: 70.61401241503108
         id: id
+        currencyId: currencyId
         value: 230213588693476.28
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
+        enrollmentId: enrollmentId
         allowInternational: true
         hours: 171976544
         months: 1280358508
-        businessID: businessID
-        countryStateID: countryStateID
-        cityID: cityID
-        businessProfileRecordID: businessProfileRecordID
-        countryID: countryID
         isDefault: true
         isEnabled: true
+        tenantId: tenantId
         days: 1294386358
-        currencyID: currencyID
       properties:
         id:
           nullable: true
@@ -19073,17 +20364,17 @@ components:
           maximum: 100
           minimum: 0
           type: number
-        currencyID:
+        currencyId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        countryID:
+        countryId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           maxLength: 36
           minLength: 36
           nullable: true
@@ -19098,22 +20389,18 @@ components:
           minLength: 0
           nullable: true
           type: string
-        cityID:
+        cityId:
           maxLength: 36
           minLength: 36
           nullable: true
           type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
+        tenantId:
+          nullable: true
           type: string
-        businessProfileRecordID:
-          maxLength: 36
-          minLength: 36
+        enrollmentId:
           nullable: true
           type: string
       required:
-      - businessID
       - code
       - title
       type: object
@@ -19126,27 +20413,27 @@ components:
           weeks: 314780940
           customState: customState
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 1210617418
+          countryId: countryId
           isFree: true
           percentage: 70.61401241503108
           id: id
+          currencyId: currencyId
           value: 230213588693476.28
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 171976544
           months: 1280358508
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 1294386358
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -19182,53 +20469,53 @@ components:
           weeks: 314780940
           customState: customState
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 1210617418
+          countryId: countryId
           isFree: true
           percentage: 70.61401241503108
           id: id
+          currencyId: currencyId
           value: 230213588693476.28
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 171976544
           months: 1280358508
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 1294386358
-          currencyID: currencyID
         - isExtendedWarranty: true
           code: code
           weeks: 314780940
           customState: customState
           description: description
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 1210617418
+          countryId: countryId
           isFree: true
           percentage: 70.61401241503108
           id: id
+          currencyId: currencyId
           value: 230213588693476.28
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 171976544
           months: 1280358508
-          businessID: businessID
-          countryStateID: countryStateID
-          cityID: cityID
-          businessProfileRecordID: businessProfileRecordID
-          countryID: countryID
           isDefault: true
           isEnabled: true
+          tenantId: tenantId
           days: 1294386358
-          currencyID: currencyID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -19684,33 +20971,66 @@ components:
         result:
           $ref: '#/components/schemas/Money'
       type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
     PricingRuleDto:
       additionalProperties: false
       example:
-        reduce: true
-        allowInternational: true
-        hours: 0
         code: code
         weeks: 1
-        months: 5
         customState: customState
-        businessID: businessID
         description: description
-        countryStateID: countryStateID
-        cityID: cityID
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 5
-        countryID: countryID
-        isDefault: true
+        countryId: countryId
         isFree: true
-        isEnabled: true
         percentage: 7.061401241503109
-        days: 6
         id: id
-        currencyID: currencyID
+        currencyId: currencyId
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
+        reduce: true
+        enrollmentId: enrollmentId
+        allowInternational: true
+        hours: 0
+        months: 5
+        isDefault: true
+        isEnabled: true
+        tenantId: tenantId
+        days: 6
       properties:
         id:
           nullable: true
@@ -19719,7 +21039,10 @@ components:
           format: date-time
           nullable: true
           type: string
-        businessID:
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
         code:
@@ -19762,13 +21085,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -19777,7 +21100,7 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
       type: object
@@ -19785,30 +21108,31 @@ components:
       additionalProperties: false
       example:
         result:
-          reduce: true
-          allowInternational: true
-          hours: 0
           code: code
           weeks: 1
-          months: 5
           customState: customState
-          businessID: businessID
           description: description
-          countryStateID: countryStateID
-          cityID: cityID
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 5
-          countryID: countryID
-          isDefault: true
+          countryId: countryId
           isFree: true
-          isEnabled: true
           percentage: 7.061401241503109
-          days: 6
           id: id
-          currencyID: currencyID
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          enrollmentId: enrollmentId
+          allowInternational: true
+          hours: 0
+          months: 5
+          isDefault: true
+          isEnabled: true
+          tenantId: tenantId
+          days: 6
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -19839,54 +21163,56 @@ components:
       additionalProperties: false
       example:
         result:
-        - reduce: true
-          allowInternational: true
-          hours: 0
-          code: code
+        - code: code
           weeks: 1
-          months: 5
           customState: customState
-          businessID: businessID
           description: description
-          countryStateID: countryStateID
-          cityID: cityID
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 5
-          countryID: countryID
-          isDefault: true
+          countryId: countryId
           isFree: true
-          isEnabled: true
           percentage: 7.061401241503109
-          days: 6
           id: id
-          currencyID: currencyID
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - reduce: true
+          reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
-          code: code
-          weeks: 1
           months: 5
+          isDefault: true
+          isEnabled: true
+          tenantId: tenantId
+          days: 6
+        - code: code
+          weeks: 1
           customState: customState
-          businessID: businessID
           description: description
-          countryStateID: countryStateID
-          cityID: cityID
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 5
-          countryID: countryID
-          isDefault: true
+          countryId: countryId
           isFree: true
-          isEnabled: true
           percentage: 7.061401241503109
-          days: 6
           id: id
-          currencyID: currencyID
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          enrollmentId: enrollmentId
+          allowInternational: true
+          hours: 0
+          months: 5
+          isDefault: true
+          isEnabled: true
+          tenantId: tenantId
+          days: 6
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId

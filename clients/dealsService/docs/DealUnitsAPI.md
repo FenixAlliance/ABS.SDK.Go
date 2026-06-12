@@ -18,6 +18,8 @@ Method | HTTP request | Description
 [**GetDealUnitsCountAsync**](DealUnitsAPI.md#GetDealUnitsCountAsync) | **Get** /api/v2/DealsService/DealUnits/Count | Get deal units count
 [**GetExtendedDealUnitAsync**](DealUnitsAPI.md#GetExtendedDealUnitAsync) | **Get** /api/v2/DealsService/DealUnits/{dealUnitId}/Extended | Get extended deal unit by ID
 [**GetExtendedDealUnitsAsync**](DealUnitsAPI.md#GetExtendedDealUnitsAsync) | **Get** /api/v2/DealsService/DealUnits/Extended | Get extended deal units
+[**PatchDealUnitAsync**](DealUnitsAPI.md#PatchDealUnitAsync) | **Patch** /api/v2/DealsService/DealUnits/{dealUnitId} | Patch a deal unit
+[**PatchDealUnitLineAsync**](DealUnitsAPI.md#PatchDealUnitLineAsync) | **Patch** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Patch a deal unit line
 [**UpdateDealUnitAsync**](DealUnitsAPI.md#UpdateDealUnitAsync) | **Put** /api/v2/DealsService/DealUnits/{dealUnitId} | Update a deal unit
 [**UpdateDealUnitPriceAsync**](DealUnitsAPI.md#UpdateDealUnitPriceAsync) | **Put** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Update a deal unit line
 
@@ -1015,6 +1017,157 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchDealUnitAsync
+
+> EmptyEnvelope PatchDealUnitAsync(ctx, dealUnitId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a deal unit
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitsAPI.PatchDealUnitAsync(context.Background(), dealUnitId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitsAPI.PatchDealUnitAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchDealUnitAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitsAPI.PatchDealUnitAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchDealUnitAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchDealUnitLineAsync
+
+> EmptyEnvelope PatchDealUnitLineAsync(ctx, dealUnitId, dealUnitLineId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a deal unit line
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DealUnitsAPI.PatchDealUnitLineAsync(context.Background(), dealUnitId, dealUnitLineId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitsAPI.PatchDealUnitLineAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchDealUnitLineAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `DealUnitsAPI.PatchDealUnitLineAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**dealUnitId** | **string** |  | 
+**dealUnitLineId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchDealUnitLineAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

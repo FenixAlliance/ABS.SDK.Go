@@ -11,10 +11,15 @@ Name | Type | Description | Notes
 **Instructions** | Pointer to **NullableString** |  | [optional] 
 **Points** | Pointer to **float64** |  | [optional] 
 **DueDateTime** | Pointer to **time.Time** |  | [optional] 
-**CourseID** | Pointer to **NullableString** |  | [optional] 
-**CourseUnitID** | Pointer to **NullableString** |  | [optional] 
-**CourseSectionID** | Pointer to **NullableString** |  | [optional] 
+**CourseId** | Pointer to **NullableString** |  | [optional] 
+**CourseUnitId** | Pointer to **NullableString** |  | [optional] 
+**CourseSectionId** | Pointer to **NullableString** |  | [optional] 
+**CourseCohortId** | Pointer to **NullableString** |  | [optional] 
+**CourseAssignmentTypeId** | Pointer to **NullableString** |  | [optional] 
+**AsignToAllCohorts** | Pointer to **bool** |  | [optional] 
+**Resources** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -260,111 +265,241 @@ SetDueDateTime sets DueDateTime field to given value.
 
 HasDueDateTime returns a boolean if a field has been set.
 
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseAssignmentDto) GetCourseID() string`
+`func (o *CourseAssignmentDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseAssignmentDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseAssignmentDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseAssignmentDto) SetCourseID(v string)`
+`func (o *CourseAssignmentDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
-### HasCourseID
+### HasCourseId
 
-`func (o *CourseAssignmentDto) HasCourseID() bool`
+`func (o *CourseAssignmentDto) HasCourseId() bool`
 
-HasCourseID returns a boolean if a field has been set.
+HasCourseId returns a boolean if a field has been set.
 
-### SetCourseIDNil
+### SetCourseIdNil
 
-`func (o *CourseAssignmentDto) SetCourseIDNil(b bool)`
+`func (o *CourseAssignmentDto) SetCourseIdNil(b bool)`
 
- SetCourseIDNil sets the value for CourseID to be an explicit nil
+ SetCourseIdNil sets the value for CourseId to be an explicit nil
 
-### UnsetCourseID
-`func (o *CourseAssignmentDto) UnsetCourseID()`
+### UnsetCourseId
+`func (o *CourseAssignmentDto) UnsetCourseId()`
 
-UnsetCourseID ensures that no value is present for CourseID, not even an explicit nil
-### GetCourseUnitID
+UnsetCourseId ensures that no value is present for CourseId, not even an explicit nil
+### GetCourseUnitId
 
-`func (o *CourseAssignmentDto) GetCourseUnitID() string`
+`func (o *CourseAssignmentDto) GetCourseUnitId() string`
 
-GetCourseUnitID returns the CourseUnitID field if non-nil, zero value otherwise.
+GetCourseUnitId returns the CourseUnitId field if non-nil, zero value otherwise.
 
-### GetCourseUnitIDOk
+### GetCourseUnitIdOk
 
-`func (o *CourseAssignmentDto) GetCourseUnitIDOk() (*string, bool)`
+`func (o *CourseAssignmentDto) GetCourseUnitIdOk() (*string, bool)`
 
-GetCourseUnitIDOk returns a tuple with the CourseUnitID field if it's non-nil, zero value otherwise
+GetCourseUnitIdOk returns a tuple with the CourseUnitId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseUnitID
+### SetCourseUnitId
 
-`func (o *CourseAssignmentDto) SetCourseUnitID(v string)`
+`func (o *CourseAssignmentDto) SetCourseUnitId(v string)`
 
-SetCourseUnitID sets CourseUnitID field to given value.
+SetCourseUnitId sets CourseUnitId field to given value.
 
-### HasCourseUnitID
+### HasCourseUnitId
 
-`func (o *CourseAssignmentDto) HasCourseUnitID() bool`
+`func (o *CourseAssignmentDto) HasCourseUnitId() bool`
 
-HasCourseUnitID returns a boolean if a field has been set.
+HasCourseUnitId returns a boolean if a field has been set.
 
-### SetCourseUnitIDNil
+### SetCourseUnitIdNil
 
-`func (o *CourseAssignmentDto) SetCourseUnitIDNil(b bool)`
+`func (o *CourseAssignmentDto) SetCourseUnitIdNil(b bool)`
 
- SetCourseUnitIDNil sets the value for CourseUnitID to be an explicit nil
+ SetCourseUnitIdNil sets the value for CourseUnitId to be an explicit nil
 
-### UnsetCourseUnitID
-`func (o *CourseAssignmentDto) UnsetCourseUnitID()`
+### UnsetCourseUnitId
+`func (o *CourseAssignmentDto) UnsetCourseUnitId()`
 
-UnsetCourseUnitID ensures that no value is present for CourseUnitID, not even an explicit nil
-### GetCourseSectionID
+UnsetCourseUnitId ensures that no value is present for CourseUnitId, not even an explicit nil
+### GetCourseSectionId
 
-`func (o *CourseAssignmentDto) GetCourseSectionID() string`
+`func (o *CourseAssignmentDto) GetCourseSectionId() string`
 
-GetCourseSectionID returns the CourseSectionID field if non-nil, zero value otherwise.
+GetCourseSectionId returns the CourseSectionId field if non-nil, zero value otherwise.
 
-### GetCourseSectionIDOk
+### GetCourseSectionIdOk
 
-`func (o *CourseAssignmentDto) GetCourseSectionIDOk() (*string, bool)`
+`func (o *CourseAssignmentDto) GetCourseSectionIdOk() (*string, bool)`
 
-GetCourseSectionIDOk returns a tuple with the CourseSectionID field if it's non-nil, zero value otherwise
+GetCourseSectionIdOk returns a tuple with the CourseSectionId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseSectionID
+### SetCourseSectionId
 
-`func (o *CourseAssignmentDto) SetCourseSectionID(v string)`
+`func (o *CourseAssignmentDto) SetCourseSectionId(v string)`
 
-SetCourseSectionID sets CourseSectionID field to given value.
+SetCourseSectionId sets CourseSectionId field to given value.
 
-### HasCourseSectionID
+### HasCourseSectionId
 
-`func (o *CourseAssignmentDto) HasCourseSectionID() bool`
+`func (o *CourseAssignmentDto) HasCourseSectionId() bool`
 
-HasCourseSectionID returns a boolean if a field has been set.
+HasCourseSectionId returns a boolean if a field has been set.
 
-### SetCourseSectionIDNil
+### SetCourseSectionIdNil
 
-`func (o *CourseAssignmentDto) SetCourseSectionIDNil(b bool)`
+`func (o *CourseAssignmentDto) SetCourseSectionIdNil(b bool)`
 
- SetCourseSectionIDNil sets the value for CourseSectionID to be an explicit nil
+ SetCourseSectionIdNil sets the value for CourseSectionId to be an explicit nil
 
-### UnsetCourseSectionID
-`func (o *CourseAssignmentDto) UnsetCourseSectionID()`
+### UnsetCourseSectionId
+`func (o *CourseAssignmentDto) UnsetCourseSectionId()`
 
-UnsetCourseSectionID ensures that no value is present for CourseSectionID, not even an explicit nil
+UnsetCourseSectionId ensures that no value is present for CourseSectionId, not even an explicit nil
+### GetCourseCohortId
+
+`func (o *CourseAssignmentDto) GetCourseCohortId() string`
+
+GetCourseCohortId returns the CourseCohortId field if non-nil, zero value otherwise.
+
+### GetCourseCohortIdOk
+
+`func (o *CourseAssignmentDto) GetCourseCohortIdOk() (*string, bool)`
+
+GetCourseCohortIdOk returns a tuple with the CourseCohortId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCourseCohortId
+
+`func (o *CourseAssignmentDto) SetCourseCohortId(v string)`
+
+SetCourseCohortId sets CourseCohortId field to given value.
+
+### HasCourseCohortId
+
+`func (o *CourseAssignmentDto) HasCourseCohortId() bool`
+
+HasCourseCohortId returns a boolean if a field has been set.
+
+### SetCourseCohortIdNil
+
+`func (o *CourseAssignmentDto) SetCourseCohortIdNil(b bool)`
+
+ SetCourseCohortIdNil sets the value for CourseCohortId to be an explicit nil
+
+### UnsetCourseCohortId
+`func (o *CourseAssignmentDto) UnsetCourseCohortId()`
+
+UnsetCourseCohortId ensures that no value is present for CourseCohortId, not even an explicit nil
+### GetCourseAssignmentTypeId
+
+`func (o *CourseAssignmentDto) GetCourseAssignmentTypeId() string`
+
+GetCourseAssignmentTypeId returns the CourseAssignmentTypeId field if non-nil, zero value otherwise.
+
+### GetCourseAssignmentTypeIdOk
+
+`func (o *CourseAssignmentDto) GetCourseAssignmentTypeIdOk() (*string, bool)`
+
+GetCourseAssignmentTypeIdOk returns a tuple with the CourseAssignmentTypeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCourseAssignmentTypeId
+
+`func (o *CourseAssignmentDto) SetCourseAssignmentTypeId(v string)`
+
+SetCourseAssignmentTypeId sets CourseAssignmentTypeId field to given value.
+
+### HasCourseAssignmentTypeId
+
+`func (o *CourseAssignmentDto) HasCourseAssignmentTypeId() bool`
+
+HasCourseAssignmentTypeId returns a boolean if a field has been set.
+
+### SetCourseAssignmentTypeIdNil
+
+`func (o *CourseAssignmentDto) SetCourseAssignmentTypeIdNil(b bool)`
+
+ SetCourseAssignmentTypeIdNil sets the value for CourseAssignmentTypeId to be an explicit nil
+
+### UnsetCourseAssignmentTypeId
+`func (o *CourseAssignmentDto) UnsetCourseAssignmentTypeId()`
+
+UnsetCourseAssignmentTypeId ensures that no value is present for CourseAssignmentTypeId, not even an explicit nil
+### GetAsignToAllCohorts
+
+`func (o *CourseAssignmentDto) GetAsignToAllCohorts() bool`
+
+GetAsignToAllCohorts returns the AsignToAllCohorts field if non-nil, zero value otherwise.
+
+### GetAsignToAllCohortsOk
+
+`func (o *CourseAssignmentDto) GetAsignToAllCohortsOk() (*bool, bool)`
+
+GetAsignToAllCohortsOk returns a tuple with the AsignToAllCohorts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAsignToAllCohorts
+
+`func (o *CourseAssignmentDto) SetAsignToAllCohorts(v bool)`
+
+SetAsignToAllCohorts sets AsignToAllCohorts field to given value.
+
+### HasAsignToAllCohorts
+
+`func (o *CourseAssignmentDto) HasAsignToAllCohorts() bool`
+
+HasAsignToAllCohorts returns a boolean if a field has been set.
+
+### GetResources
+
+`func (o *CourseAssignmentDto) GetResources() string`
+
+GetResources returns the Resources field if non-nil, zero value otherwise.
+
+### GetResourcesOk
+
+`func (o *CourseAssignmentDto) GetResourcesOk() (*string, bool)`
+
+GetResourcesOk returns a tuple with the Resources field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResources
+
+`func (o *CourseAssignmentDto) SetResources(v string)`
+
+SetResources sets Resources field to given value.
+
+### HasResources
+
+`func (o *CourseAssignmentDto) HasResources() bool`
+
+HasResources returns a boolean if a field has been set.
+
+### SetResourcesNil
+
+`func (o *CourseAssignmentDto) SetResourcesNil(b bool)`
+
+ SetResourcesNil sets the value for Resources to be an explicit nil
+
+### UnsetResources
+`func (o *CourseAssignmentDto) UnsetResources()`
+
+UnsetResources ensures that no value is present for Resources, not even an explicit nil
 ### GetTenantId
 
 `func (o *CourseAssignmentDto) GetTenantId() string`
@@ -400,6 +535,41 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *CourseAssignmentDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
+
+`func (o *CourseAssignmentDto) GetEnrollmentId() string`
+
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
+
+### GetEnrollmentIdOk
+
+`func (o *CourseAssignmentDto) GetEnrollmentIdOk() (*string, bool)`
+
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnrollmentId
+
+`func (o *CourseAssignmentDto) SetEnrollmentId(v string)`
+
+SetEnrollmentId sets EnrollmentId field to given value.
+
+### HasEnrollmentId
+
+`func (o *CourseAssignmentDto) HasEnrollmentId() bool`
+
+HasEnrollmentId returns a boolean if a field has been set.
+
+### SetEnrollmentIdNil
+
+`func (o *CourseAssignmentDto) SetEnrollmentIdNil(b bool)`
+
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+
+### UnsetEnrollmentId
+`func (o *CourseAssignmentDto) UnsetEnrollmentId()`
+
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

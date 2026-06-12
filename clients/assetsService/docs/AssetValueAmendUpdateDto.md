@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **NewValue** | Pointer to **NullableFloat64** |  | [optional] 
 **Reason** | Pointer to **NullableString** |  | [optional] 
 **AmendmentDate** | Pointer to **NullableTime** |  | [optional] 
-**ApprovedBy** | Pointer to **NullableString** |  | [optional] 
-**ApprovalDate** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
@@ -134,76 +132,6 @@ HasAmendmentDate returns a boolean if a field has been set.
 `func (o *AssetValueAmendUpdateDto) UnsetAmendmentDate()`
 
 UnsetAmendmentDate ensures that no value is present for AmendmentDate, not even an explicit nil
-### GetApprovedBy
-
-`func (o *AssetValueAmendUpdateDto) GetApprovedBy() string`
-
-GetApprovedBy returns the ApprovedBy field if non-nil, zero value otherwise.
-
-### GetApprovedByOk
-
-`func (o *AssetValueAmendUpdateDto) GetApprovedByOk() (*string, bool)`
-
-GetApprovedByOk returns a tuple with the ApprovedBy field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApprovedBy
-
-`func (o *AssetValueAmendUpdateDto) SetApprovedBy(v string)`
-
-SetApprovedBy sets ApprovedBy field to given value.
-
-### HasApprovedBy
-
-`func (o *AssetValueAmendUpdateDto) HasApprovedBy() bool`
-
-HasApprovedBy returns a boolean if a field has been set.
-
-### SetApprovedByNil
-
-`func (o *AssetValueAmendUpdateDto) SetApprovedByNil(b bool)`
-
- SetApprovedByNil sets the value for ApprovedBy to be an explicit nil
-
-### UnsetApprovedBy
-`func (o *AssetValueAmendUpdateDto) UnsetApprovedBy()`
-
-UnsetApprovedBy ensures that no value is present for ApprovedBy, not even an explicit nil
-### GetApprovalDate
-
-`func (o *AssetValueAmendUpdateDto) GetApprovalDate() time.Time`
-
-GetApprovalDate returns the ApprovalDate field if non-nil, zero value otherwise.
-
-### GetApprovalDateOk
-
-`func (o *AssetValueAmendUpdateDto) GetApprovalDateOk() (*time.Time, bool)`
-
-GetApprovalDateOk returns a tuple with the ApprovalDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApprovalDate
-
-`func (o *AssetValueAmendUpdateDto) SetApprovalDate(v time.Time)`
-
-SetApprovalDate sets ApprovalDate field to given value.
-
-### HasApprovalDate
-
-`func (o *AssetValueAmendUpdateDto) HasApprovalDate() bool`
-
-HasApprovalDate returns a boolean if a field has been set.
-
-### SetApprovalDateNil
-
-`func (o *AssetValueAmendUpdateDto) SetApprovalDateNil(b bool)`
-
- SetApprovalDateNil sets the value for ApprovalDate to be an explicit nil
-
-### UnsetApprovalDate
-`func (o *AssetValueAmendUpdateDto) UnsetApprovalDate()`
-
-UnsetApprovalDate ensures that no value is present for ApprovalDate, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseLibrariesAsync**](CourseLibrariesAPI.md#GetCourseLibrariesAsync) | **Get** /api/v2/LearningService/CourseLibraries | Get all course libraries
 [**GetCourseLibrariesCountAsync**](CourseLibrariesAPI.md#GetCourseLibrariesCountAsync) | **Get** /api/v2/LearningService/CourseLibraries/Count | Get course libraries count
 [**GetCourseLibraryByIdAsync**](CourseLibrariesAPI.md#GetCourseLibraryByIdAsync) | **Get** /api/v2/LearningService/CourseLibraries/{libraryId} | Get course library by ID
+[**PatchCourseLibraryAsync**](CourseLibrariesAPI.md#PatchCourseLibraryAsync) | **Patch** /api/v2/LearningService/CourseLibraries/{libraryId} | Patch a course library
 [**UpdateCourseLibraryAsync**](CourseLibrariesAPI.md#UpdateCourseLibraryAsync) | **Put** /api/v2/LearningService/CourseLibraries/{libraryId} | Update a course library
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseLibraryCreateDto := *openapiclient.NewCourseLibraryCreateDto("Title_example", "CourseID_example") // CourseLibraryCreateDto |  (optional)
+	courseLibraryCreateDto := *openapiclient.NewCourseLibraryCreateDto("Title_example", "CourseId_example") // CourseLibraryCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -366,6 +367,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseLibraryAsync
+
+> PatchCourseLibraryAsync(ctx, libraryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course library
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	libraryId := "libraryId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CourseLibrariesAPI.PatchCourseLibraryAsync(context.Background(), libraryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseLibrariesAPI.PatchCourseLibraryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**libraryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseLibraryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**GetWalletLocationAsync**](LocationsAPI.md#GetWalletLocationAsync) | **Get** /api/v2/LocationsService/Locations/wallet/{walletId}/{locationId} | Get Wallet Location
 [**GetWalletLocationsAsync**](LocationsAPI.md#GetWalletLocationsAsync) | **Get** /api/v2/LocationsService/Locations/wallet/{walletId} | Get Wallet Locations
 [**GetWalletLocationsCountAsync**](LocationsAPI.md#GetWalletLocationsCountAsync) | **Get** /api/v2/LocationsService/Locations/wallet/{walletId}/count | Get Wallet Locations Count
+[**PatchLocationAsync**](LocationsAPI.md#PatchLocationAsync) | **Patch** /api/v2/LocationsService/Locations/{locationId} | Patch a location
+[**PatchWalletLocationAsync**](LocationsAPI.md#PatchWalletLocationAsync) | **Patch** /api/v2/LocationsService/Locations/wallet/{walletId}/{locationId} | Patch a wallet location
 [**UpdateLocationAsync**](LocationsAPI.md#UpdateLocationAsync) | **Put** /api/v2/LocationsService/Locations/{locationId} | Update Location
 [**UpdateWalletLocationAsync**](LocationsAPI.md#UpdateWalletLocationAsync) | **Put** /api/v2/LocationsService/Locations/wallet/{walletId}/{locationId} | Update Wallet Location
 
@@ -714,6 +716,155 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchLocationAsync
+
+> EmptyEnvelope PatchLocationAsync(ctx, locationId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a location
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	locationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LocationsAPI.PatchLocationAsync(context.Background(), locationId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LocationsAPI.PatchLocationAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchLocationAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `LocationsAPI.PatchLocationAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**locationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchLocationAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchWalletLocationAsync
+
+> EmptyEnvelope PatchWalletLocationAsync(ctx, walletId, locationId).Operation(operation).Execute()
+
+Patch a wallet location
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	locationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LocationsAPI.PatchWalletLocationAsync(context.Background(), walletId, locationId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LocationsAPI.PatchWalletLocationAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchWalletLocationAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `LocationsAPI.PatchWalletLocationAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**walletId** | **string** |  | 
+**locationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchWalletLocationAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

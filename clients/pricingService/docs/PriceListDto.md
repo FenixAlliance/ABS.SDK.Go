@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **StartDate** | Pointer to **time.Time** |  | [optional] 
 **EndDate** | Pointer to **time.Time** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
+**Context** | Pointer to **string** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **UnitId** | Pointer to **NullableString** |  | [optional] 
@@ -227,6 +228,31 @@ HasDescription returns a boolean if a field has been set.
 `func (o *PriceListDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetContext
+
+`func (o *PriceListDto) GetContext() string`
+
+GetContext returns the Context field if non-nil, zero value otherwise.
+
+### GetContextOk
+
+`func (o *PriceListDto) GetContextOk() (*string, bool)`
+
+GetContextOk returns a tuple with the Context field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContext
+
+`func (o *PriceListDto) SetContext(v string)`
+
+SetContext sets Context field to given value.
+
+### HasContext
+
+`func (o *PriceListDto) HasContext() bool`
+
+HasContext returns a boolean if a field has been set.
+
 ### GetCurrencyId
 
 `func (o *PriceListDto) GetCurrencyId() string`

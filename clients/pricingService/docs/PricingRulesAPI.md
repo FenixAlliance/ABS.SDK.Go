@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetPricingRuleById**](PricingRulesAPI.md#GetPricingRuleById) | **Get** /api/v2/PricingService/PricingRules/{pricingRuleId} | Get pricing rule by ID
 [**GetPricingRules**](PricingRulesAPI.md#GetPricingRules) | **Get** /api/v2/PricingService/PricingRules | Get all pricing rules
 [**GetPricingRulesCountAsync**](PricingRulesAPI.md#GetPricingRulesCountAsync) | **Get** /api/v2/PricingService/PricingRules/Count | Counts pricing rules
+[**PatchPricingRule**](PricingRulesAPI.md#PatchPricingRule) | **Patch** /api/v2/PricingService/PricingRules/{pricingRuleId} | Patch a pricing rule
 [**UpdatePricingRule**](PricingRulesAPI.md#UpdatePricingRule) | **Put** /api/v2/PricingService/PricingRules/Update | Update a pricing rule
 
 
@@ -368,6 +369,82 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchPricingRule
+
+> PatchPricingRule(ctx, pricingRuleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a pricing rule
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	pricingRuleId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.PricingRulesAPI.PatchPricingRule(context.Background(), pricingRuleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PricingRulesAPI.PatchPricingRule``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pricingRuleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchPricingRuleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

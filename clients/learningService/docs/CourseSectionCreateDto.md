@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Icon** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**CourseID** | **string** |  | 
+**CourseId** | **string** |  | 
 **ReleaseDateTime** | Pointer to **NullableTime** |  | [optional] 
 **HideFromStudents** | Pointer to **bool** |  | [optional] 
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCourseSectionCreateDto
 
-`func NewCourseSectionCreateDto(name string, courseID string, ) *CourseSectionCreateDto`
+`func NewCourseSectionCreateDto(name string, courseId string, ) *CourseSectionCreateDto`
 
 NewCourseSectionCreateDto instantiates a new CourseSectionCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -172,24 +172,24 @@ HasDescription returns a boolean if a field has been set.
 `func (o *CourseSectionCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseSectionCreateDto) GetCourseID() string`
+`func (o *CourseSectionCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseSectionCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseSectionCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseSectionCreateDto) SetCourseID(v string)`
+`func (o *CourseSectionCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
 ### GetReleaseDateTime

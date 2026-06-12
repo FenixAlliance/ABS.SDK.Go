@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseCohortByIdAsync**](CourseCohortsAPI.md#GetCourseCohortByIdAsync) | **Get** /api/v2/LearningService/CourseCohorts/{cohortId} | Get course cohort by ID
 [**GetCourseCohortsAsync**](CourseCohortsAPI.md#GetCourseCohortsAsync) | **Get** /api/v2/LearningService/CourseCohorts | Get all course cohorts
 [**GetCourseCohortsCountAsync**](CourseCohortsAPI.md#GetCourseCohortsCountAsync) | **Get** /api/v2/LearningService/CourseCohorts/Count | Get course cohorts count
+[**PatchCourseCohortAsync**](CourseCohortsAPI.md#PatchCourseCohortAsync) | **Patch** /api/v2/LearningService/CourseCohorts/{cohortId} | Patch a course cohort
 [**UpdateCourseCohortAsync**](CourseCohortsAPI.md#UpdateCourseCohortAsync) | **Put** /api/v2/LearningService/CourseCohorts/{cohortId} | Update a course cohort
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseCohortCreateDto := *openapiclient.NewCourseCohortCreateDto("Name_example", "CourseID_example") // CourseCohortCreateDto |  (optional)
+	courseCohortCreateDto := *openapiclient.NewCourseCohortCreateDto("Name_example", "CourseId_example") // CourseCohortCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,6 +365,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseCohortAsync
+
+> EmptyEnvelope PatchCourseCohortAsync(ctx, cohortId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course cohort
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	cohortId := "cohortId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CourseCohortsAPI.PatchCourseCohortAsync(context.Background(), cohortId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseCohortsAPI.PatchCourseCohortAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchCourseCohortAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CourseCohortsAPI.PatchCourseCohortAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cohortId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseCohortAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

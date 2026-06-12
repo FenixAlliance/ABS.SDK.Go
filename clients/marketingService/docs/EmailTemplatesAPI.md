@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetEmailTemplateDetailsAsync**](EmailTemplatesAPI.md#GetEmailTemplateDetailsAsync) | **Get** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} | Get email template by ID
 [**GetEmailTemplatesCountAsync**](EmailTemplatesAPI.md#GetEmailTemplatesCountAsync) | **Get** /api/v2/MarketingService/EmailTemplates/Count | Get email templates count
 [**GetEmailTemplatesODataAsync**](EmailTemplatesAPI.md#GetEmailTemplatesODataAsync) | **Get** /api/v2/MarketingService/EmailTemplates | Get email templates
+[**PatchEmailTemplateAsync**](EmailTemplatesAPI.md#PatchEmailTemplateAsync) | **Patch** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} | Patch an email template
 [**UpdateEmailTemplateAsync**](EmailTemplatesAPI.md#UpdateEmailTemplateAsync) | **Put** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} | Update an email template
 
 
@@ -370,6 +371,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchEmailTemplateAsync
+
+> EmptyEnvelope PatchEmailTemplateAsync(ctx, emailTemplateId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch an email template
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	emailTemplateId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EmailTemplatesAPI.PatchEmailTemplateAsync(context.Background(), emailTemplateId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailTemplatesAPI.PatchEmailTemplateAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchEmailTemplateAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `EmailTemplatesAPI.PatchEmailTemplateAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**emailTemplateId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchEmailTemplateAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

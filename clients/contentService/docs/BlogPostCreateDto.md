@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Markup** | Pointer to **NullableString** |  | [optional] 
 **FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
 **CodeType** | Pointer to **NullableString** |  | [optional] 
+**Slug** | Pointer to **NullableString** |  | [optional] 
 **BlogPostCategoryId** | Pointer to **NullableString** |  | [optional] 
 **WebTemplateId** | Pointer to **NullableString** |  | [optional] 
 
@@ -305,6 +306,41 @@ HasCodeType returns a boolean if a field has been set.
 `func (o *BlogPostCreateDto) UnsetCodeType()`
 
 UnsetCodeType ensures that no value is present for CodeType, not even an explicit nil
+### GetSlug
+
+`func (o *BlogPostCreateDto) GetSlug() string`
+
+GetSlug returns the Slug field if non-nil, zero value otherwise.
+
+### GetSlugOk
+
+`func (o *BlogPostCreateDto) GetSlugOk() (*string, bool)`
+
+GetSlugOk returns a tuple with the Slug field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSlug
+
+`func (o *BlogPostCreateDto) SetSlug(v string)`
+
+SetSlug sets Slug field to given value.
+
+### HasSlug
+
+`func (o *BlogPostCreateDto) HasSlug() bool`
+
+HasSlug returns a boolean if a field has been set.
+
+### SetSlugNil
+
+`func (o *BlogPostCreateDto) SetSlugNil(b bool)`
+
+ SetSlugNil sets the value for Slug to be an explicit nil
+
+### UnsetSlug
+`func (o *BlogPostCreateDto) UnsetSlug()`
+
+UnsetSlug ensures that no value is present for Slug, not even an explicit nil
 ### GetBlogPostCategoryId
 
 `func (o *BlogPostCreateDto) GetBlogPostCategoryId() string`

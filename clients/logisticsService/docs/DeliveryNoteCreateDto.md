@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**ShipmentID** | Pointer to **NullableString** |  | [optional] 
-**ProofOfDeliveryID** | Pointer to **NullableString** |  | [optional] 
+**ShipmentId** | Pointer to **NullableString** |  | [optional] 
+**ProofOfDeliveryId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -150,76 +150,76 @@ HasDescription returns a boolean if a field has been set.
 `func (o *DeliveryNoteCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetShipmentID
+### GetShipmentId
 
-`func (o *DeliveryNoteCreateDto) GetShipmentID() string`
+`func (o *DeliveryNoteCreateDto) GetShipmentId() string`
 
-GetShipmentID returns the ShipmentID field if non-nil, zero value otherwise.
+GetShipmentId returns the ShipmentId field if non-nil, zero value otherwise.
 
-### GetShipmentIDOk
+### GetShipmentIdOk
 
-`func (o *DeliveryNoteCreateDto) GetShipmentIDOk() (*string, bool)`
+`func (o *DeliveryNoteCreateDto) GetShipmentIdOk() (*string, bool)`
 
-GetShipmentIDOk returns a tuple with the ShipmentID field if it's non-nil, zero value otherwise
+GetShipmentIdOk returns a tuple with the ShipmentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetShipmentID
+### SetShipmentId
 
-`func (o *DeliveryNoteCreateDto) SetShipmentID(v string)`
+`func (o *DeliveryNoteCreateDto) SetShipmentId(v string)`
 
-SetShipmentID sets ShipmentID field to given value.
+SetShipmentId sets ShipmentId field to given value.
 
-### HasShipmentID
+### HasShipmentId
 
-`func (o *DeliveryNoteCreateDto) HasShipmentID() bool`
+`func (o *DeliveryNoteCreateDto) HasShipmentId() bool`
 
-HasShipmentID returns a boolean if a field has been set.
+HasShipmentId returns a boolean if a field has been set.
 
-### SetShipmentIDNil
+### SetShipmentIdNil
 
-`func (o *DeliveryNoteCreateDto) SetShipmentIDNil(b bool)`
+`func (o *DeliveryNoteCreateDto) SetShipmentIdNil(b bool)`
 
- SetShipmentIDNil sets the value for ShipmentID to be an explicit nil
+ SetShipmentIdNil sets the value for ShipmentId to be an explicit nil
 
-### UnsetShipmentID
-`func (o *DeliveryNoteCreateDto) UnsetShipmentID()`
+### UnsetShipmentId
+`func (o *DeliveryNoteCreateDto) UnsetShipmentId()`
 
-UnsetShipmentID ensures that no value is present for ShipmentID, not even an explicit nil
-### GetProofOfDeliveryID
+UnsetShipmentId ensures that no value is present for ShipmentId, not even an explicit nil
+### GetProofOfDeliveryId
 
-`func (o *DeliveryNoteCreateDto) GetProofOfDeliveryID() string`
+`func (o *DeliveryNoteCreateDto) GetProofOfDeliveryId() string`
 
-GetProofOfDeliveryID returns the ProofOfDeliveryID field if non-nil, zero value otherwise.
+GetProofOfDeliveryId returns the ProofOfDeliveryId field if non-nil, zero value otherwise.
 
-### GetProofOfDeliveryIDOk
+### GetProofOfDeliveryIdOk
 
-`func (o *DeliveryNoteCreateDto) GetProofOfDeliveryIDOk() (*string, bool)`
+`func (o *DeliveryNoteCreateDto) GetProofOfDeliveryIdOk() (*string, bool)`
 
-GetProofOfDeliveryIDOk returns a tuple with the ProofOfDeliveryID field if it's non-nil, zero value otherwise
+GetProofOfDeliveryIdOk returns a tuple with the ProofOfDeliveryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProofOfDeliveryID
+### SetProofOfDeliveryId
 
-`func (o *DeliveryNoteCreateDto) SetProofOfDeliveryID(v string)`
+`func (o *DeliveryNoteCreateDto) SetProofOfDeliveryId(v string)`
 
-SetProofOfDeliveryID sets ProofOfDeliveryID field to given value.
+SetProofOfDeliveryId sets ProofOfDeliveryId field to given value.
 
-### HasProofOfDeliveryID
+### HasProofOfDeliveryId
 
-`func (o *DeliveryNoteCreateDto) HasProofOfDeliveryID() bool`
+`func (o *DeliveryNoteCreateDto) HasProofOfDeliveryId() bool`
 
-HasProofOfDeliveryID returns a boolean if a field has been set.
+HasProofOfDeliveryId returns a boolean if a field has been set.
 
-### SetProofOfDeliveryIDNil
+### SetProofOfDeliveryIdNil
 
-`func (o *DeliveryNoteCreateDto) SetProofOfDeliveryIDNil(b bool)`
+`func (o *DeliveryNoteCreateDto) SetProofOfDeliveryIdNil(b bool)`
 
- SetProofOfDeliveryIDNil sets the value for ProofOfDeliveryID to be an explicit nil
+ SetProofOfDeliveryIdNil sets the value for ProofOfDeliveryId to be an explicit nil
 
-### UnsetProofOfDeliveryID
-`func (o *DeliveryNoteCreateDto) UnsetProofOfDeliveryID()`
+### UnsetProofOfDeliveryId
+`func (o *DeliveryNoteCreateDto) UnsetProofOfDeliveryId()`
 
-UnsetProofOfDeliveryID ensures that no value is present for ProofOfDeliveryID, not even an explicit nil
+UnsetProofOfDeliveryId ensures that no value is present for ProofOfDeliveryId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

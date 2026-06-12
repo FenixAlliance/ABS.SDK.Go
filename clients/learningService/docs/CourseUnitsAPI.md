@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetCourseUnitByIdAsync**](CourseUnitsAPI.md#GetCourseUnitByIdAsync) | **Get** /api/v2/LearningService/CourseUnits/{unitId} | Get course unit by ID
 [**GetCourseUnitsAsync**](CourseUnitsAPI.md#GetCourseUnitsAsync) | **Get** /api/v2/LearningService/CourseUnits | Get all course units
 [**GetCourseUnitsCountAsync**](CourseUnitsAPI.md#GetCourseUnitsCountAsync) | **Get** /api/v2/LearningService/CourseUnits/Count | Get course units count
+[**PatchCourseUnitAsync**](CourseUnitsAPI.md#PatchCourseUnitAsync) | **Patch** /api/v2/LearningService/CourseUnits/{unitId} | Patch a course unit
 [**UpdateCourseUnitAsync**](CourseUnitsAPI.md#UpdateCourseUnitAsync) | **Put** /api/v2/LearningService/CourseUnits/{unitId} | Update a course unit
 
 
@@ -37,7 +38,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	courseUnitCreateDto := *openapiclient.NewCourseUnitCreateDto("Title_example", "CourseID_example", "CourseSectionID_example") // CourseUnitCreateDto |  (optional)
+	courseUnitCreateDto := *openapiclient.NewCourseUnitCreateDto("Title_example", "CourseId_example", "CourseSectionId_example") // CourseUnitCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,6 +365,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchCourseUnitAsync
+
+> EmptyEnvelope PatchCourseUnitAsync(ctx, unitId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a course unit
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitId := "unitId_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CourseUnitsAPI.PatchCourseUnitAsync(context.Background(), unitId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseUnitsAPI.PatchCourseUnitAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchCourseUnitAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CourseUnitsAPI.PatchCourseUnitAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**unitId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCourseUnitAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

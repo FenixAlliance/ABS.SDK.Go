@@ -9,16 +9,16 @@ Name | Type | Description | Notes
 **Title** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **OverallScore** | Pointer to **float64** |  | [optional] 
-**CourseID** | **string** |  | 
-**CourseUnitID** | Pointer to **NullableString** |  | [optional] 
-**CourseGradingRubricID** | Pointer to **NullableString** |  | [optional] 
+**CourseId** | **string** |  | 
+**CourseUnitId** | Pointer to **NullableString** |  | [optional] 
+**CourseGradingRubricId** | Pointer to **NullableString** |  | [optional] 
 **ReleaseDateTime** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
 ### NewCourseProblemSetCreateDto
 
-`func NewCourseProblemSetCreateDto(title string, courseID string, ) *CourseProblemSetCreateDto`
+`func NewCourseProblemSetCreateDto(title string, courseId string, ) *CourseProblemSetCreateDto`
 
 NewCourseProblemSetCreateDto instantiates a new CourseProblemSetCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -163,96 +163,96 @@ SetOverallScore sets OverallScore field to given value.
 
 HasOverallScore returns a boolean if a field has been set.
 
-### GetCourseID
+### GetCourseId
 
-`func (o *CourseProblemSetCreateDto) GetCourseID() string`
+`func (o *CourseProblemSetCreateDto) GetCourseId() string`
 
-GetCourseID returns the CourseID field if non-nil, zero value otherwise.
+GetCourseId returns the CourseId field if non-nil, zero value otherwise.
 
-### GetCourseIDOk
+### GetCourseIdOk
 
-`func (o *CourseProblemSetCreateDto) GetCourseIDOk() (*string, bool)`
+`func (o *CourseProblemSetCreateDto) GetCourseIdOk() (*string, bool)`
 
-GetCourseIDOk returns a tuple with the CourseID field if it's non-nil, zero value otherwise
+GetCourseIdOk returns a tuple with the CourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseID
+### SetCourseId
 
-`func (o *CourseProblemSetCreateDto) SetCourseID(v string)`
+`func (o *CourseProblemSetCreateDto) SetCourseId(v string)`
 
-SetCourseID sets CourseID field to given value.
+SetCourseId sets CourseId field to given value.
 
 
-### GetCourseUnitID
+### GetCourseUnitId
 
-`func (o *CourseProblemSetCreateDto) GetCourseUnitID() string`
+`func (o *CourseProblemSetCreateDto) GetCourseUnitId() string`
 
-GetCourseUnitID returns the CourseUnitID field if non-nil, zero value otherwise.
+GetCourseUnitId returns the CourseUnitId field if non-nil, zero value otherwise.
 
-### GetCourseUnitIDOk
+### GetCourseUnitIdOk
 
-`func (o *CourseProblemSetCreateDto) GetCourseUnitIDOk() (*string, bool)`
+`func (o *CourseProblemSetCreateDto) GetCourseUnitIdOk() (*string, bool)`
 
-GetCourseUnitIDOk returns a tuple with the CourseUnitID field if it's non-nil, zero value otherwise
+GetCourseUnitIdOk returns a tuple with the CourseUnitId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseUnitID
+### SetCourseUnitId
 
-`func (o *CourseProblemSetCreateDto) SetCourseUnitID(v string)`
+`func (o *CourseProblemSetCreateDto) SetCourseUnitId(v string)`
 
-SetCourseUnitID sets CourseUnitID field to given value.
+SetCourseUnitId sets CourseUnitId field to given value.
 
-### HasCourseUnitID
+### HasCourseUnitId
 
-`func (o *CourseProblemSetCreateDto) HasCourseUnitID() bool`
+`func (o *CourseProblemSetCreateDto) HasCourseUnitId() bool`
 
-HasCourseUnitID returns a boolean if a field has been set.
+HasCourseUnitId returns a boolean if a field has been set.
 
-### SetCourseUnitIDNil
+### SetCourseUnitIdNil
 
-`func (o *CourseProblemSetCreateDto) SetCourseUnitIDNil(b bool)`
+`func (o *CourseProblemSetCreateDto) SetCourseUnitIdNil(b bool)`
 
- SetCourseUnitIDNil sets the value for CourseUnitID to be an explicit nil
+ SetCourseUnitIdNil sets the value for CourseUnitId to be an explicit nil
 
-### UnsetCourseUnitID
-`func (o *CourseProblemSetCreateDto) UnsetCourseUnitID()`
+### UnsetCourseUnitId
+`func (o *CourseProblemSetCreateDto) UnsetCourseUnitId()`
 
-UnsetCourseUnitID ensures that no value is present for CourseUnitID, not even an explicit nil
-### GetCourseGradingRubricID
+UnsetCourseUnitId ensures that no value is present for CourseUnitId, not even an explicit nil
+### GetCourseGradingRubricId
 
-`func (o *CourseProblemSetCreateDto) GetCourseGradingRubricID() string`
+`func (o *CourseProblemSetCreateDto) GetCourseGradingRubricId() string`
 
-GetCourseGradingRubricID returns the CourseGradingRubricID field if non-nil, zero value otherwise.
+GetCourseGradingRubricId returns the CourseGradingRubricId field if non-nil, zero value otherwise.
 
-### GetCourseGradingRubricIDOk
+### GetCourseGradingRubricIdOk
 
-`func (o *CourseProblemSetCreateDto) GetCourseGradingRubricIDOk() (*string, bool)`
+`func (o *CourseProblemSetCreateDto) GetCourseGradingRubricIdOk() (*string, bool)`
 
-GetCourseGradingRubricIDOk returns a tuple with the CourseGradingRubricID field if it's non-nil, zero value otherwise
+GetCourseGradingRubricIdOk returns a tuple with the CourseGradingRubricId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCourseGradingRubricID
+### SetCourseGradingRubricId
 
-`func (o *CourseProblemSetCreateDto) SetCourseGradingRubricID(v string)`
+`func (o *CourseProblemSetCreateDto) SetCourseGradingRubricId(v string)`
 
-SetCourseGradingRubricID sets CourseGradingRubricID field to given value.
+SetCourseGradingRubricId sets CourseGradingRubricId field to given value.
 
-### HasCourseGradingRubricID
+### HasCourseGradingRubricId
 
-`func (o *CourseProblemSetCreateDto) HasCourseGradingRubricID() bool`
+`func (o *CourseProblemSetCreateDto) HasCourseGradingRubricId() bool`
 
-HasCourseGradingRubricID returns a boolean if a field has been set.
+HasCourseGradingRubricId returns a boolean if a field has been set.
 
-### SetCourseGradingRubricIDNil
+### SetCourseGradingRubricIdNil
 
-`func (o *CourseProblemSetCreateDto) SetCourseGradingRubricIDNil(b bool)`
+`func (o *CourseProblemSetCreateDto) SetCourseGradingRubricIdNil(b bool)`
 
- SetCourseGradingRubricIDNil sets the value for CourseGradingRubricID to be an explicit nil
+ SetCourseGradingRubricIdNil sets the value for CourseGradingRubricId to be an explicit nil
 
-### UnsetCourseGradingRubricID
-`func (o *CourseProblemSetCreateDto) UnsetCourseGradingRubricID()`
+### UnsetCourseGradingRubricId
+`func (o *CourseProblemSetCreateDto) UnsetCourseGradingRubricId()`
 
-UnsetCourseGradingRubricID ensures that no value is present for CourseGradingRubricID, not even an explicit nil
+UnsetCourseGradingRubricId ensures that no value is present for CourseGradingRubricId, not even an explicit nil
 ### GetReleaseDateTime
 
 `func (o *CourseProblemSetCreateDto) GetReleaseDateTime() time.Time`

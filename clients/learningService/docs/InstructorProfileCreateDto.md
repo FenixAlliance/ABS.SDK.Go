@@ -31,7 +31,6 @@ Name | Type | Description | Notes
 **Data9** | Pointer to **NullableString** |  | [optional] 
 **Data9Label** | Pointer to **NullableString** |  | [optional] 
 **Authorized** | Pointer to **bool** |  | [optional] 
-**ContactID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -967,41 +966,6 @@ SetAuthorized sets Authorized field to given value.
 
 HasAuthorized returns a boolean if a field has been set.
 
-### GetContactID
-
-`func (o *InstructorProfileCreateDto) GetContactID() string`
-
-GetContactID returns the ContactID field if non-nil, zero value otherwise.
-
-### GetContactIDOk
-
-`func (o *InstructorProfileCreateDto) GetContactIDOk() (*string, bool)`
-
-GetContactIDOk returns a tuple with the ContactID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetContactID
-
-`func (o *InstructorProfileCreateDto) SetContactID(v string)`
-
-SetContactID sets ContactID field to given value.
-
-### HasContactID
-
-`func (o *InstructorProfileCreateDto) HasContactID() bool`
-
-HasContactID returns a boolean if a field has been set.
-
-### SetContactIDNil
-
-`func (o *InstructorProfileCreateDto) SetContactIDNil(b bool)`
-
- SetContactIDNil sets the value for ContactID to be an explicit nil
-
-### UnsetContactID
-`func (o *InstructorProfileCreateDto) UnsetContactID()`
-
-UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

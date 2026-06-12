@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**DeleteSocialGroupAsync**](SocialGroupsAPI.md#DeleteSocialGroupAsync) | **Delete** /api/v2/SocialService/SocialGroups/{socialGroupId} | Delete a social group
 [**GetSocialGroupByIdAsync**](SocialGroupsAPI.md#GetSocialGroupByIdAsync) | **Get** /api/v2/SocialService/SocialGroups/{socialGroupId} | Get social group by ID
 [**GetSocialGroupsAsync**](SocialGroupsAPI.md#GetSocialGroupsAsync) | **Get** /api/v2/SocialService/SocialGroups | Get social groups
+[**PatchSocialGroupAsync**](SocialGroupsAPI.md#PatchSocialGroupAsync) | **Patch** /api/v2/SocialService/SocialGroups/{socialGroupId} | Patch a social group
 [**UpdateSocialGroupAsync**](SocialGroupsAPI.md#UpdateSocialGroupAsync) | **Put** /api/v2/SocialService/SocialGroups/{socialGroupId} | Update a social group
 
 
@@ -374,6 +375,86 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchSocialGroupAsync
+
+> EmptyEnvelope PatchSocialGroupAsync(ctx, socialGroupId).TenantId(tenantId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a social group
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialGroupsAPI.PatchSocialGroupAsync(context.Background(), socialGroupId).TenantId(tenantId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialGroupsAPI.PatchSocialGroupAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchSocialGroupAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialGroupsAPI.PatchSocialGroupAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialGroupId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchSocialGroupAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **socialProfileId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

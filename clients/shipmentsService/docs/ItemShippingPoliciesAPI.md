@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetItemShippingPoliciesAsync**](ItemShippingPoliciesAPI.md#GetItemShippingPoliciesAsync) | **Get** /api/v2/ShipmentsService/ItemShippingPolicies | Get all item shipping policies
 [**GetItemShippingPoliciesCountAsync**](ItemShippingPoliciesAPI.md#GetItemShippingPoliciesCountAsync) | **Get** /api/v2/ShipmentsService/ItemShippingPolicies/Count | Get item shipping policies count
 [**GetItemShippingPolicyByIdAsync**](ItemShippingPoliciesAPI.md#GetItemShippingPolicyByIdAsync) | **Get** /api/v2/ShipmentsService/ItemShippingPolicies/{policyId} | Get item shipping policy by ID
+[**PatchItemShippingPolicyAsync**](ItemShippingPoliciesAPI.md#PatchItemShippingPolicyAsync) | **Patch** /api/v2/ShipmentsService/ItemShippingPolicies/{policyId} | Patch an item shipping policy
 [**UpdateItemShippingPolicyAsync**](ItemShippingPoliciesAPI.md#UpdateItemShippingPolicyAsync) | **Put** /api/v2/ShipmentsService/ItemShippingPolicies/{policyId} | Update an item shipping policy
 
 
@@ -366,6 +367,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchItemShippingPolicyAsync
+
+> EmptyEnvelope PatchItemShippingPolicyAsync(ctx, policyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch an item shipping policy
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	policyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ItemShippingPoliciesAPI.PatchItemShippingPolicyAsync(context.Background(), policyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemShippingPoliciesAPI.PatchItemShippingPolicyAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchItemShippingPolicyAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ItemShippingPoliciesAPI.PatchItemShippingPolicyAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**policyId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchItemShippingPolicyAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

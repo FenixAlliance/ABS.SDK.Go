@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: InvoicingService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -924,6 +924,60 @@ paths:
       summary: Get an invoice by ID.
       tags:
       - Invoices
+    patch:
+      description: Partially updates the specified invoice for the tenant.
+      operationId: PatchInvoice
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an invoice.
+      tags:
+      - Invoices
     put:
       description: Updates the specified invoice for the tenant.
       operationId: UpdateInvoice
@@ -1218,6 +1272,68 @@ paths:
       summary: Get an invoice line by ID.
       tags:
       - Invoices
+    patch:
+      description: Partially updates the specified invoice line.
+      operationId: PatchInvoiceLine
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an invoice line.
+      tags:
+      - Invoices
     put:
       description: Updates the specified invoice line.
       operationId: UpdateInvoiceLine
@@ -1493,6 +1609,67 @@ paths:
       summary: Delete a tax from an invoice line.
       tags:
       - Invoices
+    patch:
+      description: Partially updates the specified tax entry for the invoice line.
+      operationId: PatchInvoiceLineTax
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineTaxId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a tax for an invoice line.
+      tags:
+      - Invoices
     put:
       description: Updates the specified tax entry for the invoice line.
       operationId: UpdateInvoiceLineTax
@@ -1743,6 +1920,68 @@ paths:
       summary: Get an invoice adjustment by ID.
       tags:
       - Invoices
+    patch:
+      description: Partially updates the specified adjustment for the invoice.
+      operationId: PatchInvoiceAdjustment
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceAdjustmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an invoice adjustment.
+      tags:
+      - Invoices
     put:
       description: Updates the specified adjustment for the invoice.
       operationId: UpdateInvoiceAdjustment
@@ -1983,6 +2222,59 @@ paths:
                 $ref: '#/components/schemas/InvoiceReferenceDtoEnvelope'
           description: OK
       summary: Get an invoice reference by ID.
+      tags:
+      - Invoices
+    patch:
+      description: Partially updates the specified reference for the invoice.
+      operationId: PatchInvoiceReference
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceReferenceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an invoice reference.
       tags:
       - Invoices
     put:
@@ -4475,16 +4767,18 @@ components:
     InvoiceAdjustmentCreateDto:
       additionalProperties: false
       example:
-        surchargeAmount: 2.8841621266687802
-        discountPercent: 6.778324963048013
-        surchargePercent: 1.284659006116532
-        totalSurcharge: 5.944895607614016
+        surchargeAmount: 6.778324963048013
+        code: code
+        discountPercent: 6.878052220127876
+        surchargePercent: 2.8841621266687802
+        totalSurcharge: 6.704019297950036
         description: description
-        discountAmount: 6.878052220127876
-        totalDiscount: 6.704019297950036
+        discountAmount: 5.944895607614016
+        priority: 1
+        type: Discount
+        totalDiscount: 3.353193347011243
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
-        type: Discount
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -4494,6 +4788,12 @@ components:
           format: date-time
           type: string
         currencyId:
+          nullable: true
+          type: string
+        priority:
+          format: int32
+          type: integer
+        code:
           nullable: true
           type: string
         description:
@@ -4527,15 +4827,17 @@ components:
       additionalProperties: false
       example:
         enrollmentId: enrollmentId
-        surchargeAmount: 6.027456183070403
-        discountPercent: 1.4658129805029452
-        surchargePercent: 0.8008281904610115
-        totalSurcharge: 5.637376656633329
+        surchargeAmount: 1.4658129805029452
+        code: code
+        discountPercent: 5.962133916683182
+        surchargePercent: 6.027456183070403
+        totalSurcharge: 2.3021358869347655
         description: description
-        discountAmount: 5.962133916683182
+        discountAmount: 5.637376656633329
+        priority: 0
         type: Discount
         tenantId: tenantId
-        totalDiscount: 2.3021358869347655
+        totalDiscount: 7.061401241503109
         invoiceId: invoiceId
         id: id
         currencyId: currencyId
@@ -4558,6 +4860,12 @@ components:
           nullable: true
           type: string
         enrollmentId:
+          nullable: true
+          type: string
+        priority:
+          format: int32
+          type: integer
+        code:
           nullable: true
           type: string
         description:
@@ -4592,15 +4900,17 @@ components:
       example:
         result:
           enrollmentId: enrollmentId
-          surchargeAmount: 6.027456183070403
-          discountPercent: 1.4658129805029452
-          surchargePercent: 0.8008281904610115
-          totalSurcharge: 5.637376656633329
+          surchargeAmount: 1.4658129805029452
+          code: code
+          discountPercent: 5.962133916683182
+          surchargePercent: 6.027456183070403
+          totalSurcharge: 2.3021358869347655
           description: description
-          discountAmount: 5.962133916683182
+          discountAmount: 5.637376656633329
+          priority: 0
           type: Discount
           tenantId: tenantId
-          totalDiscount: 2.3021358869347655
+          totalDiscount: 7.061401241503109
           invoiceId: invoiceId
           id: id
           currencyId: currencyId
@@ -4636,29 +4946,33 @@ components:
       example:
         result:
         - enrollmentId: enrollmentId
-          surchargeAmount: 6.027456183070403
-          discountPercent: 1.4658129805029452
-          surchargePercent: 0.8008281904610115
-          totalSurcharge: 5.637376656633329
+          surchargeAmount: 1.4658129805029452
+          code: code
+          discountPercent: 5.962133916683182
+          surchargePercent: 6.027456183070403
+          totalSurcharge: 2.3021358869347655
           description: description
-          discountAmount: 5.962133916683182
+          discountAmount: 5.637376656633329
+          priority: 0
           type: Discount
           tenantId: tenantId
-          totalDiscount: 2.3021358869347655
+          totalDiscount: 7.061401241503109
           invoiceId: invoiceId
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - enrollmentId: enrollmentId
-          surchargeAmount: 6.027456183070403
-          discountPercent: 1.4658129805029452
-          surchargePercent: 0.8008281904610115
-          totalSurcharge: 5.637376656633329
+          surchargeAmount: 1.4658129805029452
+          code: code
+          discountPercent: 5.962133916683182
+          surchargePercent: 6.027456183070403
+          totalSurcharge: 2.3021358869347655
           description: description
-          discountAmount: 5.962133916683182
+          discountAmount: 5.637376656633329
+          priority: 0
           type: Discount
           tenantId: tenantId
-          totalDiscount: 2.3021358869347655
+          totalDiscount: 7.061401241503109
           invoiceId: invoiceId
           id: id
           currencyId: currencyId
@@ -4695,17 +5009,25 @@ components:
     InvoiceAdjustmentUpdateDto:
       additionalProperties: false
       example:
-        surchargeAmount: 6.027456183070403
-        discountPercent: 1.4658129805029452
-        surchargePercent: 0.8008281904610115
-        totalSurcharge: 5.637376656633329
+        surchargeAmount: 1.4658129805029452
+        code: code
+        discountPercent: 5.962133916683182
+        surchargePercent: 6.027456183070403
+        totalSurcharge: 2.3021358869347655
         description: description
-        discountAmount: 5.962133916683182
-        totalDiscount: 2.3021358869347655
+        discountAmount: 5.637376656633329
+        totalDiscount: 7.061401241503109
         currencyId: currencyId
+        priority: 0
         type: Discount
       properties:
         currencyId:
+          nullable: true
+          type: string
+        priority:
+          format: int32
+          type: integer
+        code:
           nullable: true
           type: string
         description:
@@ -4883,27 +5205,31 @@ components:
         lastName: lastName
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
         invoiceAdjustments:
-        - surchargeAmount: 2.8841621266687802
-          discountPercent: 6.778324963048013
-          surchargePercent: 1.284659006116532
-          totalSurcharge: 5.944895607614016
+        - surchargeAmount: 6.778324963048013
+          code: code
+          discountPercent: 6.878052220127876
+          surchargePercent: 2.8841621266687802
+          totalSurcharge: 6.704019297950036
           description: description
-          discountAmount: 6.878052220127876
-          totalDiscount: 6.704019297950036
+          discountAmount: 5.944895607614016
+          priority: 1
+          type: Discount
+          totalDiscount: 3.353193347011243
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           currencyId: currencyId
-          type: Discount
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - surchargeAmount: 2.8841621266687802
-          discountPercent: 6.778324963048013
-          surchargePercent: 1.284659006116532
-          totalSurcharge: 5.944895607614016
+        - surchargeAmount: 6.778324963048013
+          code: code
+          discountPercent: 6.878052220127876
+          surchargePercent: 2.8841621266687802
+          totalSurcharge: 6.704019297950036
           description: description
-          discountAmount: 6.878052220127876
-          totalDiscount: 6.704019297950036
+          discountAmount: 5.944895607614016
+          priority: 1
+          type: Discount
+          totalDiscount: 3.353193347011243
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           currencyId: currencyId
-          type: Discount
           timestamp: 2000-01-23T04:56:07.000+00:00
         totalProfit: 1.4658129805029452
         totalGlobalDiscounts: 7.386281948385884
@@ -7817,27 +8143,31 @@ components:
         lastName: lastName
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
         invoiceAdjustments:
-        - surchargeAmount: 2.8841621266687802
-          discountPercent: 6.778324963048013
-          surchargePercent: 1.284659006116532
-          totalSurcharge: 5.944895607614016
+        - surchargeAmount: 6.778324963048013
+          code: code
+          discountPercent: 6.878052220127876
+          surchargePercent: 2.8841621266687802
+          totalSurcharge: 6.704019297950036
           description: description
-          discountAmount: 6.878052220127876
-          totalDiscount: 6.704019297950036
+          discountAmount: 5.944895607614016
+          priority: 1
+          type: Discount
+          totalDiscount: 3.353193347011243
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           currencyId: currencyId
-          type: Discount
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - surchargeAmount: 2.8841621266687802
-          discountPercent: 6.778324963048013
-          surchargePercent: 1.284659006116532
-          totalSurcharge: 5.944895607614016
+        - surchargeAmount: 6.778324963048013
+          code: code
+          discountPercent: 6.878052220127876
+          surchargePercent: 2.8841621266687802
+          totalSurcharge: 6.704019297950036
           description: description
-          discountAmount: 6.878052220127876
-          totalDiscount: 6.704019297950036
+          discountAmount: 5.944895607614016
+          priority: 1
+          type: Discount
+          totalDiscount: 3.353193347011243
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           currencyId: currencyId
-          type: Discount
           timestamp: 2000-01-23T04:56:07.000+00:00
         totalProfit: 1.4658129805029452
         totalGlobalDiscounts: 9.301444243932576
@@ -8186,6 +8516,38 @@ components:
         result:
           $ref: '#/components/schemas/Money'
       type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
     PaymentDto:
       additionalProperties: false
       example:
@@ -8196,6 +8558,8 @@ components:
         signatureMismatch: true
         authorization: authorization
         lastUpdated: 2000-01-23T04:56:07.000+00:00
+        emisorWalletAccountId: emisorWalletAccountId
+        receiverWalletAccountId: receiverWalletAccountId
         id: id
         currencyId: currencyId
         enrollmentId: enrollmentId
@@ -8439,6 +8803,12 @@ components:
         paymentTokenId:
           nullable: true
           type: string
+        emisorWalletAccountId:
+          nullable: true
+          type: string
+        receiverWalletAccountId:
+          nullable: true
+          type: string
       type: object
     PaymentDtoIReadOnlyListEnvelope:
       additionalProperties: false
@@ -8451,6 +8821,8 @@ components:
           signatureMismatch: true
           authorization: authorization
           lastUpdated: 2000-01-23T04:56:07.000+00:00
+          emisorWalletAccountId: emisorWalletAccountId
+          receiverWalletAccountId: receiverWalletAccountId
           id: id
           currencyId: currencyId
           enrollmentId: enrollmentId
@@ -8510,6 +8882,8 @@ components:
           signatureMismatch: true
           authorization: authorization
           lastUpdated: 2000-01-23T04:56:07.000+00:00
+          emisorWalletAccountId: emisorWalletAccountId
+          receiverWalletAccountId: receiverWalletAccountId
           id: id
           currencyId: currencyId
           enrollmentId: enrollmentId

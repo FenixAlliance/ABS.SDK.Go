@@ -28,7 +28,6 @@ Name | Type | Description | Notes
 **Data8Label** | Pointer to **NullableString** |  | [optional] 
 **Data9** | Pointer to **NullableString** |  | [optional] 
 **Data9Label** | Pointer to **NullableString** |  | [optional] 
-**ContactID** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -889,41 +888,6 @@ HasData9Label returns a boolean if a field has been set.
 `func (o *StudentProfileUpdateDto) UnsetData9Label()`
 
 UnsetData9Label ensures that no value is present for Data9Label, not even an explicit nil
-### GetContactID
-
-`func (o *StudentProfileUpdateDto) GetContactID() string`
-
-GetContactID returns the ContactID field if non-nil, zero value otherwise.
-
-### GetContactIDOk
-
-`func (o *StudentProfileUpdateDto) GetContactIDOk() (*string, bool)`
-
-GetContactIDOk returns a tuple with the ContactID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetContactID
-
-`func (o *StudentProfileUpdateDto) SetContactID(v string)`
-
-SetContactID sets ContactID field to given value.
-
-### HasContactID
-
-`func (o *StudentProfileUpdateDto) HasContactID() bool`
-
-HasContactID returns a boolean if a field has been set.
-
-### SetContactIDNil
-
-`func (o *StudentProfileUpdateDto) SetContactIDNil(b bool)`
-
- SetContactIDNil sets the value for ContactID to be an explicit nil
-
-### UnsetContactID
-`func (o *StudentProfileUpdateDto) UnsetContactID()`
-
-UnsetContactID ensures that no value is present for ContactID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

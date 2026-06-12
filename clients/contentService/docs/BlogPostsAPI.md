@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**GetCommentsForBlogPostAsync**](BlogPostsAPI.md#GetCommentsForBlogPostAsync) | **Get** /api/v2/ContentService/BlogPosts/{blogPostId}/Comments | Get comments for a blog post
 [**GetRepliesForCommentAsync**](BlogPostsAPI.md#GetRepliesForCommentAsync) | **Get** /api/v2/ContentService/BlogPosts/{blogPostId}/Comments/{commentId}/Replies | Get replies for a comment
 [**GetTagsForBlogPostAsync**](BlogPostsAPI.md#GetTagsForBlogPostAsync) | **Get** /api/v2/ContentService/BlogPosts/{blogPostId}/Tags | Get tags for a blog post
+[**PatchBlogPostAsync**](BlogPostsAPI.md#PatchBlogPostAsync) | **Patch** /api/v2/ContentService/BlogPosts/{blogPostId} | Patch a blog post
 [**RelateCategoryToBlogPostAsync**](BlogPostsAPI.md#RelateCategoryToBlogPostAsync) | **Post** /api/v2/ContentService/BlogPosts/{blogPostId}/Categories/{categoryId} | Relate an existing category to a blog post
 [**RelateTagToBlogPostAsync**](BlogPostsAPI.md#RelateTagToBlogPostAsync) | **Post** /api/v2/ContentService/BlogPosts/{blogPostId}/Tags/{tagId} | Relate an existing tag to a blog post
 [**ReplyToCommentAsync**](BlogPostsAPI.md#ReplyToCommentAsync) | **Post** /api/v2/ContentService/BlogPosts/{blogPostId}/Comments/{commentId}/Reply | Reply to a blog post comment
@@ -941,6 +942,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchBlogPostAsync
+
+> EmptyEnvelope PatchBlogPostAsync(ctx, blogPostId).TenantId(tenantId).Operation(operation).Execute()
+
+Patch a blog post
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	blogPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BlogPostsAPI.PatchBlogPostAsync(context.Background(), blogPostId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BlogPostsAPI.PatchBlogPostAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchBlogPostAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `BlogPostsAPI.PatchBlogPostAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**blogPostId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchBlogPostAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
