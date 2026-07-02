@@ -7,8 +7,7 @@ api_blog_post_categories.go
 api_blog_post_tags.go
 api_blog_posts.go
 api_business_domains.go
-api_completions.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_localization_strings.go
 api_menu_contexts.go
 api_portals.go
@@ -78,7 +77,6 @@ docs/ClaimsIdentity.md
 docs/ClaimsPrincipal.md
 docs/ColorOptions.md
 docs/ColorScheme.md
-docs/CompletionsAPI.md
 docs/ComputeClause.md
 docs/ComputeExpression.md
 docs/ComputeQueryOption.md
@@ -106,8 +104,8 @@ docs/ErrorEnvelope.md
 docs/EventInfo.md
 docs/FacebookIntegrationOptions.md
 docs/Favicons.md
+docs/FenixAllianceABSWebAPI.md
 docs/FenixAllianceIntegrationsOptions.md
-docs/FenixAlliancePortalsWebsiteAPI.md
 docs/FieldInfo.md
 docs/FilterClause.md
 docs/FilterQueryOption.md

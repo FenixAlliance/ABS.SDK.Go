@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **Hash** | Pointer to **NullableString** |  | [optional] 
 **FileUrl** | Pointer to **NullableString** |  | [optional] 
 **FilePath** | Pointer to **NullableString** |  | [optional] 
+**StorageKey** | Pointer to **NullableString** |  | [optional] 
+**StorageProviderKey** | Pointer to **NullableString** |  | [optional] 
 **FileName** | Pointer to **NullableString** |  | [optional] 
 **Abstract** | Pointer to **NullableString** |  | [optional] 
 **KeyWords** | Pointer to **NullableString** |  | [optional] 
@@ -26,6 +28,14 @@ Name | Type | Description | Notes
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 **FolderPath** | Pointer to **NullableString** |  | [optional] 
+**ScanStatus** | Pointer to **string** |  | [optional] 
+**ThumbnailStatus** | Pointer to **string** |  | [optional] 
+**HasThumbnail** | Pointer to **bool** |  | [optional] [readonly] 
+**ThumbnailStorageKey** | Pointer to **NullableString** |  | [optional] 
+**ThumbnailContentType** | Pointer to **NullableString** |  | [optional] 
+**ThumbnailWidth** | Pointer to **int32** |  | [optional] 
+**ThumbnailHeight** | Pointer to **int32** |  | [optional] 
+**PublicAccessType** | Pointer to **string** |  | [optional] 
 **SocialPostId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -352,6 +362,76 @@ HasFilePath returns a boolean if a field has been set.
 `func (o *SocialPostAttachmentDto) UnsetFilePath()`
 
 UnsetFilePath ensures that no value is present for FilePath, not even an explicit nil
+### GetStorageKey
+
+`func (o *SocialPostAttachmentDto) GetStorageKey() string`
+
+GetStorageKey returns the StorageKey field if non-nil, zero value otherwise.
+
+### GetStorageKeyOk
+
+`func (o *SocialPostAttachmentDto) GetStorageKeyOk() (*string, bool)`
+
+GetStorageKeyOk returns a tuple with the StorageKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageKey
+
+`func (o *SocialPostAttachmentDto) SetStorageKey(v string)`
+
+SetStorageKey sets StorageKey field to given value.
+
+### HasStorageKey
+
+`func (o *SocialPostAttachmentDto) HasStorageKey() bool`
+
+HasStorageKey returns a boolean if a field has been set.
+
+### SetStorageKeyNil
+
+`func (o *SocialPostAttachmentDto) SetStorageKeyNil(b bool)`
+
+ SetStorageKeyNil sets the value for StorageKey to be an explicit nil
+
+### UnsetStorageKey
+`func (o *SocialPostAttachmentDto) UnsetStorageKey()`
+
+UnsetStorageKey ensures that no value is present for StorageKey, not even an explicit nil
+### GetStorageProviderKey
+
+`func (o *SocialPostAttachmentDto) GetStorageProviderKey() string`
+
+GetStorageProviderKey returns the StorageProviderKey field if non-nil, zero value otherwise.
+
+### GetStorageProviderKeyOk
+
+`func (o *SocialPostAttachmentDto) GetStorageProviderKeyOk() (*string, bool)`
+
+GetStorageProviderKeyOk returns a tuple with the StorageProviderKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageProviderKey
+
+`func (o *SocialPostAttachmentDto) SetStorageProviderKey(v string)`
+
+SetStorageProviderKey sets StorageProviderKey field to given value.
+
+### HasStorageProviderKey
+
+`func (o *SocialPostAttachmentDto) HasStorageProviderKey() bool`
+
+HasStorageProviderKey returns a boolean if a field has been set.
+
+### SetStorageProviderKeyNil
+
+`func (o *SocialPostAttachmentDto) SetStorageProviderKeyNil(b bool)`
+
+ SetStorageProviderKeyNil sets the value for StorageProviderKey to be an explicit nil
+
+### UnsetStorageProviderKey
+`func (o *SocialPostAttachmentDto) UnsetStorageProviderKey()`
+
+UnsetStorageProviderKey ensures that no value is present for StorageProviderKey, not even an explicit nil
 ### GetFileName
 
 `func (o *SocialPostAttachmentDto) GetFileName() string`
@@ -787,6 +867,226 @@ HasFolderPath returns a boolean if a field has been set.
 `func (o *SocialPostAttachmentDto) UnsetFolderPath()`
 
 UnsetFolderPath ensures that no value is present for FolderPath, not even an explicit nil
+### GetScanStatus
+
+`func (o *SocialPostAttachmentDto) GetScanStatus() string`
+
+GetScanStatus returns the ScanStatus field if non-nil, zero value otherwise.
+
+### GetScanStatusOk
+
+`func (o *SocialPostAttachmentDto) GetScanStatusOk() (*string, bool)`
+
+GetScanStatusOk returns a tuple with the ScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScanStatus
+
+`func (o *SocialPostAttachmentDto) SetScanStatus(v string)`
+
+SetScanStatus sets ScanStatus field to given value.
+
+### HasScanStatus
+
+`func (o *SocialPostAttachmentDto) HasScanStatus() bool`
+
+HasScanStatus returns a boolean if a field has been set.
+
+### GetThumbnailStatus
+
+`func (o *SocialPostAttachmentDto) GetThumbnailStatus() string`
+
+GetThumbnailStatus returns the ThumbnailStatus field if non-nil, zero value otherwise.
+
+### GetThumbnailStatusOk
+
+`func (o *SocialPostAttachmentDto) GetThumbnailStatusOk() (*string, bool)`
+
+GetThumbnailStatusOk returns a tuple with the ThumbnailStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailStatus
+
+`func (o *SocialPostAttachmentDto) SetThumbnailStatus(v string)`
+
+SetThumbnailStatus sets ThumbnailStatus field to given value.
+
+### HasThumbnailStatus
+
+`func (o *SocialPostAttachmentDto) HasThumbnailStatus() bool`
+
+HasThumbnailStatus returns a boolean if a field has been set.
+
+### GetHasThumbnail
+
+`func (o *SocialPostAttachmentDto) GetHasThumbnail() bool`
+
+GetHasThumbnail returns the HasThumbnail field if non-nil, zero value otherwise.
+
+### GetHasThumbnailOk
+
+`func (o *SocialPostAttachmentDto) GetHasThumbnailOk() (*bool, bool)`
+
+GetHasThumbnailOk returns a tuple with the HasThumbnail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasThumbnail
+
+`func (o *SocialPostAttachmentDto) SetHasThumbnail(v bool)`
+
+SetHasThumbnail sets HasThumbnail field to given value.
+
+### HasHasThumbnail
+
+`func (o *SocialPostAttachmentDto) HasHasThumbnail() bool`
+
+HasHasThumbnail returns a boolean if a field has been set.
+
+### GetThumbnailStorageKey
+
+`func (o *SocialPostAttachmentDto) GetThumbnailStorageKey() string`
+
+GetThumbnailStorageKey returns the ThumbnailStorageKey field if non-nil, zero value otherwise.
+
+### GetThumbnailStorageKeyOk
+
+`func (o *SocialPostAttachmentDto) GetThumbnailStorageKeyOk() (*string, bool)`
+
+GetThumbnailStorageKeyOk returns a tuple with the ThumbnailStorageKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailStorageKey
+
+`func (o *SocialPostAttachmentDto) SetThumbnailStorageKey(v string)`
+
+SetThumbnailStorageKey sets ThumbnailStorageKey field to given value.
+
+### HasThumbnailStorageKey
+
+`func (o *SocialPostAttachmentDto) HasThumbnailStorageKey() bool`
+
+HasThumbnailStorageKey returns a boolean if a field has been set.
+
+### SetThumbnailStorageKeyNil
+
+`func (o *SocialPostAttachmentDto) SetThumbnailStorageKeyNil(b bool)`
+
+ SetThumbnailStorageKeyNil sets the value for ThumbnailStorageKey to be an explicit nil
+
+### UnsetThumbnailStorageKey
+`func (o *SocialPostAttachmentDto) UnsetThumbnailStorageKey()`
+
+UnsetThumbnailStorageKey ensures that no value is present for ThumbnailStorageKey, not even an explicit nil
+### GetThumbnailContentType
+
+`func (o *SocialPostAttachmentDto) GetThumbnailContentType() string`
+
+GetThumbnailContentType returns the ThumbnailContentType field if non-nil, zero value otherwise.
+
+### GetThumbnailContentTypeOk
+
+`func (o *SocialPostAttachmentDto) GetThumbnailContentTypeOk() (*string, bool)`
+
+GetThumbnailContentTypeOk returns a tuple with the ThumbnailContentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailContentType
+
+`func (o *SocialPostAttachmentDto) SetThumbnailContentType(v string)`
+
+SetThumbnailContentType sets ThumbnailContentType field to given value.
+
+### HasThumbnailContentType
+
+`func (o *SocialPostAttachmentDto) HasThumbnailContentType() bool`
+
+HasThumbnailContentType returns a boolean if a field has been set.
+
+### SetThumbnailContentTypeNil
+
+`func (o *SocialPostAttachmentDto) SetThumbnailContentTypeNil(b bool)`
+
+ SetThumbnailContentTypeNil sets the value for ThumbnailContentType to be an explicit nil
+
+### UnsetThumbnailContentType
+`func (o *SocialPostAttachmentDto) UnsetThumbnailContentType()`
+
+UnsetThumbnailContentType ensures that no value is present for ThumbnailContentType, not even an explicit nil
+### GetThumbnailWidth
+
+`func (o *SocialPostAttachmentDto) GetThumbnailWidth() int32`
+
+GetThumbnailWidth returns the ThumbnailWidth field if non-nil, zero value otherwise.
+
+### GetThumbnailWidthOk
+
+`func (o *SocialPostAttachmentDto) GetThumbnailWidthOk() (*int32, bool)`
+
+GetThumbnailWidthOk returns a tuple with the ThumbnailWidth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailWidth
+
+`func (o *SocialPostAttachmentDto) SetThumbnailWidth(v int32)`
+
+SetThumbnailWidth sets ThumbnailWidth field to given value.
+
+### HasThumbnailWidth
+
+`func (o *SocialPostAttachmentDto) HasThumbnailWidth() bool`
+
+HasThumbnailWidth returns a boolean if a field has been set.
+
+### GetThumbnailHeight
+
+`func (o *SocialPostAttachmentDto) GetThumbnailHeight() int32`
+
+GetThumbnailHeight returns the ThumbnailHeight field if non-nil, zero value otherwise.
+
+### GetThumbnailHeightOk
+
+`func (o *SocialPostAttachmentDto) GetThumbnailHeightOk() (*int32, bool)`
+
+GetThumbnailHeightOk returns a tuple with the ThumbnailHeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailHeight
+
+`func (o *SocialPostAttachmentDto) SetThumbnailHeight(v int32)`
+
+SetThumbnailHeight sets ThumbnailHeight field to given value.
+
+### HasThumbnailHeight
+
+`func (o *SocialPostAttachmentDto) HasThumbnailHeight() bool`
+
+HasThumbnailHeight returns a boolean if a field has been set.
+
+### GetPublicAccessType
+
+`func (o *SocialPostAttachmentDto) GetPublicAccessType() string`
+
+GetPublicAccessType returns the PublicAccessType field if non-nil, zero value otherwise.
+
+### GetPublicAccessTypeOk
+
+`func (o *SocialPostAttachmentDto) GetPublicAccessTypeOk() (*string, bool)`
+
+GetPublicAccessTypeOk returns a tuple with the PublicAccessType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublicAccessType
+
+`func (o *SocialPostAttachmentDto) SetPublicAccessType(v string)`
+
+SetPublicAccessType sets PublicAccessType field to given value.
+
+### HasPublicAccessType
+
+`func (o *SocialPostAttachmentDto) HasPublicAccessType() bool`
+
+HasPublicAccessType returns a boolean if a field has been set.
+
 ### GetSocialPostId
 
 `func (o *SocialPostAttachmentDto) GetSocialPostId() string`

@@ -2,8 +2,7 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_completions.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_service_case_types.go
 api_service_cases.go
 api_service_level_agreements.go
@@ -13,10 +12,9 @@ api_services.go
 client.go
 configuration.go
 docs/AccessTokenResponse.md
-docs/CompletionsAPI.md
 docs/Envelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md

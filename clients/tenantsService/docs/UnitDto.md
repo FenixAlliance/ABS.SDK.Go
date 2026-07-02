@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
+**UnECECode** | Pointer to **NullableString** |  | [optional] 
 **UnitGroupId** | Pointer to **NullableString** |  | [optional] 
 **BaseUnitAmount** | Pointer to **float64** |  | [optional] 
 **BaseUnitId** | Pointer to **NullableString** |  | [optional] 
@@ -137,6 +138,41 @@ HasName returns a boolean if a field has been set.
 `func (o *UnitDto) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
+### GetUnECECode
+
+`func (o *UnitDto) GetUnECECode() string`
+
+GetUnECECode returns the UnECECode field if non-nil, zero value otherwise.
+
+### GetUnECECodeOk
+
+`func (o *UnitDto) GetUnECECodeOk() (*string, bool)`
+
+GetUnECECodeOk returns a tuple with the UnECECode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnECECode
+
+`func (o *UnitDto) SetUnECECode(v string)`
+
+SetUnECECode sets UnECECode field to given value.
+
+### HasUnECECode
+
+`func (o *UnitDto) HasUnECECode() bool`
+
+HasUnECECode returns a boolean if a field has been set.
+
+### SetUnECECodeNil
+
+`func (o *UnitDto) SetUnECECodeNil(b bool)`
+
+ SetUnECECodeNil sets the value for UnECECode to be an explicit nil
+
+### UnsetUnECECode
+`func (o *UnitDto) UnsetUnECECode()`
+
+UnsetUnECECode ensures that no value is present for UnECECode, not even an explicit nil
 ### GetUnitGroupId
 
 `func (o *UnitDto) GetUnitGroupId() string`

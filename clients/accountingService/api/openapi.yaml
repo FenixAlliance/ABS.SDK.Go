@@ -9,11 +9,22 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: AccountingService
-  version: 2.1.2.5532
+  version: 2.0.0.0
 servers:
-- url: /
+- description: Alliance Business Suite API
+  url: "{server}"
+  variables:
+    server:
+      default: https://absuite.net
+      description: ABS instance base URL
+      enum:
+      - https://absuite.net
+      - https://test.absuite.net
+      - https://dev.absuite.net
+      - https://localhost:44388
 tags:
 - name: AccountGroups
+- name: AccountingEntries
 - name: AccountingPeriods
 - name: Accounts
 - name: Banking
@@ -22,11 +33,10 @@ tags:
 - name: BillingProfiles
 - name: Budgets
 - name: Commissions
-- name: Completions
 - name: CostCentres
 - name: ExpenseClaims
 - name: ExpenseTypes
-- name: FenixAlliance.Portals.Website
+- name: FenixAlliance.ABS.Web
 - name: FinancialBooks
 - name: FiscalAuthorities
 - name: FiscalAuthorityYears
@@ -39,6 +49,7 @@ tags:
 - name: FiscalYears
 - name: Grants
 - name: InvoiceEnumerationRanges
+- name: JournalEntries
 - name: Journals
 - name: JournalTypes
 - name: Ledgers
@@ -549,6 +560,124 @@ paths:
       summary: Updates an existing account group
       tags:
       - AccountGroups
+  /api/v2/AccountingService/AccountingEntries/Debits/Sum:
+    get:
+      description: "Returns SUM(AccountingEntry.Debit) for the tenant, filtered by\
+        \ the supplied OData date range."
+      operationId: GetDebitsSumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Sum tenant accounting-entry debits
+      tags:
+      - AccountingEntries
+  /api/v2/AccountingService/AccountingEntries/Credits/Sum:
+    get:
+      description: "Returns SUM(AccountingEntry.Credit) for the tenant, filtered by\
+        \ the supplied OData date range."
+      operationId: GetCreditsSumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Sum tenant accounting-entry credits
+      tags:
+      - AccountingEntries
   /api/v2/AccountingService/AccountingPeriods:
     get:
       description: Retrieves all accounting periods for the specified tenant using
@@ -8840,288 +8969,6 @@ paths:
       summary: Update a payment commission
       tags:
       - Commissions
-  /api/v2/AiService/Completions/Complete:
-    get:
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: conversationId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: message
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "403":
-          content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          description: OK
-      tags:
-      - Completions
   /api/v2/AccountingService/CostCentres:
     get:
       description: Retrieves all cost centres for the specified tenant using OData
@@ -11399,21 +11246,21 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /health:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /hello:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /register:
     post:
       requestBody:
@@ -11432,7 +11279,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /login:
     post:
       parameters:
@@ -11464,7 +11311,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /refresh:
     post:
       requestBody:
@@ -11481,7 +11328,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /confirmEmail:
     get:
       operationId: MapIdentityApi-/confirmEmail
@@ -11511,7 +11358,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /resendConfirmationEmail:
     post:
       requestBody:
@@ -11524,7 +11371,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /forgotPassword:
     post:
       requestBody:
@@ -11543,7 +11390,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /resetPassword:
     post:
       requestBody:
@@ -11562,7 +11409,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /manage/2fa:
     post:
       requestBody:
@@ -11587,7 +11434,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /manage/info:
     get:
       responses:
@@ -11606,7 +11453,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
     post:
       requestBody:
         content:
@@ -11630,7 +11477,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /Account/PerformExternalLogin:
     post:
       requestBody:
@@ -11655,7 +11502,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /Account/Logout:
     post:
       requestBody:
@@ -11676,7 +11523,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /Account/Manage/LinkExternalLogin:
     post:
       requestBody:
@@ -11697,14 +11544,14 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /Account/Manage/DownloadPersonalData:
     post:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /api/v2/AccountingService/FinancialBooks:
     get:
       description: Retrieves all financial books for the specified tenant using OData
@@ -17366,6 +17213,124 @@ paths:
       summary: Update an invoice enumeration range
       tags:
       - InvoiceEnumerationRanges
+  /api/v2/AccountingService/JournalEntries/Incomes/Sum:
+    get:
+      description: "Returns SUM(JournalEntry.Credit) for Credit-direction journal\
+        \ entries in the tenant, filtered by the supplied OData date range."
+      operationId: GetIncomesSumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Sum tenant incomes
+      tags:
+      - JournalEntries
+  /api/v2/AccountingService/JournalEntries/Expenses/Sum:
+    get:
+      description: "Returns SUM(JournalEntry.Debit) for Debit-direction journal entries\
+        \ in the tenant, filtered by the supplied OData date range."
+      operationId: GetExpensesSumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Sum tenant expenses
+      tags:
+      - JournalEntries
   /api/v2/AccountingService/Journals:
     get:
       description: Retrieves all journals for the specified tenant.
@@ -22038,6 +22003,65 @@ paths:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
       summary: Gets the current tenant share issuances count
+      tags:
+      - Shares
+  /api/v2/AccountingService/Shares/Issuances/Sum:
+    get:
+      description: "Returns SUM(ShareIssuance.Quantity) for the tenant, filtered by\
+        \ the supplied OData date range."
+      operationId: GetShareIssuancesSum
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+          description: OK
+      summary: Sum tenant share issuance quantities
       tags:
       - Shares
   /api/v2/AccountingService/Shares/Issuances/{issuanceId}:
@@ -30247,29 +30271,34 @@ components:
     BillingProfileCreateDto:
       additionalProperties: false
       example:
+        establishmentCode: establishmentCode
+        fiscalRegimeId: fiscalRegimeId
+        postalCode: postalCode
+        fiscalIdentificationTypeId: fiscalIdentificationTypeId
+        businessName: businessName
+        fiscalAuthorityId: fiscalAuthorityId
+        economicActivityScheme: economicActivityScheme
+        cityId: cityId
+        isFactaCustomer: true
+        countryId: countryId
+        economicActivityCode: economicActivityCode
+        isPrimary: true
+        isPublicCompany: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        commercialName: commercialName
+        verificationDigit: verificationDigit
         ticker: ticker
         address: address
         contactId: contactId
         address2: address2
         address1: address1
         taxPayerType: Individual
-        fiscalRegimeId: fiscalRegimeId
-        postalCode: postalCode
         stateId: stateId
-        fiscalIdentificationTypeId: fiscalIdentificationTypeId
-        businessName: businessName
-        fiscalAuthorityId: fiscalAuthorityId
-        cityId: cityId
-        isFactaCustomer: true
-        countryId: countryId
         phone: phone
         taxId: taxId
         duns: duns
-        isPublicCompany: true
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        email: email
-        timestamp: 2000-01-23T04:56:07.000+00:00
-        commercialName: commercialName
       properties:
         id:
           format: uuid
@@ -30306,6 +30335,21 @@ components:
           type: string
         commercialName:
           minLength: 1
+          type: string
+        verificationDigit:
+          nullable: true
+          type: string
+        economicActivityCode:
+          nullable: true
+          type: string
+        economicActivityScheme:
+          nullable: true
+          type: string
+        isPrimary:
+          nullable: true
+          type: boolean
+        establishmentCode:
+          nullable: true
           type: string
         ticker:
           nullable: true
@@ -30359,14 +30403,17 @@ components:
       additionalProperties: false
       example:
         data: data
+        establishmentCode: establishmentCode
         postalCode: postalCode
         fiscalIdentificationTypeId: fiscalIdentificationTypeId
         about: about
         data8Label: data8Label
         businessName: businessName
+        economicActivityScheme: economicActivityScheme
         cityId: cityId
         type: type
         isFactaCustomer: true
+        economicActivityCode: economicActivityCode
         contact:
           streetLine2: streetLine2
           zipCode: zipCode
@@ -30449,11 +30496,13 @@ components:
         fiscalRegimeId: fiscalRegimeId
         fiscalAuthorityId: fiscalAuthorityId
         countryId: countryId
+        isPrimary: true
         data5Label: data5Label
         email: email
         timestamp: 2000-01-23T04:56:07.000+00:00
         commercialName: commercialName
         data9: data9
+        verificationDigit: verificationDigit
         data8: data8
         fiscalAuthorityName: fiscalAuthorityName
         data7: data7
@@ -30600,6 +30649,21 @@ components:
         commercialName:
           nullable: true
           type: string
+        verificationDigit:
+          nullable: true
+          type: string
+        economicActivityCode:
+          nullable: true
+          type: string
+        economicActivityScheme:
+          nullable: true
+          type: string
+        isPrimary:
+          nullable: true
+          type: boolean
+        establishmentCode:
+          nullable: true
+          type: string
         ticker:
           nullable: true
           type: string
@@ -30652,14 +30716,17 @@ components:
       example:
         result:
           data: data
+          establishmentCode: establishmentCode
           postalCode: postalCode
           fiscalIdentificationTypeId: fiscalIdentificationTypeId
           about: about
           data8Label: data8Label
           businessName: businessName
+          economicActivityScheme: economicActivityScheme
           cityId: cityId
           type: type
           isFactaCustomer: true
+          economicActivityCode: economicActivityCode
           contact:
             streetLine2: streetLine2
             zipCode: zipCode
@@ -30742,11 +30809,13 @@ components:
           fiscalRegimeId: fiscalRegimeId
           fiscalAuthorityId: fiscalAuthorityId
           countryId: countryId
+          isPrimary: true
           data5Label: data5Label
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           commercialName: commercialName
           data9: data9
+          verificationDigit: verificationDigit
           data8: data8
           fiscalAuthorityName: fiscalAuthorityName
           data7: data7
@@ -30797,14 +30866,17 @@ components:
       example:
         result:
         - data: data
+          establishmentCode: establishmentCode
           postalCode: postalCode
           fiscalIdentificationTypeId: fiscalIdentificationTypeId
           about: about
           data8Label: data8Label
           businessName: businessName
+          economicActivityScheme: economicActivityScheme
           cityId: cityId
           type: type
           isFactaCustomer: true
+          economicActivityCode: economicActivityCode
           contact:
             streetLine2: streetLine2
             zipCode: zipCode
@@ -30887,11 +30959,13 @@ components:
           fiscalRegimeId: fiscalRegimeId
           fiscalAuthorityId: fiscalAuthorityId
           countryId: countryId
+          isPrimary: true
           data5Label: data5Label
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           commercialName: commercialName
           data9: data9
+          verificationDigit: verificationDigit
           data8: data8
           fiscalAuthorityName: fiscalAuthorityName
           data7: data7
@@ -30912,14 +30986,17 @@ components:
           data6Label: data6Label
           tenantId: tenantId
         - data: data
+          establishmentCode: establishmentCode
           postalCode: postalCode
           fiscalIdentificationTypeId: fiscalIdentificationTypeId
           about: about
           data8Label: data8Label
           businessName: businessName
+          economicActivityScheme: economicActivityScheme
           cityId: cityId
           type: type
           isFactaCustomer: true
+          economicActivityCode: economicActivityCode
           contact:
             streetLine2: streetLine2
             zipCode: zipCode
@@ -31002,11 +31079,13 @@ components:
           fiscalRegimeId: fiscalRegimeId
           fiscalAuthorityId: fiscalAuthorityId
           countryId: countryId
+          isPrimary: true
           data5Label: data5Label
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           commercialName: commercialName
           data9: data9
+          verificationDigit: verificationDigit
           data8: data8
           fiscalAuthorityName: fiscalAuthorityName
           data7: data7
@@ -31058,27 +31137,32 @@ components:
     BillingProfileUpdateDto:
       additionalProperties: false
       example:
+        establishmentCode: establishmentCode
+        fiscalRegimeId: fiscalRegimeId
+        postalCode: postalCode
+        fiscalIdentificationTypeId: fiscalIdentificationTypeId
+        businessName: businessName
+        fiscalAuthorityId: fiscalAuthorityId
+        economicActivityScheme: economicActivityScheme
+        cityId: cityId
+        isFactaCustomer: true
+        countryId: countryId
+        economicActivityCode: economicActivityCode
+        isPrimary: true
+        isPublicCompany: true
+        email: email
+        commercialName: commercialName
+        verificationDigit: verificationDigit
         ticker: ticker
         address: address
         contactId: contactId
         address2: address2
         address1: address1
         taxPayerType: Individual
-        fiscalRegimeId: fiscalRegimeId
-        postalCode: postalCode
         stateId: stateId
-        fiscalIdentificationTypeId: fiscalIdentificationTypeId
-        businessName: businessName
-        fiscalAuthorityId: fiscalAuthorityId
-        cityId: cityId
-        isFactaCustomer: true
-        countryId: countryId
         phone: phone
         taxId: taxId
         duns: duns
-        isPublicCompany: true
-        email: email
-        commercialName: commercialName
       properties:
         contactId:
           nullable: true
@@ -31108,6 +31192,21 @@ components:
           nullable: true
           type: string
         commercialName:
+          nullable: true
+          type: string
+        verificationDigit:
+          nullable: true
+          type: string
+        economicActivityCode:
+          nullable: true
+          type: string
+        economicActivityScheme:
+          nullable: true
+          type: string
+        isPrimary:
+          nullable: true
+          type: boolean
+        establishmentCode:
           nullable: true
           type: string
         ticker:
@@ -32916,6 +33015,37 @@ components:
         country:
           nullable: true
           type: string
+      type: object
+    DecimalEnvelope:
+      additionalProperties: false
+      example:
+        result: 0.8008281904610115
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: double
+          type: number
       type: object
     EmptyEnvelope:
       additionalProperties: false
@@ -38654,7 +38784,9 @@ components:
         countryId: countryId
         zero: true
         isFree: true
+        taxSchemeCode: taxSchemeCode
         percentage: 7.061401241503109
+        taxCategoryCode: taxCategoryCode
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
         value: 2.3021358869347655
@@ -38746,6 +38878,12 @@ components:
           type: boolean
         withholding:
           type: boolean
+        taxSchemeCode:
+          nullable: true
+          type: string
+        taxCategoryCode:
+          nullable: true
+          type: string
         fiscalAuthorityId:
           maxLength: 36
           minLength: 0
@@ -38769,7 +38907,9 @@ components:
         countryId: countryId
         zero: true
         isFree: true
+        taxSchemeCode: taxSchemeCode
         percentage: 7.061401241503109
+        taxCategoryCode: taxCategoryCode
         id: id
         currencyId: currencyId
         value: 2.3021358869347655
@@ -38862,6 +39002,12 @@ components:
           type: boolean
         withholding:
           type: boolean
+        taxSchemeCode:
+          nullable: true
+          type: string
+        taxCategoryCode:
+          nullable: true
+          type: string
         fiscalAuthorityId:
           nullable: true
           type: string
@@ -38884,7 +39030,9 @@ components:
           countryId: countryId
           zero: true
           isFree: true
+          taxSchemeCode: taxSchemeCode
           percentage: 7.061401241503109
+          taxCategoryCode: taxCategoryCode
           id: id
           currencyId: currencyId
           value: 2.3021358869347655
@@ -38943,7 +39091,9 @@ components:
           countryId: countryId
           zero: true
           isFree: true
+          taxSchemeCode: taxSchemeCode
           percentage: 7.061401241503109
+          taxCategoryCode: taxCategoryCode
           id: id
           currencyId: currencyId
           value: 2.3021358869347655
@@ -38972,7 +39122,9 @@ components:
           countryId: countryId
           zero: true
           isFree: true
+          taxSchemeCode: taxSchemeCode
           percentage: 7.061401241503109
+          taxCategoryCode: taxCategoryCode
           id: id
           currencyId: currencyId
           value: 2.3021358869347655
@@ -39033,7 +39185,9 @@ components:
         countryId: countryId
         zero: true
         isFree: true
+        taxSchemeCode: taxSchemeCode
         percentage: 7.061401241503109
+        taxCategoryCode: taxCategoryCode
         currencyId: currencyId
         value: 2.3021358869347655
         reduce: true
@@ -39117,6 +39271,12 @@ components:
           type: boolean
         withholding:
           type: boolean
+        taxSchemeCode:
+          nullable: true
+          type: string
+        taxCategoryCode:
+          nullable: true
+          type: string
         fiscalAuthorityId:
           maxLength: 36
           minLength: 0

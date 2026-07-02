@@ -1,6 +1,6 @@
 # \PriceListsAPI
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**GetPriceListAsync**](PriceListsAPI.md#GetPriceListAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId} | Gets a price list by ID
 [**GetPriceListPriceAsync**](PriceListsAPI.md#GetPriceListPriceAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Gets a price list entry by ID
 [**GetPriceListPricesAsync**](PriceListsAPI.md#GetPriceListPricesAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list
+[**GetPriceListPricesCountAsync**](PriceListsAPI.md#GetPriceListPricesCountAsync) | **Get** /api/v2/PricingService/PriceLists/{priceListId}/Prices/Count | Counts prices in a price list
 [**GetPriceListsAsync**](PriceListsAPI.md#GetPriceListsAsync) | **Get** /api/v2/PricingService/PriceLists | Retrieves all price lists
 [**GetPriceListsCountAsync**](PriceListsAPI.md#GetPriceListsCountAsync) | **Get** /api/v2/PricingService/PriceLists/Count | Counts price lists
 [**PatchPriceListAsync**](PriceListsAPI.md#PatchPriceListAsync) | **Patch** /api/v2/PricingService/PriceLists/{priceListId} | Patches a price list
@@ -515,6 +516,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemPriceDtoListEnvelope**](ItemPriceDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPriceListPricesCountAsync
+
+> Int32Envelope GetPriceListPricesCountAsync(ctx, priceListId).TenantId(tenantId).Execute()
+
+Counts prices in a price list
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PriceListsAPI.GetPriceListPricesCountAsync(context.Background(), priceListId).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.GetPriceListPricesCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPriceListPricesCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `PriceListsAPI.GetPriceListPricesCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**priceListId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPriceListPricesCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 

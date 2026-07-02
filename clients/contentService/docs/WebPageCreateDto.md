@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **FeaturedImageUrl** | Pointer to **NullableString** |  | [optional] 
 **CodeType** | Pointer to **NullableString** |  | [optional] 
 **Slug** | Pointer to **NullableString** |  | [optional] 
+**WebPortalId** | Pointer to **NullableString** |  | [optional] 
 **WebTemplateId** | Pointer to **NullableString** |  | [optional] 
 **ParentWebContentId** | Pointer to **NullableString** |  | [optional] 
 
@@ -341,6 +342,41 @@ HasSlug returns a boolean if a field has been set.
 `func (o *WebPageCreateDto) UnsetSlug()`
 
 UnsetSlug ensures that no value is present for Slug, not even an explicit nil
+### GetWebPortalId
+
+`func (o *WebPageCreateDto) GetWebPortalId() string`
+
+GetWebPortalId returns the WebPortalId field if non-nil, zero value otherwise.
+
+### GetWebPortalIdOk
+
+`func (o *WebPageCreateDto) GetWebPortalIdOk() (*string, bool)`
+
+GetWebPortalIdOk returns a tuple with the WebPortalId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWebPortalId
+
+`func (o *WebPageCreateDto) SetWebPortalId(v string)`
+
+SetWebPortalId sets WebPortalId field to given value.
+
+### HasWebPortalId
+
+`func (o *WebPageCreateDto) HasWebPortalId() bool`
+
+HasWebPortalId returns a boolean if a field has been set.
+
+### SetWebPortalIdNil
+
+`func (o *WebPageCreateDto) SetWebPortalIdNil(b bool)`
+
+ SetWebPortalIdNil sets the value for WebPortalId to be an explicit nil
+
+### UnsetWebPortalId
+`func (o *WebPageCreateDto) UnsetWebPortalId()`
+
+UnsetWebPortalId ensures that no value is present for WebPortalId, not even an explicit nil
 ### GetWebTemplateId
 
 `func (o *WebPageCreateDto) GetWebTemplateId() string`

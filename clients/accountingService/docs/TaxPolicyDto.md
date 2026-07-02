@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **Zero** | Pointer to **bool** |  | [optional] 
 **Reduced** | Pointer to **bool** |  | [optional] 
 **Withholding** | Pointer to **bool** |  | [optional] 
+**TaxSchemeCode** | Pointer to **NullableString** |  | [optional] 
+**TaxCategoryCode** | Pointer to **NullableString** |  | [optional] 
 **FiscalAuthorityId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -883,6 +885,76 @@ SetWithholding sets Withholding field to given value.
 
 HasWithholding returns a boolean if a field has been set.
 
+### GetTaxSchemeCode
+
+`func (o *TaxPolicyDto) GetTaxSchemeCode() string`
+
+GetTaxSchemeCode returns the TaxSchemeCode field if non-nil, zero value otherwise.
+
+### GetTaxSchemeCodeOk
+
+`func (o *TaxPolicyDto) GetTaxSchemeCodeOk() (*string, bool)`
+
+GetTaxSchemeCodeOk returns a tuple with the TaxSchemeCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaxSchemeCode
+
+`func (o *TaxPolicyDto) SetTaxSchemeCode(v string)`
+
+SetTaxSchemeCode sets TaxSchemeCode field to given value.
+
+### HasTaxSchemeCode
+
+`func (o *TaxPolicyDto) HasTaxSchemeCode() bool`
+
+HasTaxSchemeCode returns a boolean if a field has been set.
+
+### SetTaxSchemeCodeNil
+
+`func (o *TaxPolicyDto) SetTaxSchemeCodeNil(b bool)`
+
+ SetTaxSchemeCodeNil sets the value for TaxSchemeCode to be an explicit nil
+
+### UnsetTaxSchemeCode
+`func (o *TaxPolicyDto) UnsetTaxSchemeCode()`
+
+UnsetTaxSchemeCode ensures that no value is present for TaxSchemeCode, not even an explicit nil
+### GetTaxCategoryCode
+
+`func (o *TaxPolicyDto) GetTaxCategoryCode() string`
+
+GetTaxCategoryCode returns the TaxCategoryCode field if non-nil, zero value otherwise.
+
+### GetTaxCategoryCodeOk
+
+`func (o *TaxPolicyDto) GetTaxCategoryCodeOk() (*string, bool)`
+
+GetTaxCategoryCodeOk returns a tuple with the TaxCategoryCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaxCategoryCode
+
+`func (o *TaxPolicyDto) SetTaxCategoryCode(v string)`
+
+SetTaxCategoryCode sets TaxCategoryCode field to given value.
+
+### HasTaxCategoryCode
+
+`func (o *TaxPolicyDto) HasTaxCategoryCode() bool`
+
+HasTaxCategoryCode returns a boolean if a field has been set.
+
+### SetTaxCategoryCodeNil
+
+`func (o *TaxPolicyDto) SetTaxCategoryCodeNil(b bool)`
+
+ SetTaxCategoryCodeNil sets the value for TaxCategoryCode to be an explicit nil
+
+### UnsetTaxCategoryCode
+`func (o *TaxPolicyDto) UnsetTaxCategoryCode()`
+
+UnsetTaxCategoryCode ensures that no value is present for TaxCategoryCode, not even an explicit nil
 ### GetFiscalAuthorityId
 
 `func (o *TaxPolicyDto) GetFiscalAuthorityId() string`

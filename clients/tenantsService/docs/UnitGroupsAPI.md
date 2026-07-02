@@ -1,6 +1,6 @@
 # \UnitGroupsAPI
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -43,7 +43,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	unitCreateDto := *openapiclient.NewUnitCreateDto("Name_example") // UnitCreateDto |  (optional)
@@ -193,8 +193,8 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
+	unitId := "unitId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -272,7 +272,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -348,8 +348,8 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
+	unitId := "unitId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -427,7 +427,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -643,7 +643,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -719,7 +719,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -795,8 +795,8 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
+	unitId := "unitId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
@@ -876,7 +876,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
@@ -954,8 +954,8 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
+	unitId := "unitId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	unitUpdateDto := *openapiclient.NewUnitUpdateDto() // UnitUpdateDto |  (optional)
@@ -1035,7 +1035,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	unitGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	unitGroupId := "unitGroupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	unitGroupUpdateDto := *openapiclient.NewUnitGroupUpdateDto() // UnitGroupUpdateDto |  (optional)

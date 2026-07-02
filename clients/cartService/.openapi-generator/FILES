@@ -4,8 +4,7 @@ README.md
 api/openapi.yaml
 api_carts.go
 api_compare.go
-api_completions.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_records.go
 api_wish_lists.go
 client.go
@@ -18,7 +17,6 @@ docs/CartDtoEnvelope.md
 docs/CartUpdateRequest.md
 docs/CartsAPI.md
 docs/CompareAPI.md
-docs/CompletionsAPI.md
 docs/CountryDto.md
 docs/CountryDtoEnvelope.md
 docs/CountrySwitchRequest.md
@@ -27,7 +25,7 @@ docs/CurrencyDtoEnvelope.md
 docs/CurrencySwitchRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md

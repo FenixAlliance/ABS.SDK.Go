@@ -9,19 +9,27 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: SystemService
-  version: 2.1.2.5532
+  version: 2.0.0.0
 servers:
-- url: /
+- description: Alliance Business Suite API
+  url: "{server}"
+  variables:
+    server:
+      default: https://absuite.net
+      description: ABS instance base URL
+      enum:
+      - https://absuite.net
+      - https://test.absuite.net
+      - https://dev.absuite.net
+      - https://localhost:44388
 tags:
 - name: Antiforgery
 - name: BusinessDomains
 - name: Carts
-- name: Completions
 - name: ContactOptions
 - name: Emails
-- name: FenixAlliance.Portals.Website
+- name: FenixAlliance.ABS.Web
 - name: IPLookups
-- name: Licenses
 - name: Licensing
 - name: Migrations
 - name: Modules
@@ -585,288 +593,6 @@ paths:
       summary: Retrieve a single system cart by its ID
       tags:
       - Carts
-  /api/v2/AiService/Completions/Complete:
-    get:
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: conversationId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: message
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "403":
-          content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          description: OK
-      tags:
-      - Completions
   /api/v2/SystemService/Contacts/{contactId}/Options:
     get:
       description: Admin endpoint to retrieve options for any contact
@@ -1460,21 +1186,21 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /health:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /hello:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /register:
     post:
       requestBody:
@@ -1493,7 +1219,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /login:
     post:
       parameters:
@@ -1525,7 +1251,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /refresh:
     post:
       requestBody:
@@ -1542,7 +1268,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /confirmEmail:
     get:
       operationId: MapIdentityApi-/confirmEmail
@@ -1572,7 +1298,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /resendConfirmationEmail:
     post:
       requestBody:
@@ -1585,7 +1311,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /forgotPassword:
     post:
       requestBody:
@@ -1604,7 +1330,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /resetPassword:
     post:
       requestBody:
@@ -1623,7 +1349,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /manage/2fa:
     post:
       requestBody:
@@ -1648,7 +1374,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /manage/info:
     get:
       responses:
@@ -1667,7 +1393,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
     post:
       requestBody:
         content:
@@ -1691,7 +1417,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /Account/PerformExternalLogin:
     post:
       requestBody:
@@ -1716,7 +1442,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /Account/Logout:
     post:
       requestBody:
@@ -1737,7 +1463,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /Account/Manage/LinkExternalLogin:
     post:
       requestBody:
@@ -1758,14 +1484,14 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /Account/Manage/DownloadPersonalData:
     post:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
   /api/v2/SystemService/IPLookups:
     get:
       description: Retrieve a list of all IP lookups in the system
@@ -1981,258 +1707,6 @@ paths:
       summary: Retrieve a single system IP lookup by its ID
       tags:
       - IPLookups
-  /api/Licensing/Licenses/Validate:
-    get:
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LicenseKey'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/LicenseKey'
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BooleanEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/BooleanEnvelope'
-          description: OK
-      tags:
-      - Licenses
-  /api/Licensing/Licenses/Validate/Errors:
-    get:
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LicenseKey'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/LicenseKey'
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LicenseValidationErrorListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/LicenseValidationErrorListEnvelope'
-          description: OK
-      tags:
-      - Licenses
-  /api/Licensing/Licenses/Validate/Attributes:
-    get:
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LicenseKey'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/LicenseKey'
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LicenseAttributesListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/LicenseAttributesListEnvelope'
-          description: OK
-      tags:
-      - Licenses
-  /api/Licensing/Licenses/Generate:
-    post:
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LicenseKeyRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/LicenseKeyRequest'
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StringEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/StringEnvelope'
-          description: OK
-      tags:
-      - Licenses
   /api/v2/SystemService/Licensing/Licenses:
     get:
       description: "Retrieves a list of suite licenses, optionally filtered by tenant."
@@ -8335,19 +7809,6 @@ components:
       - expiresIn
       - refreshToken
       type: object
-    AdditionalAttribute:
-      additionalProperties: false
-      example:
-        value: value
-        key: key
-      properties:
-        key:
-          nullable: true
-          type: string
-        value:
-          nullable: true
-          type: string
-      type: object
     BooleanEnvelope:
       additionalProperties: false
       example:
@@ -8905,6 +8366,7 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
         avatarUrl: avatarUrl
         qualifiedName: qualifiedName
+        kind: Organization
         cartId: cartId
         stateId: stateId
         languageId: languageId
@@ -8933,6 +8395,11 @@ components:
         qualifiedName:
           nullable: true
           readOnly: true
+          type: string
+        kind:
+          enum:
+          - Organization
+          - Individual
           type: string
         taxId:
           nullable: true
@@ -9128,6 +8595,7 @@ components:
             timestamp: 2000-01-23T04:56:07.000+00:00
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
+          kind: Organization
           cartId: cartId
           stateId: stateId
           languageId: languageId
@@ -9222,6 +8690,7 @@ components:
             timestamp: 2000-01-23T04:56:07.000+00:00
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
+          kind: Organization
           cartId: cartId
           stateId: stateId
           languageId: languageId
@@ -10292,190 +9761,6 @@ components:
           format: int32
           type: integer
       type: object
-    LicenseAttributes:
-      additionalProperties: false
-      type: object
-    LicenseAttributesListEnvelope:
-      additionalProperties: false
-      example:
-        result:
-        - null
-        - null
-        activityId: activityId
-        errorMessage: errorMessage
-        correlationId: correlationId
-        isSuccess: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        isSuccess:
-          readOnly: true
-          type: boolean
-        errorMessage:
-          nullable: true
-          type: string
-        correlationId:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        activityId:
-          nullable: true
-          readOnly: true
-          type: string
-        result:
-          items:
-            $ref: '#/components/schemas/LicenseAttributes'
-          nullable: true
-          type: array
-      type: object
-    LicenseFeature:
-      additionalProperties: false
-      example:
-        value: value
-        key: key
-      properties:
-        key:
-          nullable: true
-          type: string
-        value:
-          nullable: true
-          type: string
-      type: object
-    LicenseKey:
-      additionalProperties: false
-      example:
-        key: key
-      properties:
-        key:
-          nullable: true
-          type: string
-      type: object
-    LicenseKeyRequest:
-      additionalProperties: false
-      example:
-        enrollmentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        licenseType: Trial
-        features:
-        - value: value
-          key: key
-        - value: value
-          key: key
-        orderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        paymentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        entitlementId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        invoiceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        seats: 0
-        expirationDate: 2000-01-23T04:56:07.000+00:00
-        additionalAttributes:
-        - value: value
-          key: key
-        - value: value
-          key: key
-      properties:
-        userId:
-          format: uuid
-          type: string
-        tenantId:
-          format: uuid
-          nullable: true
-          type: string
-        orderId:
-          format: uuid
-          nullable: true
-          type: string
-        paymentId:
-          format: uuid
-          nullable: true
-          type: string
-        invoiceId:
-          format: uuid
-          nullable: true
-          type: string
-        enrollmentId:
-          format: uuid
-          nullable: true
-          type: string
-        entitlementId:
-          format: uuid
-          nullable: true
-          type: string
-        seats:
-          format: int32
-          type: integer
-        licenseType:
-          enum:
-          - Trial
-          - Standard
-          - Enterprise
-          type: string
-        expirationDate:
-          format: date-time
-          type: string
-        features:
-          items:
-            $ref: '#/components/schemas/LicenseFeature'
-          nullable: true
-          type: array
-        additionalAttributes:
-          items:
-            $ref: '#/components/schemas/AdditionalAttribute'
-          nullable: true
-          type: array
-      type: object
-    LicenseValidationError:
-      additionalProperties: false
-      example:
-        howToResolve: howToResolve
-        message: message
-      properties:
-        message:
-          nullable: true
-          type: string
-        howToResolve:
-          nullable: true
-          type: string
-      type: object
-    LicenseValidationErrorListEnvelope:
-      additionalProperties: false
-      example:
-        result:
-        - howToResolve: howToResolve
-          message: message
-        - howToResolve: howToResolve
-          message: message
-        activityId: activityId
-        errorMessage: errorMessage
-        correlationId: correlationId
-        isSuccess: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        isSuccess:
-          readOnly: true
-          type: boolean
-        errorMessage:
-          nullable: true
-          type: string
-        correlationId:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        activityId:
-          nullable: true
-          readOnly: true
-          type: string
-        result:
-          items:
-            $ref: '#/components/schemas/LicenseValidationError'
-          nullable: true
-          type: array
-      type: object
     LicenseValidationRequest:
       additionalProperties: false
       example:
@@ -11409,37 +10694,6 @@ components:
           nullable: true
           type: string
       type: object
-    StringEnvelope:
-      additionalProperties: false
-      example:
-        result: result
-        activityId: activityId
-        errorMessage: errorMessage
-        correlationId: correlationId
-        isSuccess: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        isSuccess:
-          readOnly: true
-          type: boolean
-        errorMessage:
-          nullable: true
-          type: string
-        correlationId:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        activityId:
-          nullable: true
-          readOnly: true
-          type: string
-        result:
-          nullable: true
-          type: string
-      type: object
     StringListEnvelope:
       additionalProperties: false
       example:
@@ -11870,6 +11124,7 @@ components:
       example:
         handler: handler
         avatarUrl: https://openapi-generator.tech
+        kind: Organization
         stateId: stateId
         about: about
         languageId: languageId
@@ -11897,6 +11152,11 @@ components:
           type: string
         timestamp:
           format: date-time
+          type: string
+        kind:
+          enum:
+          - Organization
+          - Individual
           type: string
         name:
           maxLength: 100
@@ -12006,6 +11266,7 @@ components:
         linkedInUrl: linkedInUrl
         avatarUrl: avatarUrl
         qualifiedName: qualifiedName
+        kind: Organization
         cartId: cartId
         stateId: stateId
         languageId: languageId
@@ -12034,6 +11295,11 @@ components:
         qualifiedName:
           nullable: true
           readOnly: true
+          type: string
+        kind:
+          enum:
+          - Organization
+          - Individual
           type: string
         taxId:
           nullable: true
@@ -12167,6 +11433,7 @@ components:
           linkedInUrl: linkedInUrl
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
+          kind: Organization
           cartId: cartId
           stateId: stateId
           languageId: languageId
@@ -12235,6 +11502,7 @@ components:
           linkedInUrl: linkedInUrl
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
+          kind: Organization
           cartId: cartId
           stateId: stateId
           languageId: languageId
@@ -12273,6 +11541,7 @@ components:
           linkedInUrl: linkedInUrl
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
+          kind: Organization
           cartId: cartId
           stateId: stateId
           languageId: languageId
@@ -12336,6 +11605,7 @@ components:
         gitHubUrl: gitHubUrl
         linkedInUrl: linkedInUrl
         avatarUrl: https://openapi-generator.tech
+        kind: Organization
         stateId: stateId
         languageId: languageId
         twitterUsername: twitterUsername
@@ -12349,6 +11619,12 @@ components:
         slogan: slogan
         youTubeUrl: youTubeUrl
       properties:
+        kind:
+          enum:
+          - Organization
+          - Individual
+          nullable: true
+          type: string
         name:
           maxLength: 100
           minLength: 1

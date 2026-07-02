@@ -3,9 +3,8 @@
 README.md
 api/openapi.yaml
 api_airway_bills.go
-api_completions.go
 api_delivery_notes.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_item_packing_slips.go
 api_item_pick_lists.go
 api_item_restocks.go
@@ -30,7 +29,7 @@ docs/AirwayBillDtoEnvelope.md
 docs/AirwayBillDtoListEnvelope.md
 docs/AirwayBillUpdateDto.md
 docs/AirwayBillsAPI.md
-docs/CompletionsAPI.md
+docs/ContactCreateDto.md
 docs/ContactDto.md
 docs/DeliveryNoteCreateDto.md
 docs/DeliveryNoteDto.md
@@ -41,7 +40,7 @@ docs/DeliveryNotesAPI.md
 docs/DisputeProofOfDeliveryRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -187,6 +186,7 @@ model_airway_bill_dto.go
 model_airway_bill_dto_envelope.go
 model_airway_bill_dto_list_envelope.go
 model_airway_bill_update_dto.go
+model_contact_create_dto.go
 model_contact_dto.go
 model_delivery_note_create_dto.go
 model_delivery_note_dto.go

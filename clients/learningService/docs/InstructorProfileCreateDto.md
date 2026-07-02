@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Type** | Pointer to **NullableString** |  | [optional] 
 **ContactId** | Pointer to **NullableString** |  | [optional] 
+**Contact** | Pointer to [**ContactCreateDto**](ContactCreateDto.md) |  | [optional] 
 **About** | Pointer to **NullableString** |  | [optional] 
 **AvatarUrl** | Pointer to **NullableString** |  | [optional] 
 **Data** | Pointer to **NullableString** |  | [optional] 
@@ -171,6 +172,31 @@ HasContactId returns a boolean if a field has been set.
 `func (o *InstructorProfileCreateDto) UnsetContactId()`
 
 UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
+### GetContact
+
+`func (o *InstructorProfileCreateDto) GetContact() ContactCreateDto`
+
+GetContact returns the Contact field if non-nil, zero value otherwise.
+
+### GetContactOk
+
+`func (o *InstructorProfileCreateDto) GetContactOk() (*ContactCreateDto, bool)`
+
+GetContactOk returns a tuple with the Contact field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContact
+
+`func (o *InstructorProfileCreateDto) SetContact(v ContactCreateDto)`
+
+SetContact sets Contact field to given value.
+
+### HasContact
+
+`func (o *InstructorProfileCreateDto) HasContact() bool`
+
+HasContact returns a boolean if a field has been set.
+
 ### GetAbout
 
 `func (o *InstructorProfileCreateDto) GetAbout() string`

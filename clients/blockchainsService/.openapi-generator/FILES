@@ -3,8 +3,7 @@
 README.md
 api/openapi.yaml
 api_blockchains.go
-api_completions.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_non_fungible_tokens.go
 client.go
 configuration.go
@@ -33,7 +32,6 @@ docs/CancellationToken.md
 docs/Claim.md
 docs/ClaimsIdentity.md
 docs/ClaimsPrincipal.md
-docs/CompletionsAPI.md
 docs/ComputeClause.md
 docs/ComputeExpression.md
 docs/ComputeQueryOption.md
@@ -49,7 +47,7 @@ docs/EdmReferentialConstraintPropertyPair.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/EventInfo.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/FieldInfo.md
 docs/FilterClause.md
 docs/FilterQueryOption.md
@@ -276,4 +274,5 @@ model_x500_distinguished_name.go
 model_x509_certificate2.go
 model_x509_extension.go
 response.go
+test/api_fenix_alliance_abs_web_test.go
 utils.go

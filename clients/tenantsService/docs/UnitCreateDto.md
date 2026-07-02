@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **BaseUnitAmount** | Pointer to **float64** |  | [optional] 
 **BaseUnitId** | Pointer to **NullableString** |  | [optional] 
+**UnECECode** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -159,6 +160,41 @@ HasBaseUnitId returns a boolean if a field has been set.
 `func (o *UnitCreateDto) UnsetBaseUnitId()`
 
 UnsetBaseUnitId ensures that no value is present for BaseUnitId, not even an explicit nil
+### GetUnECECode
+
+`func (o *UnitCreateDto) GetUnECECode() string`
+
+GetUnECECode returns the UnECECode field if non-nil, zero value otherwise.
+
+### GetUnECECodeOk
+
+`func (o *UnitCreateDto) GetUnECECodeOk() (*string, bool)`
+
+GetUnECECodeOk returns a tuple with the UnECECode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnECECode
+
+`func (o *UnitCreateDto) SetUnECECode(v string)`
+
+SetUnECECode sets UnECECode field to given value.
+
+### HasUnECECode
+
+`func (o *UnitCreateDto) HasUnECECode() bool`
+
+HasUnECECode returns a boolean if a field has been set.
+
+### SetUnECECodeNil
+
+`func (o *UnitCreateDto) SetUnECECodeNil(b bool)`
+
+ SetUnECECodeNil sets the value for UnECECode to be an explicit nil
+
+### UnsetUnECECode
+`func (o *UnitCreateDto) UnsetUnECECode()`
+
+UnsetUnECECode ensures that no value is present for UnECECode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

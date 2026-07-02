@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
+**PaymentMeansCode** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -133,6 +134,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *PaymentModeCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetPaymentMeansCode
+
+`func (o *PaymentModeCreateDto) GetPaymentMeansCode() string`
+
+GetPaymentMeansCode returns the PaymentMeansCode field if non-nil, zero value otherwise.
+
+### GetPaymentMeansCodeOk
+
+`func (o *PaymentModeCreateDto) GetPaymentMeansCodeOk() (*string, bool)`
+
+GetPaymentMeansCodeOk returns a tuple with the PaymentMeansCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentMeansCode
+
+`func (o *PaymentModeCreateDto) SetPaymentMeansCode(v string)`
+
+SetPaymentMeansCode sets PaymentMeansCode field to given value.
+
+### HasPaymentMeansCode
+
+`func (o *PaymentModeCreateDto) HasPaymentMeansCode() bool`
+
+HasPaymentMeansCode returns a boolean if a field has been set.
+
+### SetPaymentMeansCodeNil
+
+`func (o *PaymentModeCreateDto) SetPaymentMeansCodeNil(b bool)`
+
+ SetPaymentMeansCodeNil sets the value for PaymentMeansCode to be an explicit nil
+
+### UnsetPaymentMeansCode
+`func (o *PaymentModeCreateDto) UnsetPaymentMeansCode()`
+
+UnsetPaymentMeansCode ensures that no value is present for PaymentMeansCode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

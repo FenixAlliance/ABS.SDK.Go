@@ -1,6 +1,6 @@
 # \InvoicesAPI
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -40,6 +40,8 @@ Method | HTTP request | Description
 [**GetInvoiceReferencesCount**](InvoicesAPI.md#GetInvoiceReferencesCount) | **Get** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | Get the count of invoice references.
 [**GetInvoices**](InvoicesAPI.md#GetInvoices) | **Get** /api/v2/InvoicingService/Invoices | Get a list of invoices.
 [**GetInvoicesCount**](InvoicesAPI.md#GetInvoicesCount) | **Get** /api/v2/InvoicingService/Invoices/Count | Get the count of invoices.
+[**GetPurchaseInvoicesSum**](InvoicesAPI.md#GetPurchaseInvoicesSum) | **Get** /api/v2/InvoicingService/Invoices/PurchaseInvoices/Sum | Sum tenant purchase-invoice totals.
+[**GetSalesInvoicesSum**](InvoicesAPI.md#GetSalesInvoicesSum) | **Get** /api/v2/InvoicingService/Invoices/SalesInvoices/Sum | Sum tenant sales-invoice totals.
 [**PatchInvoice**](InvoicesAPI.md#PatchInvoice) | **Patch** /api/v2/InvoicingService/Invoices/{invoiceId} | Patch an invoice.
 [**PatchInvoiceAdjustment**](InvoicesAPI.md#PatchInvoiceAdjustment) | **Patch** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Patch an invoice adjustment.
 [**PatchInvoiceLine**](InvoicesAPI.md#PatchInvoiceLine) | **Patch** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Patch an invoice line.
@@ -2640,6 +2642,138 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPurchaseInvoicesSum
+
+> DecimalEnvelope GetPurchaseInvoicesSum(ctx).TenantId(tenantId).Execute()
+
+Sum tenant purchase-invoice totals.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InvoicesAPI.GetPurchaseInvoicesSum(context.Background()).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetPurchaseInvoicesSum``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPurchaseInvoicesSum`: DecimalEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `InvoicesAPI.GetPurchaseInvoicesSum`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPurchaseInvoicesSumRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+### Return type
+
+[**DecimalEnvelope**](DecimalEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSalesInvoicesSum
+
+> DecimalEnvelope GetSalesInvoicesSum(ctx).TenantId(tenantId).Execute()
+
+Sum tenant sales-invoice totals.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InvoicesAPI.GetSalesInvoicesSum(context.Background()).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetSalesInvoicesSum``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSalesInvoicesSum`: DecimalEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `InvoicesAPI.GetSalesInvoicesSum`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSalesInvoicesSumRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+### Return type
+
+[**DecimalEnvelope**](DecimalEnvelope.md)
 
 ### Authorization
 

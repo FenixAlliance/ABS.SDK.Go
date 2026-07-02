@@ -3,8 +3,7 @@
 README.md
 api/openapi.yaml
 api_applications.go
-api_completions.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_logs.go
 api_o_auth_applications.go
 api_permissions.go
@@ -25,10 +24,9 @@ docs/BusinessApplicationSimpleDtoListEnvelope.md
 docs/BusinessApplicationUpdateDto.md
 docs/BusinessSecurityLogDto.md
 docs/BusinessSecurityLogDtoListEnvelope.md
-docs/CompletionsAPI.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md

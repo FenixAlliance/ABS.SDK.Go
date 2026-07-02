@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
 **Remote** | Pointer to **bool** |  | [optional] 
 **ExpectedHireDate** | Pointer to **time.Time** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
@@ -146,6 +147,31 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *JobOfferDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+### GetStatus
+
+`func (o *JobOfferDto) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *JobOfferDto) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *JobOfferDto) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *JobOfferDto) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
 ### GetRemote
 
 `func (o *JobOfferDto) GetRemote() bool`

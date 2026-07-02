@@ -2,7 +2,6 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_completions.go
 api_course_articles.go
 api_course_assignment_components.go
 api_course_assignment_types.go
@@ -26,7 +25,7 @@ api_course_units.go
 api_course_updates.go
 api_course_wikis.go
 api_courses.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_instructor_profiles.go
 api_me.go
 api_student_profiles.go
@@ -35,7 +34,7 @@ configuration.go
 docs/AccessTokenResponse.md
 docs/AverageDto.md
 docs/AverageDtoEnvelope.md
-docs/CompletionsAPI.md
+docs/ContactCreateDto.md
 docs/ContactDto.md
 docs/CountDto.md
 docs/CountDtoEnvelope.md
@@ -139,7 +138,7 @@ docs/CourseWikisAPI.md
 docs/CoursesAPI.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -169,6 +168,7 @@ go.sum
 model_access_token_response.go
 model_average_dto.go
 model_average_dto_envelope.go
+model_contact_create_dto.go
 model_contact_dto.go
 model_count_dto.go
 model_count_dto_envelope.go

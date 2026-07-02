@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Message** | **string** |  | 
+**BodyHtml** | Pointer to **NullableString** |  | [optional] 
+**BodyFormat** | Pointer to **NullableString** |  | [optional] 
 **ParentCommentId** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 **SocialFeedPostId** | Pointer to **NullableString** |  | [optional] 
@@ -101,6 +103,76 @@ and a boolean to check if the value has been set.
 SetMessage sets Message field to given value.
 
 
+### GetBodyHtml
+
+`func (o *SocialPostCommentCreateDto) GetBodyHtml() string`
+
+GetBodyHtml returns the BodyHtml field if non-nil, zero value otherwise.
+
+### GetBodyHtmlOk
+
+`func (o *SocialPostCommentCreateDto) GetBodyHtmlOk() (*string, bool)`
+
+GetBodyHtmlOk returns a tuple with the BodyHtml field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBodyHtml
+
+`func (o *SocialPostCommentCreateDto) SetBodyHtml(v string)`
+
+SetBodyHtml sets BodyHtml field to given value.
+
+### HasBodyHtml
+
+`func (o *SocialPostCommentCreateDto) HasBodyHtml() bool`
+
+HasBodyHtml returns a boolean if a field has been set.
+
+### SetBodyHtmlNil
+
+`func (o *SocialPostCommentCreateDto) SetBodyHtmlNil(b bool)`
+
+ SetBodyHtmlNil sets the value for BodyHtml to be an explicit nil
+
+### UnsetBodyHtml
+`func (o *SocialPostCommentCreateDto) UnsetBodyHtml()`
+
+UnsetBodyHtml ensures that no value is present for BodyHtml, not even an explicit nil
+### GetBodyFormat
+
+`func (o *SocialPostCommentCreateDto) GetBodyFormat() string`
+
+GetBodyFormat returns the BodyFormat field if non-nil, zero value otherwise.
+
+### GetBodyFormatOk
+
+`func (o *SocialPostCommentCreateDto) GetBodyFormatOk() (*string, bool)`
+
+GetBodyFormatOk returns a tuple with the BodyFormat field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBodyFormat
+
+`func (o *SocialPostCommentCreateDto) SetBodyFormat(v string)`
+
+SetBodyFormat sets BodyFormat field to given value.
+
+### HasBodyFormat
+
+`func (o *SocialPostCommentCreateDto) HasBodyFormat() bool`
+
+HasBodyFormat returns a boolean if a field has been set.
+
+### SetBodyFormatNil
+
+`func (o *SocialPostCommentCreateDto) SetBodyFormatNil(b bool)`
+
+ SetBodyFormatNil sets the value for BodyFormat to be an explicit nil
+
+### UnsetBodyFormat
+`func (o *SocialPostCommentCreateDto) UnsetBodyFormat()`
+
+UnsetBodyFormat ensures that no value is present for BodyFormat, not even an explicit nil
 ### GetParentCommentId
 
 `func (o *SocialPostCommentCreateDto) GetParentCommentId() string`

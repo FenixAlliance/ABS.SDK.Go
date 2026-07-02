@@ -3,6 +3,7 @@
 README.md
 api/openapi.yaml
 api_account_groups.go
+api_accounting_entries.go
 api_accounting_periods.go
 api_accounts.go
 api_bank_profiles.go
@@ -11,11 +12,10 @@ api_billable_line_taxes.go
 api_billing_profiles.go
 api_budgets.go
 api_commissions.go
-api_completions.go
 api_cost_centres.go
 api_expense_claims.go
 api_expense_types.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_financial_books.go
 api_fiscal_authorities.go
 api_fiscal_authority_years.go
@@ -28,6 +28,7 @@ api_fiscal_responsibility_records.go
 api_fiscal_years.go
 api_grants.go
 api_invoice_enumeration_ranges.go
+api_journal_entries.go
 api_journal_types.go
 api_journals.go
 api_ledger_types.go
@@ -63,6 +64,7 @@ docs/AccountTypeDtoEnvelope.md
 docs/AccountTypeDtoListEnvelope.md
 docs/AccountTypeUpdateDto.md
 docs/AccountUpdateDto.md
+docs/AccountingEntriesAPI.md
 docs/AccountingEntryCreateDto.md
 docs/AccountingEntryDto.md
 docs/AccountingEntryDtoEnvelope.md
@@ -134,7 +136,6 @@ docs/CommissionDtoEnvelope.md
 docs/CommissionDtoListEnvelope.md
 docs/CommissionUpdateDto.md
 docs/CommissionsAPI.md
-docs/CompletionsAPI.md
 docs/ContactDto.md
 docs/CostCentreBudgetCreateDto.md
 docs/CostCentreBudgetDto.md
@@ -154,6 +155,7 @@ docs/CostCentreUpdateDto.md
 docs/CostCentresAPI.md
 docs/CreateLedgerDto.md
 docs/CurrencyId.md
+docs/DecimalEnvelope.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/ExpenseClaimCreateDto.md
@@ -168,7 +170,7 @@ docs/ExpenseTypeDtoEnvelope.md
 docs/ExpenseTypeDtoListEnvelope.md
 docs/ExpenseTypeUpdateDto.md
 docs/ExpenseTypesAPI.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/FinancialBookCreateDto.md
 docs/FinancialBookDto.md
 docs/FinancialBookDtoEnvelope.md
@@ -245,6 +247,7 @@ docs/JournalCreateDto.md
 docs/JournalDto.md
 docs/JournalDtoEnvelope.md
 docs/JournalDtoIReadOnlyListEnvelope.md
+docs/JournalEntriesAPI.md
 docs/JournalEntryCreateDto.md
 docs/JournalEntryDto.md
 docs/JournalEntryDtoIReadOnlyListEnvelope.md
@@ -460,6 +463,7 @@ model_cost_centre_group_update_dto.go
 model_cost_centre_update_dto.go
 model_create_ledger_dto.go
 model_currency_id.go
+model_decimal_envelope.go
 model_empty_envelope.go
 model_error_envelope.go
 model_expense_claim_create_dto.go
@@ -636,4 +640,6 @@ model_two_factor_request.go
 model_two_factor_response.go
 model_update_ledger_dto.go
 response.go
+test/api_accounting_entries_test.go
+test/api_journal_entries_test.go
 utils.go

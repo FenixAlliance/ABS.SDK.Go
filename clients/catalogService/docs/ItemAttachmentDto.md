@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **Hash** | Pointer to **NullableString** |  | [optional] 
 **FileUrl** | Pointer to **NullableString** |  | [optional] 
 **FilePath** | Pointer to **NullableString** |  | [optional] 
+**StorageKey** | Pointer to **NullableString** |  | [optional] 
+**StorageProviderKey** | Pointer to **NullableString** |  | [optional] 
 **FileName** | Pointer to **NullableString** |  | [optional] 
 **Abstract** | Pointer to **NullableString** |  | [optional] 
 **KeyWords** | Pointer to **NullableString** |  | [optional] 
@@ -26,6 +28,14 @@ Name | Type | Description | Notes
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 **FolderPath** | Pointer to **NullableString** |  | [optional] 
+**ScanStatus** | Pointer to **string** |  | [optional] 
+**ThumbnailStatus** | Pointer to **string** |  | [optional] 
+**HasThumbnail** | Pointer to **bool** |  | [optional] [readonly] 
+**ThumbnailStorageKey** | Pointer to **NullableString** |  | [optional] 
+**ThumbnailContentType** | Pointer to **NullableString** |  | [optional] 
+**ThumbnailWidth** | Pointer to **int32** |  | [optional] 
+**ThumbnailHeight** | Pointer to **int32** |  | [optional] 
+**PublicAccessType** | Pointer to **string** |  | [optional] 
 **ItemId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -352,6 +362,76 @@ HasFilePath returns a boolean if a field has been set.
 `func (o *ItemAttachmentDto) UnsetFilePath()`
 
 UnsetFilePath ensures that no value is present for FilePath, not even an explicit nil
+### GetStorageKey
+
+`func (o *ItemAttachmentDto) GetStorageKey() string`
+
+GetStorageKey returns the StorageKey field if non-nil, zero value otherwise.
+
+### GetStorageKeyOk
+
+`func (o *ItemAttachmentDto) GetStorageKeyOk() (*string, bool)`
+
+GetStorageKeyOk returns a tuple with the StorageKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageKey
+
+`func (o *ItemAttachmentDto) SetStorageKey(v string)`
+
+SetStorageKey sets StorageKey field to given value.
+
+### HasStorageKey
+
+`func (o *ItemAttachmentDto) HasStorageKey() bool`
+
+HasStorageKey returns a boolean if a field has been set.
+
+### SetStorageKeyNil
+
+`func (o *ItemAttachmentDto) SetStorageKeyNil(b bool)`
+
+ SetStorageKeyNil sets the value for StorageKey to be an explicit nil
+
+### UnsetStorageKey
+`func (o *ItemAttachmentDto) UnsetStorageKey()`
+
+UnsetStorageKey ensures that no value is present for StorageKey, not even an explicit nil
+### GetStorageProviderKey
+
+`func (o *ItemAttachmentDto) GetStorageProviderKey() string`
+
+GetStorageProviderKey returns the StorageProviderKey field if non-nil, zero value otherwise.
+
+### GetStorageProviderKeyOk
+
+`func (o *ItemAttachmentDto) GetStorageProviderKeyOk() (*string, bool)`
+
+GetStorageProviderKeyOk returns a tuple with the StorageProviderKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageProviderKey
+
+`func (o *ItemAttachmentDto) SetStorageProviderKey(v string)`
+
+SetStorageProviderKey sets StorageProviderKey field to given value.
+
+### HasStorageProviderKey
+
+`func (o *ItemAttachmentDto) HasStorageProviderKey() bool`
+
+HasStorageProviderKey returns a boolean if a field has been set.
+
+### SetStorageProviderKeyNil
+
+`func (o *ItemAttachmentDto) SetStorageProviderKeyNil(b bool)`
+
+ SetStorageProviderKeyNil sets the value for StorageProviderKey to be an explicit nil
+
+### UnsetStorageProviderKey
+`func (o *ItemAttachmentDto) UnsetStorageProviderKey()`
+
+UnsetStorageProviderKey ensures that no value is present for StorageProviderKey, not even an explicit nil
 ### GetFileName
 
 `func (o *ItemAttachmentDto) GetFileName() string`
@@ -787,6 +867,226 @@ HasFolderPath returns a boolean if a field has been set.
 `func (o *ItemAttachmentDto) UnsetFolderPath()`
 
 UnsetFolderPath ensures that no value is present for FolderPath, not even an explicit nil
+### GetScanStatus
+
+`func (o *ItemAttachmentDto) GetScanStatus() string`
+
+GetScanStatus returns the ScanStatus field if non-nil, zero value otherwise.
+
+### GetScanStatusOk
+
+`func (o *ItemAttachmentDto) GetScanStatusOk() (*string, bool)`
+
+GetScanStatusOk returns a tuple with the ScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScanStatus
+
+`func (o *ItemAttachmentDto) SetScanStatus(v string)`
+
+SetScanStatus sets ScanStatus field to given value.
+
+### HasScanStatus
+
+`func (o *ItemAttachmentDto) HasScanStatus() bool`
+
+HasScanStatus returns a boolean if a field has been set.
+
+### GetThumbnailStatus
+
+`func (o *ItemAttachmentDto) GetThumbnailStatus() string`
+
+GetThumbnailStatus returns the ThumbnailStatus field if non-nil, zero value otherwise.
+
+### GetThumbnailStatusOk
+
+`func (o *ItemAttachmentDto) GetThumbnailStatusOk() (*string, bool)`
+
+GetThumbnailStatusOk returns a tuple with the ThumbnailStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailStatus
+
+`func (o *ItemAttachmentDto) SetThumbnailStatus(v string)`
+
+SetThumbnailStatus sets ThumbnailStatus field to given value.
+
+### HasThumbnailStatus
+
+`func (o *ItemAttachmentDto) HasThumbnailStatus() bool`
+
+HasThumbnailStatus returns a boolean if a field has been set.
+
+### GetHasThumbnail
+
+`func (o *ItemAttachmentDto) GetHasThumbnail() bool`
+
+GetHasThumbnail returns the HasThumbnail field if non-nil, zero value otherwise.
+
+### GetHasThumbnailOk
+
+`func (o *ItemAttachmentDto) GetHasThumbnailOk() (*bool, bool)`
+
+GetHasThumbnailOk returns a tuple with the HasThumbnail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasThumbnail
+
+`func (o *ItemAttachmentDto) SetHasThumbnail(v bool)`
+
+SetHasThumbnail sets HasThumbnail field to given value.
+
+### HasHasThumbnail
+
+`func (o *ItemAttachmentDto) HasHasThumbnail() bool`
+
+HasHasThumbnail returns a boolean if a field has been set.
+
+### GetThumbnailStorageKey
+
+`func (o *ItemAttachmentDto) GetThumbnailStorageKey() string`
+
+GetThumbnailStorageKey returns the ThumbnailStorageKey field if non-nil, zero value otherwise.
+
+### GetThumbnailStorageKeyOk
+
+`func (o *ItemAttachmentDto) GetThumbnailStorageKeyOk() (*string, bool)`
+
+GetThumbnailStorageKeyOk returns a tuple with the ThumbnailStorageKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailStorageKey
+
+`func (o *ItemAttachmentDto) SetThumbnailStorageKey(v string)`
+
+SetThumbnailStorageKey sets ThumbnailStorageKey field to given value.
+
+### HasThumbnailStorageKey
+
+`func (o *ItemAttachmentDto) HasThumbnailStorageKey() bool`
+
+HasThumbnailStorageKey returns a boolean if a field has been set.
+
+### SetThumbnailStorageKeyNil
+
+`func (o *ItemAttachmentDto) SetThumbnailStorageKeyNil(b bool)`
+
+ SetThumbnailStorageKeyNil sets the value for ThumbnailStorageKey to be an explicit nil
+
+### UnsetThumbnailStorageKey
+`func (o *ItemAttachmentDto) UnsetThumbnailStorageKey()`
+
+UnsetThumbnailStorageKey ensures that no value is present for ThumbnailStorageKey, not even an explicit nil
+### GetThumbnailContentType
+
+`func (o *ItemAttachmentDto) GetThumbnailContentType() string`
+
+GetThumbnailContentType returns the ThumbnailContentType field if non-nil, zero value otherwise.
+
+### GetThumbnailContentTypeOk
+
+`func (o *ItemAttachmentDto) GetThumbnailContentTypeOk() (*string, bool)`
+
+GetThumbnailContentTypeOk returns a tuple with the ThumbnailContentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailContentType
+
+`func (o *ItemAttachmentDto) SetThumbnailContentType(v string)`
+
+SetThumbnailContentType sets ThumbnailContentType field to given value.
+
+### HasThumbnailContentType
+
+`func (o *ItemAttachmentDto) HasThumbnailContentType() bool`
+
+HasThumbnailContentType returns a boolean if a field has been set.
+
+### SetThumbnailContentTypeNil
+
+`func (o *ItemAttachmentDto) SetThumbnailContentTypeNil(b bool)`
+
+ SetThumbnailContentTypeNil sets the value for ThumbnailContentType to be an explicit nil
+
+### UnsetThumbnailContentType
+`func (o *ItemAttachmentDto) UnsetThumbnailContentType()`
+
+UnsetThumbnailContentType ensures that no value is present for ThumbnailContentType, not even an explicit nil
+### GetThumbnailWidth
+
+`func (o *ItemAttachmentDto) GetThumbnailWidth() int32`
+
+GetThumbnailWidth returns the ThumbnailWidth field if non-nil, zero value otherwise.
+
+### GetThumbnailWidthOk
+
+`func (o *ItemAttachmentDto) GetThumbnailWidthOk() (*int32, bool)`
+
+GetThumbnailWidthOk returns a tuple with the ThumbnailWidth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailWidth
+
+`func (o *ItemAttachmentDto) SetThumbnailWidth(v int32)`
+
+SetThumbnailWidth sets ThumbnailWidth field to given value.
+
+### HasThumbnailWidth
+
+`func (o *ItemAttachmentDto) HasThumbnailWidth() bool`
+
+HasThumbnailWidth returns a boolean if a field has been set.
+
+### GetThumbnailHeight
+
+`func (o *ItemAttachmentDto) GetThumbnailHeight() int32`
+
+GetThumbnailHeight returns the ThumbnailHeight field if non-nil, zero value otherwise.
+
+### GetThumbnailHeightOk
+
+`func (o *ItemAttachmentDto) GetThumbnailHeightOk() (*int32, bool)`
+
+GetThumbnailHeightOk returns a tuple with the ThumbnailHeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailHeight
+
+`func (o *ItemAttachmentDto) SetThumbnailHeight(v int32)`
+
+SetThumbnailHeight sets ThumbnailHeight field to given value.
+
+### HasThumbnailHeight
+
+`func (o *ItemAttachmentDto) HasThumbnailHeight() bool`
+
+HasThumbnailHeight returns a boolean if a field has been set.
+
+### GetPublicAccessType
+
+`func (o *ItemAttachmentDto) GetPublicAccessType() string`
+
+GetPublicAccessType returns the PublicAccessType field if non-nil, zero value otherwise.
+
+### GetPublicAccessTypeOk
+
+`func (o *ItemAttachmentDto) GetPublicAccessTypeOk() (*string, bool)`
+
+GetPublicAccessTypeOk returns a tuple with the PublicAccessType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublicAccessType
+
+`func (o *ItemAttachmentDto) SetPublicAccessType(v string)`
+
+SetPublicAccessType sets PublicAccessType field to given value.
+
+### HasPublicAccessType
+
+`func (o *ItemAttachmentDto) HasPublicAccessType() bool`
+
+HasPublicAccessType returns a boolean if a field has been set.
+
 ### GetItemId
 
 `func (o *ItemAttachmentDto) GetItemId() string`

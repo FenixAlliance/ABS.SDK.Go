@@ -2,14 +2,12 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_completions.go
 api_deal_unit_flows.go
 api_deal_units.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 client.go
 configuration.go
 docs/AccessTokenResponse.md
-docs/CompletionsAPI.md
 docs/ContactDto.md
 docs/DealUnitCreateDto.md
 docs/DealUnitDto.md
@@ -38,7 +36,7 @@ docs/ErrorEnvelope.md
 docs/ExtendedDealUnitDto.md
 docs/ExtendedDealUnitDtoEnvelope.md
 docs/ExtendedDealUnitDtoListEnvelope.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md

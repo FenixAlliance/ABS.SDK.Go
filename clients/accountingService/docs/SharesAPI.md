@@ -1,6 +1,6 @@
 # \SharesAPI
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**GetShareIssuance**](SharesAPI.md#GetShareIssuance) | **Get** /api/v2/AccountingService/Shares/Issuances/{issuanceId} | Gets a share issuance by id
 [**GetShareIssuances**](SharesAPI.md#GetShareIssuances) | **Get** /api/v2/AccountingService/Shares/Issuances | Gets the current tenant share issuances
 [**GetShareIssuancesCount**](SharesAPI.md#GetShareIssuancesCount) | **Get** /api/v2/AccountingService/Shares/Issuances/Count | Gets the current tenant share issuances count
+[**GetShareIssuancesSum**](SharesAPI.md#GetShareIssuancesSum) | **Get** /api/v2/AccountingService/Shares/Issuances/Sum | Sum tenant share issuance quantities
 [**GetShareTransfer**](SharesAPI.md#GetShareTransfer) | **Get** /api/v2/AccountingService/Shares/Transfers/{transferId} | Gets a share transfer by id
 [**GetShareTransferReason**](SharesAPI.md#GetShareTransferReason) | **Get** /api/v2/AccountingService/Shares/TransferReasons/{reasonId} | Gets a share transfer reason by id
 [**GetShareTransferReasons**](SharesAPI.md#GetShareTransferReasons) | **Get** /api/v2/AccountingService/Shares/TransferReasons | Gets the current tenant share transfer reasons
@@ -1036,6 +1037,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetShareIssuancesSum
+
+> DecimalEnvelope GetShareIssuancesSum(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Sum tenant share issuance quantities
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SharesAPI.GetShareIssuancesSum(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SharesAPI.GetShareIssuancesSum``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetShareIssuancesSum`: DecimalEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SharesAPI.GetShareIssuancesSum`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetShareIssuancesSumRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**DecimalEnvelope**](DecimalEnvelope.md)
 
 ### Authorization
 

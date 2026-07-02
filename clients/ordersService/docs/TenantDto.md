@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **QualifiedName** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Kind** | Pointer to **string** |  | [optional] 
 **TaxId** | Pointer to **NullableString** |  | [optional] 
 **About** | Pointer to **NullableString** |  | [optional] 
 **WalletId** | Pointer to **NullableString** |  | [optional] 
@@ -167,6 +168,31 @@ HasQualifiedName returns a boolean if a field has been set.
 `func (o *TenantDto) UnsetQualifiedName()`
 
 UnsetQualifiedName ensures that no value is present for QualifiedName, not even an explicit nil
+### GetKind
+
+`func (o *TenantDto) GetKind() string`
+
+GetKind returns the Kind field if non-nil, zero value otherwise.
+
+### GetKindOk
+
+`func (o *TenantDto) GetKindOk() (*string, bool)`
+
+GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKind
+
+`func (o *TenantDto) SetKind(v string)`
+
+SetKind sets Kind field to given value.
+
+### HasKind
+
+`func (o *TenantDto) HasKind() bool`
+
+HasKind returns a boolean if a field has been set.
+
 ### GetTaxId
 
 `func (o *TenantDto) GetTaxId() string`

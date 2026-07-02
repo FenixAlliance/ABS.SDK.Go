@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **ShippingTerms** | Pointer to **string** |  | [optional] 
 **OrderId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
+**SellerBillingProfileId** | Pointer to **NullableString** |  | [optional] 
+**BuyerBillingProfileId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -412,6 +414,76 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *ShipmentDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetSellerBillingProfileId
+
+`func (o *ShipmentDto) GetSellerBillingProfileId() string`
+
+GetSellerBillingProfileId returns the SellerBillingProfileId field if non-nil, zero value otherwise.
+
+### GetSellerBillingProfileIdOk
+
+`func (o *ShipmentDto) GetSellerBillingProfileIdOk() (*string, bool)`
+
+GetSellerBillingProfileIdOk returns a tuple with the SellerBillingProfileId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSellerBillingProfileId
+
+`func (o *ShipmentDto) SetSellerBillingProfileId(v string)`
+
+SetSellerBillingProfileId sets SellerBillingProfileId field to given value.
+
+### HasSellerBillingProfileId
+
+`func (o *ShipmentDto) HasSellerBillingProfileId() bool`
+
+HasSellerBillingProfileId returns a boolean if a field has been set.
+
+### SetSellerBillingProfileIdNil
+
+`func (o *ShipmentDto) SetSellerBillingProfileIdNil(b bool)`
+
+ SetSellerBillingProfileIdNil sets the value for SellerBillingProfileId to be an explicit nil
+
+### UnsetSellerBillingProfileId
+`func (o *ShipmentDto) UnsetSellerBillingProfileId()`
+
+UnsetSellerBillingProfileId ensures that no value is present for SellerBillingProfileId, not even an explicit nil
+### GetBuyerBillingProfileId
+
+`func (o *ShipmentDto) GetBuyerBillingProfileId() string`
+
+GetBuyerBillingProfileId returns the BuyerBillingProfileId field if non-nil, zero value otherwise.
+
+### GetBuyerBillingProfileIdOk
+
+`func (o *ShipmentDto) GetBuyerBillingProfileIdOk() (*string, bool)`
+
+GetBuyerBillingProfileIdOk returns a tuple with the BuyerBillingProfileId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBuyerBillingProfileId
+
+`func (o *ShipmentDto) SetBuyerBillingProfileId(v string)`
+
+SetBuyerBillingProfileId sets BuyerBillingProfileId field to given value.
+
+### HasBuyerBillingProfileId
+
+`func (o *ShipmentDto) HasBuyerBillingProfileId() bool`
+
+HasBuyerBillingProfileId returns a boolean if a field has been set.
+
+### SetBuyerBillingProfileIdNil
+
+`func (o *ShipmentDto) SetBuyerBillingProfileIdNil(b bool)`
+
+ SetBuyerBillingProfileIdNil sets the value for BuyerBillingProfileId to be an explicit nil
+
+### UnsetBuyerBillingProfileId
+`func (o *ShipmentDto) UnsetBuyerBillingProfileId()`
+
+UnsetBuyerBillingProfileId ensures that no value is present for BuyerBillingProfileId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

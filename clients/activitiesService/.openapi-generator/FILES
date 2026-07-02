@@ -3,8 +3,8 @@
 README.md
 api/openapi.yaml
 api_activity_feeds.go
-api_completions.go
-api_fenix_alliance_portals_website.go
+api_activity_records.go
+api_fenix_alliance_abs_web.go
 client.go
 configuration.go
 docs/AccessTokenResponse.md
@@ -17,16 +17,16 @@ docs/ActivityRecordDto.md
 docs/ActivityRecordDtoEnvelope.md
 docs/ActivityRecordDtoListEnvelope.md
 docs/ActivityRecordUpdateDto.md
+docs/ActivityRecordsAPI.md
 docs/ActivityTypeCreateDto.md
 docs/ActivityTypeDto.md
 docs/ActivityTypeDtoEnvelope.md
 docs/ActivityTypeDtoListEnvelope.md
 docs/ActivityTypeUpdateDto.md
-docs/CompletionsAPI.md
 docs/EmptyEnvelope.md
 docs/Envelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -74,4 +74,6 @@ model_reset_password_request.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
+test/api_activity_records_test.go
+test/api_fenix_alliance_abs_web_test.go
 utils.go

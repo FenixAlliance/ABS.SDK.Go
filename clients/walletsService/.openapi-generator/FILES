@@ -2,8 +2,7 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_completions.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_wallets.go
 client.go
 configuration.go
@@ -13,13 +12,12 @@ docs/BankAccountDto.md
 docs/BankAccountDtoEnvelope.md
 docs/BankAccountDtoListEnvelope.md
 docs/BankAccountUpdateDto.md
-docs/CompletionsAPI.md
 docs/ContactDto.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedOrderDto.md
 docs/ExtendedOrderDtoListEnvelope.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md

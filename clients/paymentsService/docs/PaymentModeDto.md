@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
+**PaymentMeansCode** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
@@ -170,6 +171,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *PaymentModeDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetPaymentMeansCode
+
+`func (o *PaymentModeDto) GetPaymentMeansCode() string`
+
+GetPaymentMeansCode returns the PaymentMeansCode field if non-nil, zero value otherwise.
+
+### GetPaymentMeansCodeOk
+
+`func (o *PaymentModeDto) GetPaymentMeansCodeOk() (*string, bool)`
+
+GetPaymentMeansCodeOk returns a tuple with the PaymentMeansCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentMeansCode
+
+`func (o *PaymentModeDto) SetPaymentMeansCode(v string)`
+
+SetPaymentMeansCode sets PaymentMeansCode field to given value.
+
+### HasPaymentMeansCode
+
+`func (o *PaymentModeDto) HasPaymentMeansCode() bool`
+
+HasPaymentMeansCode returns a boolean if a field has been set.
+
+### SetPaymentMeansCodeNil
+
+`func (o *PaymentModeDto) SetPaymentMeansCodeNil(b bool)`
+
+ SetPaymentMeansCodeNil sets the value for PaymentMeansCode to be an explicit nil
+
+### UnsetPaymentMeansCode
+`func (o *PaymentModeDto) UnsetPaymentMeansCode()`
+
+UnsetPaymentMeansCode ensures that no value is present for PaymentMeansCode, not even an explicit nil
 ### GetTenantId
 
 `func (o *PaymentModeDto) GetTenantId() string`

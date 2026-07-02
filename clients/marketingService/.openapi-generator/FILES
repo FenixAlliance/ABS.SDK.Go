@@ -2,15 +2,15 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_completions.go
 api_email_groups.go
 api_email_signatures.go
 api_email_templates.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_marketing_areas.go
 api_marketing_campaigns.go
 api_marketing_leads.go
 api_marketing_lists.go
+api_newsletter_subscriptions.go
 api_newsletters.go
 api_social_media_posts.go
 api_social_post_buckets.go
@@ -18,7 +18,6 @@ api_tracking_pixels.go
 client.go
 configuration.go
 docs/AccessTokenResponse.md
-docs/CompletionsAPI.md
 docs/EmailGroupCreateDto.md
 docs/EmailGroupDto.md
 docs/EmailGroupDtoEnvelope.md
@@ -39,7 +38,7 @@ docs/EmailTemplateUpdateDto.md
 docs/EmailTemplatesAPI.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -72,6 +71,7 @@ docs/MarketingListsAPI.md
 docs/NewsletterCreateDto.md
 docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
+docs/NewsletterSubscriptionsAPI.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersAPI.md
 docs/Operation.md
@@ -166,4 +166,5 @@ model_social_post_bucket_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
+test/api_newsletter_subscriptions_test.go
 utils.go

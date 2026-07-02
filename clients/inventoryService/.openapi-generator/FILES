@@ -2,15 +2,12 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_completions.go
-api_fenix_alliance_portals_website.go
+api_fenix_alliance_abs_web.go
 api_inventory.go
 client.go
 configuration.go
 docs/AccessTokenResponse.md
-docs/CompletionsAPI.md
-docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteAPI.md
+docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -27,7 +24,6 @@ git_push.sh
 go.mod
 go.sum
 model_access_token_response.go
-model_error_envelope.go
 model_forgot_password_request.go
 model_http_validation_problem_details.go
 model_info_request.go

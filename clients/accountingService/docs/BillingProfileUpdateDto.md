@@ -14,6 +14,11 @@ Name | Type | Description | Notes
 **PostalCode** | Pointer to **NullableString** |  | [optional] 
 **BusinessName** | Pointer to **NullableString** |  | [optional] 
 **CommercialName** | Pointer to **NullableString** |  | [optional] 
+**VerificationDigit** | Pointer to **NullableString** |  | [optional] 
+**EconomicActivityCode** | Pointer to **NullableString** |  | [optional] 
+**EconomicActivityScheme** | Pointer to **NullableString** |  | [optional] 
+**IsPrimary** | Pointer to **NullableBool** |  | [optional] 
+**EstablishmentCode** | Pointer to **NullableString** |  | [optional] 
 **Ticker** | Pointer to **NullableString** |  | [optional] 
 **Duns** | Pointer to **NullableString** |  | [optional] 
 **IsPublicCompany** | Pointer to **bool** |  | [optional] 
@@ -395,6 +400,181 @@ HasCommercialName returns a boolean if a field has been set.
 `func (o *BillingProfileUpdateDto) UnsetCommercialName()`
 
 UnsetCommercialName ensures that no value is present for CommercialName, not even an explicit nil
+### GetVerificationDigit
+
+`func (o *BillingProfileUpdateDto) GetVerificationDigit() string`
+
+GetVerificationDigit returns the VerificationDigit field if non-nil, zero value otherwise.
+
+### GetVerificationDigitOk
+
+`func (o *BillingProfileUpdateDto) GetVerificationDigitOk() (*string, bool)`
+
+GetVerificationDigitOk returns a tuple with the VerificationDigit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVerificationDigit
+
+`func (o *BillingProfileUpdateDto) SetVerificationDigit(v string)`
+
+SetVerificationDigit sets VerificationDigit field to given value.
+
+### HasVerificationDigit
+
+`func (o *BillingProfileUpdateDto) HasVerificationDigit() bool`
+
+HasVerificationDigit returns a boolean if a field has been set.
+
+### SetVerificationDigitNil
+
+`func (o *BillingProfileUpdateDto) SetVerificationDigitNil(b bool)`
+
+ SetVerificationDigitNil sets the value for VerificationDigit to be an explicit nil
+
+### UnsetVerificationDigit
+`func (o *BillingProfileUpdateDto) UnsetVerificationDigit()`
+
+UnsetVerificationDigit ensures that no value is present for VerificationDigit, not even an explicit nil
+### GetEconomicActivityCode
+
+`func (o *BillingProfileUpdateDto) GetEconomicActivityCode() string`
+
+GetEconomicActivityCode returns the EconomicActivityCode field if non-nil, zero value otherwise.
+
+### GetEconomicActivityCodeOk
+
+`func (o *BillingProfileUpdateDto) GetEconomicActivityCodeOk() (*string, bool)`
+
+GetEconomicActivityCodeOk returns a tuple with the EconomicActivityCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEconomicActivityCode
+
+`func (o *BillingProfileUpdateDto) SetEconomicActivityCode(v string)`
+
+SetEconomicActivityCode sets EconomicActivityCode field to given value.
+
+### HasEconomicActivityCode
+
+`func (o *BillingProfileUpdateDto) HasEconomicActivityCode() bool`
+
+HasEconomicActivityCode returns a boolean if a field has been set.
+
+### SetEconomicActivityCodeNil
+
+`func (o *BillingProfileUpdateDto) SetEconomicActivityCodeNil(b bool)`
+
+ SetEconomicActivityCodeNil sets the value for EconomicActivityCode to be an explicit nil
+
+### UnsetEconomicActivityCode
+`func (o *BillingProfileUpdateDto) UnsetEconomicActivityCode()`
+
+UnsetEconomicActivityCode ensures that no value is present for EconomicActivityCode, not even an explicit nil
+### GetEconomicActivityScheme
+
+`func (o *BillingProfileUpdateDto) GetEconomicActivityScheme() string`
+
+GetEconomicActivityScheme returns the EconomicActivityScheme field if non-nil, zero value otherwise.
+
+### GetEconomicActivitySchemeOk
+
+`func (o *BillingProfileUpdateDto) GetEconomicActivitySchemeOk() (*string, bool)`
+
+GetEconomicActivitySchemeOk returns a tuple with the EconomicActivityScheme field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEconomicActivityScheme
+
+`func (o *BillingProfileUpdateDto) SetEconomicActivityScheme(v string)`
+
+SetEconomicActivityScheme sets EconomicActivityScheme field to given value.
+
+### HasEconomicActivityScheme
+
+`func (o *BillingProfileUpdateDto) HasEconomicActivityScheme() bool`
+
+HasEconomicActivityScheme returns a boolean if a field has been set.
+
+### SetEconomicActivitySchemeNil
+
+`func (o *BillingProfileUpdateDto) SetEconomicActivitySchemeNil(b bool)`
+
+ SetEconomicActivitySchemeNil sets the value for EconomicActivityScheme to be an explicit nil
+
+### UnsetEconomicActivityScheme
+`func (o *BillingProfileUpdateDto) UnsetEconomicActivityScheme()`
+
+UnsetEconomicActivityScheme ensures that no value is present for EconomicActivityScheme, not even an explicit nil
+### GetIsPrimary
+
+`func (o *BillingProfileUpdateDto) GetIsPrimary() bool`
+
+GetIsPrimary returns the IsPrimary field if non-nil, zero value otherwise.
+
+### GetIsPrimaryOk
+
+`func (o *BillingProfileUpdateDto) GetIsPrimaryOk() (*bool, bool)`
+
+GetIsPrimaryOk returns a tuple with the IsPrimary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPrimary
+
+`func (o *BillingProfileUpdateDto) SetIsPrimary(v bool)`
+
+SetIsPrimary sets IsPrimary field to given value.
+
+### HasIsPrimary
+
+`func (o *BillingProfileUpdateDto) HasIsPrimary() bool`
+
+HasIsPrimary returns a boolean if a field has been set.
+
+### SetIsPrimaryNil
+
+`func (o *BillingProfileUpdateDto) SetIsPrimaryNil(b bool)`
+
+ SetIsPrimaryNil sets the value for IsPrimary to be an explicit nil
+
+### UnsetIsPrimary
+`func (o *BillingProfileUpdateDto) UnsetIsPrimary()`
+
+UnsetIsPrimary ensures that no value is present for IsPrimary, not even an explicit nil
+### GetEstablishmentCode
+
+`func (o *BillingProfileUpdateDto) GetEstablishmentCode() string`
+
+GetEstablishmentCode returns the EstablishmentCode field if non-nil, zero value otherwise.
+
+### GetEstablishmentCodeOk
+
+`func (o *BillingProfileUpdateDto) GetEstablishmentCodeOk() (*string, bool)`
+
+GetEstablishmentCodeOk returns a tuple with the EstablishmentCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEstablishmentCode
+
+`func (o *BillingProfileUpdateDto) SetEstablishmentCode(v string)`
+
+SetEstablishmentCode sets EstablishmentCode field to given value.
+
+### HasEstablishmentCode
+
+`func (o *BillingProfileUpdateDto) HasEstablishmentCode() bool`
+
+HasEstablishmentCode returns a boolean if a field has been set.
+
+### SetEstablishmentCodeNil
+
+`func (o *BillingProfileUpdateDto) SetEstablishmentCodeNil(b bool)`
+
+ SetEstablishmentCodeNil sets the value for EstablishmentCode to be an explicit nil
+
+### UnsetEstablishmentCode
+`func (o *BillingProfileUpdateDto) UnsetEstablishmentCode()`
+
+UnsetEstablishmentCode ensures that no value is present for EstablishmentCode, not even an explicit nil
 ### GetTicker
 
 `func (o *BillingProfileUpdateDto) GetTicker() string`

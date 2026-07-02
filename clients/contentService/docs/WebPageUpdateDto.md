@@ -58,6 +58,7 @@ Name | Type | Description | Notes
 **CornerstoneContent** | Pointer to **bool** |  | [optional] 
 **IsEssentialContent** | Pointer to **bool** |  | [optional] 
 **AllowSearchEngineIndexing** | Pointer to **bool** |  | [optional] 
+**WebPortalId** | Pointer to **NullableString** |  | [optional] 
 **WebTemplateId** | Pointer to **NullableString** |  | [optional] 
 **ParentWebContentId** | Pointer to **NullableString** |  | [optional] 
 **IsHomePage** | Pointer to **bool** |  | [optional] 
@@ -1790,6 +1791,41 @@ SetAllowSearchEngineIndexing sets AllowSearchEngineIndexing field to given value
 
 HasAllowSearchEngineIndexing returns a boolean if a field has been set.
 
+### GetWebPortalId
+
+`func (o *WebPageUpdateDto) GetWebPortalId() string`
+
+GetWebPortalId returns the WebPortalId field if non-nil, zero value otherwise.
+
+### GetWebPortalIdOk
+
+`func (o *WebPageUpdateDto) GetWebPortalIdOk() (*string, bool)`
+
+GetWebPortalIdOk returns a tuple with the WebPortalId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWebPortalId
+
+`func (o *WebPageUpdateDto) SetWebPortalId(v string)`
+
+SetWebPortalId sets WebPortalId field to given value.
+
+### HasWebPortalId
+
+`func (o *WebPageUpdateDto) HasWebPortalId() bool`
+
+HasWebPortalId returns a boolean if a field has been set.
+
+### SetWebPortalIdNil
+
+`func (o *WebPageUpdateDto) SetWebPortalIdNil(b bool)`
+
+ SetWebPortalIdNil sets the value for WebPortalId to be an explicit nil
+
+### UnsetWebPortalId
+`func (o *WebPageUpdateDto) UnsetWebPortalId()`
+
+UnsetWebPortalId ensures that no value is present for WebPortalId, not even an explicit nil
 ### GetWebTemplateId
 
 `func (o *WebPageUpdateDto) GetWebTemplateId() string`

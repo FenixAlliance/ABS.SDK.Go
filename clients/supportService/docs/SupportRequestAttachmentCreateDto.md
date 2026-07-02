@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **ValidResponse** | Pointer to **bool** |  | [optional] 
 **ParentFileUploadId** | Pointer to **NullableString** |  | [optional] 
 **FilePath** | Pointer to **NullableString** |  | [optional] 
+**PublicAccessType** | Pointer to **string** |  | [optional] 
 **Metadata** | Pointer to **NullableString** |  | [optional] 
 **SupportRequestId** | Pointer to **NullableString** |  | [optional] 
 
@@ -418,6 +419,31 @@ HasFilePath returns a boolean if a field has been set.
 `func (o *SupportRequestAttachmentCreateDto) UnsetFilePath()`
 
 UnsetFilePath ensures that no value is present for FilePath, not even an explicit nil
+### GetPublicAccessType
+
+`func (o *SupportRequestAttachmentCreateDto) GetPublicAccessType() string`
+
+GetPublicAccessType returns the PublicAccessType field if non-nil, zero value otherwise.
+
+### GetPublicAccessTypeOk
+
+`func (o *SupportRequestAttachmentCreateDto) GetPublicAccessTypeOk() (*string, bool)`
+
+GetPublicAccessTypeOk returns a tuple with the PublicAccessType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublicAccessType
+
+`func (o *SupportRequestAttachmentCreateDto) SetPublicAccessType(v string)`
+
+SetPublicAccessType sets PublicAccessType field to given value.
+
+### HasPublicAccessType
+
+`func (o *SupportRequestAttachmentCreateDto) HasPublicAccessType() bool`
+
+HasPublicAccessType returns a boolean if a field has been set.
+
 ### GetMetadata
 
 `func (o *SupportRequestAttachmentCreateDto) GetMetadata() string`

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Kind** | Pointer to **NullableString** |  | [optional] 
 **Name** | **string** |  | 
 **LegalName** | Pointer to **NullableString** |  | [optional] 
 **Email** | **string** |  | 
@@ -50,6 +51,41 @@ NewTenantUpdateDtoWithDefaults instantiates a new TenantUpdateDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetKind
+
+`func (o *TenantUpdateDto) GetKind() string`
+
+GetKind returns the Kind field if non-nil, zero value otherwise.
+
+### GetKindOk
+
+`func (o *TenantUpdateDto) GetKindOk() (*string, bool)`
+
+GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKind
+
+`func (o *TenantUpdateDto) SetKind(v string)`
+
+SetKind sets Kind field to given value.
+
+### HasKind
+
+`func (o *TenantUpdateDto) HasKind() bool`
+
+HasKind returns a boolean if a field has been set.
+
+### SetKindNil
+
+`func (o *TenantUpdateDto) SetKindNil(b bool)`
+
+ SetKindNil sets the value for Kind to be an explicit nil
+
+### UnsetKind
+`func (o *TenantUpdateDto) UnsetKind()`
+
+UnsetKind ensures that no value is present for Kind, not even an explicit nil
 ### GetName
 
 `func (o *TenantUpdateDto) GetName() string`
