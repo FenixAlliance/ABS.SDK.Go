@@ -26,6 +26,11 @@ client.go
 configuration.go
 docs/AccessTokenResponse.md
 docs/BooleanEnvelope.md
+docs/BusinessRelationshipCreateDto.md
+docs/BusinessRelationshipDto.md
+docs/BusinessRelationshipDtoEnvelope.md
+docs/BusinessRelationshipDtoListEnvelope.md
+docs/BusinessRelationshipUpdateDto.md
 docs/BusinessRelationshipsAPI.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
@@ -171,7 +176,7 @@ docs/UnitGroupUpdateDto.md
 docs/UnitGroupsAPI.md
 docs/UnitUpdateDto.md
 docs/UnitsAPI.md
-docs/UpdateAvatarAsyncRequest.md
+docs/UpdateTenantAvatarAsyncRequest.md
 docs/UserDto.md
 docs/UserDtoListEnvelope.md
 docs/WalletDto.md
@@ -183,6 +188,11 @@ go.mod
 go.sum
 model_access_token_response.go
 model_boolean_envelope.go
+model_business_relationship_create_dto.go
+model_business_relationship_dto.go
+model_business_relationship_dto_envelope.go
+model_business_relationship_dto_list_envelope.go
+model_business_relationship_update_dto.go
 model_cart_dto.go
 model_cart_dto_envelope.go
 model_empty_envelope.go
@@ -308,7 +318,7 @@ model_unit_group_dto_envelope.go
 model_unit_group_dto_list_envelope.go
 model_unit_group_update_dto.go
 model_unit_update_dto.go
-model_update_avatar_async_request.go
+model_update_tenant_avatar_async_request.go
 model_user_dto.go
 model_user_dto_list_envelope.go
 model_wallet_dto.go
@@ -316,5 +326,4 @@ model_wallet_dto_envelope.go
 model_web_portal_dto.go
 model_web_portal_dto_list_envelope.go
 response.go
-test/api_business_relationships_test.go
 utils.go

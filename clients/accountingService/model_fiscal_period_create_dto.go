@@ -14,6 +14,8 @@ package openapi
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the FiscalPeriodCreateDto type satisfies the MappedNullable interface at compile time
@@ -23,18 +25,22 @@ var _ MappedNullable = &FiscalPeriodCreateDto{}
 type FiscalPeriodCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	Name NullableString `json:"name,omitempty"`
+	Name string `json:"name"`
 	FromDate *time.Time `json:"fromDate,omitempty"`
 	ToDate *time.Time `json:"toDate,omitempty"`
-	FiscalYearId NullableString `json:"fiscalYearId,omitempty"`
+	FiscalYearId string `json:"fiscalYearId"`
 }
+
+type _FiscalPeriodCreateDto FiscalPeriodCreateDto
 
 // NewFiscalPeriodCreateDto instantiates a new FiscalPeriodCreateDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFiscalPeriodCreateDto() *FiscalPeriodCreateDto {
+func NewFiscalPeriodCreateDto(name string, fiscalYearId string) *FiscalPeriodCreateDto {
 	this := FiscalPeriodCreateDto{}
+	this.Name = name
+	this.FiscalYearId = fiscalYearId
 	return &this
 }
 
@@ -110,46 +116,28 @@ func (o *FiscalPeriodCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *FiscalPeriodCreateDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FiscalPeriodCreateDto) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *FiscalPeriodCreateDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *FiscalPeriodCreateDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *FiscalPeriodCreateDto) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *FiscalPeriodCreateDto) UnsetName() {
-	o.Name.Unset()
+	o.Name = v
 }
 
 // GetFromDate returns the FromDate field value if set, zero value otherwise.
@@ -216,46 +204,28 @@ func (o *FiscalPeriodCreateDto) SetToDate(v time.Time) {
 	o.ToDate = &v
 }
 
-// GetFiscalYearId returns the FiscalYearId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFiscalYearId returns the FiscalYearId field value
 func (o *FiscalPeriodCreateDto) GetFiscalYearId() string {
-	if o == nil || IsNil(o.FiscalYearId.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FiscalYearId.Get()
+
+	return o.FiscalYearId
 }
 
-// GetFiscalYearIdOk returns a tuple with the FiscalYearId field value if set, nil otherwise
+// GetFiscalYearIdOk returns a tuple with the FiscalYearId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FiscalPeriodCreateDto) GetFiscalYearIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.FiscalYearId.Get(), o.FiscalYearId.IsSet()
+	return &o.FiscalYearId, true
 }
 
-// HasFiscalYearId returns a boolean if a field has been set.
-func (o *FiscalPeriodCreateDto) HasFiscalYearId() bool {
-	if o != nil && o.FiscalYearId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFiscalYearId gets a reference to the given NullableString and assigns it to the FiscalYearId field.
+// SetFiscalYearId sets field value
 func (o *FiscalPeriodCreateDto) SetFiscalYearId(v string) {
-	o.FiscalYearId.Set(&v)
-}
-// SetFiscalYearIdNil sets the value for FiscalYearId to be an explicit nil
-func (o *FiscalPeriodCreateDto) SetFiscalYearIdNil() {
-	o.FiscalYearId.Set(nil)
-}
-
-// UnsetFiscalYearId ensures that no value is present for FiscalYearId, not even an explicit nil
-func (o *FiscalPeriodCreateDto) UnsetFiscalYearId() {
-	o.FiscalYearId.Unset()
+	o.FiscalYearId = v
 }
 
 func (o FiscalPeriodCreateDto) MarshalJSON() ([]byte, error) {
@@ -274,19 +244,53 @@ func (o FiscalPeriodCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
+	toSerialize["name"] = o.Name
 	if !IsNil(o.FromDate) {
 		toSerialize["fromDate"] = o.FromDate
 	}
 	if !IsNil(o.ToDate) {
 		toSerialize["toDate"] = o.ToDate
 	}
-	if o.FiscalYearId.IsSet() {
-		toSerialize["fiscalYearId"] = o.FiscalYearId.Get()
-	}
+	toSerialize["fiscalYearId"] = o.FiscalYearId
 	return toSerialize, nil
+}
+
+func (o *FiscalPeriodCreateDto) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"name",
+		"fiscalYearId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varFiscalPeriodCreateDto := _FiscalPeriodCreateDto{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varFiscalPeriodCreateDto)
+
+	if err != nil {
+		return err
+	}
+
+	*o = FiscalPeriodCreateDto(varFiscalPeriodCreateDto)
+
+	return err
 }
 
 type NullableFiscalPeriodCreateDto struct {

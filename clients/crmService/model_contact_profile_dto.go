@@ -22,14 +22,16 @@ var _ MappedNullable = &ContactProfileDto{}
 // ContactProfileDto struct for ContactProfileDto
 type ContactProfileDto struct {
 	Id NullableString `json:"id,omitempty"`
-	Timestamp *time.Time `json:"timestamp,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
+	Timestamp NullableTime `json:"timestamp,omitempty"`
 	ContactId NullableString `json:"contactId,omitempty"`
+	TenantId NullableString `json:"tenantId,omitempty"`
+	Type NullableString `json:"type,omitempty"`
 	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	About NullableString `json:"about,omitempty"`
 	Verified *bool `json:"verified,omitempty"`
 	Submitted *bool `json:"submitted,omitempty"`
 	AvatarUrl NullableString `json:"avatarUrl,omitempty"`
+	Contact *ContactDto `json:"contact,omitempty"`
 	QualifiedName NullableString `json:"qualifiedName,omitempty"`
 	VerificationTimestamp NullableTime `json:"verificationTimestamp,omitempty"`
 	Data NullableString `json:"data,omitempty"`
@@ -113,36 +115,88 @@ func (o *ContactProfileDto) UnsetId() {
 	o.Id.Unset()
 }
 
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ContactProfileDto) GetTimestamp() time.Time {
-	if o == nil || IsNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.Timestamp
+	return *o.Timestamp.Get()
 }
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ContactProfileDto) GetTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.Timestamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Timestamp, true
+	return o.Timestamp.Get(), o.Timestamp.IsSet()
 }
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *ContactProfileDto) HasTimestamp() bool {
-	if o != nil && !IsNil(o.Timestamp) {
+	if o != nil && o.Timestamp.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
+// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
 func (o *ContactProfileDto) SetTimestamp(v time.Time) {
-	o.Timestamp = &v
+	o.Timestamp.Set(&v)
+}
+// SetTimestampNil sets the value for Timestamp to be an explicit nil
+func (o *ContactProfileDto) SetTimestampNil() {
+	o.Timestamp.Set(nil)
+}
+
+// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+func (o *ContactProfileDto) UnsetTimestamp() {
+	o.Timestamp.Unset()
+}
+
+// GetContactId returns the ContactId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ContactProfileDto) GetContactId() string {
+	if o == nil || IsNil(o.ContactId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ContactId.Get()
+}
+
+// GetContactIdOk returns a tuple with the ContactId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContactProfileDto) GetContactIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ContactId.Get(), o.ContactId.IsSet()
+}
+
+// HasContactId returns a boolean if a field has been set.
+func (o *ContactProfileDto) HasContactId() bool {
+	if o != nil && o.ContactId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetContactId gets a reference to the given NullableString and assigns it to the ContactId field.
+func (o *ContactProfileDto) SetContactId(v string) {
+	o.ContactId.Set(&v)
+}
+// SetContactIdNil sets the value for ContactId to be an explicit nil
+func (o *ContactProfileDto) SetContactIdNil() {
+	o.ContactId.Set(nil)
+}
+
+// UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
+func (o *ContactProfileDto) UnsetContactId() {
+	o.ContactId.Unset()
 }
 
 // GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -187,46 +241,46 @@ func (o *ContactProfileDto) UnsetTenantId() {
 	o.TenantId.Unset()
 }
 
-// GetContactId returns the ContactId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ContactProfileDto) GetContactId() string {
-	if o == nil || IsNil(o.ContactId.Get()) {
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ContactProfileDto) GetType() string {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ContactId.Get()
+	return *o.Type.Get()
 }
 
-// GetContactIdOk returns a tuple with the ContactId field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ContactProfileDto) GetContactIdOk() (*string, bool) {
+func (o *ContactProfileDto) GetTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ContactId.Get(), o.ContactId.IsSet()
+	return o.Type.Get(), o.Type.IsSet()
 }
 
-// HasContactId returns a boolean if a field has been set.
-func (o *ContactProfileDto) HasContactId() bool {
-	if o != nil && o.ContactId.IsSet() {
+// HasType returns a boolean if a field has been set.
+func (o *ContactProfileDto) HasType() bool {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetContactId gets a reference to the given NullableString and assigns it to the ContactId field.
-func (o *ContactProfileDto) SetContactId(v string) {
-	o.ContactId.Set(&v)
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
+func (o *ContactProfileDto) SetType(v string) {
+	o.Type.Set(&v)
 }
-// SetContactIdNil sets the value for ContactId to be an explicit nil
-func (o *ContactProfileDto) SetContactIdNil() {
-	o.ContactId.Set(nil)
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *ContactProfileDto) SetTypeNil() {
+	o.Type.Set(nil)
 }
 
-// UnsetContactId ensures that no value is present for ContactId, not even an explicit nil
-func (o *ContactProfileDto) UnsetContactId() {
-	o.ContactId.Unset()
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *ContactProfileDto) UnsetType() {
+	o.Type.Unset()
 }
 
 // GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -417,6 +471,38 @@ func (o *ContactProfileDto) SetAvatarUrlNil() {
 // UnsetAvatarUrl ensures that no value is present for AvatarUrl, not even an explicit nil
 func (o *ContactProfileDto) UnsetAvatarUrl() {
 	o.AvatarUrl.Unset()
+}
+
+// GetContact returns the Contact field value if set, zero value otherwise.
+func (o *ContactProfileDto) GetContact() ContactDto {
+	if o == nil || IsNil(o.Contact) {
+		var ret ContactDto
+		return ret
+	}
+	return *o.Contact
+}
+
+// GetContactOk returns a tuple with the Contact field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContactProfileDto) GetContactOk() (*ContactDto, bool) {
+	if o == nil || IsNil(o.Contact) {
+		return nil, false
+	}
+	return o.Contact, true
+}
+
+// HasContact returns a boolean if a field has been set.
+func (o *ContactProfileDto) HasContact() bool {
+	if o != nil && !IsNil(o.Contact) {
+		return true
+	}
+
+	return false
+}
+
+// SetContact gets a reference to the given ContactDto and assigns it to the Contact field.
+func (o *ContactProfileDto) SetContact(v ContactDto) {
+	o.Contact = &v
 }
 
 // GetQualifiedName returns the QualifiedName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1356,14 +1442,17 @@ func (o ContactProfileDto) ToMap() (map[string]interface{}, error) {
 	if o.Id.IsSet() {
 		toSerialize["id"] = o.Id.Get()
 	}
-	if !IsNil(o.Timestamp) {
-		toSerialize["timestamp"] = o.Timestamp
+	if o.Timestamp.IsSet() {
+		toSerialize["timestamp"] = o.Timestamp.Get()
+	}
+	if o.ContactId.IsSet() {
+		toSerialize["contactId"] = o.ContactId.Get()
 	}
 	if o.TenantId.IsSet() {
 		toSerialize["tenantId"] = o.TenantId.Get()
 	}
-	if o.ContactId.IsSet() {
-		toSerialize["contactId"] = o.ContactId.Get()
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
 	if o.EnrollmentId.IsSet() {
 		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
@@ -1379,6 +1468,9 @@ func (o ContactProfileDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AvatarUrl.IsSet() {
 		toSerialize["avatarUrl"] = o.AvatarUrl.Get()
+	}
+	if !IsNil(o.Contact) {
+		toSerialize["contact"] = o.Contact
 	}
 	if o.QualifiedName.IsSet() {
 		toSerialize["qualifiedName"] = o.QualifiedName.Get()

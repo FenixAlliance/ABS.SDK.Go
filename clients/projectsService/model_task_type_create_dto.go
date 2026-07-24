@@ -24,7 +24,7 @@ type TaskTypeCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Title NullableString `json:"title,omitempty"`
-	TaskCategoryID NullableString `json:"taskCategoryID,omitempty"`
+	TaskCategoryId NullableString `json:"taskCategoryId,omitempty"`
 	DisplayInTimeTracker *bool `json:"displayInTimeTracker,omitempty"`
 	RequiresDescription *bool `json:"requiresDescription,omitempty"`
 }
@@ -152,46 +152,46 @@ func (o *TaskTypeCreateDto) UnsetTitle() {
 	o.Title.Unset()
 }
 
-// GetTaskCategoryID returns the TaskCategoryID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TaskTypeCreateDto) GetTaskCategoryID() string {
-	if o == nil || IsNil(o.TaskCategoryID.Get()) {
+// GetTaskCategoryId returns the TaskCategoryId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TaskTypeCreateDto) GetTaskCategoryId() string {
+	if o == nil || IsNil(o.TaskCategoryId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TaskCategoryID.Get()
+	return *o.TaskCategoryId.Get()
 }
 
-// GetTaskCategoryIDOk returns a tuple with the TaskCategoryID field value if set, nil otherwise
+// GetTaskCategoryIdOk returns a tuple with the TaskCategoryId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TaskTypeCreateDto) GetTaskCategoryIDOk() (*string, bool) {
+func (o *TaskTypeCreateDto) GetTaskCategoryIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TaskCategoryID.Get(), o.TaskCategoryID.IsSet()
+	return o.TaskCategoryId.Get(), o.TaskCategoryId.IsSet()
 }
 
-// HasTaskCategoryID returns a boolean if a field has been set.
-func (o *TaskTypeCreateDto) HasTaskCategoryID() bool {
-	if o != nil && o.TaskCategoryID.IsSet() {
+// HasTaskCategoryId returns a boolean if a field has been set.
+func (o *TaskTypeCreateDto) HasTaskCategoryId() bool {
+	if o != nil && o.TaskCategoryId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTaskCategoryID gets a reference to the given NullableString and assigns it to the TaskCategoryID field.
-func (o *TaskTypeCreateDto) SetTaskCategoryID(v string) {
-	o.TaskCategoryID.Set(&v)
+// SetTaskCategoryId gets a reference to the given NullableString and assigns it to the TaskCategoryId field.
+func (o *TaskTypeCreateDto) SetTaskCategoryId(v string) {
+	o.TaskCategoryId.Set(&v)
 }
-// SetTaskCategoryIDNil sets the value for TaskCategoryID to be an explicit nil
-func (o *TaskTypeCreateDto) SetTaskCategoryIDNil() {
-	o.TaskCategoryID.Set(nil)
+// SetTaskCategoryIdNil sets the value for TaskCategoryId to be an explicit nil
+func (o *TaskTypeCreateDto) SetTaskCategoryIdNil() {
+	o.TaskCategoryId.Set(nil)
 }
 
-// UnsetTaskCategoryID ensures that no value is present for TaskCategoryID, not even an explicit nil
-func (o *TaskTypeCreateDto) UnsetTaskCategoryID() {
-	o.TaskCategoryID.Unset()
+// UnsetTaskCategoryId ensures that no value is present for TaskCategoryId, not even an explicit nil
+func (o *TaskTypeCreateDto) UnsetTaskCategoryId() {
+	o.TaskCategoryId.Unset()
 }
 
 // GetDisplayInTimeTracker returns the DisplayInTimeTracker field value if set, zero value otherwise.
@@ -277,8 +277,8 @@ func (o TaskTypeCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
 	}
-	if o.TaskCategoryID.IsSet() {
-		toSerialize["taskCategoryID"] = o.TaskCategoryID.Get()
+	if o.TaskCategoryId.IsSet() {
+		toSerialize["taskCategoryId"] = o.TaskCategoryId.Get()
 	}
 	if !IsNil(o.DisplayInTimeTracker) {
 		toSerialize["displayInTimeTracker"] = o.DisplayInTimeTracker

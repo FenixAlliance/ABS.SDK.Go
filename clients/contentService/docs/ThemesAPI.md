@@ -4,13 +4,13 @@ All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetLatestCurrencyRatesModelAsync**](ThemesAPI.md#GetLatestCurrencyRatesModelAsync) | **Get** /api/v2/ContentService/Themes/Update | Update base web content themes
+[**UpdateThemesAsync**](ThemesAPI.md#UpdateThemesAsync) | **Get** /api/v2/ContentService/Themes/Update | Update base web content themes
 
 
 
-## GetLatestCurrencyRatesModelAsync
+## UpdateThemesAsync
 
-> GetLatestCurrencyRatesModelAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> UpdateThemesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Update base web content themes
 
@@ -34,9 +34,9 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ThemesAPI.GetLatestCurrencyRatesModelAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	r, err := apiClient.ThemesAPI.UpdateThemesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ThemesAPI.GetLatestCurrencyRatesModelAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ThemesAPI.UpdateThemesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -48,7 +48,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetLatestCurrencyRatesModelAsyncRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateThemesAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

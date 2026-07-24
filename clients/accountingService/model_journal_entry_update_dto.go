@@ -13,7 +13,6 @@ package openapi
 
 import (
 	"encoding/json"
-	"time"
 	"bytes"
 	"fmt"
 )
@@ -23,18 +22,12 @@ var _ MappedNullable = &JournalEntryUpdateDto{}
 
 // JournalEntryUpdateDto struct for JournalEntryUpdateDto
 type JournalEntryUpdateDto struct {
-	Group *bool `json:"group,omitempty"`
-	Opening *bool `json:"opening,omitempty"`
+	FiscalPeriodId string `json:"fiscalPeriodId"`
+	TransactionCurrencyId string `json:"transactionCurrencyId"`
 	Description string `json:"description"`
-	Date time.Time `json:"date"`
-	Debit *float64 `json:"debit,omitempty"`
-	Credit *float64 `json:"credit,omitempty"`
-	JournalId string `json:"journalId"`
-	CurrencyId string `json:"currencyId"`
-	InvoiceCode NullableString `json:"invoiceCode,omitempty"`
-	DebitAccountId string `json:"debitAccountId"`
-	CreditAccountId string `json:"creditAccountId"`
-	ParentJournalEntryId NullableString `json:"parentJournalEntryId,omitempty"`
+	SourceDocumentType NullableString `json:"sourceDocumentType,omitempty"`
+	SourceDocumentId NullableString `json:"sourceDocumentId,omitempty"`
+	IsOpeningBalance *bool `json:"isOpeningBalance,omitempty"`
 }
 
 type _JournalEntryUpdateDto JournalEntryUpdateDto
@@ -43,14 +36,11 @@ type _JournalEntryUpdateDto JournalEntryUpdateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewJournalEntryUpdateDto(description string, date time.Time, journalId string, currencyId string, debitAccountId string, creditAccountId string) *JournalEntryUpdateDto {
+func NewJournalEntryUpdateDto(fiscalPeriodId string, transactionCurrencyId string, description string) *JournalEntryUpdateDto {
 	this := JournalEntryUpdateDto{}
+	this.FiscalPeriodId = fiscalPeriodId
+	this.TransactionCurrencyId = transactionCurrencyId
 	this.Description = description
-	this.Date = date
-	this.JournalId = journalId
-	this.CurrencyId = currencyId
-	this.DebitAccountId = debitAccountId
-	this.CreditAccountId = creditAccountId
 	return &this
 }
 
@@ -62,68 +52,52 @@ func NewJournalEntryUpdateDtoWithDefaults() *JournalEntryUpdateDto {
 	return &this
 }
 
-// GetGroup returns the Group field value if set, zero value otherwise.
-func (o *JournalEntryUpdateDto) GetGroup() bool {
-	if o == nil || IsNil(o.Group) {
-		var ret bool
+// GetFiscalPeriodId returns the FiscalPeriodId field value
+func (o *JournalEntryUpdateDto) GetFiscalPeriodId() string {
+	if o == nil {
+		var ret string
 		return ret
 	}
-	return *o.Group
+
+	return o.FiscalPeriodId
 }
 
-// GetGroupOk returns a tuple with the Group field value if set, nil otherwise
+// GetFiscalPeriodIdOk returns a tuple with the FiscalPeriodId field value
 // and a boolean to check if the value has been set.
-func (o *JournalEntryUpdateDto) GetGroupOk() (*bool, bool) {
-	if o == nil || IsNil(o.Group) {
+func (o *JournalEntryUpdateDto) GetFiscalPeriodIdOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Group, true
+	return &o.FiscalPeriodId, true
 }
 
-// HasGroup returns a boolean if a field has been set.
-func (o *JournalEntryUpdateDto) HasGroup() bool {
-	if o != nil && !IsNil(o.Group) {
-		return true
-	}
-
-	return false
+// SetFiscalPeriodId sets field value
+func (o *JournalEntryUpdateDto) SetFiscalPeriodId(v string) {
+	o.FiscalPeriodId = v
 }
 
-// SetGroup gets a reference to the given bool and assigns it to the Group field.
-func (o *JournalEntryUpdateDto) SetGroup(v bool) {
-	o.Group = &v
-}
-
-// GetOpening returns the Opening field value if set, zero value otherwise.
-func (o *JournalEntryUpdateDto) GetOpening() bool {
-	if o == nil || IsNil(o.Opening) {
-		var ret bool
+// GetTransactionCurrencyId returns the TransactionCurrencyId field value
+func (o *JournalEntryUpdateDto) GetTransactionCurrencyId() string {
+	if o == nil {
+		var ret string
 		return ret
 	}
-	return *o.Opening
+
+	return o.TransactionCurrencyId
 }
 
-// GetOpeningOk returns a tuple with the Opening field value if set, nil otherwise
+// GetTransactionCurrencyIdOk returns a tuple with the TransactionCurrencyId field value
 // and a boolean to check if the value has been set.
-func (o *JournalEntryUpdateDto) GetOpeningOk() (*bool, bool) {
-	if o == nil || IsNil(o.Opening) {
+func (o *JournalEntryUpdateDto) GetTransactionCurrencyIdOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Opening, true
+	return &o.TransactionCurrencyId, true
 }
 
-// HasOpening returns a boolean if a field has been set.
-func (o *JournalEntryUpdateDto) HasOpening() bool {
-	if o != nil && !IsNil(o.Opening) {
-		return true
-	}
-
-	return false
-}
-
-// SetOpening gets a reference to the given bool and assigns it to the Opening field.
-func (o *JournalEntryUpdateDto) SetOpening(v bool) {
-	o.Opening = &v
+// SetTransactionCurrencyId sets field value
+func (o *JournalEntryUpdateDto) SetTransactionCurrencyId(v string) {
+	o.TransactionCurrencyId = v
 }
 
 // GetDescription returns the Description field value
@@ -150,272 +124,120 @@ func (o *JournalEntryUpdateDto) SetDescription(v string) {
 	o.Description = v
 }
 
-// GetDate returns the Date field value
-func (o *JournalEntryUpdateDto) GetDate() time.Time {
-	if o == nil {
-		var ret time.Time
-		return ret
-	}
-
-	return o.Date
-}
-
-// GetDateOk returns a tuple with the Date field value
-// and a boolean to check if the value has been set.
-func (o *JournalEntryUpdateDto) GetDateOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Date, true
-}
-
-// SetDate sets field value
-func (o *JournalEntryUpdateDto) SetDate(v time.Time) {
-	o.Date = v
-}
-
-// GetDebit returns the Debit field value if set, zero value otherwise.
-func (o *JournalEntryUpdateDto) GetDebit() float64 {
-	if o == nil || IsNil(o.Debit) {
-		var ret float64
-		return ret
-	}
-	return *o.Debit
-}
-
-// GetDebitOk returns a tuple with the Debit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryUpdateDto) GetDebitOk() (*float64, bool) {
-	if o == nil || IsNil(o.Debit) {
-		return nil, false
-	}
-	return o.Debit, true
-}
-
-// HasDebit returns a boolean if a field has been set.
-func (o *JournalEntryUpdateDto) HasDebit() bool {
-	if o != nil && !IsNil(o.Debit) {
-		return true
-	}
-
-	return false
-}
-
-// SetDebit gets a reference to the given float64 and assigns it to the Debit field.
-func (o *JournalEntryUpdateDto) SetDebit(v float64) {
-	o.Debit = &v
-}
-
-// GetCredit returns the Credit field value if set, zero value otherwise.
-func (o *JournalEntryUpdateDto) GetCredit() float64 {
-	if o == nil || IsNil(o.Credit) {
-		var ret float64
-		return ret
-	}
-	return *o.Credit
-}
-
-// GetCreditOk returns a tuple with the Credit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryUpdateDto) GetCreditOk() (*float64, bool) {
-	if o == nil || IsNil(o.Credit) {
-		return nil, false
-	}
-	return o.Credit, true
-}
-
-// HasCredit returns a boolean if a field has been set.
-func (o *JournalEntryUpdateDto) HasCredit() bool {
-	if o != nil && !IsNil(o.Credit) {
-		return true
-	}
-
-	return false
-}
-
-// SetCredit gets a reference to the given float64 and assigns it to the Credit field.
-func (o *JournalEntryUpdateDto) SetCredit(v float64) {
-	o.Credit = &v
-}
-
-// GetJournalId returns the JournalId field value
-func (o *JournalEntryUpdateDto) GetJournalId() string {
-	if o == nil {
+// GetSourceDocumentType returns the SourceDocumentType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryUpdateDto) GetSourceDocumentType() string {
+	if o == nil || IsNil(o.SourceDocumentType.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.JournalId
+	return *o.SourceDocumentType.Get()
 }
 
-// GetJournalIdOk returns a tuple with the JournalId field value
-// and a boolean to check if the value has been set.
-func (o *JournalEntryUpdateDto) GetJournalIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.JournalId, true
-}
-
-// SetJournalId sets field value
-func (o *JournalEntryUpdateDto) SetJournalId(v string) {
-	o.JournalId = v
-}
-
-// GetCurrencyId returns the CurrencyId field value
-func (o *JournalEntryUpdateDto) GetCurrencyId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.CurrencyId
-}
-
-// GetCurrencyIdOk returns a tuple with the CurrencyId field value
-// and a boolean to check if the value has been set.
-func (o *JournalEntryUpdateDto) GetCurrencyIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CurrencyId, true
-}
-
-// SetCurrencyId sets field value
-func (o *JournalEntryUpdateDto) SetCurrencyId(v string) {
-	o.CurrencyId = v
-}
-
-// GetInvoiceCode returns the InvoiceCode field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryUpdateDto) GetInvoiceCode() string {
-	if o == nil || IsNil(o.InvoiceCode.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.InvoiceCode.Get()
-}
-
-// GetInvoiceCodeOk returns a tuple with the InvoiceCode field value if set, nil otherwise
+// GetSourceDocumentTypeOk returns a tuple with the SourceDocumentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryUpdateDto) GetInvoiceCodeOk() (*string, bool) {
+func (o *JournalEntryUpdateDto) GetSourceDocumentTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.InvoiceCode.Get(), o.InvoiceCode.IsSet()
+	return o.SourceDocumentType.Get(), o.SourceDocumentType.IsSet()
 }
 
-// HasInvoiceCode returns a boolean if a field has been set.
-func (o *JournalEntryUpdateDto) HasInvoiceCode() bool {
-	if o != nil && o.InvoiceCode.IsSet() {
+// HasSourceDocumentType returns a boolean if a field has been set.
+func (o *JournalEntryUpdateDto) HasSourceDocumentType() bool {
+	if o != nil && o.SourceDocumentType.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetInvoiceCode gets a reference to the given NullableString and assigns it to the InvoiceCode field.
-func (o *JournalEntryUpdateDto) SetInvoiceCode(v string) {
-	o.InvoiceCode.Set(&v)
+// SetSourceDocumentType gets a reference to the given NullableString and assigns it to the SourceDocumentType field.
+func (o *JournalEntryUpdateDto) SetSourceDocumentType(v string) {
+	o.SourceDocumentType.Set(&v)
 }
-// SetInvoiceCodeNil sets the value for InvoiceCode to be an explicit nil
-func (o *JournalEntryUpdateDto) SetInvoiceCodeNil() {
-	o.InvoiceCode.Set(nil)
-}
-
-// UnsetInvoiceCode ensures that no value is present for InvoiceCode, not even an explicit nil
-func (o *JournalEntryUpdateDto) UnsetInvoiceCode() {
-	o.InvoiceCode.Unset()
+// SetSourceDocumentTypeNil sets the value for SourceDocumentType to be an explicit nil
+func (o *JournalEntryUpdateDto) SetSourceDocumentTypeNil() {
+	o.SourceDocumentType.Set(nil)
 }
 
-// GetDebitAccountId returns the DebitAccountId field value
-func (o *JournalEntryUpdateDto) GetDebitAccountId() string {
-	if o == nil {
+// UnsetSourceDocumentType ensures that no value is present for SourceDocumentType, not even an explicit nil
+func (o *JournalEntryUpdateDto) UnsetSourceDocumentType() {
+	o.SourceDocumentType.Unset()
+}
+
+// GetSourceDocumentId returns the SourceDocumentId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryUpdateDto) GetSourceDocumentId() string {
+	if o == nil || IsNil(o.SourceDocumentId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.DebitAccountId
+	return *o.SourceDocumentId.Get()
 }
 
-// GetDebitAccountIdOk returns a tuple with the DebitAccountId field value
-// and a boolean to check if the value has been set.
-func (o *JournalEntryUpdateDto) GetDebitAccountIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DebitAccountId, true
-}
-
-// SetDebitAccountId sets field value
-func (o *JournalEntryUpdateDto) SetDebitAccountId(v string) {
-	o.DebitAccountId = v
-}
-
-// GetCreditAccountId returns the CreditAccountId field value
-func (o *JournalEntryUpdateDto) GetCreditAccountId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.CreditAccountId
-}
-
-// GetCreditAccountIdOk returns a tuple with the CreditAccountId field value
-// and a boolean to check if the value has been set.
-func (o *JournalEntryUpdateDto) GetCreditAccountIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CreditAccountId, true
-}
-
-// SetCreditAccountId sets field value
-func (o *JournalEntryUpdateDto) SetCreditAccountId(v string) {
-	o.CreditAccountId = v
-}
-
-// GetParentJournalEntryId returns the ParentJournalEntryId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryUpdateDto) GetParentJournalEntryId() string {
-	if o == nil || IsNil(o.ParentJournalEntryId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ParentJournalEntryId.Get()
-}
-
-// GetParentJournalEntryIdOk returns a tuple with the ParentJournalEntryId field value if set, nil otherwise
+// GetSourceDocumentIdOk returns a tuple with the SourceDocumentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryUpdateDto) GetParentJournalEntryIdOk() (*string, bool) {
+func (o *JournalEntryUpdateDto) GetSourceDocumentIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ParentJournalEntryId.Get(), o.ParentJournalEntryId.IsSet()
+	return o.SourceDocumentId.Get(), o.SourceDocumentId.IsSet()
 }
 
-// HasParentJournalEntryId returns a boolean if a field has been set.
-func (o *JournalEntryUpdateDto) HasParentJournalEntryId() bool {
-	if o != nil && o.ParentJournalEntryId.IsSet() {
+// HasSourceDocumentId returns a boolean if a field has been set.
+func (o *JournalEntryUpdateDto) HasSourceDocumentId() bool {
+	if o != nil && o.SourceDocumentId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetParentJournalEntryId gets a reference to the given NullableString and assigns it to the ParentJournalEntryId field.
-func (o *JournalEntryUpdateDto) SetParentJournalEntryId(v string) {
-	o.ParentJournalEntryId.Set(&v)
+// SetSourceDocumentId gets a reference to the given NullableString and assigns it to the SourceDocumentId field.
+func (o *JournalEntryUpdateDto) SetSourceDocumentId(v string) {
+	o.SourceDocumentId.Set(&v)
 }
-// SetParentJournalEntryIdNil sets the value for ParentJournalEntryId to be an explicit nil
-func (o *JournalEntryUpdateDto) SetParentJournalEntryIdNil() {
-	o.ParentJournalEntryId.Set(nil)
+// SetSourceDocumentIdNil sets the value for SourceDocumentId to be an explicit nil
+func (o *JournalEntryUpdateDto) SetSourceDocumentIdNil() {
+	o.SourceDocumentId.Set(nil)
 }
 
-// UnsetParentJournalEntryId ensures that no value is present for ParentJournalEntryId, not even an explicit nil
-func (o *JournalEntryUpdateDto) UnsetParentJournalEntryId() {
-	o.ParentJournalEntryId.Unset()
+// UnsetSourceDocumentId ensures that no value is present for SourceDocumentId, not even an explicit nil
+func (o *JournalEntryUpdateDto) UnsetSourceDocumentId() {
+	o.SourceDocumentId.Unset()
+}
+
+// GetIsOpeningBalance returns the IsOpeningBalance field value if set, zero value otherwise.
+func (o *JournalEntryUpdateDto) GetIsOpeningBalance() bool {
+	if o == nil || IsNil(o.IsOpeningBalance) {
+		var ret bool
+		return ret
+	}
+	return *o.IsOpeningBalance
+}
+
+// GetIsOpeningBalanceOk returns a tuple with the IsOpeningBalance field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JournalEntryUpdateDto) GetIsOpeningBalanceOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsOpeningBalance) {
+		return nil, false
+	}
+	return o.IsOpeningBalance, true
+}
+
+// HasIsOpeningBalance returns a boolean if a field has been set.
+func (o *JournalEntryUpdateDto) HasIsOpeningBalance() bool {
+	if o != nil && !IsNil(o.IsOpeningBalance) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsOpeningBalance gets a reference to the given bool and assigns it to the IsOpeningBalance field.
+func (o *JournalEntryUpdateDto) SetIsOpeningBalance(v bool) {
+	o.IsOpeningBalance = &v
 }
 
 func (o JournalEntryUpdateDto) MarshalJSON() ([]byte, error) {
@@ -428,29 +250,17 @@ func (o JournalEntryUpdateDto) MarshalJSON() ([]byte, error) {
 
 func (o JournalEntryUpdateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Group) {
-		toSerialize["group"] = o.Group
-	}
-	if !IsNil(o.Opening) {
-		toSerialize["opening"] = o.Opening
-	}
+	toSerialize["fiscalPeriodId"] = o.FiscalPeriodId
+	toSerialize["transactionCurrencyId"] = o.TransactionCurrencyId
 	toSerialize["description"] = o.Description
-	toSerialize["date"] = o.Date
-	if !IsNil(o.Debit) {
-		toSerialize["debit"] = o.Debit
+	if o.SourceDocumentType.IsSet() {
+		toSerialize["sourceDocumentType"] = o.SourceDocumentType.Get()
 	}
-	if !IsNil(o.Credit) {
-		toSerialize["credit"] = o.Credit
+	if o.SourceDocumentId.IsSet() {
+		toSerialize["sourceDocumentId"] = o.SourceDocumentId.Get()
 	}
-	toSerialize["journalId"] = o.JournalId
-	toSerialize["currencyId"] = o.CurrencyId
-	if o.InvoiceCode.IsSet() {
-		toSerialize["invoiceCode"] = o.InvoiceCode.Get()
-	}
-	toSerialize["debitAccountId"] = o.DebitAccountId
-	toSerialize["creditAccountId"] = o.CreditAccountId
-	if o.ParentJournalEntryId.IsSet() {
-		toSerialize["parentJournalEntryId"] = o.ParentJournalEntryId.Get()
+	if !IsNil(o.IsOpeningBalance) {
+		toSerialize["isOpeningBalance"] = o.IsOpeningBalance
 	}
 	return toSerialize, nil
 }
@@ -460,12 +270,9 @@ func (o *JournalEntryUpdateDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"fiscalPeriodId",
+		"transactionCurrencyId",
 		"description",
-		"date",
-		"journalId",
-		"currencyId",
-		"debitAccountId",
-		"creditAccountId",
 	}
 
 	allProperties := make(map[string]interface{})

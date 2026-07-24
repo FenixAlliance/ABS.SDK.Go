@@ -30,6 +30,10 @@ Name | Type | Description | Notes
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **ChildrenAccountsCount** | Pointer to **int32** |  | [optional] 
 **AccountCategory** | Pointer to **string** |  | [optional] 
+**IsContra** | Pointer to **bool** |  | [optional] 
+**IsMonetary** | Pointer to **bool** |  | [optional] 
+**IncomeStatementSubType** | Pointer to **NullableString** |  | [optional] 
+**NormalBalance** | Pointer to **string** |  | [optional] 
 **BalanceAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
 **CreditsBalanceAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
 **DebitsBalanceAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
@@ -855,6 +859,116 @@ SetAccountCategory sets AccountCategory field to given value.
 `func (o *AccountDto) HasAccountCategory() bool`
 
 HasAccountCategory returns a boolean if a field has been set.
+
+### GetIsContra
+
+`func (o *AccountDto) GetIsContra() bool`
+
+GetIsContra returns the IsContra field if non-nil, zero value otherwise.
+
+### GetIsContraOk
+
+`func (o *AccountDto) GetIsContraOk() (*bool, bool)`
+
+GetIsContraOk returns a tuple with the IsContra field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsContra
+
+`func (o *AccountDto) SetIsContra(v bool)`
+
+SetIsContra sets IsContra field to given value.
+
+### HasIsContra
+
+`func (o *AccountDto) HasIsContra() bool`
+
+HasIsContra returns a boolean if a field has been set.
+
+### GetIsMonetary
+
+`func (o *AccountDto) GetIsMonetary() bool`
+
+GetIsMonetary returns the IsMonetary field if non-nil, zero value otherwise.
+
+### GetIsMonetaryOk
+
+`func (o *AccountDto) GetIsMonetaryOk() (*bool, bool)`
+
+GetIsMonetaryOk returns a tuple with the IsMonetary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsMonetary
+
+`func (o *AccountDto) SetIsMonetary(v bool)`
+
+SetIsMonetary sets IsMonetary field to given value.
+
+### HasIsMonetary
+
+`func (o *AccountDto) HasIsMonetary() bool`
+
+HasIsMonetary returns a boolean if a field has been set.
+
+### GetIncomeStatementSubType
+
+`func (o *AccountDto) GetIncomeStatementSubType() string`
+
+GetIncomeStatementSubType returns the IncomeStatementSubType field if non-nil, zero value otherwise.
+
+### GetIncomeStatementSubTypeOk
+
+`func (o *AccountDto) GetIncomeStatementSubTypeOk() (*string, bool)`
+
+GetIncomeStatementSubTypeOk returns a tuple with the IncomeStatementSubType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncomeStatementSubType
+
+`func (o *AccountDto) SetIncomeStatementSubType(v string)`
+
+SetIncomeStatementSubType sets IncomeStatementSubType field to given value.
+
+### HasIncomeStatementSubType
+
+`func (o *AccountDto) HasIncomeStatementSubType() bool`
+
+HasIncomeStatementSubType returns a boolean if a field has been set.
+
+### SetIncomeStatementSubTypeNil
+
+`func (o *AccountDto) SetIncomeStatementSubTypeNil(b bool)`
+
+ SetIncomeStatementSubTypeNil sets the value for IncomeStatementSubType to be an explicit nil
+
+### UnsetIncomeStatementSubType
+`func (o *AccountDto) UnsetIncomeStatementSubType()`
+
+UnsetIncomeStatementSubType ensures that no value is present for IncomeStatementSubType, not even an explicit nil
+### GetNormalBalance
+
+`func (o *AccountDto) GetNormalBalance() string`
+
+GetNormalBalance returns the NormalBalance field if non-nil, zero value otherwise.
+
+### GetNormalBalanceOk
+
+`func (o *AccountDto) GetNormalBalanceOk() (*string, bool)`
+
+GetNormalBalanceOk returns a tuple with the NormalBalance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNormalBalance
+
+`func (o *AccountDto) SetNormalBalance(v string)`
+
+SetNormalBalance sets NormalBalance field to given value.
+
+### HasNormalBalance
+
+`func (o *AccountDto) HasNormalBalance() bool`
+
+HasNormalBalance returns a boolean if a field has been set.
 
 ### GetBalanceAmount
 

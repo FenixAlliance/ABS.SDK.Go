@@ -52,9 +52,9 @@ type APIClient struct {
 
 	AccountGroupsAPI *AccountGroupsAPIService
 
-	AccountingEntriesAPI *AccountingEntriesAPIService
-
 	AccountingPeriodsAPI *AccountingPeriodsAPIService
+
+	AccountingSummaryAPI *AccountingSummaryAPIService
 
 	AccountsAPI *AccountsAPIService
 
@@ -102,8 +102,6 @@ type APIClient struct {
 
 	InvoiceEnumerationRangesAPI *InvoiceEnumerationRangesAPIService
 
-	JournalEntriesAPI *JournalEntriesAPIService
-
 	JournalTypesAPI *JournalTypesAPIService
 
 	JournalsAPI *JournalsAPIService
@@ -115,6 +113,8 @@ type APIClient struct {
 	LoansAPI *LoansAPIService
 
 	ReceiptsAPI *ReceiptsAPIService
+
+	ReportsAPI *ReportsAPIService
 
 	SharesAPI *SharesAPIService
 
@@ -144,8 +144,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.AccountGroupsAPI = (*AccountGroupsAPIService)(&c.common)
-	c.AccountingEntriesAPI = (*AccountingEntriesAPIService)(&c.common)
 	c.AccountingPeriodsAPI = (*AccountingPeriodsAPIService)(&c.common)
+	c.AccountingSummaryAPI = (*AccountingSummaryAPIService)(&c.common)
 	c.AccountsAPI = (*AccountsAPIService)(&c.common)
 	c.BankProfilesAPI = (*BankProfilesAPIService)(&c.common)
 	c.BankingAPI = (*BankingAPIService)(&c.common)
@@ -169,13 +169,13 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.FiscalYearsAPI = (*FiscalYearsAPIService)(&c.common)
 	c.GrantsAPI = (*GrantsAPIService)(&c.common)
 	c.InvoiceEnumerationRangesAPI = (*InvoiceEnumerationRangesAPIService)(&c.common)
-	c.JournalEntriesAPI = (*JournalEntriesAPIService)(&c.common)
 	c.JournalTypesAPI = (*JournalTypesAPIService)(&c.common)
 	c.JournalsAPI = (*JournalsAPIService)(&c.common)
 	c.LedgerTypesAPI = (*LedgerTypesAPIService)(&c.common)
 	c.LedgersAPI = (*LedgersAPIService)(&c.common)
 	c.LoansAPI = (*LoansAPIService)(&c.common)
 	c.ReceiptsAPI = (*ReceiptsAPIService)(&c.common)
+	c.ReportsAPI = (*ReportsAPIService)(&c.common)
 	c.SharesAPI = (*SharesAPIService)(&c.common)
 	c.TaxClassesAPI = (*TaxClassesAPIService)(&c.common)
 	c.TaxPoliciesAPI = (*TaxPoliciesAPIService)(&c.common)

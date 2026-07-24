@@ -40,6 +40,21 @@ paths:
           description: OK
       tags:
       - FenixAlliance.ABS.Web
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
   /hello:
     get:
       responses:
@@ -870,7 +885,7 @@ paths:
   /api/v2/WalletsService/Wallets/{walletId}/Locations:
     get:
       description: Get locations of a specific wallet by ID.
-      operationId: GetWalletLocationsAsync
+      operationId: GetLocationsForWalletAsync
       parameters:
       - explode: false
         in: path
@@ -927,7 +942,7 @@ paths:
       - Wallets
     post:
       description: Create a new location for a specific wallet by ID.
-      operationId: CreateWalletLocationAsync
+      operationId: CreateLocationForWalletAsync
       parameters:
       - explode: false
         in: path
@@ -993,7 +1008,7 @@ paths:
   /api/v2/WalletsService/Wallets/{walletId}/Locations/Count:
     get:
       description: Get locations count of a specific wallet by ID.
-      operationId: GetWalletLocationsCountAsync
+      operationId: GetLocationsForWalletCountAsync
       parameters:
       - explode: false
         in: path
@@ -1051,7 +1066,7 @@ paths:
   /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}:
     delete:
       description: Delete a specific location of a specific wallet by ID.
-      operationId: DeleteWalletLocationAsync
+      operationId: DeleteLocationForWalletAsync
       parameters:
       - explode: false
         in: path
@@ -1116,7 +1131,7 @@ paths:
       - Wallets
     get:
       description: Get a specific location of a specific wallet by ID.
-      operationId: GetWalletLocationAsync
+      operationId: GetLocationForWalletAsync
       parameters:
       - explode: false
         in: path
@@ -1181,7 +1196,7 @@ paths:
       - Wallets
     put:
       description: Update a specific location of a specific wallet by ID.
-      operationId: UpdateWalletLocationAsync
+      operationId: UpdateLocationForWalletAsync
       parameters:
       - explode: false
         in: path

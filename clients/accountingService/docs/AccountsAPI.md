@@ -71,7 +71,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	currencyId := "currencyId_example" // string |  (optional)
+	currencyId := "currencyId_example" // string |  (optional) (default to "USD.USA")
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -99,7 +99,7 @@ Other parameters are passed through a pointer to a apiAggregateAccountsBalanceAs
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
- **currencyId** | **string** |  | 
+ **currencyId** | **string** |  | [default to &quot;USD.USA&quot;]
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -364,7 +364,7 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	accountingEntryCreateDto := *openapiclient.NewAccountingEntryCreateDto("Description_example", "CurrencyId_example") // AccountingEntryCreateDto |  (optional)
+	accountingEntryCreateDto := *openapiclient.NewAccountingEntryCreateDto("JournalEntryId_example", "AccountId_example", "Direction_example", "TransactionCurrencyId_example", "Description_example") // AccountingEntryCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -442,7 +442,7 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	accountingEntryCreateDto := *openapiclient.NewAccountingEntryCreateDto("Description_example", "CurrencyId_example") // AccountingEntryCreateDto |  (optional)
+	accountingEntryCreateDto := *openapiclient.NewAccountingEntryCreateDto("JournalEntryId_example", "AccountId_example", "Direction_example", "TransactionCurrencyId_example", "Description_example") // AccountingEntryCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -520,7 +520,7 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	accountingEntryCreateDto := *openapiclient.NewAccountingEntryCreateDto("Description_example", "CurrencyId_example") // AccountingEntryCreateDto |  (optional)
+	accountingEntryCreateDto := *openapiclient.NewAccountingEntryCreateDto("JournalEntryId_example", "AccountId_example", "Direction_example", "TransactionCurrencyId_example", "Description_example") // AccountingEntryCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1050,7 +1050,7 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	currencyId := "currencyId_example" // string |  (optional)
+	currencyId := "currencyId_example" // string |  (optional) (default to "USD.USA")
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 	accountDto := []openapiclient.AccountDto{*openapiclient.NewAccountDto()} // []AccountDto |  (optional)
@@ -1079,7 +1079,7 @@ Other parameters are passed through a pointer to a apiGetAccountAggregateAsyncRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
- **currencyId** | **string** |  | 
+ **currencyId** | **string** |  | [default to &quot;USD.USA&quot;]
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **accountDto** | [**[]AccountDto**](AccountDto.md) |  | 

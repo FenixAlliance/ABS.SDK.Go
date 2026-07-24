@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**GetContactOptionByKey**](OptionsAPI.md#GetContactOptionByKey) | **Get** /api/v2/CrmService/Contacts/{contactId}/Options/Key/{key} | Retrieve a single contact option by its key
 [**GetContactOptions**](OptionsAPI.md#GetContactOptions) | **Get** /api/v2/CrmService/Contacts/{contactId}/Options | Retrieve a list of contact options
 [**GetContactOptionsCount**](OptionsAPI.md#GetContactOptionsCount) | **Get** /api/v2/CrmService/Contacts/{contactId}/Options/Count | Get the count of contact options
+[**PatchContactOptionAsync**](OptionsAPI.md#PatchContactOptionAsync) | **Patch** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Patch a contact option
+[**PatchContactOptionByKeyAsync**](OptionsAPI.md#PatchContactOptionByKeyAsync) | **Patch** /api/v2/CrmService/Contacts/{contactId}/Options/Key/{key} | Patch a contact option by key
 [**UpdateContactOption**](OptionsAPI.md#UpdateContactOption) | **Put** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Update a contact option
 [**UpsertContactOption**](OptionsAPI.md#UpsertContactOption) | **Put** /api/v2/CrmService/Contacts/{contactId}/Options/Upsert/{key} | Create or update a contact option by key
 
@@ -485,6 +487,168 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchContactOptionAsync
+
+> EmptyEnvelope PatchContactOptionAsync(ctx, contactId, optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a contact option
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	optionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionsAPI.PatchContactOptionAsync(context.Background(), contactId, optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.PatchContactOptionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchContactOptionAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `OptionsAPI.PatchContactOptionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+**optionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchContactOptionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchContactOptionByKeyAsync
+
+> EmptyEnvelope PatchContactOptionByKeyAsync(ctx, contactId, key).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a contact option by key
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	key := "key_example" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionsAPI.PatchContactOptionByKeyAsync(context.Background(), contactId, key).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.PatchContactOptionByKeyAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchContactOptionByKeyAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `OptionsAPI.PatchContactOptionByKeyAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+**key** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchContactOptionByKeyAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

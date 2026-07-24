@@ -79,7 +79,7 @@ No authorization required
 
 ## GetAvailableModules
 
-> ModuleListEnvelope GetAvailableModules(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SuiteModuleListEnvelope GetAvailableModules(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get all modules available to a tenant user.
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModulesAPI.GetAvailableModules``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAvailableModules`: ModuleListEnvelope
+	// response from `GetAvailableModules`: SuiteModuleListEnvelope
 	fmt.Fprintf(os.Stdout, "Response from `ModulesAPI.GetAvailableModules`: %v\n", resp)
 }
 ```
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModuleListEnvelope**](ModuleListEnvelope.md)
+[**SuiteModuleListEnvelope**](SuiteModuleListEnvelope.md)
 
 ### Authorization
 

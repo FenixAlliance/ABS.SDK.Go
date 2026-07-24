@@ -4359,7 +4359,7 @@ func (r ApiGetPurchaseInvoicesSumRequest) TenantId(tenantId string) ApiGetPurcha
 	return r
 }
 
-func (r ApiGetPurchaseInvoicesSumRequest) Execute() (*DecimalEnvelope, *http.Response, error) {
+func (r ApiGetPurchaseInvoicesSumRequest) Execute() (*MoneyEnvelope, *http.Response, error) {
 	return r.ApiService.GetPurchaseInvoicesSumExecute(r)
 }
 
@@ -4379,13 +4379,13 @@ func (a *InvoicesAPIService) GetPurchaseInvoicesSum(ctx context.Context) ApiGetP
 }
 
 // Execute executes the request
-//  @return DecimalEnvelope
-func (a *InvoicesAPIService) GetPurchaseInvoicesSumExecute(r ApiGetPurchaseInvoicesSumRequest) (*DecimalEnvelope, *http.Response, error) {
+//  @return MoneyEnvelope
+func (a *InvoicesAPIService) GetPurchaseInvoicesSumExecute(r ApiGetPurchaseInvoicesSumRequest) (*MoneyEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DecimalEnvelope
+		localVarReturnValue  *MoneyEnvelope
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.GetPurchaseInvoicesSum")
@@ -4490,7 +4490,7 @@ func (r ApiGetSalesInvoicesSumRequest) TenantId(tenantId string) ApiGetSalesInvo
 	return r
 }
 
-func (r ApiGetSalesInvoicesSumRequest) Execute() (*DecimalEnvelope, *http.Response, error) {
+func (r ApiGetSalesInvoicesSumRequest) Execute() (*MoneyEnvelope, *http.Response, error) {
 	return r.ApiService.GetSalesInvoicesSumExecute(r)
 }
 
@@ -4510,13 +4510,13 @@ func (a *InvoicesAPIService) GetSalesInvoicesSum(ctx context.Context) ApiGetSale
 }
 
 // Execute executes the request
-//  @return DecimalEnvelope
-func (a *InvoicesAPIService) GetSalesInvoicesSumExecute(r ApiGetSalesInvoicesSumRequest) (*DecimalEnvelope, *http.Response, error) {
+//  @return MoneyEnvelope
+func (a *InvoicesAPIService) GetSalesInvoicesSumExecute(r ApiGetSalesInvoicesSumRequest) (*MoneyEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DecimalEnvelope
+		localVarReturnValue  *MoneyEnvelope
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.GetSalesInvoicesSum")

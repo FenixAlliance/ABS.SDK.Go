@@ -52,8 +52,6 @@ type APIClient struct {
 
 	ActivityFeedsAPI *ActivityFeedsAPIService
 
-	ActivityRecordsAPI *ActivityRecordsAPIService
-
 	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
 }
 
@@ -74,7 +72,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.ActivityFeedsAPI = (*ActivityFeedsAPIService)(&c.common)
-	c.ActivityRecordsAPI = (*ActivityRecordsAPIService)(&c.common)
 	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 
 	return c

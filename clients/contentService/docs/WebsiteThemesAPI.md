@@ -236,7 +236,7 @@ No authorization required
 
 ## GetWebsiteThemesAsync
 
-> WebsiteThemeDtoListEnvelope GetWebsiteThemesAsync(ctx).TenantId(tenantId).ODataQueryOptions(oDataQueryOptions).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> WebsiteThemeDtoListEnvelope GetWebsiteThemesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get all website themes
 
@@ -256,13 +256,12 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	oDataQueryOptions := *openapiclient.NewWebsiteThemeDtoODataQueryOptions() // WebsiteThemeDtoODataQueryOptions |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebsiteThemesAPI.GetWebsiteThemesAsync(context.Background()).TenantId(tenantId).ODataQueryOptions(oDataQueryOptions).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WebsiteThemesAPI.GetWebsiteThemesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebsiteThemesAPI.GetWebsiteThemesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -284,7 +283,6 @@ Other parameters are passed through a pointer to a apiGetWebsiteThemesAsyncReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
- **oDataQueryOptions** | [**WebsiteThemeDtoODataQueryOptions**](WebsiteThemeDtoODataQueryOptions.md) |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -308,7 +306,7 @@ No authorization required
 
 ## GetWebsiteThemesCountAsync
 
-> Int32Envelope GetWebsiteThemesCountAsync(ctx).TenantId(tenantId).ODataQueryOptions(oDataQueryOptions).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWebsiteThemesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get website themes count
 
@@ -328,13 +326,12 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	oDataQueryOptions := *openapiclient.NewWebsiteThemeDtoODataQueryOptions() // WebsiteThemeDtoODataQueryOptions |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebsiteThemesAPI.GetWebsiteThemesCountAsync(context.Background()).TenantId(tenantId).ODataQueryOptions(oDataQueryOptions).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WebsiteThemesAPI.GetWebsiteThemesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebsiteThemesAPI.GetWebsiteThemesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -356,7 +353,6 @@ Other parameters are passed through a pointer to a apiGetWebsiteThemesCountAsync
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
- **oDataQueryOptions** | [**WebsiteThemeDtoODataQueryOptions**](WebsiteThemeDtoODataQueryOptions.md) |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 

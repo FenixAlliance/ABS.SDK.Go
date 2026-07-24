@@ -47,6 +47,10 @@ type AccountDto struct {
 	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	ChildrenAccountsCount *int32 `json:"childrenAccountsCount,omitempty"`
 	AccountCategory *string `json:"accountCategory,omitempty"`
+	IsContra *bool `json:"isContra,omitempty"`
+	IsMonetary *bool `json:"isMonetary,omitempty"`
+	IncomeStatementSubType NullableString `json:"incomeStatementSubType,omitempty"`
+	NormalBalance *string `json:"normalBalance,omitempty"`
 	BalanceAmount *Money `json:"balanceAmount,omitempty"`
 	CreditsBalanceAmount *Money `json:"creditsBalanceAmount,omitempty"`
 	DebitsBalanceAmount *Money `json:"debitsBalanceAmount,omitempty"`
@@ -1054,6 +1058,144 @@ func (o *AccountDto) SetAccountCategory(v string) {
 	o.AccountCategory = &v
 }
 
+// GetIsContra returns the IsContra field value if set, zero value otherwise.
+func (o *AccountDto) GetIsContra() bool {
+	if o == nil || IsNil(o.IsContra) {
+		var ret bool
+		return ret
+	}
+	return *o.IsContra
+}
+
+// GetIsContraOk returns a tuple with the IsContra field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AccountDto) GetIsContraOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsContra) {
+		return nil, false
+	}
+	return o.IsContra, true
+}
+
+// HasIsContra returns a boolean if a field has been set.
+func (o *AccountDto) HasIsContra() bool {
+	if o != nil && !IsNil(o.IsContra) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsContra gets a reference to the given bool and assigns it to the IsContra field.
+func (o *AccountDto) SetIsContra(v bool) {
+	o.IsContra = &v
+}
+
+// GetIsMonetary returns the IsMonetary field value if set, zero value otherwise.
+func (o *AccountDto) GetIsMonetary() bool {
+	if o == nil || IsNil(o.IsMonetary) {
+		var ret bool
+		return ret
+	}
+	return *o.IsMonetary
+}
+
+// GetIsMonetaryOk returns a tuple with the IsMonetary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AccountDto) GetIsMonetaryOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsMonetary) {
+		return nil, false
+	}
+	return o.IsMonetary, true
+}
+
+// HasIsMonetary returns a boolean if a field has been set.
+func (o *AccountDto) HasIsMonetary() bool {
+	if o != nil && !IsNil(o.IsMonetary) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsMonetary gets a reference to the given bool and assigns it to the IsMonetary field.
+func (o *AccountDto) SetIsMonetary(v bool) {
+	o.IsMonetary = &v
+}
+
+// GetIncomeStatementSubType returns the IncomeStatementSubType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AccountDto) GetIncomeStatementSubType() string {
+	if o == nil || IsNil(o.IncomeStatementSubType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.IncomeStatementSubType.Get()
+}
+
+// GetIncomeStatementSubTypeOk returns a tuple with the IncomeStatementSubType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AccountDto) GetIncomeStatementSubTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IncomeStatementSubType.Get(), o.IncomeStatementSubType.IsSet()
+}
+
+// HasIncomeStatementSubType returns a boolean if a field has been set.
+func (o *AccountDto) HasIncomeStatementSubType() bool {
+	if o != nil && o.IncomeStatementSubType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIncomeStatementSubType gets a reference to the given NullableString and assigns it to the IncomeStatementSubType field.
+func (o *AccountDto) SetIncomeStatementSubType(v string) {
+	o.IncomeStatementSubType.Set(&v)
+}
+// SetIncomeStatementSubTypeNil sets the value for IncomeStatementSubType to be an explicit nil
+func (o *AccountDto) SetIncomeStatementSubTypeNil() {
+	o.IncomeStatementSubType.Set(nil)
+}
+
+// UnsetIncomeStatementSubType ensures that no value is present for IncomeStatementSubType, not even an explicit nil
+func (o *AccountDto) UnsetIncomeStatementSubType() {
+	o.IncomeStatementSubType.Unset()
+}
+
+// GetNormalBalance returns the NormalBalance field value if set, zero value otherwise.
+func (o *AccountDto) GetNormalBalance() string {
+	if o == nil || IsNil(o.NormalBalance) {
+		var ret string
+		return ret
+	}
+	return *o.NormalBalance
+}
+
+// GetNormalBalanceOk returns a tuple with the NormalBalance field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AccountDto) GetNormalBalanceOk() (*string, bool) {
+	if o == nil || IsNil(o.NormalBalance) {
+		return nil, false
+	}
+	return o.NormalBalance, true
+}
+
+// HasNormalBalance returns a boolean if a field has been set.
+func (o *AccountDto) HasNormalBalance() bool {
+	if o != nil && !IsNil(o.NormalBalance) {
+		return true
+	}
+
+	return false
+}
+
+// SetNormalBalance gets a reference to the given string and assigns it to the NormalBalance field.
+func (o *AccountDto) SetNormalBalance(v string) {
+	o.NormalBalance = &v
+}
+
 // GetBalanceAmount returns the BalanceAmount field value if set, zero value otherwise.
 func (o *AccountDto) GetBalanceAmount() Money {
 	if o == nil || IsNil(o.BalanceAmount) {
@@ -1333,6 +1475,18 @@ func (o AccountDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AccountCategory) {
 		toSerialize["accountCategory"] = o.AccountCategory
+	}
+	if !IsNil(o.IsContra) {
+		toSerialize["isContra"] = o.IsContra
+	}
+	if !IsNil(o.IsMonetary) {
+		toSerialize["isMonetary"] = o.IsMonetary
+	}
+	if o.IncomeStatementSubType.IsSet() {
+		toSerialize["incomeStatementSubType"] = o.IncomeStatementSubType.Get()
+	}
+	if !IsNil(o.NormalBalance) {
+		toSerialize["normalBalance"] = o.NormalBalance
 	}
 	if !IsNil(o.BalanceAmount) {
 		toSerialize["balanceAmount"] = o.BalanceAmount

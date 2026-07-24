@@ -6,18 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Closed** | Pointer to **bool** |  | [optional] 
 **EndDate** | Pointer to **time.Time** |  | [optional] 
 **StartDate** | Pointer to **time.Time** |  | [optional] 
-**FiscalAuthorityId** | Pointer to **NullableString** |  | [optional] 
+**FiscalAuthorityId** | **string** |  | 
 
 ## Methods
 
 ### NewFiscalYearCreateDto
 
-`func NewFiscalYearCreateDto() *FiscalYearCreateDto`
+`func NewFiscalYearCreateDto(name string, fiscalAuthorityId string, ) *FiscalYearCreateDto`
 
 NewFiscalYearCreateDto instantiates a new FiscalYearCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -101,22 +101,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *FiscalYearCreateDto) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *FiscalYearCreateDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *FiscalYearCreateDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *FiscalYearCreateDto) GetDescription() string`
@@ -246,22 +231,7 @@ and a boolean to check if the value has been set.
 
 SetFiscalAuthorityId sets FiscalAuthorityId field to given value.
 
-### HasFiscalAuthorityId
 
-`func (o *FiscalYearCreateDto) HasFiscalAuthorityId() bool`
-
-HasFiscalAuthorityId returns a boolean if a field has been set.
-
-### SetFiscalAuthorityIdNil
-
-`func (o *FiscalYearCreateDto) SetFiscalAuthorityIdNil(b bool)`
-
- SetFiscalAuthorityIdNil sets the value for FiscalAuthorityId to be an explicit nil
-
-### UnsetFiscalAuthorityId
-`func (o *FiscalYearCreateDto) UnsetFiscalAuthorityId()`
-
-UnsetFiscalAuthorityId ensures that no value is present for FiscalAuthorityId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

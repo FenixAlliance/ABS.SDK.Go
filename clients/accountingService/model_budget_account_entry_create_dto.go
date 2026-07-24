@@ -26,14 +26,11 @@ type BudgetAccountEntryCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Description string `json:"description"`
-	Date NullableTime `json:"date,omitempty"`
-	Amount *float64 `json:"amount,omitempty"`
+	PlannedAmount *float64 `json:"plannedAmount,omitempty"`
 	CurrencyId string `json:"currencyId"`
-	DebitAccountId NullableString `json:"debitAccountId,omitempty"`
-	CreditAccountId NullableString `json:"creditAccountId,omitempty"`
-	JournalEntryId NullableString `json:"journalEntryId,omitempty"`
-	AccountingEntryType *string `json:"accountingEntryType,omitempty"`
-	BudgetId NullableString `json:"budgetId,omitempty"`
+	DebitAccountId string `json:"debitAccountId"`
+	CreditAccountId string `json:"creditAccountId"`
+	BudgetId string `json:"budgetId"`
 }
 
 type _BudgetAccountEntryCreateDto BudgetAccountEntryCreateDto
@@ -42,10 +39,13 @@ type _BudgetAccountEntryCreateDto BudgetAccountEntryCreateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBudgetAccountEntryCreateDto(description string, currencyId string) *BudgetAccountEntryCreateDto {
+func NewBudgetAccountEntryCreateDto(description string, currencyId string, debitAccountId string, creditAccountId string, budgetId string) *BudgetAccountEntryCreateDto {
 	this := BudgetAccountEntryCreateDto{}
 	this.Description = description
 	this.CurrencyId = currencyId
+	this.DebitAccountId = debitAccountId
+	this.CreditAccountId = creditAccountId
+	this.BudgetId = budgetId
 	return &this
 }
 
@@ -145,78 +145,36 @@ func (o *BudgetAccountEntryCreateDto) SetDescription(v string) {
 	o.Description = v
 }
 
-// GetDate returns the Date field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BudgetAccountEntryCreateDto) GetDate() time.Time {
-	if o == nil || IsNil(o.Date.Get()) {
-		var ret time.Time
-		return ret
-	}
-	return *o.Date.Get()
-}
-
-// GetDateOk returns a tuple with the Date field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BudgetAccountEntryCreateDto) GetDateOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Date.Get(), o.Date.IsSet()
-}
-
-// HasDate returns a boolean if a field has been set.
-func (o *BudgetAccountEntryCreateDto) HasDate() bool {
-	if o != nil && o.Date.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDate gets a reference to the given NullableTime and assigns it to the Date field.
-func (o *BudgetAccountEntryCreateDto) SetDate(v time.Time) {
-	o.Date.Set(&v)
-}
-// SetDateNil sets the value for Date to be an explicit nil
-func (o *BudgetAccountEntryCreateDto) SetDateNil() {
-	o.Date.Set(nil)
-}
-
-// UnsetDate ensures that no value is present for Date, not even an explicit nil
-func (o *BudgetAccountEntryCreateDto) UnsetDate() {
-	o.Date.Unset()
-}
-
-// GetAmount returns the Amount field value if set, zero value otherwise.
-func (o *BudgetAccountEntryCreateDto) GetAmount() float64 {
-	if o == nil || IsNil(o.Amount) {
+// GetPlannedAmount returns the PlannedAmount field value if set, zero value otherwise.
+func (o *BudgetAccountEntryCreateDto) GetPlannedAmount() float64 {
+	if o == nil || IsNil(o.PlannedAmount) {
 		var ret float64
 		return ret
 	}
-	return *o.Amount
+	return *o.PlannedAmount
 }
 
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
+// GetPlannedAmountOk returns a tuple with the PlannedAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BudgetAccountEntryCreateDto) GetAmountOk() (*float64, bool) {
-	if o == nil || IsNil(o.Amount) {
+func (o *BudgetAccountEntryCreateDto) GetPlannedAmountOk() (*float64, bool) {
+	if o == nil || IsNil(o.PlannedAmount) {
 		return nil, false
 	}
-	return o.Amount, true
+	return o.PlannedAmount, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *BudgetAccountEntryCreateDto) HasAmount() bool {
-	if o != nil && !IsNil(o.Amount) {
+// HasPlannedAmount returns a boolean if a field has been set.
+func (o *BudgetAccountEntryCreateDto) HasPlannedAmount() bool {
+	if o != nil && !IsNil(o.PlannedAmount) {
 		return true
 	}
 
 	return false
 }
 
-// SetAmount gets a reference to the given float64 and assigns it to the Amount field.
-func (o *BudgetAccountEntryCreateDto) SetAmount(v float64) {
-	o.Amount = &v
+// SetPlannedAmount gets a reference to the given float64 and assigns it to the PlannedAmount field.
+func (o *BudgetAccountEntryCreateDto) SetPlannedAmount(v float64) {
+	o.PlannedAmount = &v
 }
 
 // GetCurrencyId returns the CurrencyId field value
@@ -243,204 +201,76 @@ func (o *BudgetAccountEntryCreateDto) SetCurrencyId(v string) {
 	o.CurrencyId = v
 }
 
-// GetDebitAccountId returns the DebitAccountId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDebitAccountId returns the DebitAccountId field value
 func (o *BudgetAccountEntryCreateDto) GetDebitAccountId() string {
-	if o == nil || IsNil(o.DebitAccountId.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DebitAccountId.Get()
+
+	return o.DebitAccountId
 }
 
-// GetDebitAccountIdOk returns a tuple with the DebitAccountId field value if set, nil otherwise
+// GetDebitAccountIdOk returns a tuple with the DebitAccountId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BudgetAccountEntryCreateDto) GetDebitAccountIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DebitAccountId.Get(), o.DebitAccountId.IsSet()
+	return &o.DebitAccountId, true
 }
 
-// HasDebitAccountId returns a boolean if a field has been set.
-func (o *BudgetAccountEntryCreateDto) HasDebitAccountId() bool {
-	if o != nil && o.DebitAccountId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDebitAccountId gets a reference to the given NullableString and assigns it to the DebitAccountId field.
+// SetDebitAccountId sets field value
 func (o *BudgetAccountEntryCreateDto) SetDebitAccountId(v string) {
-	o.DebitAccountId.Set(&v)
-}
-// SetDebitAccountIdNil sets the value for DebitAccountId to be an explicit nil
-func (o *BudgetAccountEntryCreateDto) SetDebitAccountIdNil() {
-	o.DebitAccountId.Set(nil)
+	o.DebitAccountId = v
 }
 
-// UnsetDebitAccountId ensures that no value is present for DebitAccountId, not even an explicit nil
-func (o *BudgetAccountEntryCreateDto) UnsetDebitAccountId() {
-	o.DebitAccountId.Unset()
-}
-
-// GetCreditAccountId returns the CreditAccountId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreditAccountId returns the CreditAccountId field value
 func (o *BudgetAccountEntryCreateDto) GetCreditAccountId() string {
-	if o == nil || IsNil(o.CreditAccountId.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreditAccountId.Get()
+
+	return o.CreditAccountId
 }
 
-// GetCreditAccountIdOk returns a tuple with the CreditAccountId field value if set, nil otherwise
+// GetCreditAccountIdOk returns a tuple with the CreditAccountId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BudgetAccountEntryCreateDto) GetCreditAccountIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.CreditAccountId.Get(), o.CreditAccountId.IsSet()
+	return &o.CreditAccountId, true
 }
 
-// HasCreditAccountId returns a boolean if a field has been set.
-func (o *BudgetAccountEntryCreateDto) HasCreditAccountId() bool {
-	if o != nil && o.CreditAccountId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCreditAccountId gets a reference to the given NullableString and assigns it to the CreditAccountId field.
+// SetCreditAccountId sets field value
 func (o *BudgetAccountEntryCreateDto) SetCreditAccountId(v string) {
-	o.CreditAccountId.Set(&v)
-}
-// SetCreditAccountIdNil sets the value for CreditAccountId to be an explicit nil
-func (o *BudgetAccountEntryCreateDto) SetCreditAccountIdNil() {
-	o.CreditAccountId.Set(nil)
+	o.CreditAccountId = v
 }
 
-// UnsetCreditAccountId ensures that no value is present for CreditAccountId, not even an explicit nil
-func (o *BudgetAccountEntryCreateDto) UnsetCreditAccountId() {
-	o.CreditAccountId.Unset()
-}
-
-// GetJournalEntryId returns the JournalEntryId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BudgetAccountEntryCreateDto) GetJournalEntryId() string {
-	if o == nil || IsNil(o.JournalEntryId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.JournalEntryId.Get()
-}
-
-// GetJournalEntryIdOk returns a tuple with the JournalEntryId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BudgetAccountEntryCreateDto) GetJournalEntryIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.JournalEntryId.Get(), o.JournalEntryId.IsSet()
-}
-
-// HasJournalEntryId returns a boolean if a field has been set.
-func (o *BudgetAccountEntryCreateDto) HasJournalEntryId() bool {
-	if o != nil && o.JournalEntryId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetJournalEntryId gets a reference to the given NullableString and assigns it to the JournalEntryId field.
-func (o *BudgetAccountEntryCreateDto) SetJournalEntryId(v string) {
-	o.JournalEntryId.Set(&v)
-}
-// SetJournalEntryIdNil sets the value for JournalEntryId to be an explicit nil
-func (o *BudgetAccountEntryCreateDto) SetJournalEntryIdNil() {
-	o.JournalEntryId.Set(nil)
-}
-
-// UnsetJournalEntryId ensures that no value is present for JournalEntryId, not even an explicit nil
-func (o *BudgetAccountEntryCreateDto) UnsetJournalEntryId() {
-	o.JournalEntryId.Unset()
-}
-
-// GetAccountingEntryType returns the AccountingEntryType field value if set, zero value otherwise.
-func (o *BudgetAccountEntryCreateDto) GetAccountingEntryType() string {
-	if o == nil || IsNil(o.AccountingEntryType) {
-		var ret string
-		return ret
-	}
-	return *o.AccountingEntryType
-}
-
-// GetAccountingEntryTypeOk returns a tuple with the AccountingEntryType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *BudgetAccountEntryCreateDto) GetAccountingEntryTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.AccountingEntryType) {
-		return nil, false
-	}
-	return o.AccountingEntryType, true
-}
-
-// HasAccountingEntryType returns a boolean if a field has been set.
-func (o *BudgetAccountEntryCreateDto) HasAccountingEntryType() bool {
-	if o != nil && !IsNil(o.AccountingEntryType) {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountingEntryType gets a reference to the given string and assigns it to the AccountingEntryType field.
-func (o *BudgetAccountEntryCreateDto) SetAccountingEntryType(v string) {
-	o.AccountingEntryType = &v
-}
-
-// GetBudgetId returns the BudgetId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBudgetId returns the BudgetId field value
 func (o *BudgetAccountEntryCreateDto) GetBudgetId() string {
-	if o == nil || IsNil(o.BudgetId.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.BudgetId.Get()
+
+	return o.BudgetId
 }
 
-// GetBudgetIdOk returns a tuple with the BudgetId field value if set, nil otherwise
+// GetBudgetIdOk returns a tuple with the BudgetId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BudgetAccountEntryCreateDto) GetBudgetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BudgetId.Get(), o.BudgetId.IsSet()
+	return &o.BudgetId, true
 }
 
-// HasBudgetId returns a boolean if a field has been set.
-func (o *BudgetAccountEntryCreateDto) HasBudgetId() bool {
-	if o != nil && o.BudgetId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBudgetId gets a reference to the given NullableString and assigns it to the BudgetId field.
+// SetBudgetId sets field value
 func (o *BudgetAccountEntryCreateDto) SetBudgetId(v string) {
-	o.BudgetId.Set(&v)
-}
-// SetBudgetIdNil sets the value for BudgetId to be an explicit nil
-func (o *BudgetAccountEntryCreateDto) SetBudgetIdNil() {
-	o.BudgetId.Set(nil)
-}
-
-// UnsetBudgetId ensures that no value is present for BudgetId, not even an explicit nil
-func (o *BudgetAccountEntryCreateDto) UnsetBudgetId() {
-	o.BudgetId.Unset()
+	o.BudgetId = v
 }
 
 func (o BudgetAccountEntryCreateDto) MarshalJSON() ([]byte, error) {
@@ -460,28 +290,13 @@ func (o BudgetAccountEntryCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
 	toSerialize["description"] = o.Description
-	if o.Date.IsSet() {
-		toSerialize["date"] = o.Date.Get()
-	}
-	if !IsNil(o.Amount) {
-		toSerialize["amount"] = o.Amount
+	if !IsNil(o.PlannedAmount) {
+		toSerialize["plannedAmount"] = o.PlannedAmount
 	}
 	toSerialize["currencyId"] = o.CurrencyId
-	if o.DebitAccountId.IsSet() {
-		toSerialize["debitAccountId"] = o.DebitAccountId.Get()
-	}
-	if o.CreditAccountId.IsSet() {
-		toSerialize["creditAccountId"] = o.CreditAccountId.Get()
-	}
-	if o.JournalEntryId.IsSet() {
-		toSerialize["journalEntryId"] = o.JournalEntryId.Get()
-	}
-	if !IsNil(o.AccountingEntryType) {
-		toSerialize["accountingEntryType"] = o.AccountingEntryType
-	}
-	if o.BudgetId.IsSet() {
-		toSerialize["budgetId"] = o.BudgetId.Get()
-	}
+	toSerialize["debitAccountId"] = o.DebitAccountId
+	toSerialize["creditAccountId"] = o.CreditAccountId
+	toSerialize["budgetId"] = o.BudgetId
 	return toSerialize, nil
 }
 
@@ -492,6 +307,9 @@ func (o *BudgetAccountEntryCreateDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"description",
 		"currencyId",
+		"debitAccountId",
+		"creditAccountId",
+		"budgetId",
 	}
 
 	allProperties := make(map[string]interface{})

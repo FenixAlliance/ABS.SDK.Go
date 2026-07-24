@@ -181,6 +181,306 @@ func (a *ContactsAPIService) CreateContactAsyncExecute(r ApiCreateContactAsyncRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiCreateContactEmailAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	apiVersion *string
+	xApiVersion *string
+	contactEmailCreateDto *ContactEmailCreateDto
+}
+
+func (r ApiCreateContactEmailAsyncRequest) TenantId(tenantId string) ApiCreateContactEmailAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiCreateContactEmailAsyncRequest) ApiVersion(apiVersion string) ApiCreateContactEmailAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiCreateContactEmailAsyncRequest) XApiVersion(xApiVersion string) ApiCreateContactEmailAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCreateContactEmailAsyncRequest) ContactEmailCreateDto(contactEmailCreateDto ContactEmailCreateDto) ApiCreateContactEmailAsyncRequest {
+	r.contactEmailCreateDto = &contactEmailCreateDto
+	return r
+}
+
+func (r ApiCreateContactEmailAsyncRequest) Execute() (*http.Response, error) {
+	return r.ApiService.CreateContactEmailAsyncExecute(r)
+}
+
+/*
+CreateContactEmailAsync Add an email address to a contact
+
+Creates a new email address for the specified contact.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @return ApiCreateContactEmailAsyncRequest
+*/
+func (a *ContactsAPIService) CreateContactEmailAsync(ctx context.Context, contactId string) ApiCreateContactEmailAsyncRequest {
+	return ApiCreateContactEmailAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+	}
+}
+
+// Execute executes the request
+func (a *ContactsAPIService) CreateContactEmailAsyncExecute(r ApiCreateContactEmailAsyncRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.CreateContactEmailAsync")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Emails/Addresses"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.contactEmailCreateDto
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiCreateProfileForContactAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	apiVersion *string
+	xApiVersion *string
+	contactProfileCreateDto *ContactProfileCreateDto
+}
+
+func (r ApiCreateProfileForContactAsyncRequest) TenantId(tenantId string) ApiCreateProfileForContactAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiCreateProfileForContactAsyncRequest) ApiVersion(apiVersion string) ApiCreateProfileForContactAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiCreateProfileForContactAsyncRequest) XApiVersion(xApiVersion string) ApiCreateProfileForContactAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCreateProfileForContactAsyncRequest) ContactProfileCreateDto(contactProfileCreateDto ContactProfileCreateDto) ApiCreateProfileForContactAsyncRequest {
+	r.contactProfileCreateDto = &contactProfileCreateDto
+	return r
+}
+
+func (r ApiCreateProfileForContactAsyncRequest) Execute() (*http.Response, error) {
+	return r.ApiService.CreateProfileForContactAsyncExecute(r)
+}
+
+/*
+CreateProfileForContactAsync Create a contact profile
+
+Creates a new profile for the specified contact.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @return ApiCreateProfileForContactAsyncRequest
+*/
+func (a *ContactsAPIService) CreateProfileForContactAsync(ctx context.Context, contactId string) ApiCreateProfileForContactAsyncRequest {
+	return ApiCreateProfileForContactAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+	}
+}
+
+// Execute executes the request
+func (a *ContactsAPIService) CreateProfileForContactAsyncExecute(r ApiCreateProfileForContactAsyncRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.CreateProfileForContactAsync")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Profiles"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.contactProfileCreateDto
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiDeleteContactAsyncRequest struct {
 	ctx context.Context
 	ApiService *ContactsAPIService
@@ -332,6 +632,298 @@ func (a *ContactsAPIService) DeleteContactAsyncExecute(r ApiDeleteContactAsyncRe
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteContactEmailAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	emailId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiDeleteContactEmailAsyncRequest) TenantId(tenantId string) ApiDeleteContactEmailAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiDeleteContactEmailAsyncRequest) ApiVersion(apiVersion string) ApiDeleteContactEmailAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiDeleteContactEmailAsyncRequest) XApiVersion(xApiVersion string) ApiDeleteContactEmailAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiDeleteContactEmailAsyncRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeleteContactEmailAsyncExecute(r)
+}
+
+/*
+DeleteContactEmailAsync Delete a contact email address
+
+Deletes an email address from the specified contact.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @param emailId
+ @return ApiDeleteContactEmailAsyncRequest
+*/
+func (a *ContactsAPIService) DeleteContactEmailAsync(ctx context.Context, contactId string, emailId string) ApiDeleteContactEmailAsyncRequest {
+	return ApiDeleteContactEmailAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+		emailId: emailId,
+	}
+}
+
+// Execute executes the request
+func (a *ContactsAPIService) DeleteContactEmailAsyncExecute(r ApiDeleteContactEmailAsyncRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.DeleteContactEmailAsync")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"emailId"+"}", url.PathEscape(parameterValueToString(r.emailId, "emailId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiDeleteProfileForContactAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	profileId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiDeleteProfileForContactAsyncRequest) TenantId(tenantId string) ApiDeleteProfileForContactAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiDeleteProfileForContactAsyncRequest) ApiVersion(apiVersion string) ApiDeleteProfileForContactAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiDeleteProfileForContactAsyncRequest) XApiVersion(xApiVersion string) ApiDeleteProfileForContactAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiDeleteProfileForContactAsyncRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeleteProfileForContactAsyncExecute(r)
+}
+
+/*
+DeleteProfileForContactAsync Delete a contact profile
+
+Deletes a profile for the specified contact.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @param profileId
+ @return ApiDeleteProfileForContactAsyncRequest
+*/
+func (a *ContactsAPIService) DeleteProfileForContactAsync(ctx context.Context, contactId string, profileId string) ApiDeleteProfileForContactAsyncRequest {
+	return ApiDeleteProfileForContactAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+		profileId: profileId,
+	}
+}
+
+// Execute executes the request
+func (a *ContactsAPIService) DeleteProfileForContactAsyncExecute(r ApiDeleteProfileForContactAsyncRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.DeleteProfileForContactAsync")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"profileId"+"}", url.PathEscape(parameterValueToString(r.profileId, "profileId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }
 
 type ApiGetBusinessOwnedIndividualAsyncRequest struct {
@@ -1727,7 +2319,7 @@ func (a *ContactsAPIService) GetContactCartAsyncExecute(r ApiGetContactCartAsync
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetContactProfilesAsyncRequest struct {
+type ApiGetContactEmailsAsyncRequest struct {
 	ctx context.Context
 	ApiService *ContactsAPIService
 	tenantId *string
@@ -1736,36 +2328,36 @@ type ApiGetContactProfilesAsyncRequest struct {
 	xApiVersion *string
 }
 
-func (r ApiGetContactProfilesAsyncRequest) TenantId(tenantId string) ApiGetContactProfilesAsyncRequest {
+func (r ApiGetContactEmailsAsyncRequest) TenantId(tenantId string) ApiGetContactEmailsAsyncRequest {
 	r.tenantId = &tenantId
 	return r
 }
 
-func (r ApiGetContactProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGetContactProfilesAsyncRequest {
+func (r ApiGetContactEmailsAsyncRequest) ApiVersion(apiVersion string) ApiGetContactEmailsAsyncRequest {
 	r.apiVersion = &apiVersion
 	return r
 }
 
-func (r ApiGetContactProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiGetContactProfilesAsyncRequest {
+func (r ApiGetContactEmailsAsyncRequest) XApiVersion(xApiVersion string) ApiGetContactEmailsAsyncRequest {
 	r.xApiVersion = &xApiVersion
 	return r
 }
 
-func (r ApiGetContactProfilesAsyncRequest) Execute() (*ContactProfileDtoListEnvelope, *http.Response, error) {
-	return r.ApiService.GetContactProfilesAsyncExecute(r)
+func (r ApiGetContactEmailsAsyncRequest) Execute() (*ContactEmailDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetContactEmailsAsyncExecute(r)
 }
 
 /*
-GetContactProfilesAsync Get a contact's social profiles
+GetContactEmailsAsync Get a contact's email addresses
 
-Get a contact's social profiles
+Get all email addresses for the specified contact.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contactId
- @return ApiGetContactProfilesAsyncRequest
+ @return ApiGetContactEmailsAsyncRequest
 */
-func (a *ContactsAPIService) GetContactProfilesAsync(ctx context.Context, contactId string) ApiGetContactProfilesAsyncRequest {
-	return ApiGetContactProfilesAsyncRequest{
+func (a *ContactsAPIService) GetContactEmailsAsync(ctx context.Context, contactId string) ApiGetContactEmailsAsyncRequest {
+	return ApiGetContactEmailsAsyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		contactId: contactId,
@@ -1773,21 +2365,21 @@ func (a *ContactsAPIService) GetContactProfilesAsync(ctx context.Context, contac
 }
 
 // Execute executes the request
-//  @return ContactProfileDtoListEnvelope
-func (a *ContactsAPIService) GetContactProfilesAsyncExecute(r ApiGetContactProfilesAsyncRequest) (*ContactProfileDtoListEnvelope, *http.Response, error) {
+//  @return ContactEmailDtoListEnvelope
+func (a *ContactsAPIService) GetContactEmailsAsyncExecute(r ApiGetContactEmailsAsyncRequest) (*ContactEmailDtoListEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ContactProfileDtoListEnvelope
+		localVarReturnValue  *ContactEmailDtoListEnvelope
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.GetContactProfilesAsync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.GetContactEmailsAsync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Profiles"
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Emails"
 	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1843,17 +2435,6 @@ func (a *ContactsAPIService) GetContactProfilesAsyncExecute(r ApiGetContactProfi
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ErrorEnvelope
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1866,6 +2447,148 @@ func (a *ContactsAPIService) GetContactProfilesAsyncExecute(r ApiGetContactProfi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetContactEmailsCountAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetContactEmailsCountAsyncRequest) TenantId(tenantId string) ApiGetContactEmailsCountAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetContactEmailsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetContactEmailsCountAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetContactEmailsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetContactEmailsCountAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetContactEmailsCountAsyncRequest) Execute() (*Int32Envelope, *http.Response, error) {
+	return r.ApiService.GetContactEmailsCountAsyncExecute(r)
+}
+
+/*
+GetContactEmailsCountAsync Get contact email addresses count
+
+Returns the count of email addresses for the specified contact.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @return ApiGetContactEmailsCountAsyncRequest
+*/
+func (a *ContactsAPIService) GetContactEmailsCountAsync(ctx context.Context, contactId string) ApiGetContactEmailsCountAsyncRequest {
+	return ApiGetContactEmailsCountAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+	}
+}
+
+// Execute executes the request
+//  @return Int32Envelope
+func (a *ContactsAPIService) GetContactEmailsCountAsyncExecute(r ApiGetContactEmailsCountAsyncRequest) (*Int32Envelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Int32Envelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.GetContactEmailsCountAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Emails/Count"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ErrorEnvelope
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -3729,6 +4452,312 @@ func (a *ContactsAPIService) GetOrganizationRelatedOrganizationsAsyncExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetProfilesForContactAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetProfilesForContactAsyncRequest) TenantId(tenantId string) ApiGetProfilesForContactAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetProfilesForContactAsyncRequest) ApiVersion(apiVersion string) ApiGetProfilesForContactAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetProfilesForContactAsyncRequest) XApiVersion(xApiVersion string) ApiGetProfilesForContactAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProfilesForContactAsyncRequest) Execute() (*ContactProfileDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetProfilesForContactAsyncExecute(r)
+}
+
+/*
+GetProfilesForContactAsync Get a contact's social profiles
+
+Get a contact's social profiles
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @return ApiGetProfilesForContactAsyncRequest
+*/
+func (a *ContactsAPIService) GetProfilesForContactAsync(ctx context.Context, contactId string) ApiGetProfilesForContactAsyncRequest {
+	return ApiGetProfilesForContactAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+	}
+}
+
+// Execute executes the request
+//  @return ContactProfileDtoListEnvelope
+func (a *ContactsAPIService) GetProfilesForContactAsyncExecute(r ApiGetProfilesForContactAsyncRequest) (*ContactProfileDtoListEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ContactProfileDtoListEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.GetProfilesForContactAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Profiles"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetProfilesForContactCountAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetProfilesForContactCountAsyncRequest) TenantId(tenantId string) ApiGetProfilesForContactCountAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetProfilesForContactCountAsyncRequest) ApiVersion(apiVersion string) ApiGetProfilesForContactCountAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetProfilesForContactCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetProfilesForContactCountAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProfilesForContactCountAsyncRequest) Execute() (*Int32Envelope, *http.Response, error) {
+	return r.ApiService.GetProfilesForContactCountAsyncExecute(r)
+}
+
+/*
+GetProfilesForContactCountAsync Get contact profiles count
+
+Returns the count of profiles for the specified contact.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @return ApiGetProfilesForContactCountAsyncRequest
+*/
+func (a *ContactsAPIService) GetProfilesForContactCountAsync(ctx context.Context, contactId string) ApiGetProfilesForContactCountAsyncRequest {
+	return ApiGetProfilesForContactCountAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+	}
+}
+
+// Execute executes the request
+//  @return Int32Envelope
+func (a *ContactsAPIService) GetProfilesForContactCountAsyncExecute(r ApiGetProfilesForContactCountAsyncRequest) (*Int32Envelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Int32Envelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.GetProfilesForContactCountAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Profiles/Count"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPatchContactAsyncRequest struct {
 	ctx context.Context
 	ApiService *ContactsAPIService
@@ -3888,6 +4917,160 @@ func (a *ContactsAPIService) PatchContactAsyncExecute(r ApiPatchContactAsyncRequ
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPatchContactEmailAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	emailId string
+	apiVersion *string
+	xApiVersion *string
+	operation *[]Operation
+}
+
+func (r ApiPatchContactEmailAsyncRequest) TenantId(tenantId string) ApiPatchContactEmailAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiPatchContactEmailAsyncRequest) ApiVersion(apiVersion string) ApiPatchContactEmailAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiPatchContactEmailAsyncRequest) XApiVersion(xApiVersion string) ApiPatchContactEmailAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiPatchContactEmailAsyncRequest) Operation(operation []Operation) ApiPatchContactEmailAsyncRequest {
+	r.operation = &operation
+	return r
+}
+
+func (r ApiPatchContactEmailAsyncRequest) Execute() (*http.Response, error) {
+	return r.ApiService.PatchContactEmailAsyncExecute(r)
+}
+
+/*
+PatchContactEmailAsync Patch a contact email address
+
+Partially updates an existing email address for the specified contact.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @param emailId
+ @return ApiPatchContactEmailAsyncRequest
+*/
+func (a *ContactsAPIService) PatchContactEmailAsync(ctx context.Context, contactId string, emailId string) ApiPatchContactEmailAsyncRequest {
+	return ApiPatchContactEmailAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+		emailId: emailId,
+	}
+}
+
+// Execute executes the request
+func (a *ContactsAPIService) PatchContactEmailAsyncExecute(r ApiPatchContactEmailAsyncRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.PatchContactEmailAsync")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"emailId"+"}", url.PathEscape(parameterValueToString(r.emailId, "emailId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.operation
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }
 
 type ApiPreviewContactEmailTemplateRequest struct {
@@ -4459,6 +5642,314 @@ func (a *ContactsAPIService) UpdateContactAvatarAsyncExecute(r ApiUpdateContactA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiUpdateContactEmailAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	emailId string
+	apiVersion *string
+	xApiVersion *string
+	contactEmailUpdateDto *ContactEmailUpdateDto
+}
+
+func (r ApiUpdateContactEmailAsyncRequest) TenantId(tenantId string) ApiUpdateContactEmailAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiUpdateContactEmailAsyncRequest) ApiVersion(apiVersion string) ApiUpdateContactEmailAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiUpdateContactEmailAsyncRequest) XApiVersion(xApiVersion string) ApiUpdateContactEmailAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiUpdateContactEmailAsyncRequest) ContactEmailUpdateDto(contactEmailUpdateDto ContactEmailUpdateDto) ApiUpdateContactEmailAsyncRequest {
+	r.contactEmailUpdateDto = &contactEmailUpdateDto
+	return r
+}
+
+func (r ApiUpdateContactEmailAsyncRequest) Execute() (*http.Response, error) {
+	return r.ApiService.UpdateContactEmailAsyncExecute(r)
+}
+
+/*
+UpdateContactEmailAsync Update a contact email address
+
+Updates an existing email address for the specified contact.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @param emailId
+ @return ApiUpdateContactEmailAsyncRequest
+*/
+func (a *ContactsAPIService) UpdateContactEmailAsync(ctx context.Context, contactId string, emailId string) ApiUpdateContactEmailAsyncRequest {
+	return ApiUpdateContactEmailAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+		emailId: emailId,
+	}
+}
+
+// Execute executes the request
+func (a *ContactsAPIService) UpdateContactEmailAsyncExecute(r ApiUpdateContactEmailAsyncRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.UpdateContactEmailAsync")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"emailId"+"}", url.PathEscape(parameterValueToString(r.emailId, "emailId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.contactEmailUpdateDto
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiUpdateProfileForContactAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	profileId string
+	apiVersion *string
+	xApiVersion *string
+	contactProfileUpdateDto *ContactProfileUpdateDto
+}
+
+func (r ApiUpdateProfileForContactAsyncRequest) TenantId(tenantId string) ApiUpdateProfileForContactAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiUpdateProfileForContactAsyncRequest) ApiVersion(apiVersion string) ApiUpdateProfileForContactAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiUpdateProfileForContactAsyncRequest) XApiVersion(xApiVersion string) ApiUpdateProfileForContactAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiUpdateProfileForContactAsyncRequest) ContactProfileUpdateDto(contactProfileUpdateDto ContactProfileUpdateDto) ApiUpdateProfileForContactAsyncRequest {
+	r.contactProfileUpdateDto = &contactProfileUpdateDto
+	return r
+}
+
+func (r ApiUpdateProfileForContactAsyncRequest) Execute() (*http.Response, error) {
+	return r.ApiService.UpdateProfileForContactAsyncExecute(r)
+}
+
+/*
+UpdateProfileForContactAsync Update a contact profile
+
+Updates an existing profile for the specified contact.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @param profileId
+ @return ApiUpdateProfileForContactAsyncRequest
+*/
+func (a *ContactsAPIService) UpdateProfileForContactAsync(ctx context.Context, contactId string, profileId string) ApiUpdateProfileForContactAsyncRequest {
+	return ApiUpdateProfileForContactAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+		profileId: profileId,
+	}
+}
+
+// Execute executes the request
+func (a *ContactsAPIService) UpdateProfileForContactAsyncExecute(r ApiUpdateProfileForContactAsyncRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.UpdateProfileForContactAsync")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"profileId"+"}", url.PathEscape(parameterValueToString(r.profileId, "profileId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.contactProfileUpdateDto
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiUpsertTenantOntoAnotherTenantContactListAsyncRequest struct {
 	ctx context.Context
 	ApiService *ContactsAPIService
@@ -4775,4 +6266,161 @@ func (a *ContactsAPIService) UpsertUserOntoAnotherTenantContactListAsyncExecute(
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiVerifyContactEmailAsyncRequest struct {
+	ctx context.Context
+	ApiService *ContactsAPIService
+	tenantId *string
+	contactId string
+	emailId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiVerifyContactEmailAsyncRequest) TenantId(tenantId string) ApiVerifyContactEmailAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiVerifyContactEmailAsyncRequest) ApiVersion(apiVersion string) ApiVerifyContactEmailAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiVerifyContactEmailAsyncRequest) XApiVersion(xApiVersion string) ApiVerifyContactEmailAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiVerifyContactEmailAsyncRequest) Execute() (*http.Response, error) {
+	return r.ApiService.VerifyContactEmailAsyncExecute(r)
+}
+
+/*
+VerifyContactEmailAsync Verify a contact email address
+
+Marks an email address as verified on the specified contact.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactId
+ @param emailId
+ @return ApiVerifyContactEmailAsyncRequest
+*/
+func (a *ContactsAPIService) VerifyContactEmailAsync(ctx context.Context, contactId string, emailId string) ApiVerifyContactEmailAsyncRequest {
+	return ApiVerifyContactEmailAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactId: contactId,
+		emailId: emailId,
+	}
+}
+
+// Execute executes the request
+func (a *ContactsAPIService) VerifyContactEmailAsyncExecute(r ApiVerifyContactEmailAsyncRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsAPIService.VerifyContactEmailAsync")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}/Verify"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactId"+"}", url.PathEscape(parameterValueToString(r.contactId, "contactId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"emailId"+"}", url.PathEscape(parameterValueToString(r.emailId, "emailId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }

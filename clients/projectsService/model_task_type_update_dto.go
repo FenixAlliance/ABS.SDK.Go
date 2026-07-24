@@ -21,6 +21,7 @@ var _ MappedNullable = &TaskTypeUpdateDto{}
 // TaskTypeUpdateDto struct for TaskTypeUpdateDto
 type TaskTypeUpdateDto struct {
 	Title NullableString `json:"title,omitempty"`
+	TaskCategoryId NullableString `json:"taskCategoryId,omitempty"`
 	DisplayInTimeTracker *bool `json:"displayInTimeTracker,omitempty"`
 	RequiresDescription *bool `json:"requiresDescription,omitempty"`
 }
@@ -82,6 +83,48 @@ func (o *TaskTypeUpdateDto) SetTitleNil() {
 // UnsetTitle ensures that no value is present for Title, not even an explicit nil
 func (o *TaskTypeUpdateDto) UnsetTitle() {
 	o.Title.Unset()
+}
+
+// GetTaskCategoryId returns the TaskCategoryId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TaskTypeUpdateDto) GetTaskCategoryId() string {
+	if o == nil || IsNil(o.TaskCategoryId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.TaskCategoryId.Get()
+}
+
+// GetTaskCategoryIdOk returns a tuple with the TaskCategoryId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TaskTypeUpdateDto) GetTaskCategoryIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TaskCategoryId.Get(), o.TaskCategoryId.IsSet()
+}
+
+// HasTaskCategoryId returns a boolean if a field has been set.
+func (o *TaskTypeUpdateDto) HasTaskCategoryId() bool {
+	if o != nil && o.TaskCategoryId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskCategoryId gets a reference to the given NullableString and assigns it to the TaskCategoryId field.
+func (o *TaskTypeUpdateDto) SetTaskCategoryId(v string) {
+	o.TaskCategoryId.Set(&v)
+}
+// SetTaskCategoryIdNil sets the value for TaskCategoryId to be an explicit nil
+func (o *TaskTypeUpdateDto) SetTaskCategoryIdNil() {
+	o.TaskCategoryId.Set(nil)
+}
+
+// UnsetTaskCategoryId ensures that no value is present for TaskCategoryId, not even an explicit nil
+func (o *TaskTypeUpdateDto) UnsetTaskCategoryId() {
+	o.TaskCategoryId.Unset()
 }
 
 // GetDisplayInTimeTracker returns the DisplayInTimeTracker field value if set, zero value otherwise.
@@ -160,6 +203,9 @@ func (o TaskTypeUpdateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
+	}
+	if o.TaskCategoryId.IsSet() {
+		toSerialize["taskCategoryId"] = o.TaskCategoryId.Get()
 	}
 	if !IsNil(o.DisplayInTimeTracker) {
 		toSerialize["displayInTimeTracker"] = o.DisplayInTimeTracker

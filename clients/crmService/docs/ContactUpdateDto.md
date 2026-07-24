@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **JobTitle** | Pointer to **NullableString** |  | [optional] 
 **CountryId** | Pointer to **NullableString** |  | [optional] 
 **ParentContactId** | Pointer to **NullableString** |  | [optional] 
-**AddressLine1** | Pointer to **NullableString** |  | [optional] 
-**AddressLine2** | Pointer to **NullableString** |  | [optional] 
 **PostalCode** | Pointer to **NullableString** |  | [optional] 
 **StateId** | Pointer to **NullableString** |  | [optional] 
 **CityId** | Pointer to **NullableString** |  | [optional] 
@@ -546,76 +544,6 @@ HasParentContactId returns a boolean if a field has been set.
 `func (o *ContactUpdateDto) UnsetParentContactId()`
 
 UnsetParentContactId ensures that no value is present for ParentContactId, not even an explicit nil
-### GetAddressLine1
-
-`func (o *ContactUpdateDto) GetAddressLine1() string`
-
-GetAddressLine1 returns the AddressLine1 field if non-nil, zero value otherwise.
-
-### GetAddressLine1Ok
-
-`func (o *ContactUpdateDto) GetAddressLine1Ok() (*string, bool)`
-
-GetAddressLine1Ok returns a tuple with the AddressLine1 field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAddressLine1
-
-`func (o *ContactUpdateDto) SetAddressLine1(v string)`
-
-SetAddressLine1 sets AddressLine1 field to given value.
-
-### HasAddressLine1
-
-`func (o *ContactUpdateDto) HasAddressLine1() bool`
-
-HasAddressLine1 returns a boolean if a field has been set.
-
-### SetAddressLine1Nil
-
-`func (o *ContactUpdateDto) SetAddressLine1Nil(b bool)`
-
- SetAddressLine1Nil sets the value for AddressLine1 to be an explicit nil
-
-### UnsetAddressLine1
-`func (o *ContactUpdateDto) UnsetAddressLine1()`
-
-UnsetAddressLine1 ensures that no value is present for AddressLine1, not even an explicit nil
-### GetAddressLine2
-
-`func (o *ContactUpdateDto) GetAddressLine2() string`
-
-GetAddressLine2 returns the AddressLine2 field if non-nil, zero value otherwise.
-
-### GetAddressLine2Ok
-
-`func (o *ContactUpdateDto) GetAddressLine2Ok() (*string, bool)`
-
-GetAddressLine2Ok returns a tuple with the AddressLine2 field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAddressLine2
-
-`func (o *ContactUpdateDto) SetAddressLine2(v string)`
-
-SetAddressLine2 sets AddressLine2 field to given value.
-
-### HasAddressLine2
-
-`func (o *ContactUpdateDto) HasAddressLine2() bool`
-
-HasAddressLine2 returns a boolean if a field has been set.
-
-### SetAddressLine2Nil
-
-`func (o *ContactUpdateDto) SetAddressLine2Nil(b bool)`
-
- SetAddressLine2Nil sets the value for AddressLine2 to be an explicit nil
-
-### UnsetAddressLine2
-`func (o *ContactUpdateDto) UnsetAddressLine2()`
-
-UnsetAddressLine2 ensures that no value is present for AddressLine2, not even an explicit nil
 ### GetPostalCode
 
 `func (o *ContactUpdateDto) GetPostalCode() string`

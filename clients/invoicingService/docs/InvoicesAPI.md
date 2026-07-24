@@ -2659,7 +2659,7 @@ No authorization required
 
 ## GetPurchaseInvoicesSum
 
-> DecimalEnvelope GetPurchaseInvoicesSum(ctx).TenantId(tenantId).Execute()
+> MoneyEnvelope GetPurchaseInvoicesSum(ctx).TenantId(tenantId).Execute()
 
 Sum tenant purchase-invoice totals.
 
@@ -2687,7 +2687,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetPurchaseInvoicesSum``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetPurchaseInvoicesSum`: DecimalEnvelope
+	// response from `GetPurchaseInvoicesSum`: MoneyEnvelope
 	fmt.Fprintf(os.Stdout, "Response from `InvoicesAPI.GetPurchaseInvoicesSum`: %v\n", resp)
 }
 ```
@@ -2707,7 +2707,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DecimalEnvelope**](DecimalEnvelope.md)
+[**MoneyEnvelope**](MoneyEnvelope.md)
 
 ### Authorization
 
@@ -2725,7 +2725,7 @@ No authorization required
 
 ## GetSalesInvoicesSum
 
-> DecimalEnvelope GetSalesInvoicesSum(ctx).TenantId(tenantId).Execute()
+> MoneyEnvelope GetSalesInvoicesSum(ctx).TenantId(tenantId).Execute()
 
 Sum tenant sales-invoice totals.
 
@@ -2753,7 +2753,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetSalesInvoicesSum``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetSalesInvoicesSum`: DecimalEnvelope
+	// response from `GetSalesInvoicesSum`: MoneyEnvelope
 	fmt.Fprintf(os.Stdout, "Response from `InvoicesAPI.GetSalesInvoicesSum`: %v\n", resp)
 }
 ```
@@ -2773,7 +2773,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DecimalEnvelope**](DecimalEnvelope.md)
+[**MoneyEnvelope**](MoneyEnvelope.md)
 
 ### Authorization
 

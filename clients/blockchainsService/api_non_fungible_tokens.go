@@ -469,18 +469,12 @@ type ApiGetNonFungibleTokensAsyncRequest struct {
 	ctx context.Context
 	ApiService *NonFungibleTokensAPIService
 	tenantId *string
-	oDataQueryOptions *NonFungibleTokenDtoODataQueryOptions
 	apiVersion *string
 	xApiVersion *string
 }
 
 func (r ApiGetNonFungibleTokensAsyncRequest) TenantId(tenantId string) ApiGetNonFungibleTokensAsyncRequest {
 	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetNonFungibleTokensAsyncRequest) ODataQueryOptions(oDataQueryOptions NonFungibleTokenDtoODataQueryOptions) ApiGetNonFungibleTokensAsyncRequest {
-	r.oDataQueryOptions = &oDataQueryOptions
 	return r
 }
 
@@ -538,9 +532,6 @@ func (a *NonFungibleTokensAPIService) GetNonFungibleTokensAsyncExecute(r ApiGetN
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	if r.oDataQueryOptions != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "oDataQueryOptions", r.oDataQueryOptions, "form", "")
-	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
@@ -616,18 +607,12 @@ type ApiGetNonFungibleTokensCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *NonFungibleTokensAPIService
 	tenantId *string
-	oDataQueryOptions *NonFungibleTokenDtoODataQueryOptions
 	apiVersion *string
 	xApiVersion *string
 }
 
 func (r ApiGetNonFungibleTokensCountAsyncRequest) TenantId(tenantId string) ApiGetNonFungibleTokensCountAsyncRequest {
 	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetNonFungibleTokensCountAsyncRequest) ODataQueryOptions(oDataQueryOptions NonFungibleTokenDtoODataQueryOptions) ApiGetNonFungibleTokensCountAsyncRequest {
-	r.oDataQueryOptions = &oDataQueryOptions
 	return r
 }
 
@@ -685,9 +670,6 @@ func (a *NonFungibleTokensAPIService) GetNonFungibleTokensCountAsyncExecute(r Ap
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	if r.oDataQueryOptions != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "oDataQueryOptions", r.oDataQueryOptions, "form", "")
-	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}

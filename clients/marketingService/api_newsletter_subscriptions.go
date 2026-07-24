@@ -17,11 +17,671 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
 // NewsletterSubscriptionsAPIService NewsletterSubscriptionsAPI service
 type NewsletterSubscriptionsAPIService service
+
+type ApiCreateNewsletterSubscriptionAsyncRequest struct {
+	ctx context.Context
+	ApiService *NewsletterSubscriptionsAPIService
+	tenantId *string
+	newsletterSubscriptionCreateDto *NewsletterSubscriptionCreateDto
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiCreateNewsletterSubscriptionAsyncRequest) TenantId(tenantId string) ApiCreateNewsletterSubscriptionAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiCreateNewsletterSubscriptionAsyncRequest) NewsletterSubscriptionCreateDto(newsletterSubscriptionCreateDto NewsletterSubscriptionCreateDto) ApiCreateNewsletterSubscriptionAsyncRequest {
+	r.newsletterSubscriptionCreateDto = &newsletterSubscriptionCreateDto
+	return r
+}
+
+func (r ApiCreateNewsletterSubscriptionAsyncRequest) ApiVersion(apiVersion string) ApiCreateNewsletterSubscriptionAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiCreateNewsletterSubscriptionAsyncRequest) XApiVersion(xApiVersion string) ApiCreateNewsletterSubscriptionAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCreateNewsletterSubscriptionAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.CreateNewsletterSubscriptionAsyncExecute(r)
+}
+
+/*
+CreateNewsletterSubscriptionAsync Create a newsletter subscription
+
+Creates a new newsletter subscription for the specified tenant.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateNewsletterSubscriptionAsyncRequest
+*/
+func (a *NewsletterSubscriptionsAPIService) CreateNewsletterSubscriptionAsync(ctx context.Context) ApiCreateNewsletterSubscriptionAsyncRequest {
+	return ApiCreateNewsletterSubscriptionAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *NewsletterSubscriptionsAPIService) CreateNewsletterSubscriptionAsyncExecute(r ApiCreateNewsletterSubscriptionAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NewsletterSubscriptionsAPIService.CreateNewsletterSubscriptionAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/MarketingService/NewsletterSubscriptions"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+	if r.newsletterSubscriptionCreateDto == nil {
+		return localVarReturnValue, nil, reportError("newsletterSubscriptionCreateDto is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.newsletterSubscriptionCreateDto
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteNewsletterSubscriptionAsyncRequest struct {
+	ctx context.Context
+	ApiService *NewsletterSubscriptionsAPIService
+	tenantId *string
+	newsletterSubscriptionId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiDeleteNewsletterSubscriptionAsyncRequest) TenantId(tenantId string) ApiDeleteNewsletterSubscriptionAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiDeleteNewsletterSubscriptionAsyncRequest) ApiVersion(apiVersion string) ApiDeleteNewsletterSubscriptionAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiDeleteNewsletterSubscriptionAsyncRequest) XApiVersion(xApiVersion string) ApiDeleteNewsletterSubscriptionAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiDeleteNewsletterSubscriptionAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.DeleteNewsletterSubscriptionAsyncExecute(r)
+}
+
+/*
+DeleteNewsletterSubscriptionAsync Delete a newsletter subscription
+
+Deletes a newsletter subscription by its ID.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param newsletterSubscriptionId
+ @return ApiDeleteNewsletterSubscriptionAsyncRequest
+*/
+func (a *NewsletterSubscriptionsAPIService) DeleteNewsletterSubscriptionAsync(ctx context.Context, newsletterSubscriptionId string) ApiDeleteNewsletterSubscriptionAsyncRequest {
+	return ApiDeleteNewsletterSubscriptionAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		newsletterSubscriptionId: newsletterSubscriptionId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *NewsletterSubscriptionsAPIService) DeleteNewsletterSubscriptionAsyncExecute(r ApiDeleteNewsletterSubscriptionAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NewsletterSubscriptionsAPIService.DeleteNewsletterSubscriptionAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"newsletterSubscriptionId"+"}", url.PathEscape(parameterValueToString(r.newsletterSubscriptionId, "newsletterSubscriptionId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetNewsletterSubscriptionByIdAsyncRequest struct {
+	ctx context.Context
+	ApiService *NewsletterSubscriptionsAPIService
+	tenantId *string
+	newsletterSubscriptionId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetNewsletterSubscriptionByIdAsyncRequest) TenantId(tenantId string) ApiGetNewsletterSubscriptionByIdAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetNewsletterSubscriptionByIdAsyncRequest) ApiVersion(apiVersion string) ApiGetNewsletterSubscriptionByIdAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetNewsletterSubscriptionByIdAsyncRequest) XApiVersion(xApiVersion string) ApiGetNewsletterSubscriptionByIdAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetNewsletterSubscriptionByIdAsyncRequest) Execute() (*NewsletterSubscriptionDtoEnvelope, *http.Response, error) {
+	return r.ApiService.GetNewsletterSubscriptionByIdAsyncExecute(r)
+}
+
+/*
+GetNewsletterSubscriptionByIdAsync Get newsletter subscription by ID
+
+Retrieves the details of a specific newsletter subscription by its ID.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param newsletterSubscriptionId
+ @return ApiGetNewsletterSubscriptionByIdAsyncRequest
+*/
+func (a *NewsletterSubscriptionsAPIService) GetNewsletterSubscriptionByIdAsync(ctx context.Context, newsletterSubscriptionId string) ApiGetNewsletterSubscriptionByIdAsyncRequest {
+	return ApiGetNewsletterSubscriptionByIdAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		newsletterSubscriptionId: newsletterSubscriptionId,
+	}
+}
+
+// Execute executes the request
+//  @return NewsletterSubscriptionDtoEnvelope
+func (a *NewsletterSubscriptionsAPIService) GetNewsletterSubscriptionByIdAsyncExecute(r ApiGetNewsletterSubscriptionByIdAsyncRequest) (*NewsletterSubscriptionDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *NewsletterSubscriptionDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NewsletterSubscriptionsAPIService.GetNewsletterSubscriptionByIdAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"newsletterSubscriptionId"+"}", url.PathEscape(parameterValueToString(r.newsletterSubscriptionId, "newsletterSubscriptionId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetNewsletterSubscriptionsAsyncRequest struct {
+	ctx context.Context
+	ApiService *NewsletterSubscriptionsAPIService
+	tenantId *string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetNewsletterSubscriptionsAsyncRequest) TenantId(tenantId string) ApiGetNewsletterSubscriptionsAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetNewsletterSubscriptionsAsyncRequest) ApiVersion(apiVersion string) ApiGetNewsletterSubscriptionsAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetNewsletterSubscriptionsAsyncRequest) XApiVersion(xApiVersion string) ApiGetNewsletterSubscriptionsAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetNewsletterSubscriptionsAsyncRequest) Execute() (*NewsletterSubscriptionDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetNewsletterSubscriptionsAsyncExecute(r)
+}
+
+/*
+GetNewsletterSubscriptionsAsync Get newsletter subscriptions
+
+Retrieves a collection of newsletter subscriptions for the specified tenant using OData query options.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetNewsletterSubscriptionsAsyncRequest
+*/
+func (a *NewsletterSubscriptionsAPIService) GetNewsletterSubscriptionsAsync(ctx context.Context) ApiGetNewsletterSubscriptionsAsyncRequest {
+	return ApiGetNewsletterSubscriptionsAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return NewsletterSubscriptionDtoListEnvelope
+func (a *NewsletterSubscriptionsAPIService) GetNewsletterSubscriptionsAsyncExecute(r ApiGetNewsletterSubscriptionsAsyncRequest) (*NewsletterSubscriptionDtoListEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *NewsletterSubscriptionDtoListEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NewsletterSubscriptionsAPIService.GetNewsletterSubscriptionsAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/MarketingService/NewsletterSubscriptions"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiGetNewsletterSubscriptionsCountAsyncRequest struct {
 	ctx context.Context
@@ -113,6 +773,181 @@ func (a *NewsletterSubscriptionsAPIService) GetNewsletterSubscriptionsCountAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateNewsletterSubscriptionAsyncRequest struct {
+	ctx context.Context
+	ApiService *NewsletterSubscriptionsAPIService
+	tenantId *string
+	newsletterSubscriptionId string
+	newsletterSubscriptionUpdateDto *NewsletterSubscriptionUpdateDto
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiUpdateNewsletterSubscriptionAsyncRequest) TenantId(tenantId string) ApiUpdateNewsletterSubscriptionAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiUpdateNewsletterSubscriptionAsyncRequest) NewsletterSubscriptionUpdateDto(newsletterSubscriptionUpdateDto NewsletterSubscriptionUpdateDto) ApiUpdateNewsletterSubscriptionAsyncRequest {
+	r.newsletterSubscriptionUpdateDto = &newsletterSubscriptionUpdateDto
+	return r
+}
+
+func (r ApiUpdateNewsletterSubscriptionAsyncRequest) ApiVersion(apiVersion string) ApiUpdateNewsletterSubscriptionAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiUpdateNewsletterSubscriptionAsyncRequest) XApiVersion(xApiVersion string) ApiUpdateNewsletterSubscriptionAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiUpdateNewsletterSubscriptionAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.UpdateNewsletterSubscriptionAsyncExecute(r)
+}
+
+/*
+UpdateNewsletterSubscriptionAsync Update a newsletter subscription
+
+Updates an existing newsletter subscription by its ID.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param newsletterSubscriptionId
+ @return ApiUpdateNewsletterSubscriptionAsyncRequest
+*/
+func (a *NewsletterSubscriptionsAPIService) UpdateNewsletterSubscriptionAsync(ctx context.Context, newsletterSubscriptionId string) ApiUpdateNewsletterSubscriptionAsyncRequest {
+	return ApiUpdateNewsletterSubscriptionAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		newsletterSubscriptionId: newsletterSubscriptionId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *NewsletterSubscriptionsAPIService) UpdateNewsletterSubscriptionAsyncExecute(r ApiUpdateNewsletterSubscriptionAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NewsletterSubscriptionsAPIService.UpdateNewsletterSubscriptionAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"newsletterSubscriptionId"+"}", url.PathEscape(parameterValueToString(r.newsletterSubscriptionId, "newsletterSubscriptionId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+	if r.newsletterSubscriptionUpdateDto == nil {
+		return localVarReturnValue, nil, reportError("newsletterSubscriptionUpdateDto is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.newsletterSubscriptionUpdateDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

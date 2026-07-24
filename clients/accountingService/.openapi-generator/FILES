@@ -3,8 +3,8 @@
 README.md
 api/openapi.yaml
 api_account_groups.go
-api_accounting_entries.go
 api_accounting_periods.go
+api_accounting_summary.go
 api_accounts.go
 api_bank_profiles.go
 api_banking.go
@@ -28,13 +28,13 @@ api_fiscal_responsibility_records.go
 api_fiscal_years.go
 api_grants.go
 api_invoice_enumeration_ranges.go
-api_journal_entries.go
 api_journal_types.go
 api_journals.go
 api_ledger_types.go
 api_ledgers.go
 api_loans.go
 api_receipts.go
+api_reports.go
 api_shares.go
 api_tax_classes.go
 api_tax_policies.go
@@ -64,7 +64,6 @@ docs/AccountTypeDtoEnvelope.md
 docs/AccountTypeDtoListEnvelope.md
 docs/AccountTypeUpdateDto.md
 docs/AccountUpdateDto.md
-docs/AccountingEntriesAPI.md
 docs/AccountingEntryCreateDto.md
 docs/AccountingEntryDto.md
 docs/AccountingEntryDtoEnvelope.md
@@ -76,6 +75,7 @@ docs/AccountingPeriodDtoEnvelope.md
 docs/AccountingPeriodDtoListEnvelope.md
 docs/AccountingPeriodUpdateDto.md
 docs/AccountingPeriodsAPI.md
+docs/AccountingSummaryAPI.md
 docs/AccountsAPI.md
 docs/AppliedItemTaxRecordCreateDto.md
 docs/AppliedItemTaxRecordDto.md
@@ -247,9 +247,9 @@ docs/JournalCreateDto.md
 docs/JournalDto.md
 docs/JournalDtoEnvelope.md
 docs/JournalDtoIReadOnlyListEnvelope.md
-docs/JournalEntriesAPI.md
 docs/JournalEntryCreateDto.md
 docs/JournalEntryDto.md
+docs/JournalEntryDtoEnvelope.md
 docs/JournalEntryDtoIReadOnlyListEnvelope.md
 docs/JournalEntryUpdateDto.md
 docs/JournalTypeCreateDto.md
@@ -302,8 +302,10 @@ docs/ReceiptUpdateDto.md
 docs/ReceiptsAPI.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
+docs/ReportsAPI.md
 docs/ResendConfirmationEmailRequest.md
 docs/ResetPasswordRequest.md
+docs/ReverseJournalEntryRequest.md
 docs/SeedChartOfAccountsRequest.md
 docs/ShareClassCreateDto.md
 docs/ShareClassDto.md
@@ -355,6 +357,9 @@ docs/TransactionDtoEnvelope.md
 docs/TransactionDtoListEnvelope.md
 docs/TransactionUpdateDto.md
 docs/TransactionsAPI.md
+docs/TrialBalanceDto.md
+docs/TrialBalanceDtoEnvelope.md
+docs/TrialBalanceRowDto.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
 docs/UpdateLedgerDto.md
@@ -542,6 +547,7 @@ model_journal_dto_envelope.go
 model_journal_dto_i_read_only_list_envelope.go
 model_journal_entry_create_dto.go
 model_journal_entry_dto.go
+model_journal_entry_dto_envelope.go
 model_journal_entry_dto_i_read_only_list_envelope.go
 model_journal_entry_update_dto.go
 model_journal_type_create_dto.go
@@ -590,6 +596,7 @@ model_refresh_request.go
 model_register_request.go
 model_resend_confirmation_email_request.go
 model_reset_password_request.go
+model_reverse_journal_entry_request.go
 model_seed_chart_of_accounts_request.go
 model_share_class_create_dto.go
 model_share_class_dto.go
@@ -636,10 +643,13 @@ model_transaction_dto.go
 model_transaction_dto_envelope.go
 model_transaction_dto_list_envelope.go
 model_transaction_update_dto.go
+model_trial_balance_dto.go
+model_trial_balance_dto_envelope.go
+model_trial_balance_row_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 model_update_ledger_dto.go
 response.go
-test/api_accounting_entries_test.go
-test/api_journal_entries_test.go
+test/api_accounting_summary_test.go
+test/api_reports_test.go
 utils.go

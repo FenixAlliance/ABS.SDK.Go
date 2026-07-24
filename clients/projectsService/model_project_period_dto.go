@@ -25,7 +25,9 @@ type ProjectPeriodDto struct {
 	Timestamp NullableTime `json:"timestamp,omitempty"`
 	PeriodStartDate *time.Time `json:"periodStartDate,omitempty"`
 	PeriodEndDate *time.Time `json:"periodEndDate,omitempty"`
-	ProjectID NullableString `json:"projectID,omitempty"`
+	ProjectId NullableString `json:"projectId,omitempty"`
+	TenantId NullableString `json:"tenantId,omitempty"`
+	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 }
 
 // NewProjectPeriodDto instantiates a new ProjectPeriodDto object
@@ -193,46 +195,130 @@ func (o *ProjectPeriodDto) SetPeriodEndDate(v time.Time) {
 	o.PeriodEndDate = &v
 }
 
-// GetProjectID returns the ProjectID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectPeriodDto) GetProjectID() string {
-	if o == nil || IsNil(o.ProjectID.Get()) {
+// GetProjectId returns the ProjectId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectPeriodDto) GetProjectId() string {
+	if o == nil || IsNil(o.ProjectId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ProjectID.Get()
+	return *o.ProjectId.Get()
 }
 
-// GetProjectIDOk returns a tuple with the ProjectID field value if set, nil otherwise
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectPeriodDto) GetProjectIDOk() (*string, bool) {
+func (o *ProjectPeriodDto) GetProjectIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ProjectID.Get(), o.ProjectID.IsSet()
+	return o.ProjectId.Get(), o.ProjectId.IsSet()
 }
 
-// HasProjectID returns a boolean if a field has been set.
-func (o *ProjectPeriodDto) HasProjectID() bool {
-	if o != nil && o.ProjectID.IsSet() {
+// HasProjectId returns a boolean if a field has been set.
+func (o *ProjectPeriodDto) HasProjectId() bool {
+	if o != nil && o.ProjectId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetProjectID gets a reference to the given NullableString and assigns it to the ProjectID field.
-func (o *ProjectPeriodDto) SetProjectID(v string) {
-	o.ProjectID.Set(&v)
+// SetProjectId gets a reference to the given NullableString and assigns it to the ProjectId field.
+func (o *ProjectPeriodDto) SetProjectId(v string) {
+	o.ProjectId.Set(&v)
 }
-// SetProjectIDNil sets the value for ProjectID to be an explicit nil
-func (o *ProjectPeriodDto) SetProjectIDNil() {
-	o.ProjectID.Set(nil)
+// SetProjectIdNil sets the value for ProjectId to be an explicit nil
+func (o *ProjectPeriodDto) SetProjectIdNil() {
+	o.ProjectId.Set(nil)
 }
 
-// UnsetProjectID ensures that no value is present for ProjectID, not even an explicit nil
-func (o *ProjectPeriodDto) UnsetProjectID() {
-	o.ProjectID.Unset()
+// UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
+func (o *ProjectPeriodDto) UnsetProjectId() {
+	o.ProjectId.Unset()
+}
+
+// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectPeriodDto) GetTenantId() string {
+	if o == nil || IsNil(o.TenantId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.TenantId.Get()
+}
+
+// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectPeriodDto) GetTenantIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TenantId.Get(), o.TenantId.IsSet()
+}
+
+// HasTenantId returns a boolean if a field has been set.
+func (o *ProjectPeriodDto) HasTenantId() bool {
+	if o != nil && o.TenantId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
+func (o *ProjectPeriodDto) SetTenantId(v string) {
+	o.TenantId.Set(&v)
+}
+// SetTenantIdNil sets the value for TenantId to be an explicit nil
+func (o *ProjectPeriodDto) SetTenantIdNil() {
+	o.TenantId.Set(nil)
+}
+
+// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+func (o *ProjectPeriodDto) UnsetTenantId() {
+	o.TenantId.Unset()
+}
+
+// GetEnrollmentId returns the EnrollmentId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectPeriodDto) GetEnrollmentId() string {
+	if o == nil || IsNil(o.EnrollmentId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.EnrollmentId.Get()
+}
+
+// GetEnrollmentIdOk returns a tuple with the EnrollmentId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectPeriodDto) GetEnrollmentIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EnrollmentId.Get(), o.EnrollmentId.IsSet()
+}
+
+// HasEnrollmentId returns a boolean if a field has been set.
+func (o *ProjectPeriodDto) HasEnrollmentId() bool {
+	if o != nil && o.EnrollmentId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEnrollmentId gets a reference to the given NullableString and assigns it to the EnrollmentId field.
+func (o *ProjectPeriodDto) SetEnrollmentId(v string) {
+	o.EnrollmentId.Set(&v)
+}
+// SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+func (o *ProjectPeriodDto) SetEnrollmentIdNil() {
+	o.EnrollmentId.Set(nil)
+}
+
+// UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
+func (o *ProjectPeriodDto) UnsetEnrollmentId() {
+	o.EnrollmentId.Unset()
 }
 
 func (o ProjectPeriodDto) MarshalJSON() ([]byte, error) {
@@ -257,8 +343,14 @@ func (o ProjectPeriodDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PeriodEndDate) {
 		toSerialize["periodEndDate"] = o.PeriodEndDate
 	}
-	if o.ProjectID.IsSet() {
-		toSerialize["projectID"] = o.ProjectID.Get()
+	if o.ProjectId.IsSet() {
+		toSerialize["projectId"] = o.ProjectId.Get()
+	}
+	if o.TenantId.IsSet() {
+		toSerialize["tenantId"] = o.TenantId.Get()
+	}
+	if o.EnrollmentId.IsSet() {
+		toSerialize["enrollmentId"] = o.EnrollmentId.Get()
 	}
 	return toSerialize, nil
 }

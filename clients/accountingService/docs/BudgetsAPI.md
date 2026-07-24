@@ -43,7 +43,7 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	budgetId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	budgetAccountEntryCreateDto := *openapiclient.NewBudgetAccountEntryCreateDto("Description_example", "CurrencyId_example") // BudgetAccountEntryCreateDto | 
+	budgetAccountEntryCreateDto := *openapiclient.NewBudgetAccountEntryCreateDto("Description_example", "CurrencyId_example", "DebitAccountId_example", "CreditAccountId_example", "BudgetId_example") // BudgetAccountEntryCreateDto | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 

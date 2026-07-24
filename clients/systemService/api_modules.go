@@ -193,7 +193,7 @@ func (r ApiGetAvailableModulesRequest) XApiVersion(xApiVersion string) ApiGetAva
 	return r
 }
 
-func (r ApiGetAvailableModulesRequest) Execute() (*ModuleListEnvelope, *http.Response, error) {
+func (r ApiGetAvailableModulesRequest) Execute() (*SuiteModuleListEnvelope, *http.Response, error) {
 	return r.ApiService.GetAvailableModulesExecute(r)
 }
 
@@ -211,13 +211,13 @@ func (a *ModulesAPIService) GetAvailableModules(ctx context.Context) ApiGetAvail
 }
 
 // Execute executes the request
-//  @return ModuleListEnvelope
-func (a *ModulesAPIService) GetAvailableModulesExecute(r ApiGetAvailableModulesRequest) (*ModuleListEnvelope, *http.Response, error) {
+//  @return SuiteModuleListEnvelope
+func (a *ModulesAPIService) GetAvailableModulesExecute(r ApiGetAvailableModulesRequest) (*SuiteModuleListEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModuleListEnvelope
+		localVarReturnValue  *SuiteModuleListEnvelope
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModulesAPIService.GetAvailableModules")

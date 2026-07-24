@@ -306,7 +306,7 @@ func (a *ProjectsAPIService) CreateProjectPeriodAsyncExecute(r ApiCreateProjectP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateProjectTaskAsyncRequest struct {
+type ApiCreateTaskForProjectAsyncRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	projectId string
@@ -314,31 +314,31 @@ type ApiCreateProjectTaskAsyncRequest struct {
 	projectTaskCreateDto *ProjectTaskCreateDto
 }
 
-func (r ApiCreateProjectTaskAsyncRequest) TenantId(tenantId string) ApiCreateProjectTaskAsyncRequest {
+func (r ApiCreateTaskForProjectAsyncRequest) TenantId(tenantId string) ApiCreateTaskForProjectAsyncRequest {
 	r.tenantId = &tenantId
 	return r
 }
 
-func (r ApiCreateProjectTaskAsyncRequest) ProjectTaskCreateDto(projectTaskCreateDto ProjectTaskCreateDto) ApiCreateProjectTaskAsyncRequest {
+func (r ApiCreateTaskForProjectAsyncRequest) ProjectTaskCreateDto(projectTaskCreateDto ProjectTaskCreateDto) ApiCreateTaskForProjectAsyncRequest {
 	r.projectTaskCreateDto = &projectTaskCreateDto
 	return r
 }
 
-func (r ApiCreateProjectTaskAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
-	return r.ApiService.CreateProjectTaskAsyncExecute(r)
+func (r ApiCreateTaskForProjectAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.CreateTaskForProjectAsyncExecute(r)
 }
 
 /*
-CreateProjectTaskAsync Creates a project task
+CreateTaskForProjectAsync Creates a project task
 
 Creates a new task for the specified project.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId
- @return ApiCreateProjectTaskAsyncRequest
+ @return ApiCreateTaskForProjectAsyncRequest
 */
-func (a *ProjectsAPIService) CreateProjectTaskAsync(ctx context.Context, projectId string) ApiCreateProjectTaskAsyncRequest {
-	return ApiCreateProjectTaskAsyncRequest{
+func (a *ProjectsAPIService) CreateTaskForProjectAsync(ctx context.Context, projectId string) ApiCreateTaskForProjectAsyncRequest {
+	return ApiCreateTaskForProjectAsyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		projectId: projectId,
@@ -347,7 +347,7 @@ func (a *ProjectsAPIService) CreateProjectTaskAsync(ctx context.Context, project
 
 // Execute executes the request
 //  @return EmptyEnvelope
-func (a *ProjectsAPIService) CreateProjectTaskAsyncExecute(r ApiCreateProjectTaskAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+func (a *ProjectsAPIService) CreateTaskForProjectAsyncExecute(r ApiCreateTaskForProjectAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -355,7 +355,7 @@ func (a *ProjectsAPIService) CreateProjectTaskAsyncExecute(r ApiCreateProjectTas
 		localVarReturnValue  *EmptyEnvelope
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.CreateProjectTaskAsync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.CreateTaskForProjectAsync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -723,7 +723,7 @@ func (a *ProjectsAPIService) DeleteProjectPeriodAsyncExecute(r ApiDeleteProjectP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProjectTaskAsyncRequest struct {
+type ApiDeleteTaskForProjectAsyncRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	tenantId *string
@@ -731,27 +731,27 @@ type ApiDeleteProjectTaskAsyncRequest struct {
 	projectTaskId string
 }
 
-func (r ApiDeleteProjectTaskAsyncRequest) TenantId(tenantId string) ApiDeleteProjectTaskAsyncRequest {
+func (r ApiDeleteTaskForProjectAsyncRequest) TenantId(tenantId string) ApiDeleteTaskForProjectAsyncRequest {
 	r.tenantId = &tenantId
 	return r
 }
 
-func (r ApiDeleteProjectTaskAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
-	return r.ApiService.DeleteProjectTaskAsyncExecute(r)
+func (r ApiDeleteTaskForProjectAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.DeleteTaskForProjectAsyncExecute(r)
 }
 
 /*
-DeleteProjectTaskAsync Deletes a project task
+DeleteTaskForProjectAsync Deletes a project task
 
 Deletes the specified task from a project.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId
  @param projectTaskId
- @return ApiDeleteProjectTaskAsyncRequest
+ @return ApiDeleteTaskForProjectAsyncRequest
 */
-func (a *ProjectsAPIService) DeleteProjectTaskAsync(ctx context.Context, projectId string, projectTaskId string) ApiDeleteProjectTaskAsyncRequest {
-	return ApiDeleteProjectTaskAsyncRequest{
+func (a *ProjectsAPIService) DeleteTaskForProjectAsync(ctx context.Context, projectId string, projectTaskId string) ApiDeleteTaskForProjectAsyncRequest {
+	return ApiDeleteTaskForProjectAsyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		projectId: projectId,
@@ -761,7 +761,7 @@ func (a *ProjectsAPIService) DeleteProjectTaskAsync(ctx context.Context, project
 
 // Execute executes the request
 //  @return EmptyEnvelope
-func (a *ProjectsAPIService) DeleteProjectTaskAsyncExecute(r ApiDeleteProjectTaskAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+func (a *ProjectsAPIService) DeleteTaskForProjectAsyncExecute(r ApiDeleteTaskForProjectAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -769,7 +769,7 @@ func (a *ProjectsAPIService) DeleteProjectTaskAsyncExecute(r ApiDeleteProjectTas
 		localVarReturnValue  *EmptyEnvelope
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.DeleteProjectTaskAsync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.DeleteTaskForProjectAsync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1402,411 +1402,6 @@ func (a *ProjectsAPIService) GetProjectTaskCategoriesCountAsyncExecute(r ApiGetP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectTasksAsyncRequest struct {
-	ctx context.Context
-	ApiService *ProjectsAPIService
-	projectId string
-	tenantId *string
-}
-
-func (r ApiGetProjectTasksAsyncRequest) TenantId(tenantId string) ApiGetProjectTasksAsyncRequest {
-	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetProjectTasksAsyncRequest) Execute() (*ProjectTaskDtoListEnvelope, *http.Response, error) {
-	return r.ApiService.GetProjectTasksAsyncExecute(r)
-}
-
-/*
-GetProjectTasksAsync Retrieves project tasks
-
-Gets all tasks for a specific project with OData support.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId
- @return ApiGetProjectTasksAsyncRequest
-*/
-func (a *ProjectsAPIService) GetProjectTasksAsync(ctx context.Context, projectId string) ApiGetProjectTasksAsyncRequest {
-	return ApiGetProjectTasksAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		projectId: projectId,
-	}
-}
-
-// Execute executes the request
-//  @return ProjectTaskDtoListEnvelope
-func (a *ProjectsAPIService) GetProjectTasksAsyncExecute(r ApiGetProjectTasksAsyncRequest) (*ProjectTaskDtoListEnvelope, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProjectTaskDtoListEnvelope
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetProjectTasksAsync")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/ProjectsService/Projects/{projectId}/Tasks"
-	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.tenantId == nil {
-		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetProjectTasksCountAsyncRequest struct {
-	ctx context.Context
-	ApiService *ProjectsAPIService
-	projectId string
-	tenantId *string
-}
-
-func (r ApiGetProjectTasksCountAsyncRequest) TenantId(tenantId string) ApiGetProjectTasksCountAsyncRequest {
-	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetProjectTasksCountAsyncRequest) Execute() (*Int32Envelope, *http.Response, error) {
-	return r.ApiService.GetProjectTasksCountAsyncExecute(r)
-}
-
-/*
-GetProjectTasksCountAsync Counts project tasks
-
-Gets the count of tasks for a specific project.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId
- @return ApiGetProjectTasksCountAsyncRequest
-*/
-func (a *ProjectsAPIService) GetProjectTasksCountAsync(ctx context.Context, projectId string) ApiGetProjectTasksCountAsyncRequest {
-	return ApiGetProjectTasksCountAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		projectId: projectId,
-	}
-}
-
-// Execute executes the request
-//  @return Int32Envelope
-func (a *ProjectsAPIService) GetProjectTasksCountAsyncExecute(r ApiGetProjectTasksCountAsyncRequest) (*Int32Envelope, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Int32Envelope
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetProjectTasksCountAsync")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count"
-	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.tenantId == nil {
-		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetProjectTimeLogsAsyncRequest struct {
-	ctx context.Context
-	ApiService *ProjectsAPIService
-	projectId string
-	tenantId *string
-}
-
-func (r ApiGetProjectTimeLogsAsyncRequest) TenantId(tenantId string) ApiGetProjectTimeLogsAsyncRequest {
-	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetProjectTimeLogsAsyncRequest) Execute() (*ProjectTimeLogDtoListEnvelope, *http.Response, error) {
-	return r.ApiService.GetProjectTimeLogsAsyncExecute(r)
-}
-
-/*
-GetProjectTimeLogsAsync Retrieves project time logs
-
-Gets all time log entries for a specific project with OData support.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId
- @return ApiGetProjectTimeLogsAsyncRequest
-*/
-func (a *ProjectsAPIService) GetProjectTimeLogsAsync(ctx context.Context, projectId string) ApiGetProjectTimeLogsAsyncRequest {
-	return ApiGetProjectTimeLogsAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		projectId: projectId,
-	}
-}
-
-// Execute executes the request
-//  @return ProjectTimeLogDtoListEnvelope
-func (a *ProjectsAPIService) GetProjectTimeLogsAsyncExecute(r ApiGetProjectTimeLogsAsyncRequest) (*ProjectTimeLogDtoListEnvelope, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProjectTimeLogDtoListEnvelope
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetProjectTimeLogsAsync")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/ProjectsService/Projects/{projectId}/TimeLogs"
-	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.tenantId == nil {
-		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiGetProjectTimeLogsCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
@@ -2204,6 +1799,848 @@ func (a *ProjectsAPIService) GetProjectsCountByTenantIdAsyncExecute(r ApiGetProj
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetTasksForProjectAsyncRequest struct {
+	ctx context.Context
+	ApiService *ProjectsAPIService
+	projectId string
+	tenantId *string
+}
+
+func (r ApiGetTasksForProjectAsyncRequest) TenantId(tenantId string) ApiGetTasksForProjectAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetTasksForProjectAsyncRequest) Execute() (*ProjectTaskDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetTasksForProjectAsyncExecute(r)
+}
+
+/*
+GetTasksForProjectAsync Retrieves project tasks
+
+Gets all tasks for a specific project with OData support.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId
+ @return ApiGetTasksForProjectAsyncRequest
+*/
+func (a *ProjectsAPIService) GetTasksForProjectAsync(ctx context.Context, projectId string) ApiGetTasksForProjectAsyncRequest {
+	return ApiGetTasksForProjectAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+// Execute executes the request
+//  @return ProjectTaskDtoListEnvelope
+func (a *ProjectsAPIService) GetTasksForProjectAsyncExecute(r ApiGetTasksForProjectAsyncRequest) (*ProjectTaskDtoListEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ProjectTaskDtoListEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetTasksForProjectAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/ProjectsService/Projects/{projectId}/Tasks"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetTasksForProjectCountAsyncRequest struct {
+	ctx context.Context
+	ApiService *ProjectsAPIService
+	projectId string
+	tenantId *string
+}
+
+func (r ApiGetTasksForProjectCountAsyncRequest) TenantId(tenantId string) ApiGetTasksForProjectCountAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetTasksForProjectCountAsyncRequest) Execute() (*Int32Envelope, *http.Response, error) {
+	return r.ApiService.GetTasksForProjectCountAsyncExecute(r)
+}
+
+/*
+GetTasksForProjectCountAsync Counts project tasks
+
+Gets the count of tasks for a specific project.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId
+ @return ApiGetTasksForProjectCountAsyncRequest
+*/
+func (a *ProjectsAPIService) GetTasksForProjectCountAsync(ctx context.Context, projectId string) ApiGetTasksForProjectCountAsyncRequest {
+	return ApiGetTasksForProjectCountAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+// Execute executes the request
+//  @return Int32Envelope
+func (a *ProjectsAPIService) GetTasksForProjectCountAsyncExecute(r ApiGetTasksForProjectCountAsyncRequest) (*Int32Envelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Int32Envelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetTasksForProjectCountAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetTimeLogsForProjectAsyncRequest struct {
+	ctx context.Context
+	ApiService *ProjectsAPIService
+	projectId string
+	tenantId *string
+}
+
+func (r ApiGetTimeLogsForProjectAsyncRequest) TenantId(tenantId string) ApiGetTimeLogsForProjectAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetTimeLogsForProjectAsyncRequest) Execute() (*ProjectTimeLogDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetTimeLogsForProjectAsyncExecute(r)
+}
+
+/*
+GetTimeLogsForProjectAsync Retrieves project time logs
+
+Gets all time log entries for a specific project with OData support.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId
+ @return ApiGetTimeLogsForProjectAsyncRequest
+*/
+func (a *ProjectsAPIService) GetTimeLogsForProjectAsync(ctx context.Context, projectId string) ApiGetTimeLogsForProjectAsyncRequest {
+	return ApiGetTimeLogsForProjectAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+// Execute executes the request
+//  @return ProjectTimeLogDtoListEnvelope
+func (a *ProjectsAPIService) GetTimeLogsForProjectAsyncExecute(r ApiGetTimeLogsForProjectAsyncRequest) (*ProjectTimeLogDtoListEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ProjectTimeLogDtoListEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetTimeLogsForProjectAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/ProjectsService/Projects/{projectId}/TimeLogs"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPatchProjectAsyncRequest struct {
+	ctx context.Context
+	ApiService *ProjectsAPIService
+	projectId string
+	tenantId *string
+	operation *[]Operation
+}
+
+func (r ApiPatchProjectAsyncRequest) TenantId(tenantId string) ApiPatchProjectAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiPatchProjectAsyncRequest) Operation(operation []Operation) ApiPatchProjectAsyncRequest {
+	r.operation = &operation
+	return r
+}
+
+func (r ApiPatchProjectAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.PatchProjectAsyncExecute(r)
+}
+
+/*
+PatchProjectAsync Patches a project
+
+Partially updates the specified project.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId
+ @return ApiPatchProjectAsyncRequest
+*/
+func (a *ProjectsAPIService) PatchProjectAsync(ctx context.Context, projectId string) ApiPatchProjectAsyncRequest {
+	return ApiPatchProjectAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *ProjectsAPIService) PatchProjectAsyncExecute(r ApiPatchProjectAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.PatchProjectAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/ProjectsService/Projects/{projectId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.operation
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPatchProjectPeriodAsyncRequest struct {
+	ctx context.Context
+	ApiService *ProjectsAPIService
+	projectId string
+	projectPeriodId string
+	tenantId *string
+	operation *[]Operation
+}
+
+func (r ApiPatchProjectPeriodAsyncRequest) TenantId(tenantId string) ApiPatchProjectPeriodAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiPatchProjectPeriodAsyncRequest) Operation(operation []Operation) ApiPatchProjectPeriodAsyncRequest {
+	r.operation = &operation
+	return r
+}
+
+func (r ApiPatchProjectPeriodAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.PatchProjectPeriodAsyncExecute(r)
+}
+
+/*
+PatchProjectPeriodAsync Patches a project period
+
+Partially updates the specified period for a project.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId
+ @param projectPeriodId
+ @return ApiPatchProjectPeriodAsyncRequest
+*/
+func (a *ProjectsAPIService) PatchProjectPeriodAsync(ctx context.Context, projectId string, projectPeriodId string) ApiPatchProjectPeriodAsyncRequest {
+	return ApiPatchProjectPeriodAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+		projectPeriodId: projectPeriodId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *ProjectsAPIService) PatchProjectPeriodAsyncExecute(r ApiPatchProjectPeriodAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.PatchProjectPeriodAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"projectPeriodId"+"}", url.PathEscape(parameterValueToString(r.projectPeriodId, "projectPeriodId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.operation
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPatchTaskForProjectAsyncRequest struct {
+	ctx context.Context
+	ApiService *ProjectsAPIService
+	projectId string
+	projectTaskId string
+	tenantId *string
+	operation *[]Operation
+}
+
+func (r ApiPatchTaskForProjectAsyncRequest) TenantId(tenantId string) ApiPatchTaskForProjectAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiPatchTaskForProjectAsyncRequest) Operation(operation []Operation) ApiPatchTaskForProjectAsyncRequest {
+	r.operation = &operation
+	return r
+}
+
+func (r ApiPatchTaskForProjectAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.PatchTaskForProjectAsyncExecute(r)
+}
+
+/*
+PatchTaskForProjectAsync Patches a project task
+
+Partially updates the specified task in a project.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId
+ @param projectTaskId
+ @return ApiPatchTaskForProjectAsyncRequest
+*/
+func (a *ProjectsAPIService) PatchTaskForProjectAsync(ctx context.Context, projectId string, projectTaskId string) ApiPatchTaskForProjectAsyncRequest {
+	return ApiPatchTaskForProjectAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+		projectTaskId: projectTaskId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *ProjectsAPIService) PatchTaskForProjectAsyncExecute(r ApiPatchTaskForProjectAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.PatchTaskForProjectAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"projectTaskId"+"}", url.PathEscape(parameterValueToString(r.projectTaskId, "projectTaskId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.operation
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiUpdateProjectAsyncRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
@@ -2494,7 +2931,7 @@ func (a *ProjectsAPIService) UpdateProjectPeriodAsyncExecute(r ApiUpdateProjectP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProjectTaskAsyncRequest struct {
+type ApiUpdateTaskForProjectAsyncRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	projectId string
@@ -2503,32 +2940,32 @@ type ApiUpdateProjectTaskAsyncRequest struct {
 	projectTaskUpdateDto *ProjectTaskUpdateDto
 }
 
-func (r ApiUpdateProjectTaskAsyncRequest) TenantId(tenantId string) ApiUpdateProjectTaskAsyncRequest {
+func (r ApiUpdateTaskForProjectAsyncRequest) TenantId(tenantId string) ApiUpdateTaskForProjectAsyncRequest {
 	r.tenantId = &tenantId
 	return r
 }
 
-func (r ApiUpdateProjectTaskAsyncRequest) ProjectTaskUpdateDto(projectTaskUpdateDto ProjectTaskUpdateDto) ApiUpdateProjectTaskAsyncRequest {
+func (r ApiUpdateTaskForProjectAsyncRequest) ProjectTaskUpdateDto(projectTaskUpdateDto ProjectTaskUpdateDto) ApiUpdateTaskForProjectAsyncRequest {
 	r.projectTaskUpdateDto = &projectTaskUpdateDto
 	return r
 }
 
-func (r ApiUpdateProjectTaskAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
-	return r.ApiService.UpdateProjectTaskAsyncExecute(r)
+func (r ApiUpdateTaskForProjectAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.UpdateTaskForProjectAsyncExecute(r)
 }
 
 /*
-UpdateProjectTaskAsync Updates a project task
+UpdateTaskForProjectAsync Updates a project task
 
 Updates the specified task in a project.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId
  @param projectTaskId
- @return ApiUpdateProjectTaskAsyncRequest
+ @return ApiUpdateTaskForProjectAsyncRequest
 */
-func (a *ProjectsAPIService) UpdateProjectTaskAsync(ctx context.Context, projectId string, projectTaskId string) ApiUpdateProjectTaskAsyncRequest {
-	return ApiUpdateProjectTaskAsyncRequest{
+func (a *ProjectsAPIService) UpdateTaskForProjectAsync(ctx context.Context, projectId string, projectTaskId string) ApiUpdateTaskForProjectAsyncRequest {
+	return ApiUpdateTaskForProjectAsyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		projectId: projectId,
@@ -2538,7 +2975,7 @@ func (a *ProjectsAPIService) UpdateProjectTaskAsync(ctx context.Context, project
 
 // Execute executes the request
 //  @return EmptyEnvelope
-func (a *ProjectsAPIService) UpdateProjectTaskAsyncExecute(r ApiUpdateProjectTaskAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+func (a *ProjectsAPIService) UpdateTaskForProjectAsyncExecute(r ApiUpdateTaskForProjectAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -2546,7 +2983,7 @@ func (a *ProjectsAPIService) UpdateProjectTaskAsyncExecute(r ApiUpdateProjectTas
 		localVarReturnValue  *EmptyEnvelope
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.UpdateProjectTaskAsync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.UpdateTaskForProjectAsync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -181,7 +181,7 @@ func (a *ItemShippingPoliciesAPIService) CountItemShippingPoliciesAsyncExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetItemShippingPoliciesAsyncRequest struct {
+type ApiGetCatalogItemShippingPoliciesAsyncRequest struct {
 	ctx context.Context
 	ApiService *ItemShippingPoliciesAPIService
 	tenantId *string
@@ -190,40 +190,40 @@ type ApiGetItemShippingPoliciesAsyncRequest struct {
 	xApiVersion *string
 }
 
-func (r ApiGetItemShippingPoliciesAsyncRequest) TenantId(tenantId string) ApiGetItemShippingPoliciesAsyncRequest {
+func (r ApiGetCatalogItemShippingPoliciesAsyncRequest) TenantId(tenantId string) ApiGetCatalogItemShippingPoliciesAsyncRequest {
 	r.tenantId = &tenantId
 	return r
 }
 
-func (r ApiGetItemShippingPoliciesAsyncRequest) ItemId(itemId string) ApiGetItemShippingPoliciesAsyncRequest {
+func (r ApiGetCatalogItemShippingPoliciesAsyncRequest) ItemId(itemId string) ApiGetCatalogItemShippingPoliciesAsyncRequest {
 	r.itemId = &itemId
 	return r
 }
 
-func (r ApiGetItemShippingPoliciesAsyncRequest) ApiVersion(apiVersion string) ApiGetItemShippingPoliciesAsyncRequest {
+func (r ApiGetCatalogItemShippingPoliciesAsyncRequest) ApiVersion(apiVersion string) ApiGetCatalogItemShippingPoliciesAsyncRequest {
 	r.apiVersion = &apiVersion
 	return r
 }
 
-func (r ApiGetItemShippingPoliciesAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemShippingPoliciesAsyncRequest {
+func (r ApiGetCatalogItemShippingPoliciesAsyncRequest) XApiVersion(xApiVersion string) ApiGetCatalogItemShippingPoliciesAsyncRequest {
 	r.xApiVersion = &xApiVersion
 	return r
 }
 
-func (r ApiGetItemShippingPoliciesAsyncRequest) Execute() (*ItemShippingPolicyDtoListEnvelope, *http.Response, error) {
-	return r.ApiService.GetItemShippingPoliciesAsyncExecute(r)
+func (r ApiGetCatalogItemShippingPoliciesAsyncRequest) Execute() (*ItemShippingPolicyDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetCatalogItemShippingPoliciesAsyncExecute(r)
 }
 
 /*
-GetItemShippingPoliciesAsync Get item shipping policies
+GetCatalogItemShippingPoliciesAsync Get item shipping policies
 
 Retrieves all shipping policies for a specific item.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetItemShippingPoliciesAsyncRequest
+ @return ApiGetCatalogItemShippingPoliciesAsyncRequest
 */
-func (a *ItemShippingPoliciesAPIService) GetItemShippingPoliciesAsync(ctx context.Context) ApiGetItemShippingPoliciesAsyncRequest {
-	return ApiGetItemShippingPoliciesAsyncRequest{
+func (a *ItemShippingPoliciesAPIService) GetCatalogItemShippingPoliciesAsync(ctx context.Context) ApiGetCatalogItemShippingPoliciesAsyncRequest {
+	return ApiGetCatalogItemShippingPoliciesAsyncRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -231,7 +231,7 @@ func (a *ItemShippingPoliciesAPIService) GetItemShippingPoliciesAsync(ctx contex
 
 // Execute executes the request
 //  @return ItemShippingPolicyDtoListEnvelope
-func (a *ItemShippingPoliciesAPIService) GetItemShippingPoliciesAsyncExecute(r ApiGetItemShippingPoliciesAsyncRequest) (*ItemShippingPolicyDtoListEnvelope, *http.Response, error) {
+func (a *ItemShippingPoliciesAPIService) GetCatalogItemShippingPoliciesAsyncExecute(r ApiGetCatalogItemShippingPoliciesAsyncRequest) (*ItemShippingPolicyDtoListEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -239,7 +239,7 @@ func (a *ItemShippingPoliciesAPIService) GetItemShippingPoliciesAsyncExecute(r A
 		localVarReturnValue  *ItemShippingPolicyDtoListEnvelope
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemShippingPoliciesAPIService.GetItemShippingPoliciesAsync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemShippingPoliciesAPIService.GetCatalogItemShippingPoliciesAsync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -338,7 +338,7 @@ func (a *ItemShippingPoliciesAPIService) GetItemShippingPoliciesAsyncExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetItemShippingPolicyByIdAsyncRequest struct {
+type ApiGetCatalogItemShippingPolicyByIdAsyncRequest struct {
 	ctx context.Context
 	ApiService *ItemShippingPoliciesAPIService
 	itemShippingPolicyId string
@@ -348,41 +348,41 @@ type ApiGetItemShippingPolicyByIdAsyncRequest struct {
 	xApiVersion *string
 }
 
-func (r ApiGetItemShippingPolicyByIdAsyncRequest) TenantId(tenantId string) ApiGetItemShippingPolicyByIdAsyncRequest {
+func (r ApiGetCatalogItemShippingPolicyByIdAsyncRequest) TenantId(tenantId string) ApiGetCatalogItemShippingPolicyByIdAsyncRequest {
 	r.tenantId = &tenantId
 	return r
 }
 
-func (r ApiGetItemShippingPolicyByIdAsyncRequest) ItemId(itemId string) ApiGetItemShippingPolicyByIdAsyncRequest {
+func (r ApiGetCatalogItemShippingPolicyByIdAsyncRequest) ItemId(itemId string) ApiGetCatalogItemShippingPolicyByIdAsyncRequest {
 	r.itemId = &itemId
 	return r
 }
 
-func (r ApiGetItemShippingPolicyByIdAsyncRequest) ApiVersion(apiVersion string) ApiGetItemShippingPolicyByIdAsyncRequest {
+func (r ApiGetCatalogItemShippingPolicyByIdAsyncRequest) ApiVersion(apiVersion string) ApiGetCatalogItemShippingPolicyByIdAsyncRequest {
 	r.apiVersion = &apiVersion
 	return r
 }
 
-func (r ApiGetItemShippingPolicyByIdAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemShippingPolicyByIdAsyncRequest {
+func (r ApiGetCatalogItemShippingPolicyByIdAsyncRequest) XApiVersion(xApiVersion string) ApiGetCatalogItemShippingPolicyByIdAsyncRequest {
 	r.xApiVersion = &xApiVersion
 	return r
 }
 
-func (r ApiGetItemShippingPolicyByIdAsyncRequest) Execute() (*ItemShippingPolicyDtoEnvelope, *http.Response, error) {
-	return r.ApiService.GetItemShippingPolicyByIdAsyncExecute(r)
+func (r ApiGetCatalogItemShippingPolicyByIdAsyncRequest) Execute() (*ItemShippingPolicyDtoEnvelope, *http.Response, error) {
+	return r.ApiService.GetCatalogItemShippingPolicyByIdAsyncExecute(r)
 }
 
 /*
-GetItemShippingPolicyByIdAsync Get item shipping policy by ID
+GetCatalogItemShippingPolicyByIdAsync Get item shipping policy by ID
 
 Retrieves a specific shipping policy for an item.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param itemShippingPolicyId
- @return ApiGetItemShippingPolicyByIdAsyncRequest
+ @return ApiGetCatalogItemShippingPolicyByIdAsyncRequest
 */
-func (a *ItemShippingPoliciesAPIService) GetItemShippingPolicyByIdAsync(ctx context.Context, itemShippingPolicyId string) ApiGetItemShippingPolicyByIdAsyncRequest {
-	return ApiGetItemShippingPolicyByIdAsyncRequest{
+func (a *ItemShippingPoliciesAPIService) GetCatalogItemShippingPolicyByIdAsync(ctx context.Context, itemShippingPolicyId string) ApiGetCatalogItemShippingPolicyByIdAsyncRequest {
+	return ApiGetCatalogItemShippingPolicyByIdAsyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		itemShippingPolicyId: itemShippingPolicyId,
@@ -391,7 +391,7 @@ func (a *ItemShippingPoliciesAPIService) GetItemShippingPolicyByIdAsync(ctx cont
 
 // Execute executes the request
 //  @return ItemShippingPolicyDtoEnvelope
-func (a *ItemShippingPoliciesAPIService) GetItemShippingPolicyByIdAsyncExecute(r ApiGetItemShippingPolicyByIdAsyncRequest) (*ItemShippingPolicyDtoEnvelope, *http.Response, error) {
+func (a *ItemShippingPoliciesAPIService) GetCatalogItemShippingPolicyByIdAsyncExecute(r ApiGetCatalogItemShippingPolicyByIdAsyncRequest) (*ItemShippingPolicyDtoEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -399,7 +399,7 @@ func (a *ItemShippingPoliciesAPIService) GetItemShippingPolicyByIdAsyncExecute(r
 		localVarReturnValue  *ItemShippingPolicyDtoEnvelope
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemShippingPoliciesAPIService.GetItemShippingPolicyByIdAsync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemShippingPoliciesAPIService.GetCatalogItemShippingPolicyByIdAsync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

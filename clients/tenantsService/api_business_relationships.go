@@ -17,11 +17,671 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
 // BusinessRelationshipsAPIService BusinessRelationshipsAPI service
 type BusinessRelationshipsAPIService service
+
+type ApiCreateBusinessRelationshipAsyncRequest struct {
+	ctx context.Context
+	ApiService *BusinessRelationshipsAPIService
+	tenantId *string
+	businessRelationshipCreateDto *BusinessRelationshipCreateDto
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiCreateBusinessRelationshipAsyncRequest) TenantId(tenantId string) ApiCreateBusinessRelationshipAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiCreateBusinessRelationshipAsyncRequest) BusinessRelationshipCreateDto(businessRelationshipCreateDto BusinessRelationshipCreateDto) ApiCreateBusinessRelationshipAsyncRequest {
+	r.businessRelationshipCreateDto = &businessRelationshipCreateDto
+	return r
+}
+
+func (r ApiCreateBusinessRelationshipAsyncRequest) ApiVersion(apiVersion string) ApiCreateBusinessRelationshipAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiCreateBusinessRelationshipAsyncRequest) XApiVersion(xApiVersion string) ApiCreateBusinessRelationshipAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCreateBusinessRelationshipAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.CreateBusinessRelationshipAsyncExecute(r)
+}
+
+/*
+CreateBusinessRelationshipAsync Create a business relationship
+
+Creates a new business relationship owned by the specified parent tenant.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateBusinessRelationshipAsyncRequest
+*/
+func (a *BusinessRelationshipsAPIService) CreateBusinessRelationshipAsync(ctx context.Context) ApiCreateBusinessRelationshipAsyncRequest {
+	return ApiCreateBusinessRelationshipAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *BusinessRelationshipsAPIService) CreateBusinessRelationshipAsyncExecute(r ApiCreateBusinessRelationshipAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessRelationshipsAPIService.CreateBusinessRelationshipAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/TenantsService/BusinessRelationships"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+	if r.businessRelationshipCreateDto == nil {
+		return localVarReturnValue, nil, reportError("businessRelationshipCreateDto is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.businessRelationshipCreateDto
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteBusinessRelationshipAsyncRequest struct {
+	ctx context.Context
+	ApiService *BusinessRelationshipsAPIService
+	tenantId *string
+	businessRelationshipId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiDeleteBusinessRelationshipAsyncRequest) TenantId(tenantId string) ApiDeleteBusinessRelationshipAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiDeleteBusinessRelationshipAsyncRequest) ApiVersion(apiVersion string) ApiDeleteBusinessRelationshipAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiDeleteBusinessRelationshipAsyncRequest) XApiVersion(xApiVersion string) ApiDeleteBusinessRelationshipAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiDeleteBusinessRelationshipAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.DeleteBusinessRelationshipAsyncExecute(r)
+}
+
+/*
+DeleteBusinessRelationshipAsync Delete a business relationship
+
+Deletes a business relationship by its ID.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param businessRelationshipId
+ @return ApiDeleteBusinessRelationshipAsyncRequest
+*/
+func (a *BusinessRelationshipsAPIService) DeleteBusinessRelationshipAsync(ctx context.Context, businessRelationshipId string) ApiDeleteBusinessRelationshipAsyncRequest {
+	return ApiDeleteBusinessRelationshipAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		businessRelationshipId: businessRelationshipId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *BusinessRelationshipsAPIService) DeleteBusinessRelationshipAsyncExecute(r ApiDeleteBusinessRelationshipAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessRelationshipsAPIService.DeleteBusinessRelationshipAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/TenantsService/BusinessRelationships/{businessRelationshipId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"businessRelationshipId"+"}", url.PathEscape(parameterValueToString(r.businessRelationshipId, "businessRelationshipId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetBusinessRelationshipByIdAsyncRequest struct {
+	ctx context.Context
+	ApiService *BusinessRelationshipsAPIService
+	tenantId *string
+	businessRelationshipId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetBusinessRelationshipByIdAsyncRequest) TenantId(tenantId string) ApiGetBusinessRelationshipByIdAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetBusinessRelationshipByIdAsyncRequest) ApiVersion(apiVersion string) ApiGetBusinessRelationshipByIdAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetBusinessRelationshipByIdAsyncRequest) XApiVersion(xApiVersion string) ApiGetBusinessRelationshipByIdAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBusinessRelationshipByIdAsyncRequest) Execute() (*BusinessRelationshipDtoEnvelope, *http.Response, error) {
+	return r.ApiService.GetBusinessRelationshipByIdAsyncExecute(r)
+}
+
+/*
+GetBusinessRelationshipByIdAsync Get business relationship by ID
+
+Retrieves the details of a specific business relationship by its ID.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param businessRelationshipId
+ @return ApiGetBusinessRelationshipByIdAsyncRequest
+*/
+func (a *BusinessRelationshipsAPIService) GetBusinessRelationshipByIdAsync(ctx context.Context, businessRelationshipId string) ApiGetBusinessRelationshipByIdAsyncRequest {
+	return ApiGetBusinessRelationshipByIdAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		businessRelationshipId: businessRelationshipId,
+	}
+}
+
+// Execute executes the request
+//  @return BusinessRelationshipDtoEnvelope
+func (a *BusinessRelationshipsAPIService) GetBusinessRelationshipByIdAsyncExecute(r ApiGetBusinessRelationshipByIdAsyncRequest) (*BusinessRelationshipDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BusinessRelationshipDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessRelationshipsAPIService.GetBusinessRelationshipByIdAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/TenantsService/BusinessRelationships/{businessRelationshipId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"businessRelationshipId"+"}", url.PathEscape(parameterValueToString(r.businessRelationshipId, "businessRelationshipId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetBusinessRelationshipsAsyncRequest struct {
+	ctx context.Context
+	ApiService *BusinessRelationshipsAPIService
+	tenantId *string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetBusinessRelationshipsAsyncRequest) TenantId(tenantId string) ApiGetBusinessRelationshipsAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetBusinessRelationshipsAsyncRequest) ApiVersion(apiVersion string) ApiGetBusinessRelationshipsAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetBusinessRelationshipsAsyncRequest) XApiVersion(xApiVersion string) ApiGetBusinessRelationshipsAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBusinessRelationshipsAsyncRequest) Execute() (*BusinessRelationshipDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetBusinessRelationshipsAsyncExecute(r)
+}
+
+/*
+GetBusinessRelationshipsAsync Get business relationships
+
+Retrieves the child business relationships owned by the specified parent tenant using OData query options.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetBusinessRelationshipsAsyncRequest
+*/
+func (a *BusinessRelationshipsAPIService) GetBusinessRelationshipsAsync(ctx context.Context) ApiGetBusinessRelationshipsAsyncRequest {
+	return ApiGetBusinessRelationshipsAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return BusinessRelationshipDtoListEnvelope
+func (a *BusinessRelationshipsAPIService) GetBusinessRelationshipsAsyncExecute(r ApiGetBusinessRelationshipsAsyncRequest) (*BusinessRelationshipDtoListEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BusinessRelationshipDtoListEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessRelationshipsAPIService.GetBusinessRelationshipsAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/TenantsService/BusinessRelationships"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiGetBusinessRelationshipsCountAsyncRequest struct {
 	ctx context.Context
@@ -147,6 +807,181 @@ func (a *BusinessRelationshipsAPIService) GetBusinessRelationshipsCountAsyncExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateBusinessRelationshipAsyncRequest struct {
+	ctx context.Context
+	ApiService *BusinessRelationshipsAPIService
+	tenantId *string
+	businessRelationshipId string
+	businessRelationshipUpdateDto *BusinessRelationshipUpdateDto
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiUpdateBusinessRelationshipAsyncRequest) TenantId(tenantId string) ApiUpdateBusinessRelationshipAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiUpdateBusinessRelationshipAsyncRequest) BusinessRelationshipUpdateDto(businessRelationshipUpdateDto BusinessRelationshipUpdateDto) ApiUpdateBusinessRelationshipAsyncRequest {
+	r.businessRelationshipUpdateDto = &businessRelationshipUpdateDto
+	return r
+}
+
+func (r ApiUpdateBusinessRelationshipAsyncRequest) ApiVersion(apiVersion string) ApiUpdateBusinessRelationshipAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiUpdateBusinessRelationshipAsyncRequest) XApiVersion(xApiVersion string) ApiUpdateBusinessRelationshipAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiUpdateBusinessRelationshipAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.UpdateBusinessRelationshipAsyncExecute(r)
+}
+
+/*
+UpdateBusinessRelationshipAsync Update a business relationship
+
+Updates an existing business relationship by its ID.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param businessRelationshipId
+ @return ApiUpdateBusinessRelationshipAsyncRequest
+*/
+func (a *BusinessRelationshipsAPIService) UpdateBusinessRelationshipAsync(ctx context.Context, businessRelationshipId string) ApiUpdateBusinessRelationshipAsyncRequest {
+	return ApiUpdateBusinessRelationshipAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		businessRelationshipId: businessRelationshipId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *BusinessRelationshipsAPIService) UpdateBusinessRelationshipAsyncExecute(r ApiUpdateBusinessRelationshipAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessRelationshipsAPIService.UpdateBusinessRelationshipAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/TenantsService/BusinessRelationships/{businessRelationshipId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"businessRelationshipId"+"}", url.PathEscape(parameterValueToString(r.businessRelationshipId, "businessRelationshipId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+	if r.businessRelationshipUpdateDto == nil {
+		return localVarReturnValue, nil, reportError("businessRelationshipUpdateDto is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.businessRelationshipUpdateDto
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorEnvelope
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

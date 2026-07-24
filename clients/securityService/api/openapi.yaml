@@ -677,6 +677,21 @@ paths:
           description: OK
       tags:
       - FenixAlliance.ABS.Web
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
   /hello:
     get:
       responses:

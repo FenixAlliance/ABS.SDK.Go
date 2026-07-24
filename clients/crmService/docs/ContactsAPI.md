@@ -5,7 +5,11 @@ All URIs are relative to *https://absuite.net*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateContactAsync**](ContactsAPI.md#CreateContactAsync) | **Post** /api/v2/CrmService/Contacts | Create a new contact
+[**CreateContactEmailAsync**](ContactsAPI.md#CreateContactEmailAsync) | **Post** /api/v2/CrmService/Contacts/{contactId}/Emails/Addresses | Add an email address to a contact
+[**CreateProfileForContactAsync**](ContactsAPI.md#CreateProfileForContactAsync) | **Post** /api/v2/CrmService/Contacts/{contactId}/Profiles | Create a contact profile
 [**DeleteContactAsync**](ContactsAPI.md#DeleteContactAsync) | **Delete** /api/v2/CrmService/Contacts/{contactId} | Delete a contact
+[**DeleteContactEmailAsync**](ContactsAPI.md#DeleteContactEmailAsync) | **Delete** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Delete a contact email address
+[**DeleteProfileForContactAsync**](ContactsAPI.md#DeleteProfileForContactAsync) | **Delete** /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId} | Delete a contact profile
 [**GetBusinessOwnedIndividualAsync**](ContactsAPI.md#GetBusinessOwnedIndividualAsync) | **Get** /api/v2/CrmService/Contacts/Individuals/{contactId} | Get a Contact of type Individual by ID
 [**GetBusinessOwnedIndividualsAsync**](ContactsAPI.md#GetBusinessOwnedIndividualsAsync) | **Get** /api/v2/CrmService/Contacts/Individuals | Get all contacts of type individual
 [**GetBusinessOwnedIndividualsCountAsync**](ContactsAPI.md#GetBusinessOwnedIndividualsCountAsync) | **Get** /api/v2/CrmService/Contacts/Individuals/Count | Get all contacts of type individual count
@@ -15,7 +19,8 @@ Method | HTTP request | Description
 [**GetContactAsync**](ContactsAPI.md#GetContactAsync) | **Get** /api/v2/CrmService/Contacts/{contactId} | Get a contact by ID
 [**GetContactAvatarAsync**](ContactsAPI.md#GetContactAvatarAsync) | **Get** /api/v2/CrmService/Contacts/{contactId}/Avatar | Get a contact&#39;s avatar
 [**GetContactCartAsync**](ContactsAPI.md#GetContactCartAsync) | **Get** /api/v2/CrmService/Contacts/{contactId}/Cart | Get a contact&#39;s cart
-[**GetContactProfilesAsync**](ContactsAPI.md#GetContactProfilesAsync) | **Get** /api/v2/CrmService/Contacts/{contactId}/Profiles | Get a contact&#39;s social profiles
+[**GetContactEmailsAsync**](ContactsAPI.md#GetContactEmailsAsync) | **Get** /api/v2/CrmService/Contacts/{contactId}/Emails | Get a contact&#39;s email addresses
+[**GetContactEmailsCountAsync**](ContactsAPI.md#GetContactEmailsCountAsync) | **Get** /api/v2/CrmService/Contacts/{contactId}/Emails/Count | Get contact email addresses count
 [**GetContactSocialProfileAsync**](ContactsAPI.md#GetContactSocialProfileAsync) | **Get** /api/v2/CrmService/Contacts/{contactId}/SocialProfile | Get a contact&#39;s social profile
 [**GetContactWalletAsync**](ContactsAPI.md#GetContactWalletAsync) | **Get** /api/v2/CrmService/Contacts/{contactId}/Wallet | Get a contact&#39;s wallet
 [**GetContactsAsync**](ContactsAPI.md#GetContactsAsync) | **Get** /api/v2/CrmService/Contacts | Get all business owned contacts
@@ -28,13 +33,19 @@ Method | HTTP request | Description
 [**GetIndividualRelatedOrganizationsAsync**](ContactsAPI.md#GetIndividualRelatedOrganizationsAsync) | **Get** /api/v2/CrmService/Contacts/Individuals/{contactId}/Organizations | Get individual related organizations
 [**GetOrganizationRelatedIndividualsAsync**](ContactsAPI.md#GetOrganizationRelatedIndividualsAsync) | **Get** /api/v2/CrmService/Contacts/Organizations/{contactId}/Individuals | Get organization related individuals
 [**GetOrganizationRelatedOrganizationsAsync**](ContactsAPI.md#GetOrganizationRelatedOrganizationsAsync) | **Get** /api/v2/CrmService/Contacts/Organizations/{contactId}/Organizations | Get organization related organizations
+[**GetProfilesForContactAsync**](ContactsAPI.md#GetProfilesForContactAsync) | **Get** /api/v2/CrmService/Contacts/{contactId}/Profiles | Get a contact&#39;s social profiles
+[**GetProfilesForContactCountAsync**](ContactsAPI.md#GetProfilesForContactCountAsync) | **Get** /api/v2/CrmService/Contacts/{contactId}/Profiles/Count | Get contact profiles count
 [**PatchContactAsync**](ContactsAPI.md#PatchContactAsync) | **Patch** /api/v2/CrmService/Contacts/{contactId} | Patch a contact
+[**PatchContactEmailAsync**](ContactsAPI.md#PatchContactEmailAsync) | **Patch** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Patch a contact email address
 [**PreviewContactEmailTemplate**](ContactsAPI.md#PreviewContactEmailTemplate) | **Post** /api/v2/CrmService/Contacts/{contactId}/Emails/Preview | Preview the rendered email for a contact.
 [**SendContactEmail**](ContactsAPI.md#SendContactEmail) | **Post** /api/v2/CrmService/Contacts/{contactId}/Emails/Send | Send an email to a contact.
 [**UpdateContactAsync**](ContactsAPI.md#UpdateContactAsync) | **Put** /api/v2/CrmService/Contacts/{contactId} | Update a contact
 [**UpdateContactAvatarAsync**](ContactsAPI.md#UpdateContactAvatarAsync) | **Post** /api/v2/CrmService/Contacts/{contactId}/Avatar | Update a contact&#39;s avatar
+[**UpdateContactEmailAsync**](ContactsAPI.md#UpdateContactEmailAsync) | **Put** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Update a contact email address
+[**UpdateProfileForContactAsync**](ContactsAPI.md#UpdateProfileForContactAsync) | **Put** /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId} | Update a contact profile
 [**UpsertTenantOntoAnotherTenantContactListAsync**](ContactsAPI.md#UpsertTenantOntoAnotherTenantContactListAsync) | **Post** /api/v2/CrmService/Contacts/Organizations/Upsert | Upsert a tenant onto another tenant&#39;s contact list
 [**UpsertUserOntoAnotherTenantContactListAsync**](ContactsAPI.md#UpsertUserOntoAnotherTenantContactListAsync) | **Post** /api/v2/CrmService/Contacts/Individuals/Upsert | Upsert a user onto a tenant&#39;s contact list
+[**VerifyContactEmailAsync**](ContactsAPI.md#VerifyContactEmailAsync) | **Post** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}/Verify | Verify a contact email address
 
 
 
@@ -95,6 +106,158 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateContactEmailAsync
+
+> CreateContactEmailAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactEmailCreateDto(contactEmailCreateDto).Execute()
+
+Add an email address to a contact
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactEmailCreateDto := *openapiclient.NewContactEmailCreateDto() // ContactEmailCreateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ContactsAPI.CreateContactEmailAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactEmailCreateDto(contactEmailCreateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.CreateContactEmailAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateContactEmailAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **contactEmailCreateDto** | [**ContactEmailCreateDto**](ContactEmailCreateDto.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateProfileForContactAsync
+
+> CreateProfileForContactAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactProfileCreateDto(contactProfileCreateDto).Execute()
+
+Create a contact profile
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactProfileCreateDto := *openapiclient.NewContactProfileCreateDto() // ContactProfileCreateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ContactsAPI.CreateProfileForContactAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactProfileCreateDto(contactProfileCreateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.CreateProfileForContactAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateProfileForContactAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **contactProfileCreateDto** | [**ContactProfileCreateDto**](ContactProfileCreateDto.md) |  | 
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 
@@ -171,6 +334,160 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteContactEmailAsync
+
+> DeleteContactEmailAsync(ctx, contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete a contact email address
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	emailId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ContactsAPI.DeleteContactEmailAsync(context.Background(), contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.DeleteContactEmailAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+**emailId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteContactEmailAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteProfileForContactAsync
+
+> DeleteProfileForContactAsync(ctx, contactId, profileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete a contact profile
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	profileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ContactsAPI.DeleteProfileForContactAsync(context.Background(), contactId, profileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.DeleteProfileForContactAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+**profileId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteProfileForContactAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 
@@ -846,11 +1163,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetContactProfilesAsync
+## GetContactEmailsAsync
 
-> ContactProfileDtoListEnvelope GetContactProfilesAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ContactEmailDtoListEnvelope GetContactEmailsAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
-Get a contact's social profiles
+Get a contact's email addresses
 
 
 
@@ -874,13 +1191,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetContactProfilesAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetContactEmailsAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetContactProfilesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetContactEmailsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetContactProfilesAsync`: ContactProfileDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ContactsAPI.GetContactProfilesAsync`: %v\n", resp)
+	// response from `GetContactEmailsAsync`: ContactEmailDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ContactsAPI.GetContactEmailsAsync`: %v\n", resp)
 }
 ```
 
@@ -894,7 +1211,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetContactProfilesAsyncRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetContactEmailsAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -906,7 +1223,83 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ContactProfileDtoListEnvelope**](ContactProfileDtoListEnvelope.md)
+[**ContactEmailDtoListEnvelope**](ContactEmailDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetContactEmailsCountAsync
+
+> Int32Envelope GetContactEmailsCountAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get contact email addresses count
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ContactsAPI.GetContactEmailsCountAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetContactEmailsCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetContactEmailsCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `ContactsAPI.GetContactEmailsCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetContactEmailsCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 
@@ -1804,6 +2197,158 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetProfilesForContactAsync
+
+> ContactProfileDtoListEnvelope GetProfilesForContactAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get a contact's social profiles
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ContactsAPI.GetProfilesForContactAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetProfilesForContactAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetProfilesForContactAsync`: ContactProfileDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ContactsAPI.GetProfilesForContactAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetProfilesForContactAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**ContactProfileDtoListEnvelope**](ContactProfileDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetProfilesForContactCountAsync
+
+> Int32Envelope GetProfilesForContactCountAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get contact profiles count
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ContactsAPI.GetProfilesForContactCountAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetProfilesForContactCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetProfilesForContactCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `ContactsAPI.GetProfilesForContactCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetProfilesForContactCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## PatchContactAsync
 
 > EmptyEnvelope PatchContactAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
@@ -1867,6 +2412,85 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchContactEmailAsync
+
+> PatchContactEmailAsync(ctx, contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+
+Patch a contact email address
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	emailId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ContactsAPI.PatchContactEmailAsync(context.Background(), contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.PatchContactEmailAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+**emailId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchContactEmailAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 
@@ -2186,6 +2810,164 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## UpdateContactEmailAsync
+
+> UpdateContactEmailAsync(ctx, contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactEmailUpdateDto(contactEmailUpdateDto).Execute()
+
+Update a contact email address
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	emailId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactEmailUpdateDto := *openapiclient.NewContactEmailUpdateDto() // ContactEmailUpdateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ContactsAPI.UpdateContactEmailAsync(context.Background(), contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactEmailUpdateDto(contactEmailUpdateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.UpdateContactEmailAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+**emailId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateContactEmailAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **contactEmailUpdateDto** | [**ContactEmailUpdateDto**](ContactEmailUpdateDto.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateProfileForContactAsync
+
+> UpdateProfileForContactAsync(ctx, contactId, profileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactProfileUpdateDto(contactProfileUpdateDto).Execute()
+
+Update a contact profile
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	profileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactProfileUpdateDto := *openapiclient.NewContactProfileUpdateDto() // ContactProfileUpdateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ContactsAPI.UpdateProfileForContactAsync(context.Background(), contactId, profileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactProfileUpdateDto(contactProfileUpdateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.UpdateProfileForContactAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+**profileId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateProfileForContactAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **contactProfileUpdateDto** | [**ContactProfileUpdateDto**](ContactProfileUpdateDto.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpsertTenantOntoAnotherTenantContactListAsync
 
 > ContactDtoEnvelope UpsertTenantOntoAnotherTenantContactListAsync(ctx).TenantId(tenantId).RelatedTenantId(relatedTenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
@@ -2315,6 +3097,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ContactDtoEnvelope**](ContactDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VerifyContactEmailAsync
+
+> VerifyContactEmailAsync(ctx, contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Verify a contact email address
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	emailId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ContactsAPI.VerifyContactEmailAsync(context.Background(), contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.VerifyContactEmailAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contactId** | **string** |  | 
+**emailId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVerifyContactEmailAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 

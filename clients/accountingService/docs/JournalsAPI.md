@@ -14,9 +14,12 @@ Method | HTTP request | Description
 [**GetJournalDetailsAsync**](JournalsAPI.md#GetJournalDetailsAsync) | **Get** /api/v2/AccountingService/Journals/{journalId} | Get journal by ID
 [**GetJournalEntriesAsync**](JournalsAPI.md#GetJournalEntriesAsync) | **Get** /api/v2/AccountingService/Journals/{journalId}/Entries | Get journal entries
 [**GetJournalEntriesCountAsync**](JournalsAPI.md#GetJournalEntriesCountAsync) | **Get** /api/v2/AccountingService/Journals/{journalId}/Entries/Count | Count journal entries
+[**GetJournalEntryDetailsAsync**](JournalsAPI.md#GetJournalEntryDetailsAsync) | **Get** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Get journal entry by ID
 [**GetJournalsAsync**](JournalsAPI.md#GetJournalsAsync) | **Get** /api/v2/AccountingService/Journals | Get all journals
 [**PatchJournalAsync**](JournalsAPI.md#PatchJournalAsync) | **Patch** /api/v2/AccountingService/Journals/{journalId} | Patch a journal
 [**PatchJournalEntryAsync**](JournalsAPI.md#PatchJournalEntryAsync) | **Patch** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Patch a journal entry
+[**PostJournalEntryAsync**](JournalsAPI.md#PostJournalEntryAsync) | **Post** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Post | Post a draft journal entry
+[**ReverseJournalEntryAsync**](JournalsAPI.md#ReverseJournalEntryAsync) | **Post** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Reverse | Reverse a posted journal entry
 [**UpdateJournalAsync**](JournalsAPI.md#UpdateJournalAsync) | **Put** /api/v2/AccountingService/Journals/{journalId} | Update journal
 [**UpdateJournalEntryAsync**](JournalsAPI.md#UpdateJournalEntryAsync) | **Put** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Update journal entry
 
@@ -45,7 +48,7 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	currencyId := "currencyId_example" // string |  (optional)
+	currencyId := "currencyId_example" // string |  (optional) (default to "USD.USA")
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -78,7 +81,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **currencyId** | **string** |  | 
+ **currencyId** | **string** |  | [default to &quot;USD.USA&quot;]
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -123,7 +126,7 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	currencyId := "currencyId_example" // string |  (optional)
+	currencyId := "currencyId_example" // string |  (optional) (default to "USD.USA")
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
@@ -156,7 +159,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **currencyId** | **string** |  | 
+ **currencyId** | **string** |  | [default to &quot;USD.USA&quot;]
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 
@@ -337,7 +340,6 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "time"
 	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
@@ -346,7 +348,7 @@ func main() {
 	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	journalEntryCreateDto := *openapiclient.NewJournalEntryCreateDto("Description_example", time.Now(), "JournalId_example", "CurrencyId_example", "DebitAccountId_example", "CreditAccountId_example") // JournalEntryCreateDto |  (optional)
+	journalEntryCreateDto := *openapiclient.NewJournalEntryCreateDto("JournalId_example", "FiscalPeriodId_example", "TransactionCurrencyId_example", "Description_example") // JournalEntryCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -782,6 +784,85 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetJournalEntryDetailsAsync
+
+> JournalEntryDtoEnvelope GetJournalEntryDetailsAsync(ctx, journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get journal entry by ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JournalsAPI.GetJournalEntryDetailsAsync(context.Background(), journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.GetJournalEntryDetailsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetJournalEntryDetailsAsync`: JournalEntryDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JournalsAPI.GetJournalEntryDetailsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**journalId** | **string** |  | 
+**entryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetJournalEntryDetailsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**JournalEntryDtoEnvelope**](JournalEntryDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetJournalsAsync
 
 > JournalDtoIReadOnlyListEnvelope GetJournalsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
@@ -1011,6 +1092,166 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## PostJournalEntryAsync
+
+> EmptyEnvelope PostJournalEntryAsync(ctx, journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Post a draft journal entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JournalsAPI.PostJournalEntryAsync(context.Background(), journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.PostJournalEntryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostJournalEntryAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JournalsAPI.PostJournalEntryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**journalId** | **string** |  | 
+**entryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostJournalEntryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ReverseJournalEntryAsync
+
+> EmptyEnvelope ReverseJournalEntryAsync(ctx, journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ReverseJournalEntryRequest(reverseJournalEntryRequest).Execute()
+
+Reverse a posted journal entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	reverseJournalEntryRequest := *openapiclient.NewReverseJournalEntryRequest("ReversalPeriodId_example") // ReverseJournalEntryRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JournalsAPI.ReverseJournalEntryAsync(context.Background(), journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ReverseJournalEntryRequest(reverseJournalEntryRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.ReverseJournalEntryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ReverseJournalEntryAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JournalsAPI.ReverseJournalEntryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**journalId** | **string** |  | 
+**entryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiReverseJournalEntryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **reverseJournalEntryRequest** | [**ReverseJournalEntryRequest**](ReverseJournalEntryRequest.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateJournalAsync
 
 > EmptyEnvelope UpdateJournalAsync(ctx, journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalUpdateDto(journalUpdateDto).Execute()
@@ -1106,7 +1347,6 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "time"
 	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
@@ -1116,7 +1356,7 @@ func main() {
 	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	journalEntryUpdateDto := *openapiclient.NewJournalEntryUpdateDto("Description_example", time.Now(), "JournalId_example", "CurrencyId_example", "DebitAccountId_example", "CreditAccountId_example") // JournalEntryUpdateDto |  (optional)
+	journalEntryUpdateDto := *openapiclient.NewJournalEntryUpdateDto("FiscalPeriodId_example", "TransactionCurrencyId_example", "Description_example") // JournalEntryUpdateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

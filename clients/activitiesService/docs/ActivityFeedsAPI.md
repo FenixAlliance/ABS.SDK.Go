@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**GetActivityFeedAsync**](ActivityFeedsAPI.md#GetActivityFeedAsync) | **Get** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId} | Get activity feed by ID
 [**GetActivityFeedsAsync**](ActivityFeedsAPI.md#GetActivityFeedsAsync) | **Get** /api/v2/ActivitiesService/ActivityFeeds | Get activity feeds
 [**GetActivityFeedsCountAsync**](ActivityFeedsAPI.md#GetActivityFeedsCountAsync) | **Get** /api/v2/ActivitiesService/ActivityFeeds/Count | Count activity feeds
+[**GetActivityRecordsCountAsync**](ActivityFeedsAPI.md#GetActivityRecordsCountAsync) | **Get** /api/v2/ActivitiesService/Activities/Count | Count activity records
 [**GetActivityTypeByIdAsync**](ActivityFeedsAPI.md#GetActivityTypeByIdAsync) | **Get** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Get Activity Type
 [**GetActivityTypesAsync**](ActivityFeedsAPI.md#GetActivityTypesAsync) | **Get** /api/v2/ActivitiesService/ActivityTypes | Get Activity Types
 [**PatchActivityAsync**](ActivityFeedsAPI.md#PatchActivityAsync) | **Patch** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities/{activityId} | Patch an activity
@@ -820,6 +821,76 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetActivityFeedsCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetActivityRecordsCountAsync
+
+> Int32Envelope GetActivityRecordsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Count activity records
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ActivityFeedsAPI.GetActivityRecordsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ActivityFeedsAPI.GetActivityRecordsCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetActivityRecordsCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `ActivityFeedsAPI.GetActivityRecordsCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetActivityRecordsCountAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

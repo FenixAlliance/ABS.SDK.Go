@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
 **FromDate** | Pointer to **time.Time** |  | [optional] 
 **ToDate** | Pointer to **time.Time** |  | [optional] 
-**FiscalYearId** | Pointer to **NullableString** |  | [optional] 
+**FiscalYearId** | **string** |  | 
 
 ## Methods
 
 ### NewFiscalPeriodUpdateDto
 
-`func NewFiscalPeriodUpdateDto() *FiscalPeriodUpdateDto`
+`func NewFiscalPeriodUpdateDto(name string, fiscalYearId string, ) *FiscalPeriodUpdateDto`
 
 NewFiscalPeriodUpdateDto instantiates a new FiscalPeriodUpdateDto object
 This constructor will assign default values to properties that have it defined,
@@ -47,22 +47,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *FiscalPeriodUpdateDto) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *FiscalPeriodUpdateDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *FiscalPeriodUpdateDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetFromDate
 
 `func (o *FiscalPeriodUpdateDto) GetFromDate() time.Time`
@@ -132,22 +117,7 @@ and a boolean to check if the value has been set.
 
 SetFiscalYearId sets FiscalYearId field to given value.
 
-### HasFiscalYearId
 
-`func (o *FiscalPeriodUpdateDto) HasFiscalYearId() bool`
-
-HasFiscalYearId returns a boolean if a field has been set.
-
-### SetFiscalYearIdNil
-
-`func (o *FiscalPeriodUpdateDto) SetFiscalYearIdNil(b bool)`
-
- SetFiscalYearIdNil sets the value for FiscalYearId to be an explicit nil
-
-### UnsetFiscalYearId
-`func (o *FiscalPeriodUpdateDto) UnsetFiscalYearId()`
-
-UnsetFiscalYearId ensures that no value is present for FiscalYearId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

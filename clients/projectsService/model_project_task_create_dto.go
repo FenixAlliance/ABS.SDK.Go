@@ -27,7 +27,7 @@ type ProjectTaskCreateDto struct {
 	Description NullableString `json:"description,omitempty"`
 	StartDate *time.Time `json:"startDate,omitempty"`
 	DueLine *time.Time `json:"dueLine,omitempty"`
-	ProjectID NullableString `json:"projectID,omitempty"`
+	ProjectId NullableString `json:"projectId,omitempty"`
 }
 
 // NewProjectTaskCreateDto instantiates a new ProjectTaskCreateDto object
@@ -259,46 +259,46 @@ func (o *ProjectTaskCreateDto) SetDueLine(v time.Time) {
 	o.DueLine = &v
 }
 
-// GetProjectID returns the ProjectID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectTaskCreateDto) GetProjectID() string {
-	if o == nil || IsNil(o.ProjectID.Get()) {
+// GetProjectId returns the ProjectId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectTaskCreateDto) GetProjectId() string {
+	if o == nil || IsNil(o.ProjectId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ProjectID.Get()
+	return *o.ProjectId.Get()
 }
 
-// GetProjectIDOk returns a tuple with the ProjectID field value if set, nil otherwise
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectTaskCreateDto) GetProjectIDOk() (*string, bool) {
+func (o *ProjectTaskCreateDto) GetProjectIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ProjectID.Get(), o.ProjectID.IsSet()
+	return o.ProjectId.Get(), o.ProjectId.IsSet()
 }
 
-// HasProjectID returns a boolean if a field has been set.
-func (o *ProjectTaskCreateDto) HasProjectID() bool {
-	if o != nil && o.ProjectID.IsSet() {
+// HasProjectId returns a boolean if a field has been set.
+func (o *ProjectTaskCreateDto) HasProjectId() bool {
+	if o != nil && o.ProjectId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetProjectID gets a reference to the given NullableString and assigns it to the ProjectID field.
-func (o *ProjectTaskCreateDto) SetProjectID(v string) {
-	o.ProjectID.Set(&v)
+// SetProjectId gets a reference to the given NullableString and assigns it to the ProjectId field.
+func (o *ProjectTaskCreateDto) SetProjectId(v string) {
+	o.ProjectId.Set(&v)
 }
-// SetProjectIDNil sets the value for ProjectID to be an explicit nil
-func (o *ProjectTaskCreateDto) SetProjectIDNil() {
-	o.ProjectID.Set(nil)
+// SetProjectIdNil sets the value for ProjectId to be an explicit nil
+func (o *ProjectTaskCreateDto) SetProjectIdNil() {
+	o.ProjectId.Set(nil)
 }
 
-// UnsetProjectID ensures that no value is present for ProjectID, not even an explicit nil
-func (o *ProjectTaskCreateDto) UnsetProjectID() {
-	o.ProjectID.Unset()
+// UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
+func (o *ProjectTaskCreateDto) UnsetProjectId() {
+	o.ProjectId.Unset()
 }
 
 func (o ProjectTaskCreateDto) MarshalJSON() ([]byte, error) {
@@ -329,8 +329,8 @@ func (o ProjectTaskCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DueLine) {
 		toSerialize["dueLine"] = o.DueLine
 	}
-	if o.ProjectID.IsSet() {
-		toSerialize["projectID"] = o.ProjectID.Get()
+	if o.ProjectId.IsSet() {
+		toSerialize["projectId"] = o.ProjectId.Get()
 	}
 	return toSerialize, nil
 }

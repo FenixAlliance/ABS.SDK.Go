@@ -22,33 +22,34 @@ var _ MappedNullable = &JournalEntryDto{}
 // JournalEntryDto struct for JournalEntryDto
 type JournalEntryDto struct {
 	Id NullableString `json:"id,omitempty"`
-	Timestamp NullableTime `json:"timestamp,omitempty"`
-	Group *bool `json:"group,omitempty"`
-	Opening *bool `json:"opening,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	Date NullableTime `json:"date,omitempty"`
-	ForexRatesSnapshot NullableString `json:"forexRatesSnapshot,omitempty"`
-	ForexRate *float64 `json:"forexRate,omitempty"`
-	Credit *float64 `json:"credit,omitempty"`
-	Debit *float64 `json:"debit,omitempty"`
-	CreditInUsd *float64 `json:"creditInUsd,omitempty"`
-	DebitInUsd *float64 `json:"debitInUsd,omitempty"`
-	CurrencyId NullableString `json:"currencyId,omitempty"`
 	TenantId NullableString `json:"tenantId,omitempty"`
 	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	JournalId NullableString `json:"journalId,omitempty"`
 	JournalName NullableString `json:"journalName,omitempty"`
 	JournalCode NullableString `json:"journalCode,omitempty"`
-	CreditAccountId NullableString `json:"creditAccountId,omitempty"`
-	CreditAccountName NullableString `json:"creditAccountName,omitempty"`
-	DebitAccountId NullableString `json:"debitAccountId,omitempty"`
-	DebitAccountName NullableString `json:"debitAccountName,omitempty"`
-	InvoiceCode NullableString `json:"invoiceCode,omitempty"`
-	ParentJournalEntryId NullableString `json:"parentJournalEntryId,omitempty"`
-	CreditAmount *Money `json:"creditAmount,omitempty"`
-	DebitAmount *Money `json:"debitAmount,omitempty"`
-	CreditAmountInUsd *Money `json:"creditAmountInUsd,omitempty"`
-	DebitAmountInUsd *Money `json:"debitAmountInUsd,omitempty"`
+	FiscalPeriodId NullableString `json:"fiscalPeriodId,omitempty"`
+	FinancialBookId NullableString `json:"financialBookId,omitempty"`
+	Description NullableString `json:"description,omitempty"`
+	EntryType *string `json:"entryType,omitempty"`
+	Status *string `json:"status,omitempty"`
+	PostingDate NullableTime `json:"postingDate,omitempty"`
+	IsOpeningBalance *bool `json:"isOpeningBalance,omitempty"`
+	TransactionCurrencyId NullableString `json:"transactionCurrencyId,omitempty"`
+	SourceDocumentType NullableString `json:"sourceDocumentType,omitempty"`
+	SourceDocumentId NullableString `json:"sourceDocumentId,omitempty"`
+	IdempotencyKey NullableString `json:"idempotencyKey,omitempty"`
+	ReversalOfJournalEntryId NullableString `json:"reversalOfJournalEntryId,omitempty"`
+	PostedBy NullableString `json:"postedBy,omitempty"`
+	ForexRate *float64 `json:"forexRate,omitempty"`
+	ForexRatesSnapshot NullableString `json:"forexRatesSnapshot,omitempty"`
+	Timestamp NullableTime `json:"timestamp,omitempty"`
+	DebitInUsd *float64 `json:"debitInUsd,omitempty"`
+	CreditInUsd *float64 `json:"creditInUsd,omitempty"`
+	AccountingEntries []AccountingEntryDto `json:"accountingEntries,omitempty"`
+	TotalDebit *float64 `json:"totalDebit,omitempty"`
+	TotalCredit *float64 `json:"totalCredit,omitempty"`
+	TotalDebitAmount *Money `json:"totalDebitAmount,omitempty"`
+	TotalCreditAmount *Money `json:"totalCreditAmount,omitempty"`
 }
 
 // NewJournalEntryDto instantiates a new JournalEntryDto object
@@ -108,440 +109,6 @@ func (o *JournalEntryDto) SetIdNil() {
 // UnsetId ensures that no value is present for Id, not even an explicit nil
 func (o *JournalEntryDto) UnsetId() {
 	o.Id.Unset()
-}
-
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetTimestamp() time.Time {
-	if o == nil || IsNil(o.Timestamp.Get()) {
-		var ret time.Time
-		return ret
-	}
-	return *o.Timestamp.Get()
-}
-
-// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetTimestampOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Timestamp.Get(), o.Timestamp.IsSet()
-}
-
-// HasTimestamp returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasTimestamp() bool {
-	if o != nil && o.Timestamp.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
-func (o *JournalEntryDto) SetTimestamp(v time.Time) {
-	o.Timestamp.Set(&v)
-}
-// SetTimestampNil sets the value for Timestamp to be an explicit nil
-func (o *JournalEntryDto) SetTimestampNil() {
-	o.Timestamp.Set(nil)
-}
-
-// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-func (o *JournalEntryDto) UnsetTimestamp() {
-	o.Timestamp.Unset()
-}
-
-// GetGroup returns the Group field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetGroup() bool {
-	if o == nil || IsNil(o.Group) {
-		var ret bool
-		return ret
-	}
-	return *o.Group
-}
-
-// GetGroupOk returns a tuple with the Group field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetGroupOk() (*bool, bool) {
-	if o == nil || IsNil(o.Group) {
-		return nil, false
-	}
-	return o.Group, true
-}
-
-// HasGroup returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasGroup() bool {
-	if o != nil && !IsNil(o.Group) {
-		return true
-	}
-
-	return false
-}
-
-// SetGroup gets a reference to the given bool and assigns it to the Group field.
-func (o *JournalEntryDto) SetGroup(v bool) {
-	o.Group = &v
-}
-
-// GetOpening returns the Opening field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetOpening() bool {
-	if o == nil || IsNil(o.Opening) {
-		var ret bool
-		return ret
-	}
-	return *o.Opening
-}
-
-// GetOpeningOk returns a tuple with the Opening field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetOpeningOk() (*bool, bool) {
-	if o == nil || IsNil(o.Opening) {
-		return nil, false
-	}
-	return o.Opening, true
-}
-
-// HasOpening returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasOpening() bool {
-	if o != nil && !IsNil(o.Opening) {
-		return true
-	}
-
-	return false
-}
-
-// SetOpening gets a reference to the given bool and assigns it to the Opening field.
-func (o *JournalEntryDto) SetOpening(v bool) {
-	o.Opening = &v
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Description.Get()
-}
-
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Description.Get(), o.Description.IsSet()
-}
-
-// HasDescription returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
-func (o *JournalEntryDto) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *JournalEntryDto) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *JournalEntryDto) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetDate returns the Date field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetDate() time.Time {
-	if o == nil || IsNil(o.Date.Get()) {
-		var ret time.Time
-		return ret
-	}
-	return *o.Date.Get()
-}
-
-// GetDateOk returns a tuple with the Date field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetDateOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Date.Get(), o.Date.IsSet()
-}
-
-// HasDate returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasDate() bool {
-	if o != nil && o.Date.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDate gets a reference to the given NullableTime and assigns it to the Date field.
-func (o *JournalEntryDto) SetDate(v time.Time) {
-	o.Date.Set(&v)
-}
-// SetDateNil sets the value for Date to be an explicit nil
-func (o *JournalEntryDto) SetDateNil() {
-	o.Date.Set(nil)
-}
-
-// UnsetDate ensures that no value is present for Date, not even an explicit nil
-func (o *JournalEntryDto) UnsetDate() {
-	o.Date.Unset()
-}
-
-// GetForexRatesSnapshot returns the ForexRatesSnapshot field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetForexRatesSnapshot() string {
-	if o == nil || IsNil(o.ForexRatesSnapshot.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ForexRatesSnapshot.Get()
-}
-
-// GetForexRatesSnapshotOk returns a tuple with the ForexRatesSnapshot field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetForexRatesSnapshotOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ForexRatesSnapshot.Get(), o.ForexRatesSnapshot.IsSet()
-}
-
-// HasForexRatesSnapshot returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasForexRatesSnapshot() bool {
-	if o != nil && o.ForexRatesSnapshot.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetForexRatesSnapshot gets a reference to the given NullableString and assigns it to the ForexRatesSnapshot field.
-func (o *JournalEntryDto) SetForexRatesSnapshot(v string) {
-	o.ForexRatesSnapshot.Set(&v)
-}
-// SetForexRatesSnapshotNil sets the value for ForexRatesSnapshot to be an explicit nil
-func (o *JournalEntryDto) SetForexRatesSnapshotNil() {
-	o.ForexRatesSnapshot.Set(nil)
-}
-
-// UnsetForexRatesSnapshot ensures that no value is present for ForexRatesSnapshot, not even an explicit nil
-func (o *JournalEntryDto) UnsetForexRatesSnapshot() {
-	o.ForexRatesSnapshot.Unset()
-}
-
-// GetForexRate returns the ForexRate field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetForexRate() float64 {
-	if o == nil || IsNil(o.ForexRate) {
-		var ret float64
-		return ret
-	}
-	return *o.ForexRate
-}
-
-// GetForexRateOk returns a tuple with the ForexRate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetForexRateOk() (*float64, bool) {
-	if o == nil || IsNil(o.ForexRate) {
-		return nil, false
-	}
-	return o.ForexRate, true
-}
-
-// HasForexRate returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasForexRate() bool {
-	if o != nil && !IsNil(o.ForexRate) {
-		return true
-	}
-
-	return false
-}
-
-// SetForexRate gets a reference to the given float64 and assigns it to the ForexRate field.
-func (o *JournalEntryDto) SetForexRate(v float64) {
-	o.ForexRate = &v
-}
-
-// GetCredit returns the Credit field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetCredit() float64 {
-	if o == nil || IsNil(o.Credit) {
-		var ret float64
-		return ret
-	}
-	return *o.Credit
-}
-
-// GetCreditOk returns a tuple with the Credit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetCreditOk() (*float64, bool) {
-	if o == nil || IsNil(o.Credit) {
-		return nil, false
-	}
-	return o.Credit, true
-}
-
-// HasCredit returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasCredit() bool {
-	if o != nil && !IsNil(o.Credit) {
-		return true
-	}
-
-	return false
-}
-
-// SetCredit gets a reference to the given float64 and assigns it to the Credit field.
-func (o *JournalEntryDto) SetCredit(v float64) {
-	o.Credit = &v
-}
-
-// GetDebit returns the Debit field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetDebit() float64 {
-	if o == nil || IsNil(o.Debit) {
-		var ret float64
-		return ret
-	}
-	return *o.Debit
-}
-
-// GetDebitOk returns a tuple with the Debit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetDebitOk() (*float64, bool) {
-	if o == nil || IsNil(o.Debit) {
-		return nil, false
-	}
-	return o.Debit, true
-}
-
-// HasDebit returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasDebit() bool {
-	if o != nil && !IsNil(o.Debit) {
-		return true
-	}
-
-	return false
-}
-
-// SetDebit gets a reference to the given float64 and assigns it to the Debit field.
-func (o *JournalEntryDto) SetDebit(v float64) {
-	o.Debit = &v
-}
-
-// GetCreditInUsd returns the CreditInUsd field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetCreditInUsd() float64 {
-	if o == nil || IsNil(o.CreditInUsd) {
-		var ret float64
-		return ret
-	}
-	return *o.CreditInUsd
-}
-
-// GetCreditInUsdOk returns a tuple with the CreditInUsd field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetCreditInUsdOk() (*float64, bool) {
-	if o == nil || IsNil(o.CreditInUsd) {
-		return nil, false
-	}
-	return o.CreditInUsd, true
-}
-
-// HasCreditInUsd returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasCreditInUsd() bool {
-	if o != nil && !IsNil(o.CreditInUsd) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreditInUsd gets a reference to the given float64 and assigns it to the CreditInUsd field.
-func (o *JournalEntryDto) SetCreditInUsd(v float64) {
-	o.CreditInUsd = &v
-}
-
-// GetDebitInUsd returns the DebitInUsd field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetDebitInUsd() float64 {
-	if o == nil || IsNil(o.DebitInUsd) {
-		var ret float64
-		return ret
-	}
-	return *o.DebitInUsd
-}
-
-// GetDebitInUsdOk returns a tuple with the DebitInUsd field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetDebitInUsdOk() (*float64, bool) {
-	if o == nil || IsNil(o.DebitInUsd) {
-		return nil, false
-	}
-	return o.DebitInUsd, true
-}
-
-// HasDebitInUsd returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasDebitInUsd() bool {
-	if o != nil && !IsNil(o.DebitInUsd) {
-		return true
-	}
-
-	return false
-}
-
-// SetDebitInUsd gets a reference to the given float64 and assigns it to the DebitInUsd field.
-func (o *JournalEntryDto) SetDebitInUsd(v float64) {
-	o.DebitInUsd = &v
-}
-
-// GetCurrencyId returns the CurrencyId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetCurrencyId() string {
-	if o == nil || IsNil(o.CurrencyId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.CurrencyId.Get()
-}
-
-// GetCurrencyIdOk returns a tuple with the CurrencyId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetCurrencyIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CurrencyId.Get(), o.CurrencyId.IsSet()
-}
-
-// HasCurrencyId returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasCurrencyId() bool {
-	if o != nil && o.CurrencyId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCurrencyId gets a reference to the given NullableString and assigns it to the CurrencyId field.
-func (o *JournalEntryDto) SetCurrencyId(v string) {
-	o.CurrencyId.Set(&v)
-}
-// SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
-func (o *JournalEntryDto) SetCurrencyIdNil() {
-	o.CurrencyId.Set(nil)
-}
-
-// UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
-func (o *JournalEntryDto) UnsetCurrencyId() {
-	o.CurrencyId.Unset()
 }
 
 // GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -754,384 +321,861 @@ func (o *JournalEntryDto) UnsetJournalCode() {
 	o.JournalCode.Unset()
 }
 
-// GetCreditAccountId returns the CreditAccountId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetCreditAccountId() string {
-	if o == nil || IsNil(o.CreditAccountId.Get()) {
+// GetFiscalPeriodId returns the FiscalPeriodId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetFiscalPeriodId() string {
+	if o == nil || IsNil(o.FiscalPeriodId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CreditAccountId.Get()
+	return *o.FiscalPeriodId.Get()
 }
 
-// GetCreditAccountIdOk returns a tuple with the CreditAccountId field value if set, nil otherwise
+// GetFiscalPeriodIdOk returns a tuple with the FiscalPeriodId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetCreditAccountIdOk() (*string, bool) {
+func (o *JournalEntryDto) GetFiscalPeriodIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.CreditAccountId.Get(), o.CreditAccountId.IsSet()
+	return o.FiscalPeriodId.Get(), o.FiscalPeriodId.IsSet()
 }
 
-// HasCreditAccountId returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasCreditAccountId() bool {
-	if o != nil && o.CreditAccountId.IsSet() {
+// HasFiscalPeriodId returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasFiscalPeriodId() bool {
+	if o != nil && o.FiscalPeriodId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreditAccountId gets a reference to the given NullableString and assigns it to the CreditAccountId field.
-func (o *JournalEntryDto) SetCreditAccountId(v string) {
-	o.CreditAccountId.Set(&v)
+// SetFiscalPeriodId gets a reference to the given NullableString and assigns it to the FiscalPeriodId field.
+func (o *JournalEntryDto) SetFiscalPeriodId(v string) {
+	o.FiscalPeriodId.Set(&v)
 }
-// SetCreditAccountIdNil sets the value for CreditAccountId to be an explicit nil
-func (o *JournalEntryDto) SetCreditAccountIdNil() {
-	o.CreditAccountId.Set(nil)
-}
-
-// UnsetCreditAccountId ensures that no value is present for CreditAccountId, not even an explicit nil
-func (o *JournalEntryDto) UnsetCreditAccountId() {
-	o.CreditAccountId.Unset()
+// SetFiscalPeriodIdNil sets the value for FiscalPeriodId to be an explicit nil
+func (o *JournalEntryDto) SetFiscalPeriodIdNil() {
+	o.FiscalPeriodId.Set(nil)
 }
 
-// GetCreditAccountName returns the CreditAccountName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetCreditAccountName() string {
-	if o == nil || IsNil(o.CreditAccountName.Get()) {
+// UnsetFiscalPeriodId ensures that no value is present for FiscalPeriodId, not even an explicit nil
+func (o *JournalEntryDto) UnsetFiscalPeriodId() {
+	o.FiscalPeriodId.Unset()
+}
+
+// GetFinancialBookId returns the FinancialBookId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetFinancialBookId() string {
+	if o == nil || IsNil(o.FinancialBookId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CreditAccountName.Get()
+	return *o.FinancialBookId.Get()
 }
 
-// GetCreditAccountNameOk returns a tuple with the CreditAccountName field value if set, nil otherwise
+// GetFinancialBookIdOk returns a tuple with the FinancialBookId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetCreditAccountNameOk() (*string, bool) {
+func (o *JournalEntryDto) GetFinancialBookIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.CreditAccountName.Get(), o.CreditAccountName.IsSet()
+	return o.FinancialBookId.Get(), o.FinancialBookId.IsSet()
 }
 
-// HasCreditAccountName returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasCreditAccountName() bool {
-	if o != nil && o.CreditAccountName.IsSet() {
+// HasFinancialBookId returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasFinancialBookId() bool {
+	if o != nil && o.FinancialBookId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreditAccountName gets a reference to the given NullableString and assigns it to the CreditAccountName field.
-func (o *JournalEntryDto) SetCreditAccountName(v string) {
-	o.CreditAccountName.Set(&v)
+// SetFinancialBookId gets a reference to the given NullableString and assigns it to the FinancialBookId field.
+func (o *JournalEntryDto) SetFinancialBookId(v string) {
+	o.FinancialBookId.Set(&v)
 }
-// SetCreditAccountNameNil sets the value for CreditAccountName to be an explicit nil
-func (o *JournalEntryDto) SetCreditAccountNameNil() {
-	o.CreditAccountName.Set(nil)
-}
-
-// UnsetCreditAccountName ensures that no value is present for CreditAccountName, not even an explicit nil
-func (o *JournalEntryDto) UnsetCreditAccountName() {
-	o.CreditAccountName.Unset()
+// SetFinancialBookIdNil sets the value for FinancialBookId to be an explicit nil
+func (o *JournalEntryDto) SetFinancialBookIdNil() {
+	o.FinancialBookId.Set(nil)
 }
 
-// GetDebitAccountId returns the DebitAccountId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetDebitAccountId() string {
-	if o == nil || IsNil(o.DebitAccountId.Get()) {
+// UnsetFinancialBookId ensures that no value is present for FinancialBookId, not even an explicit nil
+func (o *JournalEntryDto) UnsetFinancialBookId() {
+	o.FinancialBookId.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetDescription() string {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DebitAccountId.Get()
+	return *o.Description.Get()
 }
 
-// GetDebitAccountIdOk returns a tuple with the DebitAccountId field value if set, nil otherwise
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetDebitAccountIdOk() (*string, bool) {
+func (o *JournalEntryDto) GetDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DebitAccountId.Get(), o.DebitAccountId.IsSet()
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// HasDebitAccountId returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasDebitAccountId() bool {
-	if o != nil && o.DebitAccountId.IsSet() {
+// HasDescription returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDebitAccountId gets a reference to the given NullableString and assigns it to the DebitAccountId field.
-func (o *JournalEntryDto) SetDebitAccountId(v string) {
-	o.DebitAccountId.Set(&v)
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *JournalEntryDto) SetDescription(v string) {
+	o.Description.Set(&v)
 }
-// SetDebitAccountIdNil sets the value for DebitAccountId to be an explicit nil
-func (o *JournalEntryDto) SetDebitAccountIdNil() {
-	o.DebitAccountId.Set(nil)
-}
-
-// UnsetDebitAccountId ensures that no value is present for DebitAccountId, not even an explicit nil
-func (o *JournalEntryDto) UnsetDebitAccountId() {
-	o.DebitAccountId.Unset()
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *JournalEntryDto) SetDescriptionNil() {
+	o.Description.Set(nil)
 }
 
-// GetDebitAccountName returns the DebitAccountName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetDebitAccountName() string {
-	if o == nil || IsNil(o.DebitAccountName.Get()) {
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *JournalEntryDto) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetEntryType returns the EntryType field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetEntryType() string {
+	if o == nil || IsNil(o.EntryType) {
 		var ret string
 		return ret
 	}
-	return *o.DebitAccountName.Get()
+	return *o.EntryType
 }
 
-// GetDebitAccountNameOk returns a tuple with the DebitAccountName field value if set, nil otherwise
+// GetEntryTypeOk returns a tuple with the EntryType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetDebitAccountNameOk() (*string, bool) {
-	if o == nil {
+func (o *JournalEntryDto) GetEntryTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.EntryType) {
 		return nil, false
 	}
-	return o.DebitAccountName.Get(), o.DebitAccountName.IsSet()
+	return o.EntryType, true
 }
 
-// HasDebitAccountName returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasDebitAccountName() bool {
-	if o != nil && o.DebitAccountName.IsSet() {
+// HasEntryType returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasEntryType() bool {
+	if o != nil && !IsNil(o.EntryType) {
 		return true
 	}
 
 	return false
 }
 
-// SetDebitAccountName gets a reference to the given NullableString and assigns it to the DebitAccountName field.
-func (o *JournalEntryDto) SetDebitAccountName(v string) {
-	o.DebitAccountName.Set(&v)
-}
-// SetDebitAccountNameNil sets the value for DebitAccountName to be an explicit nil
-func (o *JournalEntryDto) SetDebitAccountNameNil() {
-	o.DebitAccountName.Set(nil)
+// SetEntryType gets a reference to the given string and assigns it to the EntryType field.
+func (o *JournalEntryDto) SetEntryType(v string) {
+	o.EntryType = &v
 }
 
-// UnsetDebitAccountName ensures that no value is present for DebitAccountName, not even an explicit nil
-func (o *JournalEntryDto) UnsetDebitAccountName() {
-	o.DebitAccountName.Unset()
-}
-
-// GetInvoiceCode returns the InvoiceCode field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetInvoiceCode() string {
-	if o == nil || IsNil(o.InvoiceCode.Get()) {
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetStatus() string {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-	return *o.InvoiceCode.Get()
+	return *o.Status
 }
 
-// GetInvoiceCodeOk returns a tuple with the InvoiceCode field value if set, nil otherwise
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetInvoiceCodeOk() (*string, bool) {
-	if o == nil {
+func (o *JournalEntryDto) GetStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return o.InvoiceCode.Get(), o.InvoiceCode.IsSet()
+	return o.Status, true
 }
 
-// HasInvoiceCode returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasInvoiceCode() bool {
-	if o != nil && o.InvoiceCode.IsSet() {
+// HasStatus returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
 	return false
 }
 
-// SetInvoiceCode gets a reference to the given NullableString and assigns it to the InvoiceCode field.
-func (o *JournalEntryDto) SetInvoiceCode(v string) {
-	o.InvoiceCode.Set(&v)
-}
-// SetInvoiceCodeNil sets the value for InvoiceCode to be an explicit nil
-func (o *JournalEntryDto) SetInvoiceCodeNil() {
-	o.InvoiceCode.Set(nil)
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *JournalEntryDto) SetStatus(v string) {
+	o.Status = &v
 }
 
-// UnsetInvoiceCode ensures that no value is present for InvoiceCode, not even an explicit nil
-func (o *JournalEntryDto) UnsetInvoiceCode() {
-	o.InvoiceCode.Unset()
-}
-
-// GetParentJournalEntryId returns the ParentJournalEntryId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetParentJournalEntryId() string {
-	if o == nil || IsNil(o.ParentJournalEntryId.Get()) {
-		var ret string
+// GetPostingDate returns the PostingDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetPostingDate() time.Time {
+	if o == nil || IsNil(o.PostingDate.Get()) {
+		var ret time.Time
 		return ret
 	}
-	return *o.ParentJournalEntryId.Get()
+	return *o.PostingDate.Get()
 }
 
-// GetParentJournalEntryIdOk returns a tuple with the ParentJournalEntryId field value if set, nil otherwise
+// GetPostingDateOk returns a tuple with the PostingDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetParentJournalEntryIdOk() (*string, bool) {
+func (o *JournalEntryDto) GetPostingDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ParentJournalEntryId.Get(), o.ParentJournalEntryId.IsSet()
+	return o.PostingDate.Get(), o.PostingDate.IsSet()
 }
 
-// HasParentJournalEntryId returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasParentJournalEntryId() bool {
-	if o != nil && o.ParentJournalEntryId.IsSet() {
+// HasPostingDate returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasPostingDate() bool {
+	if o != nil && o.PostingDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetParentJournalEntryId gets a reference to the given NullableString and assigns it to the ParentJournalEntryId field.
-func (o *JournalEntryDto) SetParentJournalEntryId(v string) {
-	o.ParentJournalEntryId.Set(&v)
+// SetPostingDate gets a reference to the given NullableTime and assigns it to the PostingDate field.
+func (o *JournalEntryDto) SetPostingDate(v time.Time) {
+	o.PostingDate.Set(&v)
 }
-// SetParentJournalEntryIdNil sets the value for ParentJournalEntryId to be an explicit nil
-func (o *JournalEntryDto) SetParentJournalEntryIdNil() {
-	o.ParentJournalEntryId.Set(nil)
-}
-
-// UnsetParentJournalEntryId ensures that no value is present for ParentJournalEntryId, not even an explicit nil
-func (o *JournalEntryDto) UnsetParentJournalEntryId() {
-	o.ParentJournalEntryId.Unset()
+// SetPostingDateNil sets the value for PostingDate to be an explicit nil
+func (o *JournalEntryDto) SetPostingDateNil() {
+	o.PostingDate.Set(nil)
 }
 
-// GetCreditAmount returns the CreditAmount field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetCreditAmount() Money {
-	if o == nil || IsNil(o.CreditAmount) {
+// UnsetPostingDate ensures that no value is present for PostingDate, not even an explicit nil
+func (o *JournalEntryDto) UnsetPostingDate() {
+	o.PostingDate.Unset()
+}
+
+// GetIsOpeningBalance returns the IsOpeningBalance field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetIsOpeningBalance() bool {
+	if o == nil || IsNil(o.IsOpeningBalance) {
+		var ret bool
+		return ret
+	}
+	return *o.IsOpeningBalance
+}
+
+// GetIsOpeningBalanceOk returns a tuple with the IsOpeningBalance field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JournalEntryDto) GetIsOpeningBalanceOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsOpeningBalance) {
+		return nil, false
+	}
+	return o.IsOpeningBalance, true
+}
+
+// HasIsOpeningBalance returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasIsOpeningBalance() bool {
+	if o != nil && !IsNil(o.IsOpeningBalance) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsOpeningBalance gets a reference to the given bool and assigns it to the IsOpeningBalance field.
+func (o *JournalEntryDto) SetIsOpeningBalance(v bool) {
+	o.IsOpeningBalance = &v
+}
+
+// GetTransactionCurrencyId returns the TransactionCurrencyId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetTransactionCurrencyId() string {
+	if o == nil || IsNil(o.TransactionCurrencyId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.TransactionCurrencyId.Get()
+}
+
+// GetTransactionCurrencyIdOk returns a tuple with the TransactionCurrencyId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalEntryDto) GetTransactionCurrencyIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TransactionCurrencyId.Get(), o.TransactionCurrencyId.IsSet()
+}
+
+// HasTransactionCurrencyId returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasTransactionCurrencyId() bool {
+	if o != nil && o.TransactionCurrencyId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTransactionCurrencyId gets a reference to the given NullableString and assigns it to the TransactionCurrencyId field.
+func (o *JournalEntryDto) SetTransactionCurrencyId(v string) {
+	o.TransactionCurrencyId.Set(&v)
+}
+// SetTransactionCurrencyIdNil sets the value for TransactionCurrencyId to be an explicit nil
+func (o *JournalEntryDto) SetTransactionCurrencyIdNil() {
+	o.TransactionCurrencyId.Set(nil)
+}
+
+// UnsetTransactionCurrencyId ensures that no value is present for TransactionCurrencyId, not even an explicit nil
+func (o *JournalEntryDto) UnsetTransactionCurrencyId() {
+	o.TransactionCurrencyId.Unset()
+}
+
+// GetSourceDocumentType returns the SourceDocumentType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetSourceDocumentType() string {
+	if o == nil || IsNil(o.SourceDocumentType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SourceDocumentType.Get()
+}
+
+// GetSourceDocumentTypeOk returns a tuple with the SourceDocumentType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalEntryDto) GetSourceDocumentTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SourceDocumentType.Get(), o.SourceDocumentType.IsSet()
+}
+
+// HasSourceDocumentType returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasSourceDocumentType() bool {
+	if o != nil && o.SourceDocumentType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceDocumentType gets a reference to the given NullableString and assigns it to the SourceDocumentType field.
+func (o *JournalEntryDto) SetSourceDocumentType(v string) {
+	o.SourceDocumentType.Set(&v)
+}
+// SetSourceDocumentTypeNil sets the value for SourceDocumentType to be an explicit nil
+func (o *JournalEntryDto) SetSourceDocumentTypeNil() {
+	o.SourceDocumentType.Set(nil)
+}
+
+// UnsetSourceDocumentType ensures that no value is present for SourceDocumentType, not even an explicit nil
+func (o *JournalEntryDto) UnsetSourceDocumentType() {
+	o.SourceDocumentType.Unset()
+}
+
+// GetSourceDocumentId returns the SourceDocumentId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetSourceDocumentId() string {
+	if o == nil || IsNil(o.SourceDocumentId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SourceDocumentId.Get()
+}
+
+// GetSourceDocumentIdOk returns a tuple with the SourceDocumentId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalEntryDto) GetSourceDocumentIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SourceDocumentId.Get(), o.SourceDocumentId.IsSet()
+}
+
+// HasSourceDocumentId returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasSourceDocumentId() bool {
+	if o != nil && o.SourceDocumentId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceDocumentId gets a reference to the given NullableString and assigns it to the SourceDocumentId field.
+func (o *JournalEntryDto) SetSourceDocumentId(v string) {
+	o.SourceDocumentId.Set(&v)
+}
+// SetSourceDocumentIdNil sets the value for SourceDocumentId to be an explicit nil
+func (o *JournalEntryDto) SetSourceDocumentIdNil() {
+	o.SourceDocumentId.Set(nil)
+}
+
+// UnsetSourceDocumentId ensures that no value is present for SourceDocumentId, not even an explicit nil
+func (o *JournalEntryDto) UnsetSourceDocumentId() {
+	o.SourceDocumentId.Unset()
+}
+
+// GetIdempotencyKey returns the IdempotencyKey field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetIdempotencyKey() string {
+	if o == nil || IsNil(o.IdempotencyKey.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.IdempotencyKey.Get()
+}
+
+// GetIdempotencyKeyOk returns a tuple with the IdempotencyKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalEntryDto) GetIdempotencyKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IdempotencyKey.Get(), o.IdempotencyKey.IsSet()
+}
+
+// HasIdempotencyKey returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasIdempotencyKey() bool {
+	if o != nil && o.IdempotencyKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIdempotencyKey gets a reference to the given NullableString and assigns it to the IdempotencyKey field.
+func (o *JournalEntryDto) SetIdempotencyKey(v string) {
+	o.IdempotencyKey.Set(&v)
+}
+// SetIdempotencyKeyNil sets the value for IdempotencyKey to be an explicit nil
+func (o *JournalEntryDto) SetIdempotencyKeyNil() {
+	o.IdempotencyKey.Set(nil)
+}
+
+// UnsetIdempotencyKey ensures that no value is present for IdempotencyKey, not even an explicit nil
+func (o *JournalEntryDto) UnsetIdempotencyKey() {
+	o.IdempotencyKey.Unset()
+}
+
+// GetReversalOfJournalEntryId returns the ReversalOfJournalEntryId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetReversalOfJournalEntryId() string {
+	if o == nil || IsNil(o.ReversalOfJournalEntryId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ReversalOfJournalEntryId.Get()
+}
+
+// GetReversalOfJournalEntryIdOk returns a tuple with the ReversalOfJournalEntryId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalEntryDto) GetReversalOfJournalEntryIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ReversalOfJournalEntryId.Get(), o.ReversalOfJournalEntryId.IsSet()
+}
+
+// HasReversalOfJournalEntryId returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasReversalOfJournalEntryId() bool {
+	if o != nil && o.ReversalOfJournalEntryId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetReversalOfJournalEntryId gets a reference to the given NullableString and assigns it to the ReversalOfJournalEntryId field.
+func (o *JournalEntryDto) SetReversalOfJournalEntryId(v string) {
+	o.ReversalOfJournalEntryId.Set(&v)
+}
+// SetReversalOfJournalEntryIdNil sets the value for ReversalOfJournalEntryId to be an explicit nil
+func (o *JournalEntryDto) SetReversalOfJournalEntryIdNil() {
+	o.ReversalOfJournalEntryId.Set(nil)
+}
+
+// UnsetReversalOfJournalEntryId ensures that no value is present for ReversalOfJournalEntryId, not even an explicit nil
+func (o *JournalEntryDto) UnsetReversalOfJournalEntryId() {
+	o.ReversalOfJournalEntryId.Unset()
+}
+
+// GetPostedBy returns the PostedBy field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetPostedBy() string {
+	if o == nil || IsNil(o.PostedBy.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.PostedBy.Get()
+}
+
+// GetPostedByOk returns a tuple with the PostedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalEntryDto) GetPostedByOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PostedBy.Get(), o.PostedBy.IsSet()
+}
+
+// HasPostedBy returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasPostedBy() bool {
+	if o != nil && o.PostedBy.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPostedBy gets a reference to the given NullableString and assigns it to the PostedBy field.
+func (o *JournalEntryDto) SetPostedBy(v string) {
+	o.PostedBy.Set(&v)
+}
+// SetPostedByNil sets the value for PostedBy to be an explicit nil
+func (o *JournalEntryDto) SetPostedByNil() {
+	o.PostedBy.Set(nil)
+}
+
+// UnsetPostedBy ensures that no value is present for PostedBy, not even an explicit nil
+func (o *JournalEntryDto) UnsetPostedBy() {
+	o.PostedBy.Unset()
+}
+
+// GetForexRate returns the ForexRate field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetForexRate() float64 {
+	if o == nil || IsNil(o.ForexRate) {
+		var ret float64
+		return ret
+	}
+	return *o.ForexRate
+}
+
+// GetForexRateOk returns a tuple with the ForexRate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JournalEntryDto) GetForexRateOk() (*float64, bool) {
+	if o == nil || IsNil(o.ForexRate) {
+		return nil, false
+	}
+	return o.ForexRate, true
+}
+
+// HasForexRate returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasForexRate() bool {
+	if o != nil && !IsNil(o.ForexRate) {
+		return true
+	}
+
+	return false
+}
+
+// SetForexRate gets a reference to the given float64 and assigns it to the ForexRate field.
+func (o *JournalEntryDto) SetForexRate(v float64) {
+	o.ForexRate = &v
+}
+
+// GetForexRatesSnapshot returns the ForexRatesSnapshot field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetForexRatesSnapshot() string {
+	if o == nil || IsNil(o.ForexRatesSnapshot.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ForexRatesSnapshot.Get()
+}
+
+// GetForexRatesSnapshotOk returns a tuple with the ForexRatesSnapshot field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalEntryDto) GetForexRatesSnapshotOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ForexRatesSnapshot.Get(), o.ForexRatesSnapshot.IsSet()
+}
+
+// HasForexRatesSnapshot returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasForexRatesSnapshot() bool {
+	if o != nil && o.ForexRatesSnapshot.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetForexRatesSnapshot gets a reference to the given NullableString and assigns it to the ForexRatesSnapshot field.
+func (o *JournalEntryDto) SetForexRatesSnapshot(v string) {
+	o.ForexRatesSnapshot.Set(&v)
+}
+// SetForexRatesSnapshotNil sets the value for ForexRatesSnapshot to be an explicit nil
+func (o *JournalEntryDto) SetForexRatesSnapshotNil() {
+	o.ForexRatesSnapshot.Set(nil)
+}
+
+// UnsetForexRatesSnapshot ensures that no value is present for ForexRatesSnapshot, not even an explicit nil
+func (o *JournalEntryDto) UnsetForexRatesSnapshot() {
+	o.ForexRatesSnapshot.Unset()
+}
+
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetTimestamp() time.Time {
+	if o == nil || IsNil(o.Timestamp.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.Timestamp.Get()
+}
+
+// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalEntryDto) GetTimestampOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Timestamp.Get(), o.Timestamp.IsSet()
+}
+
+// HasTimestamp returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasTimestamp() bool {
+	if o != nil && o.Timestamp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
+func (o *JournalEntryDto) SetTimestamp(v time.Time) {
+	o.Timestamp.Set(&v)
+}
+// SetTimestampNil sets the value for Timestamp to be an explicit nil
+func (o *JournalEntryDto) SetTimestampNil() {
+	o.Timestamp.Set(nil)
+}
+
+// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+func (o *JournalEntryDto) UnsetTimestamp() {
+	o.Timestamp.Unset()
+}
+
+// GetDebitInUsd returns the DebitInUsd field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetDebitInUsd() float64 {
+	if o == nil || IsNil(o.DebitInUsd) {
+		var ret float64
+		return ret
+	}
+	return *o.DebitInUsd
+}
+
+// GetDebitInUsdOk returns a tuple with the DebitInUsd field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JournalEntryDto) GetDebitInUsdOk() (*float64, bool) {
+	if o == nil || IsNil(o.DebitInUsd) {
+		return nil, false
+	}
+	return o.DebitInUsd, true
+}
+
+// HasDebitInUsd returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasDebitInUsd() bool {
+	if o != nil && !IsNil(o.DebitInUsd) {
+		return true
+	}
+
+	return false
+}
+
+// SetDebitInUsd gets a reference to the given float64 and assigns it to the DebitInUsd field.
+func (o *JournalEntryDto) SetDebitInUsd(v float64) {
+	o.DebitInUsd = &v
+}
+
+// GetCreditInUsd returns the CreditInUsd field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetCreditInUsd() float64 {
+	if o == nil || IsNil(o.CreditInUsd) {
+		var ret float64
+		return ret
+	}
+	return *o.CreditInUsd
+}
+
+// GetCreditInUsdOk returns a tuple with the CreditInUsd field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JournalEntryDto) GetCreditInUsdOk() (*float64, bool) {
+	if o == nil || IsNil(o.CreditInUsd) {
+		return nil, false
+	}
+	return o.CreditInUsd, true
+}
+
+// HasCreditInUsd returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasCreditInUsd() bool {
+	if o != nil && !IsNil(o.CreditInUsd) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreditInUsd gets a reference to the given float64 and assigns it to the CreditInUsd field.
+func (o *JournalEntryDto) SetCreditInUsd(v float64) {
+	o.CreditInUsd = &v
+}
+
+// GetAccountingEntries returns the AccountingEntries field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetAccountingEntries() []AccountingEntryDto {
+	if o == nil {
+		var ret []AccountingEntryDto
+		return ret
+	}
+	return o.AccountingEntries
+}
+
+// GetAccountingEntriesOk returns a tuple with the AccountingEntries field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalEntryDto) GetAccountingEntriesOk() ([]AccountingEntryDto, bool) {
+	if o == nil || IsNil(o.AccountingEntries) {
+		return nil, false
+	}
+	return o.AccountingEntries, true
+}
+
+// HasAccountingEntries returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasAccountingEntries() bool {
+	if o != nil && !IsNil(o.AccountingEntries) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccountingEntries gets a reference to the given []AccountingEntryDto and assigns it to the AccountingEntries field.
+func (o *JournalEntryDto) SetAccountingEntries(v []AccountingEntryDto) {
+	o.AccountingEntries = v
+}
+
+// GetTotalDebit returns the TotalDebit field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetTotalDebit() float64 {
+	if o == nil || IsNil(o.TotalDebit) {
+		var ret float64
+		return ret
+	}
+	return *o.TotalDebit
+}
+
+// GetTotalDebitOk returns a tuple with the TotalDebit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JournalEntryDto) GetTotalDebitOk() (*float64, bool) {
+	if o == nil || IsNil(o.TotalDebit) {
+		return nil, false
+	}
+	return o.TotalDebit, true
+}
+
+// HasTotalDebit returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasTotalDebit() bool {
+	if o != nil && !IsNil(o.TotalDebit) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalDebit gets a reference to the given float64 and assigns it to the TotalDebit field.
+func (o *JournalEntryDto) SetTotalDebit(v float64) {
+	o.TotalDebit = &v
+}
+
+// GetTotalCredit returns the TotalCredit field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetTotalCredit() float64 {
+	if o == nil || IsNil(o.TotalCredit) {
+		var ret float64
+		return ret
+	}
+	return *o.TotalCredit
+}
+
+// GetTotalCreditOk returns a tuple with the TotalCredit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JournalEntryDto) GetTotalCreditOk() (*float64, bool) {
+	if o == nil || IsNil(o.TotalCredit) {
+		return nil, false
+	}
+	return o.TotalCredit, true
+}
+
+// HasTotalCredit returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasTotalCredit() bool {
+	if o != nil && !IsNil(o.TotalCredit) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalCredit gets a reference to the given float64 and assigns it to the TotalCredit field.
+func (o *JournalEntryDto) SetTotalCredit(v float64) {
+	o.TotalCredit = &v
+}
+
+// GetTotalDebitAmount returns the TotalDebitAmount field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetTotalDebitAmount() Money {
+	if o == nil || IsNil(o.TotalDebitAmount) {
 		var ret Money
 		return ret
 	}
-	return *o.CreditAmount
+	return *o.TotalDebitAmount
 }
 
-// GetCreditAmountOk returns a tuple with the CreditAmount field value if set, nil otherwise
+// GetTotalDebitAmountOk returns a tuple with the TotalDebitAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetCreditAmountOk() (*Money, bool) {
-	if o == nil || IsNil(o.CreditAmount) {
+func (o *JournalEntryDto) GetTotalDebitAmountOk() (*Money, bool) {
+	if o == nil || IsNil(o.TotalDebitAmount) {
 		return nil, false
 	}
-	return o.CreditAmount, true
+	return o.TotalDebitAmount, true
 }
 
-// HasCreditAmount returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasCreditAmount() bool {
-	if o != nil && !IsNil(o.CreditAmount) {
+// HasTotalDebitAmount returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasTotalDebitAmount() bool {
+	if o != nil && !IsNil(o.TotalDebitAmount) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreditAmount gets a reference to the given Money and assigns it to the CreditAmount field.
-func (o *JournalEntryDto) SetCreditAmount(v Money) {
-	o.CreditAmount = &v
+// SetTotalDebitAmount gets a reference to the given Money and assigns it to the TotalDebitAmount field.
+func (o *JournalEntryDto) SetTotalDebitAmount(v Money) {
+	o.TotalDebitAmount = &v
 }
 
-// GetDebitAmount returns the DebitAmount field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetDebitAmount() Money {
-	if o == nil || IsNil(o.DebitAmount) {
+// GetTotalCreditAmount returns the TotalCreditAmount field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetTotalCreditAmount() Money {
+	if o == nil || IsNil(o.TotalCreditAmount) {
 		var ret Money
 		return ret
 	}
-	return *o.DebitAmount
+	return *o.TotalCreditAmount
 }
 
-// GetDebitAmountOk returns a tuple with the DebitAmount field value if set, nil otherwise
+// GetTotalCreditAmountOk returns a tuple with the TotalCreditAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetDebitAmountOk() (*Money, bool) {
-	if o == nil || IsNil(o.DebitAmount) {
+func (o *JournalEntryDto) GetTotalCreditAmountOk() (*Money, bool) {
+	if o == nil || IsNil(o.TotalCreditAmount) {
 		return nil, false
 	}
-	return o.DebitAmount, true
+	return o.TotalCreditAmount, true
 }
 
-// HasDebitAmount returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasDebitAmount() bool {
-	if o != nil && !IsNil(o.DebitAmount) {
+// HasTotalCreditAmount returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasTotalCreditAmount() bool {
+	if o != nil && !IsNil(o.TotalCreditAmount) {
 		return true
 	}
 
 	return false
 }
 
-// SetDebitAmount gets a reference to the given Money and assigns it to the DebitAmount field.
-func (o *JournalEntryDto) SetDebitAmount(v Money) {
-	o.DebitAmount = &v
-}
-
-// GetCreditAmountInUsd returns the CreditAmountInUsd field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetCreditAmountInUsd() Money {
-	if o == nil || IsNil(o.CreditAmountInUsd) {
-		var ret Money
-		return ret
-	}
-	return *o.CreditAmountInUsd
-}
-
-// GetCreditAmountInUsdOk returns a tuple with the CreditAmountInUsd field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetCreditAmountInUsdOk() (*Money, bool) {
-	if o == nil || IsNil(o.CreditAmountInUsd) {
-		return nil, false
-	}
-	return o.CreditAmountInUsd, true
-}
-
-// HasCreditAmountInUsd returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasCreditAmountInUsd() bool {
-	if o != nil && !IsNil(o.CreditAmountInUsd) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreditAmountInUsd gets a reference to the given Money and assigns it to the CreditAmountInUsd field.
-func (o *JournalEntryDto) SetCreditAmountInUsd(v Money) {
-	o.CreditAmountInUsd = &v
-}
-
-// GetDebitAmountInUsd returns the DebitAmountInUsd field value if set, zero value otherwise.
-func (o *JournalEntryDto) GetDebitAmountInUsd() Money {
-	if o == nil || IsNil(o.DebitAmountInUsd) {
-		var ret Money
-		return ret
-	}
-	return *o.DebitAmountInUsd
-}
-
-// GetDebitAmountInUsdOk returns a tuple with the DebitAmountInUsd field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JournalEntryDto) GetDebitAmountInUsdOk() (*Money, bool) {
-	if o == nil || IsNil(o.DebitAmountInUsd) {
-		return nil, false
-	}
-	return o.DebitAmountInUsd, true
-}
-
-// HasDebitAmountInUsd returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasDebitAmountInUsd() bool {
-	if o != nil && !IsNil(o.DebitAmountInUsd) {
-		return true
-	}
-
-	return false
-}
-
-// SetDebitAmountInUsd gets a reference to the given Money and assigns it to the DebitAmountInUsd field.
-func (o *JournalEntryDto) SetDebitAmountInUsd(v Money) {
-	o.DebitAmountInUsd = &v
+// SetTotalCreditAmount gets a reference to the given Money and assigns it to the TotalCreditAmount field.
+func (o *JournalEntryDto) SetTotalCreditAmount(v Money) {
+	o.TotalCreditAmount = &v
 }
 
 func (o JournalEntryDto) MarshalJSON() ([]byte, error) {
@@ -1146,42 +1190,6 @@ func (o JournalEntryDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id.IsSet() {
 		toSerialize["id"] = o.Id.Get()
-	}
-	if o.Timestamp.IsSet() {
-		toSerialize["timestamp"] = o.Timestamp.Get()
-	}
-	if !IsNil(o.Group) {
-		toSerialize["group"] = o.Group
-	}
-	if !IsNil(o.Opening) {
-		toSerialize["opening"] = o.Opening
-	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
-	}
-	if o.Date.IsSet() {
-		toSerialize["date"] = o.Date.Get()
-	}
-	if o.ForexRatesSnapshot.IsSet() {
-		toSerialize["forexRatesSnapshot"] = o.ForexRatesSnapshot.Get()
-	}
-	if !IsNil(o.ForexRate) {
-		toSerialize["forexRate"] = o.ForexRate
-	}
-	if !IsNil(o.Credit) {
-		toSerialize["credit"] = o.Credit
-	}
-	if !IsNil(o.Debit) {
-		toSerialize["debit"] = o.Debit
-	}
-	if !IsNil(o.CreditInUsd) {
-		toSerialize["creditInUsd"] = o.CreditInUsd
-	}
-	if !IsNil(o.DebitInUsd) {
-		toSerialize["debitInUsd"] = o.DebitInUsd
-	}
-	if o.CurrencyId.IsSet() {
-		toSerialize["currencyId"] = o.CurrencyId.Get()
 	}
 	if o.TenantId.IsSet() {
 		toSerialize["tenantId"] = o.TenantId.Get()
@@ -1198,35 +1206,74 @@ func (o JournalEntryDto) ToMap() (map[string]interface{}, error) {
 	if o.JournalCode.IsSet() {
 		toSerialize["journalCode"] = o.JournalCode.Get()
 	}
-	if o.CreditAccountId.IsSet() {
-		toSerialize["creditAccountId"] = o.CreditAccountId.Get()
+	if o.FiscalPeriodId.IsSet() {
+		toSerialize["fiscalPeriodId"] = o.FiscalPeriodId.Get()
 	}
-	if o.CreditAccountName.IsSet() {
-		toSerialize["creditAccountName"] = o.CreditAccountName.Get()
+	if o.FinancialBookId.IsSet() {
+		toSerialize["financialBookId"] = o.FinancialBookId.Get()
 	}
-	if o.DebitAccountId.IsSet() {
-		toSerialize["debitAccountId"] = o.DebitAccountId.Get()
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if o.DebitAccountName.IsSet() {
-		toSerialize["debitAccountName"] = o.DebitAccountName.Get()
+	if !IsNil(o.EntryType) {
+		toSerialize["entryType"] = o.EntryType
 	}
-	if o.InvoiceCode.IsSet() {
-		toSerialize["invoiceCode"] = o.InvoiceCode.Get()
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
-	if o.ParentJournalEntryId.IsSet() {
-		toSerialize["parentJournalEntryId"] = o.ParentJournalEntryId.Get()
+	if o.PostingDate.IsSet() {
+		toSerialize["postingDate"] = o.PostingDate.Get()
 	}
-	if !IsNil(o.CreditAmount) {
-		toSerialize["creditAmount"] = o.CreditAmount
+	if !IsNil(o.IsOpeningBalance) {
+		toSerialize["isOpeningBalance"] = o.IsOpeningBalance
 	}
-	if !IsNil(o.DebitAmount) {
-		toSerialize["debitAmount"] = o.DebitAmount
+	if o.TransactionCurrencyId.IsSet() {
+		toSerialize["transactionCurrencyId"] = o.TransactionCurrencyId.Get()
 	}
-	if !IsNil(o.CreditAmountInUsd) {
-		toSerialize["creditAmountInUsd"] = o.CreditAmountInUsd
+	if o.SourceDocumentType.IsSet() {
+		toSerialize["sourceDocumentType"] = o.SourceDocumentType.Get()
 	}
-	if !IsNil(o.DebitAmountInUsd) {
-		toSerialize["debitAmountInUsd"] = o.DebitAmountInUsd
+	if o.SourceDocumentId.IsSet() {
+		toSerialize["sourceDocumentId"] = o.SourceDocumentId.Get()
+	}
+	if o.IdempotencyKey.IsSet() {
+		toSerialize["idempotencyKey"] = o.IdempotencyKey.Get()
+	}
+	if o.ReversalOfJournalEntryId.IsSet() {
+		toSerialize["reversalOfJournalEntryId"] = o.ReversalOfJournalEntryId.Get()
+	}
+	if o.PostedBy.IsSet() {
+		toSerialize["postedBy"] = o.PostedBy.Get()
+	}
+	if !IsNil(o.ForexRate) {
+		toSerialize["forexRate"] = o.ForexRate
+	}
+	if o.ForexRatesSnapshot.IsSet() {
+		toSerialize["forexRatesSnapshot"] = o.ForexRatesSnapshot.Get()
+	}
+	if o.Timestamp.IsSet() {
+		toSerialize["timestamp"] = o.Timestamp.Get()
+	}
+	if !IsNil(o.DebitInUsd) {
+		toSerialize["debitInUsd"] = o.DebitInUsd
+	}
+	if !IsNil(o.CreditInUsd) {
+		toSerialize["creditInUsd"] = o.CreditInUsd
+	}
+	if o.AccountingEntries != nil {
+		toSerialize["accountingEntries"] = o.AccountingEntries
+	}
+	if !IsNil(o.TotalDebit) {
+		toSerialize["totalDebit"] = o.TotalDebit
+	}
+	if !IsNil(o.TotalCredit) {
+		toSerialize["totalCredit"] = o.TotalCredit
+	}
+	if !IsNil(o.TotalDebitAmount) {
+		toSerialize["totalDebitAmount"] = o.TotalDebitAmount
+	}
+	if !IsNil(o.TotalCreditAmount) {
+		toSerialize["totalCreditAmount"] = o.TotalCreditAmount
 	}
 	return toSerialize, nil
 }

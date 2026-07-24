@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateTaskTypeAsync**](TaskTypesAPI.md#CreateTaskTypeAsync) | **Post** /api/v2/ProjectsService/TaskTypes | Creates a new task type
 [**DeleteTaskTypeAsync**](TaskTypesAPI.md#DeleteTaskTypeAsync) | **Delete** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Deletes a task type
 [**GetTaskTypeByIdAsync**](TaskTypesAPI.md#GetTaskTypeByIdAsync) | **Get** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Gets a task type by ID
+[**PatchTaskTypeAsync**](TaskTypesAPI.md#PatchTaskTypeAsync) | **Patch** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Patches a task type
 [**UpdateTaskTypeAsync**](TaskTypesAPI.md#UpdateTaskTypeAsync) | **Put** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Updates a task type
 
 
@@ -216,6 +217,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchTaskTypeAsync
+
+> EmptyEnvelope PatchTaskTypeAsync(ctx, taskTypeId).TenantId(tenantId).Operation(operation).Execute()
+
+Patches a task type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	taskTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TaskTypesAPI.PatchTaskTypeAsync(context.Background(), taskTypeId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskTypesAPI.PatchTaskTypeAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchTaskTypeAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `TaskTypesAPI.PatchTaskTypeAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskTypeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchTaskTypeAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **tenantId** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

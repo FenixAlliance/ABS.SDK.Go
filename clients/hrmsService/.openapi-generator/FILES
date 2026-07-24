@@ -358,10 +358,4 @@ model_training_program_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_gig_applications_test.go
-test/api_job_applicants_test.go
-test/api_job_applications_test.go
-test/api_job_fields_test.go
-test/api_job_offer_fields_test.go
-test/api_required_skills_test.go
 utils.go

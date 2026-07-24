@@ -4,14 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Amount** | Pointer to **float64** |  | [optional] 
-**Date** | Pointer to **NullableTime** |  | [optional] 
-**CurrencyId** | Pointer to **NullableString** |  | [optional] 
-**DebitAccountId** | Pointer to **NullableString** |  | [optional] 
-**CreditAccountId** | Pointer to **NullableString** |  | [optional] 
 **JournalEntryId** | Pointer to **NullableString** |  | [optional] 
-**AccountingEntryType** | Pointer to **string** |  | [optional] 
+**AccountId** | Pointer to **NullableString** |  | [optional] 
+**Direction** | Pointer to **string** |  | [optional] 
+**TransactionAmount** | Pointer to **float64** |  | [optional] 
+**TransactionCurrencyId** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -32,206 +30,6 @@ NewAccountingEntryUpdateDtoWithDefaults instantiates a new AccountingEntryUpdate
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetDescription
-
-`func (o *AccountingEntryUpdateDto) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *AccountingEntryUpdateDto) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *AccountingEntryUpdateDto) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *AccountingEntryUpdateDto) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
-### SetDescriptionNil
-
-`func (o *AccountingEntryUpdateDto) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *AccountingEntryUpdateDto) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetAmount
-
-`func (o *AccountingEntryUpdateDto) GetAmount() float64`
-
-GetAmount returns the Amount field if non-nil, zero value otherwise.
-
-### GetAmountOk
-
-`func (o *AccountingEntryUpdateDto) GetAmountOk() (*float64, bool)`
-
-GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAmount
-
-`func (o *AccountingEntryUpdateDto) SetAmount(v float64)`
-
-SetAmount sets Amount field to given value.
-
-### HasAmount
-
-`func (o *AccountingEntryUpdateDto) HasAmount() bool`
-
-HasAmount returns a boolean if a field has been set.
-
-### GetDate
-
-`func (o *AccountingEntryUpdateDto) GetDate() time.Time`
-
-GetDate returns the Date field if non-nil, zero value otherwise.
-
-### GetDateOk
-
-`func (o *AccountingEntryUpdateDto) GetDateOk() (*time.Time, bool)`
-
-GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDate
-
-`func (o *AccountingEntryUpdateDto) SetDate(v time.Time)`
-
-SetDate sets Date field to given value.
-
-### HasDate
-
-`func (o *AccountingEntryUpdateDto) HasDate() bool`
-
-HasDate returns a boolean if a field has been set.
-
-### SetDateNil
-
-`func (o *AccountingEntryUpdateDto) SetDateNil(b bool)`
-
- SetDateNil sets the value for Date to be an explicit nil
-
-### UnsetDate
-`func (o *AccountingEntryUpdateDto) UnsetDate()`
-
-UnsetDate ensures that no value is present for Date, not even an explicit nil
-### GetCurrencyId
-
-`func (o *AccountingEntryUpdateDto) GetCurrencyId() string`
-
-GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
-
-### GetCurrencyIdOk
-
-`func (o *AccountingEntryUpdateDto) GetCurrencyIdOk() (*string, bool)`
-
-GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCurrencyId
-
-`func (o *AccountingEntryUpdateDto) SetCurrencyId(v string)`
-
-SetCurrencyId sets CurrencyId field to given value.
-
-### HasCurrencyId
-
-`func (o *AccountingEntryUpdateDto) HasCurrencyId() bool`
-
-HasCurrencyId returns a boolean if a field has been set.
-
-### SetCurrencyIdNil
-
-`func (o *AccountingEntryUpdateDto) SetCurrencyIdNil(b bool)`
-
- SetCurrencyIdNil sets the value for CurrencyId to be an explicit nil
-
-### UnsetCurrencyId
-`func (o *AccountingEntryUpdateDto) UnsetCurrencyId()`
-
-UnsetCurrencyId ensures that no value is present for CurrencyId, not even an explicit nil
-### GetDebitAccountId
-
-`func (o *AccountingEntryUpdateDto) GetDebitAccountId() string`
-
-GetDebitAccountId returns the DebitAccountId field if non-nil, zero value otherwise.
-
-### GetDebitAccountIdOk
-
-`func (o *AccountingEntryUpdateDto) GetDebitAccountIdOk() (*string, bool)`
-
-GetDebitAccountIdOk returns a tuple with the DebitAccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDebitAccountId
-
-`func (o *AccountingEntryUpdateDto) SetDebitAccountId(v string)`
-
-SetDebitAccountId sets DebitAccountId field to given value.
-
-### HasDebitAccountId
-
-`func (o *AccountingEntryUpdateDto) HasDebitAccountId() bool`
-
-HasDebitAccountId returns a boolean if a field has been set.
-
-### SetDebitAccountIdNil
-
-`func (o *AccountingEntryUpdateDto) SetDebitAccountIdNil(b bool)`
-
- SetDebitAccountIdNil sets the value for DebitAccountId to be an explicit nil
-
-### UnsetDebitAccountId
-`func (o *AccountingEntryUpdateDto) UnsetDebitAccountId()`
-
-UnsetDebitAccountId ensures that no value is present for DebitAccountId, not even an explicit nil
-### GetCreditAccountId
-
-`func (o *AccountingEntryUpdateDto) GetCreditAccountId() string`
-
-GetCreditAccountId returns the CreditAccountId field if non-nil, zero value otherwise.
-
-### GetCreditAccountIdOk
-
-`func (o *AccountingEntryUpdateDto) GetCreditAccountIdOk() (*string, bool)`
-
-GetCreditAccountIdOk returns a tuple with the CreditAccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCreditAccountId
-
-`func (o *AccountingEntryUpdateDto) SetCreditAccountId(v string)`
-
-SetCreditAccountId sets CreditAccountId field to given value.
-
-### HasCreditAccountId
-
-`func (o *AccountingEntryUpdateDto) HasCreditAccountId() bool`
-
-HasCreditAccountId returns a boolean if a field has been set.
-
-### SetCreditAccountIdNil
-
-`func (o *AccountingEntryUpdateDto) SetCreditAccountIdNil(b bool)`
-
- SetCreditAccountIdNil sets the value for CreditAccountId to be an explicit nil
-
-### UnsetCreditAccountId
-`func (o *AccountingEntryUpdateDto) UnsetCreditAccountId()`
-
-UnsetCreditAccountId ensures that no value is present for CreditAccountId, not even an explicit nil
 ### GetJournalEntryId
 
 `func (o *AccountingEntryUpdateDto) GetJournalEntryId() string`
@@ -267,31 +65,161 @@ HasJournalEntryId returns a boolean if a field has been set.
 `func (o *AccountingEntryUpdateDto) UnsetJournalEntryId()`
 
 UnsetJournalEntryId ensures that no value is present for JournalEntryId, not even an explicit nil
-### GetAccountingEntryType
+### GetAccountId
 
-`func (o *AccountingEntryUpdateDto) GetAccountingEntryType() string`
+`func (o *AccountingEntryUpdateDto) GetAccountId() string`
 
-GetAccountingEntryType returns the AccountingEntryType field if non-nil, zero value otherwise.
+GetAccountId returns the AccountId field if non-nil, zero value otherwise.
 
-### GetAccountingEntryTypeOk
+### GetAccountIdOk
 
-`func (o *AccountingEntryUpdateDto) GetAccountingEntryTypeOk() (*string, bool)`
+`func (o *AccountingEntryUpdateDto) GetAccountIdOk() (*string, bool)`
 
-GetAccountingEntryTypeOk returns a tuple with the AccountingEntryType field if it's non-nil, zero value otherwise
+GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountingEntryType
+### SetAccountId
 
-`func (o *AccountingEntryUpdateDto) SetAccountingEntryType(v string)`
+`func (o *AccountingEntryUpdateDto) SetAccountId(v string)`
 
-SetAccountingEntryType sets AccountingEntryType field to given value.
+SetAccountId sets AccountId field to given value.
 
-### HasAccountingEntryType
+### HasAccountId
 
-`func (o *AccountingEntryUpdateDto) HasAccountingEntryType() bool`
+`func (o *AccountingEntryUpdateDto) HasAccountId() bool`
 
-HasAccountingEntryType returns a boolean if a field has been set.
+HasAccountId returns a boolean if a field has been set.
 
+### SetAccountIdNil
+
+`func (o *AccountingEntryUpdateDto) SetAccountIdNil(b bool)`
+
+ SetAccountIdNil sets the value for AccountId to be an explicit nil
+
+### UnsetAccountId
+`func (o *AccountingEntryUpdateDto) UnsetAccountId()`
+
+UnsetAccountId ensures that no value is present for AccountId, not even an explicit nil
+### GetDirection
+
+`func (o *AccountingEntryUpdateDto) GetDirection() string`
+
+GetDirection returns the Direction field if non-nil, zero value otherwise.
+
+### GetDirectionOk
+
+`func (o *AccountingEntryUpdateDto) GetDirectionOk() (*string, bool)`
+
+GetDirectionOk returns a tuple with the Direction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDirection
+
+`func (o *AccountingEntryUpdateDto) SetDirection(v string)`
+
+SetDirection sets Direction field to given value.
+
+### HasDirection
+
+`func (o *AccountingEntryUpdateDto) HasDirection() bool`
+
+HasDirection returns a boolean if a field has been set.
+
+### GetTransactionAmount
+
+`func (o *AccountingEntryUpdateDto) GetTransactionAmount() float64`
+
+GetTransactionAmount returns the TransactionAmount field if non-nil, zero value otherwise.
+
+### GetTransactionAmountOk
+
+`func (o *AccountingEntryUpdateDto) GetTransactionAmountOk() (*float64, bool)`
+
+GetTransactionAmountOk returns a tuple with the TransactionAmount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactionAmount
+
+`func (o *AccountingEntryUpdateDto) SetTransactionAmount(v float64)`
+
+SetTransactionAmount sets TransactionAmount field to given value.
+
+### HasTransactionAmount
+
+`func (o *AccountingEntryUpdateDto) HasTransactionAmount() bool`
+
+HasTransactionAmount returns a boolean if a field has been set.
+
+### GetTransactionCurrencyId
+
+`func (o *AccountingEntryUpdateDto) GetTransactionCurrencyId() string`
+
+GetTransactionCurrencyId returns the TransactionCurrencyId field if non-nil, zero value otherwise.
+
+### GetTransactionCurrencyIdOk
+
+`func (o *AccountingEntryUpdateDto) GetTransactionCurrencyIdOk() (*string, bool)`
+
+GetTransactionCurrencyIdOk returns a tuple with the TransactionCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactionCurrencyId
+
+`func (o *AccountingEntryUpdateDto) SetTransactionCurrencyId(v string)`
+
+SetTransactionCurrencyId sets TransactionCurrencyId field to given value.
+
+### HasTransactionCurrencyId
+
+`func (o *AccountingEntryUpdateDto) HasTransactionCurrencyId() bool`
+
+HasTransactionCurrencyId returns a boolean if a field has been set.
+
+### SetTransactionCurrencyIdNil
+
+`func (o *AccountingEntryUpdateDto) SetTransactionCurrencyIdNil(b bool)`
+
+ SetTransactionCurrencyIdNil sets the value for TransactionCurrencyId to be an explicit nil
+
+### UnsetTransactionCurrencyId
+`func (o *AccountingEntryUpdateDto) UnsetTransactionCurrencyId()`
+
+UnsetTransactionCurrencyId ensures that no value is present for TransactionCurrencyId, not even an explicit nil
+### GetDescription
+
+`func (o *AccountingEntryUpdateDto) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *AccountingEntryUpdateDto) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *AccountingEntryUpdateDto) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *AccountingEntryUpdateDto) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *AccountingEntryUpdateDto) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *AccountingEntryUpdateDto) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

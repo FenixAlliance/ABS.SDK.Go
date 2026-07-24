@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebAPI* | [**AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebAPI.md#accountmanagedownloadpersonaldatapost) | **Post** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebAPI* | [**AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountmanagelinkexternalloginpost) | **Post** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebAPI* | [**AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountperformexternalloginpost) | **Post** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebAPI* | [**ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebAPI.md#apiv2aiserviceagentsagentidaguipost) | **Post** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABSWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
 *FenixAllianceABSWebAPI* | [**HealthGet**](docs/FenixAllianceABSWebAPI.md#healthget) | **Get** /health | 
 *FenixAllianceABSWebAPI* | [**HelloGet**](docs/FenixAllianceABSWebAPI.md#helloget) | **Get** /hello | 
@@ -180,8 +181,8 @@ Class | Method | HTTP request | Description
 *ItemReviewsAPI* | [**PatchItemReviewAsync**](docs/ItemReviewsAPI.md#patchitemreviewasync) | **Patch** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Patch an item review
 *ItemReviewsAPI* | [**UpdateItemReviewAsync**](docs/ItemReviewsAPI.md#updateitemreviewasync) | **Put** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Update an item review
 *ItemShippingPoliciesAPI* | [**CountItemShippingPoliciesAsync**](docs/ItemShippingPoliciesAPI.md#countitemshippingpoliciesasync) | **Get** /api/v2/CatalogService/ItemShippingPolicies/Count | Count item shipping policies
-*ItemShippingPoliciesAPI* | [**GetItemShippingPoliciesAsync**](docs/ItemShippingPoliciesAPI.md#getitemshippingpoliciesasync) | **Get** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies
-*ItemShippingPoliciesAPI* | [**GetItemShippingPolicyByIdAsync**](docs/ItemShippingPoliciesAPI.md#getitemshippingpolicybyidasync) | **Get** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID
+*ItemShippingPoliciesAPI* | [**GetCatalogItemShippingPoliciesAsync**](docs/ItemShippingPoliciesAPI.md#getcatalogitemshippingpoliciesasync) | **Get** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies
+*ItemShippingPoliciesAPI* | [**GetCatalogItemShippingPolicyByIdAsync**](docs/ItemShippingPoliciesAPI.md#getcatalogitemshippingpolicybyidasync) | **Get** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID
 *ItemShippingPoliciesAPI* | [**RelateItemToShippingPolicyAsync**](docs/ItemShippingPoliciesAPI.md#relateitemtoshippingpolicyasync) | **Post** /api/v2/CatalogService/ItemShippingPolicies | Relate item to shipping policy
 *ItemShippingPoliciesAPI* | [**RemoveShippingPolicyFromItemAsync**](docs/ItemShippingPoliciesAPI.md#removeshippingpolicyfromitemasync) | **Delete** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Remove shipping policy from item
 *ItemTagsAPI* | [**CreateItemTagAsync**](docs/ItemTagsAPI.md#createitemtagasync) | **Post** /api/v2/CatalogService/ItemTags | Create a new item tag

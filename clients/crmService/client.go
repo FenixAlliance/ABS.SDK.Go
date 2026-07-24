@@ -50,6 +50,16 @@ type APIClient struct {
 
 	// API Services
 
+	ContactGroupsAPI *ContactGroupsAPIService
+
+	ContactProfilesAPI *ContactProfilesAPIService
+
+	ContactRelationTypesAPI *ContactRelationTypesAPIService
+
+	ContactRelationsAPI *ContactRelationsAPIService
+
+	ContactSourcesAPI *ContactSourcesAPIService
+
 	ContactsAPI *ContactsAPIService
 
 	FenixAllianceABSWebAPI *FenixAllianceABSWebAPIService
@@ -75,6 +85,11 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
+	c.ContactGroupsAPI = (*ContactGroupsAPIService)(&c.common)
+	c.ContactProfilesAPI = (*ContactProfilesAPIService)(&c.common)
+	c.ContactRelationTypesAPI = (*ContactRelationTypesAPIService)(&c.common)
+	c.ContactRelationsAPI = (*ContactRelationsAPIService)(&c.common)
+	c.ContactSourcesAPI = (*ContactSourcesAPIService)(&c.common)
 	c.ContactsAPI = (*ContactsAPIService)(&c.common)
 	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.OptionsAPI = (*OptionsAPIService)(&c.common)

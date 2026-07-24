@@ -6,10 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
+**Title** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
 **StartDate** | Pointer to **time.Time** |  | [optional] 
 **DueLine** | Pointer to **time.Time** |  | [optional] 
-**ProjectID** | Pointer to **NullableString** |  | [optional] 
-**ProjectTaskBucketID** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **NullableString** |  | [optional] 
+**ProjectTaskBucketId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -100,6 +104,76 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *ProjectTaskDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+### GetTitle
+
+`func (o *ProjectTaskDto) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *ProjectTaskDto) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *ProjectTaskDto) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *ProjectTaskDto) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### SetTitleNil
+
+`func (o *ProjectTaskDto) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *ProjectTaskDto) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
+### GetDescription
+
+`func (o *ProjectTaskDto) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *ProjectTaskDto) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *ProjectTaskDto) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *ProjectTaskDto) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *ProjectTaskDto) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ProjectTaskDto) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetStartDate
 
 `func (o *ProjectTaskDto) GetStartDate() time.Time`
@@ -150,76 +224,146 @@ SetDueLine sets DueLine field to given value.
 
 HasDueLine returns a boolean if a field has been set.
 
-### GetProjectID
+### GetProjectId
 
-`func (o *ProjectTaskDto) GetProjectID() string`
+`func (o *ProjectTaskDto) GetProjectId() string`
 
-GetProjectID returns the ProjectID field if non-nil, zero value otherwise.
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
 
-### GetProjectIDOk
+### GetProjectIdOk
 
-`func (o *ProjectTaskDto) GetProjectIDOk() (*string, bool)`
+`func (o *ProjectTaskDto) GetProjectIdOk() (*string, bool)`
 
-GetProjectIDOk returns a tuple with the ProjectID field if it's non-nil, zero value otherwise
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProjectID
+### SetProjectId
 
-`func (o *ProjectTaskDto) SetProjectID(v string)`
+`func (o *ProjectTaskDto) SetProjectId(v string)`
 
-SetProjectID sets ProjectID field to given value.
+SetProjectId sets ProjectId field to given value.
 
-### HasProjectID
+### HasProjectId
 
-`func (o *ProjectTaskDto) HasProjectID() bool`
+`func (o *ProjectTaskDto) HasProjectId() bool`
 
-HasProjectID returns a boolean if a field has been set.
+HasProjectId returns a boolean if a field has been set.
 
-### SetProjectIDNil
+### SetProjectIdNil
 
-`func (o *ProjectTaskDto) SetProjectIDNil(b bool)`
+`func (o *ProjectTaskDto) SetProjectIdNil(b bool)`
 
- SetProjectIDNil sets the value for ProjectID to be an explicit nil
+ SetProjectIdNil sets the value for ProjectId to be an explicit nil
 
-### UnsetProjectID
-`func (o *ProjectTaskDto) UnsetProjectID()`
+### UnsetProjectId
+`func (o *ProjectTaskDto) UnsetProjectId()`
 
-UnsetProjectID ensures that no value is present for ProjectID, not even an explicit nil
-### GetProjectTaskBucketID
+UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
+### GetProjectTaskBucketId
 
-`func (o *ProjectTaskDto) GetProjectTaskBucketID() string`
+`func (o *ProjectTaskDto) GetProjectTaskBucketId() string`
 
-GetProjectTaskBucketID returns the ProjectTaskBucketID field if non-nil, zero value otherwise.
+GetProjectTaskBucketId returns the ProjectTaskBucketId field if non-nil, zero value otherwise.
 
-### GetProjectTaskBucketIDOk
+### GetProjectTaskBucketIdOk
 
-`func (o *ProjectTaskDto) GetProjectTaskBucketIDOk() (*string, bool)`
+`func (o *ProjectTaskDto) GetProjectTaskBucketIdOk() (*string, bool)`
 
-GetProjectTaskBucketIDOk returns a tuple with the ProjectTaskBucketID field if it's non-nil, zero value otherwise
+GetProjectTaskBucketIdOk returns a tuple with the ProjectTaskBucketId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProjectTaskBucketID
+### SetProjectTaskBucketId
 
-`func (o *ProjectTaskDto) SetProjectTaskBucketID(v string)`
+`func (o *ProjectTaskDto) SetProjectTaskBucketId(v string)`
 
-SetProjectTaskBucketID sets ProjectTaskBucketID field to given value.
+SetProjectTaskBucketId sets ProjectTaskBucketId field to given value.
 
-### HasProjectTaskBucketID
+### HasProjectTaskBucketId
 
-`func (o *ProjectTaskDto) HasProjectTaskBucketID() bool`
+`func (o *ProjectTaskDto) HasProjectTaskBucketId() bool`
 
-HasProjectTaskBucketID returns a boolean if a field has been set.
+HasProjectTaskBucketId returns a boolean if a field has been set.
 
-### SetProjectTaskBucketIDNil
+### SetProjectTaskBucketIdNil
 
-`func (o *ProjectTaskDto) SetProjectTaskBucketIDNil(b bool)`
+`func (o *ProjectTaskDto) SetProjectTaskBucketIdNil(b bool)`
 
- SetProjectTaskBucketIDNil sets the value for ProjectTaskBucketID to be an explicit nil
+ SetProjectTaskBucketIdNil sets the value for ProjectTaskBucketId to be an explicit nil
 
-### UnsetProjectTaskBucketID
-`func (o *ProjectTaskDto) UnsetProjectTaskBucketID()`
+### UnsetProjectTaskBucketId
+`func (o *ProjectTaskDto) UnsetProjectTaskBucketId()`
 
-UnsetProjectTaskBucketID ensures that no value is present for ProjectTaskBucketID, not even an explicit nil
+UnsetProjectTaskBucketId ensures that no value is present for ProjectTaskBucketId, not even an explicit nil
+### GetTenantId
+
+`func (o *ProjectTaskDto) GetTenantId() string`
+
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
+
+### GetTenantIdOk
+
+`func (o *ProjectTaskDto) GetTenantIdOk() (*string, bool)`
+
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTenantId
+
+`func (o *ProjectTaskDto) SetTenantId(v string)`
+
+SetTenantId sets TenantId field to given value.
+
+### HasTenantId
+
+`func (o *ProjectTaskDto) HasTenantId() bool`
+
+HasTenantId returns a boolean if a field has been set.
+
+### SetTenantIdNil
+
+`func (o *ProjectTaskDto) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *ProjectTaskDto) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
+
+`func (o *ProjectTaskDto) GetEnrollmentId() string`
+
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
+
+### GetEnrollmentIdOk
+
+`func (o *ProjectTaskDto) GetEnrollmentIdOk() (*string, bool)`
+
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnrollmentId
+
+`func (o *ProjectTaskDto) SetEnrollmentId(v string)`
+
+SetEnrollmentId sets EnrollmentId field to given value.
+
+### HasEnrollmentId
+
+`func (o *ProjectTaskDto) HasEnrollmentId() bool`
+
+HasEnrollmentId returns a boolean if a field has been set.
+
+### SetEnrollmentIdNil
+
+`func (o *ProjectTaskDto) SetEnrollmentIdNil(b bool)`
+
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+
+### UnsetEnrollmentId
+`func (o *ProjectTaskDto) UnsetEnrollmentId()`
+
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

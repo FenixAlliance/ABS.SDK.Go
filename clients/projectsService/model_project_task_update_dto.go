@@ -21,6 +21,8 @@ var _ MappedNullable = &ProjectTaskUpdateDto{}
 
 // ProjectTaskUpdateDto struct for ProjectTaskUpdateDto
 type ProjectTaskUpdateDto struct {
+	Title NullableString `json:"title,omitempty"`
+	Description NullableString `json:"description,omitempty"`
 	StartDate *time.Time `json:"startDate,omitempty"`
 	DueLine *time.Time `json:"dueLine,omitempty"`
 }
@@ -40,6 +42,90 @@ func NewProjectTaskUpdateDto() *ProjectTaskUpdateDto {
 func NewProjectTaskUpdateDtoWithDefaults() *ProjectTaskUpdateDto {
 	this := ProjectTaskUpdateDto{}
 	return &this
+}
+
+// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectTaskUpdateDto) GetTitle() string {
+	if o == nil || IsNil(o.Title.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Title.Get()
+}
+
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectTaskUpdateDto) GetTitleOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Title.Get(), o.Title.IsSet()
+}
+
+// HasTitle returns a boolean if a field has been set.
+func (o *ProjectTaskUpdateDto) HasTitle() bool {
+	if o != nil && o.Title.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+func (o *ProjectTaskUpdateDto) SetTitle(v string) {
+	o.Title.Set(&v)
+}
+// SetTitleNil sets the value for Title to be an explicit nil
+func (o *ProjectTaskUpdateDto) SetTitleNil() {
+	o.Title.Set(nil)
+}
+
+// UnsetTitle ensures that no value is present for Title, not even an explicit nil
+func (o *ProjectTaskUpdateDto) UnsetTitle() {
+	o.Title.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectTaskUpdateDto) GetDescription() string {
+	if o == nil || IsNil(o.Description.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Description.Get()
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectTaskUpdateDto) GetDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Description.Get(), o.Description.IsSet()
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *ProjectTaskUpdateDto) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *ProjectTaskUpdateDto) SetDescription(v string) {
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *ProjectTaskUpdateDto) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *ProjectTaskUpdateDto) UnsetDescription() {
+	o.Description.Unset()
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
@@ -116,6 +202,12 @@ func (o ProjectTaskUpdateDto) MarshalJSON() ([]byte, error) {
 
 func (o ProjectTaskUpdateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Title.IsSet() {
+		toSerialize["title"] = o.Title.Get()
+	}
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
+	}
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
 	}

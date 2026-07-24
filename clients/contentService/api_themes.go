@@ -23,51 +23,51 @@ import (
 // ThemesAPIService ThemesAPI service
 type ThemesAPIService service
 
-type ApiGetLatestCurrencyRatesModelAsyncRequest struct {
+type ApiUpdateThemesAsyncRequest struct {
 	ctx context.Context
 	ApiService *ThemesAPIService
 	apiVersion *string
 	xApiVersion *string
 }
 
-func (r ApiGetLatestCurrencyRatesModelAsyncRequest) ApiVersion(apiVersion string) ApiGetLatestCurrencyRatesModelAsyncRequest {
+func (r ApiUpdateThemesAsyncRequest) ApiVersion(apiVersion string) ApiUpdateThemesAsyncRequest {
 	r.apiVersion = &apiVersion
 	return r
 }
 
-func (r ApiGetLatestCurrencyRatesModelAsyncRequest) XApiVersion(xApiVersion string) ApiGetLatestCurrencyRatesModelAsyncRequest {
+func (r ApiUpdateThemesAsyncRequest) XApiVersion(xApiVersion string) ApiUpdateThemesAsyncRequest {
 	r.xApiVersion = &xApiVersion
 	return r
 }
 
-func (r ApiGetLatestCurrencyRatesModelAsyncRequest) Execute() (*http.Response, error) {
-	return r.ApiService.GetLatestCurrencyRatesModelAsyncExecute(r)
+func (r ApiUpdateThemesAsyncRequest) Execute() (*http.Response, error) {
+	return r.ApiService.UpdateThemesAsyncExecute(r)
 }
 
 /*
-GetLatestCurrencyRatesModelAsync Update base web content themes
+UpdateThemesAsync Update base web content themes
 
 Triggers an update of the base web content themes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetLatestCurrencyRatesModelAsyncRequest
+ @return ApiUpdateThemesAsyncRequest
 */
-func (a *ThemesAPIService) GetLatestCurrencyRatesModelAsync(ctx context.Context) ApiGetLatestCurrencyRatesModelAsyncRequest {
-	return ApiGetLatestCurrencyRatesModelAsyncRequest{
+func (a *ThemesAPIService) UpdateThemesAsync(ctx context.Context) ApiUpdateThemesAsyncRequest {
+	return ApiUpdateThemesAsyncRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ThemesAPIService) GetLatestCurrencyRatesModelAsyncExecute(r ApiGetLatestCurrencyRatesModelAsyncRequest) (*http.Response, error) {
+func (a *ThemesAPIService) UpdateThemesAsyncExecute(r ApiUpdateThemesAsyncRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ThemesAPIService.GetLatestCurrencyRatesModelAsync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ThemesAPIService.UpdateThemesAsync")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

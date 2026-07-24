@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
-**TaskCategoryID** | Pointer to **NullableString** |  | [optional] 
+**TaskCategoryId** | Pointer to **NullableString** |  | [optional] 
 **DisplayInTimeTracker** | Pointer to **bool** |  | [optional] 
 **RequiresDescription** | Pointer to **bool** |  | [optional] 
 
@@ -115,41 +115,41 @@ HasTitle returns a boolean if a field has been set.
 `func (o *TaskTypeCreateDto) UnsetTitle()`
 
 UnsetTitle ensures that no value is present for Title, not even an explicit nil
-### GetTaskCategoryID
+### GetTaskCategoryId
 
-`func (o *TaskTypeCreateDto) GetTaskCategoryID() string`
+`func (o *TaskTypeCreateDto) GetTaskCategoryId() string`
 
-GetTaskCategoryID returns the TaskCategoryID field if non-nil, zero value otherwise.
+GetTaskCategoryId returns the TaskCategoryId field if non-nil, zero value otherwise.
 
-### GetTaskCategoryIDOk
+### GetTaskCategoryIdOk
 
-`func (o *TaskTypeCreateDto) GetTaskCategoryIDOk() (*string, bool)`
+`func (o *TaskTypeCreateDto) GetTaskCategoryIdOk() (*string, bool)`
 
-GetTaskCategoryIDOk returns a tuple with the TaskCategoryID field if it's non-nil, zero value otherwise
+GetTaskCategoryIdOk returns a tuple with the TaskCategoryId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTaskCategoryID
+### SetTaskCategoryId
 
-`func (o *TaskTypeCreateDto) SetTaskCategoryID(v string)`
+`func (o *TaskTypeCreateDto) SetTaskCategoryId(v string)`
 
-SetTaskCategoryID sets TaskCategoryID field to given value.
+SetTaskCategoryId sets TaskCategoryId field to given value.
 
-### HasTaskCategoryID
+### HasTaskCategoryId
 
-`func (o *TaskTypeCreateDto) HasTaskCategoryID() bool`
+`func (o *TaskTypeCreateDto) HasTaskCategoryId() bool`
 
-HasTaskCategoryID returns a boolean if a field has been set.
+HasTaskCategoryId returns a boolean if a field has been set.
 
-### SetTaskCategoryIDNil
+### SetTaskCategoryIdNil
 
-`func (o *TaskTypeCreateDto) SetTaskCategoryIDNil(b bool)`
+`func (o *TaskTypeCreateDto) SetTaskCategoryIdNil(b bool)`
 
- SetTaskCategoryIDNil sets the value for TaskCategoryID to be an explicit nil
+ SetTaskCategoryIdNil sets the value for TaskCategoryId to be an explicit nil
 
-### UnsetTaskCategoryID
-`func (o *TaskTypeCreateDto) UnsetTaskCategoryID()`
+### UnsetTaskCategoryId
+`func (o *TaskTypeCreateDto) UnsetTaskCategoryId()`
 
-UnsetTaskCategoryID ensures that no value is present for TaskCategoryID, not even an explicit nil
+UnsetTaskCategoryId ensures that no value is present for TaskCategoryId, not even an explicit nil
 ### GetDisplayInTimeTracker
 
 `func (o *TaskTypeCreateDto) GetDisplayInTimeTracker() bool`

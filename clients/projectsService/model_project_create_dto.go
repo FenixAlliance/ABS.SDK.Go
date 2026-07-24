@@ -25,6 +25,8 @@ type ProjectCreateDto struct {
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	Description NullableString `json:"description,omitempty"`
+	IndividualId NullableString `json:"individualId,omitempty"`
+	OrganizationId NullableString `json:"organizationId,omitempty"`
 	ProjectStartDate *time.Time `json:"projectStartDate,omitempty"`
 	ProjectEndDate *time.Time `json:"projectEndDate,omitempty"`
 }
@@ -194,6 +196,90 @@ func (o *ProjectCreateDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
+// GetIndividualId returns the IndividualId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectCreateDto) GetIndividualId() string {
+	if o == nil || IsNil(o.IndividualId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.IndividualId.Get()
+}
+
+// GetIndividualIdOk returns a tuple with the IndividualId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectCreateDto) GetIndividualIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IndividualId.Get(), o.IndividualId.IsSet()
+}
+
+// HasIndividualId returns a boolean if a field has been set.
+func (o *ProjectCreateDto) HasIndividualId() bool {
+	if o != nil && o.IndividualId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIndividualId gets a reference to the given NullableString and assigns it to the IndividualId field.
+func (o *ProjectCreateDto) SetIndividualId(v string) {
+	o.IndividualId.Set(&v)
+}
+// SetIndividualIdNil sets the value for IndividualId to be an explicit nil
+func (o *ProjectCreateDto) SetIndividualIdNil() {
+	o.IndividualId.Set(nil)
+}
+
+// UnsetIndividualId ensures that no value is present for IndividualId, not even an explicit nil
+func (o *ProjectCreateDto) UnsetIndividualId() {
+	o.IndividualId.Unset()
+}
+
+// GetOrganizationId returns the OrganizationId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectCreateDto) GetOrganizationId() string {
+	if o == nil || IsNil(o.OrganizationId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.OrganizationId.Get()
+}
+
+// GetOrganizationIdOk returns a tuple with the OrganizationId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectCreateDto) GetOrganizationIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.OrganizationId.Get(), o.OrganizationId.IsSet()
+}
+
+// HasOrganizationId returns a boolean if a field has been set.
+func (o *ProjectCreateDto) HasOrganizationId() bool {
+	if o != nil && o.OrganizationId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOrganizationId gets a reference to the given NullableString and assigns it to the OrganizationId field.
+func (o *ProjectCreateDto) SetOrganizationId(v string) {
+	o.OrganizationId.Set(&v)
+}
+// SetOrganizationIdNil sets the value for OrganizationId to be an explicit nil
+func (o *ProjectCreateDto) SetOrganizationIdNil() {
+	o.OrganizationId.Set(nil)
+}
+
+// UnsetOrganizationId ensures that no value is present for OrganizationId, not even an explicit nil
+func (o *ProjectCreateDto) UnsetOrganizationId() {
+	o.OrganizationId.Unset()
+}
+
 // GetProjectStartDate returns the ProjectStartDate field value if set, zero value otherwise.
 func (o *ProjectCreateDto) GetProjectStartDate() time.Time {
 	if o == nil || IsNil(o.ProjectStartDate) {
@@ -279,6 +365,12 @@ func (o ProjectCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
+	}
+	if o.IndividualId.IsSet() {
+		toSerialize["individualId"] = o.IndividualId.Get()
+	}
+	if o.OrganizationId.IsSet() {
+		toSerialize["organizationId"] = o.OrganizationId.Get()
 	}
 	if !IsNil(o.ProjectStartDate) {
 		toSerialize["projectStartDate"] = o.ProjectStartDate

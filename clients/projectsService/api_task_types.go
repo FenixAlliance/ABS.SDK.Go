@@ -433,6 +433,149 @@ func (a *TaskTypesAPIService) GetTaskTypeByIdAsyncExecute(r ApiGetTaskTypeByIdAs
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiPatchTaskTypeAsyncRequest struct {
+	ctx context.Context
+	ApiService *TaskTypesAPIService
+	taskTypeId string
+	tenantId *string
+	operation *[]Operation
+}
+
+func (r ApiPatchTaskTypeAsyncRequest) TenantId(tenantId string) ApiPatchTaskTypeAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiPatchTaskTypeAsyncRequest) Operation(operation []Operation) ApiPatchTaskTypeAsyncRequest {
+	r.operation = &operation
+	return r
+}
+
+func (r ApiPatchTaskTypeAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.PatchTaskTypeAsyncExecute(r)
+}
+
+/*
+PatchTaskTypeAsync Patches a task type
+
+Partially updates the specified task type.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskTypeId
+ @return ApiPatchTaskTypeAsyncRequest
+*/
+func (a *TaskTypesAPIService) PatchTaskTypeAsync(ctx context.Context, taskTypeId string) ApiPatchTaskTypeAsyncRequest {
+	return ApiPatchTaskTypeAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		taskTypeId: taskTypeId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *TaskTypesAPIService) PatchTaskTypeAsyncExecute(r ApiPatchTaskTypeAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskTypesAPIService.PatchTaskTypeAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/ProjectsService/TaskTypes/{taskTypeId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskTypeId"+"}", url.PathEscape(parameterValueToString(r.taskTypeId, "taskTypeId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.operation
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiUpdateTaskTypeAsyncRequest struct {
 	ctx context.Context
 	ApiService *TaskTypesAPIService

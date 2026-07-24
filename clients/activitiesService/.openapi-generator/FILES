@@ -3,7 +3,6 @@
 README.md
 api/openapi.yaml
 api_activity_feeds.go
-api_activity_records.go
 api_fenix_alliance_abs_web.go
 client.go
 configuration.go
@@ -17,7 +16,6 @@ docs/ActivityRecordDto.md
 docs/ActivityRecordDtoEnvelope.md
 docs/ActivityRecordDtoListEnvelope.md
 docs/ActivityRecordUpdateDto.md
-docs/ActivityRecordsAPI.md
 docs/ActivityTypeCreateDto.md
 docs/ActivityTypeDto.md
 docs/ActivityTypeDtoEnvelope.md
@@ -74,6 +72,4 @@ model_reset_password_request.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_activity_records_test.go
-test/api_fenix_alliance_abs_web_test.go
 utils.go

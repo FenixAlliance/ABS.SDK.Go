@@ -6,24 +6,21 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**Group** | Pointer to **bool** |  | [optional] 
-**Opening** | Pointer to **bool** |  | [optional] 
-**Description** | **string** |  | 
-**Date** | **time.Time** |  | 
-**Debit** | Pointer to **float64** |  | [optional] 
-**Credit** | Pointer to **float64** |  | [optional] 
 **JournalId** | **string** |  | 
-**CurrencyId** | **string** |  | 
-**DebitAccountId** | **string** |  | 
-**CreditAccountId** | **string** |  | 
-**ParentJournalEntryId** | Pointer to **NullableString** |  | [optional] 
-**InvoiceCode** | Pointer to **NullableString** |  | [optional] 
+**FiscalPeriodId** | **string** |  | 
+**TransactionCurrencyId** | **string** |  | 
+**Description** | **string** |  | 
+**SourceDocumentType** | Pointer to **NullableString** |  | [optional] 
+**SourceDocumentId** | Pointer to **NullableString** |  | [optional] 
+**IdempotencyKey** | Pointer to **NullableString** |  | [optional] 
+**IsOpeningBalance** | Pointer to **bool** |  | [optional] 
+**AccountingEntries** | Pointer to [**[]AccountingEntryCreateDto**](AccountingEntryCreateDto.md) |  | [optional] 
 
 ## Methods
 
 ### NewJournalEntryCreateDto
 
-`func NewJournalEntryCreateDto(description string, date time.Time, journalId string, currencyId string, debitAccountId string, creditAccountId string, ) *JournalEntryCreateDto`
+`func NewJournalEntryCreateDto(journalId string, fiscalPeriodId string, transactionCurrencyId string, description string, ) *JournalEntryCreateDto`
 
 NewJournalEntryCreateDto instantiates a new JournalEntryCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -88,55 +85,65 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### GetGroup
+### GetJournalId
 
-`func (o *JournalEntryCreateDto) GetGroup() bool`
+`func (o *JournalEntryCreateDto) GetJournalId() string`
 
-GetGroup returns the Group field if non-nil, zero value otherwise.
+GetJournalId returns the JournalId field if non-nil, zero value otherwise.
 
-### GetGroupOk
+### GetJournalIdOk
 
-`func (o *JournalEntryCreateDto) GetGroupOk() (*bool, bool)`
+`func (o *JournalEntryCreateDto) GetJournalIdOk() (*string, bool)`
 
-GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
+GetJournalIdOk returns a tuple with the JournalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetGroup
+### SetJournalId
 
-`func (o *JournalEntryCreateDto) SetGroup(v bool)`
+`func (o *JournalEntryCreateDto) SetJournalId(v string)`
 
-SetGroup sets Group field to given value.
+SetJournalId sets JournalId field to given value.
 
-### HasGroup
 
-`func (o *JournalEntryCreateDto) HasGroup() bool`
+### GetFiscalPeriodId
 
-HasGroup returns a boolean if a field has been set.
+`func (o *JournalEntryCreateDto) GetFiscalPeriodId() string`
 
-### GetOpening
+GetFiscalPeriodId returns the FiscalPeriodId field if non-nil, zero value otherwise.
 
-`func (o *JournalEntryCreateDto) GetOpening() bool`
+### GetFiscalPeriodIdOk
 
-GetOpening returns the Opening field if non-nil, zero value otherwise.
+`func (o *JournalEntryCreateDto) GetFiscalPeriodIdOk() (*string, bool)`
 
-### GetOpeningOk
-
-`func (o *JournalEntryCreateDto) GetOpeningOk() (*bool, bool)`
-
-GetOpeningOk returns a tuple with the Opening field if it's non-nil, zero value otherwise
+GetFiscalPeriodIdOk returns a tuple with the FiscalPeriodId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOpening
+### SetFiscalPeriodId
 
-`func (o *JournalEntryCreateDto) SetOpening(v bool)`
+`func (o *JournalEntryCreateDto) SetFiscalPeriodId(v string)`
 
-SetOpening sets Opening field to given value.
+SetFiscalPeriodId sets FiscalPeriodId field to given value.
 
-### HasOpening
 
-`func (o *JournalEntryCreateDto) HasOpening() bool`
+### GetTransactionCurrencyId
 
-HasOpening returns a boolean if a field has been set.
+`func (o *JournalEntryCreateDto) GetTransactionCurrencyId() string`
+
+GetTransactionCurrencyId returns the TransactionCurrencyId field if non-nil, zero value otherwise.
+
+### GetTransactionCurrencyIdOk
+
+`func (o *JournalEntryCreateDto) GetTransactionCurrencyIdOk() (*string, bool)`
+
+GetTransactionCurrencyIdOk returns a tuple with the TransactionCurrencyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactionCurrencyId
+
+`func (o *JournalEntryCreateDto) SetTransactionCurrencyId(v string)`
+
+SetTransactionCurrencyId sets TransactionCurrencyId field to given value.
+
 
 ### GetDescription
 
@@ -158,226 +165,171 @@ and a boolean to check if the value has been set.
 SetDescription sets Description field to given value.
 
 
-### GetDate
+### GetSourceDocumentType
 
-`func (o *JournalEntryCreateDto) GetDate() time.Time`
+`func (o *JournalEntryCreateDto) GetSourceDocumentType() string`
 
-GetDate returns the Date field if non-nil, zero value otherwise.
+GetSourceDocumentType returns the SourceDocumentType field if non-nil, zero value otherwise.
 
-### GetDateOk
+### GetSourceDocumentTypeOk
 
-`func (o *JournalEntryCreateDto) GetDateOk() (*time.Time, bool)`
+`func (o *JournalEntryCreateDto) GetSourceDocumentTypeOk() (*string, bool)`
 
-GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
+GetSourceDocumentTypeOk returns a tuple with the SourceDocumentType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDate
+### SetSourceDocumentType
 
-`func (o *JournalEntryCreateDto) SetDate(v time.Time)`
+`func (o *JournalEntryCreateDto) SetSourceDocumentType(v string)`
 
-SetDate sets Date field to given value.
+SetSourceDocumentType sets SourceDocumentType field to given value.
 
+### HasSourceDocumentType
 
-### GetDebit
+`func (o *JournalEntryCreateDto) HasSourceDocumentType() bool`
 
-`func (o *JournalEntryCreateDto) GetDebit() float64`
+HasSourceDocumentType returns a boolean if a field has been set.
 
-GetDebit returns the Debit field if non-nil, zero value otherwise.
+### SetSourceDocumentTypeNil
 
-### GetDebitOk
+`func (o *JournalEntryCreateDto) SetSourceDocumentTypeNil(b bool)`
 
-`func (o *JournalEntryCreateDto) GetDebitOk() (*float64, bool)`
+ SetSourceDocumentTypeNil sets the value for SourceDocumentType to be an explicit nil
 
-GetDebitOk returns a tuple with the Debit field if it's non-nil, zero value otherwise
+### UnsetSourceDocumentType
+`func (o *JournalEntryCreateDto) UnsetSourceDocumentType()`
+
+UnsetSourceDocumentType ensures that no value is present for SourceDocumentType, not even an explicit nil
+### GetSourceDocumentId
+
+`func (o *JournalEntryCreateDto) GetSourceDocumentId() string`
+
+GetSourceDocumentId returns the SourceDocumentId field if non-nil, zero value otherwise.
+
+### GetSourceDocumentIdOk
+
+`func (o *JournalEntryCreateDto) GetSourceDocumentIdOk() (*string, bool)`
+
+GetSourceDocumentIdOk returns a tuple with the SourceDocumentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDebit
+### SetSourceDocumentId
 
-`func (o *JournalEntryCreateDto) SetDebit(v float64)`
+`func (o *JournalEntryCreateDto) SetSourceDocumentId(v string)`
 
-SetDebit sets Debit field to given value.
+SetSourceDocumentId sets SourceDocumentId field to given value.
 
-### HasDebit
+### HasSourceDocumentId
 
-`func (o *JournalEntryCreateDto) HasDebit() bool`
+`func (o *JournalEntryCreateDto) HasSourceDocumentId() bool`
 
-HasDebit returns a boolean if a field has been set.
+HasSourceDocumentId returns a boolean if a field has been set.
 
-### GetCredit
+### SetSourceDocumentIdNil
 
-`func (o *JournalEntryCreateDto) GetCredit() float64`
+`func (o *JournalEntryCreateDto) SetSourceDocumentIdNil(b bool)`
 
-GetCredit returns the Credit field if non-nil, zero value otherwise.
+ SetSourceDocumentIdNil sets the value for SourceDocumentId to be an explicit nil
 
-### GetCreditOk
+### UnsetSourceDocumentId
+`func (o *JournalEntryCreateDto) UnsetSourceDocumentId()`
 
-`func (o *JournalEntryCreateDto) GetCreditOk() (*float64, bool)`
+UnsetSourceDocumentId ensures that no value is present for SourceDocumentId, not even an explicit nil
+### GetIdempotencyKey
 
-GetCreditOk returns a tuple with the Credit field if it's non-nil, zero value otherwise
+`func (o *JournalEntryCreateDto) GetIdempotencyKey() string`
+
+GetIdempotencyKey returns the IdempotencyKey field if non-nil, zero value otherwise.
+
+### GetIdempotencyKeyOk
+
+`func (o *JournalEntryCreateDto) GetIdempotencyKeyOk() (*string, bool)`
+
+GetIdempotencyKeyOk returns a tuple with the IdempotencyKey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCredit
+### SetIdempotencyKey
 
-`func (o *JournalEntryCreateDto) SetCredit(v float64)`
+`func (o *JournalEntryCreateDto) SetIdempotencyKey(v string)`
 
-SetCredit sets Credit field to given value.
+SetIdempotencyKey sets IdempotencyKey field to given value.
 
-### HasCredit
+### HasIdempotencyKey
 
-`func (o *JournalEntryCreateDto) HasCredit() bool`
+`func (o *JournalEntryCreateDto) HasIdempotencyKey() bool`
 
-HasCredit returns a boolean if a field has been set.
+HasIdempotencyKey returns a boolean if a field has been set.
 
-### GetJournalId
+### SetIdempotencyKeyNil
 
-`func (o *JournalEntryCreateDto) GetJournalId() string`
+`func (o *JournalEntryCreateDto) SetIdempotencyKeyNil(b bool)`
 
-GetJournalId returns the JournalId field if non-nil, zero value otherwise.
+ SetIdempotencyKeyNil sets the value for IdempotencyKey to be an explicit nil
 
-### GetJournalIdOk
+### UnsetIdempotencyKey
+`func (o *JournalEntryCreateDto) UnsetIdempotencyKey()`
 
-`func (o *JournalEntryCreateDto) GetJournalIdOk() (*string, bool)`
+UnsetIdempotencyKey ensures that no value is present for IdempotencyKey, not even an explicit nil
+### GetIsOpeningBalance
 
-GetJournalIdOk returns a tuple with the JournalId field if it's non-nil, zero value otherwise
+`func (o *JournalEntryCreateDto) GetIsOpeningBalance() bool`
+
+GetIsOpeningBalance returns the IsOpeningBalance field if non-nil, zero value otherwise.
+
+### GetIsOpeningBalanceOk
+
+`func (o *JournalEntryCreateDto) GetIsOpeningBalanceOk() (*bool, bool)`
+
+GetIsOpeningBalanceOk returns a tuple with the IsOpeningBalance field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetJournalId
+### SetIsOpeningBalance
 
-`func (o *JournalEntryCreateDto) SetJournalId(v string)`
+`func (o *JournalEntryCreateDto) SetIsOpeningBalance(v bool)`
 
-SetJournalId sets JournalId field to given value.
+SetIsOpeningBalance sets IsOpeningBalance field to given value.
 
+### HasIsOpeningBalance
 
-### GetCurrencyId
+`func (o *JournalEntryCreateDto) HasIsOpeningBalance() bool`
 
-`func (o *JournalEntryCreateDto) GetCurrencyId() string`
+HasIsOpeningBalance returns a boolean if a field has been set.
 
-GetCurrencyId returns the CurrencyId field if non-nil, zero value otherwise.
+### GetAccountingEntries
 
-### GetCurrencyIdOk
+`func (o *JournalEntryCreateDto) GetAccountingEntries() []AccountingEntryCreateDto`
 
-`func (o *JournalEntryCreateDto) GetCurrencyIdOk() (*string, bool)`
+GetAccountingEntries returns the AccountingEntries field if non-nil, zero value otherwise.
 
-GetCurrencyIdOk returns a tuple with the CurrencyId field if it's non-nil, zero value otherwise
+### GetAccountingEntriesOk
+
+`func (o *JournalEntryCreateDto) GetAccountingEntriesOk() (*[]AccountingEntryCreateDto, bool)`
+
+GetAccountingEntriesOk returns a tuple with the AccountingEntries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrencyId
+### SetAccountingEntries
 
-`func (o *JournalEntryCreateDto) SetCurrencyId(v string)`
+`func (o *JournalEntryCreateDto) SetAccountingEntries(v []AccountingEntryCreateDto)`
 
-SetCurrencyId sets CurrencyId field to given value.
+SetAccountingEntries sets AccountingEntries field to given value.
 
+### HasAccountingEntries
 
-### GetDebitAccountId
+`func (o *JournalEntryCreateDto) HasAccountingEntries() bool`
 
-`func (o *JournalEntryCreateDto) GetDebitAccountId() string`
+HasAccountingEntries returns a boolean if a field has been set.
 
-GetDebitAccountId returns the DebitAccountId field if non-nil, zero value otherwise.
+### SetAccountingEntriesNil
 
-### GetDebitAccountIdOk
+`func (o *JournalEntryCreateDto) SetAccountingEntriesNil(b bool)`
 
-`func (o *JournalEntryCreateDto) GetDebitAccountIdOk() (*string, bool)`
+ SetAccountingEntriesNil sets the value for AccountingEntries to be an explicit nil
 
-GetDebitAccountIdOk returns a tuple with the DebitAccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
+### UnsetAccountingEntries
+`func (o *JournalEntryCreateDto) UnsetAccountingEntries()`
 
-### SetDebitAccountId
-
-`func (o *JournalEntryCreateDto) SetDebitAccountId(v string)`
-
-SetDebitAccountId sets DebitAccountId field to given value.
-
-
-### GetCreditAccountId
-
-`func (o *JournalEntryCreateDto) GetCreditAccountId() string`
-
-GetCreditAccountId returns the CreditAccountId field if non-nil, zero value otherwise.
-
-### GetCreditAccountIdOk
-
-`func (o *JournalEntryCreateDto) GetCreditAccountIdOk() (*string, bool)`
-
-GetCreditAccountIdOk returns a tuple with the CreditAccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCreditAccountId
-
-`func (o *JournalEntryCreateDto) SetCreditAccountId(v string)`
-
-SetCreditAccountId sets CreditAccountId field to given value.
-
-
-### GetParentJournalEntryId
-
-`func (o *JournalEntryCreateDto) GetParentJournalEntryId() string`
-
-GetParentJournalEntryId returns the ParentJournalEntryId field if non-nil, zero value otherwise.
-
-### GetParentJournalEntryIdOk
-
-`func (o *JournalEntryCreateDto) GetParentJournalEntryIdOk() (*string, bool)`
-
-GetParentJournalEntryIdOk returns a tuple with the ParentJournalEntryId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetParentJournalEntryId
-
-`func (o *JournalEntryCreateDto) SetParentJournalEntryId(v string)`
-
-SetParentJournalEntryId sets ParentJournalEntryId field to given value.
-
-### HasParentJournalEntryId
-
-`func (o *JournalEntryCreateDto) HasParentJournalEntryId() bool`
-
-HasParentJournalEntryId returns a boolean if a field has been set.
-
-### SetParentJournalEntryIdNil
-
-`func (o *JournalEntryCreateDto) SetParentJournalEntryIdNil(b bool)`
-
- SetParentJournalEntryIdNil sets the value for ParentJournalEntryId to be an explicit nil
-
-### UnsetParentJournalEntryId
-`func (o *JournalEntryCreateDto) UnsetParentJournalEntryId()`
-
-UnsetParentJournalEntryId ensures that no value is present for ParentJournalEntryId, not even an explicit nil
-### GetInvoiceCode
-
-`func (o *JournalEntryCreateDto) GetInvoiceCode() string`
-
-GetInvoiceCode returns the InvoiceCode field if non-nil, zero value otherwise.
-
-### GetInvoiceCodeOk
-
-`func (o *JournalEntryCreateDto) GetInvoiceCodeOk() (*string, bool)`
-
-GetInvoiceCodeOk returns a tuple with the InvoiceCode field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInvoiceCode
-
-`func (o *JournalEntryCreateDto) SetInvoiceCode(v string)`
-
-SetInvoiceCode sets InvoiceCode field to given value.
-
-### HasInvoiceCode
-
-`func (o *JournalEntryCreateDto) HasInvoiceCode() bool`
-
-HasInvoiceCode returns a boolean if a field has been set.
-
-### SetInvoiceCodeNil
-
-`func (o *JournalEntryCreateDto) SetInvoiceCodeNil(b bool)`
-
- SetInvoiceCodeNil sets the value for InvoiceCode to be an explicit nil
-
-### UnsetInvoiceCode
-`func (o *JournalEntryCreateDto) UnsetInvoiceCode()`
-
-UnsetInvoiceCode ensures that no value is present for InvoiceCode, not even an explicit nil
+UnsetAccountingEntries ensures that no value is present for AccountingEntries, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

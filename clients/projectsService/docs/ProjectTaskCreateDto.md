@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **StartDate** | Pointer to **time.Time** |  | [optional] 
 **DueLine** | Pointer to **time.Time** |  | [optional] 
-**ProjectID** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -201,41 +201,41 @@ SetDueLine sets DueLine field to given value.
 
 HasDueLine returns a boolean if a field has been set.
 
-### GetProjectID
+### GetProjectId
 
-`func (o *ProjectTaskCreateDto) GetProjectID() string`
+`func (o *ProjectTaskCreateDto) GetProjectId() string`
 
-GetProjectID returns the ProjectID field if non-nil, zero value otherwise.
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
 
-### GetProjectIDOk
+### GetProjectIdOk
 
-`func (o *ProjectTaskCreateDto) GetProjectIDOk() (*string, bool)`
+`func (o *ProjectTaskCreateDto) GetProjectIdOk() (*string, bool)`
 
-GetProjectIDOk returns a tuple with the ProjectID field if it's non-nil, zero value otherwise
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProjectID
+### SetProjectId
 
-`func (o *ProjectTaskCreateDto) SetProjectID(v string)`
+`func (o *ProjectTaskCreateDto) SetProjectId(v string)`
 
-SetProjectID sets ProjectID field to given value.
+SetProjectId sets ProjectId field to given value.
 
-### HasProjectID
+### HasProjectId
 
-`func (o *ProjectTaskCreateDto) HasProjectID() bool`
+`func (o *ProjectTaskCreateDto) HasProjectId() bool`
 
-HasProjectID returns a boolean if a field has been set.
+HasProjectId returns a boolean if a field has been set.
 
-### SetProjectIDNil
+### SetProjectIdNil
 
-`func (o *ProjectTaskCreateDto) SetProjectIDNil(b bool)`
+`func (o *ProjectTaskCreateDto) SetProjectIdNil(b bool)`
 
- SetProjectIDNil sets the value for ProjectID to be an explicit nil
+ SetProjectIdNil sets the value for ProjectId to be an explicit nil
 
-### UnsetProjectID
-`func (o *ProjectTaskCreateDto) UnsetProjectID()`
+### UnsetProjectId
+`func (o *ProjectTaskCreateDto) UnsetProjectId()`
 
-UnsetProjectID ensures that no value is present for ProjectID, not even an explicit nil
+UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

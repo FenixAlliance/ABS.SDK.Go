@@ -90,17 +90,18 @@ Class | Method | HTTP request | Description
 *ActivityFeedsAPI* | [**GetActivityFeedAsync**](docs/ActivityFeedsAPI.md#getactivityfeedasync) | **Get** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId} | Get activity feed by ID
 *ActivityFeedsAPI* | [**GetActivityFeedsAsync**](docs/ActivityFeedsAPI.md#getactivityfeedsasync) | **Get** /api/v2/ActivitiesService/ActivityFeeds | Get activity feeds
 *ActivityFeedsAPI* | [**GetActivityFeedsCountAsync**](docs/ActivityFeedsAPI.md#getactivityfeedscountasync) | **Get** /api/v2/ActivitiesService/ActivityFeeds/Count | Count activity feeds
+*ActivityFeedsAPI* | [**GetActivityRecordsCountAsync**](docs/ActivityFeedsAPI.md#getactivityrecordscountasync) | **Get** /api/v2/ActivitiesService/Activities/Count | Count activity records
 *ActivityFeedsAPI* | [**GetActivityTypeByIdAsync**](docs/ActivityFeedsAPI.md#getactivitytypebyidasync) | **Get** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Get Activity Type
 *ActivityFeedsAPI* | [**GetActivityTypesAsync**](docs/ActivityFeedsAPI.md#getactivitytypesasync) | **Get** /api/v2/ActivitiesService/ActivityTypes | Get Activity Types
 *ActivityFeedsAPI* | [**PatchActivityAsync**](docs/ActivityFeedsAPI.md#patchactivityasync) | **Patch** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities/{activityId} | Patch an activity
 *ActivityFeedsAPI* | [**PatchActivityTypeAsync**](docs/ActivityFeedsAPI.md#patchactivitytypeasync) | **Patch** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Patch Activity Type
 *ActivityFeedsAPI* | [**UpdateActivityAsync**](docs/ActivityFeedsAPI.md#updateactivityasync) | **Put** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities/{activityId} | Update an activity
 *ActivityFeedsAPI* | [**UpdateActivityTypeAsync**](docs/ActivityFeedsAPI.md#updateactivitytypeasync) | **Put** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Update Activity Type
-*ActivityRecordsAPI* | [**GetActivityRecordsCountAsync**](docs/ActivityRecordsAPI.md#getactivityrecordscountasync) | **Get** /api/v2/ActivitiesService/ActivityRecords/Count | Count activity records
 *FenixAllianceABSWebAPI* | [**AccountLogoutPost**](docs/FenixAllianceABSWebAPI.md#accountlogoutpost) | **Post** /Account/Logout | 
 *FenixAllianceABSWebAPI* | [**AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebAPI.md#accountmanagedownloadpersonaldatapost) | **Post** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebAPI* | [**AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountmanagelinkexternalloginpost) | **Post** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebAPI* | [**AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountperformexternalloginpost) | **Post** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebAPI* | [**ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebAPI.md#apiv2aiserviceagentsagentidaguipost) | **Post** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABSWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
 *FenixAllianceABSWebAPI* | [**HealthGet**](docs/FenixAllianceABSWebAPI.md#healthget) | **Get** /health | 
 *FenixAllianceABSWebAPI* | [**HelloGet**](docs/FenixAllianceABSWebAPI.md#helloget) | **Get** /hello | 

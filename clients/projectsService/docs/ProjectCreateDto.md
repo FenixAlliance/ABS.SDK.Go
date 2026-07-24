@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
+**IndividualId** | Pointer to **NullableString** |  | [optional] 
+**OrganizationId** | Pointer to **NullableString** |  | [optional] 
 **ProjectStartDate** | Pointer to **time.Time** |  | [optional] 
 **ProjectEndDate** | Pointer to **time.Time** |  | [optional] 
 
@@ -150,6 +152,76 @@ HasDescription returns a boolean if a field has been set.
 `func (o *ProjectCreateDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetIndividualId
+
+`func (o *ProjectCreateDto) GetIndividualId() string`
+
+GetIndividualId returns the IndividualId field if non-nil, zero value otherwise.
+
+### GetIndividualIdOk
+
+`func (o *ProjectCreateDto) GetIndividualIdOk() (*string, bool)`
+
+GetIndividualIdOk returns a tuple with the IndividualId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIndividualId
+
+`func (o *ProjectCreateDto) SetIndividualId(v string)`
+
+SetIndividualId sets IndividualId field to given value.
+
+### HasIndividualId
+
+`func (o *ProjectCreateDto) HasIndividualId() bool`
+
+HasIndividualId returns a boolean if a field has been set.
+
+### SetIndividualIdNil
+
+`func (o *ProjectCreateDto) SetIndividualIdNil(b bool)`
+
+ SetIndividualIdNil sets the value for IndividualId to be an explicit nil
+
+### UnsetIndividualId
+`func (o *ProjectCreateDto) UnsetIndividualId()`
+
+UnsetIndividualId ensures that no value is present for IndividualId, not even an explicit nil
+### GetOrganizationId
+
+`func (o *ProjectCreateDto) GetOrganizationId() string`
+
+GetOrganizationId returns the OrganizationId field if non-nil, zero value otherwise.
+
+### GetOrganizationIdOk
+
+`func (o *ProjectCreateDto) GetOrganizationIdOk() (*string, bool)`
+
+GetOrganizationIdOk returns a tuple with the OrganizationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrganizationId
+
+`func (o *ProjectCreateDto) SetOrganizationId(v string)`
+
+SetOrganizationId sets OrganizationId field to given value.
+
+### HasOrganizationId
+
+`func (o *ProjectCreateDto) HasOrganizationId() bool`
+
+HasOrganizationId returns a boolean if a field has been set.
+
+### SetOrganizationIdNil
+
+`func (o *ProjectCreateDto) SetOrganizationIdNil(b bool)`
+
+ SetOrganizationIdNil sets the value for OrganizationId to be an explicit nil
+
+### UnsetOrganizationId
+`func (o *ProjectCreateDto) UnsetOrganizationId()`
+
+UnsetOrganizationId ensures that no value is present for OrganizationId, not even an explicit nil
 ### GetProjectStartDate
 
 `func (o *ProjectCreateDto) GetProjectStartDate() time.Time`

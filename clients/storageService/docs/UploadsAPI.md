@@ -1,6 +1,6 @@
 # \UploadsAPI
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## SaveFileAsync
 
-> EmptyEnvelope SaveFileAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Notes(notes).Title(title).Author(author).IsFolder(isFolder).FileName(fileName).Abstract(abstract).KeyWords(keyWords).ValidResponse(validResponse).ParentFileUploadId(parentFileUploadId).FilePath(filePath).AppFileContent(appFileContent).AppFileSha256(appFileSha256).AppFileCreatedAtUtc(appFileCreatedAtUtc).AppFileUserIdValue(appFileUserIdValue).AppFileTenantIdValue(appFileTenantIdValue).AppFileEnrollmentIdValue(appFileEnrollmentIdValue).AppFileSource(appFileSource).AppFileLength(appFileLength).AppFileName(appFileName).AppFileFileName(appFileFileName).AppFileLastModified(appFileLastModified).AppFileSize(appFileSize).AppFileContentType(appFileContentType).AppFileContentDisposition(appFileContentDisposition).AppFileHeaders(appFileHeaders).Id(id).Timestamp(timestamp).Execute()
+> EmptyEnvelope SaveFileAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Notes(notes).Title(title).Author(author).IsFolder(isFolder).FileName(fileName).Abstract(abstract).KeyWords(keyWords).ValidResponse(validResponse).ParentFileUploadId(parentFileUploadId).FilePath(filePath).PublicAccessType(publicAccessType).Purpose(purpose).SocialProfileIdValue(socialProfileIdValue).AppFileContent(appFileContent).AppFileSha256(appFileSha256).AppFileCreatedAtUtc(appFileCreatedAtUtc).AppFileUserIdValue(appFileUserIdValue).AppFileTenantIdValue(appFileTenantIdValue).AppFileEnrollmentIdValue(appFileEnrollmentIdValue).AppFileSource(appFileSource).AppFileLength(appFileLength).AppFileName(appFileName).AppFileFileName(appFileFileName).AppFileLastModified(appFileLastModified).AppFileSize(appFileSize).AppFileContentType(appFileContentType).AppFileContentDisposition(appFileContentDisposition).AppFileHeaders(appFileHeaders).Id(id).Timestamp(timestamp).Execute()
 
 Upload a file
 
@@ -33,6 +33,7 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	file := os.NewFile(1234, "some_file") // *os.File |  (optional)
 	notes := "notes_example" // string |  (optional)
 	title := "title_example" // string |  (optional)
 	author := "author_example" // string |  (optional)
@@ -43,6 +44,9 @@ func main() {
 	validResponse := true // bool |  (optional)
 	parentFileUploadId := "parentFileUploadId_example" // string |  (optional)
 	filePath := "filePath_example" // string |  (optional)
+	publicAccessType := "publicAccessType_example" // string |  (optional)
+	purpose := "purpose_example" // string |  (optional)
+	socialProfileIdValue := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	appFileContent := string(BYTE_ARRAY_DATA_HERE) // string |  (optional)
 	appFileSha256 := "appFileSha256_example" // string |  (optional)
 	appFileCreatedAtUtc := time.Now() // time.Time |  (optional)
@@ -63,7 +67,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UploadsAPI.SaveFileAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Notes(notes).Title(title).Author(author).IsFolder(isFolder).FileName(fileName).Abstract(abstract).KeyWords(keyWords).ValidResponse(validResponse).ParentFileUploadId(parentFileUploadId).FilePath(filePath).AppFileContent(appFileContent).AppFileSha256(appFileSha256).AppFileCreatedAtUtc(appFileCreatedAtUtc).AppFileUserIdValue(appFileUserIdValue).AppFileTenantIdValue(appFileTenantIdValue).AppFileEnrollmentIdValue(appFileEnrollmentIdValue).AppFileSource(appFileSource).AppFileLength(appFileLength).AppFileName(appFileName).AppFileFileName(appFileFileName).AppFileLastModified(appFileLastModified).AppFileSize(appFileSize).AppFileContentType(appFileContentType).AppFileContentDisposition(appFileContentDisposition).AppFileHeaders(appFileHeaders).Id(id).Timestamp(timestamp).Execute()
+	resp, r, err := apiClient.UploadsAPI.SaveFileAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Notes(notes).Title(title).Author(author).IsFolder(isFolder).FileName(fileName).Abstract(abstract).KeyWords(keyWords).ValidResponse(validResponse).ParentFileUploadId(parentFileUploadId).FilePath(filePath).PublicAccessType(publicAccessType).Purpose(purpose).SocialProfileIdValue(socialProfileIdValue).AppFileContent(appFileContent).AppFileSha256(appFileSha256).AppFileCreatedAtUtc(appFileCreatedAtUtc).AppFileUserIdValue(appFileUserIdValue).AppFileTenantIdValue(appFileTenantIdValue).AppFileEnrollmentIdValue(appFileEnrollmentIdValue).AppFileSource(appFileSource).AppFileLength(appFileLength).AppFileName(appFileName).AppFileFileName(appFileFileName).AppFileLastModified(appFileLastModified).AppFileSize(appFileSize).AppFileContentType(appFileContentType).AppFileContentDisposition(appFileContentDisposition).AppFileHeaders(appFileHeaders).Id(id).Timestamp(timestamp).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UploadsAPI.SaveFileAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -87,6 +91,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **file** | ***os.File** |  | 
  **notes** | **string** |  | 
  **title** | **string** |  | 
  **author** | **string** |  | 
@@ -97,6 +102,9 @@ Name | Type | Description  | Notes
  **validResponse** | **bool** |  | 
  **parentFileUploadId** | **string** |  | 
  **filePath** | **string** |  | 
+ **publicAccessType** | **string** |  | 
+ **purpose** | **string** |  | 
+ **socialProfileIdValue** | **string** |  | 
  **appFileContent** | **string** |  | 
  **appFileSha256** | **string** |  | 
  **appFileCreatedAtUtc** | **time.Time** |  | 

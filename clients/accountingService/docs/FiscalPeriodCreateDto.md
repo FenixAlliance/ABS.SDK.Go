@@ -6,16 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
 **FromDate** | Pointer to **time.Time** |  | [optional] 
 **ToDate** | Pointer to **time.Time** |  | [optional] 
-**FiscalYearId** | Pointer to **NullableString** |  | [optional] 
+**FiscalYearId** | **string** |  | 
 
 ## Methods
 
 ### NewFiscalPeriodCreateDto
 
-`func NewFiscalPeriodCreateDto() *FiscalPeriodCreateDto`
+`func NewFiscalPeriodCreateDto(name string, fiscalYearId string, ) *FiscalPeriodCreateDto`
 
 NewFiscalPeriodCreateDto instantiates a new FiscalPeriodCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -99,22 +99,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *FiscalPeriodCreateDto) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *FiscalPeriodCreateDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *FiscalPeriodCreateDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetFromDate
 
 `func (o *FiscalPeriodCreateDto) GetFromDate() time.Time`
@@ -184,22 +169,7 @@ and a boolean to check if the value has been set.
 
 SetFiscalYearId sets FiscalYearId field to given value.
 
-### HasFiscalYearId
 
-`func (o *FiscalPeriodCreateDto) HasFiscalYearId() bool`
-
-HasFiscalYearId returns a boolean if a field has been set.
-
-### SetFiscalYearIdNil
-
-`func (o *FiscalPeriodCreateDto) SetFiscalYearIdNil(b bool)`
-
- SetFiscalYearIdNil sets the value for FiscalYearId to be an explicit nil
-
-### UnsetFiscalYearId
-`func (o *FiscalPeriodCreateDto) UnsetFiscalYearId()`
-
-UnsetFiscalYearId ensures that no value is present for FiscalYearId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

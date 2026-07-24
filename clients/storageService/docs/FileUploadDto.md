@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **Hash** | Pointer to **NullableString** |  | [optional] 
 **FileUrl** | Pointer to **NullableString** |  | [optional] 
 **FilePath** | Pointer to **NullableString** |  | [optional] 
+**StorageKey** | Pointer to **NullableString** |  | [optional] 
+**StorageProviderKey** | Pointer to **NullableString** |  | [optional] 
 **FileName** | Pointer to **NullableString** |  | [optional] 
 **Abstract** | Pointer to **NullableString** |  | [optional] 
 **KeyWords** | Pointer to **NullableString** |  | [optional] 
@@ -26,6 +28,14 @@ Name | Type | Description | Notes
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 **FolderPath** | Pointer to **NullableString** |  | [optional] 
+**ScanStatus** | Pointer to **string** |  | [optional] 
+**ThumbnailStatus** | Pointer to **string** |  | [optional] 
+**HasThumbnail** | Pointer to **bool** |  | [optional] [readonly] 
+**ThumbnailStorageKey** | Pointer to **NullableString** |  | [optional] 
+**ThumbnailContentType** | Pointer to **NullableString** |  | [optional] 
+**ThumbnailWidth** | Pointer to **int32** |  | [optional] 
+**ThumbnailHeight** | Pointer to **int32** |  | [optional] 
+**PublicAccessType** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -351,6 +361,76 @@ HasFilePath returns a boolean if a field has been set.
 `func (o *FileUploadDto) UnsetFilePath()`
 
 UnsetFilePath ensures that no value is present for FilePath, not even an explicit nil
+### GetStorageKey
+
+`func (o *FileUploadDto) GetStorageKey() string`
+
+GetStorageKey returns the StorageKey field if non-nil, zero value otherwise.
+
+### GetStorageKeyOk
+
+`func (o *FileUploadDto) GetStorageKeyOk() (*string, bool)`
+
+GetStorageKeyOk returns a tuple with the StorageKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageKey
+
+`func (o *FileUploadDto) SetStorageKey(v string)`
+
+SetStorageKey sets StorageKey field to given value.
+
+### HasStorageKey
+
+`func (o *FileUploadDto) HasStorageKey() bool`
+
+HasStorageKey returns a boolean if a field has been set.
+
+### SetStorageKeyNil
+
+`func (o *FileUploadDto) SetStorageKeyNil(b bool)`
+
+ SetStorageKeyNil sets the value for StorageKey to be an explicit nil
+
+### UnsetStorageKey
+`func (o *FileUploadDto) UnsetStorageKey()`
+
+UnsetStorageKey ensures that no value is present for StorageKey, not even an explicit nil
+### GetStorageProviderKey
+
+`func (o *FileUploadDto) GetStorageProviderKey() string`
+
+GetStorageProviderKey returns the StorageProviderKey field if non-nil, zero value otherwise.
+
+### GetStorageProviderKeyOk
+
+`func (o *FileUploadDto) GetStorageProviderKeyOk() (*string, bool)`
+
+GetStorageProviderKeyOk returns a tuple with the StorageProviderKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageProviderKey
+
+`func (o *FileUploadDto) SetStorageProviderKey(v string)`
+
+SetStorageProviderKey sets StorageProviderKey field to given value.
+
+### HasStorageProviderKey
+
+`func (o *FileUploadDto) HasStorageProviderKey() bool`
+
+HasStorageProviderKey returns a boolean if a field has been set.
+
+### SetStorageProviderKeyNil
+
+`func (o *FileUploadDto) SetStorageProviderKeyNil(b bool)`
+
+ SetStorageProviderKeyNil sets the value for StorageProviderKey to be an explicit nil
+
+### UnsetStorageProviderKey
+`func (o *FileUploadDto) UnsetStorageProviderKey()`
+
+UnsetStorageProviderKey ensures that no value is present for StorageProviderKey, not even an explicit nil
 ### GetFileName
 
 `func (o *FileUploadDto) GetFileName() string`
@@ -786,6 +866,226 @@ HasFolderPath returns a boolean if a field has been set.
 `func (o *FileUploadDto) UnsetFolderPath()`
 
 UnsetFolderPath ensures that no value is present for FolderPath, not even an explicit nil
+### GetScanStatus
+
+`func (o *FileUploadDto) GetScanStatus() string`
+
+GetScanStatus returns the ScanStatus field if non-nil, zero value otherwise.
+
+### GetScanStatusOk
+
+`func (o *FileUploadDto) GetScanStatusOk() (*string, bool)`
+
+GetScanStatusOk returns a tuple with the ScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScanStatus
+
+`func (o *FileUploadDto) SetScanStatus(v string)`
+
+SetScanStatus sets ScanStatus field to given value.
+
+### HasScanStatus
+
+`func (o *FileUploadDto) HasScanStatus() bool`
+
+HasScanStatus returns a boolean if a field has been set.
+
+### GetThumbnailStatus
+
+`func (o *FileUploadDto) GetThumbnailStatus() string`
+
+GetThumbnailStatus returns the ThumbnailStatus field if non-nil, zero value otherwise.
+
+### GetThumbnailStatusOk
+
+`func (o *FileUploadDto) GetThumbnailStatusOk() (*string, bool)`
+
+GetThumbnailStatusOk returns a tuple with the ThumbnailStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailStatus
+
+`func (o *FileUploadDto) SetThumbnailStatus(v string)`
+
+SetThumbnailStatus sets ThumbnailStatus field to given value.
+
+### HasThumbnailStatus
+
+`func (o *FileUploadDto) HasThumbnailStatus() bool`
+
+HasThumbnailStatus returns a boolean if a field has been set.
+
+### GetHasThumbnail
+
+`func (o *FileUploadDto) GetHasThumbnail() bool`
+
+GetHasThumbnail returns the HasThumbnail field if non-nil, zero value otherwise.
+
+### GetHasThumbnailOk
+
+`func (o *FileUploadDto) GetHasThumbnailOk() (*bool, bool)`
+
+GetHasThumbnailOk returns a tuple with the HasThumbnail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasThumbnail
+
+`func (o *FileUploadDto) SetHasThumbnail(v bool)`
+
+SetHasThumbnail sets HasThumbnail field to given value.
+
+### HasHasThumbnail
+
+`func (o *FileUploadDto) HasHasThumbnail() bool`
+
+HasHasThumbnail returns a boolean if a field has been set.
+
+### GetThumbnailStorageKey
+
+`func (o *FileUploadDto) GetThumbnailStorageKey() string`
+
+GetThumbnailStorageKey returns the ThumbnailStorageKey field if non-nil, zero value otherwise.
+
+### GetThumbnailStorageKeyOk
+
+`func (o *FileUploadDto) GetThumbnailStorageKeyOk() (*string, bool)`
+
+GetThumbnailStorageKeyOk returns a tuple with the ThumbnailStorageKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailStorageKey
+
+`func (o *FileUploadDto) SetThumbnailStorageKey(v string)`
+
+SetThumbnailStorageKey sets ThumbnailStorageKey field to given value.
+
+### HasThumbnailStorageKey
+
+`func (o *FileUploadDto) HasThumbnailStorageKey() bool`
+
+HasThumbnailStorageKey returns a boolean if a field has been set.
+
+### SetThumbnailStorageKeyNil
+
+`func (o *FileUploadDto) SetThumbnailStorageKeyNil(b bool)`
+
+ SetThumbnailStorageKeyNil sets the value for ThumbnailStorageKey to be an explicit nil
+
+### UnsetThumbnailStorageKey
+`func (o *FileUploadDto) UnsetThumbnailStorageKey()`
+
+UnsetThumbnailStorageKey ensures that no value is present for ThumbnailStorageKey, not even an explicit nil
+### GetThumbnailContentType
+
+`func (o *FileUploadDto) GetThumbnailContentType() string`
+
+GetThumbnailContentType returns the ThumbnailContentType field if non-nil, zero value otherwise.
+
+### GetThumbnailContentTypeOk
+
+`func (o *FileUploadDto) GetThumbnailContentTypeOk() (*string, bool)`
+
+GetThumbnailContentTypeOk returns a tuple with the ThumbnailContentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailContentType
+
+`func (o *FileUploadDto) SetThumbnailContentType(v string)`
+
+SetThumbnailContentType sets ThumbnailContentType field to given value.
+
+### HasThumbnailContentType
+
+`func (o *FileUploadDto) HasThumbnailContentType() bool`
+
+HasThumbnailContentType returns a boolean if a field has been set.
+
+### SetThumbnailContentTypeNil
+
+`func (o *FileUploadDto) SetThumbnailContentTypeNil(b bool)`
+
+ SetThumbnailContentTypeNil sets the value for ThumbnailContentType to be an explicit nil
+
+### UnsetThumbnailContentType
+`func (o *FileUploadDto) UnsetThumbnailContentType()`
+
+UnsetThumbnailContentType ensures that no value is present for ThumbnailContentType, not even an explicit nil
+### GetThumbnailWidth
+
+`func (o *FileUploadDto) GetThumbnailWidth() int32`
+
+GetThumbnailWidth returns the ThumbnailWidth field if non-nil, zero value otherwise.
+
+### GetThumbnailWidthOk
+
+`func (o *FileUploadDto) GetThumbnailWidthOk() (*int32, bool)`
+
+GetThumbnailWidthOk returns a tuple with the ThumbnailWidth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailWidth
+
+`func (o *FileUploadDto) SetThumbnailWidth(v int32)`
+
+SetThumbnailWidth sets ThumbnailWidth field to given value.
+
+### HasThumbnailWidth
+
+`func (o *FileUploadDto) HasThumbnailWidth() bool`
+
+HasThumbnailWidth returns a boolean if a field has been set.
+
+### GetThumbnailHeight
+
+`func (o *FileUploadDto) GetThumbnailHeight() int32`
+
+GetThumbnailHeight returns the ThumbnailHeight field if non-nil, zero value otherwise.
+
+### GetThumbnailHeightOk
+
+`func (o *FileUploadDto) GetThumbnailHeightOk() (*int32, bool)`
+
+GetThumbnailHeightOk returns a tuple with the ThumbnailHeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailHeight
+
+`func (o *FileUploadDto) SetThumbnailHeight(v int32)`
+
+SetThumbnailHeight sets ThumbnailHeight field to given value.
+
+### HasThumbnailHeight
+
+`func (o *FileUploadDto) HasThumbnailHeight() bool`
+
+HasThumbnailHeight returns a boolean if a field has been set.
+
+### GetPublicAccessType
+
+`func (o *FileUploadDto) GetPublicAccessType() string`
+
+GetPublicAccessType returns the PublicAccessType field if non-nil, zero value otherwise.
+
+### GetPublicAccessTypeOk
+
+`func (o *FileUploadDto) GetPublicAccessTypeOk() (*string, bool)`
+
+GetPublicAccessTypeOk returns a tuple with the PublicAccessType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublicAccessType
+
+`func (o *FileUploadDto) SetPublicAccessType(v string)`
+
+SetPublicAccessType sets PublicAccessType field to given value.
+
+### HasPublicAccessType
+
+`func (o *FileUploadDto) HasPublicAccessType() bool`
+
+HasPublicAccessType returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

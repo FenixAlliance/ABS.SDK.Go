@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **AccountTypeId** | Pointer to **NullableString** |  | [optional] 
 **ParentAccountId** | Pointer to **NullableString** |  | [optional] 
 **AccountCategory** | Pointer to **string** |  | [optional] 
+**IsContra** | Pointer to **bool** |  | [optional] 
+**IsMonetary** | Pointer to **bool** |  | [optional] 
+**IncomeStatementSubType** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -360,6 +363,91 @@ SetAccountCategory sets AccountCategory field to given value.
 
 HasAccountCategory returns a boolean if a field has been set.
 
+### GetIsContra
+
+`func (o *AccountUpdateDto) GetIsContra() bool`
+
+GetIsContra returns the IsContra field if non-nil, zero value otherwise.
+
+### GetIsContraOk
+
+`func (o *AccountUpdateDto) GetIsContraOk() (*bool, bool)`
+
+GetIsContraOk returns a tuple with the IsContra field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsContra
+
+`func (o *AccountUpdateDto) SetIsContra(v bool)`
+
+SetIsContra sets IsContra field to given value.
+
+### HasIsContra
+
+`func (o *AccountUpdateDto) HasIsContra() bool`
+
+HasIsContra returns a boolean if a field has been set.
+
+### GetIsMonetary
+
+`func (o *AccountUpdateDto) GetIsMonetary() bool`
+
+GetIsMonetary returns the IsMonetary field if non-nil, zero value otherwise.
+
+### GetIsMonetaryOk
+
+`func (o *AccountUpdateDto) GetIsMonetaryOk() (*bool, bool)`
+
+GetIsMonetaryOk returns a tuple with the IsMonetary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsMonetary
+
+`func (o *AccountUpdateDto) SetIsMonetary(v bool)`
+
+SetIsMonetary sets IsMonetary field to given value.
+
+### HasIsMonetary
+
+`func (o *AccountUpdateDto) HasIsMonetary() bool`
+
+HasIsMonetary returns a boolean if a field has been set.
+
+### GetIncomeStatementSubType
+
+`func (o *AccountUpdateDto) GetIncomeStatementSubType() string`
+
+GetIncomeStatementSubType returns the IncomeStatementSubType field if non-nil, zero value otherwise.
+
+### GetIncomeStatementSubTypeOk
+
+`func (o *AccountUpdateDto) GetIncomeStatementSubTypeOk() (*string, bool)`
+
+GetIncomeStatementSubTypeOk returns a tuple with the IncomeStatementSubType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncomeStatementSubType
+
+`func (o *AccountUpdateDto) SetIncomeStatementSubType(v string)`
+
+SetIncomeStatementSubType sets IncomeStatementSubType field to given value.
+
+### HasIncomeStatementSubType
+
+`func (o *AccountUpdateDto) HasIncomeStatementSubType() bool`
+
+HasIncomeStatementSubType returns a boolean if a field has been set.
+
+### SetIncomeStatementSubTypeNil
+
+`func (o *AccountUpdateDto) SetIncomeStatementSubTypeNil(b bool)`
+
+ SetIncomeStatementSubTypeNil sets the value for IncomeStatementSubType to be an explicit nil
+
+### UnsetIncomeStatementSubType
+`func (o *AccountUpdateDto) UnsetIncomeStatementSubType()`
+
+UnsetIncomeStatementSubType ensures that no value is present for IncomeStatementSubType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetTaskCategoryByIdAsync**](TaskCategoriesAPI.md#GetTaskCategoryByIdAsync) | **Get** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Gets a task category by ID
 [**GetTaskCategoryTaskTypesAsync**](TaskCategoriesAPI.md#GetTaskCategoryTaskTypesAsync) | **Get** /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types | Retrieves task types for a category
 [**GetTenantTaskCategoriesAsync**](TaskCategoriesAPI.md#GetTenantTaskCategoriesAsync) | **Get** /api/v2/ProjectsService/TaskCategories | Retrieves all task categories
+[**PatchTaskCategoryAsync**](TaskCategoriesAPI.md#PatchTaskCategoryAsync) | **Patch** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Patches a task category
 [**UpdateTaskCategoryAsync**](TaskCategoriesAPI.md#UpdateTaskCategoryAsync) | **Put** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Updates a task category
 
 
@@ -423,6 +424,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchTaskCategoryAsync
+
+> EmptyEnvelope PatchTaskCategoryAsync(ctx, taskCategoryId).TenantId(tenantId).Operation(operation).Execute()
+
+Patches a task category
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	taskCategoryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TaskCategoriesAPI.PatchTaskCategoryAsync(context.Background(), taskCategoryId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskCategoriesAPI.PatchTaskCategoryAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchTaskCategoryAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `TaskCategoriesAPI.PatchTaskCategoryAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskCategoryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchTaskCategoryAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **tenantId** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

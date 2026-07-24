@@ -71,6 +71,11 @@ docs/MarketingListsAPI.md
 docs/NewsletterCreateDto.md
 docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
+docs/NewsletterSubscriptionCreateDto.md
+docs/NewsletterSubscriptionDto.md
+docs/NewsletterSubscriptionDtoEnvelope.md
+docs/NewsletterSubscriptionDtoListEnvelope.md
+docs/NewsletterSubscriptionUpdateDto.md
 docs/NewsletterSubscriptionsAPI.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersAPI.md
@@ -145,6 +150,11 @@ model_marketing_list_update_dto.go
 model_newsletter_create_dto.go
 model_newsletter_dto.go
 model_newsletter_dto_envelope.go
+model_newsletter_subscription_create_dto.go
+model_newsletter_subscription_dto.go
+model_newsletter_subscription_dto_envelope.go
+model_newsletter_subscription_dto_list_envelope.go
+model_newsletter_subscription_update_dto.go
 model_newsletter_update_dto.go
 model_operation.go
 model_order_dto.go
@@ -166,5 +176,4 @@ model_social_post_bucket_update_dto.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_newsletter_subscriptions_test.go
 utils.go

@@ -4,18 +4,21 @@ All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateLocationForWalletAsync**](WalletsAPI.md#CreateLocationForWalletAsync) | **Post** /api/v2/WalletsService/Wallets/{walletId}/Locations | Create Wallet Location
 [**CreateWalletBankAccountAsync**](WalletsAPI.md#CreateWalletBankAccountAsync) | **Post** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts | Create Wallet Bank Account
-[**CreateWalletLocationAsync**](WalletsAPI.md#CreateWalletLocationAsync) | **Post** /api/v2/WalletsService/Wallets/{walletId}/Locations | Create Wallet Location
 [**CreateWalletPaymentAsync**](WalletsAPI.md#CreateWalletPaymentAsync) | **Post** /api/v2/WalletsService/Wallets/{walletId}/Payments | Create Wallet Payment
 [**CreateWalletTokenAsync**](WalletsAPI.md#CreateWalletTokenAsync) | **Post** /api/v2/WalletsService/Wallets/{walletId}/Tokens | Create Wallet Token
 [**CreateWalletWithdrawRequestAsync**](WalletsAPI.md#CreateWalletWithdrawRequestAsync) | **Post** /api/v2/WalletsService/Wallets/{walletId}/Withdraws | Create Wallet Withdraw Request
+[**DeleteLocationForWalletAsync**](WalletsAPI.md#DeleteLocationForWalletAsync) | **Delete** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Delete Wallet Location
 [**DeleteWalletBankAccountAsync**](WalletsAPI.md#DeleteWalletBankAccountAsync) | **Delete** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Delete Wallet Bank Account
-[**DeleteWalletLocationAsync**](WalletsAPI.md#DeleteWalletLocationAsync) | **Delete** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Delete Wallet Location
 [**DeleteWalletTokenAsync**](WalletsAPI.md#DeleteWalletTokenAsync) | **Delete** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Delete Wallet Token
 [**GetIncomingPaymentsAsync**](WalletsAPI.md#GetIncomingPaymentsAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming | Get Incoming Payments
 [**GetIncomingPaymentsCountAsync**](WalletsAPI.md#GetIncomingPaymentsCountAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming/Count | Get Incoming Payments Count
 [**GetIncomingWalletInvoicesAsync**](WalletsAPI.md#GetIncomingWalletInvoicesAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming | Get Incoming Wallet Invoices
 [**GetIncomingWalletInvoicesCountAsync**](WalletsAPI.md#GetIncomingWalletInvoicesCountAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming/Count | Get Incoming Wallet Invoices Count
+[**GetLocationForWalletAsync**](WalletsAPI.md#GetLocationForWalletAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Get Wallet Location
+[**GetLocationsForWalletAsync**](WalletsAPI.md#GetLocationsForWalletAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Locations | Get Wallet Locations
+[**GetLocationsForWalletCountAsync**](WalletsAPI.md#GetLocationsForWalletCountAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Locations/Count | Get Wallet Locations Count
 [**GetOutgoingPaymentsAsync**](WalletsAPI.md#GetOutgoingPaymentsAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing | Get Outgoing Payments
 [**GetOutgoingPaymentsCountAsync**](WalletsAPI.md#GetOutgoingPaymentsCountAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing/Count | Get Outgoing Payments Count
 [**GetOutgoingWalletInvoicesAsync**](WalletsAPI.md#GetOutgoingWalletInvoicesAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing | Get Outgoing Wallet Invoices
@@ -29,9 +32,6 @@ Method | HTTP request | Description
 [**GetWalletExtendedOrdersAsync**](WalletsAPI.md#GetWalletExtendedOrdersAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Orders/Extended | Get Wallet Extended Orders
 [**GetWalletInvoicesAsync**](WalletsAPI.md#GetWalletInvoicesAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Invoices | Get Wallet Invoices
 [**GetWalletInvoicesCountAsync**](WalletsAPI.md#GetWalletInvoicesCountAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Count | Get Wallet Invoices Count
-[**GetWalletLocationAsync**](WalletsAPI.md#GetWalletLocationAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Get Wallet Location
-[**GetWalletLocationsAsync**](WalletsAPI.md#GetWalletLocationsAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Locations | Get Wallet Locations
-[**GetWalletLocationsCountAsync**](WalletsAPI.md#GetWalletLocationsCountAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Locations/Count | Get Wallet Locations Count
 [**GetWalletOrdersAsync**](WalletsAPI.md#GetWalletOrdersAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Orders | Get Wallet Orders
 [**GetWalletOrdersCountAsync**](WalletsAPI.md#GetWalletOrdersCountAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Orders/Count | Get Wallet Orders Count
 [**GetWalletPaymentsAsync**](WalletsAPI.md#GetWalletPaymentsAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Payments | Get Wallet Payments
@@ -49,10 +49,86 @@ Method | HTTP request | Description
 [**GetWalletWithdrawsCountAsync**](WalletsAPI.md#GetWalletWithdrawsCountAsync) | **Get** /api/v2/WalletsService/Wallets/{walletId}/Withdraws/Count | Get Wallet Withdraws Count
 [**PatchWalletBankAccountAsync**](WalletsAPI.md#PatchWalletBankAccountAsync) | **Patch** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Patch Wallet Bank Account
 [**PatchWalletTokenAsync**](WalletsAPI.md#PatchWalletTokenAsync) | **Patch** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Patch Wallet Token
+[**UpdateLocationForWalletAsync**](WalletsAPI.md#UpdateLocationForWalletAsync) | **Put** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Update Wallet Location
 [**UpdateWalletBankAccountAsync**](WalletsAPI.md#UpdateWalletBankAccountAsync) | **Put** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Update Wallet Bank Account
-[**UpdateWalletLocationAsync**](WalletsAPI.md#UpdateWalletLocationAsync) | **Put** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Update Wallet Location
 [**UpdateWalletTokenAsync**](WalletsAPI.md#UpdateWalletTokenAsync) | **Put** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Update Wallet Token
 
+
+
+## CreateLocationForWalletAsync
+
+> EmptyEnvelope CreateLocationForWalletAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationCreateDto(locationCreateDto).Execute()
+
+Create Wallet Location
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	locationCreateDto := *openapiclient.NewLocationCreateDto() // LocationCreateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WalletsAPI.CreateLocationForWalletAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationCreateDto(locationCreateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.CreateLocationForWalletAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateLocationForWalletAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.CreateLocationForWalletAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**walletId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateLocationForWalletAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **locationCreateDto** | [**LocationCreateDto**](LocationCreateDto.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CreateWalletBankAccountAsync
@@ -112,82 +188,6 @@ Name | Type | Description  | Notes
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **bankAccountCreateDto** | [**BankAccountCreateDto**](BankAccountCreateDto.md) |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## CreateWalletLocationAsync
-
-> EmptyEnvelope CreateWalletLocationAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationCreateDto(locationCreateDto).Execute()
-
-Create Wallet Location
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-	locationCreateDto := *openapiclient.NewLocationCreateDto() // LocationCreateDto |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.CreateWalletLocationAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationCreateDto(locationCreateDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.CreateWalletLocationAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateWalletLocationAsync`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.CreateWalletLocationAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**walletId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateWalletLocationAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
- **locationCreateDto** | [**LocationCreateDto**](LocationCreateDto.md) |  | 
 
 ### Return type
 
@@ -435,6 +435,83 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## DeleteLocationForWalletAsync
+
+> EmptyEnvelope DeleteLocationForWalletAsync(ctx, walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete Wallet Location
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	locationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WalletsAPI.DeleteLocationForWalletAsync(context.Background(), walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.DeleteLocationForWalletAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteLocationForWalletAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.DeleteLocationForWalletAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**walletId** | **string** |  | 
+**locationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteLocationForWalletAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteWalletBankAccountAsync
 
 > EmptyEnvelope DeleteWalletBankAccountAsync(ctx, walletId, bankAccountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
@@ -485,83 +562,6 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiDeleteWalletBankAccountAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## DeleteWalletLocationAsync
-
-> EmptyEnvelope DeleteWalletLocationAsync(ctx, walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-Delete Wallet Location
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	locationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.DeleteWalletLocationAsync(context.Background(), walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.DeleteWalletLocationAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DeleteWalletLocationAsync`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.DeleteWalletLocationAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**walletId** | **string** |  | 
-**locationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteWalletLocationAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -936,6 +936,231 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetIncomingWalletInvoicesCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetLocationForWalletAsync
+
+> LocationDtoEnvelope GetLocationForWalletAsync(ctx, walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get Wallet Location
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	locationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WalletsAPI.GetLocationForWalletAsync(context.Background(), walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetLocationForWalletAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetLocationForWalletAsync`: LocationDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.GetLocationForWalletAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**walletId** | **string** |  | 
+**locationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetLocationForWalletAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**LocationDtoEnvelope**](LocationDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetLocationsForWalletAsync
+
+> LocationDtoListEnvelope GetLocationsForWalletAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get Wallet Locations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WalletsAPI.GetLocationsForWalletAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetLocationsForWalletAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetLocationsForWalletAsync`: LocationDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.GetLocationsForWalletAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**walletId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetLocationsForWalletAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**LocationDtoListEnvelope**](LocationDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetLocationsForWalletCountAsync
+
+> Int32Envelope GetLocationsForWalletCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get Wallet Locations Count
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WalletsAPI.GetLocationsForWalletCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetLocationsForWalletCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetLocationsForWalletCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.GetLocationsForWalletCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**walletId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetLocationsForWalletCountAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1901,231 +2126,6 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetWalletInvoicesCountAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetWalletLocationAsync
-
-> LocationDtoEnvelope GetWalletLocationAsync(ctx, walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-Get Wallet Location
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	locationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletLocationAsync(context.Background(), walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletLocationAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWalletLocationAsync`: LocationDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.GetWalletLocationAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**walletId** | **string** |  | 
-**locationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetWalletLocationAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**LocationDtoEnvelope**](LocationDtoEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetWalletLocationsAsync
-
-> LocationDtoListEnvelope GetWalletLocationsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-Get Wallet Locations
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletLocationsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletLocationsAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWalletLocationsAsync`: LocationDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.GetWalletLocationsAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**walletId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetWalletLocationsAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**LocationDtoListEnvelope**](LocationDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetWalletLocationsCountAsync
-
-> Int32Envelope GetWalletLocationsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-Get Wallet Locations Count
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletLocationsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletLocationsCountAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWalletLocationsCountAsync`: Int32Envelope
-	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.GetWalletLocationsCountAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**walletId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetWalletLocationsCountAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -3423,6 +3423,85 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## UpdateLocationForWalletAsync
+
+> EmptyEnvelope UpdateLocationForWalletAsync(ctx, walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationUpdateDto(locationUpdateDto).Execute()
+
+Update Wallet Location
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	locationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	locationUpdateDto := *openapiclient.NewLocationUpdateDto() // LocationUpdateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WalletsAPI.UpdateLocationForWalletAsync(context.Background(), walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationUpdateDto(locationUpdateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.UpdateLocationForWalletAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateLocationForWalletAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.UpdateLocationForWalletAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**walletId** | **string** |  | 
+**locationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateLocationForWalletAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **locationUpdateDto** | [**LocationUpdateDto**](LocationUpdateDto.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateWalletBankAccountAsync
 
 > EmptyEnvelope UpdateWalletBankAccountAsync(ctx, walletId, bankAccountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankAccountUpdateDto(bankAccountUpdateDto).Execute()
@@ -3483,85 +3562,6 @@ Name | Type | Description  | Notes
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
  **bankAccountUpdateDto** | [**BankAccountUpdateDto**](BankAccountUpdateDto.md) |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UpdateWalletLocationAsync
-
-> EmptyEnvelope UpdateWalletLocationAsync(ctx, walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationUpdateDto(locationUpdateDto).Execute()
-
-Update Wallet Location
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	locationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-	locationUpdateDto := *openapiclient.NewLocationUpdateDto() // LocationUpdateDto |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.UpdateWalletLocationAsync(context.Background(), walletId, locationId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationUpdateDto(locationUpdateDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.UpdateWalletLocationAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateWalletLocationAsync`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `WalletsAPI.UpdateWalletLocationAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**walletId** | **string** |  | 
-**locationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateWalletLocationAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
- **locationUpdateDto** | [**LocationUpdateDto**](LocationUpdateDto.md) |  | 
 
 ### Return type
 

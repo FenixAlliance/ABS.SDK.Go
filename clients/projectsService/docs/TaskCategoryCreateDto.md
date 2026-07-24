@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -112,6 +113,41 @@ HasTitle returns a boolean if a field has been set.
 `func (o *TaskCategoryCreateDto) UnsetTitle()`
 
 UnsetTitle ensures that no value is present for Title, not even an explicit nil
+### GetProjectId
+
+`func (o *TaskCategoryCreateDto) GetProjectId() string`
+
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
+
+### GetProjectIdOk
+
+`func (o *TaskCategoryCreateDto) GetProjectIdOk() (*string, bool)`
+
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectId
+
+`func (o *TaskCategoryCreateDto) SetProjectId(v string)`
+
+SetProjectId sets ProjectId field to given value.
+
+### HasProjectId
+
+`func (o *TaskCategoryCreateDto) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
+
+### SetProjectIdNil
+
+`func (o *TaskCategoryCreateDto) SetProjectIdNil(b bool)`
+
+ SetProjectIdNil sets the value for ProjectId to be an explicit nil
+
+### UnsetProjectId
+`func (o *TaskCategoryCreateDto) UnsetProjectId()`
+
+UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

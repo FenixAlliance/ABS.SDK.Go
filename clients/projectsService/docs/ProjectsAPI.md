@@ -6,23 +6,26 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateProjectAsync**](ProjectsAPI.md#CreateProjectAsync) | **Post** /api/v2/ProjectsService/Projects | Creates a new project
 [**CreateProjectPeriodAsync**](ProjectsAPI.md#CreateProjectPeriodAsync) | **Post** /api/v2/ProjectsService/Projects/{projectId}/Periods | Creates a project period
-[**CreateProjectTaskAsync**](ProjectsAPI.md#CreateProjectTaskAsync) | **Post** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task
+[**CreateTaskForProjectAsync**](ProjectsAPI.md#CreateTaskForProjectAsync) | **Post** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task
 [**DeleteProjectAsync**](ProjectsAPI.md#DeleteProjectAsync) | **Delete** /api/v2/ProjectsService/Projects/{projectId} | Deletes a project
 [**DeleteProjectPeriodAsync**](ProjectsAPI.md#DeleteProjectPeriodAsync) | **Delete** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Deletes a project period
-[**DeleteProjectTaskAsync**](ProjectsAPI.md#DeleteProjectTaskAsync) | **Delete** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task
+[**DeleteTaskForProjectAsync**](ProjectsAPI.md#DeleteTaskForProjectAsync) | **Delete** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task
 [**GetProjectByIdAsync**](ProjectsAPI.md#GetProjectByIdAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId} | Gets a project by ID
 [**GetProjectPeriodsAsync**](ProjectsAPI.md#GetProjectPeriodsAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId}/Periods | Retrieves project periods
 [**GetProjectTaskCategoriesAsync**](ProjectsAPI.md#GetProjectTaskCategoriesAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories | Retrieves project task categories
 [**GetProjectTaskCategoriesCountAsync**](ProjectsAPI.md#GetProjectTaskCategoriesCountAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count | Counts project task categories
-[**GetProjectTasksAsync**](ProjectsAPI.md#GetProjectTasksAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks
-[**GetProjectTasksCountAsync**](ProjectsAPI.md#GetProjectTasksCountAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks
-[**GetProjectTimeLogsAsync**](ProjectsAPI.md#GetProjectTimeLogsAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs
 [**GetProjectTimeLogsCountAsync**](ProjectsAPI.md#GetProjectTimeLogsCountAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count | Counts project time logs
 [**GetProjectsByTenantIdAsync**](ProjectsAPI.md#GetProjectsByTenantIdAsync) | **Get** /api/v2/ProjectsService/Projects | Retrieves all projects
 [**GetProjectsCountByTenantIdAsync**](ProjectsAPI.md#GetProjectsCountByTenantIdAsync) | **Get** /api/v2/ProjectsService/Projects/Count | Counts projects
+[**GetTasksForProjectAsync**](ProjectsAPI.md#GetTasksForProjectAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks
+[**GetTasksForProjectCountAsync**](ProjectsAPI.md#GetTasksForProjectCountAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks
+[**GetTimeLogsForProjectAsync**](ProjectsAPI.md#GetTimeLogsForProjectAsync) | **Get** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs
+[**PatchProjectAsync**](ProjectsAPI.md#PatchProjectAsync) | **Patch** /api/v2/ProjectsService/Projects/{projectId} | Patches a project
+[**PatchProjectPeriodAsync**](ProjectsAPI.md#PatchProjectPeriodAsync) | **Patch** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Patches a project period
+[**PatchTaskForProjectAsync**](ProjectsAPI.md#PatchTaskForProjectAsync) | **Patch** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Patches a project task
 [**UpdateProjectAsync**](ProjectsAPI.md#UpdateProjectAsync) | **Put** /api/v2/ProjectsService/Projects/{projectId} | Updates a project
 [**UpdateProjectPeriodAsync**](ProjectsAPI.md#UpdateProjectPeriodAsync) | **Put** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Updates a project period
-[**UpdateProjectTaskAsync**](ProjectsAPI.md#UpdateProjectTaskAsync) | **Put** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task
+[**UpdateTaskForProjectAsync**](ProjectsAPI.md#UpdateTaskForProjectAsync) | **Put** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task
 
 
 
@@ -168,9 +171,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## CreateProjectTaskAsync
+## CreateTaskForProjectAsync
 
-> EmptyEnvelope CreateProjectTaskAsync(ctx, projectId).TenantId(tenantId).ProjectTaskCreateDto(projectTaskCreateDto).Execute()
+> EmptyEnvelope CreateTaskForProjectAsync(ctx, projectId).TenantId(tenantId).ProjectTaskCreateDto(projectTaskCreateDto).Execute()
 
 Creates a project task
 
@@ -195,13 +198,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.CreateProjectTaskAsync(context.Background(), projectId).TenantId(tenantId).ProjectTaskCreateDto(projectTaskCreateDto).Execute()
+	resp, r, err := apiClient.ProjectsAPI.CreateTaskForProjectAsync(context.Background(), projectId).TenantId(tenantId).ProjectTaskCreateDto(projectTaskCreateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.CreateProjectTaskAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.CreateTaskForProjectAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateProjectTaskAsync`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.CreateProjectTaskAsync`: %v\n", resp)
+	// response from `CreateTaskForProjectAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.CreateTaskForProjectAsync`: %v\n", resp)
 }
 ```
 
@@ -215,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateProjectTaskAsyncRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateTaskForProjectAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -389,9 +392,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## DeleteProjectTaskAsync
+## DeleteTaskForProjectAsync
 
-> EmptyEnvelope DeleteProjectTaskAsync(ctx, projectId, projectTaskId).TenantId(tenantId).Execute()
+> EmptyEnvelope DeleteTaskForProjectAsync(ctx, projectId, projectTaskId).TenantId(tenantId).Execute()
 
 Deletes a project task
 
@@ -416,13 +419,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.DeleteProjectTaskAsync(context.Background(), projectId, projectTaskId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ProjectsAPI.DeleteTaskForProjectAsync(context.Background(), projectId, projectTaskId).TenantId(tenantId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.DeleteProjectTaskAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.DeleteTaskForProjectAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteProjectTaskAsync`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.DeleteProjectTaskAsync`: %v\n", resp)
+	// response from `DeleteTaskForProjectAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.DeleteTaskForProjectAsync`: %v\n", resp)
 }
 ```
 
@@ -437,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteProjectTaskAsyncRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteTaskForProjectAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -752,222 +755,6 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetProjectTasksAsync
-
-> ProjectTaskDtoListEnvelope GetProjectTasksAsync(ctx, projectId).TenantId(tenantId).Execute()
-
-Retrieves project tasks
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetProjectTasksAsync(context.Background(), projectId).TenantId(tenantId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectTasksAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetProjectTasksAsync`: ProjectTaskDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetProjectTasksAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetProjectTasksAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **tenantId** | **string** |  | 
-
-### Return type
-
-[**ProjectTaskDtoListEnvelope**](ProjectTaskDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetProjectTasksCountAsync
-
-> Int32Envelope GetProjectTasksCountAsync(ctx, projectId).TenantId(tenantId).Execute()
-
-Counts project tasks
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetProjectTasksCountAsync(context.Background(), projectId).TenantId(tenantId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectTasksCountAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetProjectTasksCountAsync`: Int32Envelope
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetProjectTasksCountAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetProjectTasksCountAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **tenantId** | **string** |  | 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetProjectTimeLogsAsync
-
-> ProjectTimeLogDtoListEnvelope GetProjectTimeLogsAsync(ctx, projectId).TenantId(tenantId).Execute()
-
-Retrieves project time logs
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetProjectTimeLogsAsync(context.Background(), projectId).TenantId(tenantId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectTimeLogsAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetProjectTimeLogsAsync`: ProjectTimeLogDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetProjectTimeLogsAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetProjectTimeLogsAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **tenantId** | **string** |  | 
-
-### Return type
-
-[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GetProjectTimeLogsCountAsync
 
 > Int32Envelope GetProjectTimeLogsCountAsync(ctx, projectId).TenantId(tenantId).Execute()
@@ -1172,6 +959,450 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetTasksForProjectAsync
+
+> ProjectTaskDtoListEnvelope GetTasksForProjectAsync(ctx, projectId).TenantId(tenantId).Execute()
+
+Retrieves project tasks
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.GetTasksForProjectAsync(context.Background(), projectId).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetTasksForProjectAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTasksForProjectAsync`: ProjectTaskDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetTasksForProjectAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTasksForProjectAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **tenantId** | **string** |  | 
+
+### Return type
+
+[**ProjectTaskDtoListEnvelope**](ProjectTaskDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTasksForProjectCountAsync
+
+> Int32Envelope GetTasksForProjectCountAsync(ctx, projectId).TenantId(tenantId).Execute()
+
+Counts project tasks
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.GetTasksForProjectCountAsync(context.Background(), projectId).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetTasksForProjectCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTasksForProjectCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetTasksForProjectCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTasksForProjectCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **tenantId** | **string** |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTimeLogsForProjectAsync
+
+> ProjectTimeLogDtoListEnvelope GetTimeLogsForProjectAsync(ctx, projectId).TenantId(tenantId).Execute()
+
+Retrieves project time logs
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.GetTimeLogsForProjectAsync(context.Background(), projectId).TenantId(tenantId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetTimeLogsForProjectAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTimeLogsForProjectAsync`: ProjectTimeLogDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetTimeLogsForProjectAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTimeLogsForProjectAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **tenantId** | **string** |  | 
+
+### Return type
+
+[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchProjectAsync
+
+> EmptyEnvelope PatchProjectAsync(ctx, projectId).TenantId(tenantId).Operation(operation).Execute()
+
+Patches a project
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.PatchProjectAsync(context.Background(), projectId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.PatchProjectAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchProjectAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.PatchProjectAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchProjectAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **tenantId** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchProjectPeriodAsync
+
+> EmptyEnvelope PatchProjectPeriodAsync(ctx, projectId, projectPeriodId).TenantId(tenantId).Operation(operation).Execute()
+
+Patches a project period
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	projectPeriodId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.PatchProjectPeriodAsync(context.Background(), projectId, projectPeriodId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.PatchProjectPeriodAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchProjectPeriodAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.PatchProjectPeriodAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string** |  | 
+**projectPeriodId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchProjectPeriodAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **tenantId** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchTaskForProjectAsync
+
+> EmptyEnvelope PatchTaskForProjectAsync(ctx, projectId, projectTaskId).TenantId(tenantId).Operation(operation).Execute()
+
+Patches a project task
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	projectTaskId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.PatchTaskForProjectAsync(context.Background(), projectId, projectTaskId).TenantId(tenantId).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.PatchTaskForProjectAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchTaskForProjectAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.PatchTaskForProjectAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string** |  | 
+**projectTaskId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchTaskForProjectAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **tenantId** | **string** |  | 
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateProjectAsync
 
 > EmptyEnvelope UpdateProjectAsync(ctx, projectId).TenantId(tenantId).ProjectUpdateDto(projectUpdateDto).Execute()
@@ -1323,9 +1554,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UpdateProjectTaskAsync
+## UpdateTaskForProjectAsync
 
-> EmptyEnvelope UpdateProjectTaskAsync(ctx, projectId, projectTaskId).TenantId(tenantId).ProjectTaskUpdateDto(projectTaskUpdateDto).Execute()
+> EmptyEnvelope UpdateTaskForProjectAsync(ctx, projectId, projectTaskId).TenantId(tenantId).ProjectTaskUpdateDto(projectTaskUpdateDto).Execute()
 
 Updates a project task
 
@@ -1351,13 +1582,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.UpdateProjectTaskAsync(context.Background(), projectId, projectTaskId).TenantId(tenantId).ProjectTaskUpdateDto(projectTaskUpdateDto).Execute()
+	resp, r, err := apiClient.ProjectsAPI.UpdateTaskForProjectAsync(context.Background(), projectId, projectTaskId).TenantId(tenantId).ProjectTaskUpdateDto(projectTaskUpdateDto).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.UpdateProjectTaskAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.UpdateTaskForProjectAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateProjectTaskAsync`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.UpdateProjectTaskAsync`: %v\n", resp)
+	// response from `UpdateTaskForProjectAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.UpdateTaskForProjectAsync`: %v\n", resp)
 }
 ```
 
@@ -1372,7 +1603,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateProjectTaskAsyncRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateTaskForProjectAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

@@ -745,6 +745,149 @@ func (a *TenantsAPIService) GetAccessibleFeaturesAsyncExecute(r ApiGetAccessible
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetCartForTenantAsyncRequest struct {
+	ctx context.Context
+	ApiService *TenantsAPIService
+	tenantId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetCartForTenantAsyncRequest) ApiVersion(apiVersion string) ApiGetCartForTenantAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetCartForTenantAsyncRequest) XApiVersion(xApiVersion string) ApiGetCartForTenantAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCartForTenantAsyncRequest) Execute() (*CartDtoEnvelope, *http.Response, error) {
+	return r.ApiService.GetCartForTenantAsyncExecute(r)
+}
+
+/*
+GetCartForTenantAsync Get a tenant's default cart
+
+Get a tenant's default cart
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetCartForTenantAsyncRequest
+*/
+func (a *TenantsAPIService) GetCartForTenantAsync(ctx context.Context, tenantId string) ApiGetCartForTenantAsyncRequest {
+	return ApiGetCartForTenantAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return CartDtoEnvelope
+func (a *TenantsAPIService) GetCartForTenantAsyncExecute(r ApiGetCartForTenantAsyncRequest) (*CartDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CartDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TenantsAPIService.GetCartForTenantAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/TenantsService/Tenants/{tenantId}/Cart"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetCurrentTenantAsyncRequest struct {
 	ctx context.Context
 	ApiService *TenantsAPIService
@@ -2037,149 +2180,6 @@ func (a *TenantsAPIService) GetTenantAvatarAsyncExecute(r ApiGetTenantAvatarAsyn
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetTenantCartAsyncRequest struct {
-	ctx context.Context
-	ApiService *TenantsAPIService
-	tenantId string
-	apiVersion *string
-	xApiVersion *string
-}
-
-func (r ApiGetTenantCartAsyncRequest) ApiVersion(apiVersion string) ApiGetTenantCartAsyncRequest {
-	r.apiVersion = &apiVersion
-	return r
-}
-
-func (r ApiGetTenantCartAsyncRequest) XApiVersion(xApiVersion string) ApiGetTenantCartAsyncRequest {
-	r.xApiVersion = &xApiVersion
-	return r
-}
-
-func (r ApiGetTenantCartAsyncRequest) Execute() (*CartDtoEnvelope, *http.Response, error) {
-	return r.ApiService.GetTenantCartAsyncExecute(r)
-}
-
-/*
-GetTenantCartAsync Get a tenant's default cart
-
-Get a tenant's default cart
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @return ApiGetTenantCartAsyncRequest
-*/
-func (a *TenantsAPIService) GetTenantCartAsync(ctx context.Context, tenantId string) ApiGetTenantCartAsyncRequest {
-	return ApiGetTenantCartAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-	}
-}
-
-// Execute executes the request
-//  @return CartDtoEnvelope
-func (a *TenantsAPIService) GetTenantCartAsyncExecute(r ApiGetTenantCartAsyncRequest) (*CartDtoEnvelope, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CartDtoEnvelope
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TenantsAPIService.GetTenantCartAsync")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/TenantsService/Tenants/{tenantId}/Cart"
-	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.apiVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.xApiVersion != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4503,169 +4503,6 @@ func (a *TenantsAPIService) SelectTenantAsyncExecute(r ApiSelectTenantAsyncReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAvatarAsyncRequest struct {
-	ctx context.Context
-	ApiService *TenantsAPIService
-	tenantId string
-	apiVersion *string
-	xApiVersion *string
-	avatar *os.File
-}
-
-func (r ApiUpdateAvatarAsyncRequest) ApiVersion(apiVersion string) ApiUpdateAvatarAsyncRequest {
-	r.apiVersion = &apiVersion
-	return r
-}
-
-func (r ApiUpdateAvatarAsyncRequest) XApiVersion(xApiVersion string) ApiUpdateAvatarAsyncRequest {
-	r.xApiVersion = &xApiVersion
-	return r
-}
-
-func (r ApiUpdateAvatarAsyncRequest) Avatar(avatar *os.File) ApiUpdateAvatarAsyncRequest {
-	r.avatar = avatar
-	return r
-}
-
-func (r ApiUpdateAvatarAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
-	return r.ApiService.UpdateAvatarAsyncExecute(r)
-}
-
-/*
-UpdateAvatarAsync Update a tenant's avatar
-
-Update a tenant's avatar
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @return ApiUpdateAvatarAsyncRequest
-*/
-func (a *TenantsAPIService) UpdateAvatarAsync(ctx context.Context, tenantId string) ApiUpdateAvatarAsyncRequest {
-	return ApiUpdateAvatarAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-	}
-}
-
-// Execute executes the request
-//  @return EmptyEnvelope
-func (a *TenantsAPIService) UpdateAvatarAsyncExecute(r ApiUpdateAvatarAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *EmptyEnvelope
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TenantsAPIService.UpdateAvatarAsync")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/TenantsService/Tenants/{tenantId}/Avatar"
-	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.apiVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"multipart/form-data", "application/json", "application/xml"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"image/png", "application/json", "application/xml"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.xApiVersion != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
-	}
-	var avatarLocalVarFormFileName string
-	var avatarLocalVarFileName     string
-	var avatarLocalVarFileBytes    []byte
-
-	avatarLocalVarFormFileName = "avatar"
-	avatarLocalVarFile := r.avatar
-
-	if avatarLocalVarFile != nil {
-		fbs, _ := io.ReadAll(avatarLocalVarFile)
-
-		avatarLocalVarFileBytes = fbs
-		avatarLocalVarFileName = avatarLocalVarFile.Name()
-		avatarLocalVarFile.Close()
-		formFiles = append(formFiles, formFile{fileBytes: avatarLocalVarFileBytes, fileName: avatarLocalVarFileName, formFileName: avatarLocalVarFormFileName})
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiUpdateTenantAsyncRequest struct {
 	ctx context.Context
 	ApiService *TenantsAPIService
@@ -4801,6 +4638,169 @@ func (a *TenantsAPIService) UpdateTenantAsyncExecute(r ApiUpdateTenantAsyncReque
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateTenantAvatarAsyncRequest struct {
+	ctx context.Context
+	ApiService *TenantsAPIService
+	tenantId string
+	apiVersion *string
+	xApiVersion *string
+	avatar *os.File
+}
+
+func (r ApiUpdateTenantAvatarAsyncRequest) ApiVersion(apiVersion string) ApiUpdateTenantAvatarAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiUpdateTenantAvatarAsyncRequest) XApiVersion(xApiVersion string) ApiUpdateTenantAvatarAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiUpdateTenantAvatarAsyncRequest) Avatar(avatar *os.File) ApiUpdateTenantAvatarAsyncRequest {
+	r.avatar = avatar
+	return r
+}
+
+func (r ApiUpdateTenantAvatarAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.UpdateTenantAvatarAsyncExecute(r)
+}
+
+/*
+UpdateTenantAvatarAsync Update a tenant's avatar
+
+Update a tenant's avatar
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiUpdateTenantAvatarAsyncRequest
+*/
+func (a *TenantsAPIService) UpdateTenantAvatarAsync(ctx context.Context, tenantId string) ApiUpdateTenantAvatarAsyncRequest {
+	return ApiUpdateTenantAvatarAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *TenantsAPIService) UpdateTenantAvatarAsyncExecute(r ApiUpdateTenantAvatarAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TenantsAPIService.UpdateTenantAvatarAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/TenantsService/Tenants/{tenantId}/Avatar"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"multipart/form-data", "application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"image/png", "application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	var avatarLocalVarFormFileName string
+	var avatarLocalVarFileName     string
+	var avatarLocalVarFileBytes    []byte
+
+	avatarLocalVarFormFileName = "avatar"
+	avatarLocalVarFile := r.avatar
+
+	if avatarLocalVarFile != nil {
+		fbs, _ := io.ReadAll(avatarLocalVarFile)
+
+		avatarLocalVarFileBytes = fbs
+		avatarLocalVarFileName = avatarLocalVarFile.Name()
+		avatarLocalVarFile.Close()
+		formFiles = append(formFiles, formFile{fileBytes: avatarLocalVarFileBytes, fileName: avatarLocalVarFileName, formFileName: avatarLocalVarFormFileName})
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

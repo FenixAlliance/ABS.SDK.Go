@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Title** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
 **StartDate** | Pointer to **time.Time** |  | [optional] 
 **DueLine** | Pointer to **time.Time** |  | [optional] 
 
@@ -26,6 +28,76 @@ NewProjectTaskUpdateDtoWithDefaults instantiates a new ProjectTaskUpdateDto obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetTitle
+
+`func (o *ProjectTaskUpdateDto) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *ProjectTaskUpdateDto) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *ProjectTaskUpdateDto) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *ProjectTaskUpdateDto) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### SetTitleNil
+
+`func (o *ProjectTaskUpdateDto) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *ProjectTaskUpdateDto) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
+### GetDescription
+
+`func (o *ProjectTaskUpdateDto) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *ProjectTaskUpdateDto) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *ProjectTaskUpdateDto) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *ProjectTaskUpdateDto) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *ProjectTaskUpdateDto) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ProjectTaskUpdateDto) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetStartDate
 
 `func (o *ProjectTaskUpdateDto) GetStartDate() time.Time`

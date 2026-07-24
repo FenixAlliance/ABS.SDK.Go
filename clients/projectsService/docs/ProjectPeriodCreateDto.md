@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
 **PeriodStartDate** | Pointer to **time.Time** |  | [optional] 
 **PeriodEndDate** | Pointer to **time.Time** |  | [optional] 
-**ProjectID** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -129,41 +129,41 @@ SetPeriodEndDate sets PeriodEndDate field to given value.
 
 HasPeriodEndDate returns a boolean if a field has been set.
 
-### GetProjectID
+### GetProjectId
 
-`func (o *ProjectPeriodCreateDto) GetProjectID() string`
+`func (o *ProjectPeriodCreateDto) GetProjectId() string`
 
-GetProjectID returns the ProjectID field if non-nil, zero value otherwise.
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
 
-### GetProjectIDOk
+### GetProjectIdOk
 
-`func (o *ProjectPeriodCreateDto) GetProjectIDOk() (*string, bool)`
+`func (o *ProjectPeriodCreateDto) GetProjectIdOk() (*string, bool)`
 
-GetProjectIDOk returns a tuple with the ProjectID field if it's non-nil, zero value otherwise
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProjectID
+### SetProjectId
 
-`func (o *ProjectPeriodCreateDto) SetProjectID(v string)`
+`func (o *ProjectPeriodCreateDto) SetProjectId(v string)`
 
-SetProjectID sets ProjectID field to given value.
+SetProjectId sets ProjectId field to given value.
 
-### HasProjectID
+### HasProjectId
 
-`func (o *ProjectPeriodCreateDto) HasProjectID() bool`
+`func (o *ProjectPeriodCreateDto) HasProjectId() bool`
 
-HasProjectID returns a boolean if a field has been set.
+HasProjectId returns a boolean if a field has been set.
 
-### SetProjectIDNil
+### SetProjectIdNil
 
-`func (o *ProjectPeriodCreateDto) SetProjectIDNil(b bool)`
+`func (o *ProjectPeriodCreateDto) SetProjectIdNil(b bool)`
 
- SetProjectIDNil sets the value for ProjectID to be an explicit nil
+ SetProjectIdNil sets the value for ProjectId to be an explicit nil
 
-### UnsetProjectID
-`func (o *ProjectPeriodCreateDto) UnsetProjectID()`
+### UnsetProjectId
+`func (o *ProjectPeriodCreateDto) UnsetProjectId()`
 
-UnsetProjectID ensures that no value is present for ProjectID, not even an explicit nil
+UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

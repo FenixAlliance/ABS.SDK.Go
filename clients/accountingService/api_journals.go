@@ -103,6 +103,9 @@ func (a *JournalsAPIService) AggregateJournalEntryCreditsAsyncExecute(r ApiAggre
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.currencyId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "currencyId", r.currencyId, "form", "")
+	} else {
+		var defaultValue string = "USD.USA"
+		r.currencyId = &defaultValue
 	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
@@ -264,6 +267,9 @@ func (a *JournalsAPIService) AggregateJournalEntryDebitsAsyncExecute(r ApiAggreg
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.currencyId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "currencyId", r.currencyId, "form", "")
+	} else {
+		var defaultValue string = "USD.USA"
+		r.currencyId = &defaultValue
 	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
@@ -1574,6 +1580,162 @@ func (a *JournalsAPIService) GetJournalEntriesCountAsyncExecute(r ApiGetJournalE
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetJournalEntryDetailsAsyncRequest struct {
+	ctx context.Context
+	ApiService *JournalsAPIService
+	tenantId *string
+	journalId string
+	entryId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetJournalEntryDetailsAsyncRequest) TenantId(tenantId string) ApiGetJournalEntryDetailsAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetJournalEntryDetailsAsyncRequest) ApiVersion(apiVersion string) ApiGetJournalEntryDetailsAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetJournalEntryDetailsAsyncRequest) XApiVersion(xApiVersion string) ApiGetJournalEntryDetailsAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetJournalEntryDetailsAsyncRequest) Execute() (*JournalEntryDtoEnvelope, *http.Response, error) {
+	return r.ApiService.GetJournalEntryDetailsAsyncExecute(r)
+}
+
+/*
+GetJournalEntryDetailsAsync Get journal entry by ID
+
+Retrieves a single journal entry WITH its hydrated posting lines — each line's account, direction, description and currency facets (transaction / functional / account / USD).
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param journalId
+ @param entryId
+ @return ApiGetJournalEntryDetailsAsyncRequest
+*/
+func (a *JournalsAPIService) GetJournalEntryDetailsAsync(ctx context.Context, journalId string, entryId string) ApiGetJournalEntryDetailsAsyncRequest {
+	return ApiGetJournalEntryDetailsAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		journalId: journalId,
+		entryId: entryId,
+	}
+}
+
+// Execute executes the request
+//  @return JournalEntryDtoEnvelope
+func (a *JournalsAPIService) GetJournalEntryDetailsAsyncExecute(r ApiGetJournalEntryDetailsAsyncRequest) (*JournalEntryDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *JournalEntryDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JournalsAPIService.GetJournalEntryDetailsAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"journalId"+"}", url.PathEscape(parameterValueToString(r.journalId, "journalId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entryId"+"}", url.PathEscape(parameterValueToString(r.entryId, "entryId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetJournalsAsyncRequest struct {
 	ctx context.Context
 	ApiService *JournalsAPIService
@@ -2032,6 +2194,359 @@ func (a *JournalsAPIService) PatchJournalEntryAsyncExecute(r ApiPatchJournalEntr
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostJournalEntryAsyncRequest struct {
+	ctx context.Context
+	ApiService *JournalsAPIService
+	tenantId *string
+	journalId string
+	entryId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiPostJournalEntryAsyncRequest) TenantId(tenantId string) ApiPostJournalEntryAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiPostJournalEntryAsyncRequest) ApiVersion(apiVersion string) ApiPostJournalEntryAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiPostJournalEntryAsyncRequest) XApiVersion(xApiVersion string) ApiPostJournalEntryAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiPostJournalEntryAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.PostJournalEntryAsyncExecute(r)
+}
+
+/*
+PostJournalEntryAsync Post a draft journal entry
+
+Posts a DRAFT journal entry into its own open fiscal period. Enforces the balanced-entry invariant and the open-period gate, then seals the entry (immutable — correct via reversal, never edit/delete). An unbalanced draft or a closed period is rejected. Requires the journals_post permission.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param journalId
+ @param entryId
+ @return ApiPostJournalEntryAsyncRequest
+*/
+func (a *JournalsAPIService) PostJournalEntryAsync(ctx context.Context, journalId string, entryId string) ApiPostJournalEntryAsyncRequest {
+	return ApiPostJournalEntryAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		journalId: journalId,
+		entryId: entryId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *JournalsAPIService) PostJournalEntryAsyncExecute(r ApiPostJournalEntryAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JournalsAPIService.PostJournalEntryAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Post"
+	localVarPath = strings.Replace(localVarPath, "{"+"journalId"+"}", url.PathEscape(parameterValueToString(r.journalId, "journalId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entryId"+"}", url.PathEscape(parameterValueToString(r.entryId, "entryId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiReverseJournalEntryAsyncRequest struct {
+	ctx context.Context
+	ApiService *JournalsAPIService
+	tenantId *string
+	journalId string
+	entryId string
+	apiVersion *string
+	xApiVersion *string
+	reverseJournalEntryRequest *ReverseJournalEntryRequest
+}
+
+func (r ApiReverseJournalEntryAsyncRequest) TenantId(tenantId string) ApiReverseJournalEntryAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiReverseJournalEntryAsyncRequest) ApiVersion(apiVersion string) ApiReverseJournalEntryAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiReverseJournalEntryAsyncRequest) XApiVersion(xApiVersion string) ApiReverseJournalEntryAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiReverseJournalEntryAsyncRequest) ReverseJournalEntryRequest(reverseJournalEntryRequest ReverseJournalEntryRequest) ApiReverseJournalEntryAsyncRequest {
+	r.reverseJournalEntryRequest = &reverseJournalEntryRequest
+	return r
+}
+
+func (r ApiReverseJournalEntryAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.ReverseJournalEntryAsyncExecute(r)
+}
+
+/*
+ReverseJournalEntryAsync Reverse a posted journal entry
+
+Reverses a POSTED journal entry by writing a balanced compensating counter-entry into the supplied open fiscal period and marking the original Reversed — one atomic operation (append-only audit trail). Requires the journals_reverse permission.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param journalId
+ @param entryId
+ @return ApiReverseJournalEntryAsyncRequest
+*/
+func (a *JournalsAPIService) ReverseJournalEntryAsync(ctx context.Context, journalId string, entryId string) ApiReverseJournalEntryAsyncRequest {
+	return ApiReverseJournalEntryAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		journalId: journalId,
+		entryId: entryId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *JournalsAPIService) ReverseJournalEntryAsyncExecute(r ApiReverseJournalEntryAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JournalsAPIService.ReverseJournalEntryAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Reverse"
+	localVarPath = strings.Replace(localVarPath, "{"+"journalId"+"}", url.PathEscape(parameterValueToString(r.journalId, "journalId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entryId"+"}", url.PathEscape(parameterValueToString(r.entryId, "entryId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.reverseJournalEntryRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

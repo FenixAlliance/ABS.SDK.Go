@@ -38,8 +38,6 @@ type ContactUpdateDto struct {
 	JobTitle NullableString `json:"jobTitle,omitempty"`
 	CountryId NullableString `json:"countryId,omitempty"`
 	ParentContactId NullableString `json:"parentContactId,omitempty"`
-	AddressLine1 NullableString `json:"addressLine1,omitempty"`
-	AddressLine2 NullableString `json:"addressLine2,omitempty"`
 	PostalCode NullableString `json:"postalCode,omitempty"`
 	StateId NullableString `json:"stateId,omitempty"`
 	CityId NullableString `json:"cityId,omitempty"`
@@ -663,90 +661,6 @@ func (o *ContactUpdateDto) SetParentContactIdNil() {
 // UnsetParentContactId ensures that no value is present for ParentContactId, not even an explicit nil
 func (o *ContactUpdateDto) UnsetParentContactId() {
 	o.ParentContactId.Unset()
-}
-
-// GetAddressLine1 returns the AddressLine1 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ContactUpdateDto) GetAddressLine1() string {
-	if o == nil || IsNil(o.AddressLine1.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.AddressLine1.Get()
-}
-
-// GetAddressLine1Ok returns a tuple with the AddressLine1 field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ContactUpdateDto) GetAddressLine1Ok() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AddressLine1.Get(), o.AddressLine1.IsSet()
-}
-
-// HasAddressLine1 returns a boolean if a field has been set.
-func (o *ContactUpdateDto) HasAddressLine1() bool {
-	if o != nil && o.AddressLine1.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAddressLine1 gets a reference to the given NullableString and assigns it to the AddressLine1 field.
-func (o *ContactUpdateDto) SetAddressLine1(v string) {
-	o.AddressLine1.Set(&v)
-}
-// SetAddressLine1Nil sets the value for AddressLine1 to be an explicit nil
-func (o *ContactUpdateDto) SetAddressLine1Nil() {
-	o.AddressLine1.Set(nil)
-}
-
-// UnsetAddressLine1 ensures that no value is present for AddressLine1, not even an explicit nil
-func (o *ContactUpdateDto) UnsetAddressLine1() {
-	o.AddressLine1.Unset()
-}
-
-// GetAddressLine2 returns the AddressLine2 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ContactUpdateDto) GetAddressLine2() string {
-	if o == nil || IsNil(o.AddressLine2.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.AddressLine2.Get()
-}
-
-// GetAddressLine2Ok returns a tuple with the AddressLine2 field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ContactUpdateDto) GetAddressLine2Ok() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AddressLine2.Get(), o.AddressLine2.IsSet()
-}
-
-// HasAddressLine2 returns a boolean if a field has been set.
-func (o *ContactUpdateDto) HasAddressLine2() bool {
-	if o != nil && o.AddressLine2.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAddressLine2 gets a reference to the given NullableString and assigns it to the AddressLine2 field.
-func (o *ContactUpdateDto) SetAddressLine2(v string) {
-	o.AddressLine2.Set(&v)
-}
-// SetAddressLine2Nil sets the value for AddressLine2 to be an explicit nil
-func (o *ContactUpdateDto) SetAddressLine2Nil() {
-	o.AddressLine2.Set(nil)
-}
-
-// UnsetAddressLine2 ensures that no value is present for AddressLine2, not even an explicit nil
-func (o *ContactUpdateDto) UnsetAddressLine2() {
-	o.AddressLine2.Unset()
 }
 
 // GetPostalCode returns the PostalCode field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1847,12 +1761,6 @@ func (o ContactUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ParentContactId.IsSet() {
 		toSerialize["parentContactId"] = o.ParentContactId.Get()
-	}
-	if o.AddressLine1.IsSet() {
-		toSerialize["addressLine1"] = o.AddressLine1.Get()
-	}
-	if o.AddressLine2.IsSet() {
-		toSerialize["addressLine2"] = o.AddressLine2.Get()
 	}
 	if o.PostalCode.IsSet() {
 		toSerialize["postalCode"] = o.PostalCode.Get()

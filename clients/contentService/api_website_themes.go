@@ -469,18 +469,12 @@ type ApiGetWebsiteThemesAsyncRequest struct {
 	ctx context.Context
 	ApiService *WebsiteThemesAPIService
 	tenantId *string
-	oDataQueryOptions *WebsiteThemeDtoODataQueryOptions
 	apiVersion *string
 	xApiVersion *string
 }
 
 func (r ApiGetWebsiteThemesAsyncRequest) TenantId(tenantId string) ApiGetWebsiteThemesAsyncRequest {
 	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetWebsiteThemesAsyncRequest) ODataQueryOptions(oDataQueryOptions WebsiteThemeDtoODataQueryOptions) ApiGetWebsiteThemesAsyncRequest {
-	r.oDataQueryOptions = &oDataQueryOptions
 	return r
 }
 
@@ -538,9 +532,6 @@ func (a *WebsiteThemesAPIService) GetWebsiteThemesAsyncExecute(r ApiGetWebsiteTh
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	if r.oDataQueryOptions != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "oDataQueryOptions", r.oDataQueryOptions, "form", "")
-	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
@@ -616,18 +607,12 @@ type ApiGetWebsiteThemesCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *WebsiteThemesAPIService
 	tenantId *string
-	oDataQueryOptions *WebsiteThemeDtoODataQueryOptions
 	apiVersion *string
 	xApiVersion *string
 }
 
 func (r ApiGetWebsiteThemesCountAsyncRequest) TenantId(tenantId string) ApiGetWebsiteThemesCountAsyncRequest {
 	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetWebsiteThemesCountAsyncRequest) ODataQueryOptions(oDataQueryOptions WebsiteThemeDtoODataQueryOptions) ApiGetWebsiteThemesCountAsyncRequest {
-	r.oDataQueryOptions = &oDataQueryOptions
 	return r
 }
 
@@ -685,9 +670,6 @@ func (a *WebsiteThemesAPIService) GetWebsiteThemesCountAsyncExecute(r ApiGetWebs
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	if r.oDataQueryOptions != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "oDataQueryOptions", r.oDataQueryOptions, "form", "")
-	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}

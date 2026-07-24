@@ -698,18 +698,12 @@ type ApiGetBlockchainBlocksAsyncRequest struct {
 	ApiService *BlockchainsAPIService
 	tenantId *string
 	blockchainId string
-	oDataQueryOptions *BlockchainBlockDtoODataQueryOptions
 	apiVersion *string
 	xApiVersion *string
 }
 
 func (r ApiGetBlockchainBlocksAsyncRequest) TenantId(tenantId string) ApiGetBlockchainBlocksAsyncRequest {
 	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetBlockchainBlocksAsyncRequest) ODataQueryOptions(oDataQueryOptions BlockchainBlockDtoODataQueryOptions) ApiGetBlockchainBlocksAsyncRequest {
-	r.oDataQueryOptions = &oDataQueryOptions
 	return r
 }
 
@@ -768,9 +762,6 @@ func (a *BlockchainsAPIService) GetBlockchainBlocksAsyncExecute(r ApiGetBlockcha
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	if r.oDataQueryOptions != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "oDataQueryOptions", r.oDataQueryOptions, "form", "")
-	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
@@ -836,18 +827,12 @@ type ApiGetBlockchainBlocksCountAsyncRequest struct {
 	ApiService *BlockchainsAPIService
 	tenantId *string
 	blockchainId string
-	oDataQueryOptions *BlockchainBlockDtoODataQueryOptions
 	apiVersion *string
 	xApiVersion *string
 }
 
 func (r ApiGetBlockchainBlocksCountAsyncRequest) TenantId(tenantId string) ApiGetBlockchainBlocksCountAsyncRequest {
 	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetBlockchainBlocksCountAsyncRequest) ODataQueryOptions(oDataQueryOptions BlockchainBlockDtoODataQueryOptions) ApiGetBlockchainBlocksCountAsyncRequest {
-	r.oDataQueryOptions = &oDataQueryOptions
 	return r
 }
 
@@ -906,9 +891,6 @@ func (a *BlockchainsAPIService) GetBlockchainBlocksCountAsyncExecute(r ApiGetBlo
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	if r.oDataQueryOptions != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "oDataQueryOptions", r.oDataQueryOptions, "form", "")
-	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
@@ -1126,18 +1108,12 @@ type ApiGetBlockchainsAsyncRequest struct {
 	ctx context.Context
 	ApiService *BlockchainsAPIService
 	tenantId *string
-	oDataQueryOptions *BlockchainDtoODataQueryOptions
 	apiVersion *string
 	xApiVersion *string
 }
 
 func (r ApiGetBlockchainsAsyncRequest) TenantId(tenantId string) ApiGetBlockchainsAsyncRequest {
 	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetBlockchainsAsyncRequest) ODataQueryOptions(oDataQueryOptions BlockchainDtoODataQueryOptions) ApiGetBlockchainsAsyncRequest {
-	r.oDataQueryOptions = &oDataQueryOptions
 	return r
 }
 
@@ -1195,9 +1171,6 @@ func (a *BlockchainsAPIService) GetBlockchainsAsyncExecute(r ApiGetBlockchainsAs
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	if r.oDataQueryOptions != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "oDataQueryOptions", r.oDataQueryOptions, "form", "")
-	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
@@ -1273,18 +1246,12 @@ type ApiGetBlockchainsCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *BlockchainsAPIService
 	tenantId *string
-	oDataQueryOptions *BlockchainDtoODataQueryOptions
 	apiVersion *string
 	xApiVersion *string
 }
 
 func (r ApiGetBlockchainsCountAsyncRequest) TenantId(tenantId string) ApiGetBlockchainsCountAsyncRequest {
 	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetBlockchainsCountAsyncRequest) ODataQueryOptions(oDataQueryOptions BlockchainDtoODataQueryOptions) ApiGetBlockchainsCountAsyncRequest {
-	r.oDataQueryOptions = &oDataQueryOptions
 	return r
 }
 
@@ -1342,9 +1309,6 @@ func (a *BlockchainsAPIService) GetBlockchainsCountAsyncExecute(r ApiGetBlockcha
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	if r.oDataQueryOptions != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "oDataQueryOptions", r.oDataQueryOptions, "form", "")
-	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}

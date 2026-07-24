@@ -8,7 +8,9 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **PeriodStartDate** | Pointer to **time.Time** |  | [optional] 
 **PeriodEndDate** | Pointer to **time.Time** |  | [optional] 
-**ProjectID** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **NullableString** |  | [optional] 
+**EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -149,41 +151,111 @@ SetPeriodEndDate sets PeriodEndDate field to given value.
 
 HasPeriodEndDate returns a boolean if a field has been set.
 
-### GetProjectID
+### GetProjectId
 
-`func (o *ProjectPeriodDto) GetProjectID() string`
+`func (o *ProjectPeriodDto) GetProjectId() string`
 
-GetProjectID returns the ProjectID field if non-nil, zero value otherwise.
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
 
-### GetProjectIDOk
+### GetProjectIdOk
 
-`func (o *ProjectPeriodDto) GetProjectIDOk() (*string, bool)`
+`func (o *ProjectPeriodDto) GetProjectIdOk() (*string, bool)`
 
-GetProjectIDOk returns a tuple with the ProjectID field if it's non-nil, zero value otherwise
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProjectID
+### SetProjectId
 
-`func (o *ProjectPeriodDto) SetProjectID(v string)`
+`func (o *ProjectPeriodDto) SetProjectId(v string)`
 
-SetProjectID sets ProjectID field to given value.
+SetProjectId sets ProjectId field to given value.
 
-### HasProjectID
+### HasProjectId
 
-`func (o *ProjectPeriodDto) HasProjectID() bool`
+`func (o *ProjectPeriodDto) HasProjectId() bool`
 
-HasProjectID returns a boolean if a field has been set.
+HasProjectId returns a boolean if a field has been set.
 
-### SetProjectIDNil
+### SetProjectIdNil
 
-`func (o *ProjectPeriodDto) SetProjectIDNil(b bool)`
+`func (o *ProjectPeriodDto) SetProjectIdNil(b bool)`
 
- SetProjectIDNil sets the value for ProjectID to be an explicit nil
+ SetProjectIdNil sets the value for ProjectId to be an explicit nil
 
-### UnsetProjectID
-`func (o *ProjectPeriodDto) UnsetProjectID()`
+### UnsetProjectId
+`func (o *ProjectPeriodDto) UnsetProjectId()`
 
-UnsetProjectID ensures that no value is present for ProjectID, not even an explicit nil
+UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
+### GetTenantId
+
+`func (o *ProjectPeriodDto) GetTenantId() string`
+
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
+
+### GetTenantIdOk
+
+`func (o *ProjectPeriodDto) GetTenantIdOk() (*string, bool)`
+
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTenantId
+
+`func (o *ProjectPeriodDto) SetTenantId(v string)`
+
+SetTenantId sets TenantId field to given value.
+
+### HasTenantId
+
+`func (o *ProjectPeriodDto) HasTenantId() bool`
+
+HasTenantId returns a boolean if a field has been set.
+
+### SetTenantIdNil
+
+`func (o *ProjectPeriodDto) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *ProjectPeriodDto) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+### GetEnrollmentId
+
+`func (o *ProjectPeriodDto) GetEnrollmentId() string`
+
+GetEnrollmentId returns the EnrollmentId field if non-nil, zero value otherwise.
+
+### GetEnrollmentIdOk
+
+`func (o *ProjectPeriodDto) GetEnrollmentIdOk() (*string, bool)`
+
+GetEnrollmentIdOk returns a tuple with the EnrollmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnrollmentId
+
+`func (o *ProjectPeriodDto) SetEnrollmentId(v string)`
+
+SetEnrollmentId sets EnrollmentId field to given value.
+
+### HasEnrollmentId
+
+`func (o *ProjectPeriodDto) HasEnrollmentId() bool`
+
+HasEnrollmentId returns a boolean if a field has been set.
+
+### SetEnrollmentIdNil
+
+`func (o *ProjectPeriodDto) SetEnrollmentIdNil(b bool)`
+
+ SetEnrollmentIdNil sets the value for EnrollmentId to be an explicit nil
+
+### UnsetEnrollmentId
+`func (o *ProjectPeriodDto) UnsetEnrollmentId()`
+
+UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

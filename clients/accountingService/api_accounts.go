@@ -99,6 +99,9 @@ func (a *AccountsAPIService) AggregateAccountsBalanceAsyncExecute(r ApiAggregate
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.currencyId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "currencyId", r.currencyId, "form", "")
+	} else {
+		var defaultValue string = "USD.USA"
+		r.currencyId = &defaultValue
 	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
@@ -2175,6 +2178,9 @@ func (a *AccountsAPIService) GetAccountAggregateAsyncExecute(r ApiGetAccountAggr
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.currencyId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "currencyId", r.currencyId, "form", "")
+	} else {
+		var defaultValue string = "USD.USA"
+		r.currencyId = &defaultValue
 	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")

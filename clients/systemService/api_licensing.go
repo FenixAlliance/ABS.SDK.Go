@@ -24,6 +24,290 @@ import (
 // LicensingAPIService LicensingAPI service
 type LicensingAPIService service
 
+type ApiGetAttributesForLicenseAsyncRequest struct {
+	ctx context.Context
+	ApiService *LicensingAPIService
+	tenantId *string
+	licenseId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetAttributesForLicenseAsyncRequest) TenantId(tenantId string) ApiGetAttributesForLicenseAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAttributesForLicenseAsyncRequest) ApiVersion(apiVersion string) ApiGetAttributesForLicenseAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetAttributesForLicenseAsyncRequest) XApiVersion(xApiVersion string) ApiGetAttributesForLicenseAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAttributesForLicenseAsyncRequest) Execute() (*SuiteLicenseAssignmentDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetAttributesForLicenseAsyncExecute(r)
+}
+
+/*
+GetAttributesForLicenseAsync Retrieve license attributes
+
+Retrieves all additional attributes for a given license.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param licenseId
+ @return ApiGetAttributesForLicenseAsyncRequest
+*/
+func (a *LicensingAPIService) GetAttributesForLicenseAsync(ctx context.Context, licenseId string) ApiGetAttributesForLicenseAsyncRequest {
+	return ApiGetAttributesForLicenseAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		licenseId: licenseId,
+	}
+}
+
+// Execute executes the request
+//  @return SuiteLicenseAssignmentDtoListEnvelope
+func (a *LicensingAPIService) GetAttributesForLicenseAsyncExecute(r ApiGetAttributesForLicenseAsyncRequest) (*SuiteLicenseAssignmentDtoListEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SuiteLicenseAssignmentDtoListEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LicensingAPIService.GetAttributesForLicenseAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes"
+	localVarPath = strings.Replace(localVarPath, "{"+"licenseId"+"}", url.PathEscape(parameterValueToString(r.licenseId, "licenseId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json;odata.metadata=minimal;odata.streaming=true", "application/json;odata.metadata=minimal;odata.streaming=false", "application/json;odata.metadata=minimal", "application/json;odata.metadata=full;odata.streaming=true", "application/json;odata.metadata=full;odata.streaming=false", "application/json;odata.metadata=full", "application/json;odata.metadata=none;odata.streaming=true", "application/json;odata.metadata=none;odata.streaming=false", "application/json;odata.metadata=none", "application/json;odata.streaming=true", "application/json;odata.streaming=false", "application/json", "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=minimal;IEEE754Compatible=false", "application/json;odata.metadata=minimal;IEEE754Compatible=true", "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=full;IEEE754Compatible=false", "application/json;odata.metadata=full;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=none;IEEE754Compatible=false", "application/json;odata.metadata=none;IEEE754Compatible=true", "application/json;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.streaming=false;IEEE754Compatible=true", "application/json;IEEE754Compatible=false", "application/json;IEEE754Compatible=true", "application/xml", "text/plain", "application/octet-stream", "text/json", "text/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetFeaturesForLicenseAsyncRequest struct {
+	ctx context.Context
+	ApiService *LicensingAPIService
+	tenantId *string
+	licenseId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetFeaturesForLicenseAsyncRequest) TenantId(tenantId string) ApiGetFeaturesForLicenseAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetFeaturesForLicenseAsyncRequest) ApiVersion(apiVersion string) ApiGetFeaturesForLicenseAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetFeaturesForLicenseAsyncRequest) XApiVersion(xApiVersion string) ApiGetFeaturesForLicenseAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFeaturesForLicenseAsyncRequest) Execute() (*SuiteLicenseAssignmentDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetFeaturesForLicenseAsyncExecute(r)
+}
+
+/*
+GetFeaturesForLicenseAsync Retrieve license features
+
+Retrieves all features for a given license.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param licenseId
+ @return ApiGetFeaturesForLicenseAsyncRequest
+*/
+func (a *LicensingAPIService) GetFeaturesForLicenseAsync(ctx context.Context, licenseId string) ApiGetFeaturesForLicenseAsyncRequest {
+	return ApiGetFeaturesForLicenseAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		licenseId: licenseId,
+	}
+}
+
+// Execute executes the request
+//  @return SuiteLicenseAssignmentDtoListEnvelope
+func (a *LicensingAPIService) GetFeaturesForLicenseAsyncExecute(r ApiGetFeaturesForLicenseAsyncRequest) (*SuiteLicenseAssignmentDtoListEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SuiteLicenseAssignmentDtoListEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LicensingAPIService.GetFeaturesForLicenseAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SystemService/Licensing/Licenses/{licenseId}/Features"
+	localVarPath = strings.Replace(localVarPath, "{"+"licenseId"+"}", url.PathEscape(parameterValueToString(r.licenseId, "licenseId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json;odata.metadata=minimal;odata.streaming=true", "application/json;odata.metadata=minimal;odata.streaming=false", "application/json;odata.metadata=minimal", "application/json;odata.metadata=full;odata.streaming=true", "application/json;odata.metadata=full;odata.streaming=false", "application/json;odata.metadata=full", "application/json;odata.metadata=none;odata.streaming=true", "application/json;odata.metadata=none;odata.streaming=false", "application/json;odata.metadata=none", "application/json;odata.streaming=true", "application/json;odata.streaming=false", "application/json", "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=minimal;IEEE754Compatible=false", "application/json;odata.metadata=minimal;IEEE754Compatible=true", "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=full;IEEE754Compatible=false", "application/json;odata.metadata=full;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=none;IEEE754Compatible=false", "application/json;odata.metadata=none;IEEE754Compatible=true", "application/json;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.streaming=false;IEEE754Compatible=true", "application/json;IEEE754Compatible=false", "application/json;IEEE754Compatible=true", "application/xml", "text/plain", "application/octet-stream", "text/json", "text/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetLicenseAssignmentsAsyncRequest struct {
 	ctx context.Context
 	ApiService *LicensingAPIService
@@ -166,148 +450,6 @@ func (a *LicensingAPIService) GetLicenseAssignmentsAsyncExecute(r ApiGetLicenseA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetLicenseAttributesAsyncRequest struct {
-	ctx context.Context
-	ApiService *LicensingAPIService
-	tenantId *string
-	licenseId string
-	apiVersion *string
-	xApiVersion *string
-}
-
-func (r ApiGetLicenseAttributesAsyncRequest) TenantId(tenantId string) ApiGetLicenseAttributesAsyncRequest {
-	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetLicenseAttributesAsyncRequest) ApiVersion(apiVersion string) ApiGetLicenseAttributesAsyncRequest {
-	r.apiVersion = &apiVersion
-	return r
-}
-
-func (r ApiGetLicenseAttributesAsyncRequest) XApiVersion(xApiVersion string) ApiGetLicenseAttributesAsyncRequest {
-	r.xApiVersion = &xApiVersion
-	return r
-}
-
-func (r ApiGetLicenseAttributesAsyncRequest) Execute() (*SuiteLicenseAssignmentDtoListEnvelope, *http.Response, error) {
-	return r.ApiService.GetLicenseAttributesAsyncExecute(r)
-}
-
-/*
-GetLicenseAttributesAsync Retrieve license attributes
-
-Retrieves all additional attributes for a given license.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param licenseId
- @return ApiGetLicenseAttributesAsyncRequest
-*/
-func (a *LicensingAPIService) GetLicenseAttributesAsync(ctx context.Context, licenseId string) ApiGetLicenseAttributesAsyncRequest {
-	return ApiGetLicenseAttributesAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		licenseId: licenseId,
-	}
-}
-
-// Execute executes the request
-//  @return SuiteLicenseAssignmentDtoListEnvelope
-func (a *LicensingAPIService) GetLicenseAttributesAsyncExecute(r ApiGetLicenseAttributesAsyncRequest) (*SuiteLicenseAssignmentDtoListEnvelope, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SuiteLicenseAssignmentDtoListEnvelope
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LicensingAPIService.GetLicenseAttributesAsync")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes"
-	localVarPath = strings.Replace(localVarPath, "{"+"licenseId"+"}", url.PathEscape(parameterValueToString(r.licenseId, "licenseId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.tenantId == nil {
-		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	if r.apiVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json;odata.metadata=minimal;odata.streaming=true", "application/json;odata.metadata=minimal;odata.streaming=false", "application/json;odata.metadata=minimal", "application/json;odata.metadata=full;odata.streaming=true", "application/json;odata.metadata=full;odata.streaming=false", "application/json;odata.metadata=full", "application/json;odata.metadata=none;odata.streaming=true", "application/json;odata.metadata=none;odata.streaming=false", "application/json;odata.metadata=none", "application/json;odata.streaming=true", "application/json;odata.streaming=false", "application/json", "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=minimal;IEEE754Compatible=false", "application/json;odata.metadata=minimal;IEEE754Compatible=true", "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=full;IEEE754Compatible=false", "application/json;odata.metadata=full;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=none;IEEE754Compatible=false", "application/json;odata.metadata=none;IEEE754Compatible=true", "application/json;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.streaming=false;IEEE754Compatible=true", "application/json;IEEE754Compatible=false", "application/json;IEEE754Compatible=true", "application/xml", "text/plain", "application/octet-stream", "text/json", "text/xml"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.xApiVersion != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiGetLicenseByIdAsyncRequest struct {
 	ctx context.Context
 	ApiService *LicensingAPIService
@@ -369,148 +511,6 @@ func (a *LicensingAPIService) GetLicenseByIdAsyncExecute(r ApiGetLicenseByIdAsyn
 	}
 
 	localVarPath := localBasePath + "/api/v2/SystemService/Licensing/Licenses/{licenseId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"licenseId"+"}", url.PathEscape(parameterValueToString(r.licenseId, "licenseId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.tenantId == nil {
-		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
-	if r.apiVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json;odata.metadata=minimal;odata.streaming=true", "application/json;odata.metadata=minimal;odata.streaming=false", "application/json;odata.metadata=minimal", "application/json;odata.metadata=full;odata.streaming=true", "application/json;odata.metadata=full;odata.streaming=false", "application/json;odata.metadata=full", "application/json;odata.metadata=none;odata.streaming=true", "application/json;odata.metadata=none;odata.streaming=false", "application/json;odata.metadata=none", "application/json;odata.streaming=true", "application/json;odata.streaming=false", "application/json", "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=minimal;IEEE754Compatible=false", "application/json;odata.metadata=minimal;IEEE754Compatible=true", "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=full;IEEE754Compatible=false", "application/json;odata.metadata=full;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true", "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.metadata=none;IEEE754Compatible=false", "application/json;odata.metadata=none;IEEE754Compatible=true", "application/json;odata.streaming=true;IEEE754Compatible=false", "application/json;odata.streaming=true;IEEE754Compatible=true", "application/json;odata.streaming=false;IEEE754Compatible=false", "application/json;odata.streaming=false;IEEE754Compatible=true", "application/json;IEEE754Compatible=false", "application/json;IEEE754Compatible=true", "application/xml", "text/plain", "application/octet-stream", "text/json", "text/xml"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.xApiVersion != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorEnvelope
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetLicenseFeaturesAsyncRequest struct {
-	ctx context.Context
-	ApiService *LicensingAPIService
-	tenantId *string
-	licenseId string
-	apiVersion *string
-	xApiVersion *string
-}
-
-func (r ApiGetLicenseFeaturesAsyncRequest) TenantId(tenantId string) ApiGetLicenseFeaturesAsyncRequest {
-	r.tenantId = &tenantId
-	return r
-}
-
-func (r ApiGetLicenseFeaturesAsyncRequest) ApiVersion(apiVersion string) ApiGetLicenseFeaturesAsyncRequest {
-	r.apiVersion = &apiVersion
-	return r
-}
-
-func (r ApiGetLicenseFeaturesAsyncRequest) XApiVersion(xApiVersion string) ApiGetLicenseFeaturesAsyncRequest {
-	r.xApiVersion = &xApiVersion
-	return r
-}
-
-func (r ApiGetLicenseFeaturesAsyncRequest) Execute() (*SuiteLicenseAssignmentDtoListEnvelope, *http.Response, error) {
-	return r.ApiService.GetLicenseFeaturesAsyncExecute(r)
-}
-
-/*
-GetLicenseFeaturesAsync Retrieve license features
-
-Retrieves all features for a given license.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param licenseId
- @return ApiGetLicenseFeaturesAsyncRequest
-*/
-func (a *LicensingAPIService) GetLicenseFeaturesAsync(ctx context.Context, licenseId string) ApiGetLicenseFeaturesAsyncRequest {
-	return ApiGetLicenseFeaturesAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		licenseId: licenseId,
-	}
-}
-
-// Execute executes the request
-//  @return SuiteLicenseAssignmentDtoListEnvelope
-func (a *LicensingAPIService) GetLicenseFeaturesAsyncExecute(r ApiGetLicenseFeaturesAsyncRequest) (*SuiteLicenseAssignmentDtoListEnvelope, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SuiteLicenseAssignmentDtoListEnvelope
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LicensingAPIService.GetLicenseFeaturesAsync")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/SystemService/Licensing/Licenses/{licenseId}/Features"
 	localVarPath = strings.Replace(localVarPath, "{"+"licenseId"+"}", url.PathEscape(parameterValueToString(r.licenseId, "licenseId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

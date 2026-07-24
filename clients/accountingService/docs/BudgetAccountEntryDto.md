@@ -6,24 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableTime** |  | [optional] 
-**Debit** | Pointer to **float64** |  | [optional] 
-**Credit** | Pointer to **float64** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**ForexRate** | Pointer to **float64** |  | [optional] 
-**AccountId** | Pointer to **NullableString** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
-**Date** | Pointer to **NullableTime** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
+**PlannedAmount** | Pointer to **float64** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **DebitAccountId** | Pointer to **NullableString** |  | [optional] 
 **CreditAccountId** | Pointer to **NullableString** |  | [optional] 
-**JournalEntryId** | Pointer to **NullableString** |  | [optional] 
-**DebitAccountName** | Pointer to **NullableString** |  | [optional] 
-**CreditAccountName** | Pointer to **NullableString** |  | [optional] 
-**AccountingEntryType** | Pointer to **string** |  | [optional] 
-**DebitAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
-**CreditAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
 **BudgetId** | Pointer to **NullableString** |  | [optional] 
+**Date** | Pointer to **NullableTime** |  | [optional] 
+**PlannedAmountMoney** | Pointer to [**Money**](Money.md) |  | [optional] 
 
 ## Methods
 
@@ -114,151 +106,6 @@ HasTimestamp returns a boolean if a field has been set.
 `func (o *BudgetAccountEntryDto) UnsetTimestamp()`
 
 UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-### GetDebit
-
-`func (o *BudgetAccountEntryDto) GetDebit() float64`
-
-GetDebit returns the Debit field if non-nil, zero value otherwise.
-
-### GetDebitOk
-
-`func (o *BudgetAccountEntryDto) GetDebitOk() (*float64, bool)`
-
-GetDebitOk returns a tuple with the Debit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDebit
-
-`func (o *BudgetAccountEntryDto) SetDebit(v float64)`
-
-SetDebit sets Debit field to given value.
-
-### HasDebit
-
-`func (o *BudgetAccountEntryDto) HasDebit() bool`
-
-HasDebit returns a boolean if a field has been set.
-
-### GetCredit
-
-`func (o *BudgetAccountEntryDto) GetCredit() float64`
-
-GetCredit returns the Credit field if non-nil, zero value otherwise.
-
-### GetCreditOk
-
-`func (o *BudgetAccountEntryDto) GetCreditOk() (*float64, bool)`
-
-GetCreditOk returns a tuple with the Credit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCredit
-
-`func (o *BudgetAccountEntryDto) SetCredit(v float64)`
-
-SetCredit sets Credit field to given value.
-
-### HasCredit
-
-`func (o *BudgetAccountEntryDto) HasCredit() bool`
-
-HasCredit returns a boolean if a field has been set.
-
-### GetDescription
-
-`func (o *BudgetAccountEntryDto) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *BudgetAccountEntryDto) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *BudgetAccountEntryDto) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *BudgetAccountEntryDto) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
-### SetDescriptionNil
-
-`func (o *BudgetAccountEntryDto) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *BudgetAccountEntryDto) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetForexRate
-
-`func (o *BudgetAccountEntryDto) GetForexRate() float64`
-
-GetForexRate returns the ForexRate field if non-nil, zero value otherwise.
-
-### GetForexRateOk
-
-`func (o *BudgetAccountEntryDto) GetForexRateOk() (*float64, bool)`
-
-GetForexRateOk returns a tuple with the ForexRate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetForexRate
-
-`func (o *BudgetAccountEntryDto) SetForexRate(v float64)`
-
-SetForexRate sets ForexRate field to given value.
-
-### HasForexRate
-
-`func (o *BudgetAccountEntryDto) HasForexRate() bool`
-
-HasForexRate returns a boolean if a field has been set.
-
-### GetAccountId
-
-`func (o *BudgetAccountEntryDto) GetAccountId() string`
-
-GetAccountId returns the AccountId field if non-nil, zero value otherwise.
-
-### GetAccountIdOk
-
-`func (o *BudgetAccountEntryDto) GetAccountIdOk() (*string, bool)`
-
-GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountId
-
-`func (o *BudgetAccountEntryDto) SetAccountId(v string)`
-
-SetAccountId sets AccountId field to given value.
-
-### HasAccountId
-
-`func (o *BudgetAccountEntryDto) HasAccountId() bool`
-
-HasAccountId returns a boolean if a field has been set.
-
-### SetAccountIdNil
-
-`func (o *BudgetAccountEntryDto) SetAccountIdNil(b bool)`
-
- SetAccountIdNil sets the value for AccountId to be an explicit nil
-
-### UnsetAccountId
-`func (o *BudgetAccountEntryDto) UnsetAccountId()`
-
-UnsetAccountId ensures that no value is present for AccountId, not even an explicit nil
 ### GetTenantId
 
 `func (o *BudgetAccountEntryDto) GetTenantId() string`
@@ -294,41 +141,6 @@ HasTenantId returns a boolean if a field has been set.
 `func (o *BudgetAccountEntryDto) UnsetTenantId()`
 
 UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-### GetDate
-
-`func (o *BudgetAccountEntryDto) GetDate() time.Time`
-
-GetDate returns the Date field if non-nil, zero value otherwise.
-
-### GetDateOk
-
-`func (o *BudgetAccountEntryDto) GetDateOk() (*time.Time, bool)`
-
-GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDate
-
-`func (o *BudgetAccountEntryDto) SetDate(v time.Time)`
-
-SetDate sets Date field to given value.
-
-### HasDate
-
-`func (o *BudgetAccountEntryDto) HasDate() bool`
-
-HasDate returns a boolean if a field has been set.
-
-### SetDateNil
-
-`func (o *BudgetAccountEntryDto) SetDateNil(b bool)`
-
- SetDateNil sets the value for Date to be an explicit nil
-
-### UnsetDate
-`func (o *BudgetAccountEntryDto) UnsetDate()`
-
-UnsetDate ensures that no value is present for Date, not even an explicit nil
 ### GetEnrollmentId
 
 `func (o *BudgetAccountEntryDto) GetEnrollmentId() string`
@@ -364,6 +176,66 @@ HasEnrollmentId returns a boolean if a field has been set.
 `func (o *BudgetAccountEntryDto) UnsetEnrollmentId()`
 
 UnsetEnrollmentId ensures that no value is present for EnrollmentId, not even an explicit nil
+### GetDescription
+
+`func (o *BudgetAccountEntryDto) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *BudgetAccountEntryDto) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *BudgetAccountEntryDto) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *BudgetAccountEntryDto) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *BudgetAccountEntryDto) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *BudgetAccountEntryDto) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetPlannedAmount
+
+`func (o *BudgetAccountEntryDto) GetPlannedAmount() float64`
+
+GetPlannedAmount returns the PlannedAmount field if non-nil, zero value otherwise.
+
+### GetPlannedAmountOk
+
+`func (o *BudgetAccountEntryDto) GetPlannedAmountOk() (*float64, bool)`
+
+GetPlannedAmountOk returns a tuple with the PlannedAmount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlannedAmount
+
+`func (o *BudgetAccountEntryDto) SetPlannedAmount(v float64)`
+
+SetPlannedAmount sets PlannedAmount field to given value.
+
+### HasPlannedAmount
+
+`func (o *BudgetAccountEntryDto) HasPlannedAmount() bool`
+
+HasPlannedAmount returns a boolean if a field has been set.
+
 ### GetCurrencyId
 
 `func (o *BudgetAccountEntryDto) GetCurrencyId() string`
@@ -469,186 +341,6 @@ HasCreditAccountId returns a boolean if a field has been set.
 `func (o *BudgetAccountEntryDto) UnsetCreditAccountId()`
 
 UnsetCreditAccountId ensures that no value is present for CreditAccountId, not even an explicit nil
-### GetJournalEntryId
-
-`func (o *BudgetAccountEntryDto) GetJournalEntryId() string`
-
-GetJournalEntryId returns the JournalEntryId field if non-nil, zero value otherwise.
-
-### GetJournalEntryIdOk
-
-`func (o *BudgetAccountEntryDto) GetJournalEntryIdOk() (*string, bool)`
-
-GetJournalEntryIdOk returns a tuple with the JournalEntryId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetJournalEntryId
-
-`func (o *BudgetAccountEntryDto) SetJournalEntryId(v string)`
-
-SetJournalEntryId sets JournalEntryId field to given value.
-
-### HasJournalEntryId
-
-`func (o *BudgetAccountEntryDto) HasJournalEntryId() bool`
-
-HasJournalEntryId returns a boolean if a field has been set.
-
-### SetJournalEntryIdNil
-
-`func (o *BudgetAccountEntryDto) SetJournalEntryIdNil(b bool)`
-
- SetJournalEntryIdNil sets the value for JournalEntryId to be an explicit nil
-
-### UnsetJournalEntryId
-`func (o *BudgetAccountEntryDto) UnsetJournalEntryId()`
-
-UnsetJournalEntryId ensures that no value is present for JournalEntryId, not even an explicit nil
-### GetDebitAccountName
-
-`func (o *BudgetAccountEntryDto) GetDebitAccountName() string`
-
-GetDebitAccountName returns the DebitAccountName field if non-nil, zero value otherwise.
-
-### GetDebitAccountNameOk
-
-`func (o *BudgetAccountEntryDto) GetDebitAccountNameOk() (*string, bool)`
-
-GetDebitAccountNameOk returns a tuple with the DebitAccountName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDebitAccountName
-
-`func (o *BudgetAccountEntryDto) SetDebitAccountName(v string)`
-
-SetDebitAccountName sets DebitAccountName field to given value.
-
-### HasDebitAccountName
-
-`func (o *BudgetAccountEntryDto) HasDebitAccountName() bool`
-
-HasDebitAccountName returns a boolean if a field has been set.
-
-### SetDebitAccountNameNil
-
-`func (o *BudgetAccountEntryDto) SetDebitAccountNameNil(b bool)`
-
- SetDebitAccountNameNil sets the value for DebitAccountName to be an explicit nil
-
-### UnsetDebitAccountName
-`func (o *BudgetAccountEntryDto) UnsetDebitAccountName()`
-
-UnsetDebitAccountName ensures that no value is present for DebitAccountName, not even an explicit nil
-### GetCreditAccountName
-
-`func (o *BudgetAccountEntryDto) GetCreditAccountName() string`
-
-GetCreditAccountName returns the CreditAccountName field if non-nil, zero value otherwise.
-
-### GetCreditAccountNameOk
-
-`func (o *BudgetAccountEntryDto) GetCreditAccountNameOk() (*string, bool)`
-
-GetCreditAccountNameOk returns a tuple with the CreditAccountName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCreditAccountName
-
-`func (o *BudgetAccountEntryDto) SetCreditAccountName(v string)`
-
-SetCreditAccountName sets CreditAccountName field to given value.
-
-### HasCreditAccountName
-
-`func (o *BudgetAccountEntryDto) HasCreditAccountName() bool`
-
-HasCreditAccountName returns a boolean if a field has been set.
-
-### SetCreditAccountNameNil
-
-`func (o *BudgetAccountEntryDto) SetCreditAccountNameNil(b bool)`
-
- SetCreditAccountNameNil sets the value for CreditAccountName to be an explicit nil
-
-### UnsetCreditAccountName
-`func (o *BudgetAccountEntryDto) UnsetCreditAccountName()`
-
-UnsetCreditAccountName ensures that no value is present for CreditAccountName, not even an explicit nil
-### GetAccountingEntryType
-
-`func (o *BudgetAccountEntryDto) GetAccountingEntryType() string`
-
-GetAccountingEntryType returns the AccountingEntryType field if non-nil, zero value otherwise.
-
-### GetAccountingEntryTypeOk
-
-`func (o *BudgetAccountEntryDto) GetAccountingEntryTypeOk() (*string, bool)`
-
-GetAccountingEntryTypeOk returns a tuple with the AccountingEntryType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountingEntryType
-
-`func (o *BudgetAccountEntryDto) SetAccountingEntryType(v string)`
-
-SetAccountingEntryType sets AccountingEntryType field to given value.
-
-### HasAccountingEntryType
-
-`func (o *BudgetAccountEntryDto) HasAccountingEntryType() bool`
-
-HasAccountingEntryType returns a boolean if a field has been set.
-
-### GetDebitAmount
-
-`func (o *BudgetAccountEntryDto) GetDebitAmount() Money`
-
-GetDebitAmount returns the DebitAmount field if non-nil, zero value otherwise.
-
-### GetDebitAmountOk
-
-`func (o *BudgetAccountEntryDto) GetDebitAmountOk() (*Money, bool)`
-
-GetDebitAmountOk returns a tuple with the DebitAmount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDebitAmount
-
-`func (o *BudgetAccountEntryDto) SetDebitAmount(v Money)`
-
-SetDebitAmount sets DebitAmount field to given value.
-
-### HasDebitAmount
-
-`func (o *BudgetAccountEntryDto) HasDebitAmount() bool`
-
-HasDebitAmount returns a boolean if a field has been set.
-
-### GetCreditAmount
-
-`func (o *BudgetAccountEntryDto) GetCreditAmount() Money`
-
-GetCreditAmount returns the CreditAmount field if non-nil, zero value otherwise.
-
-### GetCreditAmountOk
-
-`func (o *BudgetAccountEntryDto) GetCreditAmountOk() (*Money, bool)`
-
-GetCreditAmountOk returns a tuple with the CreditAmount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCreditAmount
-
-`func (o *BudgetAccountEntryDto) SetCreditAmount(v Money)`
-
-SetCreditAmount sets CreditAmount field to given value.
-
-### HasCreditAmount
-
-`func (o *BudgetAccountEntryDto) HasCreditAmount() bool`
-
-HasCreditAmount returns a boolean if a field has been set.
-
 ### GetBudgetId
 
 `func (o *BudgetAccountEntryDto) GetBudgetId() string`
@@ -684,6 +376,66 @@ HasBudgetId returns a boolean if a field has been set.
 `func (o *BudgetAccountEntryDto) UnsetBudgetId()`
 
 UnsetBudgetId ensures that no value is present for BudgetId, not even an explicit nil
+### GetDate
+
+`func (o *BudgetAccountEntryDto) GetDate() time.Time`
+
+GetDate returns the Date field if non-nil, zero value otherwise.
+
+### GetDateOk
+
+`func (o *BudgetAccountEntryDto) GetDateOk() (*time.Time, bool)`
+
+GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDate
+
+`func (o *BudgetAccountEntryDto) SetDate(v time.Time)`
+
+SetDate sets Date field to given value.
+
+### HasDate
+
+`func (o *BudgetAccountEntryDto) HasDate() bool`
+
+HasDate returns a boolean if a field has been set.
+
+### SetDateNil
+
+`func (o *BudgetAccountEntryDto) SetDateNil(b bool)`
+
+ SetDateNil sets the value for Date to be an explicit nil
+
+### UnsetDate
+`func (o *BudgetAccountEntryDto) UnsetDate()`
+
+UnsetDate ensures that no value is present for Date, not even an explicit nil
+### GetPlannedAmountMoney
+
+`func (o *BudgetAccountEntryDto) GetPlannedAmountMoney() Money`
+
+GetPlannedAmountMoney returns the PlannedAmountMoney field if non-nil, zero value otherwise.
+
+### GetPlannedAmountMoneyOk
+
+`func (o *BudgetAccountEntryDto) GetPlannedAmountMoneyOk() (*Money, bool)`
+
+GetPlannedAmountMoneyOk returns a tuple with the PlannedAmountMoney field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlannedAmountMoney
+
+`func (o *BudgetAccountEntryDto) SetPlannedAmountMoney(v Money)`
+
+SetPlannedAmountMoney sets PlannedAmountMoney field to given value.
+
+### HasPlannedAmountMoney
+
+`func (o *BudgetAccountEntryDto) HasPlannedAmountMoney() bool`
+
+HasPlannedAmountMoney returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

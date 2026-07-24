@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**DeSelectTenantAsync**](TenantsAPI.md#DeSelectTenantAsync) | **Post** /api/v2/TenantsService/Tenants/Deselect | Deselect the user&#39;s default tenant
 [**DeleteTenantAsync**](TenantsAPI.md#DeleteTenantAsync) | **Delete** /api/v2/TenantsService/Tenants | Delete a tenant
 [**GetAccessibleFeaturesAsync**](TenantsAPI.md#GetAccessibleFeaturesAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Features | Get the list of features accessible to a specific enrollment
+[**GetCartForTenantAsync**](TenantsAPI.md#GetCartForTenantAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Cart | Get a tenant&#39;s default cart
 [**GetCurrentTenantAsync**](TenantsAPI.md#GetCurrentTenantAsync) | **Get** /api/v2/TenantsService/Tenants/Current | Get the user&#39;s current default tenant
 [**GetEnrollmentLicenseByIdAsync**](TenantsAPI.md#GetEnrollmentLicenseByIdAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Get a specific license for an enrollment
 [**GetEnrollmentLicensesAsync**](TenantsAPI.md#GetEnrollmentLicensesAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses | Get the list of licenses available to a specific enrollment
@@ -18,7 +19,6 @@ Method | HTTP request | Description
 [**GetRootTenantAsync**](TenantsAPI.md#GetRootTenantAsync) | **Get** /api/v2/TenantsService/Tenants/Root | Get the root tenant of the platform
 [**GetTenantAsync**](TenantsAPI.md#GetTenantAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId} | Get a specific tenant by ID
 [**GetTenantAvatarAsync**](TenantsAPI.md#GetTenantAvatarAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Get a tenant&#39;s avatar
-[**GetTenantCartAsync**](TenantsAPI.md#GetTenantCartAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Cart | Get a tenant&#39;s default cart
 [**GetTenantEnrollmentAsync**](TenantsAPI.md#GetTenantEnrollmentAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId} | Get a specific tenant enrollment
 [**GetTenantEnrollmentsAsync**](TenantsAPI.md#GetTenantEnrollmentsAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments | Get the list of user enrollments for a tenant
 [**GetTenantInvitationsAsync**](TenantsAPI.md#GetTenantInvitationsAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Invitations | Get the list of invitations issued by a tenant
@@ -35,8 +35,8 @@ Method | HTTP request | Description
 [**PatchTenantAsync**](TenantsAPI.md#PatchTenantAsync) | **Patch** /api/v2/TenantsService/Tenants/{tenantId} | Patch a tenant&#39;s profile
 [**RevokeLicenseAsync**](TenantsAPI.md#RevokeLicenseAsync) | **Delete** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Revoke a license from a specific enrollment
 [**SelectTenantAsync**](TenantsAPI.md#SelectTenantAsync) | **Post** /api/v2/TenantsService/Tenants/{tenantId}/Select | Select a business tenant as the user&#39;s default tenant
-[**UpdateAvatarAsync**](TenantsAPI.md#UpdateAvatarAsync) | **Post** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Update a tenant&#39;s avatar
 [**UpdateTenantAsync**](TenantsAPI.md#UpdateTenantAsync) | **Put** /api/v2/TenantsService/Tenants/{tenantId} | Update a tenant&#39;s profile
+[**UpdateTenantAvatarAsync**](TenantsAPI.md#UpdateTenantAvatarAsync) | **Post** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Update a tenant&#39;s avatar
 [**ValidateEnrollmentFeatureAccess**](TenantsAPI.md#ValidateEnrollmentFeatureAccess) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/HasAccess | Validate the access to a specific feature for a specific enrollment
 [**ValidateEnrollmentPermissionsAsync**](TenantsAPI.md#ValidateEnrollmentPermissionsAsync) | **Get** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Permissions/Validate | Validate the existence of a list of roles and permissions for a specific enrollment
 
@@ -392,6 +392,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SuiteLicenseFeatureDtoListEnvelope**](SuiteLicenseFeatureDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCartForTenantAsync
+
+> CartDtoEnvelope GetCartForTenantAsync(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get a tenant's default cart
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TenantsAPI.GetCartForTenantAsync(context.Background(), tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.GetCartForTenantAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCartForTenantAsync`: CartDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `TenantsAPI.GetCartForTenantAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCartForTenantAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**CartDtoEnvelope**](CartDtoEnvelope.md)
 
 ### Authorization
 
@@ -1063,80 +1137,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetTenantCartAsync
-
-> CartDtoEnvelope GetTenantCartAsync(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-
-Get a tenant's default cart
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenantsAPI.GetTenantCartAsync(context.Background(), tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.GetTenantCartAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetTenantCartAsync`: CartDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `TenantsAPI.GetTenantCartAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**tenantId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetTenantCartAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
-
-### Return type
-
-[**CartDtoEnvelope**](CartDtoEnvelope.md)
 
 ### Authorization
 
@@ -2347,82 +2347,6 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UpdateAvatarAsync
-
-> EmptyEnvelope UpdateAvatarAsync(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Avatar(avatar).Execute()
-
-Update a tenant's avatar
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	apiVersion := "apiVersion_example" // string |  (optional)
-	xApiVersion := "xApiVersion_example" // string |  (optional)
-	avatar := os.NewFile(1234, "some_file") // *os.File |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenantsAPI.UpdateAvatarAsync(context.Background(), tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Avatar(avatar).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.UpdateAvatarAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateAvatarAsync`: EmptyEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `TenantsAPI.UpdateAvatarAsync`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**tenantId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateAvatarAsyncRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **apiVersion** | **string** |  | 
- **xApiVersion** | **string** |  | 
- **avatar** | ***os.File** |  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: multipart/form-data, application/json, application/xml
-- **Accept**: image/png, application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## UpdateTenantAsync
 
 > EmptyEnvelope UpdateTenantAsync(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantUpdateDto(tenantUpdateDto).Execute()
@@ -2493,6 +2417,82 @@ No authorization required
 
 - **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateTenantAvatarAsync
+
+> EmptyEnvelope UpdateTenantAvatarAsync(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Avatar(avatar).Execute()
+
+Update a tenant's avatar
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	avatar := os.NewFile(1234, "some_file") // *os.File |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TenantsAPI.UpdateTenantAvatarAsync(context.Background(), tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Avatar(avatar).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.UpdateTenantAvatarAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateTenantAvatarAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `TenantsAPI.UpdateTenantAvatarAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateTenantAvatarAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **avatar** | ***os.File** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data, application/json, application/xml
+- **Accept**: image/png, application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

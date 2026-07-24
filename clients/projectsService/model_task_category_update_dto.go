@@ -21,6 +21,7 @@ var _ MappedNullable = &TaskCategoryUpdateDto{}
 // TaskCategoryUpdateDto struct for TaskCategoryUpdateDto
 type TaskCategoryUpdateDto struct {
 	Title NullableString `json:"title,omitempty"`
+	ProjectId NullableString `json:"projectId,omitempty"`
 }
 
 // NewTaskCategoryUpdateDto instantiates a new TaskCategoryUpdateDto object
@@ -82,6 +83,48 @@ func (o *TaskCategoryUpdateDto) UnsetTitle() {
 	o.Title.Unset()
 }
 
+// GetProjectId returns the ProjectId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TaskCategoryUpdateDto) GetProjectId() string {
+	if o == nil || IsNil(o.ProjectId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ProjectId.Get()
+}
+
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TaskCategoryUpdateDto) GetProjectIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProjectId.Get(), o.ProjectId.IsSet()
+}
+
+// HasProjectId returns a boolean if a field has been set.
+func (o *TaskCategoryUpdateDto) HasProjectId() bool {
+	if o != nil && o.ProjectId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given NullableString and assigns it to the ProjectId field.
+func (o *TaskCategoryUpdateDto) SetProjectId(v string) {
+	o.ProjectId.Set(&v)
+}
+// SetProjectIdNil sets the value for ProjectId to be an explicit nil
+func (o *TaskCategoryUpdateDto) SetProjectIdNil() {
+	o.ProjectId.Set(nil)
+}
+
+// UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
+func (o *TaskCategoryUpdateDto) UnsetProjectId() {
+	o.ProjectId.Unset()
+}
+
 func (o TaskCategoryUpdateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -94,6 +137,9 @@ func (o TaskCategoryUpdateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
+	}
+	if o.ProjectId.IsSet() {
+		toSerialize["projectId"] = o.ProjectId.Get()
 	}
 	return toSerialize, nil
 }

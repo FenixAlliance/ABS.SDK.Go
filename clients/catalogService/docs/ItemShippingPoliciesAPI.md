@@ -5,8 +5,8 @@ All URIs are relative to *https://absuite.net*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CountItemShippingPoliciesAsync**](ItemShippingPoliciesAPI.md#CountItemShippingPoliciesAsync) | **Get** /api/v2/CatalogService/ItemShippingPolicies/Count | Count item shipping policies
-[**GetItemShippingPoliciesAsync**](ItemShippingPoliciesAPI.md#GetItemShippingPoliciesAsync) | **Get** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies
-[**GetItemShippingPolicyByIdAsync**](ItemShippingPoliciesAPI.md#GetItemShippingPolicyByIdAsync) | **Get** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID
+[**GetCatalogItemShippingPoliciesAsync**](ItemShippingPoliciesAPI.md#GetCatalogItemShippingPoliciesAsync) | **Get** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies
+[**GetCatalogItemShippingPolicyByIdAsync**](ItemShippingPoliciesAPI.md#GetCatalogItemShippingPolicyByIdAsync) | **Get** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID
 [**RelateItemToShippingPolicyAsync**](ItemShippingPoliciesAPI.md#RelateItemToShippingPolicyAsync) | **Post** /api/v2/CatalogService/ItemShippingPolicies | Relate item to shipping policy
 [**RemoveShippingPolicyFromItemAsync**](ItemShippingPoliciesAPI.md#RemoveShippingPolicyFromItemAsync) | **Delete** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Remove shipping policy from item
 
@@ -84,9 +84,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetItemShippingPoliciesAsync
+## GetCatalogItemShippingPoliciesAsync
 
-> ItemShippingPolicyDtoListEnvelope GetItemShippingPoliciesAsync(ctx).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemShippingPolicyDtoListEnvelope GetCatalogItemShippingPoliciesAsync(ctx).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get item shipping policies
 
@@ -112,13 +112,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemShippingPoliciesAPI.GetItemShippingPoliciesAsync(context.Background()).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemShippingPoliciesAPI.GetCatalogItemShippingPoliciesAsync(context.Background()).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ItemShippingPoliciesAPI.GetItemShippingPoliciesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemShippingPoliciesAPI.GetCatalogItemShippingPoliciesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetItemShippingPoliciesAsync`: ItemShippingPolicyDtoListEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ItemShippingPoliciesAPI.GetItemShippingPoliciesAsync`: %v\n", resp)
+	// response from `GetCatalogItemShippingPoliciesAsync`: ItemShippingPolicyDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ItemShippingPoliciesAPI.GetCatalogItemShippingPoliciesAsync`: %v\n", resp)
 }
 ```
 
@@ -128,7 +128,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetItemShippingPoliciesAsyncRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCatalogItemShippingPoliciesAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -156,9 +156,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetItemShippingPolicyByIdAsync
+## GetCatalogItemShippingPolicyByIdAsync
 
-> ItemShippingPolicyDtoEnvelope GetItemShippingPolicyByIdAsync(ctx, itemShippingPolicyId).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemShippingPolicyDtoEnvelope GetCatalogItemShippingPolicyByIdAsync(ctx, itemShippingPolicyId).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Get item shipping policy by ID
 
@@ -185,13 +185,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemShippingPoliciesAPI.GetItemShippingPolicyByIdAsync(context.Background(), itemShippingPolicyId).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemShippingPoliciesAPI.GetCatalogItemShippingPolicyByIdAsync(context.Background(), itemShippingPolicyId).TenantId(tenantId).ItemId(itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ItemShippingPoliciesAPI.GetItemShippingPolicyByIdAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemShippingPoliciesAPI.GetCatalogItemShippingPolicyByIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetItemShippingPolicyByIdAsync`: ItemShippingPolicyDtoEnvelope
-	fmt.Fprintf(os.Stdout, "Response from `ItemShippingPoliciesAPI.GetItemShippingPolicyByIdAsync`: %v\n", resp)
+	// response from `GetCatalogItemShippingPolicyByIdAsync`: ItemShippingPolicyDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `ItemShippingPoliciesAPI.GetCatalogItemShippingPolicyByIdAsync`: %v\n", resp)
 }
 ```
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetItemShippingPolicyByIdAsyncRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCatalogItemShippingPolicyByIdAsyncRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
