@@ -770,10 +770,16 @@ type ApiGetDiscountListEntriesRequest struct {
 	ApiService *DiscountListsAPIService
 	tenantId *string
 	discountListId string
+	discountDtoCollectionQueryParameters *DiscountDtoCollectionQueryParameters
 }
 
 func (r ApiGetDiscountListEntriesRequest) TenantId(tenantId string) ApiGetDiscountListEntriesRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetDiscountListEntriesRequest) DiscountDtoCollectionQueryParameters(discountDtoCollectionQueryParameters DiscountDtoCollectionQueryParameters) ApiGetDiscountListEntriesRequest {
+	r.discountDtoCollectionQueryParameters = &discountDtoCollectionQueryParameters
 	return r
 }
 
@@ -825,7 +831,7 @@ func (a *DiscountListsAPIService) GetDiscountListEntriesExecute(r ApiGetDiscount
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -841,6 +847,8 @@ func (a *DiscountListsAPIService) GetDiscountListEntriesExecute(r ApiGetDiscount
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.discountDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -915,10 +923,16 @@ type ApiGetDiscountListEntriesCountRequest struct {
 	ApiService *DiscountListsAPIService
 	tenantId *string
 	discountListId string
+	discountDtoCollectionQueryParameters *DiscountDtoCollectionQueryParameters
 }
 
 func (r ApiGetDiscountListEntriesCountRequest) TenantId(tenantId string) ApiGetDiscountListEntriesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetDiscountListEntriesCountRequest) DiscountDtoCollectionQueryParameters(discountDtoCollectionQueryParameters DiscountDtoCollectionQueryParameters) ApiGetDiscountListEntriesCountRequest {
+	r.discountDtoCollectionQueryParameters = &discountDtoCollectionQueryParameters
 	return r
 }
 
@@ -970,7 +984,7 @@ func (a *DiscountListsAPIService) GetDiscountListEntriesCountExecute(r ApiGetDis
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -986,6 +1000,8 @@ func (a *DiscountListsAPIService) GetDiscountListEntriesCountExecute(r ApiGetDis
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.discountDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1208,10 +1224,16 @@ type ApiGetDiscountListsRequest struct {
 	ctx context.Context
 	ApiService *DiscountListsAPIService
 	tenantId *string
+	discountListDtoCollectionQueryParameters *DiscountListDtoCollectionQueryParameters
 }
 
 func (r ApiGetDiscountListsRequest) TenantId(tenantId string) ApiGetDiscountListsRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetDiscountListsRequest) DiscountListDtoCollectionQueryParameters(discountListDtoCollectionQueryParameters DiscountListDtoCollectionQueryParameters) ApiGetDiscountListsRequest {
+	r.discountListDtoCollectionQueryParameters = &discountListDtoCollectionQueryParameters
 	return r
 }
 
@@ -1260,7 +1282,7 @@ func (a *DiscountListsAPIService) GetDiscountListsExecute(r ApiGetDiscountListsR
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1276,6 +1298,8 @@ func (a *DiscountListsAPIService) GetDiscountListsExecute(r ApiGetDiscountListsR
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.discountListDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1349,10 +1373,16 @@ type ApiGetDiscountListsCountRequest struct {
 	ctx context.Context
 	ApiService *DiscountListsAPIService
 	tenantId *string
+	discountListDtoCollectionQueryParameters *DiscountListDtoCollectionQueryParameters
 }
 
 func (r ApiGetDiscountListsCountRequest) TenantId(tenantId string) ApiGetDiscountListsCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetDiscountListsCountRequest) DiscountListDtoCollectionQueryParameters(discountListDtoCollectionQueryParameters DiscountListDtoCollectionQueryParameters) ApiGetDiscountListsCountRequest {
+	r.discountListDtoCollectionQueryParameters = &discountListDtoCollectionQueryParameters
 	return r
 }
 
@@ -1401,7 +1431,7 @@ func (a *DiscountListsAPIService) GetDiscountListsCountExecute(r ApiGetDiscountL
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1417,6 +1447,8 @@ func (a *DiscountListsAPIService) GetDiscountListsCountExecute(r ApiGetDiscountL
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.discountListDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1491,7 +1523,7 @@ type ApiPatchDiscountListRequest struct {
 	ApiService *DiscountListsAPIService
 	tenantId *string
 	discountListId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchDiscountListRequest) TenantId(tenantId string) ApiPatchDiscountListRequest {
@@ -1499,8 +1531,8 @@ func (r ApiPatchDiscountListRequest) TenantId(tenantId string) ApiPatchDiscountL
 	return r
 }
 
-func (r ApiPatchDiscountListRequest) Operation(operation []Operation) ApiPatchDiscountListRequest {
-	r.operation = &operation
+func (r ApiPatchDiscountListRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchDiscountListRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1569,7 +1601,7 @@ func (a *DiscountListsAPIService) PatchDiscountListExecute(r ApiPatchDiscountLis
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1645,7 +1677,7 @@ type ApiPatchDiscountListEntryRequest struct {
 	tenantId *string
 	discountListId string
 	discountListEntryId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchDiscountListEntryRequest) TenantId(tenantId string) ApiPatchDiscountListEntryRequest {
@@ -1653,8 +1685,8 @@ func (r ApiPatchDiscountListEntryRequest) TenantId(tenantId string) ApiPatchDisc
 	return r
 }
 
-func (r ApiPatchDiscountListEntryRequest) Operation(operation []Operation) ApiPatchDiscountListEntryRequest {
-	r.operation = &operation
+func (r ApiPatchDiscountListEntryRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchDiscountListEntryRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1726,7 +1758,7 @@ func (a *DiscountListsAPIService) PatchDiscountListEntryExecute(r ApiPatchDiscou
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

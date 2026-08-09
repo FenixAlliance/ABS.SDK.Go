@@ -572,7 +572,7 @@ type ApiApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest st
 	instructorProfileId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest) TenantId(tenantId string) ApiApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest {
@@ -590,8 +590,8 @@ func (r ApiApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest
 	return r
 }
 
-func (r ApiApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest) Operation(operation []Operation) ApiApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest {
-	r.operation = &operation
+func (r ApiApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest) PatchOperation(patchOperation []PatchOperation) ApiApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -664,7 +664,7 @@ func (a *InstructorProfilesAPIService) ApiV2LearningServiceInstructorProfilesIns
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

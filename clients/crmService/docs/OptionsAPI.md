@@ -340,7 +340,7 @@ No authorization required
 
 ## GetContactOptions
 
-> OptionDtoListEnvelope GetContactOptions(ctx, contactId).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> OptionDtoListEnvelope GetContactOptions(ctx, contactId).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of contact options
 
@@ -364,10 +364,11 @@ func main() {
 	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	optionDtoCollectionQueryParameters := *openapiclient.NewOptionDtoCollectionQueryParameters() // OptionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OptionsAPI.GetContactOptions(context.Background(), contactId).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.OptionsAPI.GetContactOptions(context.Background(), contactId).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.GetContactOptions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -397,6 +398,7 @@ Name | Type | Description  | Notes
  **portalId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -408,7 +410,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -418,7 +420,7 @@ No authorization required
 
 ## GetContactOptionsCount
 
-> Int32Envelope GetContactOptionsCount(ctx, contactId).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetContactOptionsCount(ctx, contactId).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 
 Get the count of contact options
 
@@ -442,10 +444,11 @@ func main() {
 	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	optionDtoCollectionQueryParameters := *openapiclient.NewOptionDtoCollectionQueryParameters() // OptionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OptionsAPI.GetContactOptionsCount(context.Background(), contactId).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.OptionsAPI.GetContactOptionsCount(context.Background(), contactId).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.GetContactOptionsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -475,6 +478,7 @@ Name | Type | Description  | Notes
  **portalId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -486,7 +490,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -496,7 +500,7 @@ No authorization required
 
 ## PatchContactOptionAsync
 
-> EmptyEnvelope PatchContactOptionAsync(ctx, contactId, optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchContactOptionAsync(ctx, contactId, optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a contact option
 
@@ -520,11 +524,11 @@ func main() {
 	optionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OptionsAPI.PatchContactOptionAsync(context.Background(), contactId, optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.OptionsAPI.PatchContactOptionAsync(context.Background(), contactId, optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.PatchContactOptionAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -555,7 +559,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -577,7 +581,7 @@ No authorization required
 
 ## PatchContactOptionByKeyAsync
 
-> EmptyEnvelope PatchContactOptionByKeyAsync(ctx, contactId, key).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchContactOptionByKeyAsync(ctx, contactId, key).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a contact option by key
 
@@ -601,11 +605,11 @@ func main() {
 	key := "key_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OptionsAPI.PatchContactOptionByKeyAsync(context.Background(), contactId, key).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.OptionsAPI.PatchContactOptionByKeyAsync(context.Background(), contactId, key).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.PatchContactOptionByKeyAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -636,7 +640,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

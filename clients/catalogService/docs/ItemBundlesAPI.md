@@ -238,7 +238,7 @@ No authorization required
 
 ## GetItemBundlesAsync
 
-> ItemBundleDtoListEnvelope GetItemBundlesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemBundleDtoListEnvelope GetItemBundlesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemBundleDtoCollectionQueryParameters(itemBundleDtoCollectionQueryParameters).Execute()
 
 Get all item bundles
 
@@ -260,10 +260,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemBundleDtoCollectionQueryParameters := *openapiclient.NewItemBundleDtoCollectionQueryParameters() // ItemBundleDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemBundlesAPI.GetItemBundlesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemBundlesAPI.GetItemBundlesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemBundleDtoCollectionQueryParameters(itemBundleDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemBundlesAPI.GetItemBundlesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -287,6 +288,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemBundleDtoCollectionQueryParameters** | [**ItemBundleDtoCollectionQueryParameters**](ItemBundleDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -298,7 +300,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -308,7 +310,7 @@ No authorization required
 
 ## GetItemBundlesCountAsync
 
-> Int32Envelope GetItemBundlesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetItemBundlesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemBundleDtoCollectionQueryParameters(itemBundleDtoCollectionQueryParameters).Execute()
 
 Get item bundles count
 
@@ -330,10 +332,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemBundleDtoCollectionQueryParameters := *openapiclient.NewItemBundleDtoCollectionQueryParameters() // ItemBundleDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemBundlesAPI.GetItemBundlesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemBundlesAPI.GetItemBundlesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemBundleDtoCollectionQueryParameters(itemBundleDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemBundlesAPI.GetItemBundlesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -357,6 +360,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemBundleDtoCollectionQueryParameters** | [**ItemBundleDtoCollectionQueryParameters**](ItemBundleDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -368,7 +372,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -378,7 +382,7 @@ No authorization required
 
 ## PatchItemBundleAsync
 
-> EmptyEnvelope PatchItemBundleAsync(ctx, itemBundleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchItemBundleAsync(ctx, itemBundleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an item bundle
 
@@ -401,11 +405,11 @@ func main() {
 	itemBundleId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemBundlesAPI.PatchItemBundleAsync(context.Background(), itemBundleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ItemBundlesAPI.PatchItemBundleAsync(context.Background(), itemBundleId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemBundlesAPI.PatchItemBundleAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -434,7 +438,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

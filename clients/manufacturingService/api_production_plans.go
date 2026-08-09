@@ -471,6 +471,7 @@ type ApiGetProductionPlansAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	productionPlanDtoCollectionQueryParameters *ProductionPlanDtoCollectionQueryParameters
 }
 
 func (r ApiGetProductionPlansAsyncRequest) TenantId(tenantId string) ApiGetProductionPlansAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetProductionPlansAsyncRequest) ApiVersion(apiVersion string) ApiGetP
 
 func (r ApiGetProductionPlansAsyncRequest) XApiVersion(xApiVersion string) ApiGetProductionPlansAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProductionPlansAsyncRequest) ProductionPlanDtoCollectionQueryParameters(productionPlanDtoCollectionQueryParameters ProductionPlanDtoCollectionQueryParameters) ApiGetProductionPlansAsyncRequest {
+	r.productionPlanDtoCollectionQueryParameters = &productionPlanDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *ProductionPlansAPIService) GetProductionPlansAsyncExecute(r ApiGetProdu
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *ProductionPlansAPIService) GetProductionPlansAsyncExecute(r ApiGetProdu
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.productionPlanDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetProductionPlansCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	productionPlanDtoCollectionQueryParameters *ProductionPlanDtoCollectionQueryParameters
 }
 
 func (r ApiGetProductionPlansCountAsyncRequest) TenantId(tenantId string) ApiGetProductionPlansCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetProductionPlansCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetProductionPlansCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetProductionPlansCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProductionPlansCountAsyncRequest) ProductionPlanDtoCollectionQueryParameters(productionPlanDtoCollectionQueryParameters ProductionPlanDtoCollectionQueryParameters) ApiGetProductionPlansCountAsyncRequest {
+	r.productionPlanDtoCollectionQueryParameters = &productionPlanDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *ProductionPlansAPIService) GetProductionPlansCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *ProductionPlansAPIService) GetProductionPlansCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.productionPlanDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchProductionPlanAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchProductionPlanAsyncRequest) TenantId(tenantId string) ApiPatchProductionPlanAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchProductionPlanAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchProductionPlanAsyncRequest) Operation(operation []Operation) ApiPatchProductionPlanAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchProductionPlanAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchProductionPlanAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *ProductionPlansAPIService) PatchProductionPlanAsyncExecute(r ApiPatchPr
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

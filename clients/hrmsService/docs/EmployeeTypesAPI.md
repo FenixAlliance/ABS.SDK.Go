@@ -240,7 +240,7 @@ No authorization required
 
 ## GetEmployeeTypesAsync
 
-> EmployeeTypeDtoListEnvelope GetEmployeeTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmployeeTypeDtoListEnvelope GetEmployeeTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployeeTypeDtoCollectionQueryParameters(employeeTypeDtoCollectionQueryParameters).Execute()
 
 Get employee types
 
@@ -262,10 +262,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	employeeTypeDtoCollectionQueryParameters := *openapiclient.NewEmployeeTypeDtoCollectionQueryParameters() // EmployeeTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmployeeTypesAPI.GetEmployeeTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.EmployeeTypesAPI.GetEmployeeTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployeeTypeDtoCollectionQueryParameters(employeeTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmployeeTypesAPI.GetEmployeeTypesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -289,6 +290,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **employeeTypeDtoCollectionQueryParameters** | [**EmployeeTypeDtoCollectionQueryParameters**](EmployeeTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -300,7 +302,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -310,7 +312,7 @@ No authorization required
 
 ## GetEmployeeTypesCountAsync
 
-> Int32Envelope GetEmployeeTypesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetEmployeeTypesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployeeTypeDtoCollectionQueryParameters(employeeTypeDtoCollectionQueryParameters).Execute()
 
 Count employee types
 
@@ -332,10 +334,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	employeeTypeDtoCollectionQueryParameters := *openapiclient.NewEmployeeTypeDtoCollectionQueryParameters() // EmployeeTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmployeeTypesAPI.GetEmployeeTypesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.EmployeeTypesAPI.GetEmployeeTypesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).EmployeeTypeDtoCollectionQueryParameters(employeeTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmployeeTypesAPI.GetEmployeeTypesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -359,6 +362,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **employeeTypeDtoCollectionQueryParameters** | [**EmployeeTypeDtoCollectionQueryParameters**](EmployeeTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -370,7 +374,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -380,7 +384,7 @@ No authorization required
 
 ## PatchEmployeeTypeAsync
 
-> EmptyEnvelope PatchEmployeeTypeAsync(ctx, employeeTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchEmployeeTypeAsync(ctx, employeeTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an employee type
 
@@ -403,11 +407,11 @@ func main() {
 	employeeTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmployeeTypesAPI.PatchEmployeeTypeAsync(context.Background(), employeeTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.EmployeeTypesAPI.PatchEmployeeTypeAsync(context.Background(), employeeTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmployeeTypesAPI.PatchEmployeeTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -436,7 +440,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

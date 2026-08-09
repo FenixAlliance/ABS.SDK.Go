@@ -240,7 +240,7 @@ No authorization required
 
 ## GetTenantDepartments
 
-> TenantDepartmentDtoListEnvelope GetTenantDepartments(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TenantDepartmentDtoListEnvelope GetTenantDepartments(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDepartmentDtoCollectionQueryParameters(tenantDepartmentDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of tenant departments
 
@@ -262,10 +262,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	tenantDepartmentDtoCollectionQueryParameters := *openapiclient.NewTenantDepartmentDtoCollectionQueryParameters() // TenantDepartmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DepartmentsAPI.GetTenantDepartments(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.DepartmentsAPI.GetTenantDepartments(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDepartmentDtoCollectionQueryParameters(tenantDepartmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DepartmentsAPI.GetTenantDepartments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -289,6 +290,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **tenantDepartmentDtoCollectionQueryParameters** | [**TenantDepartmentDtoCollectionQueryParameters**](TenantDepartmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -300,7 +302,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -310,7 +312,7 @@ No authorization required
 
 ## GetTenantDepartmentsCount
 
-> Int32Envelope GetTenantDepartmentsCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetTenantDepartmentsCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDepartmentDtoCollectionQueryParameters(tenantDepartmentDtoCollectionQueryParameters).Execute()
 
 Get the count of tenant departments
 
@@ -332,10 +334,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	tenantDepartmentDtoCollectionQueryParameters := *openapiclient.NewTenantDepartmentDtoCollectionQueryParameters() // TenantDepartmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DepartmentsAPI.GetTenantDepartmentsCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.DepartmentsAPI.GetTenantDepartmentsCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDepartmentDtoCollectionQueryParameters(tenantDepartmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DepartmentsAPI.GetTenantDepartmentsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -359,6 +362,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **tenantDepartmentDtoCollectionQueryParameters** | [**TenantDepartmentDtoCollectionQueryParameters**](TenantDepartmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -370,7 +374,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -380,7 +384,7 @@ No authorization required
 
 ## PatchTenantDepartmentAsync
 
-> EmptyEnvelope PatchTenantDepartmentAsync(ctx, tenantDepartmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchTenantDepartmentAsync(ctx, tenantDepartmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a tenant department
 
@@ -403,11 +407,11 @@ func main() {
 	tenantDepartmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DepartmentsAPI.PatchTenantDepartmentAsync(context.Background(), tenantDepartmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.DepartmentsAPI.PatchTenantDepartmentAsync(context.Background(), tenantDepartmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DepartmentsAPI.PatchTenantDepartmentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -436,7 +440,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

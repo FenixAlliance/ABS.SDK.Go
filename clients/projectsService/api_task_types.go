@@ -438,7 +438,7 @@ type ApiPatchTaskTypeAsyncRequest struct {
 	ApiService *TaskTypesAPIService
 	taskTypeId string
 	tenantId *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTaskTypeAsyncRequest) TenantId(tenantId string) ApiPatchTaskTypeAsyncRequest {
@@ -446,8 +446,8 @@ func (r ApiPatchTaskTypeAsyncRequest) TenantId(tenantId string) ApiPatchTaskType
 	return r
 }
 
-func (r ApiPatchTaskTypeAsyncRequest) Operation(operation []Operation) ApiPatchTaskTypeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchTaskTypeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTaskTypeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -516,7 +516,7 @@ func (a *TaskTypesAPIService) PatchTaskTypeAsyncExecute(r ApiPatchTaskTypeAsyncR
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -164,7 +164,7 @@ No authorization required
 
 ## GetFiscalAuthorities
 
-> FiscalAuthorityDtoListEnvelope GetFiscalAuthorities(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FiscalAuthorityDtoListEnvelope GetFiscalAuthorities(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalAuthorityDtoCollectionQueryParameters(fiscalAuthorityDtoCollectionQueryParameters).Execute()
 
 Get fiscal authorities
 
@@ -186,10 +186,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	fiscalAuthorityDtoCollectionQueryParameters := *openapiclient.NewFiscalAuthorityDtoCollectionQueryParameters() // FiscalAuthorityDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalAuthoritiesAPI.GetFiscalAuthorities(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalAuthoritiesAPI.GetFiscalAuthorities(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalAuthorityDtoCollectionQueryParameters(fiscalAuthorityDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalAuthoritiesAPI.GetFiscalAuthorities``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -213,6 +214,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **fiscalAuthorityDtoCollectionQueryParameters** | [**FiscalAuthorityDtoCollectionQueryParameters**](FiscalAuthorityDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -224,7 +226,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -234,7 +236,7 @@ No authorization required
 
 ## GetFiscalAuthoritiesCount
 
-> Int32Envelope GetFiscalAuthoritiesCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetFiscalAuthoritiesCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalAuthorityDtoCollectionQueryParameters(fiscalAuthorityDtoCollectionQueryParameters).Execute()
 
 Get fiscal authorities count
 
@@ -256,10 +258,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	fiscalAuthorityDtoCollectionQueryParameters := *openapiclient.NewFiscalAuthorityDtoCollectionQueryParameters() // FiscalAuthorityDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalAuthoritiesAPI.GetFiscalAuthoritiesCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalAuthoritiesAPI.GetFiscalAuthoritiesCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalAuthorityDtoCollectionQueryParameters(fiscalAuthorityDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalAuthoritiesAPI.GetFiscalAuthoritiesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -283,6 +286,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **fiscalAuthorityDtoCollectionQueryParameters** | [**FiscalAuthorityDtoCollectionQueryParameters**](FiscalAuthorityDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -294,7 +298,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -380,7 +384,7 @@ No authorization required
 
 ## PatchFiscalAuthorityAsync
 
-> EmptyEnvelope PatchFiscalAuthorityAsync(ctx, authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchFiscalAuthorityAsync(ctx, authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a fiscal authority
 
@@ -403,11 +407,11 @@ func main() {
 	authorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalAuthoritiesAPI.PatchFiscalAuthorityAsync(context.Background(), authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.FiscalAuthoritiesAPI.PatchFiscalAuthorityAsync(context.Background(), authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalAuthoritiesAPI.PatchFiscalAuthorityAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -436,7 +440,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

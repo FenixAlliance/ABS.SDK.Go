@@ -393,7 +393,7 @@ No authorization required
 
 ## GetBlockchainBlocksAsync
 
-> BlockchainBlockDtoListEnvelope GetBlockchainBlocksAsync(ctx, blockchainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BlockchainBlockDtoListEnvelope GetBlockchainBlocksAsync(ctx, blockchainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BlockchainBlockDtoCollectionQueryParameters(blockchainBlockDtoCollectionQueryParameters).Execute()
 
 Get blocks for a blockchain
 
@@ -414,10 +414,11 @@ func main() {
 	blockchainId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	blockchainBlockDtoCollectionQueryParameters := *openapiclient.NewBlockchainBlockDtoCollectionQueryParameters() // BlockchainBlockDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlockchainsAPI.GetBlockchainBlocksAsync(context.Background(), blockchainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BlockchainsAPI.GetBlockchainBlocksAsync(context.Background(), blockchainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BlockchainBlockDtoCollectionQueryParameters(blockchainBlockDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlockchainsAPI.GetBlockchainBlocksAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -446,6 +447,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **blockchainBlockDtoCollectionQueryParameters** | [**BlockchainBlockDtoCollectionQueryParameters**](BlockchainBlockDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -457,7 +459,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -467,7 +469,7 @@ No authorization required
 
 ## GetBlockchainBlocksCountAsync
 
-> Int32Envelope GetBlockchainBlocksCountAsync(ctx, blockchainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetBlockchainBlocksCountAsync(ctx, blockchainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BlockchainBlockDtoCollectionQueryParameters(blockchainBlockDtoCollectionQueryParameters).Execute()
 
 Get block count for a blockchain
 
@@ -488,10 +490,11 @@ func main() {
 	blockchainId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	blockchainBlockDtoCollectionQueryParameters := *openapiclient.NewBlockchainBlockDtoCollectionQueryParameters() // BlockchainBlockDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlockchainsAPI.GetBlockchainBlocksCountAsync(context.Background(), blockchainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BlockchainsAPI.GetBlockchainBlocksCountAsync(context.Background(), blockchainId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BlockchainBlockDtoCollectionQueryParameters(blockchainBlockDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlockchainsAPI.GetBlockchainBlocksCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -520,6 +523,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **blockchainBlockDtoCollectionQueryParameters** | [**BlockchainBlockDtoCollectionQueryParameters**](BlockchainBlockDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -531,7 +535,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -617,7 +621,7 @@ No authorization required
 
 ## GetBlockchainsAsync
 
-> BlockchainDtoListEnvelope GetBlockchainsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BlockchainDtoListEnvelope GetBlockchainsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BlockchainDtoCollectionQueryParameters(blockchainDtoCollectionQueryParameters).Execute()
 
 Get all blockchains
 
@@ -639,10 +643,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	blockchainDtoCollectionQueryParameters := *openapiclient.NewBlockchainDtoCollectionQueryParameters() // BlockchainDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlockchainsAPI.GetBlockchainsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BlockchainsAPI.GetBlockchainsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BlockchainDtoCollectionQueryParameters(blockchainDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlockchainsAPI.GetBlockchainsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -666,6 +671,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **blockchainDtoCollectionQueryParameters** | [**BlockchainDtoCollectionQueryParameters**](BlockchainDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -677,7 +683,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -687,7 +693,7 @@ No authorization required
 
 ## GetBlockchainsCountAsync
 
-> Int32Envelope GetBlockchainsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetBlockchainsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BlockchainDtoCollectionQueryParameters(blockchainDtoCollectionQueryParameters).Execute()
 
 Get blockchains count
 
@@ -709,10 +715,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	blockchainDtoCollectionQueryParameters := *openapiclient.NewBlockchainDtoCollectionQueryParameters() // BlockchainDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlockchainsAPI.GetBlockchainsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BlockchainsAPI.GetBlockchainsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BlockchainDtoCollectionQueryParameters(blockchainDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlockchainsAPI.GetBlockchainsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -736,6 +743,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **blockchainDtoCollectionQueryParameters** | [**BlockchainDtoCollectionQueryParameters**](BlockchainDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -747,7 +755,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -757,7 +765,7 @@ No authorization required
 
 ## PatchBlockchainAsync
 
-> EmptyEnvelope PatchBlockchainAsync(ctx, id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchBlockchainAsync(ctx, id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a blockchain
 
@@ -780,11 +788,11 @@ func main() {
 	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlockchainsAPI.PatchBlockchainAsync(context.Background(), id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.BlockchainsAPI.PatchBlockchainAsync(context.Background(), id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlockchainsAPI.PatchBlockchainAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -813,7 +821,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -835,7 +843,7 @@ No authorization required
 
 ## PatchBlockchainBlockAsync
 
-> EmptyEnvelope PatchBlockchainBlockAsync(ctx, blockchainId, blockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchBlockchainBlockAsync(ctx, blockchainId, blockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a blockchain block
 
@@ -859,11 +867,11 @@ func main() {
 	blockId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlockchainsAPI.PatchBlockchainBlockAsync(context.Background(), blockchainId, blockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.BlockchainsAPI.PatchBlockchainBlockAsync(context.Background(), blockchainId, blockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlockchainsAPI.PatchBlockchainBlockAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -894,7 +902,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

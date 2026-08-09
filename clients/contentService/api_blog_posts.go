@@ -995,10 +995,16 @@ type ApiGetBlogPostsAsyncRequest struct {
 	ctx context.Context
 	ApiService *BlogPostsAPIService
 	tenantId *string
+	blogPostDtoCollectionQueryParameters *BlogPostDtoCollectionQueryParameters
 }
 
 func (r ApiGetBlogPostsAsyncRequest) TenantId(tenantId string) ApiGetBlogPostsAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetBlogPostsAsyncRequest) BlogPostDtoCollectionQueryParameters(blogPostDtoCollectionQueryParameters BlogPostDtoCollectionQueryParameters) ApiGetBlogPostsAsyncRequest {
+	r.blogPostDtoCollectionQueryParameters = &blogPostDtoCollectionQueryParameters
 	return r
 }
 
@@ -1046,7 +1052,7 @@ func (a *BlogPostsAPIService) GetBlogPostsAsyncExecute(r ApiGetBlogPostsAsyncReq
 		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1062,6 +1068,8 @@ func (a *BlogPostsAPIService) GetBlogPostsAsyncExecute(r ApiGetBlogPostsAsyncReq
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.blogPostDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1125,10 +1133,16 @@ type ApiGetBlogPostsCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *BlogPostsAPIService
 	tenantId *string
+	blogPostDtoCollectionQueryParameters *BlogPostDtoCollectionQueryParameters
 }
 
 func (r ApiGetBlogPostsCountAsyncRequest) TenantId(tenantId string) ApiGetBlogPostsCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetBlogPostsCountAsyncRequest) BlogPostDtoCollectionQueryParameters(blogPostDtoCollectionQueryParameters BlogPostDtoCollectionQueryParameters) ApiGetBlogPostsCountAsyncRequest {
+	r.blogPostDtoCollectionQueryParameters = &blogPostDtoCollectionQueryParameters
 	return r
 }
 
@@ -1176,7 +1190,7 @@ func (a *BlogPostsAPIService) GetBlogPostsCountAsyncExecute(r ApiGetBlogPostsCou
 		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1192,6 +1206,8 @@ func (a *BlogPostsAPIService) GetBlogPostsCountAsyncExecute(r ApiGetBlogPostsCou
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.blogPostDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1255,6 +1271,12 @@ type ApiGetCategoriesForBlogPostAsyncRequest struct {
 	ctx context.Context
 	ApiService *BlogPostsAPIService
 	blogPostId string
+	blogPostCategoryDtoCollectionQueryParameters *BlogPostCategoryDtoCollectionQueryParameters
+}
+
+func (r ApiGetCategoriesForBlogPostAsyncRequest) BlogPostCategoryDtoCollectionQueryParameters(blogPostCategoryDtoCollectionQueryParameters BlogPostCategoryDtoCollectionQueryParameters) ApiGetCategoriesForBlogPostAsyncRequest {
+	r.blogPostCategoryDtoCollectionQueryParameters = &blogPostCategoryDtoCollectionQueryParameters
+	return r
 }
 
 func (r ApiGetCategoriesForBlogPostAsyncRequest) Execute() (*BlogPostCategoryDtoListEnvelope, *http.Response, error) {
@@ -1301,7 +1323,7 @@ func (a *BlogPostsAPIService) GetCategoriesForBlogPostAsyncExecute(r ApiGetCateg
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1317,6 +1339,8 @@ func (a *BlogPostsAPIService) GetCategoriesForBlogPostAsyncExecute(r ApiGetCateg
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.blogPostCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1380,6 +1404,12 @@ type ApiGetCommentsForBlogPostAsyncRequest struct {
 	ctx context.Context
 	ApiService *BlogPostsAPIService
 	blogPostId string
+	blogPostCommentDtoCollectionQueryParameters *BlogPostCommentDtoCollectionQueryParameters
+}
+
+func (r ApiGetCommentsForBlogPostAsyncRequest) BlogPostCommentDtoCollectionQueryParameters(blogPostCommentDtoCollectionQueryParameters BlogPostCommentDtoCollectionQueryParameters) ApiGetCommentsForBlogPostAsyncRequest {
+	r.blogPostCommentDtoCollectionQueryParameters = &blogPostCommentDtoCollectionQueryParameters
+	return r
 }
 
 func (r ApiGetCommentsForBlogPostAsyncRequest) Execute() (*BlogPostCommentDtoListEnvelope, *http.Response, error) {
@@ -1426,7 +1456,7 @@ func (a *BlogPostsAPIService) GetCommentsForBlogPostAsyncExecute(r ApiGetComment
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1442,6 +1472,8 @@ func (a *BlogPostsAPIService) GetCommentsForBlogPostAsyncExecute(r ApiGetComment
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.blogPostCommentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1506,6 +1538,12 @@ type ApiGetRepliesForCommentAsyncRequest struct {
 	ApiService *BlogPostsAPIService
 	commentId string
 	blogPostId string
+	blogPostCommentDtoCollectionQueryParameters *BlogPostCommentDtoCollectionQueryParameters
+}
+
+func (r ApiGetRepliesForCommentAsyncRequest) BlogPostCommentDtoCollectionQueryParameters(blogPostCommentDtoCollectionQueryParameters BlogPostCommentDtoCollectionQueryParameters) ApiGetRepliesForCommentAsyncRequest {
+	r.blogPostCommentDtoCollectionQueryParameters = &blogPostCommentDtoCollectionQueryParameters
+	return r
 }
 
 func (r ApiGetRepliesForCommentAsyncRequest) Execute() (*BlogPostCommentDtoListEnvelope, *http.Response, error) {
@@ -1555,7 +1593,7 @@ func (a *BlogPostsAPIService) GetRepliesForCommentAsyncExecute(r ApiGetRepliesFo
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1571,6 +1609,8 @@ func (a *BlogPostsAPIService) GetRepliesForCommentAsyncExecute(r ApiGetRepliesFo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.blogPostCommentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1634,6 +1674,12 @@ type ApiGetTagsForBlogPostAsyncRequest struct {
 	ctx context.Context
 	ApiService *BlogPostsAPIService
 	blogPostId string
+	blogPostTagDtoCollectionQueryParameters *BlogPostTagDtoCollectionQueryParameters
+}
+
+func (r ApiGetTagsForBlogPostAsyncRequest) BlogPostTagDtoCollectionQueryParameters(blogPostTagDtoCollectionQueryParameters BlogPostTagDtoCollectionQueryParameters) ApiGetTagsForBlogPostAsyncRequest {
+	r.blogPostTagDtoCollectionQueryParameters = &blogPostTagDtoCollectionQueryParameters
+	return r
 }
 
 func (r ApiGetTagsForBlogPostAsyncRequest) Execute() (*BlogPostTagDtoListEnvelope, *http.Response, error) {
@@ -1680,7 +1726,7 @@ func (a *BlogPostsAPIService) GetTagsForBlogPostAsyncExecute(r ApiGetTagsForBlog
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1696,6 +1742,8 @@ func (a *BlogPostsAPIService) GetTagsForBlogPostAsyncExecute(r ApiGetTagsForBlog
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.blogPostTagDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1760,7 +1808,7 @@ type ApiPatchBlogPostAsyncRequest struct {
 	ApiService *BlogPostsAPIService
 	tenantId *string
 	blogPostId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBlogPostAsyncRequest) TenantId(tenantId string) ApiPatchBlogPostAsyncRequest {
@@ -1768,8 +1816,8 @@ func (r ApiPatchBlogPostAsyncRequest) TenantId(tenantId string) ApiPatchBlogPost
 	return r
 }
 
-func (r ApiPatchBlogPostAsyncRequest) Operation(operation []Operation) ApiPatchBlogPostAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBlogPostAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBlogPostAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1838,7 +1886,7 @@ func (a *BlogPostsAPIService) PatchBlogPostAsyncExecute(r ApiPatchBlogPostAsyncR
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

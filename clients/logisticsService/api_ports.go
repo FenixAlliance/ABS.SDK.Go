@@ -460,6 +460,7 @@ type ApiGetPortsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	portDtoCollectionQueryParameters *PortDtoCollectionQueryParameters
 }
 
 func (r ApiGetPortsAsyncRequest) TenantId(tenantId string) ApiGetPortsAsyncRequest {
@@ -474,6 +475,11 @@ func (r ApiGetPortsAsyncRequest) ApiVersion(apiVersion string) ApiGetPortsAsyncR
 
 func (r ApiGetPortsAsyncRequest) XApiVersion(xApiVersion string) ApiGetPortsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPortsAsyncRequest) PortDtoCollectionQueryParameters(portDtoCollectionQueryParameters PortDtoCollectionQueryParameters) ApiGetPortsAsyncRequest {
+	r.portDtoCollectionQueryParameters = &portDtoCollectionQueryParameters
 	return r
 }
 
@@ -525,7 +531,7 @@ func (a *PortsAPIService) GetPortsAsyncExecute(r ApiGetPortsAsyncRequest) (*Port
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -544,6 +550,8 @@ func (a *PortsAPIService) GetPortsAsyncExecute(r ApiGetPortsAsyncRequest) (*Port
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.portDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetPortsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	portDtoCollectionQueryParameters *PortDtoCollectionQueryParameters
 }
 
 func (r ApiGetPortsCountAsyncRequest) TenantId(tenantId string) ApiGetPortsCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetPortsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetPortsC
 
 func (r ApiGetPortsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetPortsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPortsCountAsyncRequest) PortDtoCollectionQueryParameters(portDtoCollectionQueryParameters PortDtoCollectionQueryParameters) ApiGetPortsCountAsyncRequest {
+	r.portDtoCollectionQueryParameters = &portDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *PortsAPIService) GetPortsCountAsyncExecute(r ApiGetPortsCountAsyncReque
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *PortsAPIService) GetPortsCountAsyncExecute(r ApiGetPortsCountAsyncReque
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.portDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchPortAsyncRequest struct {
 	portId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchPortAsyncRequest) TenantId(tenantId string) ApiPatchPortAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchPortAsyncRequest) XApiVersion(xApiVersion string) ApiPatchPortAs
 	return r
 }
 
-func (r ApiPatchPortAsyncRequest) Operation(operation []Operation) ApiPatchPortAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchPortAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchPortAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *PortsAPIService) PatchPortAsyncExecute(r ApiPatchPortAsyncRequest) (*Em
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

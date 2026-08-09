@@ -226,7 +226,7 @@ No authorization required
 
 ## PatchTaskTypeAsync
 
-> EmptyEnvelope PatchTaskTypeAsync(ctx, taskTypeId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchTaskTypeAsync(ctx, taskTypeId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patches a task type
 
@@ -247,11 +247,11 @@ import (
 func main() {
 	taskTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaskTypesAPI.PatchTaskTypeAsync(context.Background(), taskTypeId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.TaskTypesAPI.PatchTaskTypeAsync(context.Background(), taskTypeId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaskTypesAPI.PatchTaskTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

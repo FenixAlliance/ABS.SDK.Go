@@ -1370,7 +1370,7 @@ No authorization required
 
 ## GetExtendedInvoices
 
-> ExtendedInvoiceDtoListEnvelope GetExtendedInvoices(ctx).TenantId(tenantId).Execute()
+> ExtendedInvoiceDtoListEnvelope GetExtendedInvoices(ctx).TenantId(tenantId).ExtendedInvoiceDtoCollectionQueryParameters(extendedInvoiceDtoCollectionQueryParameters).Execute()
 
 Get a list of extended invoices.
 
@@ -1390,10 +1390,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	extendedInvoiceDtoCollectionQueryParameters := *openapiclient.NewExtendedInvoiceDtoCollectionQueryParameters() // ExtendedInvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetExtendedInvoices(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetExtendedInvoices(context.Background()).TenantId(tenantId).ExtendedInvoiceDtoCollectionQueryParameters(extendedInvoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetExtendedInvoices``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1415,6 +1416,7 @@ Other parameters are passed through a pointer to a apiGetExtendedInvoicesRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **extendedInvoiceDtoCollectionQueryParameters** | [**ExtendedInvoiceDtoCollectionQueryParameters**](ExtendedInvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1426,7 +1428,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1436,7 +1438,7 @@ No authorization required
 
 ## GetExtendedInvoicesCount
 
-> Int32Envelope GetExtendedInvoicesCount(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetExtendedInvoicesCount(ctx).TenantId(tenantId).ExtendedInvoiceDtoCollectionQueryParameters(extendedInvoiceDtoCollectionQueryParameters).Execute()
 
 Get the count of extended invoices.
 
@@ -1456,10 +1458,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	extendedInvoiceDtoCollectionQueryParameters := *openapiclient.NewExtendedInvoiceDtoCollectionQueryParameters() // ExtendedInvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetExtendedInvoicesCount(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetExtendedInvoicesCount(context.Background()).TenantId(tenantId).ExtendedInvoiceDtoCollectionQueryParameters(extendedInvoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetExtendedInvoicesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1481,6 +1484,7 @@ Other parameters are passed through a pointer to a apiGetExtendedInvoicesCountRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **extendedInvoiceDtoCollectionQueryParameters** | [**ExtendedInvoiceDtoCollectionQueryParameters**](ExtendedInvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1492,7 +1496,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1649,7 +1653,7 @@ No authorization required
 
 ## GetInvoiceAdjustments
 
-> InvoiceAdjustmentDtoIReadOnlyListEnvelope GetInvoiceAdjustments(ctx, invoiceId).TenantId(tenantId).Execute()
+> InvoiceAdjustmentDtoIReadOnlyListEnvelope GetInvoiceAdjustments(ctx, invoiceId).TenantId(tenantId).InvoiceAdjustmentDtoCollectionQueryParameters(invoiceAdjustmentDtoCollectionQueryParameters).Execute()
 
 Get invoice adjustments.
 
@@ -1670,10 +1674,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceAdjustmentDtoCollectionQueryParameters := *openapiclient.NewInvoiceAdjustmentDtoCollectionQueryParameters() // InvoiceAdjustmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoiceAdjustments(context.Background(), invoiceId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoiceAdjustments(context.Background(), invoiceId).TenantId(tenantId).InvoiceAdjustmentDtoCollectionQueryParameters(invoiceAdjustmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoiceAdjustments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1700,6 +1705,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **invoiceAdjustmentDtoCollectionQueryParameters** | [**InvoiceAdjustmentDtoCollectionQueryParameters**](InvoiceAdjustmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1711,7 +1717,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1721,7 +1727,7 @@ No authorization required
 
 ## GetInvoiceAdjustmentsCount
 
-> Int32Envelope GetInvoiceAdjustmentsCount(ctx, invoiceId).TenantId(tenantId).Execute()
+> Int32Envelope GetInvoiceAdjustmentsCount(ctx, invoiceId).TenantId(tenantId).InvoiceAdjustmentDtoCollectionQueryParameters(invoiceAdjustmentDtoCollectionQueryParameters).Execute()
 
 Get the count of invoice adjustments.
 
@@ -1742,10 +1748,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceAdjustmentDtoCollectionQueryParameters := *openapiclient.NewInvoiceAdjustmentDtoCollectionQueryParameters() // InvoiceAdjustmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoiceAdjustmentsCount(context.Background(), invoiceId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoiceAdjustmentsCount(context.Background(), invoiceId).TenantId(tenantId).InvoiceAdjustmentDtoCollectionQueryParameters(invoiceAdjustmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoiceAdjustmentsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1772,6 +1779,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **invoiceAdjustmentDtoCollectionQueryParameters** | [**InvoiceAdjustmentDtoCollectionQueryParameters**](InvoiceAdjustmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1783,7 +1791,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1868,7 +1876,7 @@ No authorization required
 
 ## GetInvoiceLineTaxes
 
-> InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope GetInvoiceLineTaxes(ctx, invoiceId, invoiceLineId).TenantId(tenantId).Execute()
+> InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope GetInvoiceLineTaxes(ctx, invoiceId, invoiceLineId).TenantId(tenantId).InvoiceLineAppliedTaxDtoCollectionQueryParameters(invoiceLineAppliedTaxDtoCollectionQueryParameters).Execute()
 
 Get taxes for an invoice line.
 
@@ -1890,10 +1898,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceLineAppliedTaxDtoCollectionQueryParameters := *openapiclient.NewInvoiceLineAppliedTaxDtoCollectionQueryParameters() // InvoiceLineAppliedTaxDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoiceLineTaxes(context.Background(), invoiceId, invoiceLineId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoiceLineTaxes(context.Background(), invoiceId, invoiceLineId).TenantId(tenantId).InvoiceLineAppliedTaxDtoCollectionQueryParameters(invoiceLineAppliedTaxDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoiceLineTaxes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1922,6 +1931,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
+ **invoiceLineAppliedTaxDtoCollectionQueryParameters** | [**InvoiceLineAppliedTaxDtoCollectionQueryParameters**](InvoiceLineAppliedTaxDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1933,7 +1943,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1943,7 +1953,7 @@ No authorization required
 
 ## GetInvoiceLineTaxesCount
 
-> Int32Envelope GetInvoiceLineTaxesCount(ctx, invoiceId, invoiceLineId).TenantId(tenantId).Execute()
+> Int32Envelope GetInvoiceLineTaxesCount(ctx, invoiceId, invoiceLineId).TenantId(tenantId).InvoiceLineAppliedTaxDtoCollectionQueryParameters(invoiceLineAppliedTaxDtoCollectionQueryParameters).Execute()
 
 Get the count of taxes for an invoice line.
 
@@ -1965,10 +1975,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceLineAppliedTaxDtoCollectionQueryParameters := *openapiclient.NewInvoiceLineAppliedTaxDtoCollectionQueryParameters() // InvoiceLineAppliedTaxDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoiceLineTaxesCount(context.Background(), invoiceId, invoiceLineId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoiceLineTaxesCount(context.Background(), invoiceId, invoiceLineId).TenantId(tenantId).InvoiceLineAppliedTaxDtoCollectionQueryParameters(invoiceLineAppliedTaxDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoiceLineTaxesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1997,6 +2008,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
+ **invoiceLineAppliedTaxDtoCollectionQueryParameters** | [**InvoiceLineAppliedTaxDtoCollectionQueryParameters**](InvoiceLineAppliedTaxDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2008,7 +2020,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2018,7 +2030,7 @@ No authorization required
 
 ## GetInvoiceLines
 
-> InvoiceLineDtoListEnvelope GetInvoiceLines(ctx, invoiceId).TenantId(tenantId).ItemId(itemId).Execute()
+> InvoiceLineDtoListEnvelope GetInvoiceLines(ctx, invoiceId).TenantId(tenantId).ItemId(itemId).InvoiceLineDtoCollectionQueryParameters(invoiceLineDtoCollectionQueryParameters).Execute()
 
 Get invoice lines.
 
@@ -2040,10 +2052,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	invoiceLineDtoCollectionQueryParameters := *openapiclient.NewInvoiceLineDtoCollectionQueryParameters() // InvoiceLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoiceLines(context.Background(), invoiceId).TenantId(tenantId).ItemId(itemId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoiceLines(context.Background(), invoiceId).TenantId(tenantId).ItemId(itemId).InvoiceLineDtoCollectionQueryParameters(invoiceLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoiceLines``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2071,6 +2084,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
  **itemId** | **string** |  | 
+ **invoiceLineDtoCollectionQueryParameters** | [**InvoiceLineDtoCollectionQueryParameters**](InvoiceLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2082,7 +2096,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2092,7 +2106,7 @@ No authorization required
 
 ## GetInvoiceLinesCount
 
-> Int32Envelope GetInvoiceLinesCount(ctx, invoiceId).TenantId(tenantId).Execute()
+> Int32Envelope GetInvoiceLinesCount(ctx, invoiceId).TenantId(tenantId).InvoiceLineDtoCollectionQueryParameters(invoiceLineDtoCollectionQueryParameters).Execute()
 
 Get the count of invoice lines.
 
@@ -2113,10 +2127,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceLineDtoCollectionQueryParameters := *openapiclient.NewInvoiceLineDtoCollectionQueryParameters() // InvoiceLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoiceLinesCount(context.Background(), invoiceId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoiceLinesCount(context.Background(), invoiceId).TenantId(tenantId).InvoiceLineDtoCollectionQueryParameters(invoiceLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoiceLinesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2143,6 +2158,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **invoiceLineDtoCollectionQueryParameters** | [**InvoiceLineDtoCollectionQueryParameters**](InvoiceLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2154,7 +2170,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2164,7 +2180,7 @@ No authorization required
 
 ## GetInvoicePayments
 
-> PaymentDtoIReadOnlyListEnvelope GetInvoicePayments(ctx, invoiceId).TenantId(tenantId).Execute()
+> PaymentDtoIReadOnlyListEnvelope GetInvoicePayments(ctx, invoiceId).TenantId(tenantId).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 
 Get payments for an invoice.
 
@@ -2185,10 +2201,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	paymentDtoCollectionQueryParameters := *openapiclient.NewPaymentDtoCollectionQueryParameters() // PaymentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoicePayments(context.Background(), invoiceId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoicePayments(context.Background(), invoiceId).TenantId(tenantId).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoicePayments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2215,6 +2232,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2226,7 +2244,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2236,7 +2254,7 @@ No authorization required
 
 ## GetInvoicePaymentsCount
 
-> Int32Envelope GetInvoicePaymentsCount(ctx, invoiceId).TenantId(tenantId).Execute()
+> Int32Envelope GetInvoicePaymentsCount(ctx, invoiceId).TenantId(tenantId).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 
 Get the count of payments for an invoice.
 
@@ -2257,10 +2275,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	paymentDtoCollectionQueryParameters := *openapiclient.NewPaymentDtoCollectionQueryParameters() // PaymentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoicePaymentsCount(context.Background(), invoiceId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoicePaymentsCount(context.Background(), invoiceId).TenantId(tenantId).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoicePaymentsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2287,6 +2306,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2298,7 +2318,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2383,7 +2403,7 @@ No authorization required
 
 ## GetInvoiceReferences
 
-> InvoiceReferenceDtoIReadOnlyListEnvelope GetInvoiceReferences(ctx, invoiceId).TenantId(tenantId).Execute()
+> InvoiceReferenceDtoIReadOnlyListEnvelope GetInvoiceReferences(ctx, invoiceId).TenantId(tenantId).InvoiceReferenceDtoCollectionQueryParameters(invoiceReferenceDtoCollectionQueryParameters).Execute()
 
 Get invoice references.
 
@@ -2404,10 +2424,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceReferenceDtoCollectionQueryParameters := *openapiclient.NewInvoiceReferenceDtoCollectionQueryParameters() // InvoiceReferenceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoiceReferences(context.Background(), invoiceId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoiceReferences(context.Background(), invoiceId).TenantId(tenantId).InvoiceReferenceDtoCollectionQueryParameters(invoiceReferenceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoiceReferences``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2434,6 +2455,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **invoiceReferenceDtoCollectionQueryParameters** | [**InvoiceReferenceDtoCollectionQueryParameters**](InvoiceReferenceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2445,7 +2467,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2455,7 +2477,7 @@ No authorization required
 
 ## GetInvoiceReferencesCount
 
-> Int32Envelope GetInvoiceReferencesCount(ctx, invoiceId).TenantId(tenantId).Execute()
+> Int32Envelope GetInvoiceReferencesCount(ctx, invoiceId).TenantId(tenantId).InvoiceReferenceDtoCollectionQueryParameters(invoiceReferenceDtoCollectionQueryParameters).Execute()
 
 Get the count of invoice references.
 
@@ -2476,10 +2498,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceReferenceDtoCollectionQueryParameters := *openapiclient.NewInvoiceReferenceDtoCollectionQueryParameters() // InvoiceReferenceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoiceReferencesCount(context.Background(), invoiceId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoiceReferencesCount(context.Background(), invoiceId).TenantId(tenantId).InvoiceReferenceDtoCollectionQueryParameters(invoiceReferenceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoiceReferencesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2506,6 +2529,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **invoiceReferenceDtoCollectionQueryParameters** | [**InvoiceReferenceDtoCollectionQueryParameters**](InvoiceReferenceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2517,7 +2541,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2527,7 +2551,7 @@ No authorization required
 
 ## GetInvoices
 
-> InvoiceDtoListEnvelope GetInvoices(ctx).TenantId(tenantId).Execute()
+> InvoiceDtoListEnvelope GetInvoices(ctx).TenantId(tenantId).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 
 Get a list of invoices.
 
@@ -2547,10 +2571,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceDtoCollectionQueryParameters := *openapiclient.NewInvoiceDtoCollectionQueryParameters() // InvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoices(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoices(context.Background()).TenantId(tenantId).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoices``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2572,6 +2597,7 @@ Other parameters are passed through a pointer to a apiGetInvoicesRequest struct 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2583,7 +2609,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2593,7 +2619,7 @@ No authorization required
 
 ## GetInvoicesCount
 
-> Int32Envelope GetInvoicesCount(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetInvoicesCount(ctx).TenantId(tenantId).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 
 Get the count of invoices.
 
@@ -2613,10 +2639,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceDtoCollectionQueryParameters := *openapiclient.NewInvoiceDtoCollectionQueryParameters() // InvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetInvoicesCount(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetInvoicesCount(context.Background()).TenantId(tenantId).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetInvoicesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2638,6 +2665,7 @@ Other parameters are passed through a pointer to a apiGetInvoicesCountRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2649,7 +2677,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2659,7 +2687,7 @@ No authorization required
 
 ## GetPurchaseInvoicesSum
 
-> MoneyEnvelope GetPurchaseInvoicesSum(ctx).TenantId(tenantId).Execute()
+> MoneyEnvelope GetPurchaseInvoicesSum(ctx).TenantId(tenantId).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 
 Sum tenant purchase-invoice totals.
 
@@ -2679,10 +2707,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceDtoCollectionQueryParameters := *openapiclient.NewInvoiceDtoCollectionQueryParameters() // InvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetPurchaseInvoicesSum(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetPurchaseInvoicesSum(context.Background()).TenantId(tenantId).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetPurchaseInvoicesSum``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2704,6 +2733,7 @@ Other parameters are passed through a pointer to a apiGetPurchaseInvoicesSumRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2715,7 +2745,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2725,7 +2755,7 @@ No authorization required
 
 ## GetSalesInvoicesSum
 
-> MoneyEnvelope GetSalesInvoicesSum(ctx).TenantId(tenantId).Execute()
+> MoneyEnvelope GetSalesInvoicesSum(ctx).TenantId(tenantId).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 
 Sum tenant sales-invoice totals.
 
@@ -2745,10 +2775,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	invoiceDtoCollectionQueryParameters := *openapiclient.NewInvoiceDtoCollectionQueryParameters() // InvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.GetSalesInvoicesSum(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.InvoicesAPI.GetSalesInvoicesSum(context.Background()).TenantId(tenantId).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.GetSalesInvoicesSum``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2770,6 +2801,7 @@ Other parameters are passed through a pointer to a apiGetSalesInvoicesSumRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2781,7 +2813,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2791,7 +2823,7 @@ No authorization required
 
 ## PatchInvoice
 
-> EmptyEnvelope PatchInvoice(ctx, invoiceId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchInvoice(ctx, invoiceId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch an invoice.
 
@@ -2812,11 +2844,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.PatchInvoice(context.Background(), invoiceId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.InvoicesAPI.PatchInvoice(context.Background(), invoiceId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.PatchInvoice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2843,7 +2875,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -2865,7 +2897,7 @@ No authorization required
 
 ## PatchInvoiceAdjustment
 
-> EmptyEnvelope PatchInvoiceAdjustment(ctx, invoiceId, invoiceAdjustmentId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchInvoiceAdjustment(ctx, invoiceId, invoiceAdjustmentId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch an invoice adjustment.
 
@@ -2887,11 +2919,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceAdjustmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.PatchInvoiceAdjustment(context.Background(), invoiceId, invoiceAdjustmentId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.InvoicesAPI.PatchInvoiceAdjustment(context.Background(), invoiceId, invoiceAdjustmentId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.PatchInvoiceAdjustment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2920,7 +2952,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -2942,7 +2974,7 @@ No authorization required
 
 ## PatchInvoiceLine
 
-> EmptyEnvelope PatchInvoiceLine(ctx, invoiceId, invoiceLineId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchInvoiceLine(ctx, invoiceId, invoiceLineId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch an invoice line.
 
@@ -2964,11 +2996,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.PatchInvoiceLine(context.Background(), invoiceId, invoiceLineId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.InvoicesAPI.PatchInvoiceLine(context.Background(), invoiceId, invoiceLineId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.PatchInvoiceLine``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2997,7 +3029,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -3019,7 +3051,7 @@ No authorization required
 
 ## PatchInvoiceLineTax
 
-> EmptyEnvelope PatchInvoiceLineTax(ctx, invoiceId, invoiceLineId, invoiceLineTaxId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchInvoiceLineTax(ctx, invoiceId, invoiceLineId, invoiceLineTaxId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a tax for an invoice line.
 
@@ -3042,11 +3074,11 @@ func main() {
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceLineTaxId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.PatchInvoiceLineTax(context.Background(), invoiceId, invoiceLineId, invoiceLineTaxId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.InvoicesAPI.PatchInvoiceLineTax(context.Background(), invoiceId, invoiceLineId, invoiceLineTaxId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.PatchInvoiceLineTax``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3077,7 +3109,7 @@ Name | Type | Description  | Notes
 
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -3099,7 +3131,7 @@ No authorization required
 
 ## PatchInvoiceReference
 
-> EmptyEnvelope PatchInvoiceReference(ctx, invoiceId, invoiceReferenceId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchInvoiceReference(ctx, invoiceId, invoiceReferenceId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch an invoice reference.
 
@@ -3121,11 +3153,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	invoiceReferenceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoicesAPI.PatchInvoiceReference(context.Background(), invoiceId, invoiceReferenceId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.InvoicesAPI.PatchInvoiceReference(context.Background(), invoiceId, invoiceReferenceId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoicesAPI.PatchInvoiceReference``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3154,7 +3186,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

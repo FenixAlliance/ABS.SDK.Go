@@ -172,6 +172,7 @@ type ApiGetMerchantsRequest struct {
 	ApiService *MerchantsAPIService
 	apiVersion *string
 	xApiVersion *string
+	merchantDtoCollectionQueryParameters *MerchantDtoCollectionQueryParameters
 }
 
 func (r ApiGetMerchantsRequest) ApiVersion(apiVersion string) ApiGetMerchantsRequest {
@@ -181,6 +182,11 @@ func (r ApiGetMerchantsRequest) ApiVersion(apiVersion string) ApiGetMerchantsReq
 
 func (r ApiGetMerchantsRequest) XApiVersion(xApiVersion string) ApiGetMerchantsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMerchantsRequest) MerchantDtoCollectionQueryParameters(merchantDtoCollectionQueryParameters MerchantDtoCollectionQueryParameters) ApiGetMerchantsRequest {
+	r.merchantDtoCollectionQueryParameters = &merchantDtoCollectionQueryParameters
 	return r
 }
 
@@ -228,7 +234,7 @@ func (a *MerchantsAPIService) GetMerchantsExecute(r ApiGetMerchantsRequest) (*Me
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -247,6 +253,8 @@ func (a *MerchantsAPIService) GetMerchantsExecute(r ApiGetMerchantsRequest) (*Me
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.merchantDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -311,6 +319,7 @@ type ApiGetMerchantsCountRequest struct {
 	ApiService *MerchantsAPIService
 	apiVersion *string
 	xApiVersion *string
+	merchantDtoCollectionQueryParameters *MerchantDtoCollectionQueryParameters
 }
 
 func (r ApiGetMerchantsCountRequest) ApiVersion(apiVersion string) ApiGetMerchantsCountRequest {
@@ -320,6 +329,11 @@ func (r ApiGetMerchantsCountRequest) ApiVersion(apiVersion string) ApiGetMerchan
 
 func (r ApiGetMerchantsCountRequest) XApiVersion(xApiVersion string) ApiGetMerchantsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMerchantsCountRequest) MerchantDtoCollectionQueryParameters(merchantDtoCollectionQueryParameters MerchantDtoCollectionQueryParameters) ApiGetMerchantsCountRequest {
+	r.merchantDtoCollectionQueryParameters = &merchantDtoCollectionQueryParameters
 	return r
 }
 
@@ -367,7 +381,7 @@ func (a *MerchantsAPIService) GetMerchantsCountExecute(r ApiGetMerchantsCountReq
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -386,6 +400,8 @@ func (a *MerchantsAPIService) GetMerchantsCountExecute(r ApiGetMerchantsCountReq
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.merchantDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

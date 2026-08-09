@@ -514,6 +514,7 @@ type ApiGetAccountGroupsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountGroupDtoCollectionQueryParameters *AccountGroupDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountGroupsRequest) TenantId(tenantId string) ApiGetAccountGroupsRequest {
@@ -528,6 +529,11 @@ func (r ApiGetAccountGroupsRequest) ApiVersion(apiVersion string) ApiGetAccountG
 
 func (r ApiGetAccountGroupsRequest) XApiVersion(xApiVersion string) ApiGetAccountGroupsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountGroupsRequest) AccountGroupDtoCollectionQueryParameters(accountGroupDtoCollectionQueryParameters AccountGroupDtoCollectionQueryParameters) ApiGetAccountGroupsRequest {
+	r.accountGroupDtoCollectionQueryParameters = &accountGroupDtoCollectionQueryParameters
 	return r
 }
 
@@ -579,7 +585,7 @@ func (a *AccountGroupsAPIService) GetAccountGroupsExecute(r ApiGetAccountGroupsR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -598,6 +604,8 @@ func (a *AccountGroupsAPIService) GetAccountGroupsExecute(r ApiGetAccountGroupsR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountGroupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -663,6 +671,7 @@ type ApiGetAccountGroupsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountGroupDtoCollectionQueryParameters *AccountGroupDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountGroupsCountAsyncRequest) TenantId(tenantId string) ApiGetAccountGroupsCountAsyncRequest {
@@ -677,6 +686,11 @@ func (r ApiGetAccountGroupsCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetAccountGroupsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountGroupsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountGroupsCountAsyncRequest) AccountGroupDtoCollectionQueryParameters(accountGroupDtoCollectionQueryParameters AccountGroupDtoCollectionQueryParameters) ApiGetAccountGroupsCountAsyncRequest {
+	r.accountGroupDtoCollectionQueryParameters = &accountGroupDtoCollectionQueryParameters
 	return r
 }
 
@@ -728,7 +742,7 @@ func (a *AccountGroupsAPIService) GetAccountGroupsCountAsyncExecute(r ApiGetAcco
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -747,6 +761,8 @@ func (a *AccountGroupsAPIService) GetAccountGroupsCountAsyncExecute(r ApiGetAcco
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountGroupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -813,7 +829,7 @@ type ApiPatchAccountGroupAsyncRequest struct {
 	accountGroupId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAccountGroupAsyncRequest) TenantId(tenantId string) ApiPatchAccountGroupAsyncRequest {
@@ -831,8 +847,8 @@ func (r ApiPatchAccountGroupAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchAccountGroupAsyncRequest) Operation(operation []Operation) ApiPatchAccountGroupAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchAccountGroupAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAccountGroupAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -907,7 +923,7 @@ func (a *AccountGroupsAPIService) PatchAccountGroupAsyncExecute(r ApiPatchAccoun
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

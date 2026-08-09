@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **SocialProfileId** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileName** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileAvatarUrl** | Pointer to **NullableString** |  | [optional] 
+**SocialProfileType** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -266,6 +267,41 @@ HasSocialProfileAvatarUrl returns a boolean if a field has been set.
 `func (o *SocialReactionDto) UnsetSocialProfileAvatarUrl()`
 
 UnsetSocialProfileAvatarUrl ensures that no value is present for SocialProfileAvatarUrl, not even an explicit nil
+### GetSocialProfileType
+
+`func (o *SocialReactionDto) GetSocialProfileType() string`
+
+GetSocialProfileType returns the SocialProfileType field if non-nil, zero value otherwise.
+
+### GetSocialProfileTypeOk
+
+`func (o *SocialReactionDto) GetSocialProfileTypeOk() (*string, bool)`
+
+GetSocialProfileTypeOk returns a tuple with the SocialProfileType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSocialProfileType
+
+`func (o *SocialReactionDto) SetSocialProfileType(v string)`
+
+SetSocialProfileType sets SocialProfileType field to given value.
+
+### HasSocialProfileType
+
+`func (o *SocialReactionDto) HasSocialProfileType() bool`
+
+HasSocialProfileType returns a boolean if a field has been set.
+
+### SetSocialProfileTypeNil
+
+`func (o *SocialReactionDto) SetSocialProfileTypeNil(b bool)`
+
+ SetSocialProfileTypeNil sets the value for SocialProfileType to be an explicit nil
+
+### UnsetSocialProfileType
+`func (o *SocialReactionDto) UnsetSocialProfileType()`
+
+UnsetSocialProfileType ensures that no value is present for SocialProfileType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

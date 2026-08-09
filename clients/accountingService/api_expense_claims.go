@@ -496,6 +496,7 @@ type ApiGetExpenseClaimsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	expenseClaimDtoCollectionQueryParameters *ExpenseClaimDtoCollectionQueryParameters
 }
 
 func (r ApiGetExpenseClaimsRequest) TenantId(tenantId string) ApiGetExpenseClaimsRequest {
@@ -510,6 +511,11 @@ func (r ApiGetExpenseClaimsRequest) ApiVersion(apiVersion string) ApiGetExpenseC
 
 func (r ApiGetExpenseClaimsRequest) XApiVersion(xApiVersion string) ApiGetExpenseClaimsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetExpenseClaimsRequest) ExpenseClaimDtoCollectionQueryParameters(expenseClaimDtoCollectionQueryParameters ExpenseClaimDtoCollectionQueryParameters) ApiGetExpenseClaimsRequest {
+	r.expenseClaimDtoCollectionQueryParameters = &expenseClaimDtoCollectionQueryParameters
 	return r
 }
 
@@ -561,7 +567,7 @@ func (a *ExpenseClaimsAPIService) GetExpenseClaimsExecute(r ApiGetExpenseClaimsR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -580,6 +586,8 @@ func (a *ExpenseClaimsAPIService) GetExpenseClaimsExecute(r ApiGetExpenseClaimsR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.expenseClaimDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -645,6 +653,7 @@ type ApiGetExpenseClaimsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	expenseClaimDtoCollectionQueryParameters *ExpenseClaimDtoCollectionQueryParameters
 }
 
 func (r ApiGetExpenseClaimsCountRequest) TenantId(tenantId string) ApiGetExpenseClaimsCountRequest {
@@ -659,6 +668,11 @@ func (r ApiGetExpenseClaimsCountRequest) ApiVersion(apiVersion string) ApiGetExp
 
 func (r ApiGetExpenseClaimsCountRequest) XApiVersion(xApiVersion string) ApiGetExpenseClaimsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetExpenseClaimsCountRequest) ExpenseClaimDtoCollectionQueryParameters(expenseClaimDtoCollectionQueryParameters ExpenseClaimDtoCollectionQueryParameters) ApiGetExpenseClaimsCountRequest {
+	r.expenseClaimDtoCollectionQueryParameters = &expenseClaimDtoCollectionQueryParameters
 	return r
 }
 
@@ -710,7 +724,7 @@ func (a *ExpenseClaimsAPIService) GetExpenseClaimsCountExecute(r ApiGetExpenseCl
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -729,6 +743,8 @@ func (a *ExpenseClaimsAPIService) GetExpenseClaimsCountExecute(r ApiGetExpenseCl
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.expenseClaimDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -795,7 +811,7 @@ type ApiPatchExpenseClaimRequest struct {
 	expenseClaimId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchExpenseClaimRequest) TenantId(tenantId string) ApiPatchExpenseClaimRequest {
@@ -813,8 +829,8 @@ func (r ApiPatchExpenseClaimRequest) XApiVersion(xApiVersion string) ApiPatchExp
 	return r
 }
 
-func (r ApiPatchExpenseClaimRequest) Operation(operation []Operation) ApiPatchExpenseClaimRequest {
-	r.operation = &operation
+func (r ApiPatchExpenseClaimRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchExpenseClaimRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -889,7 +905,7 @@ func (a *ExpenseClaimsAPIService) PatchExpenseClaimExecute(r ApiPatchExpenseClai
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

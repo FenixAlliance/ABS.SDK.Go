@@ -427,6 +427,7 @@ type ApiGetGrantsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	grantDtoCollectionQueryParameters *GrantDtoCollectionQueryParameters
 }
 
 func (r ApiGetGrantsAsyncRequest) TenantId(tenantId string) ApiGetGrantsAsyncRequest {
@@ -441,6 +442,11 @@ func (r ApiGetGrantsAsyncRequest) ApiVersion(apiVersion string) ApiGetGrantsAsyn
 
 func (r ApiGetGrantsAsyncRequest) XApiVersion(xApiVersion string) ApiGetGrantsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetGrantsAsyncRequest) GrantDtoCollectionQueryParameters(grantDtoCollectionQueryParameters GrantDtoCollectionQueryParameters) ApiGetGrantsAsyncRequest {
+	r.grantDtoCollectionQueryParameters = &grantDtoCollectionQueryParameters
 	return r
 }
 
@@ -492,7 +498,7 @@ func (a *GrantsAPIService) GetGrantsAsyncExecute(r ApiGetGrantsAsyncRequest) (*G
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -511,6 +517,8 @@ func (a *GrantsAPIService) GetGrantsAsyncExecute(r ApiGetGrantsAsyncRequest) (*G
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.grantDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -554,6 +562,7 @@ type ApiGetGrantsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	grantDtoCollectionQueryParameters *GrantDtoCollectionQueryParameters
 }
 
 func (r ApiGetGrantsCountAsyncRequest) TenantId(tenantId string) ApiGetGrantsCountAsyncRequest {
@@ -568,6 +577,11 @@ func (r ApiGetGrantsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetGrant
 
 func (r ApiGetGrantsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetGrantsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetGrantsCountAsyncRequest) GrantDtoCollectionQueryParameters(grantDtoCollectionQueryParameters GrantDtoCollectionQueryParameters) ApiGetGrantsCountAsyncRequest {
+	r.grantDtoCollectionQueryParameters = &grantDtoCollectionQueryParameters
 	return r
 }
 
@@ -619,7 +633,7 @@ func (a *GrantsAPIService) GetGrantsCountAsyncExecute(r ApiGetGrantsCountAsyncRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -638,6 +652,8 @@ func (a *GrantsAPIService) GetGrantsCountAsyncExecute(r ApiGetGrantsCountAsyncRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.grantDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -682,7 +698,7 @@ type ApiPatchGrantAsyncRequest struct {
 	grantId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchGrantAsyncRequest) TenantId(tenantId string) ApiPatchGrantAsyncRequest {
@@ -700,8 +716,8 @@ func (r ApiPatchGrantAsyncRequest) XApiVersion(xApiVersion string) ApiPatchGrant
 	return r
 }
 
-func (r ApiPatchGrantAsyncRequest) Operation(operation []Operation) ApiPatchGrantAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchGrantAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchGrantAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -776,7 +792,7 @@ func (a *GrantsAPIService) PatchGrantAsyncExecute(r ApiPatchGrantAsyncRequest) (
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

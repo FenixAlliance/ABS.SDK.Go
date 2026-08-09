@@ -471,6 +471,7 @@ type ApiGetNonFungibleTokensAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	nonFungibleTokenDtoCollectionQueryParameters *NonFungibleTokenDtoCollectionQueryParameters
 }
 
 func (r ApiGetNonFungibleTokensAsyncRequest) TenantId(tenantId string) ApiGetNonFungibleTokensAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetNonFungibleTokensAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetNonFungibleTokensAsyncRequest) XApiVersion(xApiVersion string) ApiGetNonFungibleTokensAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetNonFungibleTokensAsyncRequest) NonFungibleTokenDtoCollectionQueryParameters(nonFungibleTokenDtoCollectionQueryParameters NonFungibleTokenDtoCollectionQueryParameters) ApiGetNonFungibleTokensAsyncRequest {
+	r.nonFungibleTokenDtoCollectionQueryParameters = &nonFungibleTokenDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *NonFungibleTokensAPIService) GetNonFungibleTokensAsyncExecute(r ApiGetN
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *NonFungibleTokensAPIService) GetNonFungibleTokensAsyncExecute(r ApiGetN
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.nonFungibleTokenDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetNonFungibleTokensCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	nonFungibleTokenDtoCollectionQueryParameters *NonFungibleTokenDtoCollectionQueryParameters
 }
 
 func (r ApiGetNonFungibleTokensCountAsyncRequest) TenantId(tenantId string) ApiGetNonFungibleTokensCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetNonFungibleTokensCountAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetNonFungibleTokensCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetNonFungibleTokensCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetNonFungibleTokensCountAsyncRequest) NonFungibleTokenDtoCollectionQueryParameters(nonFungibleTokenDtoCollectionQueryParameters NonFungibleTokenDtoCollectionQueryParameters) ApiGetNonFungibleTokensCountAsyncRequest {
+	r.nonFungibleTokenDtoCollectionQueryParameters = &nonFungibleTokenDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *NonFungibleTokensAPIService) GetNonFungibleTokensCountAsyncExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *NonFungibleTokensAPIService) GetNonFungibleTokensCountAsyncExecute(r Ap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.nonFungibleTokenDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchNonFungibleTokenAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchNonFungibleTokenAsyncRequest) TenantId(tenantId string) ApiPatchNonFungibleTokenAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchNonFungibleTokenAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchNonFungibleTokenAsyncRequest) Operation(operation []Operation) ApiPatchNonFungibleTokenAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchNonFungibleTokenAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchNonFungibleTokenAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *NonFungibleTokensAPIService) PatchNonFungibleTokenAsyncExecute(r ApiPat
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -226,7 +226,7 @@ No authorization required
 
 ## GetAssetTypes
 
-> AssetTypeDtoListEnvelope GetAssetTypes(ctx).TenantId(tenantId).Execute()
+> AssetTypeDtoListEnvelope GetAssetTypes(ctx).TenantId(tenantId).AssetTypeDtoCollectionQueryParameters(assetTypeDtoCollectionQueryParameters).Execute()
 
 Gets all asset types for the current tenant
 
@@ -246,10 +246,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	assetTypeDtoCollectionQueryParameters := *openapiclient.NewAssetTypeDtoCollectionQueryParameters() // AssetTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AssetTypesAPI.GetAssetTypes(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.AssetTypesAPI.GetAssetTypes(context.Background()).TenantId(tenantId).AssetTypeDtoCollectionQueryParameters(assetTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AssetTypesAPI.GetAssetTypes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -271,6 +272,7 @@ Other parameters are passed through a pointer to a apiGetAssetTypesRequest struc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **assetTypeDtoCollectionQueryParameters** | [**AssetTypeDtoCollectionQueryParameters**](AssetTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -282,7 +284,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -292,7 +294,7 @@ No authorization required
 
 ## GetAssetTypesCount
 
-> Int32Envelope GetAssetTypesCount(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetAssetTypesCount(ctx).TenantId(tenantId).AssetTypeDtoCollectionQueryParameters(assetTypeDtoCollectionQueryParameters).Execute()
 
 Gets the count of asset types
 
@@ -312,10 +314,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	assetTypeDtoCollectionQueryParameters := *openapiclient.NewAssetTypeDtoCollectionQueryParameters() // AssetTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AssetTypesAPI.GetAssetTypesCount(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.AssetTypesAPI.GetAssetTypesCount(context.Background()).TenantId(tenantId).AssetTypeDtoCollectionQueryParameters(assetTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AssetTypesAPI.GetAssetTypesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -337,6 +340,7 @@ Other parameters are passed through a pointer to a apiGetAssetTypesCountRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **assetTypeDtoCollectionQueryParameters** | [**AssetTypeDtoCollectionQueryParameters**](AssetTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -348,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -358,7 +362,7 @@ No authorization required
 
 ## PatchAssetType
 
-> EmptyEnvelope PatchAssetType(ctx, typeId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchAssetType(ctx, typeId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Partially updates an existing asset type
 
@@ -379,11 +383,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	typeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AssetTypesAPI.PatchAssetType(context.Background(), typeId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.AssetTypesAPI.PatchAssetType(context.Background(), typeId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AssetTypesAPI.PatchAssetType``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -410,7 +414,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

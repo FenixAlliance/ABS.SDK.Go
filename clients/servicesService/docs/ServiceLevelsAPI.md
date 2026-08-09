@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## CountAllServiceLevelsAsync
 
-> Int32Envelope CountAllServiceLevelsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountAllServiceLevelsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ServiceLevelDtoCollectionQueryParameters(serviceLevelDtoCollectionQueryParameters).Execute()
 
 Get all service levels count
 
@@ -40,10 +40,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	serviceLevelDtoCollectionQueryParameters := *openapiclient.NewServiceLevelDtoCollectionQueryParameters() // ServiceLevelDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceLevelsAPI.CountAllServiceLevelsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ServiceLevelsAPI.CountAllServiceLevelsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ServiceLevelDtoCollectionQueryParameters(serviceLevelDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceLevelsAPI.CountAllServiceLevelsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -67,6 +68,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -78,7 +80,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -245,7 +247,7 @@ No authorization required
 
 ## GetAllServiceLevelsAsync
 
-> ServiceLevelDtoIReadOnlyListEnvelope GetAllServiceLevelsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ServiceLevelDtoIReadOnlyListEnvelope GetAllServiceLevelsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ServiceLevelDtoCollectionQueryParameters(serviceLevelDtoCollectionQueryParameters).Execute()
 
 Get all service levels
 
@@ -267,10 +269,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	serviceLevelDtoCollectionQueryParameters := *openapiclient.NewServiceLevelDtoCollectionQueryParameters() // ServiceLevelDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceLevelsAPI.GetAllServiceLevelsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ServiceLevelsAPI.GetAllServiceLevelsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ServiceLevelDtoCollectionQueryParameters(serviceLevelDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceLevelsAPI.GetAllServiceLevelsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -294,6 +297,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -305,7 +309,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -394,7 +398,7 @@ No authorization required
 
 ## GetServiceLevelsAsync
 
-> ServiceLevelDtoIReadOnlyListEnvelope GetServiceLevelsAsync(ctx, serviceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ServiceLevelDtoIReadOnlyListEnvelope GetServiceLevelsAsync(ctx, serviceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ServiceLevelDtoCollectionQueryParameters(serviceLevelDtoCollectionQueryParameters).Execute()
 
 Get all service levels
 
@@ -417,10 +421,11 @@ func main() {
 	serviceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	serviceLevelDtoCollectionQueryParameters := *openapiclient.NewServiceLevelDtoCollectionQueryParameters() // ServiceLevelDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceLevelsAPI.GetServiceLevelsAsync(context.Background(), serviceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ServiceLevelsAPI.GetServiceLevelsAsync(context.Background(), serviceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ServiceLevelDtoCollectionQueryParameters(serviceLevelDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceLevelsAPI.GetServiceLevelsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -449,6 +454,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -460,7 +466,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -470,7 +476,7 @@ No authorization required
 
 ## GetServiceLevelsCountAsync
 
-> Int32Envelope GetServiceLevelsCountAsync(ctx, serviceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetServiceLevelsCountAsync(ctx, serviceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ServiceLevelDtoCollectionQueryParameters(serviceLevelDtoCollectionQueryParameters).Execute()
 
 Get service levels count
 
@@ -493,10 +499,11 @@ func main() {
 	serviceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	serviceLevelDtoCollectionQueryParameters := *openapiclient.NewServiceLevelDtoCollectionQueryParameters() // ServiceLevelDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceLevelsAPI.GetServiceLevelsCountAsync(context.Background(), serviceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ServiceLevelsAPI.GetServiceLevelsCountAsync(context.Background(), serviceId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ServiceLevelDtoCollectionQueryParameters(serviceLevelDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceLevelsAPI.GetServiceLevelsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -525,6 +532,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -536,7 +544,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -546,7 +554,7 @@ No authorization required
 
 ## PatchServiceLevelAsync
 
-> Envelope PatchServiceLevelAsync(ctx, serviceId, serviceLevelId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> Envelope PatchServiceLevelAsync(ctx, serviceId, serviceLevelId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a service level
 
@@ -570,11 +578,11 @@ func main() {
 	serviceLevelId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceLevelsAPI.PatchServiceLevelAsync(context.Background(), serviceId, serviceLevelId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ServiceLevelsAPI.PatchServiceLevelAsync(context.Background(), serviceId, serviceLevelId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceLevelsAPI.PatchServiceLevelAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -605,7 +613,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

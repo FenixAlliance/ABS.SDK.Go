@@ -22,6 +22,7 @@ var _ MappedNullable = &JournalEntryDto{}
 // JournalEntryDto struct for JournalEntryDto
 type JournalEntryDto struct {
 	Id NullableString `json:"id,omitempty"`
+	Timestamp NullableTime `json:"timestamp,omitempty"`
 	TenantId NullableString `json:"tenantId,omitempty"`
 	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	JournalId NullableString `json:"journalId,omitempty"`
@@ -42,7 +43,6 @@ type JournalEntryDto struct {
 	PostedBy NullableString `json:"postedBy,omitempty"`
 	ForexRate *float64 `json:"forexRate,omitempty"`
 	ForexRatesSnapshot NullableString `json:"forexRatesSnapshot,omitempty"`
-	Timestamp NullableTime `json:"timestamp,omitempty"`
 	DebitInUsd *float64 `json:"debitInUsd,omitempty"`
 	CreditInUsd *float64 `json:"creditInUsd,omitempty"`
 	AccountingEntries []AccountingEntryDto `json:"accountingEntries,omitempty"`
@@ -50,6 +50,8 @@ type JournalEntryDto struct {
 	TotalCredit *float64 `json:"totalCredit,omitempty"`
 	TotalDebitAmount *Money `json:"totalDebitAmount,omitempty"`
 	TotalCreditAmount *Money `json:"totalCreditAmount,omitempty"`
+	DebitInUsdAmount *Money `json:"debitInUsdAmount,omitempty"`
+	CreditInUsdAmount *Money `json:"creditInUsdAmount,omitempty"`
 }
 
 // NewJournalEntryDto instantiates a new JournalEntryDto object
@@ -109,6 +111,48 @@ func (o *JournalEntryDto) SetIdNil() {
 // UnsetId ensures that no value is present for Id, not even an explicit nil
 func (o *JournalEntryDto) UnsetId() {
 	o.Id.Unset()
+}
+
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalEntryDto) GetTimestamp() time.Time {
+	if o == nil || IsNil(o.Timestamp.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.Timestamp.Get()
+}
+
+// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalEntryDto) GetTimestampOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Timestamp.Get(), o.Timestamp.IsSet()
+}
+
+// HasTimestamp returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasTimestamp() bool {
+	if o != nil && o.Timestamp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
+func (o *JournalEntryDto) SetTimestamp(v time.Time) {
+	o.Timestamp.Set(&v)
+}
+// SetTimestampNil sets the value for Timestamp to be an explicit nil
+func (o *JournalEntryDto) SetTimestampNil() {
+	o.Timestamp.Set(nil)
+}
+
+// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+func (o *JournalEntryDto) UnsetTimestamp() {
+	o.Timestamp.Unset()
 }
 
 // GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -911,48 +955,6 @@ func (o *JournalEntryDto) UnsetForexRatesSnapshot() {
 	o.ForexRatesSnapshot.Unset()
 }
 
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *JournalEntryDto) GetTimestamp() time.Time {
-	if o == nil || IsNil(o.Timestamp.Get()) {
-		var ret time.Time
-		return ret
-	}
-	return *o.Timestamp.Get()
-}
-
-// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *JournalEntryDto) GetTimestampOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Timestamp.Get(), o.Timestamp.IsSet()
-}
-
-// HasTimestamp returns a boolean if a field has been set.
-func (o *JournalEntryDto) HasTimestamp() bool {
-	if o != nil && o.Timestamp.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
-func (o *JournalEntryDto) SetTimestamp(v time.Time) {
-	o.Timestamp.Set(&v)
-}
-// SetTimestampNil sets the value for Timestamp to be an explicit nil
-func (o *JournalEntryDto) SetTimestampNil() {
-	o.Timestamp.Set(nil)
-}
-
-// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-func (o *JournalEntryDto) UnsetTimestamp() {
-	o.Timestamp.Unset()
-}
-
 // GetDebitInUsd returns the DebitInUsd field value if set, zero value otherwise.
 func (o *JournalEntryDto) GetDebitInUsd() float64 {
 	if o == nil || IsNil(o.DebitInUsd) {
@@ -1178,6 +1180,70 @@ func (o *JournalEntryDto) SetTotalCreditAmount(v Money) {
 	o.TotalCreditAmount = &v
 }
 
+// GetDebitInUsdAmount returns the DebitInUsdAmount field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetDebitInUsdAmount() Money {
+	if o == nil || IsNil(o.DebitInUsdAmount) {
+		var ret Money
+		return ret
+	}
+	return *o.DebitInUsdAmount
+}
+
+// GetDebitInUsdAmountOk returns a tuple with the DebitInUsdAmount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JournalEntryDto) GetDebitInUsdAmountOk() (*Money, bool) {
+	if o == nil || IsNil(o.DebitInUsdAmount) {
+		return nil, false
+	}
+	return o.DebitInUsdAmount, true
+}
+
+// HasDebitInUsdAmount returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasDebitInUsdAmount() bool {
+	if o != nil && !IsNil(o.DebitInUsdAmount) {
+		return true
+	}
+
+	return false
+}
+
+// SetDebitInUsdAmount gets a reference to the given Money and assigns it to the DebitInUsdAmount field.
+func (o *JournalEntryDto) SetDebitInUsdAmount(v Money) {
+	o.DebitInUsdAmount = &v
+}
+
+// GetCreditInUsdAmount returns the CreditInUsdAmount field value if set, zero value otherwise.
+func (o *JournalEntryDto) GetCreditInUsdAmount() Money {
+	if o == nil || IsNil(o.CreditInUsdAmount) {
+		var ret Money
+		return ret
+	}
+	return *o.CreditInUsdAmount
+}
+
+// GetCreditInUsdAmountOk returns a tuple with the CreditInUsdAmount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JournalEntryDto) GetCreditInUsdAmountOk() (*Money, bool) {
+	if o == nil || IsNil(o.CreditInUsdAmount) {
+		return nil, false
+	}
+	return o.CreditInUsdAmount, true
+}
+
+// HasCreditInUsdAmount returns a boolean if a field has been set.
+func (o *JournalEntryDto) HasCreditInUsdAmount() bool {
+	if o != nil && !IsNil(o.CreditInUsdAmount) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreditInUsdAmount gets a reference to the given Money and assigns it to the CreditInUsdAmount field.
+func (o *JournalEntryDto) SetCreditInUsdAmount(v Money) {
+	o.CreditInUsdAmount = &v
+}
+
 func (o JournalEntryDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1190,6 +1256,9 @@ func (o JournalEntryDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id.IsSet() {
 		toSerialize["id"] = o.Id.Get()
+	}
+	if o.Timestamp.IsSet() {
+		toSerialize["timestamp"] = o.Timestamp.Get()
 	}
 	if o.TenantId.IsSet() {
 		toSerialize["tenantId"] = o.TenantId.Get()
@@ -1251,9 +1320,6 @@ func (o JournalEntryDto) ToMap() (map[string]interface{}, error) {
 	if o.ForexRatesSnapshot.IsSet() {
 		toSerialize["forexRatesSnapshot"] = o.ForexRatesSnapshot.Get()
 	}
-	if o.Timestamp.IsSet() {
-		toSerialize["timestamp"] = o.Timestamp.Get()
-	}
 	if !IsNil(o.DebitInUsd) {
 		toSerialize["debitInUsd"] = o.DebitInUsd
 	}
@@ -1274,6 +1340,12 @@ func (o JournalEntryDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.TotalCreditAmount) {
 		toSerialize["totalCreditAmount"] = o.TotalCreditAmount
+	}
+	if !IsNil(o.DebitInUsdAmount) {
+		toSerialize["debitInUsdAmount"] = o.DebitInUsdAmount
+	}
+	if !IsNil(o.CreditInUsdAmount) {
+		toSerialize["creditInUsdAmount"] = o.CreditInUsdAmount
 	}
 	return toSerialize, nil
 }

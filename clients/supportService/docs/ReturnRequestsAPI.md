@@ -234,7 +234,7 @@ No authorization required
 
 ## GetReturnRequestsAsync
 
-> ReturnRequestDtoListEnvelope GetReturnRequestsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ReturnRequestDtoListEnvelope GetReturnRequestsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ReturnRequestDtoCollectionQueryParameters(returnRequestDtoCollectionQueryParameters).Execute()
 
 Retrieve return requests
 
@@ -254,10 +254,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	returnRequestDtoCollectionQueryParameters := *openapiclient.NewReturnRequestDtoCollectionQueryParameters() // ReturnRequestDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReturnRequestsAPI.GetReturnRequestsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ReturnRequestsAPI.GetReturnRequestsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ReturnRequestDtoCollectionQueryParameters(returnRequestDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReturnRequestsAPI.GetReturnRequestsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -281,6 +282,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **returnRequestDtoCollectionQueryParameters** | [**ReturnRequestDtoCollectionQueryParameters**](ReturnRequestDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -292,7 +294,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -302,7 +304,7 @@ No authorization required
 
 ## GetReturnRequestsCountAsync
 
-> Int32Envelope GetReturnRequestsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetReturnRequestsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ReturnRequestDtoCollectionQueryParameters(returnRequestDtoCollectionQueryParameters).Execute()
 
 Get return requests count
 
@@ -322,10 +324,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	returnRequestDtoCollectionQueryParameters := *openapiclient.NewReturnRequestDtoCollectionQueryParameters() // ReturnRequestDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReturnRequestsAPI.GetReturnRequestsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ReturnRequestsAPI.GetReturnRequestsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ReturnRequestDtoCollectionQueryParameters(returnRequestDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReturnRequestsAPI.GetReturnRequestsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -349,6 +352,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **returnRequestDtoCollectionQueryParameters** | [**ReturnRequestDtoCollectionQueryParameters**](ReturnRequestDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -360,7 +364,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -370,7 +374,7 @@ No authorization required
 
 ## PatchReturnRequestAsync
 
-> EmptyEnvelope PatchReturnRequestAsync(ctx, returnRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchReturnRequestAsync(ctx, returnRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a return request
 
@@ -393,11 +397,11 @@ func main() {
 	returnRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReturnRequestsAPI.PatchReturnRequestAsync(context.Background(), returnRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ReturnRequestsAPI.PatchReturnRequestAsync(context.Background(), returnRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReturnRequestsAPI.PatchReturnRequestAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -426,7 +430,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

@@ -753,6 +753,7 @@ type ApiGetAirwayBillLinesAsyncRequest struct {
 	billId string
 	apiVersion *string
 	xApiVersion *string
+	waybillLineDtoCollectionQueryParameters *WaybillLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetAirwayBillLinesAsyncRequest) TenantId(tenantId string) ApiGetAirwayBillLinesAsyncRequest {
@@ -767,6 +768,11 @@ func (r ApiGetAirwayBillLinesAsyncRequest) ApiVersion(apiVersion string) ApiGetA
 
 func (r ApiGetAirwayBillLinesAsyncRequest) XApiVersion(xApiVersion string) ApiGetAirwayBillLinesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAirwayBillLinesAsyncRequest) WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters WaybillLineDtoCollectionQueryParameters) ApiGetAirwayBillLinesAsyncRequest {
+	r.waybillLineDtoCollectionQueryParameters = &waybillLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -821,7 +827,7 @@ func (a *AirwayBillsAPIService) GetAirwayBillLinesAsyncExecute(r ApiGetAirwayBil
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -840,6 +846,8 @@ func (a *AirwayBillsAPIService) GetAirwayBillLinesAsyncExecute(r ApiGetAirwayBil
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.waybillLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -895,6 +903,7 @@ type ApiGetAirwayBillLinesCountAsyncRequest struct {
 	billId string
 	apiVersion *string
 	xApiVersion *string
+	waybillLineDtoCollectionQueryParameters *WaybillLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetAirwayBillLinesCountAsyncRequest) TenantId(tenantId string) ApiGetAirwayBillLinesCountAsyncRequest {
@@ -909,6 +918,11 @@ func (r ApiGetAirwayBillLinesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetAirwayBillLinesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAirwayBillLinesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAirwayBillLinesCountAsyncRequest) WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters WaybillLineDtoCollectionQueryParameters) ApiGetAirwayBillLinesCountAsyncRequest {
+	r.waybillLineDtoCollectionQueryParameters = &waybillLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -963,7 +977,7 @@ func (a *AirwayBillsAPIService) GetAirwayBillLinesCountAsyncExecute(r ApiGetAirw
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -982,6 +996,8 @@ func (a *AirwayBillsAPIService) GetAirwayBillLinesCountAsyncExecute(r ApiGetAirw
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.waybillLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1036,6 +1052,7 @@ type ApiGetAirwayBillsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	airwayBillDtoCollectionQueryParameters *AirwayBillDtoCollectionQueryParameters
 }
 
 func (r ApiGetAirwayBillsAsyncRequest) TenantId(tenantId string) ApiGetAirwayBillsAsyncRequest {
@@ -1050,6 +1067,11 @@ func (r ApiGetAirwayBillsAsyncRequest) ApiVersion(apiVersion string) ApiGetAirwa
 
 func (r ApiGetAirwayBillsAsyncRequest) XApiVersion(xApiVersion string) ApiGetAirwayBillsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAirwayBillsAsyncRequest) AirwayBillDtoCollectionQueryParameters(airwayBillDtoCollectionQueryParameters AirwayBillDtoCollectionQueryParameters) ApiGetAirwayBillsAsyncRequest {
+	r.airwayBillDtoCollectionQueryParameters = &airwayBillDtoCollectionQueryParameters
 	return r
 }
 
@@ -1101,7 +1123,7 @@ func (a *AirwayBillsAPIService) GetAirwayBillsAsyncExecute(r ApiGetAirwayBillsAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1120,6 +1142,8 @@ func (a *AirwayBillsAPIService) GetAirwayBillsAsyncExecute(r ApiGetAirwayBillsAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.airwayBillDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1185,6 +1209,7 @@ type ApiGetAirwayBillsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	airwayBillDtoCollectionQueryParameters *AirwayBillDtoCollectionQueryParameters
 }
 
 func (r ApiGetAirwayBillsCountAsyncRequest) TenantId(tenantId string) ApiGetAirwayBillsCountAsyncRequest {
@@ -1199,6 +1224,11 @@ func (r ApiGetAirwayBillsCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetAirwayBillsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAirwayBillsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAirwayBillsCountAsyncRequest) AirwayBillDtoCollectionQueryParameters(airwayBillDtoCollectionQueryParameters AirwayBillDtoCollectionQueryParameters) ApiGetAirwayBillsCountAsyncRequest {
+	r.airwayBillDtoCollectionQueryParameters = &airwayBillDtoCollectionQueryParameters
 	return r
 }
 
@@ -1250,7 +1280,7 @@ func (a *AirwayBillsAPIService) GetAirwayBillsCountAsyncExecute(r ApiGetAirwayBi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1269,6 +1299,8 @@ func (a *AirwayBillsAPIService) GetAirwayBillsCountAsyncExecute(r ApiGetAirwayBi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.airwayBillDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1892,7 +1924,7 @@ type ApiPatchAirwayBillAsyncRequest struct {
 	billId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAirwayBillAsyncRequest) TenantId(tenantId string) ApiPatchAirwayBillAsyncRequest {
@@ -1910,8 +1942,8 @@ func (r ApiPatchAirwayBillAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchAirwayBillAsyncRequest) Operation(operation []Operation) ApiPatchAirwayBillAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchAirwayBillAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAirwayBillAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1986,7 +2018,7 @@ func (a *AirwayBillsAPIService) PatchAirwayBillAsyncExecute(r ApiPatchAirwayBill
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2043,7 +2075,7 @@ type ApiPatchAirwayBillLineAsyncRequest struct {
 	lineId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAirwayBillLineAsyncRequest) TenantId(tenantId string) ApiPatchAirwayBillLineAsyncRequest {
@@ -2061,8 +2093,8 @@ func (r ApiPatchAirwayBillLineAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchAirwayBillLineAsyncRequest) Operation(operation []Operation) ApiPatchAirwayBillLineAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchAirwayBillLineAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAirwayBillLineAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2140,7 +2172,7 @@ func (a *AirwayBillsAPIService) PatchAirwayBillLineAsyncExecute(r ApiPatchAirway
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

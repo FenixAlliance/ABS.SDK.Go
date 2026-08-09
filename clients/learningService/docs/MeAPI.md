@@ -90,7 +90,7 @@ No authorization required
 
 ## GetMyCertificatesAsync
 
-> CourseCompletionCertificateDtoIReadOnlyListEnvelope GetMyCertificatesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CourseCompletionCertificateDtoIReadOnlyListEnvelope GetMyCertificatesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCompletionCertificateDtoCollectionQueryParameters(courseCompletionCertificateDtoCollectionQueryParameters).Execute()
 
 Get current user's completion certificates
 
@@ -109,10 +109,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseCompletionCertificateDtoCollectionQueryParameters := *openapiclient.NewCourseCompletionCertificateDtoCollectionQueryParameters() // CourseCompletionCertificateDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyCertificatesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyCertificatesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCompletionCertificateDtoCollectionQueryParameters(courseCompletionCertificateDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyCertificatesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -135,6 +136,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseCompletionCertificateDtoCollectionQueryParameters** | [**CourseCompletionCertificateDtoCollectionQueryParameters**](CourseCompletionCertificateDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -146,7 +148,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -156,7 +158,7 @@ No authorization required
 
 ## GetMyCertificatesCountAsync
 
-> int32 GetMyCertificatesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetMyCertificatesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCompletionCertificateDtoCollectionQueryParameters(courseCompletionCertificateDtoCollectionQueryParameters).Execute()
 
 Get current user's certificates count
 
@@ -175,10 +177,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseCompletionCertificateDtoCollectionQueryParameters := *openapiclient.NewCourseCompletionCertificateDtoCollectionQueryParameters() // CourseCompletionCertificateDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyCertificatesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyCertificatesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCompletionCertificateDtoCollectionQueryParameters(courseCompletionCertificateDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyCertificatesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,6 +204,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseCompletionCertificateDtoCollectionQueryParameters** | [**CourseCompletionCertificateDtoCollectionQueryParameters**](CourseCompletionCertificateDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -212,7 +216,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -222,7 +226,7 @@ No authorization required
 
 ## GetMyEnrollmentsAsync
 
-> CourseEnrollmentDtoIReadOnlyListEnvelope GetMyEnrollmentsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CourseEnrollmentDtoIReadOnlyListEnvelope GetMyEnrollmentsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 
 Get current user's course enrollments
 
@@ -241,10 +245,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseEnrollmentDtoCollectionQueryParameters := *openapiclient.NewCourseEnrollmentDtoCollectionQueryParameters() // CourseEnrollmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyEnrollmentsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyEnrollmentsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyEnrollmentsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -267,6 +272,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -278,7 +284,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -288,7 +294,7 @@ No authorization required
 
 ## GetMyEnrollmentsCountAsync
 
-> int32 GetMyEnrollmentsCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetMyEnrollmentsCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 
 Get current user's enrollment count
 
@@ -307,10 +313,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseEnrollmentDtoCollectionQueryParameters := *openapiclient.NewCourseEnrollmentDtoCollectionQueryParameters() // CourseEnrollmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyEnrollmentsCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyEnrollmentsCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyEnrollmentsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -333,6 +340,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -344,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -420,7 +428,7 @@ No authorization required
 
 ## GetMyInstructorCoursesAsync
 
-> CourseDtoIReadOnlyListEnvelope GetMyInstructorCoursesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CourseDtoIReadOnlyListEnvelope GetMyInstructorCoursesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 
 Get current user's instructor courses
 
@@ -439,10 +447,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseDtoCollectionQueryParameters := *openapiclient.NewCourseDtoCollectionQueryParameters() // CourseDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyInstructorCoursesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyInstructorCoursesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyInstructorCoursesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -465,6 +474,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -476,7 +486,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -486,7 +496,7 @@ No authorization required
 
 ## GetMyInstructorCoursesCountAsync
 
-> int32 GetMyInstructorCoursesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetMyInstructorCoursesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 
 Get current user's instructor courses count
 
@@ -505,10 +515,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseDtoCollectionQueryParameters := *openapiclient.NewCourseDtoCollectionQueryParameters() // CourseDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyInstructorCoursesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyInstructorCoursesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyInstructorCoursesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -531,6 +542,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -542,7 +554,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -552,7 +564,7 @@ No authorization required
 
 ## GetMyInstructorProfilesAsync
 
-> InstructorProfileDtoIReadOnlyListEnvelope GetMyInstructorProfilesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> InstructorProfileDtoIReadOnlyListEnvelope GetMyInstructorProfilesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).InstructorProfileDtoCollectionQueryParameters(instructorProfileDtoCollectionQueryParameters).Execute()
 
 Get current user's instructor profiles
 
@@ -571,10 +583,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	instructorProfileDtoCollectionQueryParameters := *openapiclient.NewInstructorProfileDtoCollectionQueryParameters() // InstructorProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyInstructorProfilesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyInstructorProfilesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).InstructorProfileDtoCollectionQueryParameters(instructorProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyInstructorProfilesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -597,6 +610,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **instructorProfileDtoCollectionQueryParameters** | [**InstructorProfileDtoCollectionQueryParameters**](InstructorProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -608,7 +622,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -618,7 +632,7 @@ No authorization required
 
 ## GetMyInstructorProfilesCountAsync
 
-> int32 GetMyInstructorProfilesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetMyInstructorProfilesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).InstructorProfileDtoCollectionQueryParameters(instructorProfileDtoCollectionQueryParameters).Execute()
 
 Get current user's instructor profiles count
 
@@ -637,10 +651,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	instructorProfileDtoCollectionQueryParameters := *openapiclient.NewInstructorProfileDtoCollectionQueryParameters() // InstructorProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyInstructorProfilesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyInstructorProfilesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).InstructorProfileDtoCollectionQueryParameters(instructorProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyInstructorProfilesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -663,6 +678,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **instructorProfileDtoCollectionQueryParameters** | [**InstructorProfileDtoCollectionQueryParameters**](InstructorProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -674,7 +690,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -750,7 +766,7 @@ No authorization required
 
 ## GetMyStudentCoursesAsync
 
-> CourseDtoIReadOnlyListEnvelope GetMyStudentCoursesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CourseDtoIReadOnlyListEnvelope GetMyStudentCoursesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 
 Get current user's enrolled courses
 
@@ -769,10 +785,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseDtoCollectionQueryParameters := *openapiclient.NewCourseDtoCollectionQueryParameters() // CourseDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyStudentCoursesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyStudentCoursesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyStudentCoursesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -795,6 +812,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -806,7 +824,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -816,7 +834,7 @@ No authorization required
 
 ## GetMyStudentCoursesCountAsync
 
-> int32 GetMyStudentCoursesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetMyStudentCoursesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 
 Get current user's enrolled courses count
 
@@ -835,10 +853,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseDtoCollectionQueryParameters := *openapiclient.NewCourseDtoCollectionQueryParameters() // CourseDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyStudentCoursesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyStudentCoursesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyStudentCoursesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -861,6 +880,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -872,7 +892,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -882,7 +902,7 @@ No authorization required
 
 ## GetMyStudentProfilesAsync
 
-> StudentProfileDtoIReadOnlyListEnvelope GetMyStudentProfilesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> StudentProfileDtoIReadOnlyListEnvelope GetMyStudentProfilesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).StudentProfileDtoCollectionQueryParameters(studentProfileDtoCollectionQueryParameters).Execute()
 
 Get current user's student profiles
 
@@ -901,10 +921,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	studentProfileDtoCollectionQueryParameters := *openapiclient.NewStudentProfileDtoCollectionQueryParameters() // StudentProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyStudentProfilesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyStudentProfilesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).StudentProfileDtoCollectionQueryParameters(studentProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyStudentProfilesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -927,6 +948,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **studentProfileDtoCollectionQueryParameters** | [**StudentProfileDtoCollectionQueryParameters**](StudentProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -938,7 +960,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -948,7 +970,7 @@ No authorization required
 
 ## GetMyStudentProfilesCountAsync
 
-> int32 GetMyStudentProfilesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetMyStudentProfilesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).StudentProfileDtoCollectionQueryParameters(studentProfileDtoCollectionQueryParameters).Execute()
 
 Get current user's student profiles count
 
@@ -967,10 +989,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	studentProfileDtoCollectionQueryParameters := *openapiclient.NewStudentProfileDtoCollectionQueryParameters() // StudentProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MeAPI.GetMyStudentProfilesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MeAPI.GetMyStudentProfilesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).StudentProfileDtoCollectionQueryParameters(studentProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MeAPI.GetMyStudentProfilesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -993,6 +1016,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **studentProfileDtoCollectionQueryParameters** | [**StudentProfileDtoCollectionQueryParameters**](StudentProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1004,7 +1028,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

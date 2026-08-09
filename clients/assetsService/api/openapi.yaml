@@ -42,6 +42,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetCategoryDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetCategoryDtoCollectionQueryParameters'
       responses:
         "401":
           content:
@@ -273,12 +281,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -420,6 +428,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetCategoryDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetCategoryDtoCollectionQueryParameters'
       responses:
         "401":
           content:
@@ -465,6 +481,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetDtoCollectionQueryParameters'
       responses:
         "401":
           content:
@@ -569,6 +593,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetDtoCollectionQueryParameters'
       responses:
         "401":
           content:
@@ -740,12 +772,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -886,6 +918,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetCategoryDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetCategoryDtoCollectionQueryParameters'
       responses:
         "401":
           content:
@@ -991,6 +1031,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetCategoryDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetCategoryDtoCollectionQueryParameters'
       responses:
         "401":
           content:
@@ -1162,12 +1210,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1316,6 +1364,14 @@ paths:
           format: uuid
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetRepairDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetRepairDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1427,6 +1483,14 @@ paths:
           format: uuid
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetRepairDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetRepairDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1611,12 +1675,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1755,6 +1819,14 @@ paths:
           format: uuid
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetValueAmendDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetValueAmendDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1867,6 +1939,14 @@ paths:
           format: uuid
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetValueAmendDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetValueAmendDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2052,12 +2132,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2196,6 +2276,14 @@ paths:
           format: uuid
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetDepreciationRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetDepreciationRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2308,6 +2396,14 @@ paths:
           format: uuid
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetDepreciationRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetDepreciationRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2493,12 +2589,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2637,6 +2733,14 @@ paths:
           format: uuid
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetTransferDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetTransferDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2749,6 +2853,14 @@ paths:
           format: uuid
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetTransferDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetTransferDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2933,12 +3045,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3069,6 +3181,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetTransferDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetTransferDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3165,6 +3285,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetTransferDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetTransferDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3326,12 +3454,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3454,6 +3582,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetTypeDtoCollectionQueryParameters'
       responses:
         "401":
           content:
@@ -3685,12 +3821,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -3831,6 +3967,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetTypeDtoCollectionQueryParameters'
       responses:
         "401":
           content:
@@ -3871,21 +4015,6 @@ paths:
       - FenixAlliance.ABS.Web
   /health:
     get:
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           description: OK
@@ -4247,7 +4376,7 @@ components:
         name: name
         description: description
         id: id
-        assetCount: 0
+        assetCount: 1
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -4275,6 +4404,48 @@ components:
           format: int32
           type: integer
       type: object
+    AssetCategoryDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     AssetCategoryDtoEnvelope:
       additionalProperties: false
       example:
@@ -4285,11 +4456,17 @@ components:
           name: name
           description: description
           id: id
-          assetCount: 0
+          assetCount: 1
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4306,6 +4483,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -4323,7 +4515,7 @@ components:
           name: name
           description: description
           id: id
-          assetCount: 0
+          assetCount: 1
           timestamp: 2000-01-23T04:56:07.000+00:00
         - enrollmentId: enrollmentId
           tenantId: tenantId
@@ -4331,11 +4523,17 @@ components:
           name: name
           description: description
           id: id
-          assetCount: 0
+          assetCount: 1
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4352,6 +4550,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -4516,24 +4729,24 @@ components:
       additionalProperties: false
       example:
         assetDepreciationPolicyId: assetDepreciationPolicyId
-        bookValue: 7.061401241503109
+        bookValue: 9.301444243932576
         enrollmentId: enrollmentId
         period: period
-        year: 9
-        depreciationFrequency: 6
-        expectedValueAUL: 5.962133916683182
+        year: 3
+        depreciationFrequency: 1
+        expectedValueAUL: 5.637376656633329
         depreciationDate: 2000-01-23T04:56:07.000+00:00
         assetDepreciationPolicyName: assetDepreciationPolicyName
         financialBookId: financialBookId
-        accumulatedDepreciation: 2.3021358869347655
-        totalDepreciations: 0
-        month: 3
+        accumulatedDepreciation: 7.061401241503109
+        totalDepreciations: 6
+        month: 2
         assetId: assetId
         tenantId: tenantId
         assetName: assetName
-        depreciationAmount: 5.637376656633329
+        depreciationAmount: 2.3021358869347655
         id: id
-        depreciationRate: 1.4658129805029452
+        depreciationRate: 5.962133916683182
         startDate: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4601,34 +4814,82 @@ components:
           nullable: true
           type: string
       type: object
+    AssetDepreciationRecordDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     AssetDepreciationRecordDtoEnvelope:
       additionalProperties: false
       example:
         result:
           assetDepreciationPolicyId: assetDepreciationPolicyId
-          bookValue: 7.061401241503109
+          bookValue: 9.301444243932576
           enrollmentId: enrollmentId
           period: period
-          year: 9
-          depreciationFrequency: 6
-          expectedValueAUL: 5.962133916683182
+          year: 3
+          depreciationFrequency: 1
+          expectedValueAUL: 5.637376656633329
           depreciationDate: 2000-01-23T04:56:07.000+00:00
           assetDepreciationPolicyName: assetDepreciationPolicyName
           financialBookId: financialBookId
-          accumulatedDepreciation: 2.3021358869347655
-          totalDepreciations: 0
-          month: 3
+          accumulatedDepreciation: 7.061401241503109
+          totalDepreciations: 6
+          month: 2
           assetId: assetId
           tenantId: tenantId
           assetName: assetName
-          depreciationAmount: 5.637376656633329
+          depreciationAmount: 2.3021358869347655
           id: id
-          depreciationRate: 1.4658129805029452
+          depreciationRate: 5.962133916683182
           startDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4645,6 +4906,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -4657,50 +4933,56 @@ components:
       example:
         result:
         - assetDepreciationPolicyId: assetDepreciationPolicyId
-          bookValue: 7.061401241503109
+          bookValue: 9.301444243932576
           enrollmentId: enrollmentId
           period: period
-          year: 9
-          depreciationFrequency: 6
-          expectedValueAUL: 5.962133916683182
+          year: 3
+          depreciationFrequency: 1
+          expectedValueAUL: 5.637376656633329
           depreciationDate: 2000-01-23T04:56:07.000+00:00
           assetDepreciationPolicyName: assetDepreciationPolicyName
           financialBookId: financialBookId
-          accumulatedDepreciation: 2.3021358869347655
-          totalDepreciations: 0
-          month: 3
+          accumulatedDepreciation: 7.061401241503109
+          totalDepreciations: 6
+          month: 2
           assetId: assetId
           tenantId: tenantId
           assetName: assetName
-          depreciationAmount: 5.637376656633329
+          depreciationAmount: 2.3021358869347655
           id: id
-          depreciationRate: 1.4658129805029452
+          depreciationRate: 5.962133916683182
           startDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         - assetDepreciationPolicyId: assetDepreciationPolicyId
-          bookValue: 7.061401241503109
+          bookValue: 9.301444243932576
           enrollmentId: enrollmentId
           period: period
-          year: 9
-          depreciationFrequency: 6
-          expectedValueAUL: 5.962133916683182
+          year: 3
+          depreciationFrequency: 1
+          expectedValueAUL: 5.637376656633329
           depreciationDate: 2000-01-23T04:56:07.000+00:00
           assetDepreciationPolicyName: assetDepreciationPolicyName
           financialBookId: financialBookId
-          accumulatedDepreciation: 2.3021358869347655
-          totalDepreciations: 0
-          month: 3
+          accumulatedDepreciation: 7.061401241503109
+          totalDepreciations: 6
+          month: 2
           assetId: assetId
           tenantId: tenantId
           assetName: assetName
-          depreciationAmount: 5.637376656633329
+          depreciationAmount: 2.3021358869347655
           id: id
-          depreciationRate: 1.4658129805029452
+          depreciationRate: 5.962133916683182
           startDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4717,6 +4999,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -4766,14 +5063,14 @@ components:
       additionalProperties: false
       example:
         isExistingAsset: true
-        openingDepreciation: 0.8008281904610115
+        openingDepreciation: 6.027456183070403
         purchaseDate: 2000-01-23T04:56:07.000+00:00
         assetTypeId: assetTypeId
         assetTypeName: assetTypeName
         businessName: businessName
         description: description
         assetClass: Fixed
-        purchasePrice: 6.027456183070403
+        purchasePrice: 1.4658129805029452
         assetLocationId: assetLocationId
         itemName: itemName
         assetLocationName: assetLocationName
@@ -4899,19 +5196,61 @@ components:
           nullable: true
           type: string
       type: object
+    AssetDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     AssetDtoEnvelope:
       additionalProperties: false
       example:
         result:
           isExistingAsset: true
-          openingDepreciation: 0.8008281904610115
+          openingDepreciation: 6.027456183070403
           purchaseDate: 2000-01-23T04:56:07.000+00:00
           assetTypeId: assetTypeId
           assetTypeName: assetTypeName
           businessName: businessName
           description: description
           assetClass: Fixed
-          purchasePrice: 6.027456183070403
+          purchasePrice: 1.4658129805029452
           assetLocationId: assetLocationId
           itemName: itemName
           assetLocationName: assetLocationName
@@ -4936,8 +5275,14 @@ components:
           currencyCode: currencyCode
           assetCategoryName: assetCategoryName
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4954,6 +5299,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -4966,14 +5326,14 @@ components:
       example:
         result:
         - isExistingAsset: true
-          openingDepreciation: 0.8008281904610115
+          openingDepreciation: 6.027456183070403
           purchaseDate: 2000-01-23T04:56:07.000+00:00
           assetTypeId: assetTypeId
           assetTypeName: assetTypeName
           businessName: businessName
           description: description
           assetClass: Fixed
-          purchasePrice: 6.027456183070403
+          purchasePrice: 1.4658129805029452
           assetLocationId: assetLocationId
           itemName: itemName
           assetLocationName: assetLocationName
@@ -4998,14 +5358,14 @@ components:
           currencyCode: currencyCode
           assetCategoryName: assetCategoryName
         - isExistingAsset: true
-          openingDepreciation: 0.8008281904610115
+          openingDepreciation: 6.027456183070403
           purchaseDate: 2000-01-23T04:56:07.000+00:00
           assetTypeId: assetTypeId
           assetTypeName: assetTypeName
           businessName: businessName
           description: description
           assetClass: Fixed
-          purchasePrice: 6.027456183070403
+          purchasePrice: 1.4658129805029452
           assetLocationId: assetLocationId
           itemName: itemName
           assetLocationName: assetLocationName
@@ -5030,8 +5390,14 @@ components:
           currencyCode: currencyCode
           assetCategoryName: assetCategoryName
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5048,6 +5414,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5129,7 +5510,7 @@ components:
         repairStatus: Scheduled
         problemDescription: problemDescription
         scheduledDate: 2000-01-23T04:56:07.000+00:00
-        estimatedCost: 0.8008281904610115
+        estimatedCost: 6.027456183070403
         assetId: assetId
         reportedDate: 2000-01-23T04:56:07.000+00:00
         tenantId: tenantId
@@ -5140,7 +5521,7 @@ components:
         assetMaintenanceTeamName: assetMaintenanceTeamName
         repairDescription: repairDescription
         timestamp: 2000-01-23T04:56:07.000+00:00
-        actualCost: 6.027456183070403
+        actualCost: 1.4658129805029452
       properties:
         id:
           nullable: true
@@ -5200,6 +5581,48 @@ components:
           nullable: true
           type: string
       type: object
+    AssetRepairDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     AssetRepairDtoEnvelope:
       additionalProperties: false
       example:
@@ -5209,7 +5632,7 @@ components:
           repairStatus: Scheduled
           problemDescription: problemDescription
           scheduledDate: 2000-01-23T04:56:07.000+00:00
-          estimatedCost: 0.8008281904610115
+          estimatedCost: 6.027456183070403
           assetId: assetId
           reportedDate: 2000-01-23T04:56:07.000+00:00
           tenantId: tenantId
@@ -5220,10 +5643,16 @@ components:
           assetMaintenanceTeamName: assetMaintenanceTeamName
           repairDescription: repairDescription
           timestamp: 2000-01-23T04:56:07.000+00:00
-          actualCost: 6.027456183070403
+          actualCost: 1.4658129805029452
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5240,6 +5669,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5256,7 +5700,7 @@ components:
           repairStatus: Scheduled
           problemDescription: problemDescription
           scheduledDate: 2000-01-23T04:56:07.000+00:00
-          estimatedCost: 0.8008281904610115
+          estimatedCost: 6.027456183070403
           assetId: assetId
           reportedDate: 2000-01-23T04:56:07.000+00:00
           tenantId: tenantId
@@ -5267,13 +5711,13 @@ components:
           assetMaintenanceTeamName: assetMaintenanceTeamName
           repairDescription: repairDescription
           timestamp: 2000-01-23T04:56:07.000+00:00
-          actualCost: 6.027456183070403
+          actualCost: 1.4658129805029452
         - enrollmentId: enrollmentId
           notes: notes
           repairStatus: Scheduled
           problemDescription: problemDescription
           scheduledDate: 2000-01-23T04:56:07.000+00:00
-          estimatedCost: 0.8008281904610115
+          estimatedCost: 6.027456183070403
           assetId: assetId
           reportedDate: 2000-01-23T04:56:07.000+00:00
           tenantId: tenantId
@@ -5284,10 +5728,16 @@ components:
           assetMaintenanceTeamName: assetMaintenanceTeamName
           repairDescription: repairDescription
           timestamp: 2000-01-23T04:56:07.000+00:00
-          actualCost: 6.027456183070403
+          actualCost: 1.4658129805029452
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5304,6 +5754,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5520,6 +5985,48 @@ components:
           nullable: true
           type: string
       type: object
+    AssetTransferDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     AssetTransferDtoEnvelope:
       additionalProperties: false
       example:
@@ -5548,8 +6055,14 @@ components:
           serialList: serialList
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5566,6 +6079,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5624,8 +6152,14 @@ components:
           serialList: serialList
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5642,6 +6176,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5711,7 +6260,7 @@ components:
         name: name
         description: description
         id: id
-        assetCount: 0
+        assetCount: 6
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -5739,6 +6288,48 @@ components:
           format: int32
           type: integer
       type: object
+    AssetTypeDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     AssetTypeDtoEnvelope:
       additionalProperties: false
       example:
@@ -5749,11 +6340,17 @@ components:
           name: name
           description: description
           id: id
-          assetCount: 0
+          assetCount: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5770,6 +6367,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5787,7 +6399,7 @@ components:
           name: name
           description: description
           id: id
-          assetCount: 0
+          assetCount: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
         - enrollmentId: enrollmentId
           tenantId: tenantId
@@ -5795,11 +6407,17 @@ components:
           name: name
           description: description
           id: id
-          assetCount: 0
+          assetCount: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5816,6 +6434,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5966,16 +6599,16 @@ components:
       additionalProperties: false
       example:
         enrollmentId: enrollmentId
-        newValue: 6.027456183070403
+        newValue: 1.4658129805029452
         reason: reason
         amendmentDate: 2000-01-23T04:56:07.000+00:00
-        amendmentAmount: 1.4658129805029452
+        amendmentAmount: 5.962133916683182
         assetId: assetId
         tenantId: tenantId
         assetName: assetName
         id: id
         currencyId: currencyId
-        previousValue: 0.8008281904610115
+        previousValue: 6.027456183070403
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -6015,25 +6648,73 @@ components:
           nullable: true
           type: string
       type: object
+    AssetValueAmendDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     AssetValueAmendDtoEnvelope:
       additionalProperties: false
       example:
         result:
           enrollmentId: enrollmentId
-          newValue: 6.027456183070403
+          newValue: 1.4658129805029452
           reason: reason
           amendmentDate: 2000-01-23T04:56:07.000+00:00
-          amendmentAmount: 1.4658129805029452
+          amendmentAmount: 5.962133916683182
           assetId: assetId
           tenantId: tenantId
           assetName: assetName
           id: id
           currencyId: currencyId
-          previousValue: 0.8008281904610115
+          previousValue: 6.027456183070403
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6050,6 +6731,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6062,32 +6758,38 @@ components:
       example:
         result:
         - enrollmentId: enrollmentId
-          newValue: 6.027456183070403
+          newValue: 1.4658129805029452
           reason: reason
           amendmentDate: 2000-01-23T04:56:07.000+00:00
-          amendmentAmount: 1.4658129805029452
+          amendmentAmount: 5.962133916683182
           assetId: assetId
           tenantId: tenantId
           assetName: assetName
           id: id
           currencyId: currencyId
-          previousValue: 0.8008281904610115
+          previousValue: 6.027456183070403
           timestamp: 2000-01-23T04:56:07.000+00:00
         - enrollmentId: enrollmentId
-          newValue: 6.027456183070403
+          newValue: 1.4658129805029452
           reason: reason
           amendmentDate: 2000-01-23T04:56:07.000+00:00
-          amendmentAmount: 1.4658129805029452
+          amendmentAmount: 5.962133916683182
           assetId: assetId
           tenantId: tenantId
           assetName: assetName
           id: id
           currencyId: currencyId
-          previousValue: 0.8008281904610115
+          previousValue: 6.027456183070403
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6104,6 +6806,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6137,8 +6854,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6155,6 +6878,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6164,8 +6902,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6182,6 +6926,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6260,10 +7019,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6280,6 +7045,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6312,30 +7092,18 @@ components:
       - email
       - password
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:

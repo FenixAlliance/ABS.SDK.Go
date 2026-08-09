@@ -529,6 +529,7 @@ type ApiGetEmailTemplatesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	emailTemplateDtoCollectionQueryParameters *EmailTemplateDtoCollectionQueryParameters
 }
 
 func (r ApiGetEmailTemplatesCountAsyncRequest) TenantId(tenantId string) ApiGetEmailTemplatesCountAsyncRequest {
@@ -543,6 +544,11 @@ func (r ApiGetEmailTemplatesCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetEmailTemplatesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetEmailTemplatesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetEmailTemplatesCountAsyncRequest) EmailTemplateDtoCollectionQueryParameters(emailTemplateDtoCollectionQueryParameters EmailTemplateDtoCollectionQueryParameters) ApiGetEmailTemplatesCountAsyncRequest {
+	r.emailTemplateDtoCollectionQueryParameters = &emailTemplateDtoCollectionQueryParameters
 	return r
 }
 
@@ -594,7 +600,7 @@ func (a *EmailTemplatesAPIService) GetEmailTemplatesCountAsyncExecute(r ApiGetEm
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -613,6 +619,8 @@ func (a *EmailTemplatesAPIService) GetEmailTemplatesCountAsyncExecute(r ApiGetEm
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.emailTemplateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -689,6 +697,7 @@ type ApiGetEmailTemplatesODataAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	emailTemplateDtoCollectionQueryParameters *EmailTemplateDtoCollectionQueryParameters
 }
 
 func (r ApiGetEmailTemplatesODataAsyncRequest) TenantId(tenantId string) ApiGetEmailTemplatesODataAsyncRequest {
@@ -703,6 +712,11 @@ func (r ApiGetEmailTemplatesODataAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetEmailTemplatesODataAsyncRequest) XApiVersion(xApiVersion string) ApiGetEmailTemplatesODataAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetEmailTemplatesODataAsyncRequest) EmailTemplateDtoCollectionQueryParameters(emailTemplateDtoCollectionQueryParameters EmailTemplateDtoCollectionQueryParameters) ApiGetEmailTemplatesODataAsyncRequest {
+	r.emailTemplateDtoCollectionQueryParameters = &emailTemplateDtoCollectionQueryParameters
 	return r
 }
 
@@ -754,7 +768,7 @@ func (a *EmailTemplatesAPIService) GetEmailTemplatesODataAsyncExecute(r ApiGetEm
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -773,6 +787,8 @@ func (a *EmailTemplatesAPIService) GetEmailTemplatesODataAsyncExecute(r ApiGetEm
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.emailTemplateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -839,7 +855,7 @@ type ApiPatchEmailTemplateAsyncRequest struct {
 	emailTemplateId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchEmailTemplateAsyncRequest) TenantId(tenantId string) ApiPatchEmailTemplateAsyncRequest {
@@ -857,8 +873,8 @@ func (r ApiPatchEmailTemplateAsyncRequest) XApiVersion(xApiVersion string) ApiPa
 	return r
 }
 
-func (r ApiPatchEmailTemplateAsyncRequest) Operation(operation []Operation) ApiPatchEmailTemplateAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchEmailTemplateAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchEmailTemplateAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -933,7 +949,7 @@ func (a *EmailTemplatesAPIService) PatchEmailTemplateAsyncExecute(r ApiPatchEmai
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -30,6 +30,7 @@ type ApiCountBlogPostCategoriesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	blogPostCategoryDtoCollectionQueryParameters *BlogPostCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiCountBlogPostCategoriesAsyncRequest) TenantId(tenantId string) ApiCountBlogPostCategoriesAsyncRequest {
@@ -44,6 +45,11 @@ func (r ApiCountBlogPostCategoriesAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiCountBlogPostCategoriesAsyncRequest) XApiVersion(xApiVersion string) ApiCountBlogPostCategoriesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountBlogPostCategoriesAsyncRequest) BlogPostCategoryDtoCollectionQueryParameters(blogPostCategoryDtoCollectionQueryParameters BlogPostCategoryDtoCollectionQueryParameters) ApiCountBlogPostCategoriesAsyncRequest {
+	r.blogPostCategoryDtoCollectionQueryParameters = &blogPostCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -95,7 +101,7 @@ func (a *BlogPostCategoriesAPIService) CountBlogPostCategoriesAsyncExecute(r Api
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -114,6 +120,8 @@ func (a *BlogPostCategoriesAPIService) CountBlogPostCategoriesAsyncExecute(r Api
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blogPostCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -489,6 +497,7 @@ type ApiGetBlogPostCategoriesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	blogPostCategoryDtoCollectionQueryParameters *BlogPostCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetBlogPostCategoriesAsyncRequest) TenantId(tenantId string) ApiGetBlogPostCategoriesAsyncRequest {
@@ -503,6 +512,11 @@ func (r ApiGetBlogPostCategoriesAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetBlogPostCategoriesAsyncRequest) XApiVersion(xApiVersion string) ApiGetBlogPostCategoriesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBlogPostCategoriesAsyncRequest) BlogPostCategoryDtoCollectionQueryParameters(blogPostCategoryDtoCollectionQueryParameters BlogPostCategoryDtoCollectionQueryParameters) ApiGetBlogPostCategoriesAsyncRequest {
+	r.blogPostCategoryDtoCollectionQueryParameters = &blogPostCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -554,7 +568,7 @@ func (a *BlogPostCategoriesAPIService) GetBlogPostCategoriesAsyncExecute(r ApiGe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -573,6 +587,8 @@ func (a *BlogPostCategoriesAPIService) GetBlogPostCategoriesAsyncExecute(r ApiGe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blogPostCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchBlogPostCategoryAsyncRequest struct {
 	blogPostCategoryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBlogPostCategoryAsyncRequest) TenantId(tenantId string) ApiPatchBlogPostCategoryAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchBlogPostCategoryAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchBlogPostCategoryAsyncRequest) Operation(operation []Operation) ApiPatchBlogPostCategoryAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBlogPostCategoryAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBlogPostCategoryAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *BlogPostCategoriesAPIService) PatchBlogPostCategoryAsyncExecute(r ApiPa
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

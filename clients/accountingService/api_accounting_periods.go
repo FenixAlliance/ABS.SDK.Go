@@ -515,6 +515,7 @@ type ApiGetAccountingPeriodsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountingPeriodDtoCollectionQueryParameters *AccountingPeriodDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountingPeriodsRequest) TenantId(tenantId string) ApiGetAccountingPeriodsRequest {
@@ -529,6 +530,11 @@ func (r ApiGetAccountingPeriodsRequest) ApiVersion(apiVersion string) ApiGetAcco
 
 func (r ApiGetAccountingPeriodsRequest) XApiVersion(xApiVersion string) ApiGetAccountingPeriodsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountingPeriodsRequest) AccountingPeriodDtoCollectionQueryParameters(accountingPeriodDtoCollectionQueryParameters AccountingPeriodDtoCollectionQueryParameters) ApiGetAccountingPeriodsRequest {
+	r.accountingPeriodDtoCollectionQueryParameters = &accountingPeriodDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *AccountingPeriodsAPIService) GetAccountingPeriodsExecute(r ApiGetAccoun
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *AccountingPeriodsAPIService) GetAccountingPeriodsExecute(r ApiGetAccoun
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingPeriodDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetAccountingPeriodsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountingPeriodDtoCollectionQueryParameters *AccountingPeriodDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountingPeriodsCountAsyncRequest) TenantId(tenantId string) ApiGetAccountingPeriodsCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetAccountingPeriodsCountAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetAccountingPeriodsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountingPeriodsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountingPeriodsCountAsyncRequest) AccountingPeriodDtoCollectionQueryParameters(accountingPeriodDtoCollectionQueryParameters AccountingPeriodDtoCollectionQueryParameters) ApiGetAccountingPeriodsCountAsyncRequest {
+	r.accountingPeriodDtoCollectionQueryParameters = &accountingPeriodDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *AccountingPeriodsAPIService) GetAccountingPeriodsCountAsyncExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *AccountingPeriodsAPIService) GetAccountingPeriodsCountAsyncExecute(r Ap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingPeriodDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchAccountingPeriodAsyncRequest struct {
 	accountingPeriodId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAccountingPeriodAsyncRequest) TenantId(tenantId string) ApiPatchAccountingPeriodAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchAccountingPeriodAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchAccountingPeriodAsyncRequest) Operation(operation []Operation) ApiPatchAccountingPeriodAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchAccountingPeriodAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAccountingPeriodAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *AccountingPeriodsAPIService) PatchAccountingPeriodAsyncExecute(r ApiPat
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

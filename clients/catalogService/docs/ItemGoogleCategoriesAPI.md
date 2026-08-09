@@ -159,7 +159,7 @@ No authorization required
 
 ## GetItemGoogleCategoriesAsync
 
-> ItemGoogleCategoryDtoListEnvelope GetItemGoogleCategoriesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemGoogleCategoryDtoListEnvelope GetItemGoogleCategoriesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemGoogleCategoryDtoCollectionQueryParameters(itemGoogleCategoryDtoCollectionQueryParameters).Execute()
 
 Get all Google item categories
 
@@ -180,10 +180,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemGoogleCategoryDtoCollectionQueryParameters := *openapiclient.NewItemGoogleCategoryDtoCollectionQueryParameters() // ItemGoogleCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemGoogleCategoriesAPI.GetItemGoogleCategoriesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemGoogleCategoriesAPI.GetItemGoogleCategoriesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemGoogleCategoryDtoCollectionQueryParameters(itemGoogleCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemGoogleCategoriesAPI.GetItemGoogleCategoriesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -206,6 +207,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -217,7 +219,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -227,7 +229,7 @@ No authorization required
 
 ## GetItemGoogleCategoriesCountAsync
 
-> Int32Envelope GetItemGoogleCategoriesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetItemGoogleCategoriesCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemGoogleCategoryDtoCollectionQueryParameters(itemGoogleCategoryDtoCollectionQueryParameters).Execute()
 
 Get Google item categories count
 
@@ -248,10 +250,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemGoogleCategoryDtoCollectionQueryParameters := *openapiclient.NewItemGoogleCategoryDtoCollectionQueryParameters() // ItemGoogleCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemGoogleCategoriesAPI.GetItemGoogleCategoriesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemGoogleCategoriesAPI.GetItemGoogleCategoriesCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemGoogleCategoryDtoCollectionQueryParameters(itemGoogleCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemGoogleCategoriesAPI.GetItemGoogleCategoriesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -274,6 +277,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -285,7 +289,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

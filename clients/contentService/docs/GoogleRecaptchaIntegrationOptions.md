@@ -9,6 +9,9 @@ Name | Type | Description | Notes
 **SiteKey** | Pointer to **NullableString** |  | [optional] 
 **SecretKey** | Pointer to **NullableString** |  | [optional] 
 **Version** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **NullableString** |  | [optional] 
+**ApiKey** | Pointer to **NullableString** |  | [optional] 
+**ScoreThreshold** | Pointer to **NullableFloat64** |  | [optional] 
 
 ## Methods
 
@@ -194,6 +197,111 @@ HasVersion returns a boolean if a field has been set.
 `func (o *GoogleRecaptchaIntegrationOptions) UnsetVersion()`
 
 UnsetVersion ensures that no value is present for Version, not even an explicit nil
+### GetProjectId
+
+`func (o *GoogleRecaptchaIntegrationOptions) GetProjectId() string`
+
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
+
+### GetProjectIdOk
+
+`func (o *GoogleRecaptchaIntegrationOptions) GetProjectIdOk() (*string, bool)`
+
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectId
+
+`func (o *GoogleRecaptchaIntegrationOptions) SetProjectId(v string)`
+
+SetProjectId sets ProjectId field to given value.
+
+### HasProjectId
+
+`func (o *GoogleRecaptchaIntegrationOptions) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
+
+### SetProjectIdNil
+
+`func (o *GoogleRecaptchaIntegrationOptions) SetProjectIdNil(b bool)`
+
+ SetProjectIdNil sets the value for ProjectId to be an explicit nil
+
+### UnsetProjectId
+`func (o *GoogleRecaptchaIntegrationOptions) UnsetProjectId()`
+
+UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
+### GetApiKey
+
+`func (o *GoogleRecaptchaIntegrationOptions) GetApiKey() string`
+
+GetApiKey returns the ApiKey field if non-nil, zero value otherwise.
+
+### GetApiKeyOk
+
+`func (o *GoogleRecaptchaIntegrationOptions) GetApiKeyOk() (*string, bool)`
+
+GetApiKeyOk returns a tuple with the ApiKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApiKey
+
+`func (o *GoogleRecaptchaIntegrationOptions) SetApiKey(v string)`
+
+SetApiKey sets ApiKey field to given value.
+
+### HasApiKey
+
+`func (o *GoogleRecaptchaIntegrationOptions) HasApiKey() bool`
+
+HasApiKey returns a boolean if a field has been set.
+
+### SetApiKeyNil
+
+`func (o *GoogleRecaptchaIntegrationOptions) SetApiKeyNil(b bool)`
+
+ SetApiKeyNil sets the value for ApiKey to be an explicit nil
+
+### UnsetApiKey
+`func (o *GoogleRecaptchaIntegrationOptions) UnsetApiKey()`
+
+UnsetApiKey ensures that no value is present for ApiKey, not even an explicit nil
+### GetScoreThreshold
+
+`func (o *GoogleRecaptchaIntegrationOptions) GetScoreThreshold() float64`
+
+GetScoreThreshold returns the ScoreThreshold field if non-nil, zero value otherwise.
+
+### GetScoreThresholdOk
+
+`func (o *GoogleRecaptchaIntegrationOptions) GetScoreThresholdOk() (*float64, bool)`
+
+GetScoreThresholdOk returns a tuple with the ScoreThreshold field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScoreThreshold
+
+`func (o *GoogleRecaptchaIntegrationOptions) SetScoreThreshold(v float64)`
+
+SetScoreThreshold sets ScoreThreshold field to given value.
+
+### HasScoreThreshold
+
+`func (o *GoogleRecaptchaIntegrationOptions) HasScoreThreshold() bool`
+
+HasScoreThreshold returns a boolean if a field has been set.
+
+### SetScoreThresholdNil
+
+`func (o *GoogleRecaptchaIntegrationOptions) SetScoreThresholdNil(b bool)`
+
+ SetScoreThresholdNil sets the value for ScoreThreshold to be an explicit nil
+
+### UnsetScoreThreshold
+`func (o *GoogleRecaptchaIntegrationOptions) UnsetScoreThreshold()`
+
+UnsetScoreThreshold ensures that no value is present for ScoreThreshold, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -384,7 +384,7 @@ No authorization required
 
 ## GetDiscountListEntries
 
-> DiscountDtoListEnvelope GetDiscountListEntries(ctx, discountListId).TenantId(tenantId).Execute()
+> DiscountDtoListEnvelope GetDiscountListEntries(ctx, discountListId).TenantId(tenantId).DiscountDtoCollectionQueryParameters(discountDtoCollectionQueryParameters).Execute()
 
 Retrieves discounts in a discount list
 
@@ -405,10 +405,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	discountListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	discountDtoCollectionQueryParameters := *openapiclient.NewDiscountDtoCollectionQueryParameters() // DiscountDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DiscountListsAPI.GetDiscountListEntries(context.Background(), discountListId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DiscountListsAPI.GetDiscountListEntries(context.Background(), discountListId).TenantId(tenantId).DiscountDtoCollectionQueryParameters(discountDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DiscountListsAPI.GetDiscountListEntries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -435,6 +436,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **discountDtoCollectionQueryParameters** | [**DiscountDtoCollectionQueryParameters**](DiscountDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -446,7 +448,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -456,7 +458,7 @@ No authorization required
 
 ## GetDiscountListEntriesCount
 
-> Int32Envelope GetDiscountListEntriesCount(ctx, discountListId).TenantId(tenantId).Execute()
+> Int32Envelope GetDiscountListEntriesCount(ctx, discountListId).TenantId(tenantId).DiscountDtoCollectionQueryParameters(discountDtoCollectionQueryParameters).Execute()
 
 Counts discounts in a discount list
 
@@ -477,10 +479,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	discountListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	discountDtoCollectionQueryParameters := *openapiclient.NewDiscountDtoCollectionQueryParameters() // DiscountDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DiscountListsAPI.GetDiscountListEntriesCount(context.Background(), discountListId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DiscountListsAPI.GetDiscountListEntriesCount(context.Background(), discountListId).TenantId(tenantId).DiscountDtoCollectionQueryParameters(discountDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DiscountListsAPI.GetDiscountListEntriesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -507,6 +510,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **discountDtoCollectionQueryParameters** | [**DiscountDtoCollectionQueryParameters**](DiscountDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -518,7 +522,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -603,7 +607,7 @@ No authorization required
 
 ## GetDiscountLists
 
-> DiscountListDtoListEnvelope GetDiscountLists(ctx).TenantId(tenantId).Execute()
+> DiscountListDtoListEnvelope GetDiscountLists(ctx).TenantId(tenantId).DiscountListDtoCollectionQueryParameters(discountListDtoCollectionQueryParameters).Execute()
 
 Retrieves all discount lists
 
@@ -623,10 +627,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	discountListDtoCollectionQueryParameters := *openapiclient.NewDiscountListDtoCollectionQueryParameters() // DiscountListDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DiscountListsAPI.GetDiscountLists(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DiscountListsAPI.GetDiscountLists(context.Background()).TenantId(tenantId).DiscountListDtoCollectionQueryParameters(discountListDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DiscountListsAPI.GetDiscountLists``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -648,6 +653,7 @@ Other parameters are passed through a pointer to a apiGetDiscountListsRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **discountListDtoCollectionQueryParameters** | [**DiscountListDtoCollectionQueryParameters**](DiscountListDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -659,7 +665,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -669,7 +675,7 @@ No authorization required
 
 ## GetDiscountListsCount
 
-> Int32Envelope GetDiscountListsCount(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetDiscountListsCount(ctx).TenantId(tenantId).DiscountListDtoCollectionQueryParameters(discountListDtoCollectionQueryParameters).Execute()
 
 Counts discount lists
 
@@ -689,10 +695,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	discountListDtoCollectionQueryParameters := *openapiclient.NewDiscountListDtoCollectionQueryParameters() // DiscountListDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DiscountListsAPI.GetDiscountListsCount(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DiscountListsAPI.GetDiscountListsCount(context.Background()).TenantId(tenantId).DiscountListDtoCollectionQueryParameters(discountListDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DiscountListsAPI.GetDiscountListsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -714,6 +721,7 @@ Other parameters are passed through a pointer to a apiGetDiscountListsCountReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **discountListDtoCollectionQueryParameters** | [**DiscountListDtoCollectionQueryParameters**](DiscountListDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -725,7 +733,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -735,7 +743,7 @@ No authorization required
 
 ## PatchDiscountList
 
-> EmptyEnvelope PatchDiscountList(ctx, discountListId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchDiscountList(ctx, discountListId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patches a discount list
 
@@ -756,11 +764,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	discountListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DiscountListsAPI.PatchDiscountList(context.Background(), discountListId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.DiscountListsAPI.PatchDiscountList(context.Background(), discountListId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DiscountListsAPI.PatchDiscountList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -787,7 +795,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -809,7 +817,7 @@ No authorization required
 
 ## PatchDiscountListEntry
 
-> EmptyEnvelope PatchDiscountListEntry(ctx, discountListId, discountListEntryId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchDiscountListEntry(ctx, discountListId, discountListEntryId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patches a discount list entry
 
@@ -831,11 +839,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	discountListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	discountListEntryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DiscountListsAPI.PatchDiscountListEntry(context.Background(), discountListId, discountListEntryId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.DiscountListsAPI.PatchDiscountListEntry(context.Background(), discountListId, discountListEntryId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DiscountListsAPI.PatchDiscountListEntry``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -864,7 +872,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

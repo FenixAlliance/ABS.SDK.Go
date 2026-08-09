@@ -31,6 +31,7 @@ type ApiAggregateAccountsBalanceAsyncRequest struct {
 	currencyId *string
 	apiVersion *string
 	xApiVersion *string
+	accountDtoCollectionQueryParameters *AccountDtoCollectionQueryParameters
 }
 
 func (r ApiAggregateAccountsBalanceAsyncRequest) TenantId(tenantId string) ApiAggregateAccountsBalanceAsyncRequest {
@@ -50,6 +51,11 @@ func (r ApiAggregateAccountsBalanceAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiAggregateAccountsBalanceAsyncRequest) XApiVersion(xApiVersion string) ApiAggregateAccountsBalanceAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiAggregateAccountsBalanceAsyncRequest) AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters AccountDtoCollectionQueryParameters) ApiAggregateAccountsBalanceAsyncRequest {
+	r.accountDtoCollectionQueryParameters = &accountDtoCollectionQueryParameters
 	return r
 }
 
@@ -107,7 +113,7 @@ func (a *AccountsAPIService) AggregateAccountsBalanceAsyncExecute(r ApiAggregate
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -126,6 +132,8 @@ func (a *AccountsAPIService) AggregateAccountsBalanceAsyncExecute(r ApiAggregate
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2273,6 +2281,7 @@ type ApiGetAccountCreditsAsyncRequest struct {
 	accountId string
 	apiVersion *string
 	xApiVersion *string
+	accountingEntryDtoCollectionQueryParameters *AccountingEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountCreditsAsyncRequest) TenantId(tenantId string) ApiGetAccountCreditsAsyncRequest {
@@ -2287,6 +2296,11 @@ func (r ApiGetAccountCreditsAsyncRequest) ApiVersion(apiVersion string) ApiGetAc
 
 func (r ApiGetAccountCreditsAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountCreditsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountCreditsAsyncRequest) AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters AccountingEntryDtoCollectionQueryParameters) ApiGetAccountCreditsAsyncRequest {
+	r.accountingEntryDtoCollectionQueryParameters = &accountingEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -2341,7 +2355,7 @@ func (a *AccountsAPIService) GetAccountCreditsAsyncExecute(r ApiGetAccountCredit
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2360,6 +2374,8 @@ func (a *AccountsAPIService) GetAccountCreditsAsyncExecute(r ApiGetAccountCredit
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2426,6 +2442,7 @@ type ApiGetAccountCreditsCountAsyncRequest struct {
 	accountId string
 	apiVersion *string
 	xApiVersion *string
+	accountingEntryDtoCollectionQueryParameters *AccountingEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountCreditsCountAsyncRequest) TenantId(tenantId string) ApiGetAccountCreditsCountAsyncRequest {
@@ -2440,6 +2457,11 @@ func (r ApiGetAccountCreditsCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetAccountCreditsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountCreditsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountCreditsCountAsyncRequest) AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters AccountingEntryDtoCollectionQueryParameters) ApiGetAccountCreditsCountAsyncRequest {
+	r.accountingEntryDtoCollectionQueryParameters = &accountingEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -2494,7 +2516,7 @@ func (a *AccountsAPIService) GetAccountCreditsCountAsyncExecute(r ApiGetAccountC
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2513,6 +2535,8 @@ func (a *AccountsAPIService) GetAccountCreditsCountAsyncExecute(r ApiGetAccountC
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2579,6 +2603,7 @@ type ApiGetAccountDebitsAsyncRequest struct {
 	accountId string
 	apiVersion *string
 	xApiVersion *string
+	accountingEntryDtoCollectionQueryParameters *AccountingEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountDebitsAsyncRequest) TenantId(tenantId string) ApiGetAccountDebitsAsyncRequest {
@@ -2593,6 +2618,11 @@ func (r ApiGetAccountDebitsAsyncRequest) ApiVersion(apiVersion string) ApiGetAcc
 
 func (r ApiGetAccountDebitsAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountDebitsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountDebitsAsyncRequest) AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters AccountingEntryDtoCollectionQueryParameters) ApiGetAccountDebitsAsyncRequest {
+	r.accountingEntryDtoCollectionQueryParameters = &accountingEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -2647,7 +2677,7 @@ func (a *AccountsAPIService) GetAccountDebitsAsyncExecute(r ApiGetAccountDebitsA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2666,6 +2696,8 @@ func (a *AccountsAPIService) GetAccountDebitsAsyncExecute(r ApiGetAccountDebitsA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2732,6 +2764,7 @@ type ApiGetAccountDebitsCountAsyncRequest struct {
 	accountId string
 	apiVersion *string
 	xApiVersion *string
+	accountingEntryDtoCollectionQueryParameters *AccountingEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountDebitsCountAsyncRequest) TenantId(tenantId string) ApiGetAccountDebitsCountAsyncRequest {
@@ -2746,6 +2779,11 @@ func (r ApiGetAccountDebitsCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetAccountDebitsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountDebitsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountDebitsCountAsyncRequest) AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters AccountingEntryDtoCollectionQueryParameters) ApiGetAccountDebitsCountAsyncRequest {
+	r.accountingEntryDtoCollectionQueryParameters = &accountingEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -2800,7 +2838,7 @@ func (a *AccountsAPIService) GetAccountDebitsCountAsyncExecute(r ApiGetAccountDe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2819,6 +2857,8 @@ func (a *AccountsAPIService) GetAccountDebitsCountAsyncExecute(r ApiGetAccountDe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3038,6 +3078,7 @@ type ApiGetAccountEntriesAsyncRequest struct {
 	accountId string
 	apiVersion *string
 	xApiVersion *string
+	accountingEntryDtoCollectionQueryParameters *AccountingEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountEntriesAsyncRequest) TenantId(tenantId string) ApiGetAccountEntriesAsyncRequest {
@@ -3052,6 +3093,11 @@ func (r ApiGetAccountEntriesAsyncRequest) ApiVersion(apiVersion string) ApiGetAc
 
 func (r ApiGetAccountEntriesAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountEntriesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountEntriesAsyncRequest) AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters AccountingEntryDtoCollectionQueryParameters) ApiGetAccountEntriesAsyncRequest {
+	r.accountingEntryDtoCollectionQueryParameters = &accountingEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -3106,7 +3152,7 @@ func (a *AccountsAPIService) GetAccountEntriesAsyncExecute(r ApiGetAccountEntrie
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3125,6 +3171,8 @@ func (a *AccountsAPIService) GetAccountEntriesAsyncExecute(r ApiGetAccountEntrie
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3348,6 +3396,7 @@ type ApiGetAccountRelationsAsyncRequest struct {
 	accountId *string
 	apiVersion *string
 	xApiVersion *string
+	accountRelationDtoCollectionQueryParameters *AccountRelationDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountRelationsAsyncRequest) TenantId(tenantId string) ApiGetAccountRelationsAsyncRequest {
@@ -3367,6 +3416,11 @@ func (r ApiGetAccountRelationsAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetAccountRelationsAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountRelationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountRelationsAsyncRequest) AccountRelationDtoCollectionQueryParameters(accountRelationDtoCollectionQueryParameters AccountRelationDtoCollectionQueryParameters) ApiGetAccountRelationsAsyncRequest {
+	r.accountRelationDtoCollectionQueryParameters = &accountRelationDtoCollectionQueryParameters
 	return r
 }
 
@@ -3422,7 +3476,7 @@ func (a *AccountsAPIService) GetAccountRelationsAsyncExecute(r ApiGetAccountRela
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3441,6 +3495,8 @@ func (a *AccountsAPIService) GetAccountRelationsAsyncExecute(r ApiGetAccountRela
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountRelationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3507,6 +3563,7 @@ type ApiGetAccountRelationsCountAsyncRequest struct {
 	accountId *string
 	apiVersion *string
 	xApiVersion *string
+	accountRelationDtoCollectionQueryParameters *AccountRelationDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountRelationsCountAsyncRequest) TenantId(tenantId string) ApiGetAccountRelationsCountAsyncRequest {
@@ -3526,6 +3583,11 @@ func (r ApiGetAccountRelationsCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetAccountRelationsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountRelationsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountRelationsCountAsyncRequest) AccountRelationDtoCollectionQueryParameters(accountRelationDtoCollectionQueryParameters AccountRelationDtoCollectionQueryParameters) ApiGetAccountRelationsCountAsyncRequest {
+	r.accountRelationDtoCollectionQueryParameters = &accountRelationDtoCollectionQueryParameters
 	return r
 }
 
@@ -3581,7 +3643,7 @@ func (a *AccountsAPIService) GetAccountRelationsCountAsyncExecute(r ApiGetAccoun
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3600,6 +3662,8 @@ func (a *AccountsAPIService) GetAccountRelationsCountAsyncExecute(r ApiGetAccoun
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountRelationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3818,6 +3882,7 @@ type ApiGetAccountTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountTypeDtoCollectionQueryParameters *AccountTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountTypesAsyncRequest) TenantId(tenantId string) ApiGetAccountTypesAsyncRequest {
@@ -3832,6 +3897,11 @@ func (r ApiGetAccountTypesAsyncRequest) ApiVersion(apiVersion string) ApiGetAcco
 
 func (r ApiGetAccountTypesAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountTypesAsyncRequest) AccountTypeDtoCollectionQueryParameters(accountTypeDtoCollectionQueryParameters AccountTypeDtoCollectionQueryParameters) ApiGetAccountTypesAsyncRequest {
+	r.accountTypeDtoCollectionQueryParameters = &accountTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -3883,7 +3953,7 @@ func (a *AccountsAPIService) GetAccountTypesAsyncExecute(r ApiGetAccountTypesAsy
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3902,6 +3972,8 @@ func (a *AccountsAPIService) GetAccountTypesAsyncExecute(r ApiGetAccountTypesAsy
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3967,6 +4039,7 @@ type ApiGetAccountTypesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountTypeDtoCollectionQueryParameters *AccountTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountTypesCountAsyncRequest) TenantId(tenantId string) ApiGetAccountTypesCountAsyncRequest {
@@ -3981,6 +4054,11 @@ func (r ApiGetAccountTypesCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetAccountTypesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountTypesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountTypesCountAsyncRequest) AccountTypeDtoCollectionQueryParameters(accountTypeDtoCollectionQueryParameters AccountTypeDtoCollectionQueryParameters) ApiGetAccountTypesCountAsyncRequest {
+	r.accountTypeDtoCollectionQueryParameters = &accountTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -4032,7 +4110,7 @@ func (a *AccountsAPIService) GetAccountTypesCountAsyncExecute(r ApiGetAccountTyp
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4051,6 +4129,8 @@ func (a *AccountsAPIService) GetAccountTypesCountAsyncExecute(r ApiGetAccountTyp
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4116,6 +4196,7 @@ type ApiGetAccountsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountDtoCollectionQueryParameters *AccountDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountsAsyncRequest) TenantId(tenantId string) ApiGetAccountsAsyncRequest {
@@ -4130,6 +4211,11 @@ func (r ApiGetAccountsAsyncRequest) ApiVersion(apiVersion string) ApiGetAccounts
 
 func (r ApiGetAccountsAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountsAsyncRequest) AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters AccountDtoCollectionQueryParameters) ApiGetAccountsAsyncRequest {
+	r.accountDtoCollectionQueryParameters = &accountDtoCollectionQueryParameters
 	return r
 }
 
@@ -4181,7 +4267,7 @@ func (a *AccountsAPIService) GetAccountsAsyncExecute(r ApiGetAccountsAsyncReques
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4200,6 +4286,8 @@ func (a *AccountsAPIService) GetAccountsAsyncExecute(r ApiGetAccountsAsyncReques
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4265,6 +4353,7 @@ type ApiGetAccountsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountDtoCollectionQueryParameters *AccountDtoCollectionQueryParameters
 }
 
 func (r ApiGetAccountsCountAsyncRequest) TenantId(tenantId string) ApiGetAccountsCountAsyncRequest {
@@ -4279,6 +4368,11 @@ func (r ApiGetAccountsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetAcc
 
 func (r ApiGetAccountsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAccountsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAccountsCountAsyncRequest) AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters AccountDtoCollectionQueryParameters) ApiGetAccountsCountAsyncRequest {
+	r.accountDtoCollectionQueryParameters = &accountDtoCollectionQueryParameters
 	return r
 }
 
@@ -4330,7 +4424,7 @@ func (a *AccountsAPIService) GetAccountsCountAsyncExecute(r ApiGetAccountsCountA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4349,6 +4443,8 @@ func (a *AccountsAPIService) GetAccountsCountAsyncExecute(r ApiGetAccountsCountA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4707,6 +4803,7 @@ type ApiGetCreditAccountEntriesAsyncRequest struct {
 	accountId string
 	apiVersion *string
 	xApiVersion *string
+	accountingEntryDtoCollectionQueryParameters *AccountingEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetCreditAccountEntriesAsyncRequest) TenantId(tenantId string) ApiGetCreditAccountEntriesAsyncRequest {
@@ -4721,6 +4818,11 @@ func (r ApiGetCreditAccountEntriesAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetCreditAccountEntriesAsyncRequest) XApiVersion(xApiVersion string) ApiGetCreditAccountEntriesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCreditAccountEntriesAsyncRequest) AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters AccountingEntryDtoCollectionQueryParameters) ApiGetCreditAccountEntriesAsyncRequest {
+	r.accountingEntryDtoCollectionQueryParameters = &accountingEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -4775,7 +4877,7 @@ func (a *AccountsAPIService) GetCreditAccountEntriesAsyncExecute(r ApiGetCreditA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4794,6 +4896,8 @@ func (a *AccountsAPIService) GetCreditAccountEntriesAsyncExecute(r ApiGetCreditA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4860,6 +4964,7 @@ type ApiGetDebitAccountEntriesAsyncRequest struct {
 	accountId string
 	apiVersion *string
 	xApiVersion *string
+	accountingEntryDtoCollectionQueryParameters *AccountingEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetDebitAccountEntriesAsyncRequest) TenantId(tenantId string) ApiGetDebitAccountEntriesAsyncRequest {
@@ -4874,6 +4979,11 @@ func (r ApiGetDebitAccountEntriesAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetDebitAccountEntriesAsyncRequest) XApiVersion(xApiVersion string) ApiGetDebitAccountEntriesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetDebitAccountEntriesAsyncRequest) AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters AccountingEntryDtoCollectionQueryParameters) ApiGetDebitAccountEntriesAsyncRequest {
+	r.accountingEntryDtoCollectionQueryParameters = &accountingEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -4928,7 +5038,7 @@ func (a *AccountsAPIService) GetDebitAccountEntriesAsyncExecute(r ApiGetDebitAcc
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4947,6 +5057,8 @@ func (a *AccountsAPIService) GetDebitAccountEntriesAsyncExecute(r ApiGetDebitAcc
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5012,6 +5124,7 @@ type ApiGetRootAccountsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountDtoCollectionQueryParameters *AccountDtoCollectionQueryParameters
 }
 
 func (r ApiGetRootAccountsAsyncRequest) TenantId(tenantId string) ApiGetRootAccountsAsyncRequest {
@@ -5026,6 +5139,11 @@ func (r ApiGetRootAccountsAsyncRequest) ApiVersion(apiVersion string) ApiGetRoot
 
 func (r ApiGetRootAccountsAsyncRequest) XApiVersion(xApiVersion string) ApiGetRootAccountsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRootAccountsAsyncRequest) AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters AccountDtoCollectionQueryParameters) ApiGetRootAccountsAsyncRequest {
+	r.accountDtoCollectionQueryParameters = &accountDtoCollectionQueryParameters
 	return r
 }
 
@@ -5077,7 +5195,7 @@ func (a *AccountsAPIService) GetRootAccountsAsyncExecute(r ApiGetRootAccountsAsy
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5096,6 +5214,8 @@ func (a *AccountsAPIService) GetRootAccountsAsyncExecute(r ApiGetRootAccountsAsy
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5162,7 +5282,7 @@ type ApiPatchAccountAsyncRequest struct {
 	accountId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAccountAsyncRequest) TenantId(tenantId string) ApiPatchAccountAsyncRequest {
@@ -5180,8 +5300,8 @@ func (r ApiPatchAccountAsyncRequest) XApiVersion(xApiVersion string) ApiPatchAcc
 	return r
 }
 
-func (r ApiPatchAccountAsyncRequest) Operation(operation []Operation) ApiPatchAccountAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchAccountAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAccountAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -5256,7 +5376,7 @@ func (a *AccountsAPIService) PatchAccountAsyncExecute(r ApiPatchAccountAsyncRequ
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5324,7 +5444,7 @@ type ApiPatchAccountEntryAsyncRequest struct {
 	entryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAccountEntryAsyncRequest) TenantId(tenantId string) ApiPatchAccountEntryAsyncRequest {
@@ -5342,8 +5462,8 @@ func (r ApiPatchAccountEntryAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchAccountEntryAsyncRequest) Operation(operation []Operation) ApiPatchAccountEntryAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchAccountEntryAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAccountEntryAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -5421,7 +5541,7 @@ func (a *AccountsAPIService) PatchAccountEntryAsyncExecute(r ApiPatchAccountEntr
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5489,7 +5609,7 @@ type ApiPatchAccountRelationAsyncRequest struct {
 	accountId *string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAccountRelationAsyncRequest) TenantId(tenantId string) ApiPatchAccountRelationAsyncRequest {
@@ -5512,8 +5632,8 @@ func (r ApiPatchAccountRelationAsyncRequest) XApiVersion(xApiVersion string) Api
 	return r
 }
 
-func (r ApiPatchAccountRelationAsyncRequest) Operation(operation []Operation) ApiPatchAccountRelationAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchAccountRelationAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAccountRelationAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -5592,7 +5712,7 @@ func (a *AccountsAPIService) PatchAccountRelationAsyncExecute(r ApiPatchAccountR
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5659,7 +5779,7 @@ type ApiPatchAccountTypeAsyncRequest struct {
 	accountTypeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAccountTypeAsyncRequest) TenantId(tenantId string) ApiPatchAccountTypeAsyncRequest {
@@ -5677,8 +5797,8 @@ func (r ApiPatchAccountTypeAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchAccountTypeAsyncRequest) Operation(operation []Operation) ApiPatchAccountTypeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchAccountTypeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAccountTypeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -5753,7 +5873,7 @@ func (a *AccountsAPIService) PatchAccountTypeAsyncExecute(r ApiPatchAccountTypeA
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

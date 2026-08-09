@@ -471,6 +471,7 @@ type ApiGetLicenseFeaturesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	licenseFeatureDtoCollectionQueryParameters *LicenseFeatureDtoCollectionQueryParameters
 }
 
 func (r ApiGetLicenseFeaturesAsyncRequest) TenantId(tenantId string) ApiGetLicenseFeaturesAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetLicenseFeaturesAsyncRequest) ApiVersion(apiVersion string) ApiGetL
 
 func (r ApiGetLicenseFeaturesAsyncRequest) XApiVersion(xApiVersion string) ApiGetLicenseFeaturesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLicenseFeaturesAsyncRequest) LicenseFeatureDtoCollectionQueryParameters(licenseFeatureDtoCollectionQueryParameters LicenseFeatureDtoCollectionQueryParameters) ApiGetLicenseFeaturesAsyncRequest {
+	r.licenseFeatureDtoCollectionQueryParameters = &licenseFeatureDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *LicenseFeaturesAPIService) GetLicenseFeaturesAsyncExecute(r ApiGetLicen
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *LicenseFeaturesAPIService) GetLicenseFeaturesAsyncExecute(r ApiGetLicen
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.licenseFeatureDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetLicenseFeaturesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	licenseFeatureDtoCollectionQueryParameters *LicenseFeatureDtoCollectionQueryParameters
 }
 
 func (r ApiGetLicenseFeaturesCountAsyncRequest) TenantId(tenantId string) ApiGetLicenseFeaturesCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetLicenseFeaturesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetLicenseFeaturesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetLicenseFeaturesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLicenseFeaturesCountAsyncRequest) LicenseFeatureDtoCollectionQueryParameters(licenseFeatureDtoCollectionQueryParameters LicenseFeatureDtoCollectionQueryParameters) ApiGetLicenseFeaturesCountAsyncRequest {
+	r.licenseFeatureDtoCollectionQueryParameters = &licenseFeatureDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *LicenseFeaturesAPIService) GetLicenseFeaturesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *LicenseFeaturesAPIService) GetLicenseFeaturesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.licenseFeatureDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchLicenseFeatureAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchLicenseFeatureAsyncRequest) TenantId(tenantId string) ApiPatchLicenseFeatureAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchLicenseFeatureAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchLicenseFeatureAsyncRequest) Operation(operation []Operation) ApiPatchLicenseFeatureAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchLicenseFeatureAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchLicenseFeatureAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *LicenseFeaturesAPIService) PatchLicenseFeatureAsyncExecute(r ApiPatchLi
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## CountLocalizationStringsAsync
 
-> Int32Envelope CountLocalizationStringsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountLocalizationStringsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocalizationStringDtoCollectionQueryParameters(localizationStringDtoCollectionQueryParameters).Execute()
 
 Count localization strings
 
@@ -37,10 +37,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	localizationStringDtoCollectionQueryParameters := *openapiclient.NewLocalizationStringDtoCollectionQueryParameters() // LocalizationStringDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocalizationStringsAPI.CountLocalizationStringsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.LocalizationStringsAPI.CountLocalizationStringsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocalizationStringDtoCollectionQueryParameters(localizationStringDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocalizationStringsAPI.CountLocalizationStringsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -64,6 +65,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **localizationStringDtoCollectionQueryParameters** | [**LocalizationStringDtoCollectionQueryParameters**](LocalizationStringDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -75,7 +77,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -309,7 +311,7 @@ No authorization required
 
 ## GetLocalizationStringsAsync
 
-> LocalizationStringDtoListEnvelope GetLocalizationStringsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> LocalizationStringDtoListEnvelope GetLocalizationStringsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocalizationStringDtoCollectionQueryParameters(localizationStringDtoCollectionQueryParameters).Execute()
 
 Get localization strings
 
@@ -331,10 +333,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	localizationStringDtoCollectionQueryParameters := *openapiclient.NewLocalizationStringDtoCollectionQueryParameters() // LocalizationStringDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocalizationStringsAPI.GetLocalizationStringsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.LocalizationStringsAPI.GetLocalizationStringsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocalizationStringDtoCollectionQueryParameters(localizationStringDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocalizationStringsAPI.GetLocalizationStringsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -358,6 +361,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **localizationStringDtoCollectionQueryParameters** | [**LocalizationStringDtoCollectionQueryParameters**](LocalizationStringDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -369,7 +373,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

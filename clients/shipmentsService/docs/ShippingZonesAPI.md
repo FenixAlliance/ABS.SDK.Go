@@ -236,7 +236,7 @@ No authorization required
 
 ## GetShippingZonesAsync
 
-> ShippingZoneDtoListEnvelope GetShippingZonesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ShippingZoneDtoListEnvelope GetShippingZonesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ShippingZoneDtoCollectionQueryParameters(shippingZoneDtoCollectionQueryParameters).Execute()
 
 Get all shipping zones
 
@@ -258,10 +258,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	shippingZoneDtoCollectionQueryParameters := *openapiclient.NewShippingZoneDtoCollectionQueryParameters() // ShippingZoneDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ShippingZonesAPI.GetShippingZonesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ShippingZonesAPI.GetShippingZonesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ShippingZoneDtoCollectionQueryParameters(shippingZoneDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ShippingZonesAPI.GetShippingZonesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -285,6 +286,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **shippingZoneDtoCollectionQueryParameters** | [**ShippingZoneDtoCollectionQueryParameters**](ShippingZoneDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -296,7 +298,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -306,7 +308,7 @@ No authorization required
 
 ## GetShippingZonesCountAsync
 
-> Int32Envelope GetShippingZonesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetShippingZonesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ShippingZoneDtoCollectionQueryParameters(shippingZoneDtoCollectionQueryParameters).Execute()
 
 Get shipping zones count
 
@@ -328,10 +330,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	shippingZoneDtoCollectionQueryParameters := *openapiclient.NewShippingZoneDtoCollectionQueryParameters() // ShippingZoneDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ShippingZonesAPI.GetShippingZonesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ShippingZonesAPI.GetShippingZonesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ShippingZoneDtoCollectionQueryParameters(shippingZoneDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ShippingZonesAPI.GetShippingZonesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -355,6 +358,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **shippingZoneDtoCollectionQueryParameters** | [**ShippingZoneDtoCollectionQueryParameters**](ShippingZoneDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -366,7 +370,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -376,7 +380,7 @@ No authorization required
 
 ## PatchShippingZoneAsync
 
-> EmptyEnvelope PatchShippingZoneAsync(ctx, zoneId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchShippingZoneAsync(ctx, zoneId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a shipping zone
 
@@ -399,11 +403,11 @@ func main() {
 	zoneId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ShippingZonesAPI.PatchShippingZoneAsync(context.Background(), zoneId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ShippingZonesAPI.PatchShippingZoneAsync(context.Background(), zoneId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ShippingZonesAPI.PatchShippingZoneAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -432,7 +436,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

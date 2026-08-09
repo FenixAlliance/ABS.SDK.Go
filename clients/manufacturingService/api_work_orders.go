@@ -471,6 +471,7 @@ type ApiGetWorkOrdersAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	workOrderDtoCollectionQueryParameters *WorkOrderDtoCollectionQueryParameters
 }
 
 func (r ApiGetWorkOrdersAsyncRequest) TenantId(tenantId string) ApiGetWorkOrdersAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetWorkOrdersAsyncRequest) ApiVersion(apiVersion string) ApiGetWorkOr
 
 func (r ApiGetWorkOrdersAsyncRequest) XApiVersion(xApiVersion string) ApiGetWorkOrdersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWorkOrdersAsyncRequest) WorkOrderDtoCollectionQueryParameters(workOrderDtoCollectionQueryParameters WorkOrderDtoCollectionQueryParameters) ApiGetWorkOrdersAsyncRequest {
+	r.workOrderDtoCollectionQueryParameters = &workOrderDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *WorkOrdersAPIService) GetWorkOrdersAsyncExecute(r ApiGetWorkOrdersAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *WorkOrdersAPIService) GetWorkOrdersAsyncExecute(r ApiGetWorkOrdersAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.workOrderDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetWorkOrdersCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	workOrderDtoCollectionQueryParameters *WorkOrderDtoCollectionQueryParameters
 }
 
 func (r ApiGetWorkOrdersCountAsyncRequest) TenantId(tenantId string) ApiGetWorkOrdersCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetWorkOrdersCountAsyncRequest) ApiVersion(apiVersion string) ApiGetW
 
 func (r ApiGetWorkOrdersCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWorkOrdersCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWorkOrdersCountAsyncRequest) WorkOrderDtoCollectionQueryParameters(workOrderDtoCollectionQueryParameters WorkOrderDtoCollectionQueryParameters) ApiGetWorkOrdersCountAsyncRequest {
+	r.workOrderDtoCollectionQueryParameters = &workOrderDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *WorkOrdersAPIService) GetWorkOrdersCountAsyncExecute(r ApiGetWorkOrders
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *WorkOrdersAPIService) GetWorkOrdersCountAsyncExecute(r ApiGetWorkOrders
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.workOrderDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchWorkOrderAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchWorkOrderAsyncRequest) TenantId(tenantId string) ApiPatchWorkOrderAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchWorkOrderAsyncRequest) XApiVersion(xApiVersion string) ApiPatchW
 	return r
 }
 
-func (r ApiPatchWorkOrderAsyncRequest) Operation(operation []Operation) ApiPatchWorkOrderAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchWorkOrderAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWorkOrderAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *WorkOrdersAPIService) PatchWorkOrderAsyncExecute(r ApiPatchWorkOrderAsy
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

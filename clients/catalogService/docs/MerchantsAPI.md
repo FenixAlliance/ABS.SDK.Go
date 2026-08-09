@@ -86,7 +86,7 @@ No authorization required
 
 ## GetMerchants
 
-> MerchantDtoListEnvelope GetMerchants(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> MerchantDtoListEnvelope GetMerchants(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).MerchantDtoCollectionQueryParameters(merchantDtoCollectionQueryParameters).Execute()
 
 Get all merchants
 
@@ -107,10 +107,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	merchantDtoCollectionQueryParameters := *openapiclient.NewMerchantDtoCollectionQueryParameters() // MerchantDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MerchantsAPI.GetMerchants(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MerchantsAPI.GetMerchants(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).MerchantDtoCollectionQueryParameters(merchantDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MerchantsAPI.GetMerchants``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -133,6 +134,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **merchantDtoCollectionQueryParameters** | [**MerchantDtoCollectionQueryParameters**](MerchantDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -144,7 +146,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -154,7 +156,7 @@ No authorization required
 
 ## GetMerchantsCount
 
-> Int32Envelope GetMerchantsCount(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetMerchantsCount(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).MerchantDtoCollectionQueryParameters(merchantDtoCollectionQueryParameters).Execute()
 
 Count merchants
 
@@ -175,10 +177,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	merchantDtoCollectionQueryParameters := *openapiclient.NewMerchantDtoCollectionQueryParameters() // MerchantDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MerchantsAPI.GetMerchantsCount(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.MerchantsAPI.GetMerchantsCount(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).MerchantDtoCollectionQueryParameters(merchantDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MerchantsAPI.GetMerchantsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,6 +204,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **merchantDtoCollectionQueryParameters** | [**MerchantDtoCollectionQueryParameters**](MerchantDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -212,7 +216,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

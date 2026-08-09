@@ -803,7 +803,7 @@ No authorization required
 
 ## GetTruckTripsAsync
 
-> TruckTripDtoListEnvelope GetTruckTripsAsync(ctx, truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TruckTripDtoListEnvelope GetTruckTripsAsync(ctx, truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckTripDtoCollectionQueryParameters(truckTripDtoCollectionQueryParameters).Execute()
 
 Get truck trips
 
@@ -826,10 +826,11 @@ func main() {
 	truckId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	truckTripDtoCollectionQueryParameters := *openapiclient.NewTruckTripDtoCollectionQueryParameters() // TruckTripDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TrucksAPI.GetTruckTripsAsync(context.Background(), truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TrucksAPI.GetTruckTripsAsync(context.Background(), truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckTripDtoCollectionQueryParameters(truckTripDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TrucksAPI.GetTruckTripsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -858,6 +859,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **truckTripDtoCollectionQueryParameters** | [**TruckTripDtoCollectionQueryParameters**](TruckTripDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -869,7 +871,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -879,7 +881,7 @@ No authorization required
 
 ## GetTruckTripsCountAsync
 
-> Int32Envelope GetTruckTripsCountAsync(ctx, truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetTruckTripsCountAsync(ctx, truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckTripDtoCollectionQueryParameters(truckTripDtoCollectionQueryParameters).Execute()
 
 Get truck trips count
 
@@ -902,10 +904,11 @@ func main() {
 	truckId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	truckTripDtoCollectionQueryParameters := *openapiclient.NewTruckTripDtoCollectionQueryParameters() // TruckTripDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TrucksAPI.GetTruckTripsCountAsync(context.Background(), truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TrucksAPI.GetTruckTripsCountAsync(context.Background(), truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckTripDtoCollectionQueryParameters(truckTripDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TrucksAPI.GetTruckTripsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -934,6 +937,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **truckTripDtoCollectionQueryParameters** | [**TruckTripDtoCollectionQueryParameters**](TruckTripDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -945,7 +949,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -955,7 +959,7 @@ No authorization required
 
 ## GetTrucksAsync
 
-> TruckDtoListEnvelope GetTrucksAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TruckDtoListEnvelope GetTrucksAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckDtoCollectionQueryParameters(truckDtoCollectionQueryParameters).Execute()
 
 Get all trucks
 
@@ -977,10 +981,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	truckDtoCollectionQueryParameters := *openapiclient.NewTruckDtoCollectionQueryParameters() // TruckDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TrucksAPI.GetTrucksAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TrucksAPI.GetTrucksAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckDtoCollectionQueryParameters(truckDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TrucksAPI.GetTrucksAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1004,6 +1009,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **truckDtoCollectionQueryParameters** | [**TruckDtoCollectionQueryParameters**](TruckDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1015,7 +1021,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1025,7 +1031,7 @@ No authorization required
 
 ## GetTrucksCountAsync
 
-> Int32Envelope GetTrucksCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetTrucksCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckDtoCollectionQueryParameters(truckDtoCollectionQueryParameters).Execute()
 
 Get trucks count
 
@@ -1047,10 +1053,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	truckDtoCollectionQueryParameters := *openapiclient.NewTruckDtoCollectionQueryParameters() // TruckDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TrucksAPI.GetTrucksCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TrucksAPI.GetTrucksCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckDtoCollectionQueryParameters(truckDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TrucksAPI.GetTrucksCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1074,6 +1081,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **truckDtoCollectionQueryParameters** | [**TruckDtoCollectionQueryParameters**](TruckDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1085,7 +1093,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1095,7 +1103,7 @@ No authorization required
 
 ## PatchTruckAsync
 
-> EmptyEnvelope PatchTruckAsync(ctx, truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchTruckAsync(ctx, truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a truck
 
@@ -1118,11 +1126,11 @@ func main() {
 	truckId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TrucksAPI.PatchTruckAsync(context.Background(), truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.TrucksAPI.PatchTruckAsync(context.Background(), truckId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TrucksAPI.PatchTruckAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1151,7 +1159,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1173,7 +1181,7 @@ No authorization required
 
 ## PatchTruckTripAsync
 
-> EmptyEnvelope PatchTruckTripAsync(ctx, truckId, tripId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchTruckTripAsync(ctx, truckId, tripId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a truck trip
 
@@ -1197,11 +1205,11 @@ func main() {
 	tripId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TrucksAPI.PatchTruckTripAsync(context.Background(), truckId, tripId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.TrucksAPI.PatchTruckTripAsync(context.Background(), truckId, tripId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TrucksAPI.PatchTruckTripAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1232,7 +1240,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

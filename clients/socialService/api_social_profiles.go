@@ -30,6 +30,7 @@ type ApiCountConversationsAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	conversationDtoCollectionQueryParameters *ConversationDtoCollectionQueryParameters
 }
 
 func (r ApiCountConversationsAsyncRequest) ApiVersion(apiVersion string) ApiCountConversationsAsyncRequest {
@@ -39,6 +40,11 @@ func (r ApiCountConversationsAsyncRequest) ApiVersion(apiVersion string) ApiCoun
 
 func (r ApiCountConversationsAsyncRequest) XApiVersion(xApiVersion string) ApiCountConversationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountConversationsAsyncRequest) ConversationDtoCollectionQueryParameters(conversationDtoCollectionQueryParameters ConversationDtoCollectionQueryParameters) ApiCountConversationsAsyncRequest {
+	r.conversationDtoCollectionQueryParameters = &conversationDtoCollectionQueryParameters
 	return r
 }
 
@@ -89,7 +95,7 @@ func (a *SocialProfilesAPIService) CountConversationsAsyncExecute(r ApiCountConv
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -108,6 +114,8 @@ func (a *SocialProfilesAPIService) CountConversationsAsyncExecute(r ApiCountConv
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.conversationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -173,6 +181,7 @@ type ApiCountFollowedProfilesAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	socialProfileDtoCollectionQueryParameters *SocialProfileDtoCollectionQueryParameters
 }
 
 func (r ApiCountFollowedProfilesAsyncRequest) ApiVersion(apiVersion string) ApiCountFollowedProfilesAsyncRequest {
@@ -182,6 +191,11 @@ func (r ApiCountFollowedProfilesAsyncRequest) ApiVersion(apiVersion string) ApiC
 
 func (r ApiCountFollowedProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiCountFollowedProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountFollowedProfilesAsyncRequest) SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters SocialProfileDtoCollectionQueryParameters) ApiCountFollowedProfilesAsyncRequest {
+	r.socialProfileDtoCollectionQueryParameters = &socialProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -232,7 +246,7 @@ func (a *SocialProfilesAPIService) CountFollowedProfilesAsyncExecute(r ApiCountF
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -251,6 +265,8 @@ func (a *SocialProfilesAPIService) CountFollowedProfilesAsyncExecute(r ApiCountF
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -316,6 +332,7 @@ type ApiCountFollowerProfilesAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	socialProfileDtoCollectionQueryParameters *SocialProfileDtoCollectionQueryParameters
 }
 
 func (r ApiCountFollowerProfilesAsyncRequest) ApiVersion(apiVersion string) ApiCountFollowerProfilesAsyncRequest {
@@ -325,6 +342,11 @@ func (r ApiCountFollowerProfilesAsyncRequest) ApiVersion(apiVersion string) ApiC
 
 func (r ApiCountFollowerProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiCountFollowerProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountFollowerProfilesAsyncRequest) SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters SocialProfileDtoCollectionQueryParameters) ApiCountFollowerProfilesAsyncRequest {
+	r.socialProfileDtoCollectionQueryParameters = &socialProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -375,7 +397,7 @@ func (a *SocialProfilesAPIService) CountFollowerProfilesAsyncExecute(r ApiCountF
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -394,6 +416,8 @@ func (a *SocialProfilesAPIService) CountFollowerProfilesAsyncExecute(r ApiCountF
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -459,6 +483,7 @@ type ApiCountFollowersAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	followRecordDtoCollectionQueryParameters *FollowRecordDtoCollectionQueryParameters
 }
 
 func (r ApiCountFollowersAsyncRequest) ApiVersion(apiVersion string) ApiCountFollowersAsyncRequest {
@@ -468,6 +493,11 @@ func (r ApiCountFollowersAsyncRequest) ApiVersion(apiVersion string) ApiCountFol
 
 func (r ApiCountFollowersAsyncRequest) XApiVersion(xApiVersion string) ApiCountFollowersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountFollowersAsyncRequest) FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters FollowRecordDtoCollectionQueryParameters) ApiCountFollowersAsyncRequest {
+	r.followRecordDtoCollectionQueryParameters = &followRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -518,7 +548,7 @@ func (a *SocialProfilesAPIService) CountFollowersAsyncExecute(r ApiCountFollower
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -537,6 +567,8 @@ func (a *SocialProfilesAPIService) CountFollowersAsyncExecute(r ApiCountFollower
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.followRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -602,6 +634,7 @@ type ApiCountFollowsAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	followRecordDtoCollectionQueryParameters *FollowRecordDtoCollectionQueryParameters
 }
 
 func (r ApiCountFollowsAsyncRequest) ApiVersion(apiVersion string) ApiCountFollowsAsyncRequest {
@@ -611,6 +644,11 @@ func (r ApiCountFollowsAsyncRequest) ApiVersion(apiVersion string) ApiCountFollo
 
 func (r ApiCountFollowsAsyncRequest) XApiVersion(xApiVersion string) ApiCountFollowsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountFollowsAsyncRequest) FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters FollowRecordDtoCollectionQueryParameters) ApiCountFollowsAsyncRequest {
+	r.followRecordDtoCollectionQueryParameters = &followRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -661,7 +699,7 @@ func (a *SocialProfilesAPIService) CountFollowsAsyncExecute(r ApiCountFollowsAsy
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -680,6 +718,8 @@ func (a *SocialProfilesAPIService) CountFollowsAsyncExecute(r ApiCountFollowsAsy
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.followRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -746,6 +786,7 @@ type ApiCountMessagesAsyncRequest struct {
 	conversationId string
 	apiVersion *string
 	xApiVersion *string
+	privateMessageDtoCollectionQueryParameters *PrivateMessageDtoCollectionQueryParameters
 }
 
 func (r ApiCountMessagesAsyncRequest) SocialProfileId(socialProfileId string) ApiCountMessagesAsyncRequest {
@@ -760,6 +801,11 @@ func (r ApiCountMessagesAsyncRequest) ApiVersion(apiVersion string) ApiCountMess
 
 func (r ApiCountMessagesAsyncRequest) XApiVersion(xApiVersion string) ApiCountMessagesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountMessagesAsyncRequest) PrivateMessageDtoCollectionQueryParameters(privateMessageDtoCollectionQueryParameters PrivateMessageDtoCollectionQueryParameters) ApiCountMessagesAsyncRequest {
+	r.privateMessageDtoCollectionQueryParameters = &privateMessageDtoCollectionQueryParameters
 	return r
 }
 
@@ -814,7 +860,7 @@ func (a *SocialProfilesAPIService) CountMessagesAsyncExecute(r ApiCountMessagesA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -833,6 +879,8 @@ func (a *SocialProfilesAPIService) CountMessagesAsyncExecute(r ApiCountMessagesA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.privateMessageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -898,6 +946,7 @@ type ApiCountNotificationsAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	notificationDtoCollectionQueryParameters *NotificationDtoCollectionQueryParameters
 }
 
 func (r ApiCountNotificationsAsyncRequest) ApiVersion(apiVersion string) ApiCountNotificationsAsyncRequest {
@@ -907,6 +956,11 @@ func (r ApiCountNotificationsAsyncRequest) ApiVersion(apiVersion string) ApiCoun
 
 func (r ApiCountNotificationsAsyncRequest) XApiVersion(xApiVersion string) ApiCountNotificationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountNotificationsAsyncRequest) NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters NotificationDtoCollectionQueryParameters) ApiCountNotificationsAsyncRequest {
+	r.notificationDtoCollectionQueryParameters = &notificationDtoCollectionQueryParameters
 	return r
 }
 
@@ -957,7 +1011,7 @@ func (a *SocialProfilesAPIService) CountNotificationsAsyncExecute(r ApiCountNoti
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -976,6 +1030,8 @@ func (a *SocialProfilesAPIService) CountNotificationsAsyncExecute(r ApiCountNoti
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.notificationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1040,6 +1096,7 @@ type ApiCountSocialProfilesAsyncRequest struct {
 	ApiService *SocialProfilesAPIService
 	apiVersion *string
 	xApiVersion *string
+	socialProfileDtoCollectionQueryParameters *SocialProfileDtoCollectionQueryParameters
 }
 
 func (r ApiCountSocialProfilesAsyncRequest) ApiVersion(apiVersion string) ApiCountSocialProfilesAsyncRequest {
@@ -1049,6 +1106,11 @@ func (r ApiCountSocialProfilesAsyncRequest) ApiVersion(apiVersion string) ApiCou
 
 func (r ApiCountSocialProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiCountSocialProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountSocialProfilesAsyncRequest) SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters SocialProfileDtoCollectionQueryParameters) ApiCountSocialProfilesAsyncRequest {
+	r.socialProfileDtoCollectionQueryParameters = &socialProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -1096,7 +1158,7 @@ func (a *SocialProfilesAPIService) CountSocialProfilesAsyncExecute(r ApiCountSoc
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1115,6 +1177,8 @@ func (a *SocialProfilesAPIService) CountSocialProfilesAsyncExecute(r ApiCountSoc
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1943,6 +2007,7 @@ type ApiGetConversationsAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	conversationDtoCollectionQueryParameters *ConversationDtoCollectionQueryParameters
 }
 
 func (r ApiGetConversationsAsyncRequest) ApiVersion(apiVersion string) ApiGetConversationsAsyncRequest {
@@ -1952,6 +2017,11 @@ func (r ApiGetConversationsAsyncRequest) ApiVersion(apiVersion string) ApiGetCon
 
 func (r ApiGetConversationsAsyncRequest) XApiVersion(xApiVersion string) ApiGetConversationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetConversationsAsyncRequest) ConversationDtoCollectionQueryParameters(conversationDtoCollectionQueryParameters ConversationDtoCollectionQueryParameters) ApiGetConversationsAsyncRequest {
+	r.conversationDtoCollectionQueryParameters = &conversationDtoCollectionQueryParameters
 	return r
 }
 
@@ -2002,7 +2072,7 @@ func (a *SocialProfilesAPIService) GetConversationsAsyncExecute(r ApiGetConversa
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2021,6 +2091,8 @@ func (a *SocialProfilesAPIService) GetConversationsAsyncExecute(r ApiGetConversa
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.conversationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2086,6 +2158,7 @@ type ApiGetFollowedProfilesAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	socialProfileDtoCollectionQueryParameters *SocialProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetFollowedProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGetFollowedProfilesAsyncRequest {
@@ -2095,6 +2168,11 @@ func (r ApiGetFollowedProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetFollowedProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiGetFollowedProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFollowedProfilesAsyncRequest) SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters SocialProfileDtoCollectionQueryParameters) ApiGetFollowedProfilesAsyncRequest {
+	r.socialProfileDtoCollectionQueryParameters = &socialProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -2145,7 +2223,7 @@ func (a *SocialProfilesAPIService) GetFollowedProfilesAsyncExecute(r ApiGetFollo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2164,6 +2242,8 @@ func (a *SocialProfilesAPIService) GetFollowedProfilesAsyncExecute(r ApiGetFollo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2229,6 +2309,7 @@ type ApiGetFollowerProfilesAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	socialProfileDtoCollectionQueryParameters *SocialProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetFollowerProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGetFollowerProfilesAsyncRequest {
@@ -2238,6 +2319,11 @@ func (r ApiGetFollowerProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetFollowerProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiGetFollowerProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFollowerProfilesAsyncRequest) SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters SocialProfileDtoCollectionQueryParameters) ApiGetFollowerProfilesAsyncRequest {
+	r.socialProfileDtoCollectionQueryParameters = &socialProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -2288,7 +2374,7 @@ func (a *SocialProfilesAPIService) GetFollowerProfilesAsyncExecute(r ApiGetFollo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2307,6 +2393,8 @@ func (a *SocialProfilesAPIService) GetFollowerProfilesAsyncExecute(r ApiGetFollo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2372,6 +2460,7 @@ type ApiGetFollowersAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	followRecordDtoCollectionQueryParameters *FollowRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetFollowersAsyncRequest) ApiVersion(apiVersion string) ApiGetFollowersAsyncRequest {
@@ -2381,6 +2470,11 @@ func (r ApiGetFollowersAsyncRequest) ApiVersion(apiVersion string) ApiGetFollowe
 
 func (r ApiGetFollowersAsyncRequest) XApiVersion(xApiVersion string) ApiGetFollowersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFollowersAsyncRequest) FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters FollowRecordDtoCollectionQueryParameters) ApiGetFollowersAsyncRequest {
+	r.followRecordDtoCollectionQueryParameters = &followRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -2431,7 +2525,7 @@ func (a *SocialProfilesAPIService) GetFollowersAsyncExecute(r ApiGetFollowersAsy
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2450,6 +2544,8 @@ func (a *SocialProfilesAPIService) GetFollowersAsyncExecute(r ApiGetFollowersAsy
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.followRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2515,6 +2611,7 @@ type ApiGetFollowsAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	followRecordDtoCollectionQueryParameters *FollowRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetFollowsAsyncRequest) ApiVersion(apiVersion string) ApiGetFollowsAsyncRequest {
@@ -2524,6 +2621,11 @@ func (r ApiGetFollowsAsyncRequest) ApiVersion(apiVersion string) ApiGetFollowsAs
 
 func (r ApiGetFollowsAsyncRequest) XApiVersion(xApiVersion string) ApiGetFollowsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFollowsAsyncRequest) FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters FollowRecordDtoCollectionQueryParameters) ApiGetFollowsAsyncRequest {
+	r.followRecordDtoCollectionQueryParameters = &followRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -2574,7 +2676,7 @@ func (a *SocialProfilesAPIService) GetFollowsAsyncExecute(r ApiGetFollowsAsyncRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2593,6 +2695,8 @@ func (a *SocialProfilesAPIService) GetFollowsAsyncExecute(r ApiGetFollowsAsyncRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.followRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2659,6 +2763,7 @@ type ApiGetMessagesAsyncRequest struct {
 	conversationId string
 	apiVersion *string
 	xApiVersion *string
+	privateMessageDtoCollectionQueryParameters *PrivateMessageDtoCollectionQueryParameters
 }
 
 func (r ApiGetMessagesAsyncRequest) SocialProfileId(socialProfileId string) ApiGetMessagesAsyncRequest {
@@ -2673,6 +2778,11 @@ func (r ApiGetMessagesAsyncRequest) ApiVersion(apiVersion string) ApiGetMessages
 
 func (r ApiGetMessagesAsyncRequest) XApiVersion(xApiVersion string) ApiGetMessagesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMessagesAsyncRequest) PrivateMessageDtoCollectionQueryParameters(privateMessageDtoCollectionQueryParameters PrivateMessageDtoCollectionQueryParameters) ApiGetMessagesAsyncRequest {
+	r.privateMessageDtoCollectionQueryParameters = &privateMessageDtoCollectionQueryParameters
 	return r
 }
 
@@ -2727,7 +2837,7 @@ func (a *SocialProfilesAPIService) GetMessagesAsyncExecute(r ApiGetMessagesAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2746,6 +2856,8 @@ func (a *SocialProfilesAPIService) GetMessagesAsyncExecute(r ApiGetMessagesAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.privateMessageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2958,6 +3070,7 @@ type ApiGetNotificationsAsyncRequest struct {
 	socialProfileId string
 	apiVersion *string
 	xApiVersion *string
+	notificationDtoCollectionQueryParameters *NotificationDtoCollectionQueryParameters
 }
 
 func (r ApiGetNotificationsAsyncRequest) ApiVersion(apiVersion string) ApiGetNotificationsAsyncRequest {
@@ -2967,6 +3080,11 @@ func (r ApiGetNotificationsAsyncRequest) ApiVersion(apiVersion string) ApiGetNot
 
 func (r ApiGetNotificationsAsyncRequest) XApiVersion(xApiVersion string) ApiGetNotificationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetNotificationsAsyncRequest) NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters NotificationDtoCollectionQueryParameters) ApiGetNotificationsAsyncRequest {
+	r.notificationDtoCollectionQueryParameters = &notificationDtoCollectionQueryParameters
 	return r
 }
 
@@ -3017,7 +3135,7 @@ func (a *SocialProfilesAPIService) GetNotificationsAsyncExecute(r ApiGetNotifica
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3036,6 +3154,159 @@ func (a *SocialProfilesAPIService) GetNotificationsAsyncExecute(r ApiGetNotifica
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.notificationDtoCollectionQueryParameters
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetOrCreateDirectConversationAsyncRequest struct {
+	ctx context.Context
+	ApiService *SocialProfilesAPIService
+	socialProfileId string
+	apiVersion *string
+	xApiVersion *string
+	body *string
+}
+
+func (r ApiGetOrCreateDirectConversationAsyncRequest) ApiVersion(apiVersion string) ApiGetOrCreateDirectConversationAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetOrCreateDirectConversationAsyncRequest) XApiVersion(xApiVersion string) ApiGetOrCreateDirectConversationAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetOrCreateDirectConversationAsyncRequest) Body(body string) ApiGetOrCreateDirectConversationAsyncRequest {
+	r.body = &body
+	return r
+}
+
+func (r ApiGetOrCreateDirectConversationAsyncRequest) Execute() (*ConversationDtoEnvelope, *http.Response, error) {
+	return r.ApiService.GetOrCreateDirectConversationAsyncExecute(r)
+}
+
+/*
+GetOrCreateDirectConversationAsync Get or Create Direct Conversation
+
+Get or create the direct two-party conversation between the acting profile and a counterparty.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param socialProfileId
+ @return ApiGetOrCreateDirectConversationAsyncRequest
+*/
+func (a *SocialProfilesAPIService) GetOrCreateDirectConversationAsync(ctx context.Context, socialProfileId string) ApiGetOrCreateDirectConversationAsyncRequest {
+	return ApiGetOrCreateDirectConversationAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		socialProfileId: socialProfileId,
+	}
+}
+
+// Execute executes the request
+//  @return ConversationDtoEnvelope
+func (a *SocialProfilesAPIService) GetOrCreateDirectConversationAsyncExecute(r ApiGetOrCreateDirectConversationAsyncRequest) (*ConversationDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ConversationDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialProfilesAPIService.GetOrCreateDirectConversationAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct"
+	localVarPath = strings.Replace(localVarPath, "{"+"socialProfileId"+"}", url.PathEscape(parameterValueToString(r.socialProfileId, "socialProfileId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3243,6 +3514,7 @@ type ApiGetSocialProfilesAsyncRequest struct {
 	ApiService *SocialProfilesAPIService
 	apiVersion *string
 	xApiVersion *string
+	socialProfileDtoCollectionQueryParameters *SocialProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGetSocialProfilesAsyncRequest {
@@ -3252,6 +3524,11 @@ func (r ApiGetSocialProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGetSo
 
 func (r ApiGetSocialProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialProfilesAsyncRequest) SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters SocialProfileDtoCollectionQueryParameters) ApiGetSocialProfilesAsyncRequest {
+	r.socialProfileDtoCollectionQueryParameters = &socialProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -3299,7 +3576,7 @@ func (a *SocialProfilesAPIService) GetSocialProfilesAsyncExecute(r ApiGetSocialP
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3318,6 +3595,8 @@ func (a *SocialProfilesAPIService) GetSocialProfilesAsyncExecute(r ApiGetSocialP
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -622,6 +622,7 @@ type ApiGetTenantInvitationsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantInvitationDtoCollectionQueryParameters *TenantInvitationDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantInvitationsRequest) TenantId(tenantId string) ApiGetTenantInvitationsRequest {
@@ -636,6 +637,11 @@ func (r ApiGetTenantInvitationsRequest) ApiVersion(apiVersion string) ApiGetTena
 
 func (r ApiGetTenantInvitationsRequest) XApiVersion(xApiVersion string) ApiGetTenantInvitationsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantInvitationsRequest) TenantInvitationDtoCollectionQueryParameters(tenantInvitationDtoCollectionQueryParameters TenantInvitationDtoCollectionQueryParameters) ApiGetTenantInvitationsRequest {
+	r.tenantInvitationDtoCollectionQueryParameters = &tenantInvitationDtoCollectionQueryParameters
 	return r
 }
 
@@ -687,7 +693,7 @@ func (a *InvitationsAPIService) GetTenantInvitationsExecute(r ApiGetTenantInvita
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -706,6 +712,8 @@ func (a *InvitationsAPIService) GetTenantInvitationsExecute(r ApiGetTenantInvita
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantInvitationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -771,6 +779,7 @@ type ApiGetTenantInvitationsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantInvitationDtoCollectionQueryParameters *TenantInvitationDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantInvitationsCountRequest) TenantId(tenantId string) ApiGetTenantInvitationsCountRequest {
@@ -785,6 +794,11 @@ func (r ApiGetTenantInvitationsCountRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetTenantInvitationsCountRequest) XApiVersion(xApiVersion string) ApiGetTenantInvitationsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantInvitationsCountRequest) TenantInvitationDtoCollectionQueryParameters(tenantInvitationDtoCollectionQueryParameters TenantInvitationDtoCollectionQueryParameters) ApiGetTenantInvitationsCountRequest {
+	r.tenantInvitationDtoCollectionQueryParameters = &tenantInvitationDtoCollectionQueryParameters
 	return r
 }
 
@@ -836,7 +850,7 @@ func (a *InvitationsAPIService) GetTenantInvitationsCountExecute(r ApiGetTenantI
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -855,6 +869,8 @@ func (a *InvitationsAPIService) GetTenantInvitationsCountExecute(r ApiGetTenantI
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantInvitationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

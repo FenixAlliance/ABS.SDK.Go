@@ -529,6 +529,7 @@ type ApiGetEmailSignaturesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	emailSignatureDtoCollectionQueryParameters *EmailSignatureDtoCollectionQueryParameters
 }
 
 func (r ApiGetEmailSignaturesCountAsyncRequest) TenantId(tenantId string) ApiGetEmailSignaturesCountAsyncRequest {
@@ -543,6 +544,11 @@ func (r ApiGetEmailSignaturesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetEmailSignaturesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetEmailSignaturesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetEmailSignaturesCountAsyncRequest) EmailSignatureDtoCollectionQueryParameters(emailSignatureDtoCollectionQueryParameters EmailSignatureDtoCollectionQueryParameters) ApiGetEmailSignaturesCountAsyncRequest {
+	r.emailSignatureDtoCollectionQueryParameters = &emailSignatureDtoCollectionQueryParameters
 	return r
 }
 
@@ -594,7 +600,7 @@ func (a *EmailSignaturesAPIService) GetEmailSignaturesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -613,6 +619,8 @@ func (a *EmailSignaturesAPIService) GetEmailSignaturesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.emailSignatureDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -689,6 +697,7 @@ type ApiGetEmailSignaturesODataAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	emailSignatureDtoCollectionQueryParameters *EmailSignatureDtoCollectionQueryParameters
 }
 
 func (r ApiGetEmailSignaturesODataAsyncRequest) TenantId(tenantId string) ApiGetEmailSignaturesODataAsyncRequest {
@@ -703,6 +712,11 @@ func (r ApiGetEmailSignaturesODataAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetEmailSignaturesODataAsyncRequest) XApiVersion(xApiVersion string) ApiGetEmailSignaturesODataAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetEmailSignaturesODataAsyncRequest) EmailSignatureDtoCollectionQueryParameters(emailSignatureDtoCollectionQueryParameters EmailSignatureDtoCollectionQueryParameters) ApiGetEmailSignaturesODataAsyncRequest {
+	r.emailSignatureDtoCollectionQueryParameters = &emailSignatureDtoCollectionQueryParameters
 	return r
 }
 
@@ -754,7 +768,7 @@ func (a *EmailSignaturesAPIService) GetEmailSignaturesODataAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -773,6 +787,8 @@ func (a *EmailSignaturesAPIService) GetEmailSignaturesODataAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.emailSignatureDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -839,7 +855,7 @@ type ApiPatchEmailSignatureAsyncRequest struct {
 	emailsignatureId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchEmailSignatureAsyncRequest) TenantId(tenantId string) ApiPatchEmailSignatureAsyncRequest {
@@ -857,8 +873,8 @@ func (r ApiPatchEmailSignatureAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchEmailSignatureAsyncRequest) Operation(operation []Operation) ApiPatchEmailSignatureAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchEmailSignatureAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchEmailSignatureAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -933,7 +949,7 @@ func (a *EmailSignaturesAPIService) PatchEmailSignatureAsyncExecute(r ApiPatchEm
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

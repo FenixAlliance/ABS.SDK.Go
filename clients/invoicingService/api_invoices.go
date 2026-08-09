@@ -2250,10 +2250,16 @@ type ApiGetExtendedInvoicesRequest struct {
 	ctx context.Context
 	ApiService *InvoicesAPIService
 	tenantId *string
+	extendedInvoiceDtoCollectionQueryParameters *ExtendedInvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetExtendedInvoicesRequest) TenantId(tenantId string) ApiGetExtendedInvoicesRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetExtendedInvoicesRequest) ExtendedInvoiceDtoCollectionQueryParameters(extendedInvoiceDtoCollectionQueryParameters ExtendedInvoiceDtoCollectionQueryParameters) ApiGetExtendedInvoicesRequest {
+	r.extendedInvoiceDtoCollectionQueryParameters = &extendedInvoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -2302,7 +2308,7 @@ func (a *InvoicesAPIService) GetExtendedInvoicesExecute(r ApiGetExtendedInvoices
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2318,6 +2324,8 @@ func (a *InvoicesAPIService) GetExtendedInvoicesExecute(r ApiGetExtendedInvoices
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.extendedInvoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2370,10 +2378,16 @@ type ApiGetExtendedInvoicesCountRequest struct {
 	ctx context.Context
 	ApiService *InvoicesAPIService
 	tenantId *string
+	extendedInvoiceDtoCollectionQueryParameters *ExtendedInvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetExtendedInvoicesCountRequest) TenantId(tenantId string) ApiGetExtendedInvoicesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetExtendedInvoicesCountRequest) ExtendedInvoiceDtoCollectionQueryParameters(extendedInvoiceDtoCollectionQueryParameters ExtendedInvoiceDtoCollectionQueryParameters) ApiGetExtendedInvoicesCountRequest {
+	r.extendedInvoiceDtoCollectionQueryParameters = &extendedInvoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -2422,7 +2436,7 @@ func (a *InvoicesAPIService) GetExtendedInvoicesCountExecute(r ApiGetExtendedInv
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2438,6 +2452,8 @@ func (a *InvoicesAPIService) GetExtendedInvoicesCountExecute(r ApiGetExtendedInv
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.extendedInvoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2732,10 +2748,16 @@ type ApiGetInvoiceAdjustmentsRequest struct {
 	ApiService *InvoicesAPIService
 	tenantId *string
 	invoiceId string
+	invoiceAdjustmentDtoCollectionQueryParameters *InvoiceAdjustmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceAdjustmentsRequest) TenantId(tenantId string) ApiGetInvoiceAdjustmentsRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoiceAdjustmentsRequest) InvoiceAdjustmentDtoCollectionQueryParameters(invoiceAdjustmentDtoCollectionQueryParameters InvoiceAdjustmentDtoCollectionQueryParameters) ApiGetInvoiceAdjustmentsRequest {
+	r.invoiceAdjustmentDtoCollectionQueryParameters = &invoiceAdjustmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -2787,7 +2809,7 @@ func (a *InvoicesAPIService) GetInvoiceAdjustmentsExecute(r ApiGetInvoiceAdjustm
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2803,6 +2825,8 @@ func (a *InvoicesAPIService) GetInvoiceAdjustmentsExecute(r ApiGetInvoiceAdjustm
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceAdjustmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2845,10 +2869,16 @@ type ApiGetInvoiceAdjustmentsCountRequest struct {
 	ApiService *InvoicesAPIService
 	tenantId *string
 	invoiceId string
+	invoiceAdjustmentDtoCollectionQueryParameters *InvoiceAdjustmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceAdjustmentsCountRequest) TenantId(tenantId string) ApiGetInvoiceAdjustmentsCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoiceAdjustmentsCountRequest) InvoiceAdjustmentDtoCollectionQueryParameters(invoiceAdjustmentDtoCollectionQueryParameters InvoiceAdjustmentDtoCollectionQueryParameters) ApiGetInvoiceAdjustmentsCountRequest {
+	r.invoiceAdjustmentDtoCollectionQueryParameters = &invoiceAdjustmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -2900,7 +2930,7 @@ func (a *InvoicesAPIService) GetInvoiceAdjustmentsCountExecute(r ApiGetInvoiceAd
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2916,6 +2946,8 @@ func (a *InvoicesAPIService) GetInvoiceAdjustmentsCountExecute(r ApiGetInvoiceAd
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceAdjustmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3076,10 +3108,16 @@ type ApiGetInvoiceLineTaxesRequest struct {
 	tenantId *string
 	invoiceId string
 	invoiceLineId string
+	invoiceLineAppliedTaxDtoCollectionQueryParameters *InvoiceLineAppliedTaxDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceLineTaxesRequest) TenantId(tenantId string) ApiGetInvoiceLineTaxesRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoiceLineTaxesRequest) InvoiceLineAppliedTaxDtoCollectionQueryParameters(invoiceLineAppliedTaxDtoCollectionQueryParameters InvoiceLineAppliedTaxDtoCollectionQueryParameters) ApiGetInvoiceLineTaxesRequest {
+	r.invoiceLineAppliedTaxDtoCollectionQueryParameters = &invoiceLineAppliedTaxDtoCollectionQueryParameters
 	return r
 }
 
@@ -3134,7 +3172,7 @@ func (a *InvoicesAPIService) GetInvoiceLineTaxesExecute(r ApiGetInvoiceLineTaxes
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3150,6 +3188,8 @@ func (a *InvoicesAPIService) GetInvoiceLineTaxesExecute(r ApiGetInvoiceLineTaxes
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceLineAppliedTaxDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3193,10 +3233,16 @@ type ApiGetInvoiceLineTaxesCountRequest struct {
 	tenantId *string
 	invoiceId string
 	invoiceLineId string
+	invoiceLineAppliedTaxDtoCollectionQueryParameters *InvoiceLineAppliedTaxDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceLineTaxesCountRequest) TenantId(tenantId string) ApiGetInvoiceLineTaxesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoiceLineTaxesCountRequest) InvoiceLineAppliedTaxDtoCollectionQueryParameters(invoiceLineAppliedTaxDtoCollectionQueryParameters InvoiceLineAppliedTaxDtoCollectionQueryParameters) ApiGetInvoiceLineTaxesCountRequest {
+	r.invoiceLineAppliedTaxDtoCollectionQueryParameters = &invoiceLineAppliedTaxDtoCollectionQueryParameters
 	return r
 }
 
@@ -3251,7 +3297,7 @@ func (a *InvoicesAPIService) GetInvoiceLineTaxesCountExecute(r ApiGetInvoiceLine
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3267,6 +3313,8 @@ func (a *InvoicesAPIService) GetInvoiceLineTaxesCountExecute(r ApiGetInvoiceLine
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceLineAppliedTaxDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3310,6 +3358,7 @@ type ApiGetInvoiceLinesRequest struct {
 	tenantId *string
 	invoiceId string
 	itemId *string
+	invoiceLineDtoCollectionQueryParameters *InvoiceLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceLinesRequest) TenantId(tenantId string) ApiGetInvoiceLinesRequest {
@@ -3319,6 +3368,11 @@ func (r ApiGetInvoiceLinesRequest) TenantId(tenantId string) ApiGetInvoiceLinesR
 
 func (r ApiGetInvoiceLinesRequest) ItemId(itemId string) ApiGetInvoiceLinesRequest {
 	r.itemId = &itemId
+	return r
+}
+
+func (r ApiGetInvoiceLinesRequest) InvoiceLineDtoCollectionQueryParameters(invoiceLineDtoCollectionQueryParameters InvoiceLineDtoCollectionQueryParameters) ApiGetInvoiceLinesRequest {
+	r.invoiceLineDtoCollectionQueryParameters = &invoiceLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -3373,7 +3427,7 @@ func (a *InvoicesAPIService) GetInvoiceLinesExecute(r ApiGetInvoiceLinesRequest)
 		parameterAddToHeaderOrQuery(localVarQueryParams, "itemId", r.itemId, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3389,6 +3443,8 @@ func (a *InvoicesAPIService) GetInvoiceLinesExecute(r ApiGetInvoiceLinesRequest)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3431,10 +3487,16 @@ type ApiGetInvoiceLinesCountRequest struct {
 	ApiService *InvoicesAPIService
 	tenantId *string
 	invoiceId string
+	invoiceLineDtoCollectionQueryParameters *InvoiceLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceLinesCountRequest) TenantId(tenantId string) ApiGetInvoiceLinesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoiceLinesCountRequest) InvoiceLineDtoCollectionQueryParameters(invoiceLineDtoCollectionQueryParameters InvoiceLineDtoCollectionQueryParameters) ApiGetInvoiceLinesCountRequest {
+	r.invoiceLineDtoCollectionQueryParameters = &invoiceLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -3486,7 +3548,7 @@ func (a *InvoicesAPIService) GetInvoiceLinesCountExecute(r ApiGetInvoiceLinesCou
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3502,6 +3564,8 @@ func (a *InvoicesAPIService) GetInvoiceLinesCountExecute(r ApiGetInvoiceLinesCou
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3544,10 +3608,16 @@ type ApiGetInvoicePaymentsRequest struct {
 	ApiService *InvoicesAPIService
 	tenantId *string
 	invoiceId string
+	paymentDtoCollectionQueryParameters *PaymentDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoicePaymentsRequest) TenantId(tenantId string) ApiGetInvoicePaymentsRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoicePaymentsRequest) PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters PaymentDtoCollectionQueryParameters) ApiGetInvoicePaymentsRequest {
+	r.paymentDtoCollectionQueryParameters = &paymentDtoCollectionQueryParameters
 	return r
 }
 
@@ -3599,7 +3669,7 @@ func (a *InvoicesAPIService) GetInvoicePaymentsExecute(r ApiGetInvoicePaymentsRe
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3615,6 +3685,8 @@ func (a *InvoicesAPIService) GetInvoicePaymentsExecute(r ApiGetInvoicePaymentsRe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.paymentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3657,10 +3729,16 @@ type ApiGetInvoicePaymentsCountRequest struct {
 	ApiService *InvoicesAPIService
 	tenantId *string
 	invoiceId string
+	paymentDtoCollectionQueryParameters *PaymentDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoicePaymentsCountRequest) TenantId(tenantId string) ApiGetInvoicePaymentsCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoicePaymentsCountRequest) PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters PaymentDtoCollectionQueryParameters) ApiGetInvoicePaymentsCountRequest {
+	r.paymentDtoCollectionQueryParameters = &paymentDtoCollectionQueryParameters
 	return r
 }
 
@@ -3712,7 +3790,7 @@ func (a *InvoicesAPIService) GetInvoicePaymentsCountExecute(r ApiGetInvoicePayme
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3728,6 +3806,8 @@ func (a *InvoicesAPIService) GetInvoicePaymentsCountExecute(r ApiGetInvoicePayme
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.paymentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3887,10 +3967,16 @@ type ApiGetInvoiceReferencesRequest struct {
 	ApiService *InvoicesAPIService
 	tenantId *string
 	invoiceId string
+	invoiceReferenceDtoCollectionQueryParameters *InvoiceReferenceDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceReferencesRequest) TenantId(tenantId string) ApiGetInvoiceReferencesRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoiceReferencesRequest) InvoiceReferenceDtoCollectionQueryParameters(invoiceReferenceDtoCollectionQueryParameters InvoiceReferenceDtoCollectionQueryParameters) ApiGetInvoiceReferencesRequest {
+	r.invoiceReferenceDtoCollectionQueryParameters = &invoiceReferenceDtoCollectionQueryParameters
 	return r
 }
 
@@ -3942,7 +4028,7 @@ func (a *InvoicesAPIService) GetInvoiceReferencesExecute(r ApiGetInvoiceReferenc
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3958,6 +4044,8 @@ func (a *InvoicesAPIService) GetInvoiceReferencesExecute(r ApiGetInvoiceReferenc
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceReferenceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4000,10 +4088,16 @@ type ApiGetInvoiceReferencesCountRequest struct {
 	ApiService *InvoicesAPIService
 	tenantId *string
 	invoiceId string
+	invoiceReferenceDtoCollectionQueryParameters *InvoiceReferenceDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceReferencesCountRequest) TenantId(tenantId string) ApiGetInvoiceReferencesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoiceReferencesCountRequest) InvoiceReferenceDtoCollectionQueryParameters(invoiceReferenceDtoCollectionQueryParameters InvoiceReferenceDtoCollectionQueryParameters) ApiGetInvoiceReferencesCountRequest {
+	r.invoiceReferenceDtoCollectionQueryParameters = &invoiceReferenceDtoCollectionQueryParameters
 	return r
 }
 
@@ -4055,7 +4149,7 @@ func (a *InvoicesAPIService) GetInvoiceReferencesCountExecute(r ApiGetInvoiceRef
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4071,6 +4165,8 @@ func (a *InvoicesAPIService) GetInvoiceReferencesCountExecute(r ApiGetInvoiceRef
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceReferenceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4112,10 +4208,16 @@ type ApiGetInvoicesRequest struct {
 	ctx context.Context
 	ApiService *InvoicesAPIService
 	tenantId *string
+	invoiceDtoCollectionQueryParameters *InvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoicesRequest) TenantId(tenantId string) ApiGetInvoicesRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoicesRequest) InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters InvoiceDtoCollectionQueryParameters) ApiGetInvoicesRequest {
+	r.invoiceDtoCollectionQueryParameters = &invoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -4164,7 +4266,7 @@ func (a *InvoicesAPIService) GetInvoicesExecute(r ApiGetInvoicesRequest) (*Invoi
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4180,6 +4282,8 @@ func (a *InvoicesAPIService) GetInvoicesExecute(r ApiGetInvoicesRequest) (*Invoi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4232,10 +4336,16 @@ type ApiGetInvoicesCountRequest struct {
 	ctx context.Context
 	ApiService *InvoicesAPIService
 	tenantId *string
+	invoiceDtoCollectionQueryParameters *InvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoicesCountRequest) TenantId(tenantId string) ApiGetInvoicesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetInvoicesCountRequest) InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters InvoiceDtoCollectionQueryParameters) ApiGetInvoicesCountRequest {
+	r.invoiceDtoCollectionQueryParameters = &invoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -4284,7 +4394,7 @@ func (a *InvoicesAPIService) GetInvoicesCountExecute(r ApiGetInvoicesCountReques
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4300,6 +4410,8 @@ func (a *InvoicesAPIService) GetInvoicesCountExecute(r ApiGetInvoicesCountReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4352,10 +4464,16 @@ type ApiGetPurchaseInvoicesSumRequest struct {
 	ctx context.Context
 	ApiService *InvoicesAPIService
 	tenantId *string
+	invoiceDtoCollectionQueryParameters *InvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetPurchaseInvoicesSumRequest) TenantId(tenantId string) ApiGetPurchaseInvoicesSumRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetPurchaseInvoicesSumRequest) InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters InvoiceDtoCollectionQueryParameters) ApiGetPurchaseInvoicesSumRequest {
+	r.invoiceDtoCollectionQueryParameters = &invoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -4404,7 +4522,7 @@ func (a *InvoicesAPIService) GetPurchaseInvoicesSumExecute(r ApiGetPurchaseInvoi
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4420,6 +4538,8 @@ func (a *InvoicesAPIService) GetPurchaseInvoicesSumExecute(r ApiGetPurchaseInvoi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4483,10 +4603,16 @@ type ApiGetSalesInvoicesSumRequest struct {
 	ctx context.Context
 	ApiService *InvoicesAPIService
 	tenantId *string
+	invoiceDtoCollectionQueryParameters *InvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetSalesInvoicesSumRequest) TenantId(tenantId string) ApiGetSalesInvoicesSumRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetSalesInvoicesSumRequest) InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters InvoiceDtoCollectionQueryParameters) ApiGetSalesInvoicesSumRequest {
+	r.invoiceDtoCollectionQueryParameters = &invoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -4535,7 +4661,7 @@ func (a *InvoicesAPIService) GetSalesInvoicesSumExecute(r ApiGetSalesInvoicesSum
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4551,6 +4677,8 @@ func (a *InvoicesAPIService) GetSalesInvoicesSumExecute(r ApiGetSalesInvoicesSum
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4615,7 +4743,7 @@ type ApiPatchInvoiceRequest struct {
 	ApiService *InvoicesAPIService
 	tenantId *string
 	invoiceId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchInvoiceRequest) TenantId(tenantId string) ApiPatchInvoiceRequest {
@@ -4623,8 +4751,8 @@ func (r ApiPatchInvoiceRequest) TenantId(tenantId string) ApiPatchInvoiceRequest
 	return r
 }
 
-func (r ApiPatchInvoiceRequest) Operation(operation []Operation) ApiPatchInvoiceRequest {
-	r.operation = &operation
+func (r ApiPatchInvoiceRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchInvoiceRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -4693,7 +4821,7 @@ func (a *InvoicesAPIService) PatchInvoiceExecute(r ApiPatchInvoiceRequest) (*Emp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4748,7 +4876,7 @@ type ApiPatchInvoiceAdjustmentRequest struct {
 	tenantId *string
 	invoiceId string
 	invoiceAdjustmentId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchInvoiceAdjustmentRequest) TenantId(tenantId string) ApiPatchInvoiceAdjustmentRequest {
@@ -4756,8 +4884,8 @@ func (r ApiPatchInvoiceAdjustmentRequest) TenantId(tenantId string) ApiPatchInvo
 	return r
 }
 
-func (r ApiPatchInvoiceAdjustmentRequest) Operation(operation []Operation) ApiPatchInvoiceAdjustmentRequest {
-	r.operation = &operation
+func (r ApiPatchInvoiceAdjustmentRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchInvoiceAdjustmentRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -4829,7 +4957,7 @@ func (a *InvoicesAPIService) PatchInvoiceAdjustmentExecute(r ApiPatchInvoiceAdju
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4884,7 +5012,7 @@ type ApiPatchInvoiceLineRequest struct {
 	tenantId *string
 	invoiceId string
 	invoiceLineId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchInvoiceLineRequest) TenantId(tenantId string) ApiPatchInvoiceLineRequest {
@@ -4892,8 +5020,8 @@ func (r ApiPatchInvoiceLineRequest) TenantId(tenantId string) ApiPatchInvoiceLin
 	return r
 }
 
-func (r ApiPatchInvoiceLineRequest) Operation(operation []Operation) ApiPatchInvoiceLineRequest {
-	r.operation = &operation
+func (r ApiPatchInvoiceLineRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchInvoiceLineRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -4965,7 +5093,7 @@ func (a *InvoicesAPIService) PatchInvoiceLineExecute(r ApiPatchInvoiceLineReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5021,7 +5149,7 @@ type ApiPatchInvoiceLineTaxRequest struct {
 	invoiceId string
 	invoiceLineId string
 	invoiceLineTaxId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchInvoiceLineTaxRequest) TenantId(tenantId string) ApiPatchInvoiceLineTaxRequest {
@@ -5029,8 +5157,8 @@ func (r ApiPatchInvoiceLineTaxRequest) TenantId(tenantId string) ApiPatchInvoice
 	return r
 }
 
-func (r ApiPatchInvoiceLineTaxRequest) Operation(operation []Operation) ApiPatchInvoiceLineTaxRequest {
-	r.operation = &operation
+func (r ApiPatchInvoiceLineTaxRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchInvoiceLineTaxRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -5105,7 +5233,7 @@ func (a *InvoicesAPIService) PatchInvoiceLineTaxExecute(r ApiPatchInvoiceLineTax
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5149,7 +5277,7 @@ type ApiPatchInvoiceReferenceRequest struct {
 	tenantId *string
 	invoiceId string
 	invoiceReferenceId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchInvoiceReferenceRequest) TenantId(tenantId string) ApiPatchInvoiceReferenceRequest {
@@ -5157,8 +5285,8 @@ func (r ApiPatchInvoiceReferenceRequest) TenantId(tenantId string) ApiPatchInvoi
 	return r
 }
 
-func (r ApiPatchInvoiceReferenceRequest) Operation(operation []Operation) ApiPatchInvoiceReferenceRequest {
-	r.operation = &operation
+func (r ApiPatchInvoiceReferenceRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchInvoiceReferenceRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -5230,7 +5358,7 @@ func (a *InvoicesAPIService) PatchInvoiceReferenceExecute(r ApiPatchInvoiceRefer
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -753,6 +753,7 @@ type ApiGetRailWaybillLinesAsyncRequest struct {
 	waybillId string
 	apiVersion *string
 	xApiVersion *string
+	waybillLineDtoCollectionQueryParameters *WaybillLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetRailWaybillLinesAsyncRequest) TenantId(tenantId string) ApiGetRailWaybillLinesAsyncRequest {
@@ -767,6 +768,11 @@ func (r ApiGetRailWaybillLinesAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetRailWaybillLinesAsyncRequest) XApiVersion(xApiVersion string) ApiGetRailWaybillLinesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRailWaybillLinesAsyncRequest) WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters WaybillLineDtoCollectionQueryParameters) ApiGetRailWaybillLinesAsyncRequest {
+	r.waybillLineDtoCollectionQueryParameters = &waybillLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -821,7 +827,7 @@ func (a *RailWaybillsAPIService) GetRailWaybillLinesAsyncExecute(r ApiGetRailWay
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -840,6 +846,8 @@ func (a *RailWaybillsAPIService) GetRailWaybillLinesAsyncExecute(r ApiGetRailWay
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.waybillLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -895,6 +903,7 @@ type ApiGetRailWaybillLinesCountAsyncRequest struct {
 	waybillId string
 	apiVersion *string
 	xApiVersion *string
+	waybillLineDtoCollectionQueryParameters *WaybillLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetRailWaybillLinesCountAsyncRequest) TenantId(tenantId string) ApiGetRailWaybillLinesCountAsyncRequest {
@@ -909,6 +918,11 @@ func (r ApiGetRailWaybillLinesCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetRailWaybillLinesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetRailWaybillLinesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRailWaybillLinesCountAsyncRequest) WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters WaybillLineDtoCollectionQueryParameters) ApiGetRailWaybillLinesCountAsyncRequest {
+	r.waybillLineDtoCollectionQueryParameters = &waybillLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -963,7 +977,7 @@ func (a *RailWaybillsAPIService) GetRailWaybillLinesCountAsyncExecute(r ApiGetRa
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -982,6 +996,8 @@ func (a *RailWaybillsAPIService) GetRailWaybillLinesCountAsyncExecute(r ApiGetRa
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.waybillLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1036,6 +1052,7 @@ type ApiGetRailWaybillsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	railWaybillDtoCollectionQueryParameters *RailWaybillDtoCollectionQueryParameters
 }
 
 func (r ApiGetRailWaybillsAsyncRequest) TenantId(tenantId string) ApiGetRailWaybillsAsyncRequest {
@@ -1050,6 +1067,11 @@ func (r ApiGetRailWaybillsAsyncRequest) ApiVersion(apiVersion string) ApiGetRail
 
 func (r ApiGetRailWaybillsAsyncRequest) XApiVersion(xApiVersion string) ApiGetRailWaybillsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRailWaybillsAsyncRequest) RailWaybillDtoCollectionQueryParameters(railWaybillDtoCollectionQueryParameters RailWaybillDtoCollectionQueryParameters) ApiGetRailWaybillsAsyncRequest {
+	r.railWaybillDtoCollectionQueryParameters = &railWaybillDtoCollectionQueryParameters
 	return r
 }
 
@@ -1101,7 +1123,7 @@ func (a *RailWaybillsAPIService) GetRailWaybillsAsyncExecute(r ApiGetRailWaybill
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1120,6 +1142,8 @@ func (a *RailWaybillsAPIService) GetRailWaybillsAsyncExecute(r ApiGetRailWaybill
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.railWaybillDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1185,6 +1209,7 @@ type ApiGetRailWaybillsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	railWaybillDtoCollectionQueryParameters *RailWaybillDtoCollectionQueryParameters
 }
 
 func (r ApiGetRailWaybillsCountAsyncRequest) TenantId(tenantId string) ApiGetRailWaybillsCountAsyncRequest {
@@ -1199,6 +1224,11 @@ func (r ApiGetRailWaybillsCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetRailWaybillsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetRailWaybillsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRailWaybillsCountAsyncRequest) RailWaybillDtoCollectionQueryParameters(railWaybillDtoCollectionQueryParameters RailWaybillDtoCollectionQueryParameters) ApiGetRailWaybillsCountAsyncRequest {
+	r.railWaybillDtoCollectionQueryParameters = &railWaybillDtoCollectionQueryParameters
 	return r
 }
 
@@ -1250,7 +1280,7 @@ func (a *RailWaybillsAPIService) GetRailWaybillsCountAsyncExecute(r ApiGetRailWa
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1269,6 +1299,8 @@ func (a *RailWaybillsAPIService) GetRailWaybillsCountAsyncExecute(r ApiGetRailWa
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.railWaybillDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1750,7 +1782,7 @@ type ApiPatchRailWaybillAsyncRequest struct {
 	waybillId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchRailWaybillAsyncRequest) TenantId(tenantId string) ApiPatchRailWaybillAsyncRequest {
@@ -1768,8 +1800,8 @@ func (r ApiPatchRailWaybillAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchRailWaybillAsyncRequest) Operation(operation []Operation) ApiPatchRailWaybillAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchRailWaybillAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchRailWaybillAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1844,7 +1876,7 @@ func (a *RailWaybillsAPIService) PatchRailWaybillAsyncExecute(r ApiPatchRailWayb
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1901,7 +1933,7 @@ type ApiPatchRailWaybillLineAsyncRequest struct {
 	lineId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchRailWaybillLineAsyncRequest) TenantId(tenantId string) ApiPatchRailWaybillLineAsyncRequest {
@@ -1919,8 +1951,8 @@ func (r ApiPatchRailWaybillLineAsyncRequest) XApiVersion(xApiVersion string) Api
 	return r
 }
 
-func (r ApiPatchRailWaybillLineAsyncRequest) Operation(operation []Operation) ApiPatchRailWaybillLineAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchRailWaybillLineAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchRailWaybillLineAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1998,7 +2030,7 @@ func (a *RailWaybillsAPIService) PatchRailWaybillLineAsyncExecute(r ApiPatchRail
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

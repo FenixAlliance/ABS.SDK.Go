@@ -13,6 +13,10 @@ Name | Type | Description | Notes
 **SocialProfileAvatarUrl** | Pointer to **NullableString** |  | [optional] 
 **CommentsCount** | Pointer to **int32** |  | [optional] 
 **ReactionsCount** | Pointer to **int32** |  | [optional] 
+**SocialProfileType** | Pointer to **NullableString** |  | [optional] 
+**BodyHtml** | Pointer to **NullableString** |  | [optional] 
+**BodyFormat** | Pointer to **NullableString** |  | [optional] 
+**BackgroundStyle** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -328,6 +332,146 @@ SetReactionsCount sets ReactionsCount field to given value.
 
 HasReactionsCount returns a boolean if a field has been set.
 
+### GetSocialProfileType
+
+`func (o *SocialPostDto) GetSocialProfileType() string`
+
+GetSocialProfileType returns the SocialProfileType field if non-nil, zero value otherwise.
+
+### GetSocialProfileTypeOk
+
+`func (o *SocialPostDto) GetSocialProfileTypeOk() (*string, bool)`
+
+GetSocialProfileTypeOk returns a tuple with the SocialProfileType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSocialProfileType
+
+`func (o *SocialPostDto) SetSocialProfileType(v string)`
+
+SetSocialProfileType sets SocialProfileType field to given value.
+
+### HasSocialProfileType
+
+`func (o *SocialPostDto) HasSocialProfileType() bool`
+
+HasSocialProfileType returns a boolean if a field has been set.
+
+### SetSocialProfileTypeNil
+
+`func (o *SocialPostDto) SetSocialProfileTypeNil(b bool)`
+
+ SetSocialProfileTypeNil sets the value for SocialProfileType to be an explicit nil
+
+### UnsetSocialProfileType
+`func (o *SocialPostDto) UnsetSocialProfileType()`
+
+UnsetSocialProfileType ensures that no value is present for SocialProfileType, not even an explicit nil
+### GetBodyHtml
+
+`func (o *SocialPostDto) GetBodyHtml() string`
+
+GetBodyHtml returns the BodyHtml field if non-nil, zero value otherwise.
+
+### GetBodyHtmlOk
+
+`func (o *SocialPostDto) GetBodyHtmlOk() (*string, bool)`
+
+GetBodyHtmlOk returns a tuple with the BodyHtml field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBodyHtml
+
+`func (o *SocialPostDto) SetBodyHtml(v string)`
+
+SetBodyHtml sets BodyHtml field to given value.
+
+### HasBodyHtml
+
+`func (o *SocialPostDto) HasBodyHtml() bool`
+
+HasBodyHtml returns a boolean if a field has been set.
+
+### SetBodyHtmlNil
+
+`func (o *SocialPostDto) SetBodyHtmlNil(b bool)`
+
+ SetBodyHtmlNil sets the value for BodyHtml to be an explicit nil
+
+### UnsetBodyHtml
+`func (o *SocialPostDto) UnsetBodyHtml()`
+
+UnsetBodyHtml ensures that no value is present for BodyHtml, not even an explicit nil
+### GetBodyFormat
+
+`func (o *SocialPostDto) GetBodyFormat() string`
+
+GetBodyFormat returns the BodyFormat field if non-nil, zero value otherwise.
+
+### GetBodyFormatOk
+
+`func (o *SocialPostDto) GetBodyFormatOk() (*string, bool)`
+
+GetBodyFormatOk returns a tuple with the BodyFormat field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBodyFormat
+
+`func (o *SocialPostDto) SetBodyFormat(v string)`
+
+SetBodyFormat sets BodyFormat field to given value.
+
+### HasBodyFormat
+
+`func (o *SocialPostDto) HasBodyFormat() bool`
+
+HasBodyFormat returns a boolean if a field has been set.
+
+### SetBodyFormatNil
+
+`func (o *SocialPostDto) SetBodyFormatNil(b bool)`
+
+ SetBodyFormatNil sets the value for BodyFormat to be an explicit nil
+
+### UnsetBodyFormat
+`func (o *SocialPostDto) UnsetBodyFormat()`
+
+UnsetBodyFormat ensures that no value is present for BodyFormat, not even an explicit nil
+### GetBackgroundStyle
+
+`func (o *SocialPostDto) GetBackgroundStyle() string`
+
+GetBackgroundStyle returns the BackgroundStyle field if non-nil, zero value otherwise.
+
+### GetBackgroundStyleOk
+
+`func (o *SocialPostDto) GetBackgroundStyleOk() (*string, bool)`
+
+GetBackgroundStyleOk returns a tuple with the BackgroundStyle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackgroundStyle
+
+`func (o *SocialPostDto) SetBackgroundStyle(v string)`
+
+SetBackgroundStyle sets BackgroundStyle field to given value.
+
+### HasBackgroundStyle
+
+`func (o *SocialPostDto) HasBackgroundStyle() bool`
+
+HasBackgroundStyle returns a boolean if a field has been set.
+
+### SetBackgroundStyleNil
+
+`func (o *SocialPostDto) SetBackgroundStyleNil(b bool)`
+
+ SetBackgroundStyleNil sets the value for BackgroundStyle to be an explicit nil
+
+### UnsetBackgroundStyle
+`func (o *SocialPostDto) UnsetBackgroundStyle()`
+
+UnsetBackgroundStyle ensures that no value is present for BackgroundStyle, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

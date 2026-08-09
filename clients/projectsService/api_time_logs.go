@@ -31,6 +31,7 @@ type ApiCountProjectPeriodTimeLogsAsyncRequest struct {
 	projectPeriodId *string
 	apiVersion *string
 	xApiVersion *string
+	projectTimeLogDtoCollectionQueryParameters *ProjectTimeLogDtoCollectionQueryParameters
 }
 
 func (r ApiCountProjectPeriodTimeLogsAsyncRequest) TenantId(tenantId string) ApiCountProjectPeriodTimeLogsAsyncRequest {
@@ -50,6 +51,11 @@ func (r ApiCountProjectPeriodTimeLogsAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiCountProjectPeriodTimeLogsAsyncRequest) XApiVersion(xApiVersion string) ApiCountProjectPeriodTimeLogsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountProjectPeriodTimeLogsAsyncRequest) ProjectTimeLogDtoCollectionQueryParameters(projectTimeLogDtoCollectionQueryParameters ProjectTimeLogDtoCollectionQueryParameters) ApiCountProjectPeriodTimeLogsAsyncRequest {
+	r.projectTimeLogDtoCollectionQueryParameters = &projectTimeLogDtoCollectionQueryParameters
 	return r
 }
 
@@ -105,7 +111,7 @@ func (a *TimeLogsAPIService) CountProjectPeriodTimeLogsAsyncExecute(r ApiCountPr
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -124,6 +130,8 @@ func (a *TimeLogsAPIService) CountProjectPeriodTimeLogsAsyncExecute(r ApiCountPr
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.projectTimeLogDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -476,6 +484,7 @@ type ApiGetProjectPeriodTimeLogsAsyncRequest struct {
 	projectPeriodId *string
 	apiVersion *string
 	xApiVersion *string
+	projectTimeLogDtoCollectionQueryParameters *ProjectTimeLogDtoCollectionQueryParameters
 }
 
 func (r ApiGetProjectPeriodTimeLogsAsyncRequest) TenantId(tenantId string) ApiGetProjectPeriodTimeLogsAsyncRequest {
@@ -495,6 +504,11 @@ func (r ApiGetProjectPeriodTimeLogsAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetProjectPeriodTimeLogsAsyncRequest) XApiVersion(xApiVersion string) ApiGetProjectPeriodTimeLogsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProjectPeriodTimeLogsAsyncRequest) ProjectTimeLogDtoCollectionQueryParameters(projectTimeLogDtoCollectionQueryParameters ProjectTimeLogDtoCollectionQueryParameters) ApiGetProjectPeriodTimeLogsAsyncRequest {
+	r.projectTimeLogDtoCollectionQueryParameters = &projectTimeLogDtoCollectionQueryParameters
 	return r
 }
 
@@ -550,7 +564,7 @@ func (a *TimeLogsAPIService) GetProjectPeriodTimeLogsAsyncExecute(r ApiGetProjec
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -569,6 +583,8 @@ func (a *TimeLogsAPIService) GetProjectPeriodTimeLogsAsyncExecute(r ApiGetProjec
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.projectTimeLogDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1259,7 +1275,7 @@ type ApiPatchProjectTimeLogAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchProjectTimeLogAsyncRequest) TenantId(tenantId string) ApiPatchProjectTimeLogAsyncRequest {
@@ -1277,8 +1293,8 @@ func (r ApiPatchProjectTimeLogAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchProjectTimeLogAsyncRequest) Operation(operation []Operation) ApiPatchProjectTimeLogAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchProjectTimeLogAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchProjectTimeLogAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1351,7 +1367,7 @@ func (a *TimeLogsAPIService) PatchProjectTimeLogAsyncExecute(r ApiPatchProjectTi
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

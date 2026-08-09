@@ -405,7 +405,7 @@ No authorization required
 
 ## GetAirwayBillLinesAsync
 
-> WaybillLineDtoListEnvelope GetAirwayBillLinesAsync(ctx, billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> WaybillLineDtoListEnvelope GetAirwayBillLinesAsync(ctx, billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters).Execute()
 
 Get airway bill lines
 
@@ -428,10 +428,11 @@ func main() {
 	billId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	waybillLineDtoCollectionQueryParameters := *openapiclient.NewWaybillLineDtoCollectionQueryParameters() // WaybillLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AirwayBillsAPI.GetAirwayBillLinesAsync(context.Background(), billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AirwayBillsAPI.GetAirwayBillLinesAsync(context.Background(), billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AirwayBillsAPI.GetAirwayBillLinesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -460,6 +461,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -471,7 +473,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -481,7 +483,7 @@ No authorization required
 
 ## GetAirwayBillLinesCountAsync
 
-> Int32Envelope GetAirwayBillLinesCountAsync(ctx, billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetAirwayBillLinesCountAsync(ctx, billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters).Execute()
 
 Get airway bill lines count
 
@@ -504,10 +506,11 @@ func main() {
 	billId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	waybillLineDtoCollectionQueryParameters := *openapiclient.NewWaybillLineDtoCollectionQueryParameters() // WaybillLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AirwayBillsAPI.GetAirwayBillLinesCountAsync(context.Background(), billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AirwayBillsAPI.GetAirwayBillLinesCountAsync(context.Background(), billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AirwayBillsAPI.GetAirwayBillLinesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -536,6 +539,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -547,7 +551,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -557,7 +561,7 @@ No authorization required
 
 ## GetAirwayBillsAsync
 
-> AirwayBillDtoListEnvelope GetAirwayBillsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AirwayBillDtoListEnvelope GetAirwayBillsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AirwayBillDtoCollectionQueryParameters(airwayBillDtoCollectionQueryParameters).Execute()
 
 Get all airway bills
 
@@ -579,10 +583,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	airwayBillDtoCollectionQueryParameters := *openapiclient.NewAirwayBillDtoCollectionQueryParameters() // AirwayBillDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AirwayBillsAPI.GetAirwayBillsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AirwayBillsAPI.GetAirwayBillsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AirwayBillDtoCollectionQueryParameters(airwayBillDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AirwayBillsAPI.GetAirwayBillsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -606,6 +611,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **airwayBillDtoCollectionQueryParameters** | [**AirwayBillDtoCollectionQueryParameters**](AirwayBillDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -617,7 +623,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -627,7 +633,7 @@ No authorization required
 
 ## GetAirwayBillsCountAsync
 
-> Int32Envelope GetAirwayBillsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetAirwayBillsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AirwayBillDtoCollectionQueryParameters(airwayBillDtoCollectionQueryParameters).Execute()
 
 Get airway bills count
 
@@ -649,10 +655,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	airwayBillDtoCollectionQueryParameters := *openapiclient.NewAirwayBillDtoCollectionQueryParameters() // AirwayBillDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AirwayBillsAPI.GetAirwayBillsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AirwayBillsAPI.GetAirwayBillsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AirwayBillDtoCollectionQueryParameters(airwayBillDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AirwayBillsAPI.GetAirwayBillsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -676,6 +683,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **airwayBillDtoCollectionQueryParameters** | [**AirwayBillDtoCollectionQueryParameters**](AirwayBillDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -687,7 +695,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1001,7 +1009,7 @@ No authorization required
 
 ## PatchAirwayBillAsync
 
-> EmptyEnvelope PatchAirwayBillAsync(ctx, billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchAirwayBillAsync(ctx, billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an airway bill
 
@@ -1024,11 +1032,11 @@ func main() {
 	billId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AirwayBillsAPI.PatchAirwayBillAsync(context.Background(), billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.AirwayBillsAPI.PatchAirwayBillAsync(context.Background(), billId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AirwayBillsAPI.PatchAirwayBillAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1057,7 +1065,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1079,7 +1087,7 @@ No authorization required
 
 ## PatchAirwayBillLineAsync
 
-> EmptyEnvelope PatchAirwayBillLineAsync(ctx, billId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchAirwayBillLineAsync(ctx, billId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an airway bill line
 
@@ -1103,11 +1111,11 @@ func main() {
 	lineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AirwayBillsAPI.PatchAirwayBillLineAsync(context.Background(), billId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.AirwayBillsAPI.PatchAirwayBillLineAsync(context.Background(), billId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AirwayBillsAPI.PatchAirwayBillLineAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1138,7 +1146,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

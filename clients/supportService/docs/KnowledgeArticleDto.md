@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] 
+**Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Slug** | Pointer to **NullableString** |  | [optional] 
 **Excerpt** | Pointer to **NullableString** |  | [optional] 
@@ -101,6 +101,16 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
+### SetTimestampNil
+
+`func (o *KnowledgeArticleDto) SetTimestampNil(b bool)`
+
+ SetTimestampNil sets the value for Timestamp to be an explicit nil
+
+### UnsetTimestamp
+`func (o *KnowledgeArticleDto) UnsetTimestamp()`
+
+UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetTitle
 
 `func (o *KnowledgeArticleDto) GetTitle() string`

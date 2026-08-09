@@ -459,7 +459,7 @@ No authorization required
 
 ## GetDealUnitFlowStagesAsync
 
-> DealUnitFlowStageDtoListEnvelope GetDealUnitFlowStagesAsync(ctx, dealUnitFlowId).TenantId(tenantId).Execute()
+> DealUnitFlowStageDtoListEnvelope GetDealUnitFlowStagesAsync(ctx, dealUnitFlowId).TenantId(tenantId).DealUnitFlowStageDtoCollectionQueryParameters(dealUnitFlowStageDtoCollectionQueryParameters).Execute()
 
 Get stages for a deal unit flow
 
@@ -480,10 +480,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowStageDtoCollectionQueryParameters := *openapiclient.NewDealUnitFlowStageDtoCollectionQueryParameters() // DealUnitFlowStageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowStagesAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowStagesAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).DealUnitFlowStageDtoCollectionQueryParameters(dealUnitFlowStageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.GetDealUnitFlowStagesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -510,6 +511,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **dealUnitFlowStageDtoCollectionQueryParameters** | [**DealUnitFlowStageDtoCollectionQueryParameters**](DealUnitFlowStageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -521,7 +523,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -531,7 +533,7 @@ No authorization required
 
 ## GetDealUnitFlowStagesCountAsync
 
-> Int32Envelope GetDealUnitFlowStagesCountAsync(ctx, dealUnitFlowId).TenantId(tenantId).Execute()
+> Int32Envelope GetDealUnitFlowStagesCountAsync(ctx, dealUnitFlowId).TenantId(tenantId).DealUnitFlowStageDtoCollectionQueryParameters(dealUnitFlowStageDtoCollectionQueryParameters).Execute()
 
 Get stages count for a deal unit flow
 
@@ -552,10 +554,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowStageDtoCollectionQueryParameters := *openapiclient.NewDealUnitFlowStageDtoCollectionQueryParameters() // DealUnitFlowStageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowStagesCountAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowStagesCountAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).DealUnitFlowStageDtoCollectionQueryParameters(dealUnitFlowStageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.GetDealUnitFlowStagesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -582,6 +585,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **dealUnitFlowStageDtoCollectionQueryParameters** | [**DealUnitFlowStageDtoCollectionQueryParameters**](DealUnitFlowStageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -593,7 +597,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -603,7 +607,7 @@ No authorization required
 
 ## GetDealUnitFlowsAsync
 
-> DealUnitFlowDtoListEnvelope GetDealUnitFlowsAsync(ctx).TenantId(tenantId).Execute()
+> DealUnitFlowDtoListEnvelope GetDealUnitFlowsAsync(ctx).TenantId(tenantId).DealUnitFlowDtoCollectionQueryParameters(dealUnitFlowDtoCollectionQueryParameters).Execute()
 
 Get deal unit flows
 
@@ -623,10 +627,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowDtoCollectionQueryParameters := *openapiclient.NewDealUnitFlowDtoCollectionQueryParameters() // DealUnitFlowDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowsAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowsAsync(context.Background()).TenantId(tenantId).DealUnitFlowDtoCollectionQueryParameters(dealUnitFlowDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.GetDealUnitFlowsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -648,6 +653,7 @@ Other parameters are passed through a pointer to a apiGetDealUnitFlowsAsyncReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **dealUnitFlowDtoCollectionQueryParameters** | [**DealUnitFlowDtoCollectionQueryParameters**](DealUnitFlowDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -659,7 +665,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -669,7 +675,7 @@ No authorization required
 
 ## GetDealUnitFlowsCountAsync
 
-> Int32Envelope GetDealUnitFlowsCountAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetDealUnitFlowsCountAsync(ctx).TenantId(tenantId).DealUnitFlowDtoCollectionQueryParameters(dealUnitFlowDtoCollectionQueryParameters).Execute()
 
 Get deal unit flows count
 
@@ -689,10 +695,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitFlowDtoCollectionQueryParameters := *openapiclient.NewDealUnitFlowDtoCollectionQueryParameters() // DealUnitFlowDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowsCountAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DealUnitFlowsAPI.GetDealUnitFlowsCountAsync(context.Background()).TenantId(tenantId).DealUnitFlowDtoCollectionQueryParameters(dealUnitFlowDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.GetDealUnitFlowsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -714,6 +721,7 @@ Other parameters are passed through a pointer to a apiGetDealUnitFlowsCountAsync
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **dealUnitFlowDtoCollectionQueryParameters** | [**DealUnitFlowDtoCollectionQueryParameters**](DealUnitFlowDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -725,7 +733,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -735,7 +743,7 @@ No authorization required
 
 ## PatchDealUnitFlowAsync
 
-> EmptyEnvelope PatchDealUnitFlowAsync(ctx, dealUnitFlowId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchDealUnitFlowAsync(ctx, dealUnitFlowId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a deal unit flow
 
@@ -756,11 +764,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.PatchDealUnitFlowAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.DealUnitFlowsAPI.PatchDealUnitFlowAsync(context.Background(), dealUnitFlowId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.PatchDealUnitFlowAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -787,7 +795,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -809,7 +817,7 @@ No authorization required
 
 ## PatchDealUnitFlowStageAsync
 
-> EmptyEnvelope PatchDealUnitFlowStageAsync(ctx, dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchDealUnitFlowStageAsync(ctx, dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a deal unit flow stage
 
@@ -831,11 +839,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	dealUnitFlowId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	dealUnitFlowStageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitFlowsAPI.PatchDealUnitFlowStageAsync(context.Background(), dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.DealUnitFlowsAPI.PatchDealUnitFlowStageAsync(context.Background(), dealUnitFlowId, dealUnitFlowStageId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitFlowsAPI.PatchDealUnitFlowStageAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -864,7 +872,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

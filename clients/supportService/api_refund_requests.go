@@ -421,6 +421,7 @@ type ApiGetRefundRequestsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	refundRequestDtoCollectionQueryParameters *RefundRequestDtoCollectionQueryParameters
 }
 
 func (r ApiGetRefundRequestsAsyncRequest) TenantId(tenantId string) ApiGetRefundRequestsAsyncRequest {
@@ -435,6 +436,11 @@ func (r ApiGetRefundRequestsAsyncRequest) ApiVersion(apiVersion string) ApiGetRe
 
 func (r ApiGetRefundRequestsAsyncRequest) XApiVersion(xApiVersion string) ApiGetRefundRequestsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRefundRequestsAsyncRequest) RefundRequestDtoCollectionQueryParameters(refundRequestDtoCollectionQueryParameters RefundRequestDtoCollectionQueryParameters) ApiGetRefundRequestsAsyncRequest {
+	r.refundRequestDtoCollectionQueryParameters = &refundRequestDtoCollectionQueryParameters
 	return r
 }
 
@@ -484,7 +490,7 @@ func (a *RefundRequestsAPIService) GetRefundRequestsAsyncExecute(r ApiGetRefundR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -503,6 +509,8 @@ func (a *RefundRequestsAPIService) GetRefundRequestsAsyncExecute(r ApiGetRefundR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.refundRequestDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -546,6 +554,7 @@ type ApiGetRefundRequestsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	refundRequestDtoCollectionQueryParameters *RefundRequestDtoCollectionQueryParameters
 }
 
 func (r ApiGetRefundRequestsCountAsyncRequest) TenantId(tenantId string) ApiGetRefundRequestsCountAsyncRequest {
@@ -560,6 +569,11 @@ func (r ApiGetRefundRequestsCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetRefundRequestsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetRefundRequestsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRefundRequestsCountAsyncRequest) RefundRequestDtoCollectionQueryParameters(refundRequestDtoCollectionQueryParameters RefundRequestDtoCollectionQueryParameters) ApiGetRefundRequestsCountAsyncRequest {
+	r.refundRequestDtoCollectionQueryParameters = &refundRequestDtoCollectionQueryParameters
 	return r
 }
 
@@ -609,7 +623,7 @@ func (a *RefundRequestsAPIService) GetRefundRequestsCountAsyncExecute(r ApiGetRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -628,6 +642,8 @@ func (a *RefundRequestsAPIService) GetRefundRequestsCountAsyncExecute(r ApiGetRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.refundRequestDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -672,7 +688,7 @@ type ApiPatchRefundRequestAsyncRequest struct {
 	refundRequestId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchRefundRequestAsyncRequest) TenantId(tenantId string) ApiPatchRefundRequestAsyncRequest {
@@ -690,8 +706,8 @@ func (r ApiPatchRefundRequestAsyncRequest) XApiVersion(xApiVersion string) ApiPa
 	return r
 }
 
-func (r ApiPatchRefundRequestAsyncRequest) Operation(operation []Operation) ApiPatchRefundRequestAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchRefundRequestAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchRefundRequestAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -766,7 +782,7 @@ func (a *RefundRequestsAPIService) PatchRefundRequestAsyncExecute(r ApiPatchRefu
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

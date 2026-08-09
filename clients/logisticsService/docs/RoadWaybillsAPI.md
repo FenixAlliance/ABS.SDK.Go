@@ -481,7 +481,7 @@ No authorization required
 
 ## GetRoadWaybillLinesAsync
 
-> WaybillLineDtoListEnvelope GetRoadWaybillLinesAsync(ctx, waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> WaybillLineDtoListEnvelope GetRoadWaybillLinesAsync(ctx, waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters).Execute()
 
 Get road waybill lines
 
@@ -504,10 +504,11 @@ func main() {
 	waybillId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	waybillLineDtoCollectionQueryParameters := *openapiclient.NewWaybillLineDtoCollectionQueryParameters() // WaybillLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RoadWaybillsAPI.GetRoadWaybillLinesAsync(context.Background(), waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RoadWaybillsAPI.GetRoadWaybillLinesAsync(context.Background(), waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoadWaybillsAPI.GetRoadWaybillLinesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -536,6 +537,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -547,7 +549,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -557,7 +559,7 @@ No authorization required
 
 ## GetRoadWaybillLinesCountAsync
 
-> Int32Envelope GetRoadWaybillLinesCountAsync(ctx, waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetRoadWaybillLinesCountAsync(ctx, waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters).Execute()
 
 Get road waybill lines count
 
@@ -580,10 +582,11 @@ func main() {
 	waybillId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	waybillLineDtoCollectionQueryParameters := *openapiclient.NewWaybillLineDtoCollectionQueryParameters() // WaybillLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RoadWaybillsAPI.GetRoadWaybillLinesCountAsync(context.Background(), waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RoadWaybillsAPI.GetRoadWaybillLinesCountAsync(context.Background(), waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoadWaybillsAPI.GetRoadWaybillLinesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -612,6 +615,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -623,7 +627,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -633,7 +637,7 @@ No authorization required
 
 ## GetRoadWaybillsAsync
 
-> RoadWaybillDtoListEnvelope GetRoadWaybillsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> RoadWaybillDtoListEnvelope GetRoadWaybillsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).RoadWaybillDtoCollectionQueryParameters(roadWaybillDtoCollectionQueryParameters).Execute()
 
 Get all road waybills
 
@@ -655,10 +659,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	roadWaybillDtoCollectionQueryParameters := *openapiclient.NewRoadWaybillDtoCollectionQueryParameters() // RoadWaybillDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RoadWaybillsAPI.GetRoadWaybillsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RoadWaybillsAPI.GetRoadWaybillsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).RoadWaybillDtoCollectionQueryParameters(roadWaybillDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoadWaybillsAPI.GetRoadWaybillsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -682,6 +687,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **roadWaybillDtoCollectionQueryParameters** | [**RoadWaybillDtoCollectionQueryParameters**](RoadWaybillDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -693,7 +699,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -703,7 +709,7 @@ No authorization required
 
 ## GetRoadWaybillsCountAsync
 
-> Int32Envelope GetRoadWaybillsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetRoadWaybillsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).RoadWaybillDtoCollectionQueryParameters(roadWaybillDtoCollectionQueryParameters).Execute()
 
 Get road waybills count
 
@@ -725,10 +731,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	roadWaybillDtoCollectionQueryParameters := *openapiclient.NewRoadWaybillDtoCollectionQueryParameters() // RoadWaybillDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RoadWaybillsAPI.GetRoadWaybillsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RoadWaybillsAPI.GetRoadWaybillsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).RoadWaybillDtoCollectionQueryParameters(roadWaybillDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoadWaybillsAPI.GetRoadWaybillsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -752,6 +759,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **roadWaybillDtoCollectionQueryParameters** | [**RoadWaybillDtoCollectionQueryParameters**](RoadWaybillDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -763,7 +771,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1001,7 +1009,7 @@ No authorization required
 
 ## PatchRoadWaybillAsync
 
-> EmptyEnvelope PatchRoadWaybillAsync(ctx, waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchRoadWaybillAsync(ctx, waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a road waybill
 
@@ -1024,11 +1032,11 @@ func main() {
 	waybillId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RoadWaybillsAPI.PatchRoadWaybillAsync(context.Background(), waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.RoadWaybillsAPI.PatchRoadWaybillAsync(context.Background(), waybillId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoadWaybillsAPI.PatchRoadWaybillAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1057,7 +1065,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1079,7 +1087,7 @@ No authorization required
 
 ## PatchRoadWaybillLineAsync
 
-> EmptyEnvelope PatchRoadWaybillLineAsync(ctx, waybillId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchRoadWaybillLineAsync(ctx, waybillId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a road waybill line
 
@@ -1103,11 +1111,11 @@ func main() {
 	lineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RoadWaybillsAPI.PatchRoadWaybillLineAsync(context.Background(), waybillId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.RoadWaybillsAPI.PatchRoadWaybillLineAsync(context.Background(), waybillId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoadWaybillsAPI.PatchRoadWaybillLineAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1138,7 +1146,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

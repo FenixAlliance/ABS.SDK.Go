@@ -460,6 +460,7 @@ type ApiGetWarehousesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	warehouseDtoCollectionQueryParameters *WarehouseDtoCollectionQueryParameters
 }
 
 func (r ApiGetWarehousesAsyncRequest) TenantId(tenantId string) ApiGetWarehousesAsyncRequest {
@@ -474,6 +475,11 @@ func (r ApiGetWarehousesAsyncRequest) ApiVersion(apiVersion string) ApiGetWareho
 
 func (r ApiGetWarehousesAsyncRequest) XApiVersion(xApiVersion string) ApiGetWarehousesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWarehousesAsyncRequest) WarehouseDtoCollectionQueryParameters(warehouseDtoCollectionQueryParameters WarehouseDtoCollectionQueryParameters) ApiGetWarehousesAsyncRequest {
+	r.warehouseDtoCollectionQueryParameters = &warehouseDtoCollectionQueryParameters
 	return r
 }
 
@@ -525,7 +531,7 @@ func (a *WarehousesAPIService) GetWarehousesAsyncExecute(r ApiGetWarehousesAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -544,6 +550,8 @@ func (a *WarehousesAPIService) GetWarehousesAsyncExecute(r ApiGetWarehousesAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.warehouseDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetWarehousesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	warehouseDtoCollectionQueryParameters *WarehouseDtoCollectionQueryParameters
 }
 
 func (r ApiGetWarehousesCountAsyncRequest) TenantId(tenantId string) ApiGetWarehousesCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetWarehousesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetW
 
 func (r ApiGetWarehousesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWarehousesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWarehousesCountAsyncRequest) WarehouseDtoCollectionQueryParameters(warehouseDtoCollectionQueryParameters WarehouseDtoCollectionQueryParameters) ApiGetWarehousesCountAsyncRequest {
+	r.warehouseDtoCollectionQueryParameters = &warehouseDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *WarehousesAPIService) GetWarehousesCountAsyncExecute(r ApiGetWarehouses
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *WarehousesAPIService) GetWarehousesCountAsyncExecute(r ApiGetWarehouses
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.warehouseDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -737,7 +753,7 @@ type ApiPatchWarehouseAsyncRequest struct {
 	warehouseId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchWarehouseAsyncRequest) TenantId(tenantId string) ApiPatchWarehouseAsyncRequest {
@@ -755,8 +771,8 @@ func (r ApiPatchWarehouseAsyncRequest) XApiVersion(xApiVersion string) ApiPatchW
 	return r
 }
 
-func (r ApiPatchWarehouseAsyncRequest) Operation(operation []Operation) ApiPatchWarehouseAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchWarehouseAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWarehouseAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -831,7 +847,7 @@ func (a *WarehousesAPIService) PatchWarehouseAsyncExecute(r ApiPatchWarehouseAsy
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

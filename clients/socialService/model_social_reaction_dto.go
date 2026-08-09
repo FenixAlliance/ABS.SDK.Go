@@ -28,6 +28,7 @@ type SocialReactionDto struct {
 	SocialProfileId NullableString `json:"socialProfileId,omitempty"`
 	SocialProfileName NullableString `json:"socialProfileName,omitempty"`
 	SocialProfileAvatarUrl NullableString `json:"socialProfileAvatarUrl,omitempty"`
+	SocialProfileType NullableString `json:"socialProfileType,omitempty"`
 }
 
 // NewSocialReactionDto instantiates a new SocialReactionDto object
@@ -331,6 +332,48 @@ func (o *SocialReactionDto) UnsetSocialProfileAvatarUrl() {
 	o.SocialProfileAvatarUrl.Unset()
 }
 
+// GetSocialProfileType returns the SocialProfileType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialReactionDto) GetSocialProfileType() string {
+	if o == nil || IsNil(o.SocialProfileType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SocialProfileType.Get()
+}
+
+// GetSocialProfileTypeOk returns a tuple with the SocialProfileType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialReactionDto) GetSocialProfileTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SocialProfileType.Get(), o.SocialProfileType.IsSet()
+}
+
+// HasSocialProfileType returns a boolean if a field has been set.
+func (o *SocialReactionDto) HasSocialProfileType() bool {
+	if o != nil && o.SocialProfileType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSocialProfileType gets a reference to the given NullableString and assigns it to the SocialProfileType field.
+func (o *SocialReactionDto) SetSocialProfileType(v string) {
+	o.SocialProfileType.Set(&v)
+}
+// SetSocialProfileTypeNil sets the value for SocialProfileType to be an explicit nil
+func (o *SocialReactionDto) SetSocialProfileTypeNil() {
+	o.SocialProfileType.Set(nil)
+}
+
+// UnsetSocialProfileType ensures that no value is present for SocialProfileType, not even an explicit nil
+func (o *SocialReactionDto) UnsetSocialProfileType() {
+	o.SocialProfileType.Unset()
+}
+
 func (o SocialReactionDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -361,6 +404,9 @@ func (o SocialReactionDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.SocialProfileAvatarUrl.IsSet() {
 		toSerialize["socialProfileAvatarUrl"] = o.SocialProfileAvatarUrl.Get()
+	}
+	if o.SocialProfileType.IsSet() {
+		toSerialize["socialProfileType"] = o.SocialProfileType.Get()
 	}
 	return toSerialize, nil
 }

@@ -300,7 +300,7 @@ No authorization required
 
 ## GetPaymentsAsync
 
-> PaymentDtoListEnvelope GetPaymentsAsync(ctx).TenantId(tenantId).Execute()
+> PaymentDtoListEnvelope GetPaymentsAsync(ctx).TenantId(tenantId).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 
 Retrieves all payments
 
@@ -320,10 +320,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	paymentDtoCollectionQueryParameters := *openapiclient.NewPaymentDtoCollectionQueryParameters() // PaymentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.GetPaymentsAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.PaymentsAPI.GetPaymentsAsync(context.Background()).TenantId(tenantId).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.GetPaymentsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -345,6 +346,7 @@ Other parameters are passed through a pointer to a apiGetPaymentsAsyncRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -356,7 +358,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -366,7 +368,7 @@ No authorization required
 
 ## PatchPaymentAsync
 
-> EmptyEnvelope PatchPaymentAsync(ctx, paymentId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchPaymentAsync(ctx, paymentId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a payment
 
@@ -387,11 +389,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	paymentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.PatchPaymentAsync(context.Background(), paymentId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.PaymentsAPI.PatchPaymentAsync(context.Background(), paymentId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.PatchPaymentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -418,7 +420,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

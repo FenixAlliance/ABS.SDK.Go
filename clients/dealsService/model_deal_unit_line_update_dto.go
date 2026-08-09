@@ -103,7 +103,6 @@ type DealUnitLineUpdateDto struct {
 	PriceListItemId NullableString `json:"priceListItemId,omitempty"`
 	UnitId NullableString `json:"unitId,omitempty"`
 	UnitGroupId NullableString `json:"unitGroupId,omitempty"`
-	ForexRatesSnapshot NullableString `json:"forexRatesSnapshot,omitempty"`
 	TotalBaseAmountInUsd *float64 `json:"totalBaseAmountInUsd,omitempty"`
 	TotalProfitInUsd *float64 `json:"totalProfitInUsd,omitempty"`
 	TotalDetailAmountInUsd *float64 `json:"totalDetailAmountInUsd,omitempty"`
@@ -3456,48 +3455,6 @@ func (o *DealUnitLineUpdateDto) UnsetUnitGroupId() {
 	o.UnitGroupId.Unset()
 }
 
-// GetForexRatesSnapshot returns the ForexRatesSnapshot field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DealUnitLineUpdateDto) GetForexRatesSnapshot() string {
-	if o == nil || IsNil(o.ForexRatesSnapshot.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ForexRatesSnapshot.Get()
-}
-
-// GetForexRatesSnapshotOk returns a tuple with the ForexRatesSnapshot field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DealUnitLineUpdateDto) GetForexRatesSnapshotOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ForexRatesSnapshot.Get(), o.ForexRatesSnapshot.IsSet()
-}
-
-// HasForexRatesSnapshot returns a boolean if a field has been set.
-func (o *DealUnitLineUpdateDto) HasForexRatesSnapshot() bool {
-	if o != nil && o.ForexRatesSnapshot.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetForexRatesSnapshot gets a reference to the given NullableString and assigns it to the ForexRatesSnapshot field.
-func (o *DealUnitLineUpdateDto) SetForexRatesSnapshot(v string) {
-	o.ForexRatesSnapshot.Set(&v)
-}
-// SetForexRatesSnapshotNil sets the value for ForexRatesSnapshot to be an explicit nil
-func (o *DealUnitLineUpdateDto) SetForexRatesSnapshotNil() {
-	o.ForexRatesSnapshot.Set(nil)
-}
-
-// UnsetForexRatesSnapshot ensures that no value is present for ForexRatesSnapshot, not even an explicit nil
-func (o *DealUnitLineUpdateDto) UnsetForexRatesSnapshot() {
-	o.ForexRatesSnapshot.Unset()
-}
-
 // GetTotalBaseAmountInUsd returns the TotalBaseAmountInUsd field value if set, zero value otherwise.
 func (o *DealUnitLineUpdateDto) GetTotalBaseAmountInUsd() float64 {
 	if o == nil || IsNil(o.TotalBaseAmountInUsd) {
@@ -4710,9 +4667,6 @@ func (o DealUnitLineUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.UnitGroupId.IsSet() {
 		toSerialize["unitGroupId"] = o.UnitGroupId.Get()
-	}
-	if o.ForexRatesSnapshot.IsSet() {
-		toSerialize["forexRatesSnapshot"] = o.ForexRatesSnapshot.Get()
 	}
 	if !IsNil(o.TotalBaseAmountInUsd) {
 		toSerialize["totalBaseAmountInUsd"] = o.TotalBaseAmountInUsd

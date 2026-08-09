@@ -515,6 +515,7 @@ type ApiGetSchedulesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	scheduleDtoCollectionQueryParameters *ScheduleDtoCollectionQueryParameters
 }
 
 func (r ApiGetSchedulesAsyncRequest) TenantId(tenantId string) ApiGetSchedulesAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetSchedulesAsyncRequest) ApiVersion(apiVersion string) ApiGetSchedul
 
 func (r ApiGetSchedulesAsyncRequest) XApiVersion(xApiVersion string) ApiGetSchedulesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSchedulesAsyncRequest) ScheduleDtoCollectionQueryParameters(scheduleDtoCollectionQueryParameters ScheduleDtoCollectionQueryParameters) ApiGetSchedulesAsyncRequest {
+	r.scheduleDtoCollectionQueryParameters = &scheduleDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *SchedulesAPIService) GetSchedulesAsyncExecute(r ApiGetSchedulesAsyncReq
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *SchedulesAPIService) GetSchedulesAsyncExecute(r ApiGetSchedulesAsyncReq
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.scheduleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetSchedulesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	scheduleDtoCollectionQueryParameters *ScheduleDtoCollectionQueryParameters
 }
 
 func (r ApiGetSchedulesCountAsyncRequest) TenantId(tenantId string) ApiGetSchedulesCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetSchedulesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetSc
 
 func (r ApiGetSchedulesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSchedulesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSchedulesCountAsyncRequest) ScheduleDtoCollectionQueryParameters(scheduleDtoCollectionQueryParameters ScheduleDtoCollectionQueryParameters) ApiGetSchedulesCountAsyncRequest {
+	r.scheduleDtoCollectionQueryParameters = &scheduleDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *SchedulesAPIService) GetSchedulesCountAsyncExecute(r ApiGetSchedulesCou
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *SchedulesAPIService) GetSchedulesCountAsyncExecute(r ApiGetSchedulesCou
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.scheduleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchScheduleAsyncRequest struct {
 	scheduleId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchScheduleAsyncRequest) TenantId(tenantId string) ApiPatchScheduleAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchScheduleAsyncRequest) XApiVersion(xApiVersion string) ApiPatchSc
 	return r
 }
 
-func (r ApiPatchScheduleAsyncRequest) Operation(operation []Operation) ApiPatchScheduleAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchScheduleAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchScheduleAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *SchedulesAPIService) PatchScheduleAsyncExecute(r ApiPatchScheduleAsyncR
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

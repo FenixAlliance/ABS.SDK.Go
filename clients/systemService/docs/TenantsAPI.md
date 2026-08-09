@@ -12,8 +12,10 @@ Method | HTTP request | Description
 [**GetAllTenants**](TenantsAPI.md#GetAllTenants) | **Get** /api/v2/SystemService/Tenants | Get all tenants available on this suite server instance.
 [**GetExtendedTenantsCount**](TenantsAPI.md#GetExtendedTenantsCount) | **Get** /api/v2/SystemService/Tenants/Extended/Count | Get the total count of extended tenants available on this suite server instance.
 [**GetTenant**](TenantsAPI.md#GetTenant) | **Get** /api/v2/SystemService/Tenants/{tenantId} | Get a specific tenant by ID.
+[**GetTenantModuleGrants**](TenantsAPI.md#GetTenantModuleGrants) | **Get** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Get the per-tenant admin module grants for a specific tenant.
 [**GetTenantsCount**](TenantsAPI.md#GetTenantsCount) | **Get** /api/v2/SystemService/Tenants/Count | Get the total count of tenants available on this suite server instance.
 [**PatchTenant**](TenantsAPI.md#PatchTenant) | **Patch** /api/v2/SystemService/Tenants/{tenantId} | Partially update a specific tenant by ID.
+[**SetTenantModuleGrants**](TenantsAPI.md#SetTenantModuleGrants) | **Put** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Replace the per-tenant admin module grants for a specific tenant.
 [**UpdateTenant**](TenantsAPI.md#UpdateTenant) | **Put** /api/v2/SystemService/Tenants/{tenantId} | Update a specific tenant by ID.
 
 
@@ -312,7 +314,7 @@ No authorization required
 
 ## GetAllExtendedTenants
 
-> ExtendedTenantDtoListEnvelope GetAllExtendedTenants(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ExtendedTenantDtoListEnvelope GetAllExtendedTenants(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedTenantDtoCollectionQueryParameters(extendedTenantDtoCollectionQueryParameters).Execute()
 
 Get all extended tenants available on this suite server instance.
 
@@ -333,10 +335,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	extendedTenantDtoCollectionQueryParameters := *openapiclient.NewExtendedTenantDtoCollectionQueryParameters() // ExtendedTenantDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenantsAPI.GetAllExtendedTenants(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TenantsAPI.GetAllExtendedTenants(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedTenantDtoCollectionQueryParameters(extendedTenantDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.GetAllExtendedTenants``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -359,6 +362,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **extendedTenantDtoCollectionQueryParameters** | [**ExtendedTenantDtoCollectionQueryParameters**](ExtendedTenantDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -370,7 +374,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -380,7 +384,7 @@ No authorization required
 
 ## GetAllTenants
 
-> TenantDtoListEnvelope GetAllTenants(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TenantDtoListEnvelope GetAllTenants(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters).Execute()
 
 Get all tenants available on this suite server instance.
 
@@ -401,10 +405,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	tenantDtoCollectionQueryParameters := *openapiclient.NewTenantDtoCollectionQueryParameters() // TenantDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenantsAPI.GetAllTenants(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TenantsAPI.GetAllTenants(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.GetAllTenants``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -427,6 +432,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -438,7 +444,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -448,7 +454,7 @@ No authorization required
 
 ## GetExtendedTenantsCount
 
-> Int32Envelope GetExtendedTenantsCount(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetExtendedTenantsCount(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedTenantDtoCollectionQueryParameters(extendedTenantDtoCollectionQueryParameters).Execute()
 
 Get the total count of extended tenants available on this suite server instance.
 
@@ -469,10 +475,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	extendedTenantDtoCollectionQueryParameters := *openapiclient.NewExtendedTenantDtoCollectionQueryParameters() // ExtendedTenantDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenantsAPI.GetExtendedTenantsCount(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TenantsAPI.GetExtendedTenantsCount(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedTenantDtoCollectionQueryParameters(extendedTenantDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.GetExtendedTenantsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -495,6 +502,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **extendedTenantDtoCollectionQueryParameters** | [**ExtendedTenantDtoCollectionQueryParameters**](ExtendedTenantDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -506,7 +514,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -588,9 +596,83 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetTenantModuleGrants
+
+> ModuleGrantDtoListEnvelope GetTenantModuleGrants(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get the per-tenant admin module grants for a specific tenant.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TenantsAPI.GetTenantModuleGrants(context.Background(), tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.GetTenantModuleGrants``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTenantModuleGrants`: ModuleGrantDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `TenantsAPI.GetTenantModuleGrants`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTenantModuleGrantsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**ModuleGrantDtoListEnvelope**](ModuleGrantDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetTenantsCount
 
-> Int32Envelope GetTenantsCount(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetTenantsCount(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters).Execute()
 
 Get the total count of tenants available on this suite server instance.
 
@@ -611,10 +693,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	tenantDtoCollectionQueryParameters := *openapiclient.NewTenantDtoCollectionQueryParameters() // TenantDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenantsAPI.GetTenantsCount(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TenantsAPI.GetTenantsCount(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.GetTenantsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -637,6 +720,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -648,7 +732,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -658,7 +742,7 @@ No authorization required
 
 ## PatchTenant
 
-> EmptyEnvelope PatchTenant(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchTenant(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Partially update a specific tenant by ID.
 
@@ -680,11 +764,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenantsAPI.PatchTenant(context.Background(), tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.TenantsAPI.PatchTenant(context.Background(), tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.PatchTenant``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -712,7 +796,83 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SetTenantModuleGrants
+
+> EmptyEnvelope SetTenantModuleGrants(ctx, tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ModuleGrantDto(moduleGrantDto).Execute()
+
+Replace the per-tenant admin module grants for a specific tenant.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	moduleGrantDto := []openapiclient.ModuleGrantDto{*openapiclient.NewModuleGrantDto()} // []ModuleGrantDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TenantsAPI.SetTenantModuleGrants(context.Background(), tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ModuleGrantDto(moduleGrantDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantsAPI.SetTenantModuleGrants``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SetTenantModuleGrants`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `TenantsAPI.SetTenantModuleGrants`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSetTenantModuleGrantsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **moduleGrantDto** | [**[]ModuleGrantDto**](ModuleGrantDto.md) |  | 
 
 ### Return type
 

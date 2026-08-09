@@ -700,6 +700,7 @@ type ApiGetBlockchainBlocksAsyncRequest struct {
 	blockchainId string
 	apiVersion *string
 	xApiVersion *string
+	blockchainBlockDtoCollectionQueryParameters *BlockchainBlockDtoCollectionQueryParameters
 }
 
 func (r ApiGetBlockchainBlocksAsyncRequest) TenantId(tenantId string) ApiGetBlockchainBlocksAsyncRequest {
@@ -714,6 +715,11 @@ func (r ApiGetBlockchainBlocksAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetBlockchainBlocksAsyncRequest) XApiVersion(xApiVersion string) ApiGetBlockchainBlocksAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBlockchainBlocksAsyncRequest) BlockchainBlockDtoCollectionQueryParameters(blockchainBlockDtoCollectionQueryParameters BlockchainBlockDtoCollectionQueryParameters) ApiGetBlockchainBlocksAsyncRequest {
+	r.blockchainBlockDtoCollectionQueryParameters = &blockchainBlockDtoCollectionQueryParameters
 	return r
 }
 
@@ -766,7 +772,7 @@ func (a *BlockchainsAPIService) GetBlockchainBlocksAsyncExecute(r ApiGetBlockcha
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -785,6 +791,8 @@ func (a *BlockchainsAPIService) GetBlockchainBlocksAsyncExecute(r ApiGetBlockcha
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blockchainBlockDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -829,6 +837,7 @@ type ApiGetBlockchainBlocksCountAsyncRequest struct {
 	blockchainId string
 	apiVersion *string
 	xApiVersion *string
+	blockchainBlockDtoCollectionQueryParameters *BlockchainBlockDtoCollectionQueryParameters
 }
 
 func (r ApiGetBlockchainBlocksCountAsyncRequest) TenantId(tenantId string) ApiGetBlockchainBlocksCountAsyncRequest {
@@ -843,6 +852,11 @@ func (r ApiGetBlockchainBlocksCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetBlockchainBlocksCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetBlockchainBlocksCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBlockchainBlocksCountAsyncRequest) BlockchainBlockDtoCollectionQueryParameters(blockchainBlockDtoCollectionQueryParameters BlockchainBlockDtoCollectionQueryParameters) ApiGetBlockchainBlocksCountAsyncRequest {
+	r.blockchainBlockDtoCollectionQueryParameters = &blockchainBlockDtoCollectionQueryParameters
 	return r
 }
 
@@ -895,7 +909,7 @@ func (a *BlockchainsAPIService) GetBlockchainBlocksCountAsyncExecute(r ApiGetBlo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -914,6 +928,8 @@ func (a *BlockchainsAPIService) GetBlockchainBlocksCountAsyncExecute(r ApiGetBlo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blockchainBlockDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1110,6 +1126,7 @@ type ApiGetBlockchainsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	blockchainDtoCollectionQueryParameters *BlockchainDtoCollectionQueryParameters
 }
 
 func (r ApiGetBlockchainsAsyncRequest) TenantId(tenantId string) ApiGetBlockchainsAsyncRequest {
@@ -1124,6 +1141,11 @@ func (r ApiGetBlockchainsAsyncRequest) ApiVersion(apiVersion string) ApiGetBlock
 
 func (r ApiGetBlockchainsAsyncRequest) XApiVersion(xApiVersion string) ApiGetBlockchainsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBlockchainsAsyncRequest) BlockchainDtoCollectionQueryParameters(blockchainDtoCollectionQueryParameters BlockchainDtoCollectionQueryParameters) ApiGetBlockchainsAsyncRequest {
+	r.blockchainDtoCollectionQueryParameters = &blockchainDtoCollectionQueryParameters
 	return r
 }
 
@@ -1175,7 +1197,7 @@ func (a *BlockchainsAPIService) GetBlockchainsAsyncExecute(r ApiGetBlockchainsAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1194,6 +1216,8 @@ func (a *BlockchainsAPIService) GetBlockchainsAsyncExecute(r ApiGetBlockchainsAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blockchainDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1248,6 +1272,7 @@ type ApiGetBlockchainsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	blockchainDtoCollectionQueryParameters *BlockchainDtoCollectionQueryParameters
 }
 
 func (r ApiGetBlockchainsCountAsyncRequest) TenantId(tenantId string) ApiGetBlockchainsCountAsyncRequest {
@@ -1262,6 +1287,11 @@ func (r ApiGetBlockchainsCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetBlockchainsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetBlockchainsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBlockchainsCountAsyncRequest) BlockchainDtoCollectionQueryParameters(blockchainDtoCollectionQueryParameters BlockchainDtoCollectionQueryParameters) ApiGetBlockchainsCountAsyncRequest {
+	r.blockchainDtoCollectionQueryParameters = &blockchainDtoCollectionQueryParameters
 	return r
 }
 
@@ -1313,7 +1343,7 @@ func (a *BlockchainsAPIService) GetBlockchainsCountAsyncExecute(r ApiGetBlockcha
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1332,6 +1362,8 @@ func (a *BlockchainsAPIService) GetBlockchainsCountAsyncExecute(r ApiGetBlockcha
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blockchainDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1387,7 +1419,7 @@ type ApiPatchBlockchainAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBlockchainAsyncRequest) TenantId(tenantId string) ApiPatchBlockchainAsyncRequest {
@@ -1405,8 +1437,8 @@ func (r ApiPatchBlockchainAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchBlockchainAsyncRequest) Operation(operation []Operation) ApiPatchBlockchainAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBlockchainAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBlockchainAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1481,7 +1513,7 @@ func (a *BlockchainsAPIService) PatchBlockchainAsyncExecute(r ApiPatchBlockchain
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1549,7 +1581,7 @@ type ApiPatchBlockchainBlockAsyncRequest struct {
 	blockId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBlockchainBlockAsyncRequest) TenantId(tenantId string) ApiPatchBlockchainBlockAsyncRequest {
@@ -1567,8 +1599,8 @@ func (r ApiPatchBlockchainBlockAsyncRequest) XApiVersion(xApiVersion string) Api
 	return r
 }
 
-func (r ApiPatchBlockchainBlockAsyncRequest) Operation(operation []Operation) ApiPatchBlockchainBlockAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBlockchainBlockAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBlockchainBlockAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1646,7 +1678,7 @@ func (a *BlockchainsAPIService) PatchBlockchainBlockAsyncExecute(r ApiPatchBlock
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

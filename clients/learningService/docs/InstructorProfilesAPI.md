@@ -298,7 +298,7 @@ No authorization required
 
 ## ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch
 
-> EmptyEnvelope ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(ctx, instructorProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(ctx, instructorProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 
 
@@ -319,11 +319,11 @@ func main() {
 	instructorProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstructorProfilesAPI.ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(context.Background(), instructorProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.InstructorProfilesAPI.ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(context.Background(), instructorProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstructorProfilesAPI.ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

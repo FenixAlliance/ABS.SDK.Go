@@ -54,21 +54,6 @@ paths:
           description: OK
       tags:
       - FenixAlliance.ABS.Web
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
   /hello:
     get:
       responses:
@@ -393,6 +378,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InquiryRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InquiryRequestDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -478,6 +471,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InquiryRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InquiryRequestDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -623,12 +624,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -741,6 +742,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeArticleDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/KnowledgeArticleDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -826,6 +835,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeArticleDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/KnowledgeArticleDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -971,12 +988,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1089,6 +1106,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenanceVisitDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MaintenanceVisitDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -1174,6 +1199,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenanceVisitDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MaintenanceVisitDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -1319,12 +1352,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1437,6 +1470,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemRefundPolicyDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemRefundPolicyDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1558,6 +1599,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemRefundPolicyDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemRefundPolicyDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1757,12 +1806,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1893,6 +1942,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefundRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RefundRequestDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -1978,6 +2035,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefundRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RefundRequestDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -2123,12 +2188,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2241,6 +2306,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemReturnPolicyDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemReturnPolicyDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2362,6 +2435,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemReturnPolicyDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemReturnPolicyDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2561,12 +2642,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2697,6 +2778,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReturnRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ReturnRequestDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -2782,6 +2871,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReturnRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ReturnRequestDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -2927,12 +3024,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3047,6 +3144,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportEntitlementDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportEntitlementDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3171,6 +3276,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportEntitlementDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportEntitlementDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3373,12 +3486,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3512,6 +3625,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3636,6 +3757,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3838,12 +3967,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3977,6 +4106,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4101,6 +4238,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4302,12 +4447,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -4449,6 +4594,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4516,6 +4669,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4656,6 +4817,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4790,6 +4959,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketPriorityDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketPriorityDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4914,6 +5091,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketPriorityDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketPriorityDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5116,12 +5301,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -5255,6 +5440,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5379,6 +5572,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5580,12 +5781,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -5727,6 +5928,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketConversationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketConversationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6103,6 +6312,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketTypeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6227,6 +6444,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketTypeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6429,12 +6654,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -6566,6 +6791,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemWarrantyPolicyDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemWarrantyPolicyDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6687,6 +6920,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemWarrantyPolicyDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemWarrantyPolicyDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6886,12 +7127,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -7022,6 +7263,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WarrantyRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WarrantyRequestDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -7107,6 +7356,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WarrantyRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WarrantyRequestDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -7252,12 +7509,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -7376,8 +7633,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7394,6 +7657,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7403,8 +7681,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7421,6 +7705,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7631,6 +7930,48 @@ components:
           nullable: true
           type: string
       type: object
+    InquiryRequestDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     InquiryRequestDtoEnvelope:
       additionalProperties: false
       example:
@@ -7652,8 +7993,14 @@ components:
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7670,6 +8017,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7714,8 +8076,14 @@ components:
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7732,6 +8100,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7794,10 +8177,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7814,6 +8203,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7919,7 +8323,7 @@ components:
       additionalProperties: false
       example:
         code: code
-        weeks: 1
+        weeks: 5
         customState: customState
         shippingCourierId: shippingCourierId
         description: description
@@ -7928,23 +8332,23 @@ components:
         type: type
         title: title
         customCity: customCity
-        years: 5
+        years: 2
         countryId: countryId
         isFree: true
-        percentage: 7.061401241503109
+        percentage: 9.301444243932576
         id: id
         currencyId: currencyId
-        value: 2.3021358869347655
+        value: 7.061401241503109
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
         enrollmentId: enrollmentId
         allowInternational: true
-        hours: 0
+        hours: 6
         months: 5
         isDefault: true
         isEnabled: true
         tenantId: tenantId
-        days: 6
+        days: 1
       properties:
         id:
           nullable: true
@@ -8024,12 +8428,54 @@ components:
           nullable: true
           type: string
       type: object
+    ItemRefundPolicyDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ItemRefundPolicyDtoEnvelope:
       additionalProperties: false
       example:
         result:
           code: code
-          weeks: 1
+          weeks: 5
           customState: customState
           shippingCourierId: shippingCourierId
           description: description
@@ -8038,26 +8484,32 @@ components:
           type: type
           title: title
           customCity: customCity
-          years: 5
+          years: 2
           countryId: countryId
           isFree: true
-          percentage: 7.061401241503109
+          percentage: 9.301444243932576
           id: id
           currencyId: currencyId
-          value: 2.3021358869347655
+          value: 7.061401241503109
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           enrollmentId: enrollmentId
           allowInternational: true
-          hours: 0
+          hours: 6
           months: 5
           isDefault: true
           isEnabled: true
           tenantId: tenantId
-          days: 6
+          days: 1
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8074,6 +8526,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8086,7 +8553,7 @@ components:
       example:
         result:
         - code: code
-          weeks: 1
+          weeks: 5
           customState: customState
           shippingCourierId: shippingCourierId
           description: description
@@ -8095,25 +8562,25 @@ components:
           type: type
           title: title
           customCity: customCity
-          years: 5
+          years: 2
           countryId: countryId
           isFree: true
-          percentage: 7.061401241503109
+          percentage: 9.301444243932576
           id: id
           currencyId: currencyId
-          value: 2.3021358869347655
+          value: 7.061401241503109
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           enrollmentId: enrollmentId
           allowInternational: true
-          hours: 0
+          hours: 6
           months: 5
           isDefault: true
           isEnabled: true
           tenantId: tenantId
-          days: 6
+          days: 1
         - code: code
-          weeks: 1
+          weeks: 5
           customState: customState
           shippingCourierId: shippingCourierId
           description: description
@@ -8122,26 +8589,32 @@ components:
           type: type
           title: title
           customCity: customCity
-          years: 5
+          years: 2
           countryId: countryId
           isFree: true
-          percentage: 7.061401241503109
+          percentage: 9.301444243932576
           id: id
           currencyId: currencyId
-          value: 2.3021358869347655
+          value: 7.061401241503109
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           enrollmentId: enrollmentId
           allowInternational: true
-          hours: 0
+          hours: 6
           months: 5
           isDefault: true
           isEnabled: true
           tenantId: tenantId
-          days: 6
+          days: 1
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8158,6 +8631,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8353,7 +8841,7 @@ components:
       additionalProperties: false
       example:
         code: code
-        weeks: 1
+        weeks: 5
         customState: customState
         shippingCourierId: shippingCourierId
         description: description
@@ -8362,23 +8850,23 @@ components:
         type: type
         title: title
         customCity: customCity
-        years: 5
+        years: 2
         countryId: countryId
         isFree: true
-        percentage: 7.061401241503109
+        percentage: 9.301444243932576
         id: id
         currencyId: currencyId
-        value: 2.3021358869347655
+        value: 7.061401241503109
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
         enrollmentId: enrollmentId
         allowInternational: true
-        hours: 0
+        hours: 6
         months: 5
         isDefault: true
         isEnabled: true
         tenantId: tenantId
-        days: 6
+        days: 1
       properties:
         id:
           nullable: true
@@ -8458,12 +8946,54 @@ components:
           nullable: true
           type: string
       type: object
+    ItemReturnPolicyDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ItemReturnPolicyDtoEnvelope:
       additionalProperties: false
       example:
         result:
           code: code
-          weeks: 1
+          weeks: 5
           customState: customState
           shippingCourierId: shippingCourierId
           description: description
@@ -8472,26 +9002,32 @@ components:
           type: type
           title: title
           customCity: customCity
-          years: 5
+          years: 2
           countryId: countryId
           isFree: true
-          percentage: 7.061401241503109
+          percentage: 9.301444243932576
           id: id
           currencyId: currencyId
-          value: 2.3021358869347655
+          value: 7.061401241503109
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           enrollmentId: enrollmentId
           allowInternational: true
-          hours: 0
+          hours: 6
           months: 5
           isDefault: true
           isEnabled: true
           tenantId: tenantId
-          days: 6
+          days: 1
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8508,6 +9044,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8520,7 +9071,7 @@ components:
       example:
         result:
         - code: code
-          weeks: 1
+          weeks: 5
           customState: customState
           shippingCourierId: shippingCourierId
           description: description
@@ -8529,25 +9080,25 @@ components:
           type: type
           title: title
           customCity: customCity
-          years: 5
+          years: 2
           countryId: countryId
           isFree: true
-          percentage: 7.061401241503109
+          percentage: 9.301444243932576
           id: id
           currencyId: currencyId
-          value: 2.3021358869347655
+          value: 7.061401241503109
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           enrollmentId: enrollmentId
           allowInternational: true
-          hours: 0
+          hours: 6
           months: 5
           isDefault: true
           isEnabled: true
           tenantId: tenantId
-          days: 6
+          days: 1
         - code: code
-          weeks: 1
+          weeks: 5
           customState: customState
           shippingCourierId: shippingCourierId
           description: description
@@ -8556,26 +9107,32 @@ components:
           type: type
           title: title
           customCity: customCity
-          years: 5
+          years: 2
           countryId: countryId
           isFree: true
-          percentage: 7.061401241503109
+          percentage: 9.301444243932576
           id: id
           currencyId: currencyId
-          value: 2.3021358869347655
+          value: 7.061401241503109
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           enrollmentId: enrollmentId
           allowInternational: true
-          hours: 0
+          hours: 6
           months: 5
           isDefault: true
           isEnabled: true
           tenantId: tenantId
-          days: 6
+          days: 1
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8592,6 +9149,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8791,30 +9363,30 @@ components:
       example:
         isExtendedWarranty: true
         code: code
-        weeks: 314780940
+        weeks: 1280358508
         customState: customState
         description: description
         countryStateId: countryStateId
         cityId: cityId
         title: title
         customCity: customCity
-        years: 1210617418
+        years: 494379917
         countryId: countryId
         isFree: true
-        percentage: 70.61401241503108
+        percentage: 93.01444243932576
         id: id
         currencyId: currencyId
-        value: 230213588693476.28
+        value: 706140124150310.2
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
         enrollmentId: enrollmentId
         allowInternational: true
-        hours: 171976544
-        months: 1280358508
+        hours: 1294386358
+        months: 1210617418
         isDefault: true
         isEnabled: true
         tenantId: tenantId
-        days: 1294386358
+        days: 314780940
       properties:
         id:
           nullable: true
@@ -8923,39 +9495,87 @@ components:
       - code
       - title
       type: object
+    ItemWarrantyPolicyDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ItemWarrantyPolicyDtoEnvelope:
       additionalProperties: false
       example:
         result:
           isExtendedWarranty: true
           code: code
-          weeks: 314780940
+          weeks: 1280358508
           customState: customState
           description: description
           countryStateId: countryStateId
           cityId: cityId
           title: title
           customCity: customCity
-          years: 1210617418
+          years: 494379917
           countryId: countryId
           isFree: true
-          percentage: 70.61401241503108
+          percentage: 93.01444243932576
           id: id
           currencyId: currencyId
-          value: 230213588693476.28
+          value: 706140124150310.2
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           enrollmentId: enrollmentId
           allowInternational: true
-          hours: 171976544
-          months: 1280358508
+          hours: 1294386358
+          months: 1210617418
           isDefault: true
           isEnabled: true
           tenantId: tenantId
-          days: 1294386358
+          days: 314780940
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8972,6 +9592,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8985,59 +9620,65 @@ components:
         result:
         - isExtendedWarranty: true
           code: code
-          weeks: 314780940
+          weeks: 1280358508
           customState: customState
           description: description
           countryStateId: countryStateId
           cityId: cityId
           title: title
           customCity: customCity
-          years: 1210617418
+          years: 494379917
           countryId: countryId
           isFree: true
-          percentage: 70.61401241503108
+          percentage: 93.01444243932576
           id: id
           currencyId: currencyId
-          value: 230213588693476.28
+          value: 706140124150310.2
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           enrollmentId: enrollmentId
           allowInternational: true
-          hours: 171976544
-          months: 1280358508
+          hours: 1294386358
+          months: 1210617418
           isDefault: true
           isEnabled: true
           tenantId: tenantId
-          days: 1294386358
+          days: 314780940
         - isExtendedWarranty: true
           code: code
-          weeks: 314780940
+          weeks: 1280358508
           customState: customState
           description: description
           countryStateId: countryStateId
           cityId: cityId
           title: title
           customCity: customCity
-          years: 1210617418
+          years: 494379917
           countryId: countryId
           isFree: true
-          percentage: 70.61401241503108
+          percentage: 93.01444243932576
           id: id
           currencyId: currencyId
-          value: 230213588693476.28
+          value: 706140124150310.2
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           enrollmentId: enrollmentId
           allowInternational: true
-          hours: 171976544
-          months: 1280358508
+          hours: 1294386358
+          months: 1210617418
           isDefault: true
           isEnabled: true
           tenantId: tenantId
-          days: 1294386358
+          days: 314780940
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9054,6 +9695,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9235,6 +9891,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         title:
           nullable: true
@@ -9280,6 +9937,48 @@ components:
           nullable: true
           type: string
       type: object
+    KnowledgeArticleDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     KnowledgeArticleDtoEnvelope:
       additionalProperties: false
       example:
@@ -9302,8 +10001,14 @@ components:
           slug: slug
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9320,6 +10025,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9366,8 +10086,14 @@ components:
           slug: slug
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9384,6 +10110,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9500,6 +10241,48 @@ components:
           nullable: true
           type: string
       type: object
+    MaintenanceVisitDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     MaintenanceVisitDtoEnvelope:
       additionalProperties: false
       example:
@@ -9509,8 +10292,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9527,6 +10316,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9547,8 +10351,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9565,6 +10375,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9578,30 +10403,18 @@ components:
     MaintenanceVisitUpdateDto:
       additionalProperties: false
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:
@@ -9618,11 +10431,14 @@ components:
         receivedTimestamp: 2000-01-23T04:56:07.000+00:00
         conversationId: conversationId
         sentTimestamp: 2000-01-23T04:56:07.000+00:00
+        title: title
+        message: message
+        socialProfileType: User
+        socialProfileName: socialProfileName
+        socialProfileAvatarUrl: socialProfileAvatarUrl
         senderSocialProfileId: senderSocialProfileId
         receiverSocialProfileId: receiverSocialProfileId
         id: id
-        title: title
-        message: message
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -9658,6 +10474,19 @@ components:
         receivedTimestamp:
           format: date-time
           type: string
+        socialProfileName:
+          nullable: true
+          type: string
+        socialProfileAvatarUrl:
+          nullable: true
+          type: string
+        socialProfileType:
+          enum:
+          - User
+          - Tenant
+          - Contact
+          nullable: true
+          type: string
       type: object
     PrivateMessageDtoListEnvelope:
       additionalProperties: false
@@ -9668,26 +10497,38 @@ components:
           receivedTimestamp: 2000-01-23T04:56:07.000+00:00
           conversationId: conversationId
           sentTimestamp: 2000-01-23T04:56:07.000+00:00
+          title: title
+          message: message
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
           senderSocialProfileId: senderSocialProfileId
           receiverSocialProfileId: receiverSocialProfileId
           id: id
-          title: title
-          message: message
           timestamp: 2000-01-23T04:56:07.000+00:00
         - readTimestamp: 2000-01-23T04:56:07.000+00:00
           read: true
           receivedTimestamp: 2000-01-23T04:56:07.000+00:00
           conversationId: conversationId
           sentTimestamp: 2000-01-23T04:56:07.000+00:00
+          title: title
+          message: message
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
           senderSocialProfileId: senderSocialProfileId
           receiverSocialProfileId: receiverSocialProfileId
           id: id
-          title: title
-          message: message
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9704,6 +10545,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9796,6 +10652,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         title:
           nullable: true
@@ -9830,6 +10687,48 @@ components:
           nullable: true
           type: string
       type: object
+    RefundRequestDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     RefundRequestDtoEnvelope:
       additionalProperties: false
       example:
@@ -9848,8 +10747,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9866,6 +10771,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9904,8 +10824,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9922,6 +10848,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10078,6 +11019,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         title:
           nullable: true
@@ -10109,6 +11051,48 @@ components:
           nullable: true
           type: string
       type: object
+    ReturnRequestDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ReturnRequestDtoEnvelope:
       additionalProperties: false
       example:
@@ -10126,8 +11110,14 @@ components:
           userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10144,6 +11134,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10180,8 +11185,14 @@ components:
           userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10198,6 +11209,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10433,9 +11459,9 @@ components:
       example:
         data: data
         data8Label: data8Label
-        customRenewalPeriod: 2
-        repetitions: 6
-        usageThreshold: 7
+        customRenewalPeriod: 7
+        repetitions: 1
+        usageThreshold: 9
         organizationId: organizationId
         enableAutomaticRenew: true
         id: id
@@ -10443,7 +11469,7 @@ components:
         enrollmentId: enrollmentId
         enableAutomaticDisable: true
         dataLabel: dataLabel
-        gracePeriodInDays: 5
+        gracePeriodInDays: 2
         endDateTime: 2000-01-23T04:56:07.000+00:00
         enableProRateBilling: true
         data1Label: data1Label
@@ -10467,7 +11493,7 @@ components:
         enableAutomaticPayments: true
         data7: data7
         walletAccountId: walletAccountId
-        quantity: 0
+        quantity: 6
         data6: data6
         data5: data5
         data4: data4
@@ -10481,7 +11507,7 @@ components:
         startDateTime: 2000-01-23T04:56:07.000+00:00
         tenantId: tenantId
         paymentTokenId: paymentTokenId
-        chargeAttempts: 1
+        chargeAttempts: 5
       properties:
         id:
           nullable: true
@@ -10637,15 +11663,57 @@ components:
           nullable: true
           type: string
       type: object
+    SupportEntitlementDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SupportEntitlementDtoEnvelope:
       additionalProperties: false
       example:
         result:
           data: data
           data8Label: data8Label
-          customRenewalPeriod: 2
-          repetitions: 6
-          usageThreshold: 7
+          customRenewalPeriod: 7
+          repetitions: 1
+          usageThreshold: 9
           organizationId: organizationId
           enableAutomaticRenew: true
           id: id
@@ -10653,7 +11721,7 @@ components:
           enrollmentId: enrollmentId
           enableAutomaticDisable: true
           dataLabel: dataLabel
-          gracePeriodInDays: 5
+          gracePeriodInDays: 2
           endDateTime: 2000-01-23T04:56:07.000+00:00
           enableProRateBilling: true
           data1Label: data1Label
@@ -10677,7 +11745,7 @@ components:
           enableAutomaticPayments: true
           data7: data7
           walletAccountId: walletAccountId
-          quantity: 0
+          quantity: 6
           data6: data6
           data5: data5
           data4: data4
@@ -10691,10 +11759,16 @@ components:
           startDateTime: 2000-01-23T04:56:07.000+00:00
           tenantId: tenantId
           paymentTokenId: paymentTokenId
-          chargeAttempts: 1
+          chargeAttempts: 5
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10711,6 +11785,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10724,9 +11813,9 @@ components:
         result:
         - data: data
           data8Label: data8Label
-          customRenewalPeriod: 2
-          repetitions: 6
-          usageThreshold: 7
+          customRenewalPeriod: 7
+          repetitions: 1
+          usageThreshold: 9
           organizationId: organizationId
           enableAutomaticRenew: true
           id: id
@@ -10734,7 +11823,7 @@ components:
           enrollmentId: enrollmentId
           enableAutomaticDisable: true
           dataLabel: dataLabel
-          gracePeriodInDays: 5
+          gracePeriodInDays: 2
           endDateTime: 2000-01-23T04:56:07.000+00:00
           enableProRateBilling: true
           data1Label: data1Label
@@ -10758,7 +11847,7 @@ components:
           enableAutomaticPayments: true
           data7: data7
           walletAccountId: walletAccountId
-          quantity: 0
+          quantity: 6
           data6: data6
           data5: data5
           data4: data4
@@ -10772,12 +11861,12 @@ components:
           startDateTime: 2000-01-23T04:56:07.000+00:00
           tenantId: tenantId
           paymentTokenId: paymentTokenId
-          chargeAttempts: 1
+          chargeAttempts: 5
         - data: data
           data8Label: data8Label
-          customRenewalPeriod: 2
-          repetitions: 6
-          usageThreshold: 7
+          customRenewalPeriod: 7
+          repetitions: 1
+          usageThreshold: 9
           organizationId: organizationId
           enableAutomaticRenew: true
           id: id
@@ -10785,7 +11874,7 @@ components:
           enrollmentId: enrollmentId
           enableAutomaticDisable: true
           dataLabel: dataLabel
-          gracePeriodInDays: 5
+          gracePeriodInDays: 2
           endDateTime: 2000-01-23T04:56:07.000+00:00
           enableProRateBilling: true
           data1Label: data1Label
@@ -10809,7 +11898,7 @@ components:
           enableAutomaticPayments: true
           data7: data7
           walletAccountId: walletAccountId
-          quantity: 0
+          quantity: 6
           data6: data6
           data5: data5
           data4: data4
@@ -10823,10 +11912,16 @@ components:
           startDateTime: 2000-01-23T04:56:07.000+00:00
           tenantId: tenantId
           paymentTokenId: paymentTokenId
-          chargeAttempts: 1
+          chargeAttempts: 5
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10843,6 +11938,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -11112,8 +12222,8 @@ components:
         thumbnailContentType: thumbnailContentType
         socialProfileId: socialProfileId
         contentType: contentType
-        thumbnailHeight: 1
-        fileLength: 0
+        thumbnailHeight: 5
+        fileLength: 6
         timestamp: 2000-01-23T04:56:07.000+00:00
         keyWords: keyWords
         enrollmentId: enrollmentId
@@ -11124,7 +12234,7 @@ components:
         scanStatus: NotRequired
         thumbnailStorageKey: thumbnailStorageKey
         abstract: abstract
-        thumbnailWidth: 6
+        thumbnailWidth: 1
         storageKey: storageKey
         userId: userId
         isFolder: true
@@ -11247,6 +12357,48 @@ components:
           nullable: true
           type: string
       type: object
+    SupportRequestAttachmentDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SupportRequestAttachmentDtoEnvelope:
       additionalProperties: false
       example:
@@ -11264,8 +12416,8 @@ components:
           thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          thumbnailHeight: 1
-          fileLength: 0
+          thumbnailHeight: 5
+          fileLength: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
           keyWords: keyWords
           enrollmentId: enrollmentId
@@ -11276,7 +12428,7 @@ components:
           scanStatus: NotRequired
           thumbnailStorageKey: thumbnailStorageKey
           abstract: abstract
-          thumbnailWidth: 6
+          thumbnailWidth: 1
           storageKey: storageKey
           userId: userId
           isFolder: true
@@ -11285,8 +12437,14 @@ components:
           thumbnailStatus: NotRequired
           hash: hash
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -11303,6 +12461,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -11327,8 +12500,8 @@ components:
           thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          thumbnailHeight: 1
-          fileLength: 0
+          thumbnailHeight: 5
+          fileLength: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
           keyWords: keyWords
           enrollmentId: enrollmentId
@@ -11339,7 +12512,7 @@ components:
           scanStatus: NotRequired
           thumbnailStorageKey: thumbnailStorageKey
           abstract: abstract
-          thumbnailWidth: 6
+          thumbnailWidth: 1
           storageKey: storageKey
           userId: userId
           isFolder: true
@@ -11360,8 +12533,8 @@ components:
           thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          thumbnailHeight: 1
-          fileLength: 0
+          thumbnailHeight: 5
+          fileLength: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
           keyWords: keyWords
           enrollmentId: enrollmentId
@@ -11372,7 +12545,7 @@ components:
           scanStatus: NotRequired
           thumbnailStorageKey: thumbnailStorageKey
           abstract: abstract
-          thumbnailWidth: 6
+          thumbnailWidth: 1
           storageKey: storageKey
           userId: userId
           isFolder: true
@@ -11381,8 +12554,14 @@ components:
           thumbnailStatus: NotRequired
           hash: hash
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -11399,6 +12578,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -11554,6 +12748,48 @@ components:
           nullable: true
           type: string
       type: object
+    SupportRequestDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SupportRequestDtoEnvelope:
       additionalProperties: false
       example:
@@ -11570,8 +12806,14 @@ components:
           userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -11588,6 +12830,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -11622,8 +12879,14 @@ components:
           userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -11640,6 +12903,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -11737,6 +13015,48 @@ components:
           nullable: true
           type: string
       type: object
+    SupportTicketConversationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SupportTicketConversationDtoEnvelope:
       additionalProperties: false
       example:
@@ -11749,8 +13069,14 @@ components:
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -11767,6 +13093,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -11793,8 +13134,14 @@ components:
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -11811,6 +13158,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -11936,6 +13298,48 @@ components:
           nullable: true
           type: string
       type: object
+    SupportTicketDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SupportTicketDtoEnvelope:
       additionalProperties: false
       example:
@@ -11953,8 +13357,14 @@ components:
           supportTicketStatus: New
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -11971,6 +13381,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -12007,8 +13432,14 @@ components:
           supportTicketStatus: New
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -12025,6 +13456,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -12096,6 +13542,48 @@ components:
           nullable: true
           type: string
       type: object
+    SupportTicketPriorityDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SupportTicketPriorityDtoEnvelope:
       additionalProperties: false
       example:
@@ -12107,8 +13595,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -12125,6 +13619,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -12149,8 +13658,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -12167,6 +13682,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -12245,6 +13775,48 @@ components:
           nullable: true
           type: string
       type: object
+    SupportTicketTypeDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SupportTicketTypeDtoEnvelope:
       additionalProperties: false
       example:
@@ -12255,8 +13827,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -12273,6 +13851,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -12295,8 +13888,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -12313,6 +13912,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -12506,6 +14120,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         title:
           nullable: true
@@ -12537,6 +14152,48 @@ components:
           nullable: true
           type: string
       type: object
+    WarrantyRequestDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     WarrantyRequestDtoEnvelope:
       additionalProperties: false
       example:
@@ -12554,8 +14211,14 @@ components:
           userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -12572,6 +14235,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -12608,8 +14286,14 @@ components:
           userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -12626,6 +14310,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

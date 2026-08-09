@@ -195,7 +195,7 @@ No authorization required
 
 ## GetCourseArticlesByCourseWikiAsync
 
-> []CourseArticleDto GetCourseArticlesByCourseWikiAsync(ctx, courseId, wikiId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseArticleDto GetCourseArticlesByCourseWikiAsync(ctx, courseId, wikiId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseArticleDtoCollectionQueryParameters(courseArticleDtoCollectionQueryParameters).Execute()
 
 Get course articles by course wiki
 
@@ -218,10 +218,11 @@ func main() {
 	wikiId := "wikiId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseArticleDtoCollectionQueryParameters := *openapiclient.NewCourseArticleDtoCollectionQueryParameters() // CourseArticleDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseArticlesByCourseWikiAsync(context.Background(), courseId, wikiId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseArticlesByCourseWikiAsync(context.Background(), courseId, wikiId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseArticleDtoCollectionQueryParameters(courseArticleDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseArticlesByCourseWikiAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -251,6 +252,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseArticleDtoCollectionQueryParameters** | [**CourseArticleDtoCollectionQueryParameters**](CourseArticleDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -262,7 +264,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -272,7 +274,7 @@ No authorization required
 
 ## GetCourseArticlesByCourseWikiCountAsync
 
-> int32 GetCourseArticlesByCourseWikiCountAsync(ctx, courseId, wikiId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseArticlesByCourseWikiCountAsync(ctx, courseId, wikiId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseArticleDtoCollectionQueryParameters(courseArticleDtoCollectionQueryParameters).Execute()
 
 Get course articles by course wiki count
 
@@ -295,10 +297,11 @@ func main() {
 	wikiId := "wikiId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseArticleDtoCollectionQueryParameters := *openapiclient.NewCourseArticleDtoCollectionQueryParameters() // CourseArticleDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseArticlesByCourseWikiCountAsync(context.Background(), courseId, wikiId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseArticlesByCourseWikiCountAsync(context.Background(), courseId, wikiId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseArticleDtoCollectionQueryParameters(courseArticleDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseArticlesByCourseWikiCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -328,6 +331,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseArticleDtoCollectionQueryParameters** | [**CourseArticleDtoCollectionQueryParameters**](CourseArticleDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -339,7 +343,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -349,7 +353,7 @@ No authorization required
 
 ## GetCourseAssignmentsByCourseAsync
 
-> []CourseAssignmentDto GetCourseAssignmentsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseAssignmentDto GetCourseAssignmentsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseAssignmentDtoCollectionQueryParameters(courseAssignmentDtoCollectionQueryParameters).Execute()
 
 Get course assignments by course
 
@@ -371,10 +375,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseAssignmentDtoCollectionQueryParameters := *openapiclient.NewCourseAssignmentDtoCollectionQueryParameters() // CourseAssignmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseAssignmentsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseAssignmentsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseAssignmentDtoCollectionQueryParameters(courseAssignmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseAssignmentsByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -402,6 +407,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseAssignmentDtoCollectionQueryParameters** | [**CourseAssignmentDtoCollectionQueryParameters**](CourseAssignmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -413,7 +419,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -423,7 +429,7 @@ No authorization required
 
 ## GetCourseAssignmentsByCourseCountAsync
 
-> int32 GetCourseAssignmentsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseAssignmentsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseAssignmentDtoCollectionQueryParameters(courseAssignmentDtoCollectionQueryParameters).Execute()
 
 Get course assignments by course count
 
@@ -445,10 +451,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseAssignmentDtoCollectionQueryParameters := *openapiclient.NewCourseAssignmentDtoCollectionQueryParameters() // CourseAssignmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseAssignmentsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseAssignmentsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseAssignmentDtoCollectionQueryParameters(courseAssignmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseAssignmentsByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -476,6 +483,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseAssignmentDtoCollectionQueryParameters** | [**CourseAssignmentDtoCollectionQueryParameters**](CourseAssignmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -487,7 +495,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -573,7 +581,7 @@ No authorization required
 
 ## GetCourseCategoriesByCourseAsync
 
-> []CourseCategoryDto GetCourseCategoriesByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseCategoryDto GetCourseCategoriesByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCategoryDtoCollectionQueryParameters(courseCategoryDtoCollectionQueryParameters).Execute()
 
 Get course categories by course
 
@@ -595,10 +603,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseCategoryDtoCollectionQueryParameters := *openapiclient.NewCourseCategoryDtoCollectionQueryParameters() // CourseCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseCategoriesByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseCategoriesByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCategoryDtoCollectionQueryParameters(courseCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseCategoriesByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -626,6 +635,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseCategoryDtoCollectionQueryParameters** | [**CourseCategoryDtoCollectionQueryParameters**](CourseCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -637,7 +647,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -647,7 +657,7 @@ No authorization required
 
 ## GetCourseCategoriesByCourseCountAsync
 
-> int32 GetCourseCategoriesByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseCategoriesByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCategoryDtoCollectionQueryParameters(courseCategoryDtoCollectionQueryParameters).Execute()
 
 Get course categories by course count
 
@@ -669,10 +679,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseCategoryDtoCollectionQueryParameters := *openapiclient.NewCourseCategoryDtoCollectionQueryParameters() // CourseCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseCategoriesByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseCategoriesByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCategoryDtoCollectionQueryParameters(courseCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseCategoriesByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -700,6 +711,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseCategoryDtoCollectionQueryParameters** | [**CourseCategoryDtoCollectionQueryParameters**](CourseCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -711,7 +723,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -721,7 +733,7 @@ No authorization required
 
 ## GetCourseCohortsByCourseAsync
 
-> []CourseCohortDto GetCourseCohortsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseCohortDto GetCourseCohortsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCohortDtoCollectionQueryParameters(courseCohortDtoCollectionQueryParameters).Execute()
 
 Get course cohorts by course
 
@@ -743,10 +755,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseCohortDtoCollectionQueryParameters := *openapiclient.NewCourseCohortDtoCollectionQueryParameters() // CourseCohortDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseCohortsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseCohortsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCohortDtoCollectionQueryParameters(courseCohortDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseCohortsByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -774,6 +787,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseCohortDtoCollectionQueryParameters** | [**CourseCohortDtoCollectionQueryParameters**](CourseCohortDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -785,7 +799,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -795,7 +809,7 @@ No authorization required
 
 ## GetCourseCohortsByCourseCountAsync
 
-> int32 GetCourseCohortsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseCohortsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCohortDtoCollectionQueryParameters(courseCohortDtoCollectionQueryParameters).Execute()
 
 Get course cohorts by course count
 
@@ -817,10 +831,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseCohortDtoCollectionQueryParameters := *openapiclient.NewCourseCohortDtoCollectionQueryParameters() // CourseCohortDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseCohortsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseCohortsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseCohortDtoCollectionQueryParameters(courseCohortDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseCohortsByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -848,6 +863,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseCohortDtoCollectionQueryParameters** | [**CourseCohortDtoCollectionQueryParameters**](CourseCohortDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -859,7 +875,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -869,7 +885,7 @@ No authorization required
 
 ## GetCourseEnrollmentsByCourseAsync
 
-> []CourseEnrollmentDto GetCourseEnrollmentsByCourseAsync(ctx, courseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseEnrollmentDto GetCourseEnrollmentsByCourseAsync(ctx, courseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 
 Get enrollments by course
 
@@ -892,10 +908,11 @@ func main() {
 	courseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseEnrollmentDtoCollectionQueryParameters := *openapiclient.NewCourseEnrollmentDtoCollectionQueryParameters() // CourseEnrollmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseEnrollmentsByCourseAsync(context.Background(), courseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseEnrollmentsByCourseAsync(context.Background(), courseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseEnrollmentsByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -924,6 +941,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -935,7 +953,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -945,7 +963,7 @@ No authorization required
 
 ## GetCourseFilesByCourseAsync
 
-> []CourseFileDto GetCourseFilesByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseFileDto GetCourseFilesByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseFileDtoCollectionQueryParameters(courseFileDtoCollectionQueryParameters).Execute()
 
 Get course files by course
 
@@ -967,10 +985,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseFileDtoCollectionQueryParameters := *openapiclient.NewCourseFileDtoCollectionQueryParameters() // CourseFileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseFilesByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseFilesByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseFileDtoCollectionQueryParameters(courseFileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseFilesByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -998,6 +1017,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseFileDtoCollectionQueryParameters** | [**CourseFileDtoCollectionQueryParameters**](CourseFileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1009,7 +1029,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1019,7 +1039,7 @@ No authorization required
 
 ## GetCourseFilesByCourseCountAsync
 
-> int32 GetCourseFilesByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseFilesByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseFileDtoCollectionQueryParameters(courseFileDtoCollectionQueryParameters).Execute()
 
 Get course files by course count
 
@@ -1041,10 +1061,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseFileDtoCollectionQueryParameters := *openapiclient.NewCourseFileDtoCollectionQueryParameters() // CourseFileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseFilesByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseFilesByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseFileDtoCollectionQueryParameters(courseFileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseFilesByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1072,6 +1093,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseFileDtoCollectionQueryParameters** | [**CourseFileDtoCollectionQueryParameters**](CourseFileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1083,7 +1105,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1093,7 +1115,7 @@ No authorization required
 
 ## GetCourseForumsByCourseAsync
 
-> []CourseForumDto GetCourseForumsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseForumDto GetCourseForumsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseForumDtoCollectionQueryParameters(courseForumDtoCollectionQueryParameters).Execute()
 
 Get course forums by course
 
@@ -1115,10 +1137,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseForumDtoCollectionQueryParameters := *openapiclient.NewCourseForumDtoCollectionQueryParameters() // CourseForumDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseForumsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseForumsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseForumDtoCollectionQueryParameters(courseForumDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseForumsByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1146,6 +1169,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1157,7 +1181,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1167,7 +1191,7 @@ No authorization required
 
 ## GetCourseForumsByCourseCountAsync
 
-> int32 GetCourseForumsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseForumsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseForumDtoCollectionQueryParameters(courseForumDtoCollectionQueryParameters).Execute()
 
 Get course forums by course count
 
@@ -1189,10 +1213,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseForumDtoCollectionQueryParameters := *openapiclient.NewCourseForumDtoCollectionQueryParameters() // CourseForumDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseForumsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseForumsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseForumDtoCollectionQueryParameters(courseForumDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseForumsByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1220,6 +1245,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1231,7 +1257,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1241,7 +1267,7 @@ No authorization required
 
 ## GetCourseHandoutsByCourseAsync
 
-> []CourseHandoutDto GetCourseHandoutsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseHandoutDto GetCourseHandoutsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseHandoutDtoCollectionQueryParameters(courseHandoutDtoCollectionQueryParameters).Execute()
 
 Get course handouts by course
 
@@ -1263,10 +1289,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseHandoutDtoCollectionQueryParameters := *openapiclient.NewCourseHandoutDtoCollectionQueryParameters() // CourseHandoutDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseHandoutsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseHandoutsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseHandoutDtoCollectionQueryParameters(courseHandoutDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseHandoutsByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1294,6 +1321,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseHandoutDtoCollectionQueryParameters** | [**CourseHandoutDtoCollectionQueryParameters**](CourseHandoutDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1305,7 +1333,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1315,7 +1343,7 @@ No authorization required
 
 ## GetCourseHandoutsByCourseCountAsync
 
-> int32 GetCourseHandoutsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseHandoutsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseHandoutDtoCollectionQueryParameters(courseHandoutDtoCollectionQueryParameters).Execute()
 
 Get course handouts by course count
 
@@ -1337,10 +1365,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseHandoutDtoCollectionQueryParameters := *openapiclient.NewCourseHandoutDtoCollectionQueryParameters() // CourseHandoutDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseHandoutsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseHandoutsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseHandoutDtoCollectionQueryParameters(courseHandoutDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseHandoutsByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1368,6 +1397,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseHandoutDtoCollectionQueryParameters** | [**CourseHandoutDtoCollectionQueryParameters**](CourseHandoutDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1379,7 +1409,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1389,7 +1419,7 @@ No authorization required
 
 ## GetCourseLibrariesByCourseAsync
 
-> []CourseLibraryDto GetCourseLibrariesByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseLibraryDto GetCourseLibrariesByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseLibraryDtoCollectionQueryParameters(courseLibraryDtoCollectionQueryParameters).Execute()
 
 Get course libraries by course
 
@@ -1411,10 +1441,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseLibraryDtoCollectionQueryParameters := *openapiclient.NewCourseLibraryDtoCollectionQueryParameters() // CourseLibraryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseLibrariesByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseLibrariesByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseLibraryDtoCollectionQueryParameters(courseLibraryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseLibrariesByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1442,6 +1473,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1453,7 +1485,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1463,7 +1495,7 @@ No authorization required
 
 ## GetCourseLibrariesByCourseCountAsync
 
-> int32 GetCourseLibrariesByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseLibrariesByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseLibraryDtoCollectionQueryParameters(courseLibraryDtoCollectionQueryParameters).Execute()
 
 Get course libraries by course count
 
@@ -1485,10 +1517,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseLibraryDtoCollectionQueryParameters := *openapiclient.NewCourseLibraryDtoCollectionQueryParameters() // CourseLibraryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseLibrariesByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseLibrariesByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseLibraryDtoCollectionQueryParameters(courseLibraryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseLibrariesByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1516,6 +1549,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1527,7 +1561,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1537,7 +1571,7 @@ No authorization required
 
 ## GetCoursePagesByCourseAsync
 
-> []CoursePageDto GetCoursePagesByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CoursePageDto GetCoursePagesByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CoursePageDtoCollectionQueryParameters(coursePageDtoCollectionQueryParameters).Execute()
 
 Get course pages by course
 
@@ -1559,10 +1593,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	coursePageDtoCollectionQueryParameters := *openapiclient.NewCoursePageDtoCollectionQueryParameters() // CoursePageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCoursePagesByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCoursePagesByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CoursePageDtoCollectionQueryParameters(coursePageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCoursePagesByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1590,6 +1625,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **coursePageDtoCollectionQueryParameters** | [**CoursePageDtoCollectionQueryParameters**](CoursePageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1601,7 +1637,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1611,7 +1647,7 @@ No authorization required
 
 ## GetCoursePagesByCourseCountAsync
 
-> int32 GetCoursePagesByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCoursePagesByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CoursePageDtoCollectionQueryParameters(coursePageDtoCollectionQueryParameters).Execute()
 
 Get course pages by course count
 
@@ -1633,10 +1669,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	coursePageDtoCollectionQueryParameters := *openapiclient.NewCoursePageDtoCollectionQueryParameters() // CoursePageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCoursePagesByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCoursePagesByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CoursePageDtoCollectionQueryParameters(coursePageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCoursePagesByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1664,6 +1701,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **coursePageDtoCollectionQueryParameters** | [**CoursePageDtoCollectionQueryParameters**](CoursePageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1675,7 +1713,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1685,7 +1723,7 @@ No authorization required
 
 ## GetCourseProblemSetsByCourseAsync
 
-> []CourseProblemSetDto GetCourseProblemSetsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseProblemSetDto GetCourseProblemSetsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseProblemSetDtoCollectionQueryParameters(courseProblemSetDtoCollectionQueryParameters).Execute()
 
 Get course problem sets by course
 
@@ -1707,10 +1745,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseProblemSetDtoCollectionQueryParameters := *openapiclient.NewCourseProblemSetDtoCollectionQueryParameters() // CourseProblemSetDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseProblemSetsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseProblemSetsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseProblemSetDtoCollectionQueryParameters(courseProblemSetDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseProblemSetsByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1738,6 +1777,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseProblemSetDtoCollectionQueryParameters** | [**CourseProblemSetDtoCollectionQueryParameters**](CourseProblemSetDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1749,7 +1789,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1759,7 +1799,7 @@ No authorization required
 
 ## GetCourseProblemSetsByCourseCountAsync
 
-> int32 GetCourseProblemSetsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseProblemSetsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseProblemSetDtoCollectionQueryParameters(courseProblemSetDtoCollectionQueryParameters).Execute()
 
 Get course problem sets by course count
 
@@ -1781,10 +1821,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseProblemSetDtoCollectionQueryParameters := *openapiclient.NewCourseProblemSetDtoCollectionQueryParameters() // CourseProblemSetDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseProblemSetsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseProblemSetsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseProblemSetDtoCollectionQueryParameters(courseProblemSetDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseProblemSetsByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1812,6 +1853,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseProblemSetDtoCollectionQueryParameters** | [**CourseProblemSetDtoCollectionQueryParameters**](CourseProblemSetDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1823,7 +1865,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1833,7 +1875,7 @@ No authorization required
 
 ## GetCourseSectionsByCourseAsync
 
-> []CourseSectionDto GetCourseSectionsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseSectionDto GetCourseSectionsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseSectionDtoCollectionQueryParameters(courseSectionDtoCollectionQueryParameters).Execute()
 
 Get course sections by course
 
@@ -1855,10 +1897,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseSectionDtoCollectionQueryParameters := *openapiclient.NewCourseSectionDtoCollectionQueryParameters() // CourseSectionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseSectionsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseSectionsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseSectionDtoCollectionQueryParameters(courseSectionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseSectionsByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1886,6 +1929,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseSectionDtoCollectionQueryParameters** | [**CourseSectionDtoCollectionQueryParameters**](CourseSectionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1897,7 +1941,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1907,7 +1951,7 @@ No authorization required
 
 ## GetCourseSectionsByCourseCountAsync
 
-> int32 GetCourseSectionsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseSectionsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseSectionDtoCollectionQueryParameters(courseSectionDtoCollectionQueryParameters).Execute()
 
 Get course sections by course count
 
@@ -1929,10 +1973,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseSectionDtoCollectionQueryParameters := *openapiclient.NewCourseSectionDtoCollectionQueryParameters() // CourseSectionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseSectionsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseSectionsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseSectionDtoCollectionQueryParameters(courseSectionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseSectionsByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1960,6 +2005,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseSectionDtoCollectionQueryParameters** | [**CourseSectionDtoCollectionQueryParameters**](CourseSectionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1971,7 +2017,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1981,7 +2027,7 @@ No authorization required
 
 ## GetCourseUnitComponentsByCourseAsync
 
-> []CourseUnitComponentDto GetCourseUnitComponentsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseUnitComponentDto GetCourseUnitComponentsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseUnitComponentDtoCollectionQueryParameters(courseUnitComponentDtoCollectionQueryParameters).Execute()
 
 Get course unit components by course
 
@@ -2003,10 +2049,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseUnitComponentDtoCollectionQueryParameters := *openapiclient.NewCourseUnitComponentDtoCollectionQueryParameters() // CourseUnitComponentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseUnitComponentsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseUnitComponentsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseUnitComponentDtoCollectionQueryParameters(courseUnitComponentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseUnitComponentsByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2034,6 +2081,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseUnitComponentDtoCollectionQueryParameters** | [**CourseUnitComponentDtoCollectionQueryParameters**](CourseUnitComponentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2045,7 +2093,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2055,7 +2103,7 @@ No authorization required
 
 ## GetCourseUnitComponentsByCourseCountAsync
 
-> int32 GetCourseUnitComponentsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseUnitComponentsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseUnitComponentDtoCollectionQueryParameters(courseUnitComponentDtoCollectionQueryParameters).Execute()
 
 Get course unit components by course count
 
@@ -2077,10 +2125,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseUnitComponentDtoCollectionQueryParameters := *openapiclient.NewCourseUnitComponentDtoCollectionQueryParameters() // CourseUnitComponentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseUnitComponentsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseUnitComponentsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseUnitComponentDtoCollectionQueryParameters(courseUnitComponentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseUnitComponentsByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2108,6 +2157,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseUnitComponentDtoCollectionQueryParameters** | [**CourseUnitComponentDtoCollectionQueryParameters**](CourseUnitComponentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2119,7 +2169,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2129,7 +2179,7 @@ No authorization required
 
 ## GetCourseUnitsBySectionAsync
 
-> []CourseUnitDto GetCourseUnitsBySectionAsync(ctx, courseId, sectionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseUnitDto GetCourseUnitsBySectionAsync(ctx, courseId, sectionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseUnitDtoCollectionQueryParameters(courseUnitDtoCollectionQueryParameters).Execute()
 
 Get course units by section
 
@@ -2152,10 +2202,11 @@ func main() {
 	sectionId := "sectionId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseUnitDtoCollectionQueryParameters := *openapiclient.NewCourseUnitDtoCollectionQueryParameters() // CourseUnitDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseUnitsBySectionAsync(context.Background(), courseId, sectionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseUnitsBySectionAsync(context.Background(), courseId, sectionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseUnitDtoCollectionQueryParameters(courseUnitDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseUnitsBySectionAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2185,6 +2236,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseUnitDtoCollectionQueryParameters** | [**CourseUnitDtoCollectionQueryParameters**](CourseUnitDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2196,7 +2248,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2206,7 +2258,7 @@ No authorization required
 
 ## GetCourseUnitsBySectionCountAsync
 
-> int32 GetCourseUnitsBySectionCountAsync(ctx, courseId, sectionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseUnitsBySectionCountAsync(ctx, courseId, sectionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseUnitDtoCollectionQueryParameters(courseUnitDtoCollectionQueryParameters).Execute()
 
 Get course units by section count
 
@@ -2229,10 +2281,11 @@ func main() {
 	sectionId := "sectionId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseUnitDtoCollectionQueryParameters := *openapiclient.NewCourseUnitDtoCollectionQueryParameters() // CourseUnitDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseUnitsBySectionCountAsync(context.Background(), courseId, sectionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseUnitsBySectionCountAsync(context.Background(), courseId, sectionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseUnitDtoCollectionQueryParameters(courseUnitDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseUnitsBySectionCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2262,6 +2315,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseUnitDtoCollectionQueryParameters** | [**CourseUnitDtoCollectionQueryParameters**](CourseUnitDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2273,7 +2327,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2283,7 +2337,7 @@ No authorization required
 
 ## GetCourseUpdatesByCourseAsync
 
-> []CourseNewsDto GetCourseUpdatesByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseNewsDto GetCourseUpdatesByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseNewsDtoCollectionQueryParameters(courseNewsDtoCollectionQueryParameters).Execute()
 
 Get course updates by course
 
@@ -2305,10 +2359,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseNewsDtoCollectionQueryParameters := *openapiclient.NewCourseNewsDtoCollectionQueryParameters() // CourseNewsDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseUpdatesByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseUpdatesByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseNewsDtoCollectionQueryParameters(courseNewsDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseUpdatesByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2336,6 +2391,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2347,7 +2403,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2357,7 +2413,7 @@ No authorization required
 
 ## GetCourseUpdatesByCourseCountAsync
 
-> int32 GetCourseUpdatesByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseUpdatesByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseNewsDtoCollectionQueryParameters(courseNewsDtoCollectionQueryParameters).Execute()
 
 Get course updates by course count
 
@@ -2379,10 +2435,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseNewsDtoCollectionQueryParameters := *openapiclient.NewCourseNewsDtoCollectionQueryParameters() // CourseNewsDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseUpdatesByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseUpdatesByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseNewsDtoCollectionQueryParameters(courseNewsDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseUpdatesByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2410,6 +2467,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2421,7 +2479,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2431,7 +2489,7 @@ No authorization required
 
 ## GetCourseWikisByCourseAsync
 
-> []CourseWikiDto GetCourseWikisByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseWikiDto GetCourseWikisByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseWikiDtoCollectionQueryParameters(courseWikiDtoCollectionQueryParameters).Execute()
 
 Get course wikis by course
 
@@ -2453,10 +2511,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseWikiDtoCollectionQueryParameters := *openapiclient.NewCourseWikiDtoCollectionQueryParameters() // CourseWikiDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseWikisByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseWikisByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseWikiDtoCollectionQueryParameters(courseWikiDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseWikisByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2484,6 +2543,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2495,7 +2555,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2505,7 +2565,7 @@ No authorization required
 
 ## GetCourseWikisByCourseCountAsync
 
-> int32 GetCourseWikisByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseWikisByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseWikiDtoCollectionQueryParameters(courseWikiDtoCollectionQueryParameters).Execute()
 
 Get course wikis by course count
 
@@ -2527,10 +2587,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseWikiDtoCollectionQueryParameters := *openapiclient.NewCourseWikiDtoCollectionQueryParameters() // CourseWikiDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCourseWikisByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCourseWikisByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseWikiDtoCollectionQueryParameters(courseWikiDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCourseWikisByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2558,6 +2619,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2569,7 +2631,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2579,7 +2641,7 @@ No authorization required
 
 ## GetCoursesAsync
 
-> []CourseDto GetCoursesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseDto GetCoursesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 
 Get courses
 
@@ -2601,10 +2663,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseDtoCollectionQueryParameters := *openapiclient.NewCourseDtoCollectionQueryParameters() // CourseDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCoursesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCoursesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCoursesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2628,6 +2691,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2639,7 +2703,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2649,7 +2713,7 @@ No authorization required
 
 ## GetCoursesCountAsync
 
-> int32 GetCoursesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCoursesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 
 Get courses count
 
@@ -2671,10 +2735,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseDtoCollectionQueryParameters := *openapiclient.NewCourseDtoCollectionQueryParameters() // CourseDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.GetCoursesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CoursesAPI.GetCoursesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.GetCoursesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2698,6 +2763,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2709,7 +2775,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3015,7 +3081,7 @@ No authorization required
 
 ## PatchCourseAsync
 
-> EmptyEnvelope PatchCourseAsync(ctx, courseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchCourseAsync(ctx, courseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a course
 
@@ -3038,11 +3104,11 @@ func main() {
 	courseId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoursesAPI.PatchCourseAsync(context.Background(), courseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.CoursesAPI.PatchCourseAsync(context.Background(), courseId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoursesAPI.PatchCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3071,7 +3137,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

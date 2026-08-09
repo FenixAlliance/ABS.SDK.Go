@@ -29,6 +29,7 @@ type ApiGetCreditsSumAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountingEntryDtoCollectionQueryParameters *AccountingEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetCreditsSumAsyncRequest) TenantId(tenantId string) ApiGetCreditsSumAsyncRequest {
@@ -43,6 +44,11 @@ func (r ApiGetCreditsSumAsyncRequest) ApiVersion(apiVersion string) ApiGetCredit
 
 func (r ApiGetCreditsSumAsyncRequest) XApiVersion(xApiVersion string) ApiGetCreditsSumAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCreditsSumAsyncRequest) AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters AccountingEntryDtoCollectionQueryParameters) ApiGetCreditsSumAsyncRequest {
+	r.accountingEntryDtoCollectionQueryParameters = &accountingEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -94,7 +100,7 @@ func (a *AccountingSummaryAPIService) GetCreditsSumAsyncExecute(r ApiGetCreditsS
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -113,6 +119,8 @@ func (a *AccountingSummaryAPIService) GetCreditsSumAsyncExecute(r ApiGetCreditsS
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -177,6 +185,7 @@ type ApiGetDebitsSumAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	accountingEntryDtoCollectionQueryParameters *AccountingEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetDebitsSumAsyncRequest) TenantId(tenantId string) ApiGetDebitsSumAsyncRequest {
@@ -191,6 +200,11 @@ func (r ApiGetDebitsSumAsyncRequest) ApiVersion(apiVersion string) ApiGetDebitsS
 
 func (r ApiGetDebitsSumAsyncRequest) XApiVersion(xApiVersion string) ApiGetDebitsSumAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetDebitsSumAsyncRequest) AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters AccountingEntryDtoCollectionQueryParameters) ApiGetDebitsSumAsyncRequest {
+	r.accountingEntryDtoCollectionQueryParameters = &accountingEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -242,7 +256,7 @@ func (a *AccountingSummaryAPIService) GetDebitsSumAsyncExecute(r ApiGetDebitsSum
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -261,6 +275,8 @@ func (a *AccountingSummaryAPIService) GetDebitsSumAsyncExecute(r ApiGetDebitsSum
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.accountingEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -325,6 +341,7 @@ type ApiGetExpensesSumAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	journalEntryDtoCollectionQueryParameters *JournalEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetExpensesSumAsyncRequest) TenantId(tenantId string) ApiGetExpensesSumAsyncRequest {
@@ -339,6 +356,11 @@ func (r ApiGetExpensesSumAsyncRequest) ApiVersion(apiVersion string) ApiGetExpen
 
 func (r ApiGetExpensesSumAsyncRequest) XApiVersion(xApiVersion string) ApiGetExpensesSumAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetExpensesSumAsyncRequest) JournalEntryDtoCollectionQueryParameters(journalEntryDtoCollectionQueryParameters JournalEntryDtoCollectionQueryParameters) ApiGetExpensesSumAsyncRequest {
+	r.journalEntryDtoCollectionQueryParameters = &journalEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -390,7 +412,7 @@ func (a *AccountingSummaryAPIService) GetExpensesSumAsyncExecute(r ApiGetExpense
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -409,6 +431,8 @@ func (a *AccountingSummaryAPIService) GetExpensesSumAsyncExecute(r ApiGetExpense
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.journalEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -473,6 +497,7 @@ type ApiGetIncomesSumAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	journalEntryDtoCollectionQueryParameters *JournalEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetIncomesSumAsyncRequest) TenantId(tenantId string) ApiGetIncomesSumAsyncRequest {
@@ -487,6 +512,11 @@ func (r ApiGetIncomesSumAsyncRequest) ApiVersion(apiVersion string) ApiGetIncome
 
 func (r ApiGetIncomesSumAsyncRequest) XApiVersion(xApiVersion string) ApiGetIncomesSumAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetIncomesSumAsyncRequest) JournalEntryDtoCollectionQueryParameters(journalEntryDtoCollectionQueryParameters JournalEntryDtoCollectionQueryParameters) ApiGetIncomesSumAsyncRequest {
+	r.journalEntryDtoCollectionQueryParameters = &journalEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -538,7 +568,7 @@ func (a *AccountingSummaryAPIService) GetIncomesSumAsyncExecute(r ApiGetIncomesS
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -557,6 +587,8 @@ func (a *AccountingSummaryAPIService) GetIncomesSumAsyncExecute(r ApiGetIncomesS
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.journalEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -555,6 +555,7 @@ type ApiGetAllExtendedTenantsRequest struct {
 	ApiService *TenantsAPIService
 	apiVersion *string
 	xApiVersion *string
+	extendedTenantDtoCollectionQueryParameters *ExtendedTenantDtoCollectionQueryParameters
 }
 
 func (r ApiGetAllExtendedTenantsRequest) ApiVersion(apiVersion string) ApiGetAllExtendedTenantsRequest {
@@ -564,6 +565,11 @@ func (r ApiGetAllExtendedTenantsRequest) ApiVersion(apiVersion string) ApiGetAll
 
 func (r ApiGetAllExtendedTenantsRequest) XApiVersion(xApiVersion string) ApiGetAllExtendedTenantsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAllExtendedTenantsRequest) ExtendedTenantDtoCollectionQueryParameters(extendedTenantDtoCollectionQueryParameters ExtendedTenantDtoCollectionQueryParameters) ApiGetAllExtendedTenantsRequest {
+	r.extendedTenantDtoCollectionQueryParameters = &extendedTenantDtoCollectionQueryParameters
 	return r
 }
 
@@ -611,7 +617,7 @@ func (a *TenantsAPIService) GetAllExtendedTenantsExecute(r ApiGetAllExtendedTena
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -630,6 +636,8 @@ func (a *TenantsAPIService) GetAllExtendedTenantsExecute(r ApiGetAllExtendedTena
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.extendedTenantDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -694,6 +702,7 @@ type ApiGetAllTenantsRequest struct {
 	ApiService *TenantsAPIService
 	apiVersion *string
 	xApiVersion *string
+	tenantDtoCollectionQueryParameters *TenantDtoCollectionQueryParameters
 }
 
 func (r ApiGetAllTenantsRequest) ApiVersion(apiVersion string) ApiGetAllTenantsRequest {
@@ -703,6 +712,11 @@ func (r ApiGetAllTenantsRequest) ApiVersion(apiVersion string) ApiGetAllTenantsR
 
 func (r ApiGetAllTenantsRequest) XApiVersion(xApiVersion string) ApiGetAllTenantsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAllTenantsRequest) TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters TenantDtoCollectionQueryParameters) ApiGetAllTenantsRequest {
+	r.tenantDtoCollectionQueryParameters = &tenantDtoCollectionQueryParameters
 	return r
 }
 
@@ -750,7 +764,7 @@ func (a *TenantsAPIService) GetAllTenantsExecute(r ApiGetAllTenantsRequest) (*Te
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -769,6 +783,8 @@ func (a *TenantsAPIService) GetAllTenantsExecute(r ApiGetAllTenantsRequest) (*Te
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -833,6 +849,7 @@ type ApiGetExtendedTenantsCountRequest struct {
 	ApiService *TenantsAPIService
 	apiVersion *string
 	xApiVersion *string
+	extendedTenantDtoCollectionQueryParameters *ExtendedTenantDtoCollectionQueryParameters
 }
 
 func (r ApiGetExtendedTenantsCountRequest) ApiVersion(apiVersion string) ApiGetExtendedTenantsCountRequest {
@@ -842,6 +859,11 @@ func (r ApiGetExtendedTenantsCountRequest) ApiVersion(apiVersion string) ApiGetE
 
 func (r ApiGetExtendedTenantsCountRequest) XApiVersion(xApiVersion string) ApiGetExtendedTenantsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetExtendedTenantsCountRequest) ExtendedTenantDtoCollectionQueryParameters(extendedTenantDtoCollectionQueryParameters ExtendedTenantDtoCollectionQueryParameters) ApiGetExtendedTenantsCountRequest {
+	r.extendedTenantDtoCollectionQueryParameters = &extendedTenantDtoCollectionQueryParameters
 	return r
 }
 
@@ -889,7 +911,7 @@ func (a *TenantsAPIService) GetExtendedTenantsCountExecute(r ApiGetExtendedTenan
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -908,6 +930,8 @@ func (a *TenantsAPIService) GetExtendedTenantsCountExecute(r ApiGetExtendedTenan
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.extendedTenantDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1110,58 +1134,62 @@ func (a *TenantsAPIService) GetTenantExecute(r ApiGetTenantRequest) (*TenantDtoE
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTenantsCountRequest struct {
+type ApiGetTenantModuleGrantsRequest struct {
 	ctx context.Context
 	ApiService *TenantsAPIService
+	tenantId string
 	apiVersion *string
 	xApiVersion *string
 }
 
-func (r ApiGetTenantsCountRequest) ApiVersion(apiVersion string) ApiGetTenantsCountRequest {
+func (r ApiGetTenantModuleGrantsRequest) ApiVersion(apiVersion string) ApiGetTenantModuleGrantsRequest {
 	r.apiVersion = &apiVersion
 	return r
 }
 
-func (r ApiGetTenantsCountRequest) XApiVersion(xApiVersion string) ApiGetTenantsCountRequest {
+func (r ApiGetTenantModuleGrantsRequest) XApiVersion(xApiVersion string) ApiGetTenantModuleGrantsRequest {
 	r.xApiVersion = &xApiVersion
 	return r
 }
 
-func (r ApiGetTenantsCountRequest) Execute() (*Int32Envelope, *http.Response, error) {
-	return r.ApiService.GetTenantsCountExecute(r)
+func (r ApiGetTenantModuleGrantsRequest) Execute() (*ModuleGrantDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetTenantModuleGrantsExecute(r)
 }
 
 /*
-GetTenantsCount Get the total count of tenants available on this suite server instance.
+GetTenantModuleGrants Get the per-tenant admin module grants for a specific tenant.
 
 This action is only available for global administrators.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetTenantsCountRequest
+ @param tenantId
+ @return ApiGetTenantModuleGrantsRequest
 */
-func (a *TenantsAPIService) GetTenantsCount(ctx context.Context) ApiGetTenantsCountRequest {
-	return ApiGetTenantsCountRequest{
+func (a *TenantsAPIService) GetTenantModuleGrants(ctx context.Context, tenantId string) ApiGetTenantModuleGrantsRequest {
+	return ApiGetTenantModuleGrantsRequest{
 		ApiService: a,
 		ctx: ctx,
+		tenantId: tenantId,
 	}
 }
 
 // Execute executes the request
-//  @return Int32Envelope
-func (a *TenantsAPIService) GetTenantsCountExecute(r ApiGetTenantsCountRequest) (*Int32Envelope, *http.Response, error) {
+//  @return ModuleGrantDtoListEnvelope
+func (a *TenantsAPIService) GetTenantModuleGrantsExecute(r ApiGetTenantModuleGrantsRequest) (*ModuleGrantDtoListEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Int32Envelope
+		localVarReturnValue  *ModuleGrantDtoListEnvelope
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TenantsAPIService.GetTenantsCount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TenantsAPIService.GetTenantModuleGrants")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v2/SystemService/Tenants/Count"
+	localVarPath := localBasePath + "/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1249,13 +1277,160 @@ func (a *TenantsAPIService) GetTenantsCountExecute(r ApiGetTenantsCountRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetTenantsCountRequest struct {
+	ctx context.Context
+	ApiService *TenantsAPIService
+	apiVersion *string
+	xApiVersion *string
+	tenantDtoCollectionQueryParameters *TenantDtoCollectionQueryParameters
+}
+
+func (r ApiGetTenantsCountRequest) ApiVersion(apiVersion string) ApiGetTenantsCountRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetTenantsCountRequest) XApiVersion(xApiVersion string) ApiGetTenantsCountRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantsCountRequest) TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters TenantDtoCollectionQueryParameters) ApiGetTenantsCountRequest {
+	r.tenantDtoCollectionQueryParameters = &tenantDtoCollectionQueryParameters
+	return r
+}
+
+func (r ApiGetTenantsCountRequest) Execute() (*Int32Envelope, *http.Response, error) {
+	return r.ApiService.GetTenantsCountExecute(r)
+}
+
+/*
+GetTenantsCount Get the total count of tenants available on this suite server instance.
+
+This action is only available for global administrators.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetTenantsCountRequest
+*/
+func (a *TenantsAPIService) GetTenantsCount(ctx context.Context) ApiGetTenantsCountRequest {
+	return ApiGetTenantsCountRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return Int32Envelope
+func (a *TenantsAPIService) GetTenantsCountExecute(r ApiGetTenantsCountRequest) (*Int32Envelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Int32Envelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TenantsAPIService.GetTenantsCount")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SystemService/Tenants/Count"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.tenantDtoCollectionQueryParameters
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPatchTenantRequest struct {
 	ctx context.Context
 	ApiService *TenantsAPIService
 	tenantId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTenantRequest) ApiVersion(apiVersion string) ApiPatchTenantRequest {
@@ -1268,8 +1443,8 @@ func (r ApiPatchTenantRequest) XApiVersion(xApiVersion string) ApiPatchTenantReq
 	return r
 }
 
-func (r ApiPatchTenantRequest) Operation(operation []Operation) ApiPatchTenantRequest {
-	r.operation = &operation
+func (r ApiPatchTenantRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTenantRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1340,7 +1515,158 @@ func (a *TenantsAPIService) PatchTenantExecute(r ApiPatchTenantRequest) (*EmptyE
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiSetTenantModuleGrantsRequest struct {
+	ctx context.Context
+	ApiService *TenantsAPIService
+	tenantId string
+	apiVersion *string
+	xApiVersion *string
+	moduleGrantDto *[]ModuleGrantDto
+}
+
+func (r ApiSetTenantModuleGrantsRequest) ApiVersion(apiVersion string) ApiSetTenantModuleGrantsRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiSetTenantModuleGrantsRequest) XApiVersion(xApiVersion string) ApiSetTenantModuleGrantsRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiSetTenantModuleGrantsRequest) ModuleGrantDto(moduleGrantDto []ModuleGrantDto) ApiSetTenantModuleGrantsRequest {
+	r.moduleGrantDto = &moduleGrantDto
+	return r
+}
+
+func (r ApiSetTenantModuleGrantsRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.SetTenantModuleGrantsExecute(r)
+}
+
+/*
+SetTenantModuleGrants Replace the per-tenant admin module grants for a specific tenant.
+
+This action is only available for global administrators. Grants supplement licensing.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiSetTenantModuleGrantsRequest
+*/
+func (a *TenantsAPIService) SetTenantModuleGrants(ctx context.Context, tenantId string) ApiSetTenantModuleGrantsRequest {
+	return ApiSetTenantModuleGrantsRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *TenantsAPIService) SetTenantModuleGrantsExecute(r ApiSetTenantModuleGrantsRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TenantsAPIService.SetTenantModuleGrants")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.moduleGrantDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

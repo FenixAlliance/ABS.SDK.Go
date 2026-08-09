@@ -613,7 +613,7 @@ No authorization required
 
 ## GetExtendedQuotes
 
-> ExtendedQuoteDtoListEnvelope GetExtendedQuotes(ctx).TenantId(tenantId).Execute()
+> ExtendedQuoteDtoListEnvelope GetExtendedQuotes(ctx).TenantId(tenantId).ExtendedQuoteDtoCollectionQueryParameters(extendedQuoteDtoCollectionQueryParameters).Execute()
 
 Get a list of extended quotes.
 
@@ -633,10 +633,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	extendedQuoteDtoCollectionQueryParameters := *openapiclient.NewExtendedQuoteDtoCollectionQueryParameters() // ExtendedQuoteDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.QuotesAPI.GetExtendedQuotes(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.QuotesAPI.GetExtendedQuotes(context.Background()).TenantId(tenantId).ExtendedQuoteDtoCollectionQueryParameters(extendedQuoteDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuotesAPI.GetExtendedQuotes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -658,6 +659,7 @@ Other parameters are passed through a pointer to a apiGetExtendedQuotesRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **extendedQuoteDtoCollectionQueryParameters** | [**ExtendedQuoteDtoCollectionQueryParameters**](ExtendedQuoteDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -669,7 +671,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -826,7 +828,7 @@ No authorization required
 
 ## GetQuoteLines
 
-> QuoteLineDtoListEnvelope GetQuoteLines(ctx, quoteId).TenantId(tenantId).ItemId(itemId).Execute()
+> QuoteLineDtoListEnvelope GetQuoteLines(ctx, quoteId).TenantId(tenantId).ItemId(itemId).QuoteLineDtoCollectionQueryParameters(quoteLineDtoCollectionQueryParameters).Execute()
 
 Get quote lines for a quote.
 
@@ -848,10 +850,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	quoteId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	quoteLineDtoCollectionQueryParameters := *openapiclient.NewQuoteLineDtoCollectionQueryParameters() // QuoteLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.QuotesAPI.GetQuoteLines(context.Background(), quoteId).TenantId(tenantId).ItemId(itemId).Execute()
+	resp, r, err := apiClient.QuotesAPI.GetQuoteLines(context.Background(), quoteId).TenantId(tenantId).ItemId(itemId).QuoteLineDtoCollectionQueryParameters(quoteLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuotesAPI.GetQuoteLines``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -879,6 +882,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
  **itemId** | **string** |  | 
+ **quoteLineDtoCollectionQueryParameters** | [**QuoteLineDtoCollectionQueryParameters**](QuoteLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -890,7 +894,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -900,7 +904,7 @@ No authorization required
 
 ## GetQuoteLinesCount
 
-> Int32Envelope GetQuoteLinesCount(ctx, quoteId).TenantId(tenantId).Execute()
+> Int32Envelope GetQuoteLinesCount(ctx, quoteId).TenantId(tenantId).QuoteLineDtoCollectionQueryParameters(quoteLineDtoCollectionQueryParameters).Execute()
 
 Get the count of quote lines.
 
@@ -921,10 +925,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	quoteId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	quoteLineDtoCollectionQueryParameters := *openapiclient.NewQuoteLineDtoCollectionQueryParameters() // QuoteLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.QuotesAPI.GetQuoteLinesCount(context.Background(), quoteId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.QuotesAPI.GetQuoteLinesCount(context.Background(), quoteId).TenantId(tenantId).QuoteLineDtoCollectionQueryParameters(quoteLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuotesAPI.GetQuoteLinesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -951,6 +956,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **quoteLineDtoCollectionQueryParameters** | [**QuoteLineDtoCollectionQueryParameters**](QuoteLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -962,7 +968,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -972,7 +978,7 @@ No authorization required
 
 ## GetQuotes
 
-> QuoteDtoListEnvelope GetQuotes(ctx).TenantId(tenantId).Execute()
+> QuoteDtoListEnvelope GetQuotes(ctx).TenantId(tenantId).QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters).Execute()
 
 Get a list of quotes.
 
@@ -992,10 +998,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	quoteDtoCollectionQueryParameters := *openapiclient.NewQuoteDtoCollectionQueryParameters() // QuoteDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.QuotesAPI.GetQuotes(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.QuotesAPI.GetQuotes(context.Background()).TenantId(tenantId).QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuotesAPI.GetQuotes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1017,6 +1024,7 @@ Other parameters are passed through a pointer to a apiGetQuotesRequest struct vi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1028,7 +1036,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1038,7 +1046,7 @@ No authorization required
 
 ## GetQuotesCount
 
-> Int32Envelope GetQuotesCount(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetQuotesCount(ctx).TenantId(tenantId).QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters).Execute()
 
 Get the count of quotes.
 
@@ -1058,10 +1066,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	quoteDtoCollectionQueryParameters := *openapiclient.NewQuoteDtoCollectionQueryParameters() // QuoteDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.QuotesAPI.GetQuotesCount(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.QuotesAPI.GetQuotesCount(context.Background()).TenantId(tenantId).QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuotesAPI.GetQuotesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1083,6 +1092,7 @@ Other parameters are passed through a pointer to a apiGetQuotesCountRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1094,7 +1104,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1104,7 +1114,7 @@ No authorization required
 
 ## PatchQuoteAsync
 
-> EmptyEnvelope PatchQuoteAsync(ctx, quoteId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchQuoteAsync(ctx, quoteId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch an existing quote.
 
@@ -1125,11 +1135,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	quoteId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.QuotesAPI.PatchQuoteAsync(context.Background(), quoteId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.QuotesAPI.PatchQuoteAsync(context.Background(), quoteId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuotesAPI.PatchQuoteAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1156,7 +1166,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1178,7 +1188,7 @@ No authorization required
 
 ## PatchQuoteLineAsync
 
-> EmptyEnvelope PatchQuoteLineAsync(ctx, quoteId, quoteLineId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchQuoteLineAsync(ctx, quoteId, quoteLineId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a quote line.
 
@@ -1200,11 +1210,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	quoteId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	quoteLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.QuotesAPI.PatchQuoteLineAsync(context.Background(), quoteId, quoteLineId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.QuotesAPI.PatchQuoteLineAsync(context.Background(), quoteId, quoteLineId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuotesAPI.PatchQuoteLineAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1233,7 +1243,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

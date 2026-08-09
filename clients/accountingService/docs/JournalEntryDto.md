@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
+**Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **EnrollmentId** | Pointer to **NullableString** |  | [optional] 
 **JournalId** | Pointer to **NullableString** |  | [optional] 
@@ -25,7 +26,6 @@ Name | Type | Description | Notes
 **PostedBy** | Pointer to **NullableString** |  | [optional] 
 **ForexRate** | Pointer to **float64** |  | [optional] 
 **ForexRatesSnapshot** | Pointer to **NullableString** |  | [optional] 
-**Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **DebitInUsd** | Pointer to **float64** |  | [optional] 
 **CreditInUsd** | Pointer to **float64** |  | [optional] 
 **AccountingEntries** | Pointer to [**[]AccountingEntryDto**](AccountingEntryDto.md) |  | [optional] 
@@ -33,6 +33,8 @@ Name | Type | Description | Notes
 **TotalCredit** | Pointer to **float64** |  | [optional] [readonly] 
 **TotalDebitAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
 **TotalCreditAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
+**DebitInUsdAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
+**CreditInUsdAmount** | Pointer to [**Money**](Money.md) |  | [optional] 
 
 ## Methods
 
@@ -88,6 +90,41 @@ HasId returns a boolean if a field has been set.
 `func (o *JournalEntryDto) UnsetId()`
 
 UnsetId ensures that no value is present for Id, not even an explicit nil
+### GetTimestamp
+
+`func (o *JournalEntryDto) GetTimestamp() time.Time`
+
+GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
+
+### GetTimestampOk
+
+`func (o *JournalEntryDto) GetTimestampOk() (*time.Time, bool)`
+
+GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimestamp
+
+`func (o *JournalEntryDto) SetTimestamp(v time.Time)`
+
+SetTimestamp sets Timestamp field to given value.
+
+### HasTimestamp
+
+`func (o *JournalEntryDto) HasTimestamp() bool`
+
+HasTimestamp returns a boolean if a field has been set.
+
+### SetTimestampNil
+
+`func (o *JournalEntryDto) SetTimestampNil(b bool)`
+
+ SetTimestampNil sets the value for Timestamp to be an explicit nil
+
+### UnsetTimestamp
+`func (o *JournalEntryDto) UnsetTimestamp()`
+
+UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetTenantId
 
 `func (o *JournalEntryDto) GetTenantId() string`
@@ -748,41 +785,6 @@ HasForexRatesSnapshot returns a boolean if a field has been set.
 `func (o *JournalEntryDto) UnsetForexRatesSnapshot()`
 
 UnsetForexRatesSnapshot ensures that no value is present for ForexRatesSnapshot, not even an explicit nil
-### GetTimestamp
-
-`func (o *JournalEntryDto) GetTimestamp() time.Time`
-
-GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
-
-### GetTimestampOk
-
-`func (o *JournalEntryDto) GetTimestampOk() (*time.Time, bool)`
-
-GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimestamp
-
-`func (o *JournalEntryDto) SetTimestamp(v time.Time)`
-
-SetTimestamp sets Timestamp field to given value.
-
-### HasTimestamp
-
-`func (o *JournalEntryDto) HasTimestamp() bool`
-
-HasTimestamp returns a boolean if a field has been set.
-
-### SetTimestampNil
-
-`func (o *JournalEntryDto) SetTimestampNil(b bool)`
-
- SetTimestampNil sets the value for Timestamp to be an explicit nil
-
-### UnsetTimestamp
-`func (o *JournalEntryDto) UnsetTimestamp()`
-
-UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetDebitInUsd
 
 `func (o *JournalEntryDto) GetDebitInUsd() float64`
@@ -967,6 +969,56 @@ SetTotalCreditAmount sets TotalCreditAmount field to given value.
 `func (o *JournalEntryDto) HasTotalCreditAmount() bool`
 
 HasTotalCreditAmount returns a boolean if a field has been set.
+
+### GetDebitInUsdAmount
+
+`func (o *JournalEntryDto) GetDebitInUsdAmount() Money`
+
+GetDebitInUsdAmount returns the DebitInUsdAmount field if non-nil, zero value otherwise.
+
+### GetDebitInUsdAmountOk
+
+`func (o *JournalEntryDto) GetDebitInUsdAmountOk() (*Money, bool)`
+
+GetDebitInUsdAmountOk returns a tuple with the DebitInUsdAmount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDebitInUsdAmount
+
+`func (o *JournalEntryDto) SetDebitInUsdAmount(v Money)`
+
+SetDebitInUsdAmount sets DebitInUsdAmount field to given value.
+
+### HasDebitInUsdAmount
+
+`func (o *JournalEntryDto) HasDebitInUsdAmount() bool`
+
+HasDebitInUsdAmount returns a boolean if a field has been set.
+
+### GetCreditInUsdAmount
+
+`func (o *JournalEntryDto) GetCreditInUsdAmount() Money`
+
+GetCreditInUsdAmount returns the CreditInUsdAmount field if non-nil, zero value otherwise.
+
+### GetCreditInUsdAmountOk
+
+`func (o *JournalEntryDto) GetCreditInUsdAmountOk() (*Money, bool)`
+
+GetCreditInUsdAmountOk returns a tuple with the CreditInUsdAmount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreditInUsdAmount
+
+`func (o *JournalEntryDto) SetCreditInUsdAmount(v Money)`
+
+SetCreditInUsdAmount sets CreditInUsdAmount field to given value.
+
+### HasCreditInUsdAmount
+
+`func (o *JournalEntryDto) HasCreditInUsdAmount() bool`
+
+HasCreditInUsdAmount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

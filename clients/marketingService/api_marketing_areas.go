@@ -515,6 +515,7 @@ type ApiGetMarketingAreasAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	marketingAreaDtoCollectionQueryParameters *MarketingAreaDtoCollectionQueryParameters
 }
 
 func (r ApiGetMarketingAreasAsyncRequest) TenantId(tenantId string) ApiGetMarketingAreasAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetMarketingAreasAsyncRequest) ApiVersion(apiVersion string) ApiGetMa
 
 func (r ApiGetMarketingAreasAsyncRequest) XApiVersion(xApiVersion string) ApiGetMarketingAreasAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMarketingAreasAsyncRequest) MarketingAreaDtoCollectionQueryParameters(marketingAreaDtoCollectionQueryParameters MarketingAreaDtoCollectionQueryParameters) ApiGetMarketingAreasAsyncRequest {
+	r.marketingAreaDtoCollectionQueryParameters = &marketingAreaDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *MarketingAreasAPIService) GetMarketingAreasAsyncExecute(r ApiGetMarketi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *MarketingAreasAPIService) GetMarketingAreasAsyncExecute(r ApiGetMarketi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.marketingAreaDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetMarketingAreasCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	marketingAreaDtoCollectionQueryParameters *MarketingAreaDtoCollectionQueryParameters
 }
 
 func (r ApiGetMarketingAreasCountAsyncRequest) TenantId(tenantId string) ApiGetMarketingAreasCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetMarketingAreasCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetMarketingAreasCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetMarketingAreasCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMarketingAreasCountAsyncRequest) MarketingAreaDtoCollectionQueryParameters(marketingAreaDtoCollectionQueryParameters MarketingAreaDtoCollectionQueryParameters) ApiGetMarketingAreasCountAsyncRequest {
+	r.marketingAreaDtoCollectionQueryParameters = &marketingAreaDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *MarketingAreasAPIService) GetMarketingAreasCountAsyncExecute(r ApiGetMa
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *MarketingAreasAPIService) GetMarketingAreasCountAsyncExecute(r ApiGetMa
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.marketingAreaDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchMarketingAreaAsyncRequest struct {
 	marketingAreaId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchMarketingAreaAsyncRequest) TenantId(tenantId string) ApiPatchMarketingAreaAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchMarketingAreaAsyncRequest) XApiVersion(xApiVersion string) ApiPa
 	return r
 }
 
-func (r ApiPatchMarketingAreaAsyncRequest) Operation(operation []Operation) ApiPatchMarketingAreaAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchMarketingAreaAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchMarketingAreaAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *MarketingAreasAPIService) PatchMarketingAreaAsyncExecute(r ApiPatchMark
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

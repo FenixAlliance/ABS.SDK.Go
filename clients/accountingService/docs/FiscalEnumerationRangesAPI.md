@@ -244,7 +244,7 @@ No authorization required
 
 ## GetInvoiceEnumerationRanges
 
-> InvoiceEnumerationRangeDtoListEnvelope GetInvoiceEnumerationRanges(ctx, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> InvoiceEnumerationRangeDtoListEnvelope GetInvoiceEnumerationRanges(ctx, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceEnumerationRangeDtoCollectionQueryParameters(invoiceEnumerationRangeDtoCollectionQueryParameters).Execute()
 
 Get invoice enumeration ranges for an authority
 
@@ -268,10 +268,11 @@ func main() {
 	authorityId := "authorityId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	invoiceEnumerationRangeDtoCollectionQueryParameters := *openapiclient.NewInvoiceEnumerationRangeDtoCollectionQueryParameters() // InvoiceEnumerationRangeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalEnumerationRangesAPI.GetInvoiceEnumerationRanges(context.Background(), authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalEnumerationRangesAPI.GetInvoiceEnumerationRanges(context.Background(), authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceEnumerationRangeDtoCollectionQueryParameters(invoiceEnumerationRangeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalEnumerationRangesAPI.GetInvoiceEnumerationRanges``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -301,6 +302,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **invoiceEnumerationRangeDtoCollectionQueryParameters** | [**InvoiceEnumerationRangeDtoCollectionQueryParameters**](InvoiceEnumerationRangeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -312,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -322,7 +324,7 @@ No authorization required
 
 ## GetInvoiceEnumerationRangesCount
 
-> Int32Envelope GetInvoiceEnumerationRangesCount(ctx, fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetInvoiceEnumerationRangesCount(ctx, fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceEnumerationRangeDtoCollectionQueryParameters(invoiceEnumerationRangeDtoCollectionQueryParameters).Execute()
 
 Get invoice enumeration ranges count
 
@@ -345,10 +347,11 @@ func main() {
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	invoiceEnumerationRangeDtoCollectionQueryParameters := *openapiclient.NewInvoiceEnumerationRangeDtoCollectionQueryParameters() // InvoiceEnumerationRangeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalEnumerationRangesAPI.GetInvoiceEnumerationRangesCount(context.Background(), fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalEnumerationRangesAPI.GetInvoiceEnumerationRangesCount(context.Background(), fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceEnumerationRangeDtoCollectionQueryParameters(invoiceEnumerationRangeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalEnumerationRangesAPI.GetInvoiceEnumerationRangesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -377,6 +380,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **invoiceEnumerationRangeDtoCollectionQueryParameters** | [**InvoiceEnumerationRangeDtoCollectionQueryParameters**](InvoiceEnumerationRangeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -388,7 +392,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -398,7 +402,7 @@ No authorization required
 
 ## PatchFiscalEnumerationRangeAsync
 
-> EmptyEnvelope PatchFiscalEnumerationRangeAsync(ctx, enumerationRangeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchFiscalEnumerationRangeAsync(ctx, enumerationRangeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an invoice enumeration range
 
@@ -421,11 +425,11 @@ func main() {
 	enumerationRangeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalEnumerationRangesAPI.PatchFiscalEnumerationRangeAsync(context.Background(), enumerationRangeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.FiscalEnumerationRangesAPI.PatchFiscalEnumerationRangeAsync(context.Background(), enumerationRangeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalEnumerationRangesAPI.PatchFiscalEnumerationRangeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -454,7 +458,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

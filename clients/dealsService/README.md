@@ -115,7 +115,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebAPI* | [**AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebAPI.md#accountmanagedownloadpersonaldatapost) | **Post** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebAPI* | [**AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountmanagelinkexternalloginpost) | **Post** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebAPI* | [**AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountperformexternalloginpost) | **Post** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebAPI* | [**ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebAPI.md#apiv2aiserviceagentsagentidaguipost) | **Post** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABSWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
 *FenixAllianceABSWebAPI* | [**HealthGet**](docs/FenixAllianceABSWebAPI.md#healthget) | **Get** /health | 
 *FenixAllianceABSWebAPI* | [**HelloGet**](docs/FenixAllianceABSWebAPI.md#helloget) | **Get** /hello | 
@@ -137,20 +136,24 @@ Class | Method | HTTP request | Description
  - [ContactDto](docs/ContactDto.md)
  - [DealUnitCreateDto](docs/DealUnitCreateDto.md)
  - [DealUnitDto](docs/DealUnitDto.md)
+ - [DealUnitDtoCollectionQueryParameters](docs/DealUnitDtoCollectionQueryParameters.md)
  - [DealUnitDtoEnvelope](docs/DealUnitDtoEnvelope.md)
  - [DealUnitDtoListEnvelope](docs/DealUnitDtoListEnvelope.md)
  - [DealUnitFlowCreateDto](docs/DealUnitFlowCreateDto.md)
  - [DealUnitFlowDto](docs/DealUnitFlowDto.md)
+ - [DealUnitFlowDtoCollectionQueryParameters](docs/DealUnitFlowDtoCollectionQueryParameters.md)
  - [DealUnitFlowDtoEnvelope](docs/DealUnitFlowDtoEnvelope.md)
  - [DealUnitFlowDtoListEnvelope](docs/DealUnitFlowDtoListEnvelope.md)
  - [DealUnitFlowStageCreateDto](docs/DealUnitFlowStageCreateDto.md)
  - [DealUnitFlowStageDto](docs/DealUnitFlowStageDto.md)
+ - [DealUnitFlowStageDtoCollectionQueryParameters](docs/DealUnitFlowStageDtoCollectionQueryParameters.md)
  - [DealUnitFlowStageDtoEnvelope](docs/DealUnitFlowStageDtoEnvelope.md)
  - [DealUnitFlowStageDtoListEnvelope](docs/DealUnitFlowStageDtoListEnvelope.md)
  - [DealUnitFlowStageUpdateDto](docs/DealUnitFlowStageUpdateDto.md)
  - [DealUnitFlowUpdateDto](docs/DealUnitFlowUpdateDto.md)
  - [DealUnitLineCreateDto](docs/DealUnitLineCreateDto.md)
  - [DealUnitLineDto](docs/DealUnitLineDto.md)
+ - [DealUnitLineDtoCollectionQueryParameters](docs/DealUnitLineDtoCollectionQueryParameters.md)
  - [DealUnitLineDtoEnvelope](docs/DealUnitLineDtoEnvelope.md)
  - [DealUnitLineDtoListEnvelope](docs/DealUnitLineDtoListEnvelope.md)
  - [DealUnitLineUpdateDto](docs/DealUnitLineUpdateDto.md)
@@ -158,6 +161,7 @@ Class | Method | HTTP request | Description
  - [EmptyEnvelope](docs/EmptyEnvelope.md)
  - [ErrorEnvelope](docs/ErrorEnvelope.md)
  - [ExtendedDealUnitDto](docs/ExtendedDealUnitDto.md)
+ - [ExtendedDealUnitDtoCollectionQueryParameters](docs/ExtendedDealUnitDtoCollectionQueryParameters.md)
  - [ExtendedDealUnitDtoEnvelope](docs/ExtendedDealUnitDtoEnvelope.md)
  - [ExtendedDealUnitDtoListEnvelope](docs/ExtendedDealUnitDtoListEnvelope.md)
  - [ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
@@ -166,7 +170,7 @@ Class | Method | HTTP request | Description
  - [InfoResponse](docs/InfoResponse.md)
  - [Int32Envelope](docs/Int32Envelope.md)
  - [LoginRequest](docs/LoginRequest.md)
- - [Operation](docs/Operation.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [RefreshRequest](docs/RefreshRequest.md)
  - [RegisterRequest](docs/RegisterRequest.md)
  - [ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **ErrorMessage** | Pointer to **NullableString** |  | [optional] 
 **CorrelationId** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**HttpStatus** | Pointer to **NullableInt32** |  | [optional] 
+**ErrorCode** | Pointer to **NullableString** |  | [optional] 
+**ValidationDetails** | Pointer to **map[string][]string** |  | [optional] 
 **ActivityId** | Pointer to **NullableString** |  | [optional] [readonly] 
 **Result** | Pointer to [**EmailGroupDto**](EmailGroupDto.md) |  | [optional] 
 
@@ -150,6 +153,111 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
+### GetHttpStatus
+
+`func (o *EmailGroupDtoEnvelope) GetHttpStatus() int32`
+
+GetHttpStatus returns the HttpStatus field if non-nil, zero value otherwise.
+
+### GetHttpStatusOk
+
+`func (o *EmailGroupDtoEnvelope) GetHttpStatusOk() (*int32, bool)`
+
+GetHttpStatusOk returns a tuple with the HttpStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHttpStatus
+
+`func (o *EmailGroupDtoEnvelope) SetHttpStatus(v int32)`
+
+SetHttpStatus sets HttpStatus field to given value.
+
+### HasHttpStatus
+
+`func (o *EmailGroupDtoEnvelope) HasHttpStatus() bool`
+
+HasHttpStatus returns a boolean if a field has been set.
+
+### SetHttpStatusNil
+
+`func (o *EmailGroupDtoEnvelope) SetHttpStatusNil(b bool)`
+
+ SetHttpStatusNil sets the value for HttpStatus to be an explicit nil
+
+### UnsetHttpStatus
+`func (o *EmailGroupDtoEnvelope) UnsetHttpStatus()`
+
+UnsetHttpStatus ensures that no value is present for HttpStatus, not even an explicit nil
+### GetErrorCode
+
+`func (o *EmailGroupDtoEnvelope) GetErrorCode() string`
+
+GetErrorCode returns the ErrorCode field if non-nil, zero value otherwise.
+
+### GetErrorCodeOk
+
+`func (o *EmailGroupDtoEnvelope) GetErrorCodeOk() (*string, bool)`
+
+GetErrorCodeOk returns a tuple with the ErrorCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorCode
+
+`func (o *EmailGroupDtoEnvelope) SetErrorCode(v string)`
+
+SetErrorCode sets ErrorCode field to given value.
+
+### HasErrorCode
+
+`func (o *EmailGroupDtoEnvelope) HasErrorCode() bool`
+
+HasErrorCode returns a boolean if a field has been set.
+
+### SetErrorCodeNil
+
+`func (o *EmailGroupDtoEnvelope) SetErrorCodeNil(b bool)`
+
+ SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
+
+### UnsetErrorCode
+`func (o *EmailGroupDtoEnvelope) UnsetErrorCode()`
+
+UnsetErrorCode ensures that no value is present for ErrorCode, not even an explicit nil
+### GetValidationDetails
+
+`func (o *EmailGroupDtoEnvelope) GetValidationDetails() map[string][]string`
+
+GetValidationDetails returns the ValidationDetails field if non-nil, zero value otherwise.
+
+### GetValidationDetailsOk
+
+`func (o *EmailGroupDtoEnvelope) GetValidationDetailsOk() (*map[string][]string, bool)`
+
+GetValidationDetailsOk returns a tuple with the ValidationDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidationDetails
+
+`func (o *EmailGroupDtoEnvelope) SetValidationDetails(v map[string][]string)`
+
+SetValidationDetails sets ValidationDetails field to given value.
+
+### HasValidationDetails
+
+`func (o *EmailGroupDtoEnvelope) HasValidationDetails() bool`
+
+HasValidationDetails returns a boolean if a field has been set.
+
+### SetValidationDetailsNil
+
+`func (o *EmailGroupDtoEnvelope) SetValidationDetailsNil(b bool)`
+
+ SetValidationDetailsNil sets the value for ValidationDetails to be an explicit nil
+
+### UnsetValidationDetails
+`func (o *EmailGroupDtoEnvelope) UnsetValidationDetails()`
+
+UnsetValidationDetails ensures that no value is present for ValidationDetails, not even an explicit nil
 ### GetActivityId
 
 `func (o *EmailGroupDtoEnvelope) GetActivityId() string`

@@ -482,6 +482,7 @@ type ApiGetPricingRulesRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	pricingRuleDtoCollectionQueryParameters *PricingRuleDtoCollectionQueryParameters
 }
 
 func (r ApiGetPricingRulesRequest) TenantId(tenantId string) ApiGetPricingRulesRequest {
@@ -496,6 +497,11 @@ func (r ApiGetPricingRulesRequest) ApiVersion(apiVersion string) ApiGetPricingRu
 
 func (r ApiGetPricingRulesRequest) XApiVersion(xApiVersion string) ApiGetPricingRulesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPricingRulesRequest) PricingRuleDtoCollectionQueryParameters(pricingRuleDtoCollectionQueryParameters PricingRuleDtoCollectionQueryParameters) ApiGetPricingRulesRequest {
+	r.pricingRuleDtoCollectionQueryParameters = &pricingRuleDtoCollectionQueryParameters
 	return r
 }
 
@@ -547,7 +553,7 @@ func (a *PricingRulesAPIService) GetPricingRulesExecute(r ApiGetPricingRulesRequ
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -566,6 +572,8 @@ func (a *PricingRulesAPIService) GetPricingRulesExecute(r ApiGetPricingRulesRequ
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.pricingRuleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -631,6 +639,7 @@ type ApiGetPricingRulesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	pricingRuleDtoCollectionQueryParameters *PricingRuleDtoCollectionQueryParameters
 }
 
 func (r ApiGetPricingRulesCountAsyncRequest) TenantId(tenantId string) ApiGetPricingRulesCountAsyncRequest {
@@ -645,6 +654,11 @@ func (r ApiGetPricingRulesCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetPricingRulesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetPricingRulesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPricingRulesCountAsyncRequest) PricingRuleDtoCollectionQueryParameters(pricingRuleDtoCollectionQueryParameters PricingRuleDtoCollectionQueryParameters) ApiGetPricingRulesCountAsyncRequest {
+	r.pricingRuleDtoCollectionQueryParameters = &pricingRuleDtoCollectionQueryParameters
 	return r
 }
 
@@ -696,7 +710,7 @@ func (a *PricingRulesAPIService) GetPricingRulesCountAsyncExecute(r ApiGetPricin
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -715,6 +729,8 @@ func (a *PricingRulesAPIService) GetPricingRulesCountAsyncExecute(r ApiGetPricin
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.pricingRuleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -770,7 +786,7 @@ type ApiPatchPricingRuleRequest struct {
 	pricingRuleId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchPricingRuleRequest) TenantId(tenantId string) ApiPatchPricingRuleRequest {
@@ -788,8 +804,8 @@ func (r ApiPatchPricingRuleRequest) XApiVersion(xApiVersion string) ApiPatchPric
 	return r
 }
 
-func (r ApiPatchPricingRuleRequest) Operation(operation []Operation) ApiPatchPricingRuleRequest {
-	r.operation = &operation
+func (r ApiPatchPricingRuleRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchPricingRuleRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -862,7 +878,7 @@ func (a *PricingRulesAPIService) PatchPricingRuleExecute(r ApiPatchPricingRuleRe
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

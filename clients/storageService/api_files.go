@@ -1087,6 +1087,15 @@ type ApiGetFilesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	top *int32
+	skip *int32
+	count *bool
+	filter *string
+	orderBy *string
+	search *string
+	select_ *string
+	expand *string
+	isEmpty *bool
 }
 
 func (r ApiGetFilesAsyncRequest) TenantId(tenantId string) ApiGetFilesAsyncRequest {
@@ -1101,6 +1110,51 @@ func (r ApiGetFilesAsyncRequest) ApiVersion(apiVersion string) ApiGetFilesAsyncR
 
 func (r ApiGetFilesAsyncRequest) XApiVersion(xApiVersion string) ApiGetFilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFilesAsyncRequest) Top(top int32) ApiGetFilesAsyncRequest {
+	r.top = &top
+	return r
+}
+
+func (r ApiGetFilesAsyncRequest) Skip(skip int32) ApiGetFilesAsyncRequest {
+	r.skip = &skip
+	return r
+}
+
+func (r ApiGetFilesAsyncRequest) Count(count bool) ApiGetFilesAsyncRequest {
+	r.count = &count
+	return r
+}
+
+func (r ApiGetFilesAsyncRequest) Filter(filter string) ApiGetFilesAsyncRequest {
+	r.filter = &filter
+	return r
+}
+
+func (r ApiGetFilesAsyncRequest) OrderBy(orderBy string) ApiGetFilesAsyncRequest {
+	r.orderBy = &orderBy
+	return r
+}
+
+func (r ApiGetFilesAsyncRequest) Search(search string) ApiGetFilesAsyncRequest {
+	r.search = &search
+	return r
+}
+
+func (r ApiGetFilesAsyncRequest) Select_(select_ string) ApiGetFilesAsyncRequest {
+	r.select_ = &select_
+	return r
+}
+
+func (r ApiGetFilesAsyncRequest) Expand(expand string) ApiGetFilesAsyncRequest {
+	r.expand = &expand
+	return r
+}
+
+func (r ApiGetFilesAsyncRequest) IsEmpty(isEmpty bool) ApiGetFilesAsyncRequest {
+	r.isEmpty = &isEmpty
 	return r
 }
 
@@ -1149,7 +1203,7 @@ func (a *FilesAPIService) GetFilesAsyncExecute(r ApiGetFilesAsyncRequest) (*File
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1167,6 +1221,33 @@ func (a *FilesAPIService) GetFilesAsyncExecute(r ApiGetFilesAsyncRequest) (*File
 	}
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	if r.top != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "top", r.top, "", "")
+	}
+	if r.skip != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "skip", r.skip, "", "")
+	}
+	if r.count != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "count", r.count, "", "")
+	}
+	if r.filter != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "filter", r.filter, "", "")
+	}
+	if r.orderBy != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "orderBy", r.orderBy, "", "")
+	}
+	if r.search != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "search", r.search, "", "")
+	}
+	if r.select_ != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "select", r.select_, "", "")
+	}
+	if r.expand != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "expand", r.expand, "", "")
+	}
+	if r.isEmpty != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "isEmpty", r.isEmpty, "", "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1232,6 +1313,15 @@ type ApiGetFilesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	top *int32
+	skip *int32
+	count *bool
+	filter *string
+	orderBy *string
+	search *string
+	select_ *string
+	expand *string
+	isEmpty *bool
 }
 
 func (r ApiGetFilesCountAsyncRequest) TenantId(tenantId string) ApiGetFilesCountAsyncRequest {
@@ -1246,6 +1336,51 @@ func (r ApiGetFilesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetFilesC
 
 func (r ApiGetFilesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetFilesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFilesCountAsyncRequest) Top(top int32) ApiGetFilesCountAsyncRequest {
+	r.top = &top
+	return r
+}
+
+func (r ApiGetFilesCountAsyncRequest) Skip(skip int32) ApiGetFilesCountAsyncRequest {
+	r.skip = &skip
+	return r
+}
+
+func (r ApiGetFilesCountAsyncRequest) Count(count bool) ApiGetFilesCountAsyncRequest {
+	r.count = &count
+	return r
+}
+
+func (r ApiGetFilesCountAsyncRequest) Filter(filter string) ApiGetFilesCountAsyncRequest {
+	r.filter = &filter
+	return r
+}
+
+func (r ApiGetFilesCountAsyncRequest) OrderBy(orderBy string) ApiGetFilesCountAsyncRequest {
+	r.orderBy = &orderBy
+	return r
+}
+
+func (r ApiGetFilesCountAsyncRequest) Search(search string) ApiGetFilesCountAsyncRequest {
+	r.search = &search
+	return r
+}
+
+func (r ApiGetFilesCountAsyncRequest) Select_(select_ string) ApiGetFilesCountAsyncRequest {
+	r.select_ = &select_
+	return r
+}
+
+func (r ApiGetFilesCountAsyncRequest) Expand(expand string) ApiGetFilesCountAsyncRequest {
+	r.expand = &expand
+	return r
+}
+
+func (r ApiGetFilesCountAsyncRequest) IsEmpty(isEmpty bool) ApiGetFilesCountAsyncRequest {
+	r.isEmpty = &isEmpty
 	return r
 }
 
@@ -1294,7 +1429,7 @@ func (a *FilesAPIService) GetFilesCountAsyncExecute(r ApiGetFilesCountAsyncReque
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1312,6 +1447,33 @@ func (a *FilesAPIService) GetFilesCountAsyncExecute(r ApiGetFilesCountAsyncReque
 	}
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	if r.top != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "top", r.top, "", "")
+	}
+	if r.skip != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "skip", r.skip, "", "")
+	}
+	if r.count != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "count", r.count, "", "")
+	}
+	if r.filter != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "filter", r.filter, "", "")
+	}
+	if r.orderBy != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "orderBy", r.orderBy, "", "")
+	}
+	if r.search != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "search", r.search, "", "")
+	}
+	if r.select_ != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "select", r.select_, "", "")
+	}
+	if r.expand != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "expand", r.expand, "", "")
+	}
+	if r.isEmpty != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "isEmpty", r.isEmpty, "", "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {

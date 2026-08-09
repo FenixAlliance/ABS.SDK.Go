@@ -529,6 +529,7 @@ type ApiGetNewsletterSubscriptionsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	newsletterSubscriptionDtoCollectionQueryParameters *NewsletterSubscriptionDtoCollectionQueryParameters
 }
 
 func (r ApiGetNewsletterSubscriptionsAsyncRequest) TenantId(tenantId string) ApiGetNewsletterSubscriptionsAsyncRequest {
@@ -543,6 +544,11 @@ func (r ApiGetNewsletterSubscriptionsAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetNewsletterSubscriptionsAsyncRequest) XApiVersion(xApiVersion string) ApiGetNewsletterSubscriptionsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetNewsletterSubscriptionsAsyncRequest) NewsletterSubscriptionDtoCollectionQueryParameters(newsletterSubscriptionDtoCollectionQueryParameters NewsletterSubscriptionDtoCollectionQueryParameters) ApiGetNewsletterSubscriptionsAsyncRequest {
+	r.newsletterSubscriptionDtoCollectionQueryParameters = &newsletterSubscriptionDtoCollectionQueryParameters
 	return r
 }
 
@@ -594,7 +600,7 @@ func (a *NewsletterSubscriptionsAPIService) GetNewsletterSubscriptionsAsyncExecu
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -613,6 +619,8 @@ func (a *NewsletterSubscriptionsAPIService) GetNewsletterSubscriptionsAsyncExecu
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.newsletterSubscriptionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -689,6 +697,7 @@ type ApiGetNewsletterSubscriptionsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	newsletterSubscriptionDtoCollectionQueryParameters *NewsletterSubscriptionDtoCollectionQueryParameters
 }
 
 func (r ApiGetNewsletterSubscriptionsCountAsyncRequest) TenantId(tenantId string) ApiGetNewsletterSubscriptionsCountAsyncRequest {
@@ -703,6 +712,11 @@ func (r ApiGetNewsletterSubscriptionsCountAsyncRequest) ApiVersion(apiVersion st
 
 func (r ApiGetNewsletterSubscriptionsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetNewsletterSubscriptionsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetNewsletterSubscriptionsCountAsyncRequest) NewsletterSubscriptionDtoCollectionQueryParameters(newsletterSubscriptionDtoCollectionQueryParameters NewsletterSubscriptionDtoCollectionQueryParameters) ApiGetNewsletterSubscriptionsCountAsyncRequest {
+	r.newsletterSubscriptionDtoCollectionQueryParameters = &newsletterSubscriptionDtoCollectionQueryParameters
 	return r
 }
 
@@ -754,7 +768,7 @@ func (a *NewsletterSubscriptionsAPIService) GetNewsletterSubscriptionsCountAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -773,6 +787,8 @@ func (a *NewsletterSubscriptionsAPIService) GetNewsletterSubscriptionsCountAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.newsletterSubscriptionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

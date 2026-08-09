@@ -324,7 +324,7 @@ No authorization required
 
 ## GetSupportRequestAttachmentsByRequest
 
-> SupportRequestAttachmentDtoListEnvelope GetSupportRequestAttachmentsByRequest(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SupportRequestAttachmentDtoListEnvelope GetSupportRequestAttachmentsByRequest(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestAttachmentDtoCollectionQueryParameters(supportRequestAttachmentDtoCollectionQueryParameters).Execute()
 
 Retrieve attachments for a support request
 
@@ -347,10 +347,11 @@ func main() {
 	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportRequestAttachmentDtoCollectionQueryParameters := *openapiclient.NewSupportRequestAttachmentDtoCollectionQueryParameters() // SupportRequestAttachmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestAttachmentsByRequest(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestAttachmentsByRequest(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestAttachmentDtoCollectionQueryParameters(supportRequestAttachmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestAttachmentsByRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -379,6 +380,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **supportRequestAttachmentDtoCollectionQueryParameters** | [**SupportRequestAttachmentDtoCollectionQueryParameters**](SupportRequestAttachmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -390,7 +392,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -400,7 +402,7 @@ No authorization required
 
 ## GetSupportRequestAttachmentsCountByRequest
 
-> Int32Envelope GetSupportRequestAttachmentsCountByRequest(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetSupportRequestAttachmentsCountByRequest(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestAttachmentDtoCollectionQueryParameters(supportRequestAttachmentDtoCollectionQueryParameters).Execute()
 
 Get the count of attachments for a support request
 
@@ -423,10 +425,11 @@ func main() {
 	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportRequestAttachmentDtoCollectionQueryParameters := *openapiclient.NewSupportRequestAttachmentDtoCollectionQueryParameters() // SupportRequestAttachmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestAttachmentsCountByRequest(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestAttachmentsCountByRequest(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestAttachmentDtoCollectionQueryParameters(supportRequestAttachmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestAttachmentsCountByRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -455,6 +458,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **supportRequestAttachmentDtoCollectionQueryParameters** | [**SupportRequestAttachmentDtoCollectionQueryParameters**](SupportRequestAttachmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -466,7 +470,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -476,7 +480,7 @@ No authorization required
 
 ## GetSupportRequestTicketsAsync
 
-> SupportTicketDtoListEnvelope GetSupportRequestTicketsAsync(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SupportTicketDtoListEnvelope GetSupportRequestTicketsAsync(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketDtoCollectionQueryParameters(supportTicketDtoCollectionQueryParameters).Execute()
 
 Retrieve tickets for a support request
 
@@ -499,10 +503,11 @@ func main() {
 	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportTicketDtoCollectionQueryParameters := *openapiclient.NewSupportTicketDtoCollectionQueryParameters() // SupportTicketDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestTicketsAsync(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestTicketsAsync(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketDtoCollectionQueryParameters(supportTicketDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestTicketsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -531,6 +536,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **supportTicketDtoCollectionQueryParameters** | [**SupportTicketDtoCollectionQueryParameters**](SupportTicketDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -542,7 +548,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -552,7 +558,7 @@ No authorization required
 
 ## GetSupportRequestsAsync
 
-> SupportRequestDtoListEnvelope GetSupportRequestsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SupportRequestDtoListEnvelope GetSupportRequestsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestDtoCollectionQueryParameters(supportRequestDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of support requests
 
@@ -574,10 +580,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportRequestDtoCollectionQueryParameters := *openapiclient.NewSupportRequestDtoCollectionQueryParameters() // SupportRequestDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestDtoCollectionQueryParameters(supportRequestDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -601,6 +608,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **supportRequestDtoCollectionQueryParameters** | [**SupportRequestDtoCollectionQueryParameters**](SupportRequestDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -612,7 +620,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -622,7 +630,7 @@ No authorization required
 
 ## GetSupportRequestsCountAsync
 
-> Int32Envelope GetSupportRequestsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetSupportRequestsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestDtoCollectionQueryParameters(supportRequestDtoCollectionQueryParameters).Execute()
 
 Get the count of support requests
 
@@ -644,10 +652,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportRequestDtoCollectionQueryParameters := *openapiclient.NewSupportRequestDtoCollectionQueryParameters() // SupportRequestDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.GetSupportRequestsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportRequestDtoCollectionQueryParameters(supportRequestDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.GetSupportRequestsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -671,6 +680,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **supportRequestDtoCollectionQueryParameters** | [**SupportRequestDtoCollectionQueryParameters**](SupportRequestDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -682,7 +692,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -692,7 +702,7 @@ No authorization required
 
 ## PatchSupportRequestAsync
 
-> EmptyEnvelope PatchSupportRequestAsync(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchSupportRequestAsync(ctx, supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a support request
 
@@ -715,11 +725,11 @@ func main() {
 	supportRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportRequestsAPI.PatchSupportRequestAsync(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.SupportRequestsAPI.PatchSupportRequestAsync(context.Background(), supportRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SupportRequestsAPI.PatchSupportRequestAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -748,7 +758,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

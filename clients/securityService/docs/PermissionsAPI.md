@@ -639,7 +639,7 @@ No authorization required
 
 ## GetPermissionsAsync
 
-> SecurityPermissionDtoListEnvelope GetPermissionsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SecurityPermissionDtoListEnvelope GetPermissionsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityPermissionDtoCollectionQueryParameters(securityPermissionDtoCollectionQueryParameters).Execute()
 
 Get all permissions
 
@@ -661,10 +661,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	securityPermissionDtoCollectionQueryParameters := *openapiclient.NewSecurityPermissionDtoCollectionQueryParameters() // SecurityPermissionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.GetPermissionsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PermissionsAPI.GetPermissionsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityPermissionDtoCollectionQueryParameters(securityPermissionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.GetPermissionsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -688,6 +689,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **securityPermissionDtoCollectionQueryParameters** | [**SecurityPermissionDtoCollectionQueryParameters**](SecurityPermissionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -699,7 +701,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -785,7 +787,7 @@ No authorization required
 
 ## GetPermissionsCountAsync
 
-> Int32Envelope GetPermissionsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetPermissionsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityPermissionDtoCollectionQueryParameters(securityPermissionDtoCollectionQueryParameters).Execute()
 
 Get permissions count
 
@@ -807,10 +809,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	securityPermissionDtoCollectionQueryParameters := *openapiclient.NewSecurityPermissionDtoCollectionQueryParameters() // SecurityPermissionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.GetPermissionsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PermissionsAPI.GetPermissionsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityPermissionDtoCollectionQueryParameters(securityPermissionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.GetPermissionsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -834,6 +837,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **securityPermissionDtoCollectionQueryParameters** | [**SecurityPermissionDtoCollectionQueryParameters**](SecurityPermissionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -845,7 +849,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -931,7 +935,7 @@ No authorization required
 
 ## PatchPermissionAsync
 
-> EmptyEnvelope PatchPermissionAsync(ctx, securityPermissionId).TenantId(tenantId).Operation(operation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope PatchPermissionAsync(ctx, securityPermissionId).TenantId(tenantId).PatchOperation(patchOperation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Patch an existing permission
 
@@ -952,13 +956,13 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	securityPermissionId := "securityPermissionId_example" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation | 
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PermissionsAPI.PatchPermissionAsync(context.Background(), securityPermissionId).TenantId(tenantId).Operation(operation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PermissionsAPI.PatchPermissionAsync(context.Background(), securityPermissionId).TenantId(tenantId).PatchOperation(patchOperation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PatchPermissionAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -985,7 +989,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 

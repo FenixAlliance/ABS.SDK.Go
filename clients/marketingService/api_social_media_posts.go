@@ -529,6 +529,7 @@ type ApiGetSocialMediaPostsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	socialMediaPostDtoCollectionQueryParameters *SocialMediaPostDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialMediaPostsCountAsyncRequest) TenantId(tenantId string) ApiGetSocialMediaPostsCountAsyncRequest {
@@ -543,6 +544,11 @@ func (r ApiGetSocialMediaPostsCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetSocialMediaPostsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialMediaPostsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialMediaPostsCountAsyncRequest) SocialMediaPostDtoCollectionQueryParameters(socialMediaPostDtoCollectionQueryParameters SocialMediaPostDtoCollectionQueryParameters) ApiGetSocialMediaPostsCountAsyncRequest {
+	r.socialMediaPostDtoCollectionQueryParameters = &socialMediaPostDtoCollectionQueryParameters
 	return r
 }
 
@@ -594,7 +600,7 @@ func (a *SocialMediaPostsAPIService) GetSocialMediaPostsCountAsyncExecute(r ApiG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -613,6 +619,8 @@ func (a *SocialMediaPostsAPIService) GetSocialMediaPostsCountAsyncExecute(r ApiG
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialMediaPostDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -689,6 +697,7 @@ type ApiGetSocialMediaPostsODataAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	socialMediaPostDtoCollectionQueryParameters *SocialMediaPostDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialMediaPostsODataAsyncRequest) TenantId(tenantId string) ApiGetSocialMediaPostsODataAsyncRequest {
@@ -703,6 +712,11 @@ func (r ApiGetSocialMediaPostsODataAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetSocialMediaPostsODataAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialMediaPostsODataAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialMediaPostsODataAsyncRequest) SocialMediaPostDtoCollectionQueryParameters(socialMediaPostDtoCollectionQueryParameters SocialMediaPostDtoCollectionQueryParameters) ApiGetSocialMediaPostsODataAsyncRequest {
+	r.socialMediaPostDtoCollectionQueryParameters = &socialMediaPostDtoCollectionQueryParameters
 	return r
 }
 
@@ -754,7 +768,7 @@ func (a *SocialMediaPostsAPIService) GetSocialMediaPostsODataAsyncExecute(r ApiG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -773,6 +787,8 @@ func (a *SocialMediaPostsAPIService) GetSocialMediaPostsODataAsyncExecute(r ApiG
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialMediaPostDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -839,7 +855,7 @@ type ApiPatchSocialMediaPostAsyncRequest struct {
 	socialmediapostId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSocialMediaPostAsyncRequest) TenantId(tenantId string) ApiPatchSocialMediaPostAsyncRequest {
@@ -857,8 +873,8 @@ func (r ApiPatchSocialMediaPostAsyncRequest) XApiVersion(xApiVersion string) Api
 	return r
 }
 
-func (r ApiPatchSocialMediaPostAsyncRequest) Operation(operation []Operation) ApiPatchSocialMediaPostAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSocialMediaPostAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSocialMediaPostAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -933,7 +949,7 @@ func (a *SocialMediaPostsAPIService) PatchSocialMediaPostAsyncExecute(r ApiPatch
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **IndividualId** | Pointer to **NullableString** |  | [optional] 
 **PaymentTermId** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableString** |  | [optional] 
+**ReceiverTenantId** | Pointer to **NullableString** |  | [optional] 
 **FirstName** | Pointer to **NullableString** |  | [optional] 
 **LastName** | Pointer to **NullableString** |  | [optional] 
 **CompanyName** | Pointer to **NullableString** |  | [optional] 
@@ -61,7 +62,6 @@ Name | Type | Description | Notes
 **OrderStatus** | Pointer to **string** |  | [optional] 
 **QuoteStatus** | Pointer to **string** |  | [optional] 
 **FreightTerms** | Pointer to **string** |  | [optional] 
-**ReceiverTenantId** | Pointer to **NullableString** |  | [optional] 
 **ShippingLocationId** | Pointer to **NullableString** |  | [optional] 
 **QualifiedIdentifier** | Pointer to **NullableString** |  | [optional] 
 **TotalTaxesInUsd** | Pointer to **float64** |  | [optional] 
@@ -378,6 +378,41 @@ HasOrganizationId returns a boolean if a field has been set.
 `func (o *OrderCreateDto) UnsetOrganizationId()`
 
 UnsetOrganizationId ensures that no value is present for OrganizationId, not even an explicit nil
+### GetReceiverTenantId
+
+`func (o *OrderCreateDto) GetReceiverTenantId() string`
+
+GetReceiverTenantId returns the ReceiverTenantId field if non-nil, zero value otherwise.
+
+### GetReceiverTenantIdOk
+
+`func (o *OrderCreateDto) GetReceiverTenantIdOk() (*string, bool)`
+
+GetReceiverTenantIdOk returns a tuple with the ReceiverTenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReceiverTenantId
+
+`func (o *OrderCreateDto) SetReceiverTenantId(v string)`
+
+SetReceiverTenantId sets ReceiverTenantId field to given value.
+
+### HasReceiverTenantId
+
+`func (o *OrderCreateDto) HasReceiverTenantId() bool`
+
+HasReceiverTenantId returns a boolean if a field has been set.
+
+### SetReceiverTenantIdNil
+
+`func (o *OrderCreateDto) SetReceiverTenantIdNil(b bool)`
+
+ SetReceiverTenantIdNil sets the value for ReceiverTenantId to be an explicit nil
+
+### UnsetReceiverTenantId
+`func (o *OrderCreateDto) UnsetReceiverTenantId()`
+
+UnsetReceiverTenantId ensures that no value is present for ReceiverTenantId, not even an explicit nil
 ### GetFirstName
 
 `func (o *OrderCreateDto) GetFirstName() string`
@@ -1878,41 +1913,6 @@ SetFreightTerms sets FreightTerms field to given value.
 
 HasFreightTerms returns a boolean if a field has been set.
 
-### GetReceiverTenantId
-
-`func (o *OrderCreateDto) GetReceiverTenantId() string`
-
-GetReceiverTenantId returns the ReceiverTenantId field if non-nil, zero value otherwise.
-
-### GetReceiverTenantIdOk
-
-`func (o *OrderCreateDto) GetReceiverTenantIdOk() (*string, bool)`
-
-GetReceiverTenantIdOk returns a tuple with the ReceiverTenantId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReceiverTenantId
-
-`func (o *OrderCreateDto) SetReceiverTenantId(v string)`
-
-SetReceiverTenantId sets ReceiverTenantId field to given value.
-
-### HasReceiverTenantId
-
-`func (o *OrderCreateDto) HasReceiverTenantId() bool`
-
-HasReceiverTenantId returns a boolean if a field has been set.
-
-### SetReceiverTenantIdNil
-
-`func (o *OrderCreateDto) SetReceiverTenantIdNil(b bool)`
-
- SetReceiverTenantIdNil sets the value for ReceiverTenantId to be an explicit nil
-
-### UnsetReceiverTenantId
-`func (o *OrderCreateDto) UnsetReceiverTenantId()`
-
-UnsetReceiverTenantId ensures that no value is present for ReceiverTenantId, not even an explicit nil
 ### GetShippingLocationId
 
 `func (o *OrderCreateDto) GetShippingLocationId() string`

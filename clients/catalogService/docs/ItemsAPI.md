@@ -229,7 +229,7 @@ No authorization required
 
 ## CountStockItemTagsByItemId
 
-> Int32Envelope CountStockItemTagsByItemId(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountStockItemTagsByItemId(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemTagDtoCollectionQueryParameters(itemTagDtoCollectionQueryParameters).Execute()
 
 Count tags for a stock item
 
@@ -252,10 +252,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemTagDtoCollectionQueryParameters := *openapiclient.NewItemTagDtoCollectionQueryParameters() // ItemTagDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.CountStockItemTagsByItemId(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.CountStockItemTagsByItemId(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemTagDtoCollectionQueryParameters(itemTagDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.CountStockItemTagsByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -284,6 +285,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemTagDtoCollectionQueryParameters** | [**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -295,7 +297,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -305,7 +307,7 @@ No authorization required
 
 ## CountStockItemsByBusiness
 
-> Int32Envelope CountStockItemsByBusiness(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountStockItemsByBusiness(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters).Execute()
 
 Count stock items by business
 
@@ -327,10 +329,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	catalogItemDtoCollectionQueryParameters := *openapiclient.NewCatalogItemDtoCollectionQueryParameters() // CatalogItemDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.CountStockItemsByBusiness(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.CountStockItemsByBusiness(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.CountStockItemsByBusiness``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -354,6 +357,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -365,7 +369,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -744,7 +748,7 @@ No authorization required
 
 ## GetStockItemAttachmentsByItemId
 
-> ItemAttachmentDtoListEnvelope GetStockItemAttachmentsByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemAttachmentDtoListEnvelope GetStockItemAttachmentsByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemAttachmentDtoCollectionQueryParameters(itemAttachmentDtoCollectionQueryParameters).Execute()
 
 Get attachments for a stock item
 
@@ -766,10 +770,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemAttachmentDtoCollectionQueryParameters := *openapiclient.NewItemAttachmentDtoCollectionQueryParameters() // ItemAttachmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemAttachmentsByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemAttachmentsByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemAttachmentDtoCollectionQueryParameters(itemAttachmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemAttachmentsByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -797,6 +802,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemAttachmentDtoCollectionQueryParameters** | [**ItemAttachmentDtoCollectionQueryParameters**](ItemAttachmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -808,7 +814,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1046,7 +1052,7 @@ No authorization required
 
 ## GetStockItemBrandsByItemId
 
-> ItemBrandDtoListEnvelope GetStockItemBrandsByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemBrandDtoListEnvelope GetStockItemBrandsByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemBrandDtoCollectionQueryParameters(itemBrandDtoCollectionQueryParameters).Execute()
 
 Get brands for a stock item
 
@@ -1068,10 +1074,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemBrandDtoCollectionQueryParameters := *openapiclient.NewItemBrandDtoCollectionQueryParameters() // ItemBrandDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemBrandsByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemBrandsByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemBrandDtoCollectionQueryParameters(itemBrandDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemBrandsByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1099,6 +1106,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemBrandDtoCollectionQueryParameters** | [**ItemBrandDtoCollectionQueryParameters**](ItemBrandDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1110,7 +1118,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1194,7 +1202,7 @@ No authorization required
 
 ## GetStockItemCategoriesByItemId
 
-> ItemCategoryDtoListEnvelope GetStockItemCategoriesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemCategoryDtoListEnvelope GetStockItemCategoriesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemCategoryDtoCollectionQueryParameters(itemCategoryDtoCollectionQueryParameters).Execute()
 
 Get categories for a stock item
 
@@ -1216,10 +1224,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemCategoryDtoCollectionQueryParameters := *openapiclient.NewItemCategoryDtoCollectionQueryParameters() // ItemCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemCategoriesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemCategoriesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemCategoryDtoCollectionQueryParameters(itemCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemCategoriesByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1247,6 +1256,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemCategoryDtoCollectionQueryParameters** | [**ItemCategoryDtoCollectionQueryParameters**](ItemCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1258,7 +1268,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1345,7 +1355,7 @@ No authorization required
 
 ## GetStockItemGoogleCategoriesByItemId
 
-> ItemGoogleCategoryDtoListEnvelope GetStockItemGoogleCategoriesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemGoogleCategoryDtoListEnvelope GetStockItemGoogleCategoriesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemGoogleCategoryDtoCollectionQueryParameters(itemGoogleCategoryDtoCollectionQueryParameters).Execute()
 
 Get Google categories for a stock item
 
@@ -1367,10 +1377,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemGoogleCategoryDtoCollectionQueryParameters := *openapiclient.NewItemGoogleCategoryDtoCollectionQueryParameters() // ItemGoogleCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemGoogleCategoriesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemGoogleCategoriesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemGoogleCategoryDtoCollectionQueryParameters(itemGoogleCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemGoogleCategoriesByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1398,6 +1409,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1409,7 +1421,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1573,7 +1585,7 @@ No authorization required
 
 ## GetStockItemImagesByItemId
 
-> ItemImageDtoListEnvelope GetStockItemImagesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemImageDtoListEnvelope GetStockItemImagesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemImageDtoCollectionQueryParameters(itemImageDtoCollectionQueryParameters).Execute()
 
 Get images for a stock item
 
@@ -1595,10 +1607,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemImageDtoCollectionQueryParameters := *openapiclient.NewItemImageDtoCollectionQueryParameters() // ItemImageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemImagesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemImagesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemImageDtoCollectionQueryParameters(itemImageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemImagesByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1626,6 +1639,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemImageDtoCollectionQueryParameters** | [**ItemImageDtoCollectionQueryParameters**](ItemImageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1637,7 +1651,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1875,7 +1889,7 @@ No authorization required
 
 ## GetStockItemQuestionsByItemId
 
-> ItemQuestionDtoListEnvelope GetStockItemQuestionsByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemQuestionDtoListEnvelope GetStockItemQuestionsByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemQuestionDtoCollectionQueryParameters(itemQuestionDtoCollectionQueryParameters).Execute()
 
 Get questions for a stock item
 
@@ -1897,10 +1911,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemQuestionDtoCollectionQueryParameters := *openapiclient.NewItemQuestionDtoCollectionQueryParameters() // ItemQuestionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemQuestionsByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemQuestionsByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemQuestionDtoCollectionQueryParameters(itemQuestionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemQuestionsByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1928,6 +1943,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemQuestionDtoCollectionQueryParameters** | [**ItemQuestionDtoCollectionQueryParameters**](ItemQuestionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1939,7 +1955,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1949,7 +1965,7 @@ No authorization required
 
 ## GetStockItemRefundPoliciesByItemId
 
-> ItemRefundPolicyDtoListEnvelope GetStockItemRefundPoliciesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemRefundPolicyDtoListEnvelope GetStockItemRefundPoliciesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemRefundPolicyDtoCollectionQueryParameters(itemRefundPolicyDtoCollectionQueryParameters).Execute()
 
 Get refund policies for a stock item
 
@@ -1971,10 +1987,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemRefundPolicyDtoCollectionQueryParameters := *openapiclient.NewItemRefundPolicyDtoCollectionQueryParameters() // ItemRefundPolicyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemRefundPoliciesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemRefundPoliciesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemRefundPolicyDtoCollectionQueryParameters(itemRefundPolicyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemRefundPoliciesByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2002,6 +2019,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemRefundPolicyDtoCollectionQueryParameters** | [**ItemRefundPolicyDtoCollectionQueryParameters**](ItemRefundPolicyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2013,7 +2031,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2100,7 +2118,7 @@ No authorization required
 
 ## GetStockItemReturnPoliciesByItemId
 
-> ItemReturnPolicyDtoListEnvelope GetStockItemReturnPoliciesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemReturnPolicyDtoListEnvelope GetStockItemReturnPoliciesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemReturnPolicyDtoCollectionQueryParameters(itemReturnPolicyDtoCollectionQueryParameters).Execute()
 
 Get return policies for a stock item
 
@@ -2122,10 +2140,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemReturnPolicyDtoCollectionQueryParameters := *openapiclient.NewItemReturnPolicyDtoCollectionQueryParameters() // ItemReturnPolicyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemReturnPoliciesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemReturnPoliciesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemReturnPolicyDtoCollectionQueryParameters(itemReturnPolicyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemReturnPoliciesByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2153,6 +2172,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemReturnPolicyDtoCollectionQueryParameters** | [**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2164,7 +2184,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2328,7 +2348,7 @@ No authorization required
 
 ## GetStockItemReviewsByItemId
 
-> ItemReviewDtoListEnvelope GetStockItemReviewsByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemReviewDtoListEnvelope GetStockItemReviewsByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemReviewDtoCollectionQueryParameters(itemReviewDtoCollectionQueryParameters).Execute()
 
 Get reviews for a stock item
 
@@ -2350,10 +2370,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemReviewDtoCollectionQueryParameters := *openapiclient.NewItemReviewDtoCollectionQueryParameters() // ItemReviewDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemReviewsByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemReviewsByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemReviewDtoCollectionQueryParameters(itemReviewDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemReviewsByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2381,6 +2402,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemReviewDtoCollectionQueryParameters** | [**ItemReviewDtoCollectionQueryParameters**](ItemReviewDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2392,7 +2414,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2402,7 +2424,7 @@ No authorization required
 
 ## GetStockItemShippingPoliciesByItemId
 
-> ItemShippingPolicyDtoListEnvelope GetStockItemShippingPoliciesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemShippingPolicyDtoListEnvelope GetStockItemShippingPoliciesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemShippingPolicyDtoCollectionQueryParameters(itemShippingPolicyDtoCollectionQueryParameters).Execute()
 
 Get shipping policies for a stock item
 
@@ -2424,10 +2446,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemShippingPolicyDtoCollectionQueryParameters := *openapiclient.NewItemShippingPolicyDtoCollectionQueryParameters() // ItemShippingPolicyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemShippingPoliciesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemShippingPoliciesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemShippingPolicyDtoCollectionQueryParameters(itemShippingPolicyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemShippingPoliciesByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2455,6 +2478,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2466,7 +2490,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2632,7 +2656,7 @@ No authorization required
 
 ## GetStockItemTagsByItemId
 
-> ItemTagDtoListEnvelope GetStockItemTagsByItemId(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemTagDtoListEnvelope GetStockItemTagsByItemId(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemTagDtoCollectionQueryParameters(itemTagDtoCollectionQueryParameters).Execute()
 
 Get tags for a stock item
 
@@ -2655,10 +2679,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemTagDtoCollectionQueryParameters := *openapiclient.NewItemTagDtoCollectionQueryParameters() // ItemTagDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemTagsByItemId(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemTagsByItemId(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemTagDtoCollectionQueryParameters(itemTagDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemTagsByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2687,6 +2712,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemTagDtoCollectionQueryParameters** | [**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2698,7 +2724,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2708,7 +2734,7 @@ No authorization required
 
 ## GetStockItemTaxPoliciesByItemId
 
-> ItemTaxPolicyDtoListEnvelope GetStockItemTaxPoliciesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemTaxPolicyDtoListEnvelope GetStockItemTaxPoliciesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemTaxPolicyDtoCollectionQueryParameters(itemTaxPolicyDtoCollectionQueryParameters).Execute()
 
 Get tax policies for a stock item
 
@@ -2730,10 +2756,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemTaxPolicyDtoCollectionQueryParameters := *openapiclient.NewItemTaxPolicyDtoCollectionQueryParameters() // ItemTaxPolicyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemTaxPoliciesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemTaxPoliciesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemTaxPolicyDtoCollectionQueryParameters(itemTaxPolicyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemTaxPoliciesByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2761,6 +2788,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemTaxPolicyDtoCollectionQueryParameters** | [**ItemTaxPolicyDtoCollectionQueryParameters**](ItemTaxPolicyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2772,7 +2800,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2938,7 +2966,7 @@ No authorization required
 
 ## GetStockItemTypesByItemId
 
-> ItemTypeDtoListEnvelope GetStockItemTypesByItemId(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemTypeDtoListEnvelope GetStockItemTypesByItemId(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemTypeDtoCollectionQueryParameters(itemTypeDtoCollectionQueryParameters).Execute()
 
 Get types for a stock item
 
@@ -2961,10 +2989,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemTypeDtoCollectionQueryParameters := *openapiclient.NewItemTypeDtoCollectionQueryParameters() // ItemTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemTypesByItemId(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemTypesByItemId(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemTypeDtoCollectionQueryParameters(itemTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemTypesByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2993,6 +3022,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemTypeDtoCollectionQueryParameters** | [**ItemTypeDtoCollectionQueryParameters**](ItemTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -3004,7 +3034,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3014,7 +3044,7 @@ No authorization required
 
 ## GetStockItemWarrantyPoliciesByItemId
 
-> ItemWarrantyPolicyDtoListEnvelope GetStockItemWarrantyPoliciesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemWarrantyPolicyDtoListEnvelope GetStockItemWarrantyPoliciesByItemId(ctx, itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemWarrantyPolicyDtoCollectionQueryParameters(itemWarrantyPolicyDtoCollectionQueryParameters).Execute()
 
 Get warranty policies for a stock item
 
@@ -3036,10 +3066,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemWarrantyPolicyDtoCollectionQueryParameters := *openapiclient.NewItemWarrantyPolicyDtoCollectionQueryParameters() // ItemWarrantyPolicyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemWarrantyPoliciesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemWarrantyPoliciesByItemId(context.Background(), itemId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemWarrantyPolicyDtoCollectionQueryParameters(itemWarrantyPolicyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemWarrantyPoliciesByItemId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3067,6 +3098,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemWarrantyPolicyDtoCollectionQueryParameters** | [**ItemWarrantyPolicyDtoCollectionQueryParameters**](ItemWarrantyPolicyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -3078,7 +3110,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3165,7 +3197,7 @@ No authorization required
 
 ## GetStockItemsOdataMaxPrice
 
-> MoneyEnvelope GetStockItemsOdataMaxPrice(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> MoneyEnvelope GetStockItemsOdataMaxPrice(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters).Execute()
 
 Get max price of stock items
 
@@ -3187,10 +3219,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	catalogItemDtoCollectionQueryParameters := *openapiclient.NewCatalogItemDtoCollectionQueryParameters() // CatalogItemDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemsOdataMaxPrice(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemsOdataMaxPrice(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemsOdataMaxPrice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3214,6 +3247,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -3225,7 +3259,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3235,7 +3269,7 @@ No authorization required
 
 ## GetStockItemsOdataMinPrice
 
-> MoneyEnvelope GetStockItemsOdataMinPrice(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> MoneyEnvelope GetStockItemsOdataMinPrice(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters).Execute()
 
 Get min price of stock items
 
@@ -3257,10 +3291,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	catalogItemDtoCollectionQueryParameters := *openapiclient.NewCatalogItemDtoCollectionQueryParameters() // CatalogItemDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemsOdataMinPrice(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemsOdataMinPrice(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemsOdataMinPrice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3284,6 +3319,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -3295,7 +3331,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3305,7 +3341,7 @@ No authorization required
 
 ## GetStockItemsQuery
 
-> CatalogItemDtoListEnvelope GetStockItemsQuery(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CatalogItemDtoListEnvelope GetStockItemsQuery(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters).Execute()
 
 Get all stock items
 
@@ -3327,10 +3363,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	catalogItemDtoCollectionQueryParameters := *openapiclient.NewCatalogItemDtoCollectionQueryParameters() // CatalogItemDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemsAPI.GetStockItemsQuery(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemsAPI.GetStockItemsQuery(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetStockItemsQuery``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3354,6 +3391,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -3365,7 +3403,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3375,7 +3413,7 @@ No authorization required
 
 ## PatchStockItem
 
-> PatchStockItem(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> PatchStockItem(ctx, itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a stock item
 
@@ -3398,11 +3436,11 @@ func main() {
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ItemsAPI.PatchStockItem(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	r, err := apiClient.ItemsAPI.PatchStockItem(context.Background(), itemId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.PatchStockItem``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3429,7 +3467,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

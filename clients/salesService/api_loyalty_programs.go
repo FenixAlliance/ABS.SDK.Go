@@ -28,10 +28,16 @@ type ApiCountLoyaltyProgramsAsyncRequest struct {
 	ctx context.Context
 	ApiService *LoyaltyProgramsAPIService
 	tenantId *string
+	loyaltyProgramDtoCollectionQueryParameters *LoyaltyProgramDtoCollectionQueryParameters
 }
 
 func (r ApiCountLoyaltyProgramsAsyncRequest) TenantId(tenantId string) ApiCountLoyaltyProgramsAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiCountLoyaltyProgramsAsyncRequest) LoyaltyProgramDtoCollectionQueryParameters(loyaltyProgramDtoCollectionQueryParameters LoyaltyProgramDtoCollectionQueryParameters) ApiCountLoyaltyProgramsAsyncRequest {
+	r.loyaltyProgramDtoCollectionQueryParameters = &loyaltyProgramDtoCollectionQueryParameters
 	return r
 }
 
@@ -80,7 +86,7 @@ func (a *LoyaltyProgramsAPIService) CountLoyaltyProgramsAsyncExecute(r ApiCountL
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -96,6 +102,8 @@ func (a *LoyaltyProgramsAPIService) CountLoyaltyProgramsAsyncExecute(r ApiCountL
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.loyaltyProgramDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -524,10 +532,16 @@ type ApiGetLoyaltyProgramsAsyncRequest struct {
 	ctx context.Context
 	ApiService *LoyaltyProgramsAPIService
 	tenantId *string
+	loyaltyProgramDtoCollectionQueryParameters *LoyaltyProgramDtoCollectionQueryParameters
 }
 
 func (r ApiGetLoyaltyProgramsAsyncRequest) TenantId(tenantId string) ApiGetLoyaltyProgramsAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetLoyaltyProgramsAsyncRequest) LoyaltyProgramDtoCollectionQueryParameters(loyaltyProgramDtoCollectionQueryParameters LoyaltyProgramDtoCollectionQueryParameters) ApiGetLoyaltyProgramsAsyncRequest {
+	r.loyaltyProgramDtoCollectionQueryParameters = &loyaltyProgramDtoCollectionQueryParameters
 	return r
 }
 
@@ -576,7 +590,7 @@ func (a *LoyaltyProgramsAPIService) GetLoyaltyProgramsAsyncExecute(r ApiGetLoyal
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -592,6 +606,8 @@ func (a *LoyaltyProgramsAPIService) GetLoyaltyProgramsAsyncExecute(r ApiGetLoyal
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.loyaltyProgramDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -645,7 +661,7 @@ type ApiPatchLoyaltyProgramAsyncRequest struct {
 	ApiService *LoyaltyProgramsAPIService
 	tenantId *string
 	loyaltyProgramId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchLoyaltyProgramAsyncRequest) TenantId(tenantId string) ApiPatchLoyaltyProgramAsyncRequest {
@@ -653,8 +669,8 @@ func (r ApiPatchLoyaltyProgramAsyncRequest) TenantId(tenantId string) ApiPatchLo
 	return r
 }
 
-func (r ApiPatchLoyaltyProgramAsyncRequest) Operation(operation []Operation) ApiPatchLoyaltyProgramAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchLoyaltyProgramAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchLoyaltyProgramAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -723,7 +739,7 @@ func (a *LoyaltyProgramsAPIService) PatchLoyaltyProgramAsyncExecute(r ApiPatchLo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

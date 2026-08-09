@@ -46,6 +46,7 @@ type OrderDto struct {
 	CityId NullableString `json:"cityId,omitempty"`
 	CustomerNotes NullableString `json:"customerNotes,omitempty"`
 	TaxCalculationMethod *string `json:"taxCalculationMethod,omitempty"`
+	CostCalculationMethod *string `json:"costCalculationMethod,omitempty"`
 	ForexRate *float64 `json:"forexRate,omitempty"`
 	ForexRatesSnapshot NullableString `json:"forexRatesSnapshot,omitempty"`
 	CurrencyId NullableString `json:"currencyId,omitempty"`
@@ -96,7 +97,6 @@ type OrderDto struct {
 	QualifiedIdentifier NullableString `json:"qualifiedIdentifier,omitempty"`
 	SellerBillingProfileId NullableString `json:"sellerBillingProfileId,omitempty"`
 	BuyerBillingProfileId NullableString `json:"buyerBillingProfileId,omitempty"`
-	CostCalculationMethod *string `json:"costCalculationMethod,omitempty"`
 	FreightTerms *string `json:"freightTerms,omitempty"`
 	OrderStatus *string `json:"orderStatus,omitempty"`
 	RequestedDeliveryDate *time.Time `json:"requestedDeliveryDate,omitempty"`
@@ -1156,6 +1156,38 @@ func (o *OrderDto) HasTaxCalculationMethod() bool {
 // SetTaxCalculationMethod gets a reference to the given string and assigns it to the TaxCalculationMethod field.
 func (o *OrderDto) SetTaxCalculationMethod(v string) {
 	o.TaxCalculationMethod = &v
+}
+
+// GetCostCalculationMethod returns the CostCalculationMethod field value if set, zero value otherwise.
+func (o *OrderDto) GetCostCalculationMethod() string {
+	if o == nil || IsNil(o.CostCalculationMethod) {
+		var ret string
+		return ret
+	}
+	return *o.CostCalculationMethod
+}
+
+// GetCostCalculationMethodOk returns a tuple with the CostCalculationMethod field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderDto) GetCostCalculationMethodOk() (*string, bool) {
+	if o == nil || IsNil(o.CostCalculationMethod) {
+		return nil, false
+	}
+	return o.CostCalculationMethod, true
+}
+
+// HasCostCalculationMethod returns a boolean if a field has been set.
+func (o *OrderDto) HasCostCalculationMethod() bool {
+	if o != nil && !IsNil(o.CostCalculationMethod) {
+		return true
+	}
+
+	return false
+}
+
+// SetCostCalculationMethod gets a reference to the given string and assigns it to the CostCalculationMethod field.
+func (o *OrderDto) SetCostCalculationMethod(v string) {
+	o.CostCalculationMethod = &v
 }
 
 // GetForexRate returns the ForexRate field value if set, zero value otherwise.
@@ -2998,38 +3030,6 @@ func (o *OrderDto) UnsetBuyerBillingProfileId() {
 	o.BuyerBillingProfileId.Unset()
 }
 
-// GetCostCalculationMethod returns the CostCalculationMethod field value if set, zero value otherwise.
-func (o *OrderDto) GetCostCalculationMethod() string {
-	if o == nil || IsNil(o.CostCalculationMethod) {
-		var ret string
-		return ret
-	}
-	return *o.CostCalculationMethod
-}
-
-// GetCostCalculationMethodOk returns a tuple with the CostCalculationMethod field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *OrderDto) GetCostCalculationMethodOk() (*string, bool) {
-	if o == nil || IsNil(o.CostCalculationMethod) {
-		return nil, false
-	}
-	return o.CostCalculationMethod, true
-}
-
-// HasCostCalculationMethod returns a boolean if a field has been set.
-func (o *OrderDto) HasCostCalculationMethod() bool {
-	if o != nil && !IsNil(o.CostCalculationMethod) {
-		return true
-	}
-
-	return false
-}
-
-// SetCostCalculationMethod gets a reference to the given string and assigns it to the CostCalculationMethod field.
-func (o *OrderDto) SetCostCalculationMethod(v string) {
-	o.CostCalculationMethod = &v
-}
-
 // GetFreightTerms returns the FreightTerms field value if set, zero value otherwise.
 func (o *OrderDto) GetFreightTerms() string {
 	if o == nil || IsNil(o.FreightTerms) {
@@ -3499,6 +3499,9 @@ func (o OrderDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TaxCalculationMethod) {
 		toSerialize["taxCalculationMethod"] = o.TaxCalculationMethod
 	}
+	if !IsNil(o.CostCalculationMethod) {
+		toSerialize["costCalculationMethod"] = o.CostCalculationMethod
+	}
 	if !IsNil(o.ForexRate) {
 		toSerialize["forexRate"] = o.ForexRate
 	}
@@ -3648,9 +3651,6 @@ func (o OrderDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.BuyerBillingProfileId.IsSet() {
 		toSerialize["buyerBillingProfileId"] = o.BuyerBillingProfileId.Get()
-	}
-	if !IsNil(o.CostCalculationMethod) {
-		toSerialize["costCalculationMethod"] = o.CostCalculationMethod
 	}
 	if !IsNil(o.FreightTerms) {
 		toSerialize["freightTerms"] = o.FreightTerms

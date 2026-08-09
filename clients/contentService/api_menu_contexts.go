@@ -30,6 +30,7 @@ type ApiCountMenuContextsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	menuContextDtoCollectionQueryParameters *MenuContextDtoCollectionQueryParameters
 }
 
 func (r ApiCountMenuContextsAsyncRequest) TenantId(tenantId string) ApiCountMenuContextsAsyncRequest {
@@ -44,6 +45,11 @@ func (r ApiCountMenuContextsAsyncRequest) ApiVersion(apiVersion string) ApiCount
 
 func (r ApiCountMenuContextsAsyncRequest) XApiVersion(xApiVersion string) ApiCountMenuContextsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountMenuContextsAsyncRequest) MenuContextDtoCollectionQueryParameters(menuContextDtoCollectionQueryParameters MenuContextDtoCollectionQueryParameters) ApiCountMenuContextsAsyncRequest {
+	r.menuContextDtoCollectionQueryParameters = &menuContextDtoCollectionQueryParameters
 	return r
 }
 
@@ -95,7 +101,7 @@ func (a *MenuContextsAPIService) CountMenuContextsAsyncExecute(r ApiCountMenuCon
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -114,6 +120,8 @@ func (a *MenuContextsAPIService) CountMenuContextsAsyncExecute(r ApiCountMenuCon
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.menuContextDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -645,6 +653,7 @@ type ApiGetMenuContextsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	menuContextDtoCollectionQueryParameters *MenuContextDtoCollectionQueryParameters
 }
 
 func (r ApiGetMenuContextsAsyncRequest) TenantId(tenantId string) ApiGetMenuContextsAsyncRequest {
@@ -659,6 +668,11 @@ func (r ApiGetMenuContextsAsyncRequest) ApiVersion(apiVersion string) ApiGetMenu
 
 func (r ApiGetMenuContextsAsyncRequest) XApiVersion(xApiVersion string) ApiGetMenuContextsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMenuContextsAsyncRequest) MenuContextDtoCollectionQueryParameters(menuContextDtoCollectionQueryParameters MenuContextDtoCollectionQueryParameters) ApiGetMenuContextsAsyncRequest {
+	r.menuContextDtoCollectionQueryParameters = &menuContextDtoCollectionQueryParameters
 	return r
 }
 
@@ -710,7 +724,7 @@ func (a *MenuContextsAPIService) GetMenuContextsAsyncExecute(r ApiGetMenuContext
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -729,6 +743,8 @@ func (a *MenuContextsAPIService) GetMenuContextsAsyncExecute(r ApiGetMenuContext
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.menuContextDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

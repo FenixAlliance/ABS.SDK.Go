@@ -340,6 +340,7 @@ type ApiGetExtendedTenantEnrollmentsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	extendedTenantEnrollmentDtoCollectionQueryParameters *ExtendedTenantEnrollmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetExtendedTenantEnrollmentsRequest) TenantId(tenantId string) ApiGetExtendedTenantEnrollmentsRequest {
@@ -354,6 +355,11 @@ func (r ApiGetExtendedTenantEnrollmentsRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetExtendedTenantEnrollmentsRequest) XApiVersion(xApiVersion string) ApiGetExtendedTenantEnrollmentsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetExtendedTenantEnrollmentsRequest) ExtendedTenantEnrollmentDtoCollectionQueryParameters(extendedTenantEnrollmentDtoCollectionQueryParameters ExtendedTenantEnrollmentDtoCollectionQueryParameters) ApiGetExtendedTenantEnrollmentsRequest {
+	r.extendedTenantEnrollmentDtoCollectionQueryParameters = &extendedTenantEnrollmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -405,7 +411,7 @@ func (a *EnrollmentsAPIService) GetExtendedTenantEnrollmentsExecute(r ApiGetExte
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -424,6 +430,8 @@ func (a *EnrollmentsAPIService) GetExtendedTenantEnrollmentsExecute(r ApiGetExte
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.extendedTenantEnrollmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -489,6 +497,7 @@ type ApiGetExtendedTenantEnrollmentsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	extendedTenantEnrollmentDtoCollectionQueryParameters *ExtendedTenantEnrollmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetExtendedTenantEnrollmentsCountRequest) TenantId(tenantId string) ApiGetExtendedTenantEnrollmentsCountRequest {
@@ -503,6 +512,11 @@ func (r ApiGetExtendedTenantEnrollmentsCountRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetExtendedTenantEnrollmentsCountRequest) XApiVersion(xApiVersion string) ApiGetExtendedTenantEnrollmentsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetExtendedTenantEnrollmentsCountRequest) ExtendedTenantEnrollmentDtoCollectionQueryParameters(extendedTenantEnrollmentDtoCollectionQueryParameters ExtendedTenantEnrollmentDtoCollectionQueryParameters) ApiGetExtendedTenantEnrollmentsCountRequest {
+	r.extendedTenantEnrollmentDtoCollectionQueryParameters = &extendedTenantEnrollmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -554,7 +568,7 @@ func (a *EnrollmentsAPIService) GetExtendedTenantEnrollmentsCountExecute(r ApiGe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -573,6 +587,8 @@ func (a *EnrollmentsAPIService) GetExtendedTenantEnrollmentsCountExecute(r ApiGe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.extendedTenantEnrollmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -801,6 +817,7 @@ type ApiGetTenantEnrollmentsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantEnrollmentDtoCollectionQueryParameters *TenantEnrollmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantEnrollmentsRequest) TenantId(tenantId string) ApiGetTenantEnrollmentsRequest {
@@ -815,6 +832,11 @@ func (r ApiGetTenantEnrollmentsRequest) ApiVersion(apiVersion string) ApiGetTena
 
 func (r ApiGetTenantEnrollmentsRequest) XApiVersion(xApiVersion string) ApiGetTenantEnrollmentsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantEnrollmentsRequest) TenantEnrollmentDtoCollectionQueryParameters(tenantEnrollmentDtoCollectionQueryParameters TenantEnrollmentDtoCollectionQueryParameters) ApiGetTenantEnrollmentsRequest {
+	r.tenantEnrollmentDtoCollectionQueryParameters = &tenantEnrollmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -866,7 +888,7 @@ func (a *EnrollmentsAPIService) GetTenantEnrollmentsExecute(r ApiGetTenantEnroll
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -885,6 +907,8 @@ func (a *EnrollmentsAPIService) GetTenantEnrollmentsExecute(r ApiGetTenantEnroll
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantEnrollmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -950,6 +974,7 @@ type ApiGetTenantEnrollmentsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantEnrollmentDtoCollectionQueryParameters *TenantEnrollmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantEnrollmentsCountRequest) TenantId(tenantId string) ApiGetTenantEnrollmentsCountRequest {
@@ -964,6 +989,11 @@ func (r ApiGetTenantEnrollmentsCountRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetTenantEnrollmentsCountRequest) XApiVersion(xApiVersion string) ApiGetTenantEnrollmentsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantEnrollmentsCountRequest) TenantEnrollmentDtoCollectionQueryParameters(tenantEnrollmentDtoCollectionQueryParameters TenantEnrollmentDtoCollectionQueryParameters) ApiGetTenantEnrollmentsCountRequest {
+	r.tenantEnrollmentDtoCollectionQueryParameters = &tenantEnrollmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -1015,7 +1045,7 @@ func (a *EnrollmentsAPIService) GetTenantEnrollmentsCountExecute(r ApiGetTenantE
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1034,6 +1064,8 @@ func (a *EnrollmentsAPIService) GetTenantEnrollmentsCountExecute(r ApiGetTenantE
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantEnrollmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1100,7 +1132,7 @@ type ApiPatchTenantEnrollmentAsyncRequest struct {
 	enrollmentId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTenantEnrollmentAsyncRequest) TenantId(tenantId string) ApiPatchTenantEnrollmentAsyncRequest {
@@ -1118,8 +1150,8 @@ func (r ApiPatchTenantEnrollmentAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchTenantEnrollmentAsyncRequest) Operation(operation []Operation) ApiPatchTenantEnrollmentAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchTenantEnrollmentAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTenantEnrollmentAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1194,7 +1226,7 @@ func (a *EnrollmentsAPIService) PatchTenantEnrollmentAsyncExecute(r ApiPatchTena
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

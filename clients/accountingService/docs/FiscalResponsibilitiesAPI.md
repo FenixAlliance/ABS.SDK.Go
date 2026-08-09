@@ -164,7 +164,7 @@ No authorization required
 
 ## GetFiscalResponsibilities
 
-> FiscalResponsibilityDtoListEnvelope GetFiscalResponsibilities(ctx, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FiscalResponsibilityDtoListEnvelope GetFiscalResponsibilities(ctx, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalResponsibilityDtoCollectionQueryParameters(fiscalResponsibilityDtoCollectionQueryParameters).Execute()
 
 Get fiscal responsibilities for an authority
 
@@ -188,10 +188,11 @@ func main() {
 	authorityId := "authorityId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	fiscalResponsibilityDtoCollectionQueryParameters := *openapiclient.NewFiscalResponsibilityDtoCollectionQueryParameters() // FiscalResponsibilityDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalResponsibilitiesAPI.GetFiscalResponsibilities(context.Background(), authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalResponsibilitiesAPI.GetFiscalResponsibilities(context.Background(), authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalResponsibilityDtoCollectionQueryParameters(fiscalResponsibilityDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalResponsibilitiesAPI.GetFiscalResponsibilities``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -221,6 +222,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **fiscalResponsibilityDtoCollectionQueryParameters** | [**FiscalResponsibilityDtoCollectionQueryParameters**](FiscalResponsibilityDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -232,7 +234,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -242,7 +244,7 @@ No authorization required
 
 ## GetFiscalResponsibilitiesCount
 
-> Int32Envelope GetFiscalResponsibilitiesCount(ctx, fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetFiscalResponsibilitiesCount(ctx, fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalResponsibilityDtoCollectionQueryParameters(fiscalResponsibilityDtoCollectionQueryParameters).Execute()
 
 Get fiscal responsibilities count
 
@@ -265,10 +267,11 @@ func main() {
 	fiscalAuthorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	fiscalResponsibilityDtoCollectionQueryParameters := *openapiclient.NewFiscalResponsibilityDtoCollectionQueryParameters() // FiscalResponsibilityDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalResponsibilitiesAPI.GetFiscalResponsibilitiesCount(context.Background(), fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalResponsibilitiesAPI.GetFiscalResponsibilitiesCount(context.Background(), fiscalAuthorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalResponsibilityDtoCollectionQueryParameters(fiscalResponsibilityDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalResponsibilitiesAPI.GetFiscalResponsibilitiesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -297,6 +300,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **fiscalResponsibilityDtoCollectionQueryParameters** | [**FiscalResponsibilityDtoCollectionQueryParameters**](FiscalResponsibilityDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -308,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -397,7 +401,7 @@ No authorization required
 
 ## PatchFiscalResponsibilityAsync
 
-> EmptyEnvelope PatchFiscalResponsibilityAsync(ctx, fiscalResponsibilityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchFiscalResponsibilityAsync(ctx, fiscalResponsibilityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a fiscal responsibility
 
@@ -420,11 +424,11 @@ func main() {
 	fiscalResponsibilityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalResponsibilitiesAPI.PatchFiscalResponsibilityAsync(context.Background(), fiscalResponsibilityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.FiscalResponsibilitiesAPI.PatchFiscalResponsibilityAsync(context.Background(), fiscalResponsibilityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalResponsibilitiesAPI.PatchFiscalResponsibilityAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -453,7 +457,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

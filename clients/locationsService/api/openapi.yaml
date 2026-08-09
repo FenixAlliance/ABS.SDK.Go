@@ -40,21 +40,6 @@ paths:
           description: OK
       tags:
       - FenixAlliance.ABS.Web
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
   /hello:
     get:
       responses:
@@ -366,6 +351,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -461,6 +454,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -620,12 +621,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -730,6 +731,14 @@ paths:
           format: uuid
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -825,6 +834,14 @@ paths:
           format: uuid
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -984,12 +1001,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1113,8 +1130,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1131,6 +1154,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1140,8 +1178,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1158,6 +1202,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1236,10 +1295,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1256,6 +1321,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1359,7 +1439,7 @@ components:
       example:
         isDefaultSuppingLocation: true
         postalCode: postalCode
-        latitude: 6.027456183070403
+        latitude: 5.962133916683182
         isGlobalPrimary: true
         isRoutable: true
         cityId: cityId
@@ -1371,7 +1451,7 @@ components:
         fax: fax
         email: email
         timestamp: 2000-01-23T04:56:07.000+00:00
-        longitude: 0.8008281904610115
+        longitude: 1.4658129805029452
         enrollmentId: enrollmentId
         business: business
         address3: address3
@@ -1457,13 +1537,55 @@ components:
           nullable: true
           type: string
       type: object
+    LocationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     LocationDtoEnvelope:
       additionalProperties: false
       example:
         result:
           isDefaultSuppingLocation: true
           postalCode: postalCode
-          latitude: 6.027456183070403
+          latitude: 5.962133916683182
           isGlobalPrimary: true
           isRoutable: true
           cityId: cityId
@@ -1475,7 +1597,7 @@ components:
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
-          longitude: 0.8008281904610115
+          longitude: 1.4658129805029452
           enrollmentId: enrollmentId
           business: business
           address3: address3
@@ -1488,8 +1610,14 @@ components:
           phone: phone
           tenantId: tenantId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1506,6 +1634,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1519,7 +1662,7 @@ components:
         result:
         - isDefaultSuppingLocation: true
           postalCode: postalCode
-          latitude: 6.027456183070403
+          latitude: 5.962133916683182
           isGlobalPrimary: true
           isRoutable: true
           cityId: cityId
@@ -1531,7 +1674,7 @@ components:
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
-          longitude: 0.8008281904610115
+          longitude: 1.4658129805029452
           enrollmentId: enrollmentId
           business: business
           address3: address3
@@ -1545,7 +1688,7 @@ components:
           tenantId: tenantId
         - isDefaultSuppingLocation: true
           postalCode: postalCode
-          latitude: 6.027456183070403
+          latitude: 5.962133916683182
           isGlobalPrimary: true
           isRoutable: true
           cityId: cityId
@@ -1557,7 +1700,7 @@ components:
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
-          longitude: 0.8008281904610115
+          longitude: 1.4658129805029452
           enrollmentId: enrollmentId
           business: business
           address3: address3
@@ -1570,8 +1713,14 @@ components:
           phone: phone
           tenantId: tenantId
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1588,6 +1737,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1704,30 +1868,18 @@ components:
       - email
       - password
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:

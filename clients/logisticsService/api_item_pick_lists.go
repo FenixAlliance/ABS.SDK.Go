@@ -757,6 +757,7 @@ type ApiGetItemPickListEntriesAsyncRequest struct {
 	pickListId string
 	apiVersion *string
 	xApiVersion *string
+	itemPickListEntryDtoCollectionQueryParameters *ItemPickListEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemPickListEntriesAsyncRequest) TenantId(tenantId string) ApiGetItemPickListEntriesAsyncRequest {
@@ -771,6 +772,11 @@ func (r ApiGetItemPickListEntriesAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetItemPickListEntriesAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemPickListEntriesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemPickListEntriesAsyncRequest) ItemPickListEntryDtoCollectionQueryParameters(itemPickListEntryDtoCollectionQueryParameters ItemPickListEntryDtoCollectionQueryParameters) ApiGetItemPickListEntriesAsyncRequest {
+	r.itemPickListEntryDtoCollectionQueryParameters = &itemPickListEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -825,7 +831,7 @@ func (a *ItemPickListsAPIService) GetItemPickListEntriesAsyncExecute(r ApiGetIte
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -844,6 +850,8 @@ func (a *ItemPickListsAPIService) GetItemPickListEntriesAsyncExecute(r ApiGetIte
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemPickListEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -888,6 +896,7 @@ type ApiGetItemPickListEntriesCountAsyncRequest struct {
 	pickListId string
 	apiVersion *string
 	xApiVersion *string
+	itemPickListEntryDtoCollectionQueryParameters *ItemPickListEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemPickListEntriesCountAsyncRequest) TenantId(tenantId string) ApiGetItemPickListEntriesCountAsyncRequest {
@@ -902,6 +911,11 @@ func (r ApiGetItemPickListEntriesCountAsyncRequest) ApiVersion(apiVersion string
 
 func (r ApiGetItemPickListEntriesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemPickListEntriesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemPickListEntriesCountAsyncRequest) ItemPickListEntryDtoCollectionQueryParameters(itemPickListEntryDtoCollectionQueryParameters ItemPickListEntryDtoCollectionQueryParameters) ApiGetItemPickListEntriesCountAsyncRequest {
+	r.itemPickListEntryDtoCollectionQueryParameters = &itemPickListEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -956,7 +970,7 @@ func (a *ItemPickListsAPIService) GetItemPickListEntriesCountAsyncExecute(r ApiG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -975,6 +989,8 @@ func (a *ItemPickListsAPIService) GetItemPickListEntriesCountAsyncExecute(r ApiG
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemPickListEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1164,6 +1180,7 @@ type ApiGetItemPickListsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemPickListDtoCollectionQueryParameters *ItemPickListDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemPickListsAsyncRequest) TenantId(tenantId string) ApiGetItemPickListsAsyncRequest {
@@ -1178,6 +1195,11 @@ func (r ApiGetItemPickListsAsyncRequest) ApiVersion(apiVersion string) ApiGetIte
 
 func (r ApiGetItemPickListsAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemPickListsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemPickListsAsyncRequest) ItemPickListDtoCollectionQueryParameters(itemPickListDtoCollectionQueryParameters ItemPickListDtoCollectionQueryParameters) ApiGetItemPickListsAsyncRequest {
+	r.itemPickListDtoCollectionQueryParameters = &itemPickListDtoCollectionQueryParameters
 	return r
 }
 
@@ -1229,7 +1251,7 @@ func (a *ItemPickListsAPIService) GetItemPickListsAsyncExecute(r ApiGetItemPickL
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1248,6 +1270,8 @@ func (a *ItemPickListsAPIService) GetItemPickListsAsyncExecute(r ApiGetItemPickL
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemPickListDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1313,6 +1337,7 @@ type ApiGetItemPickListsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemPickListDtoCollectionQueryParameters *ItemPickListDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemPickListsCountAsyncRequest) TenantId(tenantId string) ApiGetItemPickListsCountAsyncRequest {
@@ -1327,6 +1352,11 @@ func (r ApiGetItemPickListsCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetItemPickListsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemPickListsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemPickListsCountAsyncRequest) ItemPickListDtoCollectionQueryParameters(itemPickListDtoCollectionQueryParameters ItemPickListDtoCollectionQueryParameters) ApiGetItemPickListsCountAsyncRequest {
+	r.itemPickListDtoCollectionQueryParameters = &itemPickListDtoCollectionQueryParameters
 	return r
 }
 
@@ -1378,7 +1408,7 @@ func (a *ItemPickListsAPIService) GetItemPickListsCountAsyncExecute(r ApiGetItem
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1397,6 +1427,8 @@ func (a *ItemPickListsAPIService) GetItemPickListsCountAsyncExecute(r ApiGetItem
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemPickListDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1441,7 +1473,7 @@ type ApiPatchItemPickListAsyncRequest struct {
 	pickListId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemPickListAsyncRequest) TenantId(tenantId string) ApiPatchItemPickListAsyncRequest {
@@ -1459,8 +1491,8 @@ func (r ApiPatchItemPickListAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchItemPickListAsyncRequest) Operation(operation []Operation) ApiPatchItemPickListAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemPickListAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemPickListAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1535,7 +1567,7 @@ func (a *ItemPickListsAPIService) PatchItemPickListAsyncExecute(r ApiPatchItemPi
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1592,7 +1624,7 @@ type ApiPatchItemPickListEntryAsyncRequest struct {
 	entryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemPickListEntryAsyncRequest) TenantId(tenantId string) ApiPatchItemPickListEntryAsyncRequest {
@@ -1610,8 +1642,8 @@ func (r ApiPatchItemPickListEntryAsyncRequest) XApiVersion(xApiVersion string) A
 	return r
 }
 
-func (r ApiPatchItemPickListEntryAsyncRequest) Operation(operation []Operation) ApiPatchItemPickListEntryAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemPickListEntryAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemPickListEntryAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1689,7 +1721,7 @@ func (a *ItemPickListsAPIService) PatchItemPickListEntryAsyncExecute(r ApiPatchI
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

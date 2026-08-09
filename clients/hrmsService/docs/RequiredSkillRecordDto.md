@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] 
+**Timestamp** | Pointer to **NullableTime** |  | [optional] 
 **ExperienceInYears** | Pointer to **int32** |  | [optional] 
 **Priority** | Pointer to **float64** |  | [optional] 
 **RequiredSkillRecordType** | Pointer to **string** |  | [optional] 
@@ -94,6 +94,16 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
+### SetTimestampNil
+
+`func (o *RequiredSkillRecordDto) SetTimestampNil(b bool)`
+
+ SetTimestampNil sets the value for Timestamp to be an explicit nil
+
+### UnsetTimestamp
+`func (o *RequiredSkillRecordDto) UnsetTimestamp()`
+
+UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetExperienceInYears
 
 `func (o *RequiredSkillRecordDto) GetExperienceInYears() int32`

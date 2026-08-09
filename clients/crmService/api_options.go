@@ -692,6 +692,7 @@ type ApiGetContactOptionsRequest struct {
 	portalId *string
 	apiVersion *string
 	xApiVersion *string
+	optionDtoCollectionQueryParameters *OptionDtoCollectionQueryParameters
 }
 
 func (r ApiGetContactOptionsRequest) TenantId(tenantId string) ApiGetContactOptionsRequest {
@@ -711,6 +712,11 @@ func (r ApiGetContactOptionsRequest) ApiVersion(apiVersion string) ApiGetContact
 
 func (r ApiGetContactOptionsRequest) XApiVersion(xApiVersion string) ApiGetContactOptionsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetContactOptionsRequest) OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters OptionDtoCollectionQueryParameters) ApiGetContactOptionsRequest {
+	r.optionDtoCollectionQueryParameters = &optionDtoCollectionQueryParameters
 	return r
 }
 
@@ -768,7 +774,7 @@ func (a *OptionsAPIService) GetContactOptionsExecute(r ApiGetContactOptionsReque
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -787,6 +793,8 @@ func (a *OptionsAPIService) GetContactOptionsExecute(r ApiGetContactOptionsReque
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.optionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -854,6 +862,7 @@ type ApiGetContactOptionsCountRequest struct {
 	portalId *string
 	apiVersion *string
 	xApiVersion *string
+	optionDtoCollectionQueryParameters *OptionDtoCollectionQueryParameters
 }
 
 func (r ApiGetContactOptionsCountRequest) TenantId(tenantId string) ApiGetContactOptionsCountRequest {
@@ -873,6 +882,11 @@ func (r ApiGetContactOptionsCountRequest) ApiVersion(apiVersion string) ApiGetCo
 
 func (r ApiGetContactOptionsCountRequest) XApiVersion(xApiVersion string) ApiGetContactOptionsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetContactOptionsCountRequest) OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters OptionDtoCollectionQueryParameters) ApiGetContactOptionsCountRequest {
+	r.optionDtoCollectionQueryParameters = &optionDtoCollectionQueryParameters
 	return r
 }
 
@@ -930,7 +944,7 @@ func (a *OptionsAPIService) GetContactOptionsCountExecute(r ApiGetContactOptions
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -949,6 +963,8 @@ func (a *OptionsAPIService) GetContactOptionsCountExecute(r ApiGetContactOptions
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.optionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1016,7 +1032,7 @@ type ApiPatchContactOptionAsyncRequest struct {
 	optionId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchContactOptionAsyncRequest) TenantId(tenantId string) ApiPatchContactOptionAsyncRequest {
@@ -1034,8 +1050,8 @@ func (r ApiPatchContactOptionAsyncRequest) XApiVersion(xApiVersion string) ApiPa
 	return r
 }
 
-func (r ApiPatchContactOptionAsyncRequest) Operation(operation []Operation) ApiPatchContactOptionAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchContactOptionAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchContactOptionAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1113,7 +1129,7 @@ func (a *OptionsAPIService) PatchContactOptionAsyncExecute(r ApiPatchContactOpti
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1181,7 +1197,7 @@ type ApiPatchContactOptionByKeyAsyncRequest struct {
 	key string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchContactOptionByKeyAsyncRequest) TenantId(tenantId string) ApiPatchContactOptionByKeyAsyncRequest {
@@ -1199,8 +1215,8 @@ func (r ApiPatchContactOptionByKeyAsyncRequest) XApiVersion(xApiVersion string) 
 	return r
 }
 
-func (r ApiPatchContactOptionByKeyAsyncRequest) Operation(operation []Operation) ApiPatchContactOptionByKeyAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchContactOptionByKeyAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchContactOptionByKeyAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1278,7 +1294,7 @@ func (a *OptionsAPIService) PatchContactOptionByKeyAsyncExecute(r ApiPatchContac
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

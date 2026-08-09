@@ -16,6 +16,7 @@ docs/AuthResult.md
 docs/AuthResultEnvelope.md
 docs/CheckerAPI.md
 docs/ErrorEnvelope.md
+docs/ExecutionProvenance.md
 docs/FenixAllianceABSWebAPI.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -52,6 +53,7 @@ model_access_token_response.go
 model_auth_result.go
 model_auth_result_envelope.go
 model_error_envelope.go
+model_execution_provenance.go
 model_forgot_password_request.go
 model_http_validation_problem_details.go
 model_info_request.go

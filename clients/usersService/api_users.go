@@ -30,6 +30,7 @@ type ApiCountCurrentUserFollowersAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	followRecordDtoCollectionQueryParameters *FollowRecordDtoCollectionQueryParameters
 }
 
 func (r ApiCountCurrentUserFollowersAsyncRequest) ApiVersion(apiVersion string) ApiCountCurrentUserFollowersAsyncRequest {
@@ -39,6 +40,11 @@ func (r ApiCountCurrentUserFollowersAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiCountCurrentUserFollowersAsyncRequest) XApiVersion(xApiVersion string) ApiCountCurrentUserFollowersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountCurrentUserFollowersAsyncRequest) FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters FollowRecordDtoCollectionQueryParameters) ApiCountCurrentUserFollowersAsyncRequest {
+	r.followRecordDtoCollectionQueryParameters = &followRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -86,7 +92,7 @@ func (a *UsersAPIService) CountCurrentUserFollowersAsyncExecute(r ApiCountCurren
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml", "multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -105,6 +111,8 @@ func (a *UsersAPIService) CountCurrentUserFollowersAsyncExecute(r ApiCountCurren
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.followRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -158,6 +166,7 @@ type ApiCountCurrentUserFollowsAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	followRecordDtoCollectionQueryParameters *FollowRecordDtoCollectionQueryParameters
 }
 
 func (r ApiCountCurrentUserFollowsAsyncRequest) ApiVersion(apiVersion string) ApiCountCurrentUserFollowsAsyncRequest {
@@ -167,6 +176,11 @@ func (r ApiCountCurrentUserFollowsAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiCountCurrentUserFollowsAsyncRequest) XApiVersion(xApiVersion string) ApiCountCurrentUserFollowsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountCurrentUserFollowsAsyncRequest) FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters FollowRecordDtoCollectionQueryParameters) ApiCountCurrentUserFollowsAsyncRequest {
+	r.followRecordDtoCollectionQueryParameters = &followRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -214,7 +228,7 @@ func (a *UsersAPIService) CountCurrentUserFollowsAsyncExecute(r ApiCountCurrentU
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml", "multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -233,6 +247,8 @@ func (a *UsersAPIService) CountCurrentUserFollowsAsyncExecute(r ApiCountCurrentU
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.followRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -286,6 +302,7 @@ type ApiCountCurrentUserNotificationsAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	notificationDtoCollectionQueryParameters *NotificationDtoCollectionQueryParameters
 }
 
 func (r ApiCountCurrentUserNotificationsAsyncRequest) ApiVersion(apiVersion string) ApiCountCurrentUserNotificationsAsyncRequest {
@@ -295,6 +312,11 @@ func (r ApiCountCurrentUserNotificationsAsyncRequest) ApiVersion(apiVersion stri
 
 func (r ApiCountCurrentUserNotificationsAsyncRequest) XApiVersion(xApiVersion string) ApiCountCurrentUserNotificationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountCurrentUserNotificationsAsyncRequest) NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters NotificationDtoCollectionQueryParameters) ApiCountCurrentUserNotificationsAsyncRequest {
+	r.notificationDtoCollectionQueryParameters = &notificationDtoCollectionQueryParameters
 	return r
 }
 
@@ -342,7 +364,7 @@ func (a *UsersAPIService) CountCurrentUserNotificationsAsyncExecute(r ApiCountCu
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml", "multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -361,6 +383,8 @@ func (a *UsersAPIService) CountCurrentUserNotificationsAsyncExecute(r ApiCountCu
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.notificationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -414,6 +438,7 @@ type ApiCountCurrentUserTenantsAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	tenantDtoCollectionQueryParameters *TenantDtoCollectionQueryParameters
 }
 
 func (r ApiCountCurrentUserTenantsAsyncRequest) ApiVersion(apiVersion string) ApiCountCurrentUserTenantsAsyncRequest {
@@ -423,6 +448,11 @@ func (r ApiCountCurrentUserTenantsAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiCountCurrentUserTenantsAsyncRequest) XApiVersion(xApiVersion string) ApiCountCurrentUserTenantsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountCurrentUserTenantsAsyncRequest) TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters TenantDtoCollectionQueryParameters) ApiCountCurrentUserTenantsAsyncRequest {
+	r.tenantDtoCollectionQueryParameters = &tenantDtoCollectionQueryParameters
 	return r
 }
 
@@ -470,7 +500,7 @@ func (a *UsersAPIService) CountCurrentUserTenantsAsyncExecute(r ApiCountCurrentU
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml", "multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -489,6 +519,8 @@ func (a *UsersAPIService) CountCurrentUserTenantsAsyncExecute(r ApiCountCurrentU
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -553,6 +585,7 @@ type ApiGetCurrentUserAddressesAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	addressDtoCollectionQueryParameters *AddressDtoCollectionQueryParameters
 }
 
 func (r ApiGetCurrentUserAddressesAsyncRequest) ApiVersion(apiVersion string) ApiGetCurrentUserAddressesAsyncRequest {
@@ -562,6 +595,11 @@ func (r ApiGetCurrentUserAddressesAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetCurrentUserAddressesAsyncRequest) XApiVersion(xApiVersion string) ApiGetCurrentUserAddressesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCurrentUserAddressesAsyncRequest) AddressDtoCollectionQueryParameters(addressDtoCollectionQueryParameters AddressDtoCollectionQueryParameters) ApiGetCurrentUserAddressesAsyncRequest {
+	r.addressDtoCollectionQueryParameters = &addressDtoCollectionQueryParameters
 	return r
 }
 
@@ -609,7 +647,7 @@ func (a *UsersAPIService) GetCurrentUserAddressesAsyncExecute(r ApiGetCurrentUse
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml", "multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -628,6 +666,8 @@ func (a *UsersAPIService) GetCurrentUserAddressesAsyncExecute(r ApiGetCurrentUse
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.addressDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1330,6 +1370,7 @@ type ApiGetCurrentUserFollowersAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	followRecordDtoCollectionQueryParameters *FollowRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetCurrentUserFollowersAsyncRequest) ApiVersion(apiVersion string) ApiGetCurrentUserFollowersAsyncRequest {
@@ -1339,6 +1380,11 @@ func (r ApiGetCurrentUserFollowersAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetCurrentUserFollowersAsyncRequest) XApiVersion(xApiVersion string) ApiGetCurrentUserFollowersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCurrentUserFollowersAsyncRequest) FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters FollowRecordDtoCollectionQueryParameters) ApiGetCurrentUserFollowersAsyncRequest {
+	r.followRecordDtoCollectionQueryParameters = &followRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -1386,7 +1432,7 @@ func (a *UsersAPIService) GetCurrentUserFollowersAsyncExecute(r ApiGetCurrentUse
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml", "multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1405,6 +1451,8 @@ func (a *UsersAPIService) GetCurrentUserFollowersAsyncExecute(r ApiGetCurrentUse
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.followRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1458,6 +1506,7 @@ type ApiGetCurrentUserFollowsAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	followRecordDtoCollectionQueryParameters *FollowRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetCurrentUserFollowsAsyncRequest) ApiVersion(apiVersion string) ApiGetCurrentUserFollowsAsyncRequest {
@@ -1467,6 +1516,11 @@ func (r ApiGetCurrentUserFollowsAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetCurrentUserFollowsAsyncRequest) XApiVersion(xApiVersion string) ApiGetCurrentUserFollowsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCurrentUserFollowsAsyncRequest) FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters FollowRecordDtoCollectionQueryParameters) ApiGetCurrentUserFollowsAsyncRequest {
+	r.followRecordDtoCollectionQueryParameters = &followRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -1514,7 +1568,7 @@ func (a *UsersAPIService) GetCurrentUserFollowsAsyncExecute(r ApiGetCurrentUserF
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml", "multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1533,6 +1587,8 @@ func (a *UsersAPIService) GetCurrentUserFollowsAsyncExecute(r ApiGetCurrentUserF
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.followRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1714,6 +1770,7 @@ type ApiGetCurrentUserNotificationsAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	notificationDtoCollectionQueryParameters *NotificationDtoCollectionQueryParameters
 }
 
 func (r ApiGetCurrentUserNotificationsAsyncRequest) ApiVersion(apiVersion string) ApiGetCurrentUserNotificationsAsyncRequest {
@@ -1723,6 +1780,11 @@ func (r ApiGetCurrentUserNotificationsAsyncRequest) ApiVersion(apiVersion string
 
 func (r ApiGetCurrentUserNotificationsAsyncRequest) XApiVersion(xApiVersion string) ApiGetCurrentUserNotificationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCurrentUserNotificationsAsyncRequest) NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters NotificationDtoCollectionQueryParameters) ApiGetCurrentUserNotificationsAsyncRequest {
+	r.notificationDtoCollectionQueryParameters = &notificationDtoCollectionQueryParameters
 	return r
 }
 
@@ -1770,7 +1832,7 @@ func (a *UsersAPIService) GetCurrentUserNotificationsAsyncExecute(r ApiGetCurren
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml", "multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1789,6 +1851,8 @@ func (a *UsersAPIService) GetCurrentUserNotificationsAsyncExecute(r ApiGetCurren
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.notificationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2097,6 +2161,7 @@ type ApiGetCurrentUserTenantsAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	tenantDtoCollectionQueryParameters *TenantDtoCollectionQueryParameters
 }
 
 func (r ApiGetCurrentUserTenantsAsyncRequest) ApiVersion(apiVersion string) ApiGetCurrentUserTenantsAsyncRequest {
@@ -2106,6 +2171,11 @@ func (r ApiGetCurrentUserTenantsAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetCurrentUserTenantsAsyncRequest) XApiVersion(xApiVersion string) ApiGetCurrentUserTenantsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCurrentUserTenantsAsyncRequest) TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters TenantDtoCollectionQueryParameters) ApiGetCurrentUserTenantsAsyncRequest {
+	r.tenantDtoCollectionQueryParameters = &tenantDtoCollectionQueryParameters
 	return r
 }
 
@@ -2153,7 +2223,7 @@ func (a *UsersAPIService) GetCurrentUserTenantsAsyncExecute(r ApiGetCurrentUserT
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml", "multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2172,6 +2242,8 @@ func (a *UsersAPIService) GetCurrentUserTenantsAsyncExecute(r ApiGetCurrentUserT
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2761,7 +2833,7 @@ type ApiPatchCurrentUserAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCurrentUserAsyncRequest) ApiVersion(apiVersion string) ApiPatchCurrentUserAsyncRequest {
@@ -2774,8 +2846,8 @@ func (r ApiPatchCurrentUserAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchCurrentUserAsyncRequest) Operation(operation []Operation) ApiPatchCurrentUserAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchCurrentUserAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCurrentUserAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2843,7 +2915,7 @@ func (a *UsersAPIService) PatchCurrentUserAsyncExecute(r ApiPatchCurrentUserAsyn
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

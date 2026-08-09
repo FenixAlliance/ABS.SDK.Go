@@ -380,7 +380,7 @@ No authorization required
 
 ## GetLocationsAsync
 
-> LocationDtoIReadOnlyListEnvelope GetLocationsAsync(ctx).TenantId(tenantId).Execute()
+> LocationDtoIReadOnlyListEnvelope GetLocationsAsync(ctx).TenantId(tenantId).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 
 Get Locations
 
@@ -400,10 +400,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	locationDtoCollectionQueryParameters := *openapiclient.NewLocationDtoCollectionQueryParameters() // LocationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsAPI.GetLocationsAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.LocationsAPI.GetLocationsAsync(context.Background()).TenantId(tenantId).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsAPI.GetLocationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -425,6 +426,7 @@ Other parameters are passed through a pointer to a apiGetLocationsAsyncRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -436,7 +438,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -446,7 +448,7 @@ No authorization required
 
 ## GetLocationsCountAsync
 
-> Int32Envelope GetLocationsCountAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetLocationsCountAsync(ctx).TenantId(tenantId).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 
 Get Locations Count
 
@@ -466,10 +468,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	locationDtoCollectionQueryParameters := *openapiclient.NewLocationDtoCollectionQueryParameters() // LocationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsAPI.GetLocationsCountAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.LocationsAPI.GetLocationsCountAsync(context.Background()).TenantId(tenantId).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsAPI.GetLocationsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -491,6 +494,7 @@ Other parameters are passed through a pointer to a apiGetLocationsCountAsyncRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -502,7 +506,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -585,7 +589,7 @@ No authorization required
 
 ## GetWalletLocationsAsync
 
-> LocationDtoIReadOnlyListEnvelope GetWalletLocationsAsync(ctx, walletId).Execute()
+> LocationDtoIReadOnlyListEnvelope GetWalletLocationsAsync(ctx, walletId).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 
 Get Wallet Locations
 
@@ -605,10 +609,11 @@ import (
 
 func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	locationDtoCollectionQueryParameters := *openapiclient.NewLocationDtoCollectionQueryParameters() // LocationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsAPI.GetWalletLocationsAsync(context.Background(), walletId).Execute()
+	resp, r, err := apiClient.LocationsAPI.GetWalletLocationsAsync(context.Background(), walletId).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsAPI.GetWalletLocationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -634,6 +639,7 @@ Other parameters are passed through a pointer to a apiGetWalletLocationsAsyncReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -645,7 +651,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -655,7 +661,7 @@ No authorization required
 
 ## GetWalletLocationsCountAsync
 
-> Int32Envelope GetWalletLocationsCountAsync(ctx, walletId).Execute()
+> Int32Envelope GetWalletLocationsCountAsync(ctx, walletId).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 
 Get Wallet Locations Count
 
@@ -675,10 +681,11 @@ import (
 
 func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	locationDtoCollectionQueryParameters := *openapiclient.NewLocationDtoCollectionQueryParameters() // LocationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsAPI.GetWalletLocationsCountAsync(context.Background(), walletId).Execute()
+	resp, r, err := apiClient.LocationsAPI.GetWalletLocationsCountAsync(context.Background(), walletId).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsAPI.GetWalletLocationsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -704,6 +711,7 @@ Other parameters are passed through a pointer to a apiGetWalletLocationsCountAsy
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -715,7 +723,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -725,7 +733,7 @@ No authorization required
 
 ## PatchLocationAsync
 
-> EmptyEnvelope PatchLocationAsync(ctx, locationId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchLocationAsync(ctx, locationId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a location
 
@@ -746,11 +754,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	locationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsAPI.PatchLocationAsync(context.Background(), locationId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.LocationsAPI.PatchLocationAsync(context.Background(), locationId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsAPI.PatchLocationAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -777,7 +785,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -799,7 +807,7 @@ No authorization required
 
 ## PatchWalletLocationAsync
 
-> EmptyEnvelope PatchWalletLocationAsync(ctx, walletId, locationId).Operation(operation).Execute()
+> EmptyEnvelope PatchWalletLocationAsync(ctx, walletId, locationId).PatchOperation(patchOperation).Execute()
 
 Patch a wallet location
 
@@ -820,11 +828,11 @@ import (
 func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	locationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsAPI.PatchWalletLocationAsync(context.Background(), walletId, locationId).Operation(operation).Execute()
+	resp, r, err := apiClient.LocationsAPI.PatchWalletLocationAsync(context.Background(), walletId, locationId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsAPI.PatchWalletLocationAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -852,7 +860,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

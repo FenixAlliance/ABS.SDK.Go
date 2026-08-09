@@ -543,6 +543,7 @@ type ApiGetCurriculumsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	curriculumDtoCollectionQueryParameters *CurriculumDtoCollectionQueryParameters
 }
 
 func (r ApiGetCurriculumsAsyncRequest) SocialProfileId(socialProfileId string) ApiGetCurriculumsAsyncRequest {
@@ -562,6 +563,11 @@ func (r ApiGetCurriculumsAsyncRequest) ApiVersion(apiVersion string) ApiGetCurri
 
 func (r ApiGetCurriculumsAsyncRequest) XApiVersion(xApiVersion string) ApiGetCurriculumsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCurriculumsAsyncRequest) CurriculumDtoCollectionQueryParameters(curriculumDtoCollectionQueryParameters CurriculumDtoCollectionQueryParameters) ApiGetCurriculumsAsyncRequest {
+	r.curriculumDtoCollectionQueryParameters = &curriculumDtoCollectionQueryParameters
 	return r
 }
 
@@ -616,7 +622,7 @@ func (a *CurriculumsAPIService) GetCurriculumsAsyncExecute(r ApiGetCurriculumsAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -635,6 +641,8 @@ func (a *CurriculumsAPIService) GetCurriculumsAsyncExecute(r ApiGetCurriculumsAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.curriculumDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -701,6 +709,7 @@ type ApiGetCurriculumsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	curriculumDtoCollectionQueryParameters *CurriculumDtoCollectionQueryParameters
 }
 
 func (r ApiGetCurriculumsCountAsyncRequest) SocialProfileId(socialProfileId string) ApiGetCurriculumsCountAsyncRequest {
@@ -720,6 +729,11 @@ func (r ApiGetCurriculumsCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetCurriculumsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetCurriculumsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCurriculumsCountAsyncRequest) CurriculumDtoCollectionQueryParameters(curriculumDtoCollectionQueryParameters CurriculumDtoCollectionQueryParameters) ApiGetCurriculumsCountAsyncRequest {
+	r.curriculumDtoCollectionQueryParameters = &curriculumDtoCollectionQueryParameters
 	return r
 }
 
@@ -774,7 +788,7 @@ func (a *CurriculumsAPIService) GetCurriculumsCountAsyncExecute(r ApiGetCurricul
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -793,6 +807,8 @@ func (a *CurriculumsAPIService) GetCurriculumsCountAsyncExecute(r ApiGetCurricul
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.curriculumDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -860,7 +876,7 @@ type ApiPatchCurriculumAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCurriculumAsyncRequest) SocialProfileId(socialProfileId string) ApiPatchCurriculumAsyncRequest {
@@ -883,8 +899,8 @@ func (r ApiPatchCurriculumAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchCurriculumAsyncRequest) Operation(operation []Operation) ApiPatchCurriculumAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchCurriculumAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCurriculumAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -962,7 +978,7 @@ func (a *CurriculumsAPIService) PatchCurriculumAsyncExecute(r ApiPatchCurriculum
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

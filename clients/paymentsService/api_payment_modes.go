@@ -490,6 +490,7 @@ type ApiGetPaymentModesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	paymentModeDtoCollectionQueryParameters *PaymentModeDtoCollectionQueryParameters
 }
 
 func (r ApiGetPaymentModesAsyncRequest) TenantId(tenantId string) ApiGetPaymentModesAsyncRequest {
@@ -504,6 +505,11 @@ func (r ApiGetPaymentModesAsyncRequest) ApiVersion(apiVersion string) ApiGetPaym
 
 func (r ApiGetPaymentModesAsyncRequest) XApiVersion(xApiVersion string) ApiGetPaymentModesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPaymentModesAsyncRequest) PaymentModeDtoCollectionQueryParameters(paymentModeDtoCollectionQueryParameters PaymentModeDtoCollectionQueryParameters) ApiGetPaymentModesAsyncRequest {
+	r.paymentModeDtoCollectionQueryParameters = &paymentModeDtoCollectionQueryParameters
 	return r
 }
 
@@ -555,7 +561,7 @@ func (a *PaymentModesAPIService) GetPaymentModesAsyncExecute(r ApiGetPaymentMode
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -574,6 +580,8 @@ func (a *PaymentModesAPIService) GetPaymentModesAsyncExecute(r ApiGetPaymentMode
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentModeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -638,6 +646,7 @@ type ApiGetPaymentModesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	paymentModeDtoCollectionQueryParameters *PaymentModeDtoCollectionQueryParameters
 }
 
 func (r ApiGetPaymentModesCountAsyncRequest) TenantId(tenantId string) ApiGetPaymentModesCountAsyncRequest {
@@ -652,6 +661,11 @@ func (r ApiGetPaymentModesCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetPaymentModesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetPaymentModesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPaymentModesCountAsyncRequest) PaymentModeDtoCollectionQueryParameters(paymentModeDtoCollectionQueryParameters PaymentModeDtoCollectionQueryParameters) ApiGetPaymentModesCountAsyncRequest {
+	r.paymentModeDtoCollectionQueryParameters = &paymentModeDtoCollectionQueryParameters
 	return r
 }
 
@@ -703,7 +717,7 @@ func (a *PaymentModesAPIService) GetPaymentModesCountAsyncExecute(r ApiGetPaymen
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -722,6 +736,8 @@ func (a *PaymentModesAPIService) GetPaymentModesCountAsyncExecute(r ApiGetPaymen
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentModeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -787,7 +803,7 @@ type ApiPatchPaymentModeAsyncRequest struct {
 	paymentModeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchPaymentModeAsyncRequest) TenantId(tenantId string) ApiPatchPaymentModeAsyncRequest {
@@ -805,8 +821,8 @@ func (r ApiPatchPaymentModeAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchPaymentModeAsyncRequest) Operation(operation []Operation) ApiPatchPaymentModeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchPaymentModeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchPaymentModeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -881,7 +897,7 @@ func (a *PaymentModesAPIService) PatchPaymentModeAsyncExecute(r ApiPatchPaymentM
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

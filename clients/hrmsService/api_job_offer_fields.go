@@ -515,6 +515,7 @@ type ApiGetJobOfferFieldsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	jobOfferFieldRecordDtoCollectionQueryParameters *JobOfferFieldRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetJobOfferFieldsAsyncRequest) TenantId(tenantId string) ApiGetJobOfferFieldsAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetJobOfferFieldsAsyncRequest) ApiVersion(apiVersion string) ApiGetJo
 
 func (r ApiGetJobOfferFieldsAsyncRequest) XApiVersion(xApiVersion string) ApiGetJobOfferFieldsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetJobOfferFieldsAsyncRequest) JobOfferFieldRecordDtoCollectionQueryParameters(jobOfferFieldRecordDtoCollectionQueryParameters JobOfferFieldRecordDtoCollectionQueryParameters) ApiGetJobOfferFieldsAsyncRequest {
+	r.jobOfferFieldRecordDtoCollectionQueryParameters = &jobOfferFieldRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *JobOfferFieldsAPIService) GetJobOfferFieldsAsyncExecute(r ApiGetJobOffe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *JobOfferFieldsAPIService) GetJobOfferFieldsAsyncExecute(r ApiGetJobOffe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.jobOfferFieldRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetJobOfferFieldsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	jobOfferFieldRecordDtoCollectionQueryParameters *JobOfferFieldRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetJobOfferFieldsCountAsyncRequest) TenantId(tenantId string) ApiGetJobOfferFieldsCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetJobOfferFieldsCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetJobOfferFieldsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetJobOfferFieldsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetJobOfferFieldsCountAsyncRequest) JobOfferFieldRecordDtoCollectionQueryParameters(jobOfferFieldRecordDtoCollectionQueryParameters JobOfferFieldRecordDtoCollectionQueryParameters) ApiGetJobOfferFieldsCountAsyncRequest {
+	r.jobOfferFieldRecordDtoCollectionQueryParameters = &jobOfferFieldRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *JobOfferFieldsAPIService) GetJobOfferFieldsCountAsyncExecute(r ApiGetJo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *JobOfferFieldsAPIService) GetJobOfferFieldsCountAsyncExecute(r ApiGetJo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.jobOfferFieldRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchJobOfferFieldAsyncRequest struct {
 	jobOfferFieldId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchJobOfferFieldAsyncRequest) TenantId(tenantId string) ApiPatchJobOfferFieldAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchJobOfferFieldAsyncRequest) XApiVersion(xApiVersion string) ApiPa
 	return r
 }
 
-func (r ApiPatchJobOfferFieldAsyncRequest) Operation(operation []Operation) ApiPatchJobOfferFieldAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchJobOfferFieldAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchJobOfferFieldAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *JobOfferFieldsAPIService) PatchJobOfferFieldAsyncExecute(r ApiPatchJobO
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

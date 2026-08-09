@@ -1115,6 +1115,7 @@ type ApiGetLoanApplicationsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	loanApplicationDtoCollectionQueryParameters *LoanApplicationDtoCollectionQueryParameters
 }
 
 func (r ApiGetLoanApplicationsAsyncRequest) TenantId(tenantId string) ApiGetLoanApplicationsAsyncRequest {
@@ -1129,6 +1130,11 @@ func (r ApiGetLoanApplicationsAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetLoanApplicationsAsyncRequest) XApiVersion(xApiVersion string) ApiGetLoanApplicationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLoanApplicationsAsyncRequest) LoanApplicationDtoCollectionQueryParameters(loanApplicationDtoCollectionQueryParameters LoanApplicationDtoCollectionQueryParameters) ApiGetLoanApplicationsAsyncRequest {
+	r.loanApplicationDtoCollectionQueryParameters = &loanApplicationDtoCollectionQueryParameters
 	return r
 }
 
@@ -1180,7 +1186,7 @@ func (a *LoansAPIService) GetLoanApplicationsAsyncExecute(r ApiGetLoanApplicatio
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1199,6 +1205,8 @@ func (a *LoansAPIService) GetLoanApplicationsAsyncExecute(r ApiGetLoanApplicatio
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.loanApplicationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1263,6 +1271,7 @@ type ApiGetLoanApplicationsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	loanApplicationDtoCollectionQueryParameters *LoanApplicationDtoCollectionQueryParameters
 }
 
 func (r ApiGetLoanApplicationsCountAsyncRequest) TenantId(tenantId string) ApiGetLoanApplicationsCountAsyncRequest {
@@ -1277,6 +1286,11 @@ func (r ApiGetLoanApplicationsCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetLoanApplicationsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetLoanApplicationsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLoanApplicationsCountAsyncRequest) LoanApplicationDtoCollectionQueryParameters(loanApplicationDtoCollectionQueryParameters LoanApplicationDtoCollectionQueryParameters) ApiGetLoanApplicationsCountAsyncRequest {
+	r.loanApplicationDtoCollectionQueryParameters = &loanApplicationDtoCollectionQueryParameters
 	return r
 }
 
@@ -1328,7 +1342,7 @@ func (a *LoansAPIService) GetLoanApplicationsCountAsyncExecute(r ApiGetLoanAppli
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1347,6 +1361,8 @@ func (a *LoansAPIService) GetLoanApplicationsCountAsyncExecute(r ApiGetLoanAppli
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.loanApplicationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1715,6 +1731,7 @@ type ApiGetLoanTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	loanTypeDtoCollectionQueryParameters *LoanTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetLoanTypesAsyncRequest) TenantId(tenantId string) ApiGetLoanTypesAsyncRequest {
@@ -1729,6 +1746,11 @@ func (r ApiGetLoanTypesAsyncRequest) ApiVersion(apiVersion string) ApiGetLoanTyp
 
 func (r ApiGetLoanTypesAsyncRequest) XApiVersion(xApiVersion string) ApiGetLoanTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLoanTypesAsyncRequest) LoanTypeDtoCollectionQueryParameters(loanTypeDtoCollectionQueryParameters LoanTypeDtoCollectionQueryParameters) ApiGetLoanTypesAsyncRequest {
+	r.loanTypeDtoCollectionQueryParameters = &loanTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -1780,7 +1802,7 @@ func (a *LoansAPIService) GetLoanTypesAsyncExecute(r ApiGetLoanTypesAsyncRequest
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1799,6 +1821,8 @@ func (a *LoansAPIService) GetLoanTypesAsyncExecute(r ApiGetLoanTypesAsyncRequest
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.loanTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1863,6 +1887,7 @@ type ApiGetLoanTypesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	loanTypeDtoCollectionQueryParameters *LoanTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetLoanTypesCountAsyncRequest) TenantId(tenantId string) ApiGetLoanTypesCountAsyncRequest {
@@ -1877,6 +1902,11 @@ func (r ApiGetLoanTypesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetLo
 
 func (r ApiGetLoanTypesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetLoanTypesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLoanTypesCountAsyncRequest) LoanTypeDtoCollectionQueryParameters(loanTypeDtoCollectionQueryParameters LoanTypeDtoCollectionQueryParameters) ApiGetLoanTypesCountAsyncRequest {
+	r.loanTypeDtoCollectionQueryParameters = &loanTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -1928,7 +1958,7 @@ func (a *LoansAPIService) GetLoanTypesCountAsyncExecute(r ApiGetLoanTypesCountAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1947,6 +1977,8 @@ func (a *LoansAPIService) GetLoanTypesCountAsyncExecute(r ApiGetLoanTypesCountAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.loanTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2011,6 +2043,7 @@ type ApiGetLoansAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	loanDtoCollectionQueryParameters *LoanDtoCollectionQueryParameters
 }
 
 func (r ApiGetLoansAsyncRequest) TenantId(tenantId string) ApiGetLoansAsyncRequest {
@@ -2025,6 +2058,11 @@ func (r ApiGetLoansAsyncRequest) ApiVersion(apiVersion string) ApiGetLoansAsyncR
 
 func (r ApiGetLoansAsyncRequest) XApiVersion(xApiVersion string) ApiGetLoansAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLoansAsyncRequest) LoanDtoCollectionQueryParameters(loanDtoCollectionQueryParameters LoanDtoCollectionQueryParameters) ApiGetLoansAsyncRequest {
+	r.loanDtoCollectionQueryParameters = &loanDtoCollectionQueryParameters
 	return r
 }
 
@@ -2076,7 +2114,7 @@ func (a *LoansAPIService) GetLoansAsyncExecute(r ApiGetLoansAsyncRequest) (*Loan
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2095,6 +2133,8 @@ func (a *LoansAPIService) GetLoansAsyncExecute(r ApiGetLoansAsyncRequest) (*Loan
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.loanDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2159,6 +2199,7 @@ type ApiGetLoansCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	loanDtoCollectionQueryParameters *LoanDtoCollectionQueryParameters
 }
 
 func (r ApiGetLoansCountAsyncRequest) TenantId(tenantId string) ApiGetLoansCountAsyncRequest {
@@ -2173,6 +2214,11 @@ func (r ApiGetLoansCountAsyncRequest) ApiVersion(apiVersion string) ApiGetLoansC
 
 func (r ApiGetLoansCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetLoansCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLoansCountAsyncRequest) LoanDtoCollectionQueryParameters(loanDtoCollectionQueryParameters LoanDtoCollectionQueryParameters) ApiGetLoansCountAsyncRequest {
+	r.loanDtoCollectionQueryParameters = &loanDtoCollectionQueryParameters
 	return r
 }
 
@@ -2224,7 +2270,7 @@ func (a *LoansAPIService) GetLoansCountAsyncExecute(r ApiGetLoansCountAsyncReque
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2243,6 +2289,8 @@ func (a *LoansAPIService) GetLoansCountAsyncExecute(r ApiGetLoansCountAsyncReque
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.loanDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2308,7 +2356,7 @@ type ApiPatchLoanApplicationAsyncRequest struct {
 	applicationId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchLoanApplicationAsyncRequest) TenantId(tenantId string) ApiPatchLoanApplicationAsyncRequest {
@@ -2326,8 +2374,8 @@ func (r ApiPatchLoanApplicationAsyncRequest) XApiVersion(xApiVersion string) Api
 	return r
 }
 
-func (r ApiPatchLoanApplicationAsyncRequest) Operation(operation []Operation) ApiPatchLoanApplicationAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchLoanApplicationAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchLoanApplicationAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2402,7 +2450,7 @@ func (a *LoansAPIService) PatchLoanApplicationAsyncExecute(r ApiPatchLoanApplica
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2468,7 +2516,7 @@ type ApiPatchLoanAsyncRequest struct {
 	loanId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchLoanAsyncRequest) TenantId(tenantId string) ApiPatchLoanAsyncRequest {
@@ -2486,8 +2534,8 @@ func (r ApiPatchLoanAsyncRequest) XApiVersion(xApiVersion string) ApiPatchLoanAs
 	return r
 }
 
-func (r ApiPatchLoanAsyncRequest) Operation(operation []Operation) ApiPatchLoanAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchLoanAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchLoanAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2562,7 +2610,7 @@ func (a *LoansAPIService) PatchLoanAsyncExecute(r ApiPatchLoanAsyncRequest) (*Em
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2628,7 +2676,7 @@ type ApiPatchLoanTypeAsyncRequest struct {
 	loanTypeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchLoanTypeAsyncRequest) TenantId(tenantId string) ApiPatchLoanTypeAsyncRequest {
@@ -2646,8 +2694,8 @@ func (r ApiPatchLoanTypeAsyncRequest) XApiVersion(xApiVersion string) ApiPatchLo
 	return r
 }
 
-func (r ApiPatchLoanTypeAsyncRequest) Operation(operation []Operation) ApiPatchLoanTypeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchLoanTypeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchLoanTypeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2722,7 +2770,7 @@ func (a *LoansAPIService) PatchLoanTypeAsyncExecute(r ApiPatchLoanTypeAsyncReque
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

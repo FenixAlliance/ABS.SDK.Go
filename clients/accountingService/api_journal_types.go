@@ -427,6 +427,7 @@ type ApiGetJournalTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	journalTypeDtoCollectionQueryParameters *JournalTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetJournalTypesAsyncRequest) TenantId(tenantId string) ApiGetJournalTypesAsyncRequest {
@@ -441,6 +442,11 @@ func (r ApiGetJournalTypesAsyncRequest) ApiVersion(apiVersion string) ApiGetJour
 
 func (r ApiGetJournalTypesAsyncRequest) XApiVersion(xApiVersion string) ApiGetJournalTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetJournalTypesAsyncRequest) JournalTypeDtoCollectionQueryParameters(journalTypeDtoCollectionQueryParameters JournalTypeDtoCollectionQueryParameters) ApiGetJournalTypesAsyncRequest {
+	r.journalTypeDtoCollectionQueryParameters = &journalTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -492,7 +498,7 @@ func (a *JournalTypesAPIService) GetJournalTypesAsyncExecute(r ApiGetJournalType
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -511,6 +517,8 @@ func (a *JournalTypesAPIService) GetJournalTypesAsyncExecute(r ApiGetJournalType
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.journalTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -554,6 +562,7 @@ type ApiGetJournalTypesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	journalTypeDtoCollectionQueryParameters *JournalTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetJournalTypesCountAsyncRequest) TenantId(tenantId string) ApiGetJournalTypesCountAsyncRequest {
@@ -568,6 +577,11 @@ func (r ApiGetJournalTypesCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetJournalTypesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetJournalTypesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetJournalTypesCountAsyncRequest) JournalTypeDtoCollectionQueryParameters(journalTypeDtoCollectionQueryParameters JournalTypeDtoCollectionQueryParameters) ApiGetJournalTypesCountAsyncRequest {
+	r.journalTypeDtoCollectionQueryParameters = &journalTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -619,7 +633,7 @@ func (a *JournalTypesAPIService) GetJournalTypesCountAsyncExecute(r ApiGetJourna
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -638,6 +652,8 @@ func (a *JournalTypesAPIService) GetJournalTypesCountAsyncExecute(r ApiGetJourna
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.journalTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -682,7 +698,7 @@ type ApiPatchJournalTypeAsyncRequest struct {
 	journalTypeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchJournalTypeAsyncRequest) TenantId(tenantId string) ApiPatchJournalTypeAsyncRequest {
@@ -700,8 +716,8 @@ func (r ApiPatchJournalTypeAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchJournalTypeAsyncRequest) Operation(operation []Operation) ApiPatchJournalTypeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchJournalTypeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchJournalTypeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -776,7 +792,7 @@ func (a *JournalTypesAPIService) PatchJournalTypeAsyncExecute(r ApiPatchJournalT
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

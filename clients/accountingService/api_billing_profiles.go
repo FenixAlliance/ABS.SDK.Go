@@ -430,6 +430,7 @@ type ApiGetBillingProfilesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	billingProfileDtoCollectionQueryParameters *BillingProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetBillingProfilesAsyncRequest) TenantId(tenantId string) ApiGetBillingProfilesAsyncRequest {
@@ -444,6 +445,11 @@ func (r ApiGetBillingProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGetB
 
 func (r ApiGetBillingProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiGetBillingProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBillingProfilesAsyncRequest) BillingProfileDtoCollectionQueryParameters(billingProfileDtoCollectionQueryParameters BillingProfileDtoCollectionQueryParameters) ApiGetBillingProfilesAsyncRequest {
+	r.billingProfileDtoCollectionQueryParameters = &billingProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -495,7 +501,7 @@ func (a *BillingProfilesAPIService) GetBillingProfilesAsyncExecute(r ApiGetBilli
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -514,6 +520,8 @@ func (a *BillingProfilesAPIService) GetBillingProfilesAsyncExecute(r ApiGetBilli
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.billingProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -557,6 +565,7 @@ type ApiGetBillingProfilesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	billingProfileDtoCollectionQueryParameters *BillingProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetBillingProfilesCountAsyncRequest) TenantId(tenantId string) ApiGetBillingProfilesCountAsyncRequest {
@@ -571,6 +580,11 @@ func (r ApiGetBillingProfilesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetBillingProfilesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetBillingProfilesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBillingProfilesCountAsyncRequest) BillingProfileDtoCollectionQueryParameters(billingProfileDtoCollectionQueryParameters BillingProfileDtoCollectionQueryParameters) ApiGetBillingProfilesCountAsyncRequest {
+	r.billingProfileDtoCollectionQueryParameters = &billingProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -622,7 +636,7 @@ func (a *BillingProfilesAPIService) GetBillingProfilesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -641,6 +655,8 @@ func (a *BillingProfilesAPIService) GetBillingProfilesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.billingProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -685,7 +701,7 @@ type ApiPatchBillingProfileAsyncRequest struct {
 	billingProfileId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBillingProfileAsyncRequest) TenantId(tenantId string) ApiPatchBillingProfileAsyncRequest {
@@ -703,8 +719,8 @@ func (r ApiPatchBillingProfileAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchBillingProfileAsyncRequest) Operation(operation []Operation) ApiPatchBillingProfileAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBillingProfileAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBillingProfileAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -779,7 +795,7 @@ func (a *BillingProfilesAPIService) PatchBillingProfileAsyncExecute(r ApiPatchBi
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

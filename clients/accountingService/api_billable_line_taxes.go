@@ -305,6 +305,7 @@ type ApiGetBillableLineTaxesRequest struct {
 	billableLineId string
 	apiVersion *string
 	xApiVersion *string
+	appliedItemTaxRecordDtoCollectionQueryParameters *AppliedItemTaxRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetBillableLineTaxesRequest) TenantId(tenantId string) ApiGetBillableLineTaxesRequest {
@@ -319,6 +320,11 @@ func (r ApiGetBillableLineTaxesRequest) ApiVersion(apiVersion string) ApiGetBill
 
 func (r ApiGetBillableLineTaxesRequest) XApiVersion(xApiVersion string) ApiGetBillableLineTaxesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBillableLineTaxesRequest) AppliedItemTaxRecordDtoCollectionQueryParameters(appliedItemTaxRecordDtoCollectionQueryParameters AppliedItemTaxRecordDtoCollectionQueryParameters) ApiGetBillableLineTaxesRequest {
+	r.appliedItemTaxRecordDtoCollectionQueryParameters = &appliedItemTaxRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -373,7 +379,7 @@ func (a *BillableLineTaxesAPIService) GetBillableLineTaxesExecute(r ApiGetBillab
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -392,6 +398,8 @@ func (a *BillableLineTaxesAPIService) GetBillableLineTaxesExecute(r ApiGetBillab
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.appliedItemTaxRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -436,6 +444,7 @@ type ApiGetBillableLineTaxesCountRequest struct {
 	billableLineId string
 	apiVersion *string
 	xApiVersion *string
+	appliedItemTaxRecordDtoCollectionQueryParameters *AppliedItemTaxRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetBillableLineTaxesCountRequest) TenantId(tenantId string) ApiGetBillableLineTaxesCountRequest {
@@ -450,6 +459,11 @@ func (r ApiGetBillableLineTaxesCountRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetBillableLineTaxesCountRequest) XApiVersion(xApiVersion string) ApiGetBillableLineTaxesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBillableLineTaxesCountRequest) AppliedItemTaxRecordDtoCollectionQueryParameters(appliedItemTaxRecordDtoCollectionQueryParameters AppliedItemTaxRecordDtoCollectionQueryParameters) ApiGetBillableLineTaxesCountRequest {
+	r.appliedItemTaxRecordDtoCollectionQueryParameters = &appliedItemTaxRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -504,7 +518,7 @@ func (a *BillableLineTaxesAPIService) GetBillableLineTaxesCountExecute(r ApiGetB
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -523,6 +537,8 @@ func (a *BillableLineTaxesAPIService) GetBillableLineTaxesCountExecute(r ApiGetB
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.appliedItemTaxRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -568,7 +584,7 @@ type ApiPatchBillableLineTaxAsyncRequest struct {
 	taxId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBillableLineTaxAsyncRequest) TenantId(tenantId string) ApiPatchBillableLineTaxAsyncRequest {
@@ -586,8 +602,8 @@ func (r ApiPatchBillableLineTaxAsyncRequest) XApiVersion(xApiVersion string) Api
 	return r
 }
 
-func (r ApiPatchBillableLineTaxAsyncRequest) Operation(operation []Operation) ApiPatchBillableLineTaxAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBillableLineTaxAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBillableLineTaxAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -665,7 +681,7 @@ func (a *BillableLineTaxesAPIService) PatchBillableLineTaxAsyncExecute(r ApiPatc
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

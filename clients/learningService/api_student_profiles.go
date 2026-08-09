@@ -985,7 +985,7 @@ type ApiApiV2LearningServiceStudentProfilesStudentProfileIdPatchRequest struct {
 	studentProfileId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiApiV2LearningServiceStudentProfilesStudentProfileIdPatchRequest) TenantId(tenantId string) ApiApiV2LearningServiceStudentProfilesStudentProfileIdPatchRequest {
@@ -1003,8 +1003,8 @@ func (r ApiApiV2LearningServiceStudentProfilesStudentProfileIdPatchRequest) XApi
 	return r
 }
 
-func (r ApiApiV2LearningServiceStudentProfilesStudentProfileIdPatchRequest) Operation(operation []Operation) ApiApiV2LearningServiceStudentProfilesStudentProfileIdPatchRequest {
-	r.operation = &operation
+func (r ApiApiV2LearningServiceStudentProfilesStudentProfileIdPatchRequest) PatchOperation(patchOperation []PatchOperation) ApiApiV2LearningServiceStudentProfilesStudentProfileIdPatchRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1077,7 +1077,7 @@ func (a *StudentProfilesAPIService) ApiV2LearningServiceStudentProfilesStudentPr
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

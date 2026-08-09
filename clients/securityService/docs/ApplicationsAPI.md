@@ -242,7 +242,7 @@ No authorization required
 
 ## GetBusinessApplicationsAsync
 
-> BusinessApplicationDtoListEnvelope GetBusinessApplicationsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BusinessApplicationDtoListEnvelope GetBusinessApplicationsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BusinessApplicationDtoCollectionQueryParameters(businessApplicationDtoCollectionQueryParameters).Execute()
 
 Get all business applications
 
@@ -264,10 +264,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	businessApplicationDtoCollectionQueryParameters := *openapiclient.NewBusinessApplicationDtoCollectionQueryParameters() // BusinessApplicationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ApplicationsAPI.GetBusinessApplicationsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ApplicationsAPI.GetBusinessApplicationsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BusinessApplicationDtoCollectionQueryParameters(businessApplicationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationsAPI.GetBusinessApplicationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -291,6 +292,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **businessApplicationDtoCollectionQueryParameters** | [**BusinessApplicationDtoCollectionQueryParameters**](BusinessApplicationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -302,7 +304,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -312,7 +314,7 @@ No authorization required
 
 ## GetBusinessApplicationsCountAsync
 
-> Int32Envelope GetBusinessApplicationsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetBusinessApplicationsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BusinessApplicationDtoCollectionQueryParameters(businessApplicationDtoCollectionQueryParameters).Execute()
 
 Get business applications count
 
@@ -334,10 +336,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	businessApplicationDtoCollectionQueryParameters := *openapiclient.NewBusinessApplicationDtoCollectionQueryParameters() // BusinessApplicationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ApplicationsAPI.GetBusinessApplicationsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ApplicationsAPI.GetBusinessApplicationsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BusinessApplicationDtoCollectionQueryParameters(businessApplicationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationsAPI.GetBusinessApplicationsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -361,6 +364,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **businessApplicationDtoCollectionQueryParameters** | [**BusinessApplicationDtoCollectionQueryParameters**](BusinessApplicationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -372,7 +376,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -534,7 +538,7 @@ No authorization required
 
 ## PatchBusinessApplicationAsync
 
-> EmptyEnvelope PatchBusinessApplicationAsync(ctx, applicationId).TenantId(tenantId).Operation(operation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope PatchBusinessApplicationAsync(ctx, applicationId).TenantId(tenantId).PatchOperation(patchOperation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Patch an existing business application
 
@@ -555,13 +559,13 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	applicationId := "applicationId_example" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation | 
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ApplicationsAPI.PatchBusinessApplicationAsync(context.Background(), applicationId).TenantId(tenantId).Operation(operation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ApplicationsAPI.PatchBusinessApplicationAsync(context.Background(), applicationId).TenantId(tenantId).PatchOperation(patchOperation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationsAPI.PatchBusinessApplicationAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -588,7 +592,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 

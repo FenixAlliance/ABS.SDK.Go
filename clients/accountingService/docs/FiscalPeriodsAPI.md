@@ -324,7 +324,7 @@ No authorization required
 
 ## GetFiscalPeriods
 
-> FiscalPeriodDtoListEnvelope GetFiscalPeriods(ctx, fiscalYearId, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FiscalPeriodDtoListEnvelope GetFiscalPeriods(ctx, fiscalYearId, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalPeriodDtoCollectionQueryParameters(fiscalPeriodDtoCollectionQueryParameters).Execute()
 
 Get fiscal periods for a fiscal year
 
@@ -349,10 +349,11 @@ func main() {
 	authorityId := "authorityId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	fiscalPeriodDtoCollectionQueryParameters := *openapiclient.NewFiscalPeriodDtoCollectionQueryParameters() // FiscalPeriodDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalPeriodsAPI.GetFiscalPeriods(context.Background(), fiscalYearId, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalPeriodsAPI.GetFiscalPeriods(context.Background(), fiscalYearId, authorityId).TenantId(tenantId).FiscalAuthorityId(fiscalAuthorityId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalPeriodDtoCollectionQueryParameters(fiscalPeriodDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalPeriodsAPI.GetFiscalPeriods``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -384,6 +385,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **fiscalPeriodDtoCollectionQueryParameters** | [**FiscalPeriodDtoCollectionQueryParameters**](FiscalPeriodDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -395,7 +397,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -405,7 +407,7 @@ No authorization required
 
 ## GetFiscalPeriodsCount
 
-> Int32Envelope GetFiscalPeriodsCount(ctx, fiscalAuthorityId, fiscalYearId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetFiscalPeriodsCount(ctx, fiscalAuthorityId, fiscalYearId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalPeriodDtoCollectionQueryParameters(fiscalPeriodDtoCollectionQueryParameters).Execute()
 
 Get fiscal periods count
 
@@ -429,10 +431,11 @@ func main() {
 	fiscalYearId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	fiscalPeriodDtoCollectionQueryParameters := *openapiclient.NewFiscalPeriodDtoCollectionQueryParameters() // FiscalPeriodDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalPeriodsAPI.GetFiscalPeriodsCount(context.Background(), fiscalAuthorityId, fiscalYearId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalPeriodsAPI.GetFiscalPeriodsCount(context.Background(), fiscalAuthorityId, fiscalYearId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalPeriodDtoCollectionQueryParameters(fiscalPeriodDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalPeriodsAPI.GetFiscalPeriodsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -463,6 +466,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **fiscalPeriodDtoCollectionQueryParameters** | [**FiscalPeriodDtoCollectionQueryParameters**](FiscalPeriodDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -474,7 +478,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -560,7 +564,7 @@ No authorization required
 
 ## PatchFiscalPeriodAsync
 
-> EmptyEnvelope PatchFiscalPeriodAsync(ctx, fiscalPeriodId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchFiscalPeriodAsync(ctx, fiscalPeriodId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a fiscal period
 
@@ -583,11 +587,11 @@ func main() {
 	fiscalPeriodId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalPeriodsAPI.PatchFiscalPeriodAsync(context.Background(), fiscalPeriodId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.FiscalPeriodsAPI.PatchFiscalPeriodAsync(context.Background(), fiscalPeriodId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalPeriodsAPI.PatchFiscalPeriodAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -616,7 +620,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

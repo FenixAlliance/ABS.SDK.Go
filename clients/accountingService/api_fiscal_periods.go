@@ -668,6 +668,7 @@ type ApiGetFiscalPeriodsRequest struct {
 	authorityId string
 	apiVersion *string
 	xApiVersion *string
+	fiscalPeriodDtoCollectionQueryParameters *FiscalPeriodDtoCollectionQueryParameters
 }
 
 func (r ApiGetFiscalPeriodsRequest) TenantId(tenantId string) ApiGetFiscalPeriodsRequest {
@@ -687,6 +688,11 @@ func (r ApiGetFiscalPeriodsRequest) ApiVersion(apiVersion string) ApiGetFiscalPe
 
 func (r ApiGetFiscalPeriodsRequest) XApiVersion(xApiVersion string) ApiGetFiscalPeriodsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFiscalPeriodsRequest) FiscalPeriodDtoCollectionQueryParameters(fiscalPeriodDtoCollectionQueryParameters FiscalPeriodDtoCollectionQueryParameters) ApiGetFiscalPeriodsRequest {
+	r.fiscalPeriodDtoCollectionQueryParameters = &fiscalPeriodDtoCollectionQueryParameters
 	return r
 }
 
@@ -748,7 +754,7 @@ func (a *FiscalPeriodsAPIService) GetFiscalPeriodsExecute(r ApiGetFiscalPeriodsR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -767,6 +773,8 @@ func (a *FiscalPeriodsAPIService) GetFiscalPeriodsExecute(r ApiGetFiscalPeriodsR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.fiscalPeriodDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -834,6 +842,7 @@ type ApiGetFiscalPeriodsCountRequest struct {
 	fiscalYearId string
 	apiVersion *string
 	xApiVersion *string
+	fiscalPeriodDtoCollectionQueryParameters *FiscalPeriodDtoCollectionQueryParameters
 }
 
 func (r ApiGetFiscalPeriodsCountRequest) TenantId(tenantId string) ApiGetFiscalPeriodsCountRequest {
@@ -848,6 +857,11 @@ func (r ApiGetFiscalPeriodsCountRequest) ApiVersion(apiVersion string) ApiGetFis
 
 func (r ApiGetFiscalPeriodsCountRequest) XApiVersion(xApiVersion string) ApiGetFiscalPeriodsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFiscalPeriodsCountRequest) FiscalPeriodDtoCollectionQueryParameters(fiscalPeriodDtoCollectionQueryParameters FiscalPeriodDtoCollectionQueryParameters) ApiGetFiscalPeriodsCountRequest {
+	r.fiscalPeriodDtoCollectionQueryParameters = &fiscalPeriodDtoCollectionQueryParameters
 	return r
 }
 
@@ -905,7 +919,7 @@ func (a *FiscalPeriodsAPIService) GetFiscalPeriodsCountExecute(r ApiGetFiscalPer
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -924,6 +938,8 @@ func (a *FiscalPeriodsAPIService) GetFiscalPeriodsCountExecute(r ApiGetFiscalPer
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.fiscalPeriodDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1154,7 +1170,7 @@ type ApiPatchFiscalPeriodAsyncRequest struct {
 	fiscalPeriodId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchFiscalPeriodAsyncRequest) TenantId(tenantId string) ApiPatchFiscalPeriodAsyncRequest {
@@ -1172,8 +1188,8 @@ func (r ApiPatchFiscalPeriodAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchFiscalPeriodAsyncRequest) Operation(operation []Operation) ApiPatchFiscalPeriodAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchFiscalPeriodAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchFiscalPeriodAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1248,7 +1264,7 @@ func (a *FiscalPeriodsAPIService) PatchFiscalPeriodAsyncExecute(r ApiPatchFiscal
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

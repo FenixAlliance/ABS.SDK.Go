@@ -428,6 +428,7 @@ type ApiGetCourseWikisAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	courseWikiDtoCollectionQueryParameters *CourseWikiDtoCollectionQueryParameters
 }
 
 func (r ApiGetCourseWikisAsyncRequest) TenantId(tenantId string) ApiGetCourseWikisAsyncRequest {
@@ -442,6 +443,11 @@ func (r ApiGetCourseWikisAsyncRequest) ApiVersion(apiVersion string) ApiGetCours
 
 func (r ApiGetCourseWikisAsyncRequest) XApiVersion(xApiVersion string) ApiGetCourseWikisAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCourseWikisAsyncRequest) CourseWikiDtoCollectionQueryParameters(courseWikiDtoCollectionQueryParameters CourseWikiDtoCollectionQueryParameters) ApiGetCourseWikisAsyncRequest {
+	r.courseWikiDtoCollectionQueryParameters = &courseWikiDtoCollectionQueryParameters
 	return r
 }
 
@@ -493,7 +499,7 @@ func (a *CourseWikisAPIService) GetCourseWikisAsyncExecute(r ApiGetCourseWikisAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -512,6 +518,8 @@ func (a *CourseWikisAPIService) GetCourseWikisAsyncExecute(r ApiGetCourseWikisAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseWikiDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -566,6 +574,7 @@ type ApiGetCourseWikisCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	courseWikiDtoCollectionQueryParameters *CourseWikiDtoCollectionQueryParameters
 }
 
 func (r ApiGetCourseWikisCountAsyncRequest) TenantId(tenantId string) ApiGetCourseWikisCountAsyncRequest {
@@ -580,6 +589,11 @@ func (r ApiGetCourseWikisCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetCourseWikisCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetCourseWikisCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCourseWikisCountAsyncRequest) CourseWikiDtoCollectionQueryParameters(courseWikiDtoCollectionQueryParameters CourseWikiDtoCollectionQueryParameters) ApiGetCourseWikisCountAsyncRequest {
+	r.courseWikiDtoCollectionQueryParameters = &courseWikiDtoCollectionQueryParameters
 	return r
 }
 
@@ -631,7 +645,7 @@ func (a *CourseWikisAPIService) GetCourseWikisCountAsyncExecute(r ApiGetCourseWi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -650,6 +664,8 @@ func (a *CourseWikisAPIService) GetCourseWikisCountAsyncExecute(r ApiGetCourseWi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseWikiDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -705,7 +721,7 @@ type ApiPatchCourseWikiAsyncRequest struct {
 	wikiId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCourseWikiAsyncRequest) TenantId(tenantId string) ApiPatchCourseWikiAsyncRequest {
@@ -723,8 +739,8 @@ func (r ApiPatchCourseWikiAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchCourseWikiAsyncRequest) Operation(operation []Operation) ApiPatchCourseWikiAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchCourseWikiAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCourseWikiAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -799,7 +815,7 @@ func (a *CourseWikisAPIService) PatchCourseWikiAsyncExecute(r ApiPatchCourseWiki
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -12,9 +12,15 @@ Name | Type | Description | Notes
 **SocialFeedPostId** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileName** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileAvatarUrl** | Pointer to **NullableString** |  | [optional] 
+**SocialProfileType** | Pointer to **NullableString** |  | [optional] 
 **BodyHtml** | Pointer to **NullableString** |  | [optional] 
 **BodyFormat** | Pointer to **NullableString** |  | [optional] 
+**ReplyCount** | Pointer to **int32** |  | [optional] 
+**ReactionsCount** | Pointer to **int32** |  | [optional] 
 **SocialPostId** | Pointer to **NullableString** |  | [optional] 
+**Facepile** | Pointer to [**[]SocialPostReactionFacepileDto**](SocialPostReactionFacepileDto.md) |  | [optional] 
+**MyReaction** | Pointer to **NullableString** |  | [optional] 
+**MyReactionId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -315,6 +321,41 @@ HasSocialProfileAvatarUrl returns a boolean if a field has been set.
 `func (o *SocialPostCommentDto) UnsetSocialProfileAvatarUrl()`
 
 UnsetSocialProfileAvatarUrl ensures that no value is present for SocialProfileAvatarUrl, not even an explicit nil
+### GetSocialProfileType
+
+`func (o *SocialPostCommentDto) GetSocialProfileType() string`
+
+GetSocialProfileType returns the SocialProfileType field if non-nil, zero value otherwise.
+
+### GetSocialProfileTypeOk
+
+`func (o *SocialPostCommentDto) GetSocialProfileTypeOk() (*string, bool)`
+
+GetSocialProfileTypeOk returns a tuple with the SocialProfileType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSocialProfileType
+
+`func (o *SocialPostCommentDto) SetSocialProfileType(v string)`
+
+SetSocialProfileType sets SocialProfileType field to given value.
+
+### HasSocialProfileType
+
+`func (o *SocialPostCommentDto) HasSocialProfileType() bool`
+
+HasSocialProfileType returns a boolean if a field has been set.
+
+### SetSocialProfileTypeNil
+
+`func (o *SocialPostCommentDto) SetSocialProfileTypeNil(b bool)`
+
+ SetSocialProfileTypeNil sets the value for SocialProfileType to be an explicit nil
+
+### UnsetSocialProfileType
+`func (o *SocialPostCommentDto) UnsetSocialProfileType()`
+
+UnsetSocialProfileType ensures that no value is present for SocialProfileType, not even an explicit nil
 ### GetBodyHtml
 
 `func (o *SocialPostCommentDto) GetBodyHtml() string`
@@ -385,6 +426,56 @@ HasBodyFormat returns a boolean if a field has been set.
 `func (o *SocialPostCommentDto) UnsetBodyFormat()`
 
 UnsetBodyFormat ensures that no value is present for BodyFormat, not even an explicit nil
+### GetReplyCount
+
+`func (o *SocialPostCommentDto) GetReplyCount() int32`
+
+GetReplyCount returns the ReplyCount field if non-nil, zero value otherwise.
+
+### GetReplyCountOk
+
+`func (o *SocialPostCommentDto) GetReplyCountOk() (*int32, bool)`
+
+GetReplyCountOk returns a tuple with the ReplyCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReplyCount
+
+`func (o *SocialPostCommentDto) SetReplyCount(v int32)`
+
+SetReplyCount sets ReplyCount field to given value.
+
+### HasReplyCount
+
+`func (o *SocialPostCommentDto) HasReplyCount() bool`
+
+HasReplyCount returns a boolean if a field has been set.
+
+### GetReactionsCount
+
+`func (o *SocialPostCommentDto) GetReactionsCount() int32`
+
+GetReactionsCount returns the ReactionsCount field if non-nil, zero value otherwise.
+
+### GetReactionsCountOk
+
+`func (o *SocialPostCommentDto) GetReactionsCountOk() (*int32, bool)`
+
+GetReactionsCountOk returns a tuple with the ReactionsCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReactionsCount
+
+`func (o *SocialPostCommentDto) SetReactionsCount(v int32)`
+
+SetReactionsCount sets ReactionsCount field to given value.
+
+### HasReactionsCount
+
+`func (o *SocialPostCommentDto) HasReactionsCount() bool`
+
+HasReactionsCount returns a boolean if a field has been set.
+
 ### GetSocialPostId
 
 `func (o *SocialPostCommentDto) GetSocialPostId() string`
@@ -420,6 +511,111 @@ HasSocialPostId returns a boolean if a field has been set.
 `func (o *SocialPostCommentDto) UnsetSocialPostId()`
 
 UnsetSocialPostId ensures that no value is present for SocialPostId, not even an explicit nil
+### GetFacepile
+
+`func (o *SocialPostCommentDto) GetFacepile() []SocialPostReactionFacepileDto`
+
+GetFacepile returns the Facepile field if non-nil, zero value otherwise.
+
+### GetFacepileOk
+
+`func (o *SocialPostCommentDto) GetFacepileOk() (*[]SocialPostReactionFacepileDto, bool)`
+
+GetFacepileOk returns a tuple with the Facepile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFacepile
+
+`func (o *SocialPostCommentDto) SetFacepile(v []SocialPostReactionFacepileDto)`
+
+SetFacepile sets Facepile field to given value.
+
+### HasFacepile
+
+`func (o *SocialPostCommentDto) HasFacepile() bool`
+
+HasFacepile returns a boolean if a field has been set.
+
+### SetFacepileNil
+
+`func (o *SocialPostCommentDto) SetFacepileNil(b bool)`
+
+ SetFacepileNil sets the value for Facepile to be an explicit nil
+
+### UnsetFacepile
+`func (o *SocialPostCommentDto) UnsetFacepile()`
+
+UnsetFacepile ensures that no value is present for Facepile, not even an explicit nil
+### GetMyReaction
+
+`func (o *SocialPostCommentDto) GetMyReaction() string`
+
+GetMyReaction returns the MyReaction field if non-nil, zero value otherwise.
+
+### GetMyReactionOk
+
+`func (o *SocialPostCommentDto) GetMyReactionOk() (*string, bool)`
+
+GetMyReactionOk returns a tuple with the MyReaction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMyReaction
+
+`func (o *SocialPostCommentDto) SetMyReaction(v string)`
+
+SetMyReaction sets MyReaction field to given value.
+
+### HasMyReaction
+
+`func (o *SocialPostCommentDto) HasMyReaction() bool`
+
+HasMyReaction returns a boolean if a field has been set.
+
+### SetMyReactionNil
+
+`func (o *SocialPostCommentDto) SetMyReactionNil(b bool)`
+
+ SetMyReactionNil sets the value for MyReaction to be an explicit nil
+
+### UnsetMyReaction
+`func (o *SocialPostCommentDto) UnsetMyReaction()`
+
+UnsetMyReaction ensures that no value is present for MyReaction, not even an explicit nil
+### GetMyReactionId
+
+`func (o *SocialPostCommentDto) GetMyReactionId() string`
+
+GetMyReactionId returns the MyReactionId field if non-nil, zero value otherwise.
+
+### GetMyReactionIdOk
+
+`func (o *SocialPostCommentDto) GetMyReactionIdOk() (*string, bool)`
+
+GetMyReactionIdOk returns a tuple with the MyReactionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMyReactionId
+
+`func (o *SocialPostCommentDto) SetMyReactionId(v string)`
+
+SetMyReactionId sets MyReactionId field to given value.
+
+### HasMyReactionId
+
+`func (o *SocialPostCommentDto) HasMyReactionId() bool`
+
+HasMyReactionId returns a boolean if a field has been set.
+
+### SetMyReactionIdNil
+
+`func (o *SocialPostCommentDto) SetMyReactionIdNil(b bool)`
+
+ SetMyReactionIdNil sets the value for MyReactionId to be an explicit nil
+
+### UnsetMyReactionId
+`func (o *SocialPostCommentDto) UnsetMyReactionId()`
+
+UnsetMyReactionId ensures that no value is present for MyReactionId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

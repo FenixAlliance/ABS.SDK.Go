@@ -315,6 +315,7 @@ type ApiGetSystemIPLookupsRequest struct {
 	ApiService *IPLookupsAPIService
 	apiVersion *string
 	xApiVersion *string
+	iPLookupDtoCollectionQueryParameters *IPLookupDtoCollectionQueryParameters
 }
 
 func (r ApiGetSystemIPLookupsRequest) ApiVersion(apiVersion string) ApiGetSystemIPLookupsRequest {
@@ -324,6 +325,11 @@ func (r ApiGetSystemIPLookupsRequest) ApiVersion(apiVersion string) ApiGetSystem
 
 func (r ApiGetSystemIPLookupsRequest) XApiVersion(xApiVersion string) ApiGetSystemIPLookupsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSystemIPLookupsRequest) IPLookupDtoCollectionQueryParameters(iPLookupDtoCollectionQueryParameters IPLookupDtoCollectionQueryParameters) ApiGetSystemIPLookupsRequest {
+	r.iPLookupDtoCollectionQueryParameters = &iPLookupDtoCollectionQueryParameters
 	return r
 }
 
@@ -371,7 +377,7 @@ func (a *IPLookupsAPIService) GetSystemIPLookupsExecute(r ApiGetSystemIPLookupsR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -390,6 +396,8 @@ func (a *IPLookupsAPIService) GetSystemIPLookupsExecute(r ApiGetSystemIPLookupsR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.iPLookupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -454,6 +462,7 @@ type ApiGetSystemIPLookupsCountRequest struct {
 	ApiService *IPLookupsAPIService
 	apiVersion *string
 	xApiVersion *string
+	iPLookupDtoCollectionQueryParameters *IPLookupDtoCollectionQueryParameters
 }
 
 func (r ApiGetSystemIPLookupsCountRequest) ApiVersion(apiVersion string) ApiGetSystemIPLookupsCountRequest {
@@ -463,6 +472,11 @@ func (r ApiGetSystemIPLookupsCountRequest) ApiVersion(apiVersion string) ApiGetS
 
 func (r ApiGetSystemIPLookupsCountRequest) XApiVersion(xApiVersion string) ApiGetSystemIPLookupsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSystemIPLookupsCountRequest) IPLookupDtoCollectionQueryParameters(iPLookupDtoCollectionQueryParameters IPLookupDtoCollectionQueryParameters) ApiGetSystemIPLookupsCountRequest {
+	r.iPLookupDtoCollectionQueryParameters = &iPLookupDtoCollectionQueryParameters
 	return r
 }
 
@@ -510,7 +524,7 @@ func (a *IPLookupsAPIService) GetSystemIPLookupsCountExecute(r ApiGetSystemIPLoo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -529,6 +543,8 @@ func (a *IPLookupsAPIService) GetSystemIPLookupsCountExecute(r ApiGetSystemIPLoo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.iPLookupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

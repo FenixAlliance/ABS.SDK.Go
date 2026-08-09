@@ -52,6 +52,8 @@ type APIClient struct {
 
 	AntiforgeryAPI *AntiforgeryAPIService
 
+	ApplicationPrincipalsAPI *ApplicationPrincipalsAPIService
+
 	BusinessDomainsAPI *BusinessDomainsAPIService
 
 	CartsAPI *CartsAPIService
@@ -64,6 +66,8 @@ type APIClient struct {
 
 	IPLookupsAPI *IPLookupsAPIService
 
+	InboxAPI *InboxAPIService
+
 	LicensingAPI *LicensingAPIService
 
 	MigrationsAPI *MigrationsAPIService
@@ -71,6 +75,8 @@ type APIClient struct {
 	ModulesAPI *ModulesAPIService
 
 	OptionsAPI *OptionsAPIService
+
+	OutboxAPI *OutboxAPIService
 
 	OverviewAPI *OverviewAPIService
 
@@ -102,16 +108,19 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.AntiforgeryAPI = (*AntiforgeryAPIService)(&c.common)
+	c.ApplicationPrincipalsAPI = (*ApplicationPrincipalsAPIService)(&c.common)
 	c.BusinessDomainsAPI = (*BusinessDomainsAPIService)(&c.common)
 	c.CartsAPI = (*CartsAPIService)(&c.common)
 	c.ContactOptionsAPI = (*ContactOptionsAPIService)(&c.common)
 	c.EmailsAPI = (*EmailsAPIService)(&c.common)
 	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.IPLookupsAPI = (*IPLookupsAPIService)(&c.common)
+	c.InboxAPI = (*InboxAPIService)(&c.common)
 	c.LicensingAPI = (*LicensingAPIService)(&c.common)
 	c.MigrationsAPI = (*MigrationsAPIService)(&c.common)
 	c.ModulesAPI = (*ModulesAPIService)(&c.common)
 	c.OptionsAPI = (*OptionsAPIService)(&c.common)
+	c.OutboxAPI = (*OutboxAPIService)(&c.common)
 	c.OverviewAPI = (*OverviewAPIService)(&c.common)
 	c.PortalsAPI = (*PortalsAPIService)(&c.common)
 	c.TenantOptionsAPI = (*TenantOptionsAPIService)(&c.common)

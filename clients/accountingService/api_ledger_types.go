@@ -490,6 +490,7 @@ type ApiGetLedgerTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	ledgerTypeDtoCollectionQueryParameters *LedgerTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetLedgerTypesAsyncRequest) TenantId(tenantId string) ApiGetLedgerTypesAsyncRequest {
@@ -504,6 +505,11 @@ func (r ApiGetLedgerTypesAsyncRequest) ApiVersion(apiVersion string) ApiGetLedge
 
 func (r ApiGetLedgerTypesAsyncRequest) XApiVersion(xApiVersion string) ApiGetLedgerTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLedgerTypesAsyncRequest) LedgerTypeDtoCollectionQueryParameters(ledgerTypeDtoCollectionQueryParameters LedgerTypeDtoCollectionQueryParameters) ApiGetLedgerTypesAsyncRequest {
+	r.ledgerTypeDtoCollectionQueryParameters = &ledgerTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -555,7 +561,7 @@ func (a *LedgerTypesAPIService) GetLedgerTypesAsyncExecute(r ApiGetLedgerTypesAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -574,6 +580,8 @@ func (a *LedgerTypesAPIService) GetLedgerTypesAsyncExecute(r ApiGetLedgerTypesAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.ledgerTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -638,6 +646,7 @@ type ApiGetLedgerTypesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	ledgerTypeDtoCollectionQueryParameters *LedgerTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetLedgerTypesCountAsyncRequest) TenantId(tenantId string) ApiGetLedgerTypesCountAsyncRequest {
@@ -652,6 +661,11 @@ func (r ApiGetLedgerTypesCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetLedgerTypesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetLedgerTypesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLedgerTypesCountAsyncRequest) LedgerTypeDtoCollectionQueryParameters(ledgerTypeDtoCollectionQueryParameters LedgerTypeDtoCollectionQueryParameters) ApiGetLedgerTypesCountAsyncRequest {
+	r.ledgerTypeDtoCollectionQueryParameters = &ledgerTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -703,7 +717,7 @@ func (a *LedgerTypesAPIService) GetLedgerTypesCountAsyncExecute(r ApiGetLedgerTy
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -722,6 +736,8 @@ func (a *LedgerTypesAPIService) GetLedgerTypesCountAsyncExecute(r ApiGetLedgerTy
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.ledgerTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -787,7 +803,7 @@ type ApiPatchLedgerTypeAsyncRequest struct {
 	ledgerTypeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchLedgerTypeAsyncRequest) TenantId(tenantId string) ApiPatchLedgerTypeAsyncRequest {
@@ -805,8 +821,8 @@ func (r ApiPatchLedgerTypeAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchLedgerTypeAsyncRequest) Operation(operation []Operation) ApiPatchLedgerTypeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchLedgerTypeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchLedgerTypeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -881,7 +897,7 @@ func (a *LedgerTypesAPIService) PatchLedgerTypeAsyncExecute(r ApiPatchLedgerType
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

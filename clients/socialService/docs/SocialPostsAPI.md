@@ -4,14 +4,19 @@ All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateSocialCommentReactionAsync**](SocialPostsAPI.md#CreateSocialCommentReactionAsync) | **Post** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Create a social comment reaction
 [**CreateSocialPostAsync**](SocialPostsAPI.md#CreateSocialPostAsync) | **Post** /api/v2/SocialService/SocialPosts | Create a social post
 [**CreateSocialPostAttachmentAsync**](SocialPostsAPI.md#CreateSocialPostAttachmentAsync) | **Post** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Create a social post attachment
 [**CreateSocialPostCommentAsync**](SocialPostsAPI.md#CreateSocialPostCommentAsync) | **Post** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments | Create a social post comment
 [**CreateSocialPostReactionAsync**](SocialPostsAPI.md#CreateSocialPostReactionAsync) | **Post** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions | Create a social post reaction
+[**DeleteSocialCommentReactionAsync**](SocialPostsAPI.md#DeleteSocialCommentReactionAsync) | **Delete** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Delete a social comment reaction
 [**DeleteSocialPostAsync**](SocialPostsAPI.md#DeleteSocialPostAsync) | **Delete** /api/v2/SocialService/SocialPosts/{socialPostId} | Delete a social post
 [**DeleteSocialPostAttachmentAsync**](SocialPostsAPI.md#DeleteSocialPostAttachmentAsync) | **Delete** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Delete a social post attachment
 [**DeleteSocialPostCommentAsync**](SocialPostsAPI.md#DeleteSocialPostCommentAsync) | **Delete** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Delete a social post comment
 [**DeleteSocialPostReactionAsync**](SocialPostsAPI.md#DeleteSocialPostReactionAsync) | **Delete** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Delete a social post reaction
+[**GetSocialCommentReactionAsync**](SocialPostsAPI.md#GetSocialCommentReactionAsync) | **Get** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Get social comment reaction by ID
+[**GetSocialCommentReactionsAsync**](SocialPostsAPI.md#GetSocialCommentReactionsAsync) | **Get** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Get social comment reactions
+[**GetSocialCommentReactionsCountAsync**](SocialPostsAPI.md#GetSocialCommentReactionsCountAsync) | **Get** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count | Count social comment reactions
 [**GetSocialPostAsync**](SocialPostsAPI.md#GetSocialPostAsync) | **Get** /api/v2/SocialService/SocialPosts/{socialPostId} | Get social post by ID
 [**GetSocialPostAttachmentAsync**](SocialPostsAPI.md#GetSocialPostAttachmentAsync) | **Get** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Get social post attachment by ID
 [**GetSocialPostAttachmentsAsync**](SocialPostsAPI.md#GetSocialPostAttachmentsAsync) | **Get** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Get social post attachments
@@ -25,11 +30,94 @@ Method | HTTP request | Description
 [**GetSocialPostsAsync**](SocialPostsAPI.md#GetSocialPostsAsync) | **Get** /api/v2/SocialService/SocialPosts | Get social posts
 [**GetSocialPostsCountAsync**](SocialPostsAPI.md#GetSocialPostsCountAsync) | **Get** /api/v2/SocialService/SocialPosts/Count | Count social posts
 [**PatchSocialPostAsync**](SocialPostsAPI.md#PatchSocialPostAsync) | **Patch** /api/v2/SocialService/SocialPosts/{socialPostId} | Patch a social post
+[**UpdateSocialCommentReactionAsync**](SocialPostsAPI.md#UpdateSocialCommentReactionAsync) | **Put** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Update a social comment reaction
 [**UpdateSocialPostAsync**](SocialPostsAPI.md#UpdateSocialPostAsync) | **Put** /api/v2/SocialService/SocialPosts/{socialPostId} | Update a social post
 [**UpdateSocialPostAttachmentAsync**](SocialPostsAPI.md#UpdateSocialPostAttachmentAsync) | **Put** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Update a social post attachment
 [**UpdateSocialPostCommentAsync**](SocialPostsAPI.md#UpdateSocialPostCommentAsync) | **Put** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Update a social post comment
 [**UpdateSocialPostReactionAsync**](SocialPostsAPI.md#UpdateSocialPostReactionAsync) | **Put** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Update a social post reaction
+[**UploadSocialPostImageAttachmentAsync**](SocialPostsAPI.md#UploadSocialPostImageAttachmentAsync) | **Post** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image | Upload a social post image attachment
 
+
+
+## CreateSocialCommentReactionAsync
+
+> SocialCommentReactionDtoEnvelope CreateSocialCommentReactionAsync(ctx, socialPostId, commentId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialReactionCreateDto(socialReactionCreateDto).Execute()
+
+Create a social comment reaction
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	commentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialReactionCreateDto := *openapiclient.NewSocialReactionCreateDto() // SocialReactionCreateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialPostsAPI.CreateSocialCommentReactionAsync(context.Background(), socialPostId, commentId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialReactionCreateDto(socialReactionCreateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.CreateSocialCommentReactionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateSocialCommentReactionAsync`: SocialCommentReactionDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialPostsAPI.CreateSocialCommentReactionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialPostId** | **string** |  | 
+**commentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateSocialCommentReactionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **socialProfileId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **socialReactionCreateDto** | [**SocialReactionCreateDto**](SocialReactionCreateDto.md) |  | 
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CreateSocialPostAsync
@@ -207,7 +295,7 @@ func main() {
 	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	socialPostCommentCreateDto := *openapiclient.NewSocialPostCommentCreateDto("Message_example") // SocialPostCommentCreateDto |  (optional)
+	socialPostCommentCreateDto := *openapiclient.NewSocialPostCommentCreateDto() // SocialPostCommentCreateDto |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -262,7 +350,7 @@ No authorization required
 
 ## CreateSocialPostReactionAsync
 
-> SocialReactionDtoEnvelope CreateSocialPostReactionAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialReactionCreateDto(socialReactionCreateDto).Execute()
+> SocialPostReactionDtoEnvelope CreateSocialPostReactionAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialReactionCreateDto(socialReactionCreateDto).Execute()
 
 Create a social post reaction
 
@@ -294,7 +382,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.CreateSocialPostReactionAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateSocialPostReactionAsync`: SocialReactionDtoEnvelope
+	// response from `CreateSocialPostReactionAsync`: SocialPostReactionDtoEnvelope
 	fmt.Fprintf(os.Stdout, "Response from `SocialPostsAPI.CreateSocialPostReactionAsync`: %v\n", resp)
 }
 ```
@@ -322,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SocialReactionDtoEnvelope**](SocialReactionDtoEnvelope.md)
+[**SocialPostReactionDtoEnvelope**](SocialPostReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -331,6 +419,88 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteSocialCommentReactionAsync
+
+> EmptyEnvelope DeleteSocialCommentReactionAsync(ctx, socialPostId, commentId, reactionId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Delete a social comment reaction
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	commentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	reactionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialPostsAPI.DeleteSocialCommentReactionAsync(context.Background(), socialPostId, commentId, reactionId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.DeleteSocialCommentReactionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteSocialCommentReactionAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialPostsAPI.DeleteSocialCommentReactionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialPostId** | **string** |  | 
+**commentId** | **string** |  | 
+**reactionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteSocialCommentReactionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **socialProfileId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -651,6 +821,248 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetSocialCommentReactionAsync
+
+> SocialCommentReactionDtoEnvelope GetSocialCommentReactionAsync(ctx, socialPostId, commentId, reactionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Get social comment reaction by ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	commentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	reactionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialCommentReactionAsync(context.Background(), socialPostId, commentId, reactionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialCommentReactionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSocialCommentReactionAsync`: SocialCommentReactionDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialPostsAPI.GetSocialCommentReactionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialPostId** | **string** |  | 
+**commentId** | **string** |  | 
+**reactionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSocialCommentReactionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSocialCommentReactionsAsync
+
+> SocialCommentReactionDtoListEnvelope GetSocialCommentReactionsAsync(ctx, socialPostId, commentId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialCommentReactionDtoCollectionQueryParameters(socialCommentReactionDtoCollectionQueryParameters).Execute()
+
+Get social comment reactions
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	commentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialCommentReactionDtoCollectionQueryParameters := *openapiclient.NewSocialCommentReactionDtoCollectionQueryParameters() // SocialCommentReactionDtoCollectionQueryParameters |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialCommentReactionsAsync(context.Background(), socialPostId, commentId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialCommentReactionDtoCollectionQueryParameters(socialCommentReactionDtoCollectionQueryParameters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialCommentReactionsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSocialCommentReactionsAsync`: SocialCommentReactionDtoListEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialPostsAPI.GetSocialCommentReactionsAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialPostId** | **string** |  | 
+**commentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSocialCommentReactionsAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **socialProfileId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **socialCommentReactionDtoCollectionQueryParameters** | [**SocialCommentReactionDtoCollectionQueryParameters**](SocialCommentReactionDtoCollectionQueryParameters.md) |  | 
+
+### Return type
+
+[**SocialCommentReactionDtoListEnvelope**](SocialCommentReactionDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSocialCommentReactionsCountAsync
+
+> Int32Envelope GetSocialCommentReactionsCountAsync(ctx, socialPostId, commentId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialCommentReactionDtoCollectionQueryParameters(socialCommentReactionDtoCollectionQueryParameters).Execute()
+
+Count social comment reactions
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	commentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialCommentReactionDtoCollectionQueryParameters := *openapiclient.NewSocialCommentReactionDtoCollectionQueryParameters() // SocialCommentReactionDtoCollectionQueryParameters |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialCommentReactionsCountAsync(context.Background(), socialPostId, commentId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialCommentReactionDtoCollectionQueryParameters(socialCommentReactionDtoCollectionQueryParameters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialCommentReactionsCountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSocialCommentReactionsCountAsync`: Int32Envelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialPostsAPI.GetSocialCommentReactionsCountAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialPostId** | **string** |  | 
+**commentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSocialCommentReactionsCountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **socialProfileId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **socialCommentReactionDtoCollectionQueryParameters** | [**SocialCommentReactionDtoCollectionQueryParameters**](SocialCommentReactionDtoCollectionQueryParameters.md) |  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetSocialPostAsync
 
 > SocialPostDtoEnvelope GetSocialPostAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
@@ -806,7 +1218,7 @@ No authorization required
 
 ## GetSocialPostAttachmentsAsync
 
-> SocialPostAttachmentDtoListEnvelope GetSocialPostAttachmentsAsync(ctx, socialPostId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SocialPostAttachmentDtoListEnvelope GetSocialPostAttachmentsAsync(ctx, socialPostId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostAttachmentDtoCollectionQueryParameters(socialPostAttachmentDtoCollectionQueryParameters).Execute()
 
 Get social post attachments
 
@@ -828,10 +1240,11 @@ func main() {
 	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialPostAttachmentDtoCollectionQueryParameters := *openapiclient.NewSocialPostAttachmentDtoCollectionQueryParameters() // SocialPostAttachmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostAttachmentsAsync(context.Background(), socialPostId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostAttachmentsAsync(context.Background(), socialPostId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostAttachmentDtoCollectionQueryParameters(socialPostAttachmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialPostAttachmentsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -859,6 +1272,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialPostAttachmentDtoCollectionQueryParameters** | [**SocialPostAttachmentDtoCollectionQueryParameters**](SocialPostAttachmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -870,7 +1284,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -880,7 +1294,7 @@ No authorization required
 
 ## GetSocialPostAttachmentsCountAsync
 
-> Int32Envelope GetSocialPostAttachmentsCountAsync(ctx, socialPostId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetSocialPostAttachmentsCountAsync(ctx, socialPostId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostAttachmentDtoCollectionQueryParameters(socialPostAttachmentDtoCollectionQueryParameters).Execute()
 
 Count social post attachments
 
@@ -902,10 +1316,11 @@ func main() {
 	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialPostAttachmentDtoCollectionQueryParameters := *openapiclient.NewSocialPostAttachmentDtoCollectionQueryParameters() // SocialPostAttachmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostAttachmentsCountAsync(context.Background(), socialPostId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostAttachmentsCountAsync(context.Background(), socialPostId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostAttachmentDtoCollectionQueryParameters(socialPostAttachmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialPostAttachmentsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -933,6 +1348,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialPostAttachmentDtoCollectionQueryParameters** | [**SocialPostAttachmentDtoCollectionQueryParameters**](SocialPostAttachmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -944,7 +1360,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1033,7 +1449,7 @@ No authorization required
 
 ## GetSocialPostCommentsAsync
 
-> SocialPostCommentDtoListEnvelope GetSocialPostCommentsAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SocialPostCommentDtoListEnvelope GetSocialPostCommentsAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ParentCommentId(parentCommentId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostCommentDtoCollectionQueryParameters(socialPostCommentDtoCollectionQueryParameters).Execute()
 
 Get social post comments
 
@@ -1054,12 +1470,14 @@ import (
 func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	parentCommentId := "parentCommentId_example" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialPostCommentDtoCollectionQueryParameters := *openapiclient.NewSocialPostCommentDtoCollectionQueryParameters() // SocialPostCommentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostCommentsAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostCommentsAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ParentCommentId(parentCommentId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostCommentDtoCollectionQueryParameters(socialPostCommentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialPostCommentsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1086,8 +1504,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **socialProfileId** | **string** |  | 
 
+ **parentCommentId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialPostCommentDtoCollectionQueryParameters** | [**SocialPostCommentDtoCollectionQueryParameters**](SocialPostCommentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1099,7 +1519,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1109,7 +1529,7 @@ No authorization required
 
 ## GetSocialPostCommentsCountAsync
 
-> Int32Envelope GetSocialPostCommentsCountAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetSocialPostCommentsCountAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ParentCommentId(parentCommentId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostCommentDtoCollectionQueryParameters(socialPostCommentDtoCollectionQueryParameters).Execute()
 
 Count social post comments
 
@@ -1130,12 +1550,14 @@ import (
 func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	parentCommentId := "parentCommentId_example" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialPostCommentDtoCollectionQueryParameters := *openapiclient.NewSocialPostCommentDtoCollectionQueryParameters() // SocialPostCommentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostCommentsCountAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostCommentsCountAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ParentCommentId(parentCommentId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostCommentDtoCollectionQueryParameters(socialPostCommentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialPostCommentsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1162,8 +1584,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **socialProfileId** | **string** |  | 
 
+ **parentCommentId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialPostCommentDtoCollectionQueryParameters** | [**SocialPostCommentDtoCollectionQueryParameters**](SocialPostCommentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1175,7 +1599,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1262,7 +1686,7 @@ No authorization required
 
 ## GetSocialPostReactionsAsync
 
-> SocialReactionDtoListEnvelope GetSocialPostReactionsAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SocialReactionDtoListEnvelope GetSocialPostReactionsAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostReactionDtoCollectionQueryParameters(socialPostReactionDtoCollectionQueryParameters).Execute()
 
 Get social post reactions
 
@@ -1285,10 +1709,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialPostReactionDtoCollectionQueryParameters := *openapiclient.NewSocialPostReactionDtoCollectionQueryParameters() // SocialPostReactionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostReactionsAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostReactionsAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostReactionDtoCollectionQueryParameters(socialPostReactionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialPostReactionsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1317,6 +1742,7 @@ Name | Type | Description  | Notes
  **socialProfileId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialPostReactionDtoCollectionQueryParameters** | [**SocialPostReactionDtoCollectionQueryParameters**](SocialPostReactionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1328,7 +1754,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1338,7 +1764,7 @@ No authorization required
 
 ## GetSocialPostReactionsCountAsync
 
-> Int32Envelope GetSocialPostReactionsCountAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetSocialPostReactionsCountAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostReactionDtoCollectionQueryParameters(socialPostReactionDtoCollectionQueryParameters).Execute()
 
 Count social post reactions
 
@@ -1361,10 +1787,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialPostReactionDtoCollectionQueryParameters := *openapiclient.NewSocialPostReactionDtoCollectionQueryParameters() // SocialPostReactionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostReactionsCountAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostReactionsCountAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostReactionDtoCollectionQueryParameters(socialPostReactionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialPostReactionsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1393,6 +1820,7 @@ Name | Type | Description  | Notes
  **socialProfileId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialPostReactionDtoCollectionQueryParameters** | [**SocialPostReactionDtoCollectionQueryParameters**](SocialPostReactionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1404,7 +1832,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1414,7 +1842,7 @@ No authorization required
 
 ## GetSocialPostsAsync
 
-> SocialPostDtoListEnvelope GetSocialPostsAsync(ctx).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SocialPostDtoListEnvelope GetSocialPostsAsync(ctx).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostDtoCollectionQueryParameters(socialPostDtoCollectionQueryParameters).Execute()
 
 Get social posts
 
@@ -1436,10 +1864,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialPostDtoCollectionQueryParameters := *openapiclient.NewSocialPostDtoCollectionQueryParameters() // SocialPostDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostsAsync(context.Background()).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostsAsync(context.Background()).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostDtoCollectionQueryParameters(socialPostDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialPostsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1463,6 +1892,7 @@ Name | Type | Description  | Notes
  **socialProfileId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialPostDtoCollectionQueryParameters** | [**SocialPostDtoCollectionQueryParameters**](SocialPostDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1474,7 +1904,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1484,7 +1914,7 @@ No authorization required
 
 ## GetSocialPostsCountAsync
 
-> Int32Envelope GetSocialPostsCountAsync(ctx).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetSocialPostsCountAsync(ctx).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostDtoCollectionQueryParameters(socialPostDtoCollectionQueryParameters).Execute()
 
 Count social posts
 
@@ -1506,10 +1936,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialPostDtoCollectionQueryParameters := *openapiclient.NewSocialPostDtoCollectionQueryParameters() // SocialPostDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostsCountAsync(context.Background()).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialPostsAPI.GetSocialPostsCountAsync(context.Background()).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialPostDtoCollectionQueryParameters(socialPostDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.GetSocialPostsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1533,6 +1964,7 @@ Name | Type | Description  | Notes
  **socialProfileId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialPostDtoCollectionQueryParameters** | [**SocialPostDtoCollectionQueryParameters**](SocialPostDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1544,7 +1976,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1554,7 +1986,7 @@ No authorization required
 
 ## PatchSocialPostAsync
 
-> EmptyEnvelope PatchSocialPostAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchSocialPostAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a social post
 
@@ -1577,11 +2009,11 @@ func main() {
 	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialPostsAPI.PatchSocialPostAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.SocialPostsAPI.PatchSocialPostAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.PatchSocialPostAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1610,11 +2042,95 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
 [**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateSocialCommentReactionAsync
+
+> SocialCommentReactionDtoEnvelope UpdateSocialCommentReactionAsync(ctx, socialPostId, commentId, reactionId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialReactionUpdateDto(socialReactionUpdateDto).Execute()
+
+Update a social comment reaction
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	commentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	reactionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialReactionUpdateDto := *openapiclient.NewSocialReactionUpdateDto() // SocialReactionUpdateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialPostsAPI.UpdateSocialCommentReactionAsync(context.Background(), socialPostId, commentId, reactionId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialReactionUpdateDto(socialReactionUpdateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.UpdateSocialCommentReactionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateSocialCommentReactionAsync`: SocialCommentReactionDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialPostsAPI.UpdateSocialCommentReactionAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialPostId** | **string** |  | 
+**commentId** | **string** |  | 
+**reactionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateSocialCommentReactionAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **socialProfileId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **socialReactionUpdateDto** | [**SocialReactionUpdateDto**](SocialReactionUpdateDto.md) |  | 
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -1872,7 +2388,7 @@ No authorization required
 
 ## UpdateSocialPostReactionAsync
 
-> EmptyEnvelope UpdateSocialPostReactionAsync(ctx, socialPostId, reactionId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialReactionUpdateDto(socialReactionUpdateDto).Execute()
+> SocialPostReactionDtoEnvelope UpdateSocialPostReactionAsync(ctx, socialPostId, reactionId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialReactionUpdateDto(socialReactionUpdateDto).Execute()
 
 Update a social post reaction
 
@@ -1905,7 +2421,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.UpdateSocialPostReactionAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateSocialPostReactionAsync`: EmptyEnvelope
+	// response from `UpdateSocialPostReactionAsync`: SocialPostReactionDtoEnvelope
 	fmt.Fprintf(os.Stdout, "Response from `SocialPostsAPI.UpdateSocialPostReactionAsync`: %v\n", resp)
 }
 ```
@@ -1935,7 +2451,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md)
+[**SocialPostReactionDtoEnvelope**](SocialPostReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -1944,6 +2460,84 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UploadSocialPostImageAttachmentAsync
+
+> SocialPostAttachmentDtoEnvelope UploadSocialPostImageAttachmentAsync(ctx, socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
+
+Upload a social post image attachment
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	socialPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	file := os.NewFile(1234, "some_file") // *os.File |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialPostsAPI.UploadSocialPostImageAttachmentAsync(context.Background(), socialPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).File(file).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialPostsAPI.UploadSocialPostImageAttachmentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UploadSocialPostImageAttachmentAsync`: SocialPostAttachmentDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialPostsAPI.UploadSocialPostImageAttachmentAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialPostId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUploadSocialPostImageAttachmentAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **socialProfileId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **file** | ***os.File** |  | 
+
+### Return type
+
+[**SocialPostAttachmentDtoEnvelope**](SocialPostAttachmentDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data, application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

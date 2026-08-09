@@ -1040,10 +1040,16 @@ type ApiGetExtendedQuotesRequest struct {
 	ctx context.Context
 	ApiService *QuotesAPIService
 	tenantId *string
+	extendedQuoteDtoCollectionQueryParameters *ExtendedQuoteDtoCollectionQueryParameters
 }
 
 func (r ApiGetExtendedQuotesRequest) TenantId(tenantId string) ApiGetExtendedQuotesRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetExtendedQuotesRequest) ExtendedQuoteDtoCollectionQueryParameters(extendedQuoteDtoCollectionQueryParameters ExtendedQuoteDtoCollectionQueryParameters) ApiGetExtendedQuotesRequest {
+	r.extendedQuoteDtoCollectionQueryParameters = &extendedQuoteDtoCollectionQueryParameters
 	return r
 }
 
@@ -1092,7 +1098,7 @@ func (a *QuotesAPIService) GetExtendedQuotesExecute(r ApiGetExtendedQuotesReques
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1108,6 +1114,8 @@ func (a *QuotesAPIService) GetExtendedQuotesExecute(r ApiGetExtendedQuotesReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.extendedQuoteDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1414,6 +1422,7 @@ type ApiGetQuoteLinesRequest struct {
 	tenantId *string
 	quoteId string
 	itemId *string
+	quoteLineDtoCollectionQueryParameters *QuoteLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetQuoteLinesRequest) TenantId(tenantId string) ApiGetQuoteLinesRequest {
@@ -1423,6 +1432,11 @@ func (r ApiGetQuoteLinesRequest) TenantId(tenantId string) ApiGetQuoteLinesReque
 
 func (r ApiGetQuoteLinesRequest) ItemId(itemId string) ApiGetQuoteLinesRequest {
 	r.itemId = &itemId
+	return r
+}
+
+func (r ApiGetQuoteLinesRequest) QuoteLineDtoCollectionQueryParameters(quoteLineDtoCollectionQueryParameters QuoteLineDtoCollectionQueryParameters) ApiGetQuoteLinesRequest {
+	r.quoteLineDtoCollectionQueryParameters = &quoteLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -1477,7 +1491,7 @@ func (a *QuotesAPIService) GetQuoteLinesExecute(r ApiGetQuoteLinesRequest) (*Quo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "itemId", r.itemId, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1493,6 +1507,8 @@ func (a *QuotesAPIService) GetQuoteLinesExecute(r ApiGetQuoteLinesRequest) (*Quo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.quoteLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1546,10 +1562,16 @@ type ApiGetQuoteLinesCountRequest struct {
 	ApiService *QuotesAPIService
 	tenantId *string
 	quoteId string
+	quoteLineDtoCollectionQueryParameters *QuoteLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetQuoteLinesCountRequest) TenantId(tenantId string) ApiGetQuoteLinesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetQuoteLinesCountRequest) QuoteLineDtoCollectionQueryParameters(quoteLineDtoCollectionQueryParameters QuoteLineDtoCollectionQueryParameters) ApiGetQuoteLinesCountRequest {
+	r.quoteLineDtoCollectionQueryParameters = &quoteLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -1601,7 +1623,7 @@ func (a *QuotesAPIService) GetQuoteLinesCountExecute(r ApiGetQuoteLinesCountRequ
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1617,6 +1639,8 @@ func (a *QuotesAPIService) GetQuoteLinesCountExecute(r ApiGetQuoteLinesCountRequ
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.quoteLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1669,10 +1693,16 @@ type ApiGetQuotesRequest struct {
 	ctx context.Context
 	ApiService *QuotesAPIService
 	tenantId *string
+	quoteDtoCollectionQueryParameters *QuoteDtoCollectionQueryParameters
 }
 
 func (r ApiGetQuotesRequest) TenantId(tenantId string) ApiGetQuotesRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetQuotesRequest) QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters QuoteDtoCollectionQueryParameters) ApiGetQuotesRequest {
+	r.quoteDtoCollectionQueryParameters = &quoteDtoCollectionQueryParameters
 	return r
 }
 
@@ -1721,7 +1751,7 @@ func (a *QuotesAPIService) GetQuotesExecute(r ApiGetQuotesRequest) (*QuoteDtoLis
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1737,6 +1767,8 @@ func (a *QuotesAPIService) GetQuotesExecute(r ApiGetQuotesRequest) (*QuoteDtoLis
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.quoteDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1789,10 +1821,16 @@ type ApiGetQuotesCountRequest struct {
 	ctx context.Context
 	ApiService *QuotesAPIService
 	tenantId *string
+	quoteDtoCollectionQueryParameters *QuoteDtoCollectionQueryParameters
 }
 
 func (r ApiGetQuotesCountRequest) TenantId(tenantId string) ApiGetQuotesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetQuotesCountRequest) QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters QuoteDtoCollectionQueryParameters) ApiGetQuotesCountRequest {
+	r.quoteDtoCollectionQueryParameters = &quoteDtoCollectionQueryParameters
 	return r
 }
 
@@ -1841,7 +1879,7 @@ func (a *QuotesAPIService) GetQuotesCountExecute(r ApiGetQuotesCountRequest) (*I
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1857,6 +1895,8 @@ func (a *QuotesAPIService) GetQuotesCountExecute(r ApiGetQuotesCountRequest) (*I
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.quoteDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1910,7 +1950,7 @@ type ApiPatchQuoteAsyncRequest struct {
 	ApiService *QuotesAPIService
 	tenantId *string
 	quoteId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchQuoteAsyncRequest) TenantId(tenantId string) ApiPatchQuoteAsyncRequest {
@@ -1918,8 +1958,8 @@ func (r ApiPatchQuoteAsyncRequest) TenantId(tenantId string) ApiPatchQuoteAsyncR
 	return r
 }
 
-func (r ApiPatchQuoteAsyncRequest) Operation(operation []Operation) ApiPatchQuoteAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchQuoteAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchQuoteAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1988,7 +2028,7 @@ func (a *QuotesAPIService) PatchQuoteAsyncExecute(r ApiPatchQuoteAsyncRequest) (
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2065,7 +2105,7 @@ type ApiPatchQuoteLineAsyncRequest struct {
 	tenantId *string
 	quoteId string
 	quoteLineId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchQuoteLineAsyncRequest) TenantId(tenantId string) ApiPatchQuoteLineAsyncRequest {
@@ -2073,8 +2113,8 @@ func (r ApiPatchQuoteLineAsyncRequest) TenantId(tenantId string) ApiPatchQuoteLi
 	return r
 }
 
-func (r ApiPatchQuoteLineAsyncRequest) Operation(operation []Operation) ApiPatchQuoteLineAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchQuoteLineAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchQuoteLineAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2146,7 +2186,7 @@ func (a *QuotesAPIService) PatchQuoteLineAsyncExecute(r ApiPatchQuoteLineAsyncRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

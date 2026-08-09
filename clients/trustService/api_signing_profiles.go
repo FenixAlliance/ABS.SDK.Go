@@ -471,6 +471,7 @@ type ApiGetSigningProfilesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	signingProfileDtoCollectionQueryParameters *SigningProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetSigningProfilesAsyncRequest) TenantId(tenantId string) ApiGetSigningProfilesAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetSigningProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGetS
 
 func (r ApiGetSigningProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiGetSigningProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSigningProfilesAsyncRequest) SigningProfileDtoCollectionQueryParameters(signingProfileDtoCollectionQueryParameters SigningProfileDtoCollectionQueryParameters) ApiGetSigningProfilesAsyncRequest {
+	r.signingProfileDtoCollectionQueryParameters = &signingProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *SigningProfilesAPIService) GetSigningProfilesAsyncExecute(r ApiGetSigni
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *SigningProfilesAPIService) GetSigningProfilesAsyncExecute(r ApiGetSigni
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.signingProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetSigningProfilesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	signingProfileDtoCollectionQueryParameters *SigningProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetSigningProfilesCountAsyncRequest) TenantId(tenantId string) ApiGetSigningProfilesCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetSigningProfilesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetSigningProfilesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSigningProfilesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSigningProfilesCountAsyncRequest) SigningProfileDtoCollectionQueryParameters(signingProfileDtoCollectionQueryParameters SigningProfileDtoCollectionQueryParameters) ApiGetSigningProfilesCountAsyncRequest {
+	r.signingProfileDtoCollectionQueryParameters = &signingProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *SigningProfilesAPIService) GetSigningProfilesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *SigningProfilesAPIService) GetSigningProfilesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.signingProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchSigningProfileAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSigningProfileAsyncRequest) TenantId(tenantId string) ApiPatchSigningProfileAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchSigningProfileAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchSigningProfileAsyncRequest) Operation(operation []Operation) ApiPatchSigningProfileAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSigningProfileAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSigningProfileAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *SigningProfilesAPIService) PatchSigningProfileAsyncExecute(r ApiPatchSi
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

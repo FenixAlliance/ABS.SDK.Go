@@ -250,7 +250,7 @@ No authorization required
 
 ## GetSystemContactOptions
 
-> OptionDtoListEnvelope GetSystemContactOptions(ctx, contactId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> OptionDtoListEnvelope GetSystemContactOptions(ctx, contactId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of contact options (admin)
 
@@ -273,10 +273,11 @@ func main() {
 	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	optionDtoCollectionQueryParameters := *openapiclient.NewOptionDtoCollectionQueryParameters() // OptionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactOptionsAPI.GetSystemContactOptions(context.Background(), contactId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactOptionsAPI.GetSystemContactOptions(context.Background(), contactId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactOptionsAPI.GetSystemContactOptions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -305,6 +306,7 @@ Name | Type | Description  | Notes
  **portalId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -316,7 +318,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -326,7 +328,7 @@ No authorization required
 
 ## GetSystemContactOptionsCount
 
-> Int32Envelope GetSystemContactOptionsCount(ctx, contactId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetSystemContactOptionsCount(ctx, contactId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 
 Get the count of contact options (admin)
 
@@ -349,10 +351,11 @@ func main() {
 	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	optionDtoCollectionQueryParameters := *openapiclient.NewOptionDtoCollectionQueryParameters() // OptionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactOptionsAPI.GetSystemContactOptionsCount(context.Background(), contactId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactOptionsAPI.GetSystemContactOptionsCount(context.Background(), contactId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactOptionsAPI.GetSystemContactOptionsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -381,6 +384,7 @@ Name | Type | Description  | Notes
  **portalId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -392,7 +396,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -402,7 +406,7 @@ No authorization required
 
 ## PatchSystemContactOption
 
-> EmptyEnvelope PatchSystemContactOption(ctx, contactId, optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchSystemContactOption(ctx, contactId, optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Partially update a contact option (admin)
 
@@ -425,11 +429,11 @@ func main() {
 	optionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactOptionsAPI.PatchSystemContactOption(context.Background(), contactId, optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ContactOptionsAPI.PatchSystemContactOption(context.Background(), contactId, optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactOptionsAPI.PatchSystemContactOption``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -459,7 +463,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

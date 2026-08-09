@@ -625,7 +625,7 @@ No authorization required
 
 ## GetCostCentreBudgets
 
-> CostCentreBudgetDtoListEnvelope GetCostCentreBudgets(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CostCentreBudgetDtoListEnvelope GetCostCentreBudgets(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CostCentreBudgetDtoCollectionQueryParameters(costCentreBudgetDtoCollectionQueryParameters).Execute()
 
 Get all cost centre budgets for a tenant
 
@@ -647,10 +647,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	costCentreBudgetDtoCollectionQueryParameters := *openapiclient.NewCostCentreBudgetDtoCollectionQueryParameters() // CostCentreBudgetDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CostCentresAPI.GetCostCentreBudgets(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CostCentresAPI.GetCostCentreBudgets(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CostCentreBudgetDtoCollectionQueryParameters(costCentreBudgetDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CostCentresAPI.GetCostCentreBudgets``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -674,6 +675,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **costCentreBudgetDtoCollectionQueryParameters** | [**CostCentreBudgetDtoCollectionQueryParameters**](CostCentreBudgetDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -685,7 +687,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -771,7 +773,7 @@ No authorization required
 
 ## GetCostCentreGroups
 
-> CostCentreGroupDtoListEnvelope GetCostCentreGroups(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CostCentreGroupDtoListEnvelope GetCostCentreGroups(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CostCentreGroupDtoCollectionQueryParameters(costCentreGroupDtoCollectionQueryParameters).Execute()
 
 Get all cost centre groups for a tenant
 
@@ -793,10 +795,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	costCentreGroupDtoCollectionQueryParameters := *openapiclient.NewCostCentreGroupDtoCollectionQueryParameters() // CostCentreGroupDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CostCentresAPI.GetCostCentreGroups(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CostCentresAPI.GetCostCentreGroups(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CostCentreGroupDtoCollectionQueryParameters(costCentreGroupDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CostCentresAPI.GetCostCentreGroups``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -820,6 +823,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **costCentreGroupDtoCollectionQueryParameters** | [**CostCentreGroupDtoCollectionQueryParameters**](CostCentreGroupDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -831,7 +835,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -841,7 +845,7 @@ No authorization required
 
 ## GetCostCentreGroupsCount
 
-> Int32Envelope GetCostCentreGroupsCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetCostCentreGroupsCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CostCentreGroupDtoCollectionQueryParameters(costCentreGroupDtoCollectionQueryParameters).Execute()
 
 Get the count of cost centre groups for a tenant
 
@@ -863,10 +867,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	costCentreGroupDtoCollectionQueryParameters := *openapiclient.NewCostCentreGroupDtoCollectionQueryParameters() // CostCentreGroupDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CostCentresAPI.GetCostCentreGroupsCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CostCentresAPI.GetCostCentreGroupsCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CostCentreGroupDtoCollectionQueryParameters(costCentreGroupDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CostCentresAPI.GetCostCentreGroupsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -890,6 +895,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **costCentreGroupDtoCollectionQueryParameters** | [**CostCentreGroupDtoCollectionQueryParameters**](CostCentreGroupDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -901,7 +907,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -911,7 +917,7 @@ No authorization required
 
 ## GetCostCentres
 
-> CostCentreDtoListEnvelope GetCostCentres(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CostCentreDtoListEnvelope GetCostCentres(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CostCentreDtoCollectionQueryParameters(costCentreDtoCollectionQueryParameters).Execute()
 
 Get all cost centres for a tenant
 
@@ -933,10 +939,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	costCentreDtoCollectionQueryParameters := *openapiclient.NewCostCentreDtoCollectionQueryParameters() // CostCentreDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CostCentresAPI.GetCostCentres(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CostCentresAPI.GetCostCentres(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CostCentreDtoCollectionQueryParameters(costCentreDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CostCentresAPI.GetCostCentres``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -960,6 +967,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **costCentreDtoCollectionQueryParameters** | [**CostCentreDtoCollectionQueryParameters**](CostCentreDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -971,7 +979,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -981,7 +989,7 @@ No authorization required
 
 ## GetCostCentresCount
 
-> Int32Envelope GetCostCentresCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetCostCentresCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CostCentreDtoCollectionQueryParameters(costCentreDtoCollectionQueryParameters).Execute()
 
 Get the count of cost centres for a tenant
 
@@ -1003,10 +1011,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	costCentreDtoCollectionQueryParameters := *openapiclient.NewCostCentreDtoCollectionQueryParameters() // CostCentreDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CostCentresAPI.GetCostCentresCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CostCentresAPI.GetCostCentresCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CostCentreDtoCollectionQueryParameters(costCentreDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CostCentresAPI.GetCostCentresCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1030,6 +1039,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **costCentreDtoCollectionQueryParameters** | [**CostCentreDtoCollectionQueryParameters**](CostCentreDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1041,7 +1051,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1051,7 +1061,7 @@ No authorization required
 
 ## PatchCostCentre
 
-> EmptyEnvelope PatchCostCentre(ctx, costCentreId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchCostCentre(ctx, costCentreId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a cost centre
 
@@ -1074,11 +1084,11 @@ func main() {
 	costCentreId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CostCentresAPI.PatchCostCentre(context.Background(), costCentreId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.CostCentresAPI.PatchCostCentre(context.Background(), costCentreId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CostCentresAPI.PatchCostCentre``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1107,7 +1117,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1129,7 +1139,7 @@ No authorization required
 
 ## PatchCostCentreBudget
 
-> EmptyEnvelope PatchCostCentreBudget(ctx, budgetId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchCostCentreBudget(ctx, budgetId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a cost centre budget
 
@@ -1152,11 +1162,11 @@ func main() {
 	budgetId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CostCentresAPI.PatchCostCentreBudget(context.Background(), budgetId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.CostCentresAPI.PatchCostCentreBudget(context.Background(), budgetId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CostCentresAPI.PatchCostCentreBudget``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1185,7 +1195,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1207,7 +1217,7 @@ No authorization required
 
 ## PatchCostCentreGroup
 
-> EmptyEnvelope PatchCostCentreGroup(ctx, groupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchCostCentreGroup(ctx, groupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a cost centre group
 
@@ -1230,11 +1240,11 @@ func main() {
 	groupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CostCentresAPI.PatchCostCentreGroup(context.Background(), groupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.CostCentresAPI.PatchCostCentreGroup(context.Background(), groupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CostCentresAPI.PatchCostCentreGroup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1263,7 +1273,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

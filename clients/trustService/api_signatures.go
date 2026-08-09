@@ -183,6 +183,7 @@ type ApiGetSignaturesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	signatureDtoCollectionQueryParameters *SignatureDtoCollectionQueryParameters
 }
 
 func (r ApiGetSignaturesAsyncRequest) TenantId(tenantId string) ApiGetSignaturesAsyncRequest {
@@ -197,6 +198,11 @@ func (r ApiGetSignaturesAsyncRequest) ApiVersion(apiVersion string) ApiGetSignat
 
 func (r ApiGetSignaturesAsyncRequest) XApiVersion(xApiVersion string) ApiGetSignaturesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSignaturesAsyncRequest) SignatureDtoCollectionQueryParameters(signatureDtoCollectionQueryParameters SignatureDtoCollectionQueryParameters) ApiGetSignaturesAsyncRequest {
+	r.signatureDtoCollectionQueryParameters = &signatureDtoCollectionQueryParameters
 	return r
 }
 
@@ -248,7 +254,7 @@ func (a *SignaturesAPIService) GetSignaturesAsyncExecute(r ApiGetSignaturesAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -267,6 +273,8 @@ func (a *SignaturesAPIService) GetSignaturesAsyncExecute(r ApiGetSignaturesAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.signatureDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -321,6 +329,7 @@ type ApiGetSignaturesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	signatureDtoCollectionQueryParameters *SignatureDtoCollectionQueryParameters
 }
 
 func (r ApiGetSignaturesCountAsyncRequest) TenantId(tenantId string) ApiGetSignaturesCountAsyncRequest {
@@ -335,6 +344,11 @@ func (r ApiGetSignaturesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetS
 
 func (r ApiGetSignaturesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSignaturesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSignaturesCountAsyncRequest) SignatureDtoCollectionQueryParameters(signatureDtoCollectionQueryParameters SignatureDtoCollectionQueryParameters) ApiGetSignaturesCountAsyncRequest {
+	r.signatureDtoCollectionQueryParameters = &signatureDtoCollectionQueryParameters
 	return r
 }
 
@@ -386,7 +400,7 @@ func (a *SignaturesAPIService) GetSignaturesCountAsyncExecute(r ApiGetSignatures
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -405,6 +419,8 @@ func (a *SignaturesAPIService) GetSignaturesCountAsyncExecute(r ApiGetSignatures
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.signatureDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

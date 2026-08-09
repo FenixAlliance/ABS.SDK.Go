@@ -336,6 +336,7 @@ type ApiGetReturnPoliciesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemReturnPolicyDtoCollectionQueryParameters *ItemReturnPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetReturnPoliciesAsyncRequest) TenantId(tenantId string) ApiGetReturnPoliciesAsyncRequest {
@@ -350,6 +351,11 @@ func (r ApiGetReturnPoliciesAsyncRequest) ApiVersion(apiVersion string) ApiGetRe
 
 func (r ApiGetReturnPoliciesAsyncRequest) XApiVersion(xApiVersion string) ApiGetReturnPoliciesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetReturnPoliciesAsyncRequest) ItemReturnPolicyDtoCollectionQueryParameters(itemReturnPolicyDtoCollectionQueryParameters ItemReturnPolicyDtoCollectionQueryParameters) ApiGetReturnPoliciesAsyncRequest {
+	r.itemReturnPolicyDtoCollectionQueryParameters = &itemReturnPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -399,7 +405,7 @@ func (a *ReturnPoliciesAPIService) GetReturnPoliciesAsyncExecute(r ApiGetReturnP
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -418,6 +424,8 @@ func (a *ReturnPoliciesAPIService) GetReturnPoliciesAsyncExecute(r ApiGetReturnP
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemReturnPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -483,6 +491,7 @@ type ApiGetReturnPoliciesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemReturnPolicyDtoCollectionQueryParameters *ItemReturnPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetReturnPoliciesCountAsyncRequest) TenantId(tenantId string) ApiGetReturnPoliciesCountAsyncRequest {
@@ -497,6 +506,11 @@ func (r ApiGetReturnPoliciesCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetReturnPoliciesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetReturnPoliciesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetReturnPoliciesCountAsyncRequest) ItemReturnPolicyDtoCollectionQueryParameters(itemReturnPolicyDtoCollectionQueryParameters ItemReturnPolicyDtoCollectionQueryParameters) ApiGetReturnPoliciesCountAsyncRequest {
+	r.itemReturnPolicyDtoCollectionQueryParameters = &itemReturnPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -546,7 +560,7 @@ func (a *ReturnPoliciesAPIService) GetReturnPoliciesCountAsyncExecute(r ApiGetRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -565,6 +579,8 @@ func (a *ReturnPoliciesAPIService) GetReturnPoliciesCountAsyncExecute(r ApiGetRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemReturnPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -782,7 +798,7 @@ type ApiPatchReturnPolicyAsyncRequest struct {
 	returnPolicyId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchReturnPolicyAsyncRequest) TenantId(tenantId string) ApiPatchReturnPolicyAsyncRequest {
@@ -800,8 +816,8 @@ func (r ApiPatchReturnPolicyAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchReturnPolicyAsyncRequest) Operation(operation []Operation) ApiPatchReturnPolicyAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchReturnPolicyAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchReturnPolicyAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -876,7 +892,7 @@ func (a *ReturnPoliciesAPIService) PatchReturnPolicyAsyncExecute(r ApiPatchRetur
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

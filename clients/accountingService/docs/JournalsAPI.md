@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AggregateJournalEntryCreditsAsync**](JournalsAPI.md#AggregateJournalEntryCreditsAsync) | **Get** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits
 [**AggregateJournalEntryDebitsAsync**](JournalsAPI.md#AggregateJournalEntryDebitsAsync) | **Get** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits
+[**AssignJournalToBookAsync**](JournalsAPI.md#AssignJournalToBookAsync) | **Post** /api/v2/AccountingService/Journals/{journalId}/AssignToBook | Bind a journal to a financial book
 [**CountJournalsAsync**](JournalsAPI.md#CountJournalsAsync) | **Get** /api/v2/AccountingService/Journals/Count | Count journals
 [**CreateJournalAsync**](JournalsAPI.md#CreateJournalAsync) | **Post** /api/v2/AccountingService/Journals | Create journal
 [**CreateJournalEntryAsync**](JournalsAPI.md#CreateJournalEntryAsync) | **Post** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry
@@ -27,7 +28,7 @@ Method | HTTP request | Description
 
 ## AggregateJournalEntryCreditsAsync
 
-> MoneyEnvelope AggregateJournalEntryCreditsAsync(ctx, journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> MoneyEnvelope AggregateJournalEntryCreditsAsync(ctx, journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalEntryDtoCollectionQueryParameters(journalEntryDtoCollectionQueryParameters).Execute()
 
 Aggregate journal entry credits
 
@@ -51,10 +52,11 @@ func main() {
 	currencyId := "currencyId_example" // string |  (optional) (default to "USD.USA")
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	journalEntryDtoCollectionQueryParameters := *openapiclient.NewJournalEntryDtoCollectionQueryParameters() // JournalEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JournalsAPI.AggregateJournalEntryCreditsAsync(context.Background(), journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.JournalsAPI.AggregateJournalEntryCreditsAsync(context.Background(), journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalEntryDtoCollectionQueryParameters(journalEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.AggregateJournalEntryCreditsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -84,6 +86,7 @@ Name | Type | Description  | Notes
  **currencyId** | **string** |  | [default to &quot;USD.USA&quot;]
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -95,7 +98,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -105,7 +108,7 @@ No authorization required
 
 ## AggregateJournalEntryDebitsAsync
 
-> MoneyEnvelope AggregateJournalEntryDebitsAsync(ctx, journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> MoneyEnvelope AggregateJournalEntryDebitsAsync(ctx, journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalEntryDtoCollectionQueryParameters(journalEntryDtoCollectionQueryParameters).Execute()
 
 Aggregate journal entry debits
 
@@ -129,10 +132,11 @@ func main() {
 	currencyId := "currencyId_example" // string |  (optional) (default to "USD.USA")
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	journalEntryDtoCollectionQueryParameters := *openapiclient.NewJournalEntryDtoCollectionQueryParameters() // JournalEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JournalsAPI.AggregateJournalEntryDebitsAsync(context.Background(), journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.JournalsAPI.AggregateJournalEntryDebitsAsync(context.Background(), journalId).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalEntryDtoCollectionQueryParameters(journalEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.AggregateJournalEntryDebitsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -162,6 +166,7 @@ Name | Type | Description  | Notes
  **currencyId** | **string** |  | [default to &quot;USD.USA&quot;]
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -173,7 +178,85 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AssignJournalToBookAsync
+
+> EmptyEnvelope AssignJournalToBookAsync(ctx, journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AssignJournalToBookRequest(assignJournalToBookRequest).Execute()
+
+Bind a journal to a financial book
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	assignJournalToBookRequest := *openapiclient.NewAssignJournalToBookRequest("FinancialBookId_example", "Code_example") // AssignJournalToBookRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JournalsAPI.AssignJournalToBookAsync(context.Background(), journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AssignJournalToBookRequest(assignJournalToBookRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.AssignJournalToBookAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AssignJournalToBookAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `JournalsAPI.AssignJournalToBookAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**journalId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAssignJournalToBookAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **assignJournalToBookRequest** | [**AssignJournalToBookRequest**](AssignJournalToBookRequest.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -183,7 +266,7 @@ No authorization required
 
 ## CountJournalsAsync
 
-> Int32Envelope CountJournalsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountJournalsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalDtoCollectionQueryParameters(journalDtoCollectionQueryParameters).Execute()
 
 Count journals
 
@@ -205,10 +288,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	journalDtoCollectionQueryParameters := *openapiclient.NewJournalDtoCollectionQueryParameters() // JournalDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JournalsAPI.CountJournalsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.JournalsAPI.CountJournalsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalDtoCollectionQueryParameters(journalDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.CountJournalsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -232,6 +316,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **journalDtoCollectionQueryParameters** | [**JournalDtoCollectionQueryParameters**](JournalDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -243,7 +328,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -634,7 +719,7 @@ No authorization required
 
 ## GetJournalEntriesAsync
 
-> JournalEntryDtoIReadOnlyListEnvelope GetJournalEntriesAsync(ctx, journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> JournalEntryDtoIReadOnlyListEnvelope GetJournalEntriesAsync(ctx, journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalEntryDtoCollectionQueryParameters(journalEntryDtoCollectionQueryParameters).Execute()
 
 Get journal entries
 
@@ -657,10 +742,11 @@ func main() {
 	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	journalEntryDtoCollectionQueryParameters := *openapiclient.NewJournalEntryDtoCollectionQueryParameters() // JournalEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JournalsAPI.GetJournalEntriesAsync(context.Background(), journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.JournalsAPI.GetJournalEntriesAsync(context.Background(), journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalEntryDtoCollectionQueryParameters(journalEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.GetJournalEntriesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -689,6 +775,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -700,7 +787,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -710,7 +797,7 @@ No authorization required
 
 ## GetJournalEntriesCountAsync
 
-> Int32Envelope GetJournalEntriesCountAsync(ctx, journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetJournalEntriesCountAsync(ctx, journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalEntryDtoCollectionQueryParameters(journalEntryDtoCollectionQueryParameters).Execute()
 
 Count journal entries
 
@@ -733,10 +820,11 @@ func main() {
 	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	journalEntryDtoCollectionQueryParameters := *openapiclient.NewJournalEntryDtoCollectionQueryParameters() // JournalEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JournalsAPI.GetJournalEntriesCountAsync(context.Background(), journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.JournalsAPI.GetJournalEntriesCountAsync(context.Background(), journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalEntryDtoCollectionQueryParameters(journalEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.GetJournalEntriesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -765,6 +853,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -776,7 +865,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -865,7 +954,7 @@ No authorization required
 
 ## GetJournalsAsync
 
-> JournalDtoIReadOnlyListEnvelope GetJournalsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> JournalDtoIReadOnlyListEnvelope GetJournalsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalDtoCollectionQueryParameters(journalDtoCollectionQueryParameters).Execute()
 
 Get all journals
 
@@ -887,10 +976,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	journalDtoCollectionQueryParameters := *openapiclient.NewJournalDtoCollectionQueryParameters() // JournalDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JournalsAPI.GetJournalsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.JournalsAPI.GetJournalsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).JournalDtoCollectionQueryParameters(journalDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.GetJournalsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -914,6 +1004,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **journalDtoCollectionQueryParameters** | [**JournalDtoCollectionQueryParameters**](JournalDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -925,7 +1016,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -935,7 +1026,7 @@ No authorization required
 
 ## PatchJournalAsync
 
-> EmptyEnvelope PatchJournalAsync(ctx, journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchJournalAsync(ctx, journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a journal
 
@@ -958,11 +1049,11 @@ func main() {
 	journalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JournalsAPI.PatchJournalAsync(context.Background(), journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.JournalsAPI.PatchJournalAsync(context.Background(), journalId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.PatchJournalAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -991,7 +1082,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1013,7 +1104,7 @@ No authorization required
 
 ## PatchJournalEntryAsync
 
-> EmptyEnvelope PatchJournalEntryAsync(ctx, journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchJournalEntryAsync(ctx, journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a journal entry
 
@@ -1037,11 +1128,11 @@ func main() {
 	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JournalsAPI.PatchJournalEntryAsync(context.Background(), journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.JournalsAPI.PatchJournalEntryAsync(context.Background(), journalId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JournalsAPI.PatchJournalEntryAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1072,7 +1163,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

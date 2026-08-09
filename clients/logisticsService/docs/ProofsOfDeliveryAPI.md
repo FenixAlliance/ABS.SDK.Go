@@ -719,7 +719,7 @@ No authorization required
 
 ## GetProofOfDeliveryLinesAsync
 
-> ProofOfDeliveryLineDtoListEnvelope GetProofOfDeliveryLinesAsync(ctx, podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ProofOfDeliveryLineDtoListEnvelope GetProofOfDeliveryLinesAsync(ctx, podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ProofOfDeliveryLineDtoCollectionQueryParameters(proofOfDeliveryLineDtoCollectionQueryParameters).Execute()
 
 Get proof of delivery lines
 
@@ -742,10 +742,11 @@ func main() {
 	podId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	proofOfDeliveryLineDtoCollectionQueryParameters := *openapiclient.NewProofOfDeliveryLineDtoCollectionQueryParameters() // ProofOfDeliveryLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProofsOfDeliveryAPI.GetProofOfDeliveryLinesAsync(context.Background(), podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ProofsOfDeliveryAPI.GetProofOfDeliveryLinesAsync(context.Background(), podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ProofOfDeliveryLineDtoCollectionQueryParameters(proofOfDeliveryLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProofsOfDeliveryAPI.GetProofOfDeliveryLinesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -774,6 +775,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **proofOfDeliveryLineDtoCollectionQueryParameters** | [**ProofOfDeliveryLineDtoCollectionQueryParameters**](ProofOfDeliveryLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -785,7 +787,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -795,7 +797,7 @@ No authorization required
 
 ## GetProofOfDeliveryLinesCountAsync
 
-> Int32Envelope GetProofOfDeliveryLinesCountAsync(ctx, podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetProofOfDeliveryLinesCountAsync(ctx, podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ProofOfDeliveryLineDtoCollectionQueryParameters(proofOfDeliveryLineDtoCollectionQueryParameters).Execute()
 
 Get proof of delivery lines count
 
@@ -818,10 +820,11 @@ func main() {
 	podId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	proofOfDeliveryLineDtoCollectionQueryParameters := *openapiclient.NewProofOfDeliveryLineDtoCollectionQueryParameters() // ProofOfDeliveryLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProofsOfDeliveryAPI.GetProofOfDeliveryLinesCountAsync(context.Background(), podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ProofsOfDeliveryAPI.GetProofOfDeliveryLinesCountAsync(context.Background(), podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ProofOfDeliveryLineDtoCollectionQueryParameters(proofOfDeliveryLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProofsOfDeliveryAPI.GetProofOfDeliveryLinesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -850,6 +853,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **proofOfDeliveryLineDtoCollectionQueryParameters** | [**ProofOfDeliveryLineDtoCollectionQueryParameters**](ProofOfDeliveryLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -861,7 +865,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -871,7 +875,7 @@ No authorization required
 
 ## GetProofsOfDeliveryAsync
 
-> ProofOfDeliveryDtoListEnvelope GetProofsOfDeliveryAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ProofOfDeliveryDtoListEnvelope GetProofsOfDeliveryAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ProofOfDeliveryDtoCollectionQueryParameters(proofOfDeliveryDtoCollectionQueryParameters).Execute()
 
 Get all proofs of delivery
 
@@ -893,10 +897,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	proofOfDeliveryDtoCollectionQueryParameters := *openapiclient.NewProofOfDeliveryDtoCollectionQueryParameters() // ProofOfDeliveryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProofsOfDeliveryAPI.GetProofsOfDeliveryAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ProofsOfDeliveryAPI.GetProofsOfDeliveryAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ProofOfDeliveryDtoCollectionQueryParameters(proofOfDeliveryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProofsOfDeliveryAPI.GetProofsOfDeliveryAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -920,6 +925,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **proofOfDeliveryDtoCollectionQueryParameters** | [**ProofOfDeliveryDtoCollectionQueryParameters**](ProofOfDeliveryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -931,7 +937,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -941,7 +947,7 @@ No authorization required
 
 ## GetProofsOfDeliveryCountAsync
 
-> Int32Envelope GetProofsOfDeliveryCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetProofsOfDeliveryCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ProofOfDeliveryDtoCollectionQueryParameters(proofOfDeliveryDtoCollectionQueryParameters).Execute()
 
 Get proofs of delivery count
 
@@ -963,10 +969,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	proofOfDeliveryDtoCollectionQueryParameters := *openapiclient.NewProofOfDeliveryDtoCollectionQueryParameters() // ProofOfDeliveryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProofsOfDeliveryAPI.GetProofsOfDeliveryCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ProofsOfDeliveryAPI.GetProofsOfDeliveryCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ProofOfDeliveryDtoCollectionQueryParameters(proofOfDeliveryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProofsOfDeliveryAPI.GetProofsOfDeliveryCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -990,6 +997,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **proofOfDeliveryDtoCollectionQueryParameters** | [**ProofOfDeliveryDtoCollectionQueryParameters**](ProofOfDeliveryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1001,7 +1009,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1011,7 +1019,7 @@ No authorization required
 
 ## PatchProofOfDeliveryAsync
 
-> EmptyEnvelope PatchProofOfDeliveryAsync(ctx, podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchProofOfDeliveryAsync(ctx, podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a proof of delivery
 
@@ -1034,11 +1042,11 @@ func main() {
 	podId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProofsOfDeliveryAPI.PatchProofOfDeliveryAsync(context.Background(), podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ProofsOfDeliveryAPI.PatchProofOfDeliveryAsync(context.Background(), podId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProofsOfDeliveryAPI.PatchProofOfDeliveryAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1067,7 +1075,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1089,7 +1097,7 @@ No authorization required
 
 ## PatchProofOfDeliveryLineAsync
 
-> EmptyEnvelope PatchProofOfDeliveryLineAsync(ctx, podId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchProofOfDeliveryLineAsync(ctx, podId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a proof of delivery line
 
@@ -1113,11 +1121,11 @@ func main() {
 	lineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProofsOfDeliveryAPI.PatchProofOfDeliveryLineAsync(context.Background(), podId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ProofsOfDeliveryAPI.PatchProofOfDeliveryLineAsync(context.Background(), podId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProofsOfDeliveryAPI.PatchProofOfDeliveryLineAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1148,7 +1156,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

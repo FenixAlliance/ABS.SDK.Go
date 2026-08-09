@@ -102,7 +102,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebAPI* | [**AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebAPI.md#accountmanagedownloadpersonaldatapost) | **Post** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebAPI* | [**AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountmanagelinkexternalloginpost) | **Post** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebAPI* | [**AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountperformexternalloginpost) | **Post** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebAPI* | [**ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebAPI.md#apiv2aiserviceagentsagentidaguipost) | **Post** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABSWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
 *FenixAllianceABSWebAPI* | [**HealthGet**](docs/FenixAllianceABSWebAPI.md#healthget) | **Get** /health | 
 *FenixAllianceABSWebAPI* | [**HelloGet**](docs/FenixAllianceABSWebAPI.md#helloget) | **Get** /hello | 
@@ -128,21 +127,28 @@ Class | Method | HTTP request | Description
 
  - [AccessTokenResponse](docs/AccessTokenResponse.md)
  - [CityDto](docs/CityDto.md)
+ - [CityDtoCollectionQueryParameters](docs/CityDtoCollectionQueryParameters.md)
  - [CityDtoListEnvelope](docs/CityDtoListEnvelope.md)
  - [CountryCallingCodeDto](docs/CountryCallingCodeDto.md)
+ - [CountryCallingCodeDtoCollectionQueryParameters](docs/CountryCallingCodeDtoCollectionQueryParameters.md)
  - [CountryCallingCodeDtoListEnvelope](docs/CountryCallingCodeDtoListEnvelope.md)
  - [CountryDto](docs/CountryDto.md)
+ - [CountryDtoCollectionQueryParameters](docs/CountryDtoCollectionQueryParameters.md)
  - [CountryDtoEnvelope](docs/CountryDtoEnvelope.md)
  - [CountryDtoListEnvelope](docs/CountryDtoListEnvelope.md)
  - [CountryLanguageDto](docs/CountryLanguageDto.md)
+ - [CountryLanguageDtoCollectionQueryParameters](docs/CountryLanguageDtoCollectionQueryParameters.md)
  - [CountryLanguageDtoEnvelope](docs/CountryLanguageDtoEnvelope.md)
  - [CountryLanguageDtoListEnvelope](docs/CountryLanguageDtoListEnvelope.md)
  - [CountryStateDto](docs/CountryStateDto.md)
+ - [CountryStateDtoCollectionQueryParameters](docs/CountryStateDtoCollectionQueryParameters.md)
  - [CountryStateDtoEnvelope](docs/CountryStateDtoEnvelope.md)
  - [CountryStateDtoListEnvelope](docs/CountryStateDtoListEnvelope.md)
  - [CountryTopLevelDomainDto](docs/CountryTopLevelDomainDto.md)
+ - [CountryTopLevelDomainDtoCollectionQueryParameters](docs/CountryTopLevelDomainDtoCollectionQueryParameters.md)
  - [CountryTopLevelDomainDtoListEnvelope](docs/CountryTopLevelDomainDtoListEnvelope.md)
  - [CurrencyDto](docs/CurrencyDto.md)
+ - [CurrencyDtoCollectionQueryParameters](docs/CurrencyDtoCollectionQueryParameters.md)
  - [CurrencyDtoEnvelope](docs/CurrencyDtoEnvelope.md)
  - [CurrencyDtoListEnvelope](docs/CurrencyDtoListEnvelope.md)
  - [ErrorEnvelope](docs/ErrorEnvelope.md)
@@ -157,6 +163,7 @@ Class | Method | HTTP request | Description
  - [ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [TimezoneDto](docs/TimezoneDto.md)
+ - [TimezoneDtoCollectionQueryParameters](docs/TimezoneDtoCollectionQueryParameters.md)
  - [TimezoneDtoEnvelope](docs/TimezoneDtoEnvelope.md)
  - [TimezoneDtoListEnvelope](docs/TimezoneDtoListEnvelope.md)
  - [TwoFactorRequest](docs/TwoFactorRequest.md)

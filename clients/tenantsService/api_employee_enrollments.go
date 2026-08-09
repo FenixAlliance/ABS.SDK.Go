@@ -493,6 +493,7 @@ type ApiGetTenantEmployeeEnrollmentsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters *TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantEmployeeEnrollmentsRequest) TenantId(tenantId string) ApiGetTenantEmployeeEnrollmentsRequest {
@@ -507,6 +508,11 @@ func (r ApiGetTenantEmployeeEnrollmentsRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetTenantEmployeeEnrollmentsRequest) XApiVersion(xApiVersion string) ApiGetTenantEmployeeEnrollmentsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantEmployeeEnrollmentsRequest) TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters(tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters) ApiGetTenantEmployeeEnrollmentsRequest {
+	r.tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters = &tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -558,7 +564,7 @@ func (a *EmployeeEnrollmentsAPIService) GetTenantEmployeeEnrollmentsExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -577,6 +583,8 @@ func (a *EmployeeEnrollmentsAPIService) GetTenantEmployeeEnrollmentsExecute(r Ap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetTenantEmployeeEnrollmentsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters *TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantEmployeeEnrollmentsCountRequest) TenantId(tenantId string) ApiGetTenantEmployeeEnrollmentsCountRequest {
@@ -656,6 +665,11 @@ func (r ApiGetTenantEmployeeEnrollmentsCountRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetTenantEmployeeEnrollmentsCountRequest) XApiVersion(xApiVersion string) ApiGetTenantEmployeeEnrollmentsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantEmployeeEnrollmentsCountRequest) TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters(tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters) ApiGetTenantEmployeeEnrollmentsCountRequest {
+	r.tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters = &tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *EmployeeEnrollmentsAPIService) GetTenantEmployeeEnrollmentsCountExecute
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *EmployeeEnrollmentsAPIService) GetTenantEmployeeEnrollmentsCountExecute
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchTenantEmployeeEnrollmentAsyncRequest struct {
 	tenantEmployeeEnrollmentId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTenantEmployeeEnrollmentAsyncRequest) TenantId(tenantId string) ApiPatchTenantEmployeeEnrollmentAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchTenantEmployeeEnrollmentAsyncRequest) XApiVersion(xApiVersion st
 	return r
 }
 
-func (r ApiPatchTenantEmployeeEnrollmentAsyncRequest) Operation(operation []Operation) ApiPatchTenantEmployeeEnrollmentAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchTenantEmployeeEnrollmentAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTenantEmployeeEnrollmentAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *EmployeeEnrollmentsAPIService) PatchTenantEmployeeEnrollmentAsyncExecut
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

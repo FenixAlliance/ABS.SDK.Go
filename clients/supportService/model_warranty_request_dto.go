@@ -22,7 +22,7 @@ var _ MappedNullable = &WarrantyRequestDto{}
 // WarrantyRequestDto struct for WarrantyRequestDto
 type WarrantyRequestDto struct {
 	Id NullableString `json:"id,omitempty"`
-	Timestamp *time.Time `json:"timestamp,omitempty"`
+	Timestamp NullableTime `json:"timestamp,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Approved *bool `json:"approved,omitempty"`
@@ -94,36 +94,46 @@ func (o *WarrantyRequestDto) UnsetId() {
 	o.Id.Unset()
 }
 
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WarrantyRequestDto) GetTimestamp() time.Time {
-	if o == nil || IsNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.Timestamp
+	return *o.Timestamp.Get()
 }
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WarrantyRequestDto) GetTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.Timestamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Timestamp, true
+	return o.Timestamp.Get(), o.Timestamp.IsSet()
 }
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *WarrantyRequestDto) HasTimestamp() bool {
-	if o != nil && !IsNil(o.Timestamp) {
+	if o != nil && o.Timestamp.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
+// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
 func (o *WarrantyRequestDto) SetTimestamp(v time.Time) {
-	o.Timestamp = &v
+	o.Timestamp.Set(&v)
+}
+// SetTimestampNil sets the value for Timestamp to be an explicit nil
+func (o *WarrantyRequestDto) SetTimestampNil() {
+	o.Timestamp.Set(nil)
+}
+
+// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+func (o *WarrantyRequestDto) UnsetTimestamp() {
+	o.Timestamp.Unset()
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -539,8 +549,8 @@ func (o WarrantyRequestDto) ToMap() (map[string]interface{}, error) {
 	if o.Id.IsSet() {
 		toSerialize["id"] = o.Id.Get()
 	}
-	if !IsNil(o.Timestamp) {
-		toSerialize["timestamp"] = o.Timestamp
+	if o.Timestamp.IsSet() {
+		toSerialize["timestamp"] = o.Timestamp.Get()
 	}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()

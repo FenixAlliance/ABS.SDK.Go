@@ -1474,6 +1474,7 @@ type ApiGetShareClassesRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shareClassDtoCollectionQueryParameters *ShareClassDtoCollectionQueryParameters
 }
 
 func (r ApiGetShareClassesRequest) TenantId(tenantId string) ApiGetShareClassesRequest {
@@ -1488,6 +1489,11 @@ func (r ApiGetShareClassesRequest) ApiVersion(apiVersion string) ApiGetShareClas
 
 func (r ApiGetShareClassesRequest) XApiVersion(xApiVersion string) ApiGetShareClassesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShareClassesRequest) ShareClassDtoCollectionQueryParameters(shareClassDtoCollectionQueryParameters ShareClassDtoCollectionQueryParameters) ApiGetShareClassesRequest {
+	r.shareClassDtoCollectionQueryParameters = &shareClassDtoCollectionQueryParameters
 	return r
 }
 
@@ -1539,7 +1545,7 @@ func (a *SharesAPIService) GetShareClassesExecute(r ApiGetShareClassesRequest) (
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1558,6 +1564,8 @@ func (a *SharesAPIService) GetShareClassesExecute(r ApiGetShareClassesRequest) (
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shareClassDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1623,6 +1631,7 @@ type ApiGetShareClassesCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shareClassDtoCollectionQueryParameters *ShareClassDtoCollectionQueryParameters
 }
 
 func (r ApiGetShareClassesCountRequest) TenantId(tenantId string) ApiGetShareClassesCountRequest {
@@ -1637,6 +1646,11 @@ func (r ApiGetShareClassesCountRequest) ApiVersion(apiVersion string) ApiGetShar
 
 func (r ApiGetShareClassesCountRequest) XApiVersion(xApiVersion string) ApiGetShareClassesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShareClassesCountRequest) ShareClassDtoCollectionQueryParameters(shareClassDtoCollectionQueryParameters ShareClassDtoCollectionQueryParameters) ApiGetShareClassesCountRequest {
+	r.shareClassDtoCollectionQueryParameters = &shareClassDtoCollectionQueryParameters
 	return r
 }
 
@@ -1688,7 +1702,7 @@ func (a *SharesAPIService) GetShareClassesCountExecute(r ApiGetShareClassesCount
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1707,6 +1721,8 @@ func (a *SharesAPIService) GetShareClassesCountExecute(r ApiGetShareClassesCount
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shareClassDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1936,6 +1952,7 @@ type ApiGetShareIssuancesRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shareIssuanceDtoCollectionQueryParameters *ShareIssuanceDtoCollectionQueryParameters
 }
 
 func (r ApiGetShareIssuancesRequest) TenantId(tenantId string) ApiGetShareIssuancesRequest {
@@ -1950,6 +1967,11 @@ func (r ApiGetShareIssuancesRequest) ApiVersion(apiVersion string) ApiGetShareIs
 
 func (r ApiGetShareIssuancesRequest) XApiVersion(xApiVersion string) ApiGetShareIssuancesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShareIssuancesRequest) ShareIssuanceDtoCollectionQueryParameters(shareIssuanceDtoCollectionQueryParameters ShareIssuanceDtoCollectionQueryParameters) ApiGetShareIssuancesRequest {
+	r.shareIssuanceDtoCollectionQueryParameters = &shareIssuanceDtoCollectionQueryParameters
 	return r
 }
 
@@ -2001,7 +2023,7 @@ func (a *SharesAPIService) GetShareIssuancesExecute(r ApiGetShareIssuancesReques
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2020,6 +2042,8 @@ func (a *SharesAPIService) GetShareIssuancesExecute(r ApiGetShareIssuancesReques
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shareIssuanceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2085,6 +2109,7 @@ type ApiGetShareIssuancesCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shareIssuanceDtoCollectionQueryParameters *ShareIssuanceDtoCollectionQueryParameters
 }
 
 func (r ApiGetShareIssuancesCountRequest) TenantId(tenantId string) ApiGetShareIssuancesCountRequest {
@@ -2099,6 +2124,11 @@ func (r ApiGetShareIssuancesCountRequest) ApiVersion(apiVersion string) ApiGetSh
 
 func (r ApiGetShareIssuancesCountRequest) XApiVersion(xApiVersion string) ApiGetShareIssuancesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShareIssuancesCountRequest) ShareIssuanceDtoCollectionQueryParameters(shareIssuanceDtoCollectionQueryParameters ShareIssuanceDtoCollectionQueryParameters) ApiGetShareIssuancesCountRequest {
+	r.shareIssuanceDtoCollectionQueryParameters = &shareIssuanceDtoCollectionQueryParameters
 	return r
 }
 
@@ -2150,7 +2180,7 @@ func (a *SharesAPIService) GetShareIssuancesCountExecute(r ApiGetShareIssuancesC
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2169,6 +2199,8 @@ func (a *SharesAPIService) GetShareIssuancesCountExecute(r ApiGetShareIssuancesC
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shareIssuanceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2234,6 +2266,7 @@ type ApiGetShareIssuancesSumRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shareIssuanceDtoCollectionQueryParameters *ShareIssuanceDtoCollectionQueryParameters
 }
 
 func (r ApiGetShareIssuancesSumRequest) TenantId(tenantId string) ApiGetShareIssuancesSumRequest {
@@ -2248,6 +2281,11 @@ func (r ApiGetShareIssuancesSumRequest) ApiVersion(apiVersion string) ApiGetShar
 
 func (r ApiGetShareIssuancesSumRequest) XApiVersion(xApiVersion string) ApiGetShareIssuancesSumRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShareIssuancesSumRequest) ShareIssuanceDtoCollectionQueryParameters(shareIssuanceDtoCollectionQueryParameters ShareIssuanceDtoCollectionQueryParameters) ApiGetShareIssuancesSumRequest {
+	r.shareIssuanceDtoCollectionQueryParameters = &shareIssuanceDtoCollectionQueryParameters
 	return r
 }
 
@@ -2299,7 +2337,7 @@ func (a *SharesAPIService) GetShareIssuancesSumExecute(r ApiGetShareIssuancesSum
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2318,6 +2356,8 @@ func (a *SharesAPIService) GetShareIssuancesSumExecute(r ApiGetShareIssuancesSum
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shareIssuanceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2711,6 +2751,7 @@ type ApiGetShareTransferReasonsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shareTransferReasonDtoCollectionQueryParameters *ShareTransferReasonDtoCollectionQueryParameters
 }
 
 func (r ApiGetShareTransferReasonsRequest) TenantId(tenantId string) ApiGetShareTransferReasonsRequest {
@@ -2725,6 +2766,11 @@ func (r ApiGetShareTransferReasonsRequest) ApiVersion(apiVersion string) ApiGetS
 
 func (r ApiGetShareTransferReasonsRequest) XApiVersion(xApiVersion string) ApiGetShareTransferReasonsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShareTransferReasonsRequest) ShareTransferReasonDtoCollectionQueryParameters(shareTransferReasonDtoCollectionQueryParameters ShareTransferReasonDtoCollectionQueryParameters) ApiGetShareTransferReasonsRequest {
+	r.shareTransferReasonDtoCollectionQueryParameters = &shareTransferReasonDtoCollectionQueryParameters
 	return r
 }
 
@@ -2776,7 +2822,7 @@ func (a *SharesAPIService) GetShareTransferReasonsExecute(r ApiGetShareTransferR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2795,6 +2841,8 @@ func (a *SharesAPIService) GetShareTransferReasonsExecute(r ApiGetShareTransferR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shareTransferReasonDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2860,6 +2908,7 @@ type ApiGetShareTransferReasonsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shareTransferReasonDtoCollectionQueryParameters *ShareTransferReasonDtoCollectionQueryParameters
 }
 
 func (r ApiGetShareTransferReasonsCountRequest) TenantId(tenantId string) ApiGetShareTransferReasonsCountRequest {
@@ -2874,6 +2923,11 @@ func (r ApiGetShareTransferReasonsCountRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetShareTransferReasonsCountRequest) XApiVersion(xApiVersion string) ApiGetShareTransferReasonsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShareTransferReasonsCountRequest) ShareTransferReasonDtoCollectionQueryParameters(shareTransferReasonDtoCollectionQueryParameters ShareTransferReasonDtoCollectionQueryParameters) ApiGetShareTransferReasonsCountRequest {
+	r.shareTransferReasonDtoCollectionQueryParameters = &shareTransferReasonDtoCollectionQueryParameters
 	return r
 }
 
@@ -2925,7 +2979,7 @@ func (a *SharesAPIService) GetShareTransferReasonsCountExecute(r ApiGetShareTran
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2944,6 +2998,8 @@ func (a *SharesAPIService) GetShareTransferReasonsCountExecute(r ApiGetShareTran
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shareTransferReasonDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3009,6 +3065,7 @@ type ApiGetShareTransfersRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shareTransferDtoCollectionQueryParameters *ShareTransferDtoCollectionQueryParameters
 }
 
 func (r ApiGetShareTransfersRequest) TenantId(tenantId string) ApiGetShareTransfersRequest {
@@ -3023,6 +3080,11 @@ func (r ApiGetShareTransfersRequest) ApiVersion(apiVersion string) ApiGetShareTr
 
 func (r ApiGetShareTransfersRequest) XApiVersion(xApiVersion string) ApiGetShareTransfersRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShareTransfersRequest) ShareTransferDtoCollectionQueryParameters(shareTransferDtoCollectionQueryParameters ShareTransferDtoCollectionQueryParameters) ApiGetShareTransfersRequest {
+	r.shareTransferDtoCollectionQueryParameters = &shareTransferDtoCollectionQueryParameters
 	return r
 }
 
@@ -3074,7 +3136,7 @@ func (a *SharesAPIService) GetShareTransfersExecute(r ApiGetShareTransfersReques
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3093,6 +3155,8 @@ func (a *SharesAPIService) GetShareTransfersExecute(r ApiGetShareTransfersReques
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shareTransferDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3158,6 +3222,7 @@ type ApiGetShareTransfersCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shareTransferDtoCollectionQueryParameters *ShareTransferDtoCollectionQueryParameters
 }
 
 func (r ApiGetShareTransfersCountRequest) TenantId(tenantId string) ApiGetShareTransfersCountRequest {
@@ -3172,6 +3237,11 @@ func (r ApiGetShareTransfersCountRequest) ApiVersion(apiVersion string) ApiGetSh
 
 func (r ApiGetShareTransfersCountRequest) XApiVersion(xApiVersion string) ApiGetShareTransfersCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShareTransfersCountRequest) ShareTransferDtoCollectionQueryParameters(shareTransferDtoCollectionQueryParameters ShareTransferDtoCollectionQueryParameters) ApiGetShareTransfersCountRequest {
+	r.shareTransferDtoCollectionQueryParameters = &shareTransferDtoCollectionQueryParameters
 	return r
 }
 
@@ -3223,7 +3293,7 @@ func (a *SharesAPIService) GetShareTransfersCountExecute(r ApiGetShareTransfersC
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3242,6 +3312,8 @@ func (a *SharesAPIService) GetShareTransfersCountExecute(r ApiGetShareTransfersC
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shareTransferDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3308,7 +3380,7 @@ type ApiPatchShareClassRequest struct {
 	shareClassId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchShareClassRequest) TenantId(tenantId string) ApiPatchShareClassRequest {
@@ -3326,8 +3398,8 @@ func (r ApiPatchShareClassRequest) XApiVersion(xApiVersion string) ApiPatchShare
 	return r
 }
 
-func (r ApiPatchShareClassRequest) Operation(operation []Operation) ApiPatchShareClassRequest {
-	r.operation = &operation
+func (r ApiPatchShareClassRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchShareClassRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -3402,7 +3474,7 @@ func (a *SharesAPIService) PatchShareClassExecute(r ApiPatchShareClassRequest) (
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3469,7 +3541,7 @@ type ApiPatchShareIssuanceRequest struct {
 	issuanceId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchShareIssuanceRequest) TenantId(tenantId string) ApiPatchShareIssuanceRequest {
@@ -3487,8 +3559,8 @@ func (r ApiPatchShareIssuanceRequest) XApiVersion(xApiVersion string) ApiPatchSh
 	return r
 }
 
-func (r ApiPatchShareIssuanceRequest) Operation(operation []Operation) ApiPatchShareIssuanceRequest {
-	r.operation = &operation
+func (r ApiPatchShareIssuanceRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchShareIssuanceRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -3563,7 +3635,7 @@ func (a *SharesAPIService) PatchShareIssuanceExecute(r ApiPatchShareIssuanceRequ
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3630,7 +3702,7 @@ type ApiPatchShareTransferRequest struct {
 	transferId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchShareTransferRequest) TenantId(tenantId string) ApiPatchShareTransferRequest {
@@ -3648,8 +3720,8 @@ func (r ApiPatchShareTransferRequest) XApiVersion(xApiVersion string) ApiPatchSh
 	return r
 }
 
-func (r ApiPatchShareTransferRequest) Operation(operation []Operation) ApiPatchShareTransferRequest {
-	r.operation = &operation
+func (r ApiPatchShareTransferRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchShareTransferRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -3724,7 +3796,7 @@ func (a *SharesAPIService) PatchShareTransferExecute(r ApiPatchShareTransferRequ
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3791,7 +3863,7 @@ type ApiPatchShareTransferReasonRequest struct {
 	reasonId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchShareTransferReasonRequest) TenantId(tenantId string) ApiPatchShareTransferReasonRequest {
@@ -3809,8 +3881,8 @@ func (r ApiPatchShareTransferReasonRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchShareTransferReasonRequest) Operation(operation []Operation) ApiPatchShareTransferReasonRequest {
-	r.operation = &operation
+func (r ApiPatchShareTransferReasonRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchShareTransferReasonRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -3885,7 +3957,7 @@ func (a *SharesAPIService) PatchShareTransferReasonExecute(r ApiPatchShareTransf
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

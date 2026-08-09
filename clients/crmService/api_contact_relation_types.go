@@ -471,6 +471,7 @@ type ApiGetContactRelationTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	contactRelationTypeDtoCollectionQueryParameters *ContactRelationTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetContactRelationTypesAsyncRequest) TenantId(tenantId string) ApiGetContactRelationTypesAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetContactRelationTypesAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetContactRelationTypesAsyncRequest) XApiVersion(xApiVersion string) ApiGetContactRelationTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetContactRelationTypesAsyncRequest) ContactRelationTypeDtoCollectionQueryParameters(contactRelationTypeDtoCollectionQueryParameters ContactRelationTypeDtoCollectionQueryParameters) ApiGetContactRelationTypesAsyncRequest {
+	r.contactRelationTypeDtoCollectionQueryParameters = &contactRelationTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *ContactRelationTypesAPIService) GetContactRelationTypesAsyncExecute(r A
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *ContactRelationTypesAPIService) GetContactRelationTypesAsyncExecute(r A
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.contactRelationTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetContactRelationTypesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	contactRelationTypeDtoCollectionQueryParameters *ContactRelationTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetContactRelationTypesCountAsyncRequest) TenantId(tenantId string) ApiGetContactRelationTypesCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetContactRelationTypesCountAsyncRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetContactRelationTypesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetContactRelationTypesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetContactRelationTypesCountAsyncRequest) ContactRelationTypeDtoCollectionQueryParameters(contactRelationTypeDtoCollectionQueryParameters ContactRelationTypeDtoCollectionQueryParameters) ApiGetContactRelationTypesCountAsyncRequest {
+	r.contactRelationTypeDtoCollectionQueryParameters = &contactRelationTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *ContactRelationTypesAPIService) GetContactRelationTypesCountAsyncExecut
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *ContactRelationTypesAPIService) GetContactRelationTypesCountAsyncExecut
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.contactRelationTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchContactRelationTypeAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchContactRelationTypeAsyncRequest) TenantId(tenantId string) ApiPatchContactRelationTypeAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchContactRelationTypeAsyncRequest) XApiVersion(xApiVersion string)
 	return r
 }
 
-func (r ApiPatchContactRelationTypeAsyncRequest) Operation(operation []Operation) ApiPatchContactRelationTypeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchContactRelationTypeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchContactRelationTypeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *ContactRelationTypesAPIService) PatchContactRelationTypeAsyncExecute(r 
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

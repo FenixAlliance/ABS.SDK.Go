@@ -238,7 +238,7 @@ No authorization required
 
 ## GetAccountGroups
 
-> AccountGroupDtoListEnvelope GetAccountGroups(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountGroupDtoListEnvelope GetAccountGroups(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountGroupDtoCollectionQueryParameters(accountGroupDtoCollectionQueryParameters).Execute()
 
 Gets the current tenant account groups
 
@@ -260,10 +260,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountGroupDtoCollectionQueryParameters := *openapiclient.NewAccountGroupDtoCollectionQueryParameters() // AccountGroupDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountGroupsAPI.GetAccountGroups(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountGroupsAPI.GetAccountGroups(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountGroupDtoCollectionQueryParameters(accountGroupDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountGroupsAPI.GetAccountGroups``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -287,6 +288,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountGroupDtoCollectionQueryParameters** | [**AccountGroupDtoCollectionQueryParameters**](AccountGroupDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -298,7 +300,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -308,7 +310,7 @@ No authorization required
 
 ## GetAccountGroupsCountAsync
 
-> Int32Envelope GetAccountGroupsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetAccountGroupsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountGroupDtoCollectionQueryParameters(accountGroupDtoCollectionQueryParameters).Execute()
 
 Gets the current tenant accounts count
 
@@ -330,10 +332,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountGroupDtoCollectionQueryParameters := *openapiclient.NewAccountGroupDtoCollectionQueryParameters() // AccountGroupDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountGroupsAPI.GetAccountGroupsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountGroupsAPI.GetAccountGroupsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountGroupDtoCollectionQueryParameters(accountGroupDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountGroupsAPI.GetAccountGroupsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -357,6 +360,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountGroupDtoCollectionQueryParameters** | [**AccountGroupDtoCollectionQueryParameters**](AccountGroupDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -368,7 +372,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -378,7 +382,7 @@ No authorization required
 
 ## PatchAccountGroupAsync
 
-> EmptyEnvelope PatchAccountGroupAsync(ctx, accountGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchAccountGroupAsync(ctx, accountGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an account group
 
@@ -401,11 +405,11 @@ func main() {
 	accountGroupId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountGroupsAPI.PatchAccountGroupAsync(context.Background(), accountGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.AccountGroupsAPI.PatchAccountGroupAsync(context.Background(), accountGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountGroupsAPI.PatchAccountGroupAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -434,7 +438,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

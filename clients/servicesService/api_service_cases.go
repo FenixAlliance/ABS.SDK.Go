@@ -493,6 +493,7 @@ type ApiGetServiceCasesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	serviceCaseDtoCollectionQueryParameters *ServiceCaseDtoCollectionQueryParameters
 }
 
 func (r ApiGetServiceCasesAsyncRequest) TenantId(tenantId string) ApiGetServiceCasesAsyncRequest {
@@ -507,6 +508,11 @@ func (r ApiGetServiceCasesAsyncRequest) ApiVersion(apiVersion string) ApiGetServ
 
 func (r ApiGetServiceCasesAsyncRequest) XApiVersion(xApiVersion string) ApiGetServiceCasesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetServiceCasesAsyncRequest) ServiceCaseDtoCollectionQueryParameters(serviceCaseDtoCollectionQueryParameters ServiceCaseDtoCollectionQueryParameters) ApiGetServiceCasesAsyncRequest {
+	r.serviceCaseDtoCollectionQueryParameters = &serviceCaseDtoCollectionQueryParameters
 	return r
 }
 
@@ -558,7 +564,7 @@ func (a *ServiceCasesAPIService) GetServiceCasesAsyncExecute(r ApiGetServiceCase
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -577,6 +583,8 @@ func (a *ServiceCasesAPIService) GetServiceCasesAsyncExecute(r ApiGetServiceCase
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.serviceCaseDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetServiceCasesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	serviceCaseDtoCollectionQueryParameters *ServiceCaseDtoCollectionQueryParameters
 }
 
 func (r ApiGetServiceCasesCountAsyncRequest) TenantId(tenantId string) ApiGetServiceCasesCountAsyncRequest {
@@ -656,6 +665,11 @@ func (r ApiGetServiceCasesCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetServiceCasesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetServiceCasesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetServiceCasesCountAsyncRequest) ServiceCaseDtoCollectionQueryParameters(serviceCaseDtoCollectionQueryParameters ServiceCaseDtoCollectionQueryParameters) ApiGetServiceCasesCountAsyncRequest {
+	r.serviceCaseDtoCollectionQueryParameters = &serviceCaseDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *ServiceCasesAPIService) GetServiceCasesCountAsyncExecute(r ApiGetServic
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *ServiceCasesAPIService) GetServiceCasesCountAsyncExecute(r ApiGetServic
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.serviceCaseDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchServiceCaseAsyncRequest struct {
 	serviceCaseId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchServiceCaseAsyncRequest) TenantId(tenantId string) ApiPatchServiceCaseAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchServiceCaseAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchServiceCaseAsyncRequest) Operation(operation []Operation) ApiPatchServiceCaseAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchServiceCaseAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchServiceCaseAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *ServiceCasesAPIService) PatchServiceCaseAsyncExecute(r ApiPatchServiceC
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

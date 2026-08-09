@@ -234,7 +234,7 @@ No authorization required
 
 ## GetWarrantyRequestsAsync
 
-> WarrantyRequestDtoListEnvelope GetWarrantyRequestsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> WarrantyRequestDtoListEnvelope GetWarrantyRequestsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WarrantyRequestDtoCollectionQueryParameters(warrantyRequestDtoCollectionQueryParameters).Execute()
 
 Retrieve warranty requests
 
@@ -254,10 +254,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	warrantyRequestDtoCollectionQueryParameters := *openapiclient.NewWarrantyRequestDtoCollectionQueryParameters() // WarrantyRequestDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WarrantyRequestsAPI.GetWarrantyRequestsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WarrantyRequestsAPI.GetWarrantyRequestsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WarrantyRequestDtoCollectionQueryParameters(warrantyRequestDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WarrantyRequestsAPI.GetWarrantyRequestsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -281,6 +282,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **warrantyRequestDtoCollectionQueryParameters** | [**WarrantyRequestDtoCollectionQueryParameters**](WarrantyRequestDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -292,7 +294,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -302,7 +304,7 @@ No authorization required
 
 ## GetWarrantyRequestsCountAsync
 
-> Int32Envelope GetWarrantyRequestsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWarrantyRequestsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WarrantyRequestDtoCollectionQueryParameters(warrantyRequestDtoCollectionQueryParameters).Execute()
 
 Get warranty requests count
 
@@ -322,10 +324,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	warrantyRequestDtoCollectionQueryParameters := *openapiclient.NewWarrantyRequestDtoCollectionQueryParameters() // WarrantyRequestDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WarrantyRequestsAPI.GetWarrantyRequestsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WarrantyRequestsAPI.GetWarrantyRequestsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WarrantyRequestDtoCollectionQueryParameters(warrantyRequestDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WarrantyRequestsAPI.GetWarrantyRequestsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -349,6 +352,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **warrantyRequestDtoCollectionQueryParameters** | [**WarrantyRequestDtoCollectionQueryParameters**](WarrantyRequestDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -360,7 +364,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -370,7 +374,7 @@ No authorization required
 
 ## PatchWarrantyRequestAsync
 
-> EmptyEnvelope PatchWarrantyRequestAsync(ctx, warrantyRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchWarrantyRequestAsync(ctx, warrantyRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a warranty request
 
@@ -393,11 +397,11 @@ func main() {
 	warrantyRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WarrantyRequestsAPI.PatchWarrantyRequestAsync(context.Background(), warrantyRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.WarrantyRequestsAPI.PatchWarrantyRequestAsync(context.Background(), warrantyRequestId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WarrantyRequestsAPI.PatchWarrantyRequestAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -426,7 +430,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

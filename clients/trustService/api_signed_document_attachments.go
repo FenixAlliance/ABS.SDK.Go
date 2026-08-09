@@ -471,6 +471,7 @@ type ApiGetSignedDocumentAttachmentsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	signedDocumentAttachmentDtoCollectionQueryParameters *SignedDocumentAttachmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetSignedDocumentAttachmentsAsyncRequest) TenantId(tenantId string) ApiGetSignedDocumentAttachmentsAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetSignedDocumentAttachmentsAsyncRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetSignedDocumentAttachmentsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSignedDocumentAttachmentsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSignedDocumentAttachmentsAsyncRequest) SignedDocumentAttachmentDtoCollectionQueryParameters(signedDocumentAttachmentDtoCollectionQueryParameters SignedDocumentAttachmentDtoCollectionQueryParameters) ApiGetSignedDocumentAttachmentsAsyncRequest {
+	r.signedDocumentAttachmentDtoCollectionQueryParameters = &signedDocumentAttachmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *SignedDocumentAttachmentsAPIService) GetSignedDocumentAttachmentsAsyncE
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *SignedDocumentAttachmentsAPIService) GetSignedDocumentAttachmentsAsyncE
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.signedDocumentAttachmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetSignedDocumentAttachmentsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	signedDocumentAttachmentDtoCollectionQueryParameters *SignedDocumentAttachmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetSignedDocumentAttachmentsCountAsyncRequest) TenantId(tenantId string) ApiGetSignedDocumentAttachmentsCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetSignedDocumentAttachmentsCountAsyncRequest) ApiVersion(apiVersion 
 
 func (r ApiGetSignedDocumentAttachmentsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSignedDocumentAttachmentsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSignedDocumentAttachmentsCountAsyncRequest) SignedDocumentAttachmentDtoCollectionQueryParameters(signedDocumentAttachmentDtoCollectionQueryParameters SignedDocumentAttachmentDtoCollectionQueryParameters) ApiGetSignedDocumentAttachmentsCountAsyncRequest {
+	r.signedDocumentAttachmentDtoCollectionQueryParameters = &signedDocumentAttachmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *SignedDocumentAttachmentsAPIService) GetSignedDocumentAttachmentsCountA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *SignedDocumentAttachmentsAPIService) GetSignedDocumentAttachmentsCountA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.signedDocumentAttachmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchSignedDocumentAttachmentAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSignedDocumentAttachmentAsyncRequest) TenantId(tenantId string) ApiPatchSignedDocumentAttachmentAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchSignedDocumentAttachmentAsyncRequest) XApiVersion(xApiVersion st
 	return r
 }
 
-func (r ApiPatchSignedDocumentAttachmentAsyncRequest) Operation(operation []Operation) ApiPatchSignedDocumentAttachmentAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSignedDocumentAttachmentAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSignedDocumentAttachmentAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *SignedDocumentAttachmentsAPIService) PatchSignedDocumentAttachmentAsync
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

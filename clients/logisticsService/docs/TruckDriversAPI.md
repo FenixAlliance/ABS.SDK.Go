@@ -394,7 +394,7 @@ No authorization required
 
 ## GetTruckDriversAsync
 
-> TruckDriverDtoListEnvelope GetTruckDriversAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TruckDriverDtoListEnvelope GetTruckDriversAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckDriverDtoCollectionQueryParameters(truckDriverDtoCollectionQueryParameters).Execute()
 
 Get all truck drivers
 
@@ -416,10 +416,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	truckDriverDtoCollectionQueryParameters := *openapiclient.NewTruckDriverDtoCollectionQueryParameters() // TruckDriverDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TruckDriversAPI.GetTruckDriversAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TruckDriversAPI.GetTruckDriversAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckDriverDtoCollectionQueryParameters(truckDriverDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TruckDriversAPI.GetTruckDriversAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -443,6 +444,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **truckDriverDtoCollectionQueryParameters** | [**TruckDriverDtoCollectionQueryParameters**](TruckDriverDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -454,7 +456,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -464,7 +466,7 @@ No authorization required
 
 ## GetTruckDriversCountAsync
 
-> Int32Envelope GetTruckDriversCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetTruckDriversCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckDriverDtoCollectionQueryParameters(truckDriverDtoCollectionQueryParameters).Execute()
 
 Get truck drivers count
 
@@ -486,10 +488,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	truckDriverDtoCollectionQueryParameters := *openapiclient.NewTruckDriverDtoCollectionQueryParameters() // TruckDriverDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TruckDriversAPI.GetTruckDriversCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TruckDriversAPI.GetTruckDriversCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TruckDriverDtoCollectionQueryParameters(truckDriverDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TruckDriversAPI.GetTruckDriversCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -513,6 +516,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **truckDriverDtoCollectionQueryParameters** | [**TruckDriverDtoCollectionQueryParameters**](TruckDriverDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -524,7 +528,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -534,7 +538,7 @@ No authorization required
 
 ## PatchTruckDriverAsync
 
-> EmptyEnvelope PatchTruckDriverAsync(ctx, driverId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchTruckDriverAsync(ctx, driverId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a truck driver
 
@@ -557,11 +561,11 @@ func main() {
 	driverId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TruckDriversAPI.PatchTruckDriverAsync(context.Background(), driverId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.TruckDriversAPI.PatchTruckDriverAsync(context.Background(), driverId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TruckDriversAPI.PatchTruckDriverAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -590,7 +594,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

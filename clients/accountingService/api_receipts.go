@@ -374,10 +374,16 @@ type ApiGetReceiptsAsyncRequest struct {
 	ctx context.Context
 	ApiService *ReceiptsAPIService
 	tenantId *string
+	receiptDtoCollectionQueryParameters *ReceiptDtoCollectionQueryParameters
 }
 
 func (r ApiGetReceiptsAsyncRequest) TenantId(tenantId string) ApiGetReceiptsAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetReceiptsAsyncRequest) ReceiptDtoCollectionQueryParameters(receiptDtoCollectionQueryParameters ReceiptDtoCollectionQueryParameters) ApiGetReceiptsAsyncRequest {
+	r.receiptDtoCollectionQueryParameters = &receiptDtoCollectionQueryParameters
 	return r
 }
 
@@ -426,7 +432,7 @@ func (a *ReceiptsAPIService) GetReceiptsAsyncExecute(r ApiGetReceiptsAsyncReques
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -442,6 +448,8 @@ func (a *ReceiptsAPIService) GetReceiptsAsyncExecute(r ApiGetReceiptsAsyncReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.receiptDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -483,10 +491,16 @@ type ApiGetReceiptsCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *ReceiptsAPIService
 	tenantId *string
+	receiptDtoCollectionQueryParameters *ReceiptDtoCollectionQueryParameters
 }
 
 func (r ApiGetReceiptsCountAsyncRequest) TenantId(tenantId string) ApiGetReceiptsCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetReceiptsCountAsyncRequest) ReceiptDtoCollectionQueryParameters(receiptDtoCollectionQueryParameters ReceiptDtoCollectionQueryParameters) ApiGetReceiptsCountAsyncRequest {
+	r.receiptDtoCollectionQueryParameters = &receiptDtoCollectionQueryParameters
 	return r
 }
 
@@ -535,7 +549,7 @@ func (a *ReceiptsAPIService) GetReceiptsCountAsyncExecute(r ApiGetReceiptsCountA
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -551,6 +565,8 @@ func (a *ReceiptsAPIService) GetReceiptsCountAsyncExecute(r ApiGetReceiptsCountA
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.receiptDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -593,7 +609,7 @@ type ApiPatchReceiptAsyncRequest struct {
 	ApiService *ReceiptsAPIService
 	tenantId *string
 	receiptId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchReceiptAsyncRequest) TenantId(tenantId string) ApiPatchReceiptAsyncRequest {
@@ -601,8 +617,8 @@ func (r ApiPatchReceiptAsyncRequest) TenantId(tenantId string) ApiPatchReceiptAs
 	return r
 }
 
-func (r ApiPatchReceiptAsyncRequest) Operation(operation []Operation) ApiPatchReceiptAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchReceiptAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchReceiptAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -671,7 +687,7 @@ func (a *ReceiptsAPIService) PatchReceiptAsyncExecute(r ApiPatchReceiptAsyncRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -83,7 +83,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebAPI* | [**AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebAPI.md#accountmanagedownloadpersonaldatapost) | **Post** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebAPI* | [**AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountmanagelinkexternalloginpost) | **Post** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebAPI* | [**AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountperformexternalloginpost) | **Post** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebAPI* | [**ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebAPI.md#apiv2aiserviceagentsagentidaguipost) | **Post** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABSWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
 *FenixAllianceABSWebAPI* | [**HealthGet**](docs/FenixAllianceABSWebAPI.md#healthget) | **Get** /health | 
 *FenixAllianceABSWebAPI* | [**HelloGet**](docs/FenixAllianceABSWebAPI.md#helloget) | **Get** /hello | 
@@ -111,6 +110,10 @@ Class | Method | HTTP request | Description
 *PaymentModesAPI* | [**GetPaymentModesCountAsync**](docs/PaymentModesAPI.md#getpaymentmodescountasync) | **Get** /api/v2/PaymentsService/PaymentModes/Count | Counts payment modes
 *PaymentModesAPI* | [**PatchPaymentModeAsync**](docs/PaymentModesAPI.md#patchpaymentmodeasync) | **Patch** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Patch a payment mode
 *PaymentModesAPI* | [**UpdatePaymentModeAsync**](docs/PaymentModesAPI.md#updatepaymentmodeasync) | **Put** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Updates a payment mode
+*PaymentProviderRegistrationsAPI* | [**CreateAsync**](docs/PaymentProviderRegistrationsAPI.md#createasync) | **Post** /api/v2/PaymentsService/PaymentProviderRegistrations | Provisions a provider webhook registration
+*PaymentProviderRegistrationsAPI* | [**GetAsync**](docs/PaymentProviderRegistrationsAPI.md#getasync) | **Get** /api/v2/PaymentsService/PaymentProviderRegistrations | Lists the tenant&#39;s provider registrations
+*PaymentProviderRegistrationsAPI* | [**GetCountAsync**](docs/PaymentProviderRegistrationsAPI.md#getcountasync) | **Get** /api/v2/PaymentsService/PaymentProviderRegistrations/Count | Counts the tenant&#39;s provider registrations
+*PaymentProviderRegistrationsAPI* | [**RotateKeyAsync**](docs/PaymentProviderRegistrationsAPI.md#rotatekeyasync) | **Post** /api/v2/PaymentsService/PaymentProviderRegistrations/{registrationId}/RotateKey | Rotates a registration&#39;s webhook key
 *PaymentTermsAPI* | [**CreatePaymentTermAsync**](docs/PaymentTermsAPI.md#createpaymenttermasync) | **Post** /api/v2/PaymentsService/PaymentTerms | Creates a new payment term
 *PaymentTermsAPI* | [**DeletePaymentTermAsync**](docs/PaymentTermsAPI.md#deletepaymenttermasync) | **Delete** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Deletes a payment term
 *PaymentTermsAPI* | [**GetPaymentTermDetailsAsync**](docs/PaymentTermsAPI.md#getpaymenttermdetailsasync) | **Get** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Gets a payment term by ID
@@ -130,6 +133,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccessTokenResponse](docs/AccessTokenResponse.md)
+ - [CreateProviderWebhookRegistrationRequest](docs/CreateProviderWebhookRegistrationRequest.md)
  - [EmptyEnvelope](docs/EmptyEnvelope.md)
  - [ErrorEnvelope](docs/ErrorEnvelope.md)
  - [ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
@@ -138,26 +142,35 @@ Class | Method | HTTP request | Description
  - [InfoResponse](docs/InfoResponse.md)
  - [Int32Envelope](docs/Int32Envelope.md)
  - [LoginRequest](docs/LoginRequest.md)
- - [Operation](docs/Operation.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [PaymentCreateDto](docs/PaymentCreateDto.md)
  - [PaymentDto](docs/PaymentDto.md)
+ - [PaymentDtoCollectionQueryParameters](docs/PaymentDtoCollectionQueryParameters.md)
  - [PaymentDtoListEnvelope](docs/PaymentDtoListEnvelope.md)
  - [PaymentMethodCreateDto](docs/PaymentMethodCreateDto.md)
  - [PaymentMethodDto](docs/PaymentMethodDto.md)
+ - [PaymentMethodDtoCollectionQueryParameters](docs/PaymentMethodDtoCollectionQueryParameters.md)
  - [PaymentMethodDtoEnvelope](docs/PaymentMethodDtoEnvelope.md)
  - [PaymentMethodDtoIReadOnlyListEnvelope](docs/PaymentMethodDtoIReadOnlyListEnvelope.md)
  - [PaymentMethodUpdateDto](docs/PaymentMethodUpdateDto.md)
  - [PaymentModeCreateDto](docs/PaymentModeCreateDto.md)
  - [PaymentModeDto](docs/PaymentModeDto.md)
+ - [PaymentModeDtoCollectionQueryParameters](docs/PaymentModeDtoCollectionQueryParameters.md)
  - [PaymentModeDtoEnvelope](docs/PaymentModeDtoEnvelope.md)
  - [PaymentModeDtoIReadOnlyListEnvelope](docs/PaymentModeDtoIReadOnlyListEnvelope.md)
  - [PaymentModeUpdateDto](docs/PaymentModeUpdateDto.md)
+ - [PaymentProviderRegistrationDto](docs/PaymentProviderRegistrationDto.md)
+ - [PaymentProviderRegistrationDtoCollectionQueryParameters](docs/PaymentProviderRegistrationDtoCollectionQueryParameters.md)
+ - [PaymentProviderRegistrationDtoListEnvelope](docs/PaymentProviderRegistrationDtoListEnvelope.md)
  - [PaymentTermCreateDto](docs/PaymentTermCreateDto.md)
  - [PaymentTermDto](docs/PaymentTermDto.md)
+ - [PaymentTermDtoCollectionQueryParameters](docs/PaymentTermDtoCollectionQueryParameters.md)
  - [PaymentTermDtoEnvelope](docs/PaymentTermDtoEnvelope.md)
  - [PaymentTermDtoIReadOnlyListEnvelope](docs/PaymentTermDtoIReadOnlyListEnvelope.md)
  - [PaymentTermUpdateDto](docs/PaymentTermUpdateDto.md)
  - [PaymentUpdateDto](docs/PaymentUpdateDto.md)
+ - [ProviderWebhookRegistrationCreatedDto](docs/ProviderWebhookRegistrationCreatedDto.md)
+ - [ProviderWebhookRegistrationCreatedDtoEnvelope](docs/ProviderWebhookRegistrationCreatedDtoEnvelope.md)
  - [RefreshRequest](docs/RefreshRequest.md)
  - [RegisterRequest](docs/RegisterRequest.md)
  - [ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

@@ -661,6 +661,7 @@ type ApiGetBudgetAccountEntriesCollectionAsyncRequest struct {
 	budgetId string
 	apiVersion *string
 	xApiVersion *string
+	budgetAccountEntryDtoCollectionQueryParameters *BudgetAccountEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetBudgetAccountEntriesCollectionAsyncRequest) TenantId(tenantId string) ApiGetBudgetAccountEntriesCollectionAsyncRequest {
@@ -675,6 +676,11 @@ func (r ApiGetBudgetAccountEntriesCollectionAsyncRequest) ApiVersion(apiVersion 
 
 func (r ApiGetBudgetAccountEntriesCollectionAsyncRequest) XApiVersion(xApiVersion string) ApiGetBudgetAccountEntriesCollectionAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBudgetAccountEntriesCollectionAsyncRequest) BudgetAccountEntryDtoCollectionQueryParameters(budgetAccountEntryDtoCollectionQueryParameters BudgetAccountEntryDtoCollectionQueryParameters) ApiGetBudgetAccountEntriesCollectionAsyncRequest {
+	r.budgetAccountEntryDtoCollectionQueryParameters = &budgetAccountEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +735,7 @@ func (a *BudgetsAPIService) GetBudgetAccountEntriesCollectionAsyncExecute(r ApiG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +754,8 @@ func (a *BudgetsAPIService) GetBudgetAccountEntriesCollectionAsyncExecute(r ApiG
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.budgetAccountEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1120,6 +1128,7 @@ type ApiGetBudgetsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	budgetDtoCollectionQueryParameters *BudgetDtoCollectionQueryParameters
 }
 
 func (r ApiGetBudgetsAsyncRequest) TenantId(tenantId string) ApiGetBudgetsAsyncRequest {
@@ -1134,6 +1143,11 @@ func (r ApiGetBudgetsAsyncRequest) ApiVersion(apiVersion string) ApiGetBudgetsAs
 
 func (r ApiGetBudgetsAsyncRequest) XApiVersion(xApiVersion string) ApiGetBudgetsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBudgetsAsyncRequest) BudgetDtoCollectionQueryParameters(budgetDtoCollectionQueryParameters BudgetDtoCollectionQueryParameters) ApiGetBudgetsAsyncRequest {
+	r.budgetDtoCollectionQueryParameters = &budgetDtoCollectionQueryParameters
 	return r
 }
 
@@ -1185,7 +1199,7 @@ func (a *BudgetsAPIService) GetBudgetsAsyncExecute(r ApiGetBudgetsAsyncRequest) 
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1204,6 +1218,8 @@ func (a *BudgetsAPIService) GetBudgetsAsyncExecute(r ApiGetBudgetsAsyncRequest) 
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.budgetDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1268,6 +1284,7 @@ type ApiGetBudgetsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	budgetDtoCollectionQueryParameters *BudgetDtoCollectionQueryParameters
 }
 
 func (r ApiGetBudgetsCountAsyncRequest) TenantId(tenantId string) ApiGetBudgetsCountAsyncRequest {
@@ -1282,6 +1299,11 @@ func (r ApiGetBudgetsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetBudg
 
 func (r ApiGetBudgetsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetBudgetsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBudgetsCountAsyncRequest) BudgetDtoCollectionQueryParameters(budgetDtoCollectionQueryParameters BudgetDtoCollectionQueryParameters) ApiGetBudgetsCountAsyncRequest {
+	r.budgetDtoCollectionQueryParameters = &budgetDtoCollectionQueryParameters
 	return r
 }
 
@@ -1333,7 +1355,7 @@ func (a *BudgetsAPIService) GetBudgetsCountAsyncExecute(r ApiGetBudgetsCountAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1352,6 +1374,8 @@ func (a *BudgetsAPIService) GetBudgetsCountAsyncExecute(r ApiGetBudgetsCountAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.budgetDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1419,7 +1443,7 @@ type ApiPatchBudgetAccountEntryAsyncRequest struct {
 	entryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBudgetAccountEntryAsyncRequest) TenantId(tenantId string) ApiPatchBudgetAccountEntryAsyncRequest {
@@ -1437,8 +1461,8 @@ func (r ApiPatchBudgetAccountEntryAsyncRequest) XApiVersion(xApiVersion string) 
 	return r
 }
 
-func (r ApiPatchBudgetAccountEntryAsyncRequest) Operation(operation []Operation) ApiPatchBudgetAccountEntryAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBudgetAccountEntryAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBudgetAccountEntryAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1516,7 +1540,7 @@ func (a *BudgetsAPIService) PatchBudgetAccountEntryAsyncExecute(r ApiPatchBudget
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1593,7 +1617,7 @@ type ApiPatchBudgetAsyncRequest struct {
 	budgetId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBudgetAsyncRequest) TenantId(tenantId string) ApiPatchBudgetAsyncRequest {
@@ -1611,8 +1635,8 @@ func (r ApiPatchBudgetAsyncRequest) XApiVersion(xApiVersion string) ApiPatchBudg
 	return r
 }
 
-func (r ApiPatchBudgetAsyncRequest) Operation(operation []Operation) ApiPatchBudgetAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBudgetAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBudgetAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1687,7 +1711,7 @@ func (a *BudgetsAPIService) PatchBudgetAsyncExecute(r ApiPatchBudgetAsyncRequest
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -228,7 +228,7 @@ No authorization required
 
 ## GetAssetTransfersAsync
 
-> AssetTransferDtoListEnvelope GetAssetTransfersAsync(ctx).TenantId(tenantId).Execute()
+> AssetTransferDtoListEnvelope GetAssetTransfersAsync(ctx).TenantId(tenantId).AssetTransferDtoCollectionQueryParameters(assetTransferDtoCollectionQueryParameters).Execute()
 
 Gets a list of asset transfers
 
@@ -248,10 +248,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	assetTransferDtoCollectionQueryParameters := *openapiclient.NewAssetTransferDtoCollectionQueryParameters() // AssetTransferDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AssetTransfersAPI.GetAssetTransfersAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.AssetTransfersAPI.GetAssetTransfersAsync(context.Background()).TenantId(tenantId).AssetTransferDtoCollectionQueryParameters(assetTransferDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AssetTransfersAPI.GetAssetTransfersAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -273,6 +274,7 @@ Other parameters are passed through a pointer to a apiGetAssetTransfersAsyncRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **assetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -284,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -294,7 +296,7 @@ No authorization required
 
 ## GetAssetTransfersCountAsync
 
-> Int32Envelope GetAssetTransfersCountAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetAssetTransfersCountAsync(ctx).TenantId(tenantId).AssetTransferDtoCollectionQueryParameters(assetTransferDtoCollectionQueryParameters).Execute()
 
 Gets the count of asset transfers
 
@@ -314,10 +316,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	assetTransferDtoCollectionQueryParameters := *openapiclient.NewAssetTransferDtoCollectionQueryParameters() // AssetTransferDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AssetTransfersAPI.GetAssetTransfersCountAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.AssetTransfersAPI.GetAssetTransfersCountAsync(context.Background()).TenantId(tenantId).AssetTransferDtoCollectionQueryParameters(assetTransferDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AssetTransfersAPI.GetAssetTransfersCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -339,6 +342,7 @@ Other parameters are passed through a pointer to a apiGetAssetTransfersCountAsyn
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **assetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -350,7 +354,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -360,7 +364,7 @@ No authorization required
 
 ## PatchAssetTransferAsync
 
-> EmptyEnvelope PatchAssetTransferAsync(ctx, transferId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchAssetTransferAsync(ctx, transferId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Partially updates an existing asset transfer
 
@@ -381,11 +385,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	transferId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AssetTransfersAPI.PatchAssetTransferAsync(context.Background(), transferId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.AssetTransfersAPI.PatchAssetTransferAsync(context.Background(), transferId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AssetTransfersAPI.PatchAssetTransferAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -412,7 +416,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

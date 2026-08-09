@@ -30,6 +30,7 @@ type ApiCountItemTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemTypeDtoCollectionQueryParameters *ItemTypeDtoCollectionQueryParameters
 }
 
 func (r ApiCountItemTypesAsyncRequest) TenantId(tenantId string) ApiCountItemTypesAsyncRequest {
@@ -44,6 +45,11 @@ func (r ApiCountItemTypesAsyncRequest) ApiVersion(apiVersion string) ApiCountIte
 
 func (r ApiCountItemTypesAsyncRequest) XApiVersion(xApiVersion string) ApiCountItemTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountItemTypesAsyncRequest) ItemTypeDtoCollectionQueryParameters(itemTypeDtoCollectionQueryParameters ItemTypeDtoCollectionQueryParameters) ApiCountItemTypesAsyncRequest {
+	r.itemTypeDtoCollectionQueryParameters = &itemTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -94,7 +100,7 @@ func (a *ItemTypesAPIService) CountItemTypesAsyncExecute(r ApiCountItemTypesAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -113,6 +119,8 @@ func (a *ItemTypesAPIService) CountItemTypesAsyncExecute(r ApiCountItemTypesAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -640,6 +648,7 @@ type ApiGetItemTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemTypeDtoCollectionQueryParameters *ItemTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemTypesAsyncRequest) TenantId(tenantId string) ApiGetItemTypesAsyncRequest {
@@ -654,6 +663,11 @@ func (r ApiGetItemTypesAsyncRequest) ApiVersion(apiVersion string) ApiGetItemTyp
 
 func (r ApiGetItemTypesAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemTypesAsyncRequest) ItemTypeDtoCollectionQueryParameters(itemTypeDtoCollectionQueryParameters ItemTypeDtoCollectionQueryParameters) ApiGetItemTypesAsyncRequest {
+	r.itemTypeDtoCollectionQueryParameters = &itemTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -704,7 +718,7 @@ func (a *ItemTypesAPIService) GetItemTypesAsyncExecute(r ApiGetItemTypesAsyncReq
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -723,6 +737,8 @@ func (a *ItemTypesAPIService) GetItemTypesAsyncExecute(r ApiGetItemTypesAsyncReq
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -789,7 +805,7 @@ type ApiPatchItemTypeAsyncRequest struct {
 	itemTypeID string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemTypeAsyncRequest) TenantId(tenantId string) ApiPatchItemTypeAsyncRequest {
@@ -807,8 +823,8 @@ func (r ApiPatchItemTypeAsyncRequest) XApiVersion(xApiVersion string) ApiPatchIt
 	return r
 }
 
-func (r ApiPatchItemTypeAsyncRequest) Operation(operation []Operation) ApiPatchItemTypeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemTypeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemTypeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -881,7 +897,7 @@ func (a *ItemTypesAPIService) PatchItemTypeAsyncExecute(r ApiPatchItemTypeAsyncR
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

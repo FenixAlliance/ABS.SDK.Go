@@ -515,6 +515,7 @@ type ApiGetGigsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	gigDtoCollectionQueryParameters *GigDtoCollectionQueryParameters
 }
 
 func (r ApiGetGigsAsyncRequest) TenantId(tenantId string) ApiGetGigsAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetGigsAsyncRequest) ApiVersion(apiVersion string) ApiGetGigsAsyncReq
 
 func (r ApiGetGigsAsyncRequest) XApiVersion(xApiVersion string) ApiGetGigsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetGigsAsyncRequest) GigDtoCollectionQueryParameters(gigDtoCollectionQueryParameters GigDtoCollectionQueryParameters) ApiGetGigsAsyncRequest {
+	r.gigDtoCollectionQueryParameters = &gigDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *GigsAPIService) GetGigsAsyncExecute(r ApiGetGigsAsyncRequest) (*GigDtoL
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *GigsAPIService) GetGigsAsyncExecute(r ApiGetGigsAsyncRequest) (*GigDtoL
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.gigDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetGigsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	gigDtoCollectionQueryParameters *GigDtoCollectionQueryParameters
 }
 
 func (r ApiGetGigsCountAsyncRequest) TenantId(tenantId string) ApiGetGigsCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetGigsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetGigsCou
 
 func (r ApiGetGigsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetGigsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetGigsCountAsyncRequest) GigDtoCollectionQueryParameters(gigDtoCollectionQueryParameters GigDtoCollectionQueryParameters) ApiGetGigsCountAsyncRequest {
+	r.gigDtoCollectionQueryParameters = &gigDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *GigsAPIService) GetGigsCountAsyncExecute(r ApiGetGigsCountAsyncRequest)
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *GigsAPIService) GetGigsCountAsyncExecute(r ApiGetGigsCountAsyncRequest)
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.gigDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchGigAsyncRequest struct {
 	gigId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchGigAsyncRequest) TenantId(tenantId string) ApiPatchGigAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchGigAsyncRequest) XApiVersion(xApiVersion string) ApiPatchGigAsyn
 	return r
 }
 
-func (r ApiPatchGigAsyncRequest) Operation(operation []Operation) ApiPatchGigAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchGigAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchGigAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *GigsAPIService) PatchGigAsyncExecute(r ApiPatchGigAsyncRequest) (*Empty
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

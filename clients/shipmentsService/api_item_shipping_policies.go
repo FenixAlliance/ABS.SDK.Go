@@ -296,6 +296,7 @@ type ApiGetItemShippingPoliciesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemShippingPolicyDtoCollectionQueryParameters *ItemShippingPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemShippingPoliciesAsyncRequest) TenantId(tenantId string) ApiGetItemShippingPoliciesAsyncRequest {
@@ -310,6 +311,11 @@ func (r ApiGetItemShippingPoliciesAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetItemShippingPoliciesAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemShippingPoliciesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemShippingPoliciesAsyncRequest) ItemShippingPolicyDtoCollectionQueryParameters(itemShippingPolicyDtoCollectionQueryParameters ItemShippingPolicyDtoCollectionQueryParameters) ApiGetItemShippingPoliciesAsyncRequest {
+	r.itemShippingPolicyDtoCollectionQueryParameters = &itemShippingPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -361,7 +367,7 @@ func (a *ItemShippingPoliciesAPIService) GetItemShippingPoliciesAsyncExecute(r A
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -380,6 +386,8 @@ func (a *ItemShippingPoliciesAPIService) GetItemShippingPoliciesAsyncExecute(r A
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemShippingPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -445,6 +453,7 @@ type ApiGetItemShippingPoliciesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemShippingPolicyDtoCollectionQueryParameters *ItemShippingPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemShippingPoliciesCountAsyncRequest) TenantId(tenantId string) ApiGetItemShippingPoliciesCountAsyncRequest {
@@ -459,6 +468,11 @@ func (r ApiGetItemShippingPoliciesCountAsyncRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetItemShippingPoliciesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemShippingPoliciesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemShippingPoliciesCountAsyncRequest) ItemShippingPolicyDtoCollectionQueryParameters(itemShippingPolicyDtoCollectionQueryParameters ItemShippingPolicyDtoCollectionQueryParameters) ApiGetItemShippingPoliciesCountAsyncRequest {
+	r.itemShippingPolicyDtoCollectionQueryParameters = &itemShippingPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -510,7 +524,7 @@ func (a *ItemShippingPoliciesAPIService) GetItemShippingPoliciesCountAsyncExecut
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -529,6 +543,8 @@ func (a *ItemShippingPoliciesAPIService) GetItemShippingPoliciesCountAsyncExecut
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemShippingPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -715,7 +731,7 @@ type ApiPatchItemShippingPolicyAsyncRequest struct {
 	policyId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemShippingPolicyAsyncRequest) TenantId(tenantId string) ApiPatchItemShippingPolicyAsyncRequest {
@@ -733,8 +749,8 @@ func (r ApiPatchItemShippingPolicyAsyncRequest) XApiVersion(xApiVersion string) 
 	return r
 }
 
-func (r ApiPatchItemShippingPolicyAsyncRequest) Operation(operation []Operation) ApiPatchItemShippingPolicyAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemShippingPolicyAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemShippingPolicyAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -809,7 +825,7 @@ func (a *ItemShippingPoliciesAPIService) PatchItemShippingPolicyAsyncExecute(r A
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

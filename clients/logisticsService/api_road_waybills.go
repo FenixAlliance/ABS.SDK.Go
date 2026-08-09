@@ -895,6 +895,7 @@ type ApiGetRoadWaybillLinesAsyncRequest struct {
 	waybillId string
 	apiVersion *string
 	xApiVersion *string
+	waybillLineDtoCollectionQueryParameters *WaybillLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetRoadWaybillLinesAsyncRequest) TenantId(tenantId string) ApiGetRoadWaybillLinesAsyncRequest {
@@ -909,6 +910,11 @@ func (r ApiGetRoadWaybillLinesAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetRoadWaybillLinesAsyncRequest) XApiVersion(xApiVersion string) ApiGetRoadWaybillLinesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRoadWaybillLinesAsyncRequest) WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters WaybillLineDtoCollectionQueryParameters) ApiGetRoadWaybillLinesAsyncRequest {
+	r.waybillLineDtoCollectionQueryParameters = &waybillLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -963,7 +969,7 @@ func (a *RoadWaybillsAPIService) GetRoadWaybillLinesAsyncExecute(r ApiGetRoadWay
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -982,6 +988,8 @@ func (a *RoadWaybillsAPIService) GetRoadWaybillLinesAsyncExecute(r ApiGetRoadWay
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.waybillLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1037,6 +1045,7 @@ type ApiGetRoadWaybillLinesCountAsyncRequest struct {
 	waybillId string
 	apiVersion *string
 	xApiVersion *string
+	waybillLineDtoCollectionQueryParameters *WaybillLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetRoadWaybillLinesCountAsyncRequest) TenantId(tenantId string) ApiGetRoadWaybillLinesCountAsyncRequest {
@@ -1051,6 +1060,11 @@ func (r ApiGetRoadWaybillLinesCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetRoadWaybillLinesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetRoadWaybillLinesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRoadWaybillLinesCountAsyncRequest) WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters WaybillLineDtoCollectionQueryParameters) ApiGetRoadWaybillLinesCountAsyncRequest {
+	r.waybillLineDtoCollectionQueryParameters = &waybillLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -1105,7 +1119,7 @@ func (a *RoadWaybillsAPIService) GetRoadWaybillLinesCountAsyncExecute(r ApiGetRo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1124,6 +1138,8 @@ func (a *RoadWaybillsAPIService) GetRoadWaybillLinesCountAsyncExecute(r ApiGetRo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.waybillLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1178,6 +1194,7 @@ type ApiGetRoadWaybillsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	roadWaybillDtoCollectionQueryParameters *RoadWaybillDtoCollectionQueryParameters
 }
 
 func (r ApiGetRoadWaybillsAsyncRequest) TenantId(tenantId string) ApiGetRoadWaybillsAsyncRequest {
@@ -1192,6 +1209,11 @@ func (r ApiGetRoadWaybillsAsyncRequest) ApiVersion(apiVersion string) ApiGetRoad
 
 func (r ApiGetRoadWaybillsAsyncRequest) XApiVersion(xApiVersion string) ApiGetRoadWaybillsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRoadWaybillsAsyncRequest) RoadWaybillDtoCollectionQueryParameters(roadWaybillDtoCollectionQueryParameters RoadWaybillDtoCollectionQueryParameters) ApiGetRoadWaybillsAsyncRequest {
+	r.roadWaybillDtoCollectionQueryParameters = &roadWaybillDtoCollectionQueryParameters
 	return r
 }
 
@@ -1243,7 +1265,7 @@ func (a *RoadWaybillsAPIService) GetRoadWaybillsAsyncExecute(r ApiGetRoadWaybill
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1262,6 +1284,8 @@ func (a *RoadWaybillsAPIService) GetRoadWaybillsAsyncExecute(r ApiGetRoadWaybill
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.roadWaybillDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1327,6 +1351,7 @@ type ApiGetRoadWaybillsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	roadWaybillDtoCollectionQueryParameters *RoadWaybillDtoCollectionQueryParameters
 }
 
 func (r ApiGetRoadWaybillsCountAsyncRequest) TenantId(tenantId string) ApiGetRoadWaybillsCountAsyncRequest {
@@ -1341,6 +1366,11 @@ func (r ApiGetRoadWaybillsCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetRoadWaybillsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetRoadWaybillsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRoadWaybillsCountAsyncRequest) RoadWaybillDtoCollectionQueryParameters(roadWaybillDtoCollectionQueryParameters RoadWaybillDtoCollectionQueryParameters) ApiGetRoadWaybillsCountAsyncRequest {
+	r.roadWaybillDtoCollectionQueryParameters = &roadWaybillDtoCollectionQueryParameters
 	return r
 }
 
@@ -1392,7 +1422,7 @@ func (a *RoadWaybillsAPIService) GetRoadWaybillsCountAsyncExecute(r ApiGetRoadWa
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1411,6 +1441,8 @@ func (a *RoadWaybillsAPIService) GetRoadWaybillsCountAsyncExecute(r ApiGetRoadWa
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.roadWaybillDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1892,7 +1924,7 @@ type ApiPatchRoadWaybillAsyncRequest struct {
 	waybillId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchRoadWaybillAsyncRequest) TenantId(tenantId string) ApiPatchRoadWaybillAsyncRequest {
@@ -1910,8 +1942,8 @@ func (r ApiPatchRoadWaybillAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchRoadWaybillAsyncRequest) Operation(operation []Operation) ApiPatchRoadWaybillAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchRoadWaybillAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchRoadWaybillAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1986,7 +2018,7 @@ func (a *RoadWaybillsAPIService) PatchRoadWaybillAsyncExecute(r ApiPatchRoadWayb
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2043,7 +2075,7 @@ type ApiPatchRoadWaybillLineAsyncRequest struct {
 	lineId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchRoadWaybillLineAsyncRequest) TenantId(tenantId string) ApiPatchRoadWaybillLineAsyncRequest {
@@ -2061,8 +2093,8 @@ func (r ApiPatchRoadWaybillLineAsyncRequest) XApiVersion(xApiVersion string) Api
 	return r
 }
 
-func (r ApiPatchRoadWaybillLineAsyncRequest) Operation(operation []Operation) ApiPatchRoadWaybillLineAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchRoadWaybillLineAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchRoadWaybillLineAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2140,7 +2172,7 @@ func (a *RoadWaybillsAPIService) PatchRoadWaybillLineAsyncExecute(r ApiPatchRoad
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

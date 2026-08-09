@@ -515,6 +515,7 @@ type ApiGetSkillsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	skillDtoCollectionQueryParameters *SkillDtoCollectionQueryParameters
 }
 
 func (r ApiGetSkillsAsyncRequest) TenantId(tenantId string) ApiGetSkillsAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetSkillsAsyncRequest) ApiVersion(apiVersion string) ApiGetSkillsAsyn
 
 func (r ApiGetSkillsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSkillsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSkillsAsyncRequest) SkillDtoCollectionQueryParameters(skillDtoCollectionQueryParameters SkillDtoCollectionQueryParameters) ApiGetSkillsAsyncRequest {
+	r.skillDtoCollectionQueryParameters = &skillDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *SkillsAPIService) GetSkillsAsyncExecute(r ApiGetSkillsAsyncRequest) (*S
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *SkillsAPIService) GetSkillsAsyncExecute(r ApiGetSkillsAsyncRequest) (*S
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.skillDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetSkillsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	skillDtoCollectionQueryParameters *SkillDtoCollectionQueryParameters
 }
 
 func (r ApiGetSkillsCountAsyncRequest) TenantId(tenantId string) ApiGetSkillsCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetSkillsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetSkill
 
 func (r ApiGetSkillsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSkillsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSkillsCountAsyncRequest) SkillDtoCollectionQueryParameters(skillDtoCollectionQueryParameters SkillDtoCollectionQueryParameters) ApiGetSkillsCountAsyncRequest {
+	r.skillDtoCollectionQueryParameters = &skillDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *SkillsAPIService) GetSkillsCountAsyncExecute(r ApiGetSkillsCountAsyncRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *SkillsAPIService) GetSkillsCountAsyncExecute(r ApiGetSkillsCountAsyncRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.skillDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchSkillAsyncRequest struct {
 	skillId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSkillAsyncRequest) TenantId(tenantId string) ApiPatchSkillAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchSkillAsyncRequest) XApiVersion(xApiVersion string) ApiPatchSkill
 	return r
 }
 
-func (r ApiPatchSkillAsyncRequest) Operation(operation []Operation) ApiPatchSkillAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSkillAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSkillAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *SkillsAPIService) PatchSkillAsyncExecute(r ApiPatchSkillAsyncRequest) (
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

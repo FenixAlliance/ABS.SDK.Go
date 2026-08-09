@@ -1284,7 +1284,7 @@ type ApiPatchOAuthApplicationAsyncRequest struct {
 	ApiService *OAuthApplicationsAPIService
 	tenantId *string
 	applicationId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 	apiVersion *string
 	xApiVersion *string
 }
@@ -1294,8 +1294,8 @@ func (r ApiPatchOAuthApplicationAsyncRequest) TenantId(tenantId string) ApiPatch
 	return r
 }
 
-func (r ApiPatchOAuthApplicationAsyncRequest) Operation(operation []Operation) ApiPatchOAuthApplicationAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchOAuthApplicationAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchOAuthApplicationAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1354,8 +1354,8 @@ func (a *OAuthApplicationsAPIService) PatchOAuthApplicationAsyncExecute(r ApiPat
 	if r.tenantId == nil {
 		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
 	}
-	if r.operation == nil {
-		return localVarReturnValue, nil, reportError("operation is required and must be specified")
+	if r.patchOperation == nil {
+		return localVarReturnValue, nil, reportError("patchOperation is required and must be specified")
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
@@ -1383,7 +1383,7 @@ func (a *OAuthApplicationsAPIService) PatchOAuthApplicationAsyncExecute(r ApiPat
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

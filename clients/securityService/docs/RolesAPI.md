@@ -715,7 +715,7 @@ No authorization required
 
 ## GetRolesAsync
 
-> SecurityRoleDtoListEnvelope GetRolesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SecurityRoleDtoListEnvelope GetRolesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityRoleDtoCollectionQueryParameters(securityRoleDtoCollectionQueryParameters).Execute()
 
 Get all roles
 
@@ -737,10 +737,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	securityRoleDtoCollectionQueryParameters := *openapiclient.NewSecurityRoleDtoCollectionQueryParameters() // SecurityRoleDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.GetRolesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RolesAPI.GetRolesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityRoleDtoCollectionQueryParameters(securityRoleDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRolesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -764,6 +765,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **securityRoleDtoCollectionQueryParameters** | [**SecurityRoleDtoCollectionQueryParameters**](SecurityRoleDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -775,7 +777,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -861,7 +863,7 @@ No authorization required
 
 ## GetRolesCountAsync
 
-> Int32Envelope GetRolesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetRolesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityRoleDtoCollectionQueryParameters(securityRoleDtoCollectionQueryParameters).Execute()
 
 Get roles count
 
@@ -883,10 +885,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	securityRoleDtoCollectionQueryParameters := *openapiclient.NewSecurityRoleDtoCollectionQueryParameters() // SecurityRoleDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.GetRolesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RolesAPI.GetRolesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SecurityRoleDtoCollectionQueryParameters(securityRoleDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRolesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -910,6 +913,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **securityRoleDtoCollectionQueryParameters** | [**SecurityRoleDtoCollectionQueryParameters**](SecurityRoleDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -921,7 +925,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -931,7 +935,7 @@ No authorization required
 
 ## PatchRoleAsync
 
-> EmptyEnvelope PatchRoleAsync(ctx, securityRoleId).TenantId(tenantId).Operation(operation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope PatchRoleAsync(ctx, securityRoleId).TenantId(tenantId).PatchOperation(patchOperation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Patch an existing role
 
@@ -952,13 +956,13 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	securityRoleId := "securityRoleId_example" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation | 
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RolesAPI.PatchRoleAsync(context.Background(), securityRoleId).TenantId(tenantId).Operation(operation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.RolesAPI.PatchRoleAsync(context.Background(), securityRoleId).TenantId(tenantId).PatchOperation(patchOperation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.PatchRoleAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -985,7 +989,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 

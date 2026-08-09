@@ -54,7 +54,7 @@ func (r ApiCreateFeedPostAsyncRequest) SocialFeedPostCreateDto(socialFeedPostCre
 	return r
 }
 
-func (r ApiCreateFeedPostAsyncRequest) Execute() (*SocialFeedPostDtoEnvelope, *http.Response, error) {
+func (r ApiCreateFeedPostAsyncRequest) Execute() (*StringEnvelope, *http.Response, error) {
 	return r.ApiService.CreateFeedPostAsyncExecute(r)
 }
 
@@ -76,13 +76,13 @@ func (a *SocialFeedsAPIService) CreateFeedPostAsync(ctx context.Context, socialF
 }
 
 // Execute executes the request
-//  @return SocialFeedPostDtoEnvelope
-func (a *SocialFeedsAPIService) CreateFeedPostAsyncExecute(r ApiCreateFeedPostAsyncRequest) (*SocialFeedPostDtoEnvelope, *http.Response, error) {
+//  @return StringEnvelope
+func (a *SocialFeedsAPIService) CreateFeedPostAsyncExecute(r ApiCreateFeedPostAsyncRequest) (*StringEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SocialFeedPostDtoEnvelope
+		localVarReturnValue  *StringEnvelope
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialFeedsAPIService.CreateFeedPostAsync")
@@ -348,6 +348,7 @@ type ApiGetFeedNotificationsRequest struct {
 	socialProfileId *string
 	apiVersion *string
 	xApiVersion *string
+	socialFeedDtoCollectionQueryParameters *SocialFeedDtoCollectionQueryParameters
 }
 
 func (r ApiGetFeedNotificationsRequest) SocialProfileId(socialProfileId string) ApiGetFeedNotificationsRequest {
@@ -362,6 +363,11 @@ func (r ApiGetFeedNotificationsRequest) ApiVersion(apiVersion string) ApiGetFeed
 
 func (r ApiGetFeedNotificationsRequest) XApiVersion(xApiVersion string) ApiGetFeedNotificationsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFeedNotificationsRequest) SocialFeedDtoCollectionQueryParameters(socialFeedDtoCollectionQueryParameters SocialFeedDtoCollectionQueryParameters) ApiGetFeedNotificationsRequest {
+	r.socialFeedDtoCollectionQueryParameters = &socialFeedDtoCollectionQueryParameters
 	return r
 }
 
@@ -413,7 +419,7 @@ func (a *SocialFeedsAPIService) GetFeedNotificationsExecute(r ApiGetFeedNotifica
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -432,6 +438,8 @@ func (a *SocialFeedsAPIService) GetFeedNotificationsExecute(r ApiGetFeedNotifica
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialFeedDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -655,6 +663,7 @@ type ApiGetFeedPostsAsyncRequest struct {
 	socialFeedId string
 	apiVersion *string
 	xApiVersion *string
+	socialFeedPostDtoCollectionQueryParameters *SocialFeedPostDtoCollectionQueryParameters
 }
 
 func (r ApiGetFeedPostsAsyncRequest) SocialProfileId(socialProfileId string) ApiGetFeedPostsAsyncRequest {
@@ -669,6 +678,11 @@ func (r ApiGetFeedPostsAsyncRequest) ApiVersion(apiVersion string) ApiGetFeedPos
 
 func (r ApiGetFeedPostsAsyncRequest) XApiVersion(xApiVersion string) ApiGetFeedPostsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFeedPostsAsyncRequest) SocialFeedPostDtoCollectionQueryParameters(socialFeedPostDtoCollectionQueryParameters SocialFeedPostDtoCollectionQueryParameters) ApiGetFeedPostsAsyncRequest {
+	r.socialFeedPostDtoCollectionQueryParameters = &socialFeedPostDtoCollectionQueryParameters
 	return r
 }
 
@@ -723,7 +737,7 @@ func (a *SocialFeedsAPIService) GetFeedPostsAsyncExecute(r ApiGetFeedPostsAsyncR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -742,6 +756,8 @@ func (a *SocialFeedsAPIService) GetFeedPostsAsyncExecute(r ApiGetFeedPostsAsyncR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialFeedPostDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -808,6 +824,7 @@ type ApiGetFeedPostsCountAsyncRequest struct {
 	socialFeedId string
 	apiVersion *string
 	xApiVersion *string
+	socialFeedPostDtoCollectionQueryParameters *SocialFeedPostDtoCollectionQueryParameters
 }
 
 func (r ApiGetFeedPostsCountAsyncRequest) SocialProfileId(socialProfileId string) ApiGetFeedPostsCountAsyncRequest {
@@ -822,6 +839,11 @@ func (r ApiGetFeedPostsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetFe
 
 func (r ApiGetFeedPostsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetFeedPostsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFeedPostsCountAsyncRequest) SocialFeedPostDtoCollectionQueryParameters(socialFeedPostDtoCollectionQueryParameters SocialFeedPostDtoCollectionQueryParameters) ApiGetFeedPostsCountAsyncRequest {
+	r.socialFeedPostDtoCollectionQueryParameters = &socialFeedPostDtoCollectionQueryParameters
 	return r
 }
 
@@ -876,7 +898,7 @@ func (a *SocialFeedsAPIService) GetFeedPostsCountAsyncExecute(r ApiGetFeedPostsC
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -895,6 +917,8 @@ func (a *SocialFeedsAPIService) GetFeedPostsCountAsyncExecute(r ApiGetFeedPostsC
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialFeedPostDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1113,6 +1137,7 @@ type ApiGetNotificationsCountAsyncRequest struct {
 	socialProfileId *string
 	apiVersion *string
 	xApiVersion *string
+	socialFeedDtoCollectionQueryParameters *SocialFeedDtoCollectionQueryParameters
 }
 
 func (r ApiGetNotificationsCountAsyncRequest) SocialProfileId(socialProfileId string) ApiGetNotificationsCountAsyncRequest {
@@ -1127,6 +1152,11 @@ func (r ApiGetNotificationsCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetNotificationsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetNotificationsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetNotificationsCountAsyncRequest) SocialFeedDtoCollectionQueryParameters(socialFeedDtoCollectionQueryParameters SocialFeedDtoCollectionQueryParameters) ApiGetNotificationsCountAsyncRequest {
+	r.socialFeedDtoCollectionQueryParameters = &socialFeedDtoCollectionQueryParameters
 	return r
 }
 
@@ -1178,7 +1208,7 @@ func (a *SocialFeedsAPIService) GetNotificationsCountAsyncExecute(r ApiGetNotifi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1197,6 +1227,8 @@ func (a *SocialFeedsAPIService) GetNotificationsCountAsyncExecute(r ApiGetNotifi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialFeedDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1264,7 +1296,7 @@ type ApiPatchFeedPostAsyncRequest struct {
 	feedPostId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchFeedPostAsyncRequest) SocialProfileId(socialProfileId string) ApiPatchFeedPostAsyncRequest {
@@ -1282,8 +1314,8 @@ func (r ApiPatchFeedPostAsyncRequest) XApiVersion(xApiVersion string) ApiPatchFe
 	return r
 }
 
-func (r ApiPatchFeedPostAsyncRequest) Operation(operation []Operation) ApiPatchFeedPostAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchFeedPostAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchFeedPostAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1361,7 +1393,7 @@ func (a *SocialFeedsAPIService) PatchFeedPostAsyncExecute(r ApiPatchFeedPostAsyn
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

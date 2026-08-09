@@ -699,10 +699,16 @@ type ApiGetLocationsAsyncRequest struct {
 	ctx context.Context
 	ApiService *LocationsAPIService
 	tenantId *string
+	locationDtoCollectionQueryParameters *LocationDtoCollectionQueryParameters
 }
 
 func (r ApiGetLocationsAsyncRequest) TenantId(tenantId string) ApiGetLocationsAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetLocationsAsyncRequest) LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters LocationDtoCollectionQueryParameters) ApiGetLocationsAsyncRequest {
+	r.locationDtoCollectionQueryParameters = &locationDtoCollectionQueryParameters
 	return r
 }
 
@@ -751,7 +757,7 @@ func (a *LocationsAPIService) GetLocationsAsyncExecute(r ApiGetLocationsAsyncReq
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -767,6 +773,8 @@ func (a *LocationsAPIService) GetLocationsAsyncExecute(r ApiGetLocationsAsyncReq
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.locationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -830,10 +838,16 @@ type ApiGetLocationsCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *LocationsAPIService
 	tenantId *string
+	locationDtoCollectionQueryParameters *LocationDtoCollectionQueryParameters
 }
 
 func (r ApiGetLocationsCountAsyncRequest) TenantId(tenantId string) ApiGetLocationsCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetLocationsCountAsyncRequest) LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters LocationDtoCollectionQueryParameters) ApiGetLocationsCountAsyncRequest {
+	r.locationDtoCollectionQueryParameters = &locationDtoCollectionQueryParameters
 	return r
 }
 
@@ -882,7 +896,7 @@ func (a *LocationsAPIService) GetLocationsCountAsyncExecute(r ApiGetLocationsCou
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -898,6 +912,8 @@ func (a *LocationsAPIService) GetLocationsCountAsyncExecute(r ApiGetLocationsCou
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.locationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1090,6 +1106,12 @@ type ApiGetWalletLocationsAsyncRequest struct {
 	ctx context.Context
 	ApiService *LocationsAPIService
 	walletId string
+	locationDtoCollectionQueryParameters *LocationDtoCollectionQueryParameters
+}
+
+func (r ApiGetWalletLocationsAsyncRequest) LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters LocationDtoCollectionQueryParameters) ApiGetWalletLocationsAsyncRequest {
+	r.locationDtoCollectionQueryParameters = &locationDtoCollectionQueryParameters
+	return r
 }
 
 func (r ApiGetWalletLocationsAsyncRequest) Execute() (*LocationDtoIReadOnlyListEnvelope, *http.Response, error) {
@@ -1136,7 +1158,7 @@ func (a *LocationsAPIService) GetWalletLocationsAsyncExecute(r ApiGetWalletLocat
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1152,6 +1174,8 @@ func (a *LocationsAPIService) GetWalletLocationsAsyncExecute(r ApiGetWalletLocat
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.locationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1215,6 +1239,12 @@ type ApiGetWalletLocationsCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *LocationsAPIService
 	walletId string
+	locationDtoCollectionQueryParameters *LocationDtoCollectionQueryParameters
+}
+
+func (r ApiGetWalletLocationsCountAsyncRequest) LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters LocationDtoCollectionQueryParameters) ApiGetWalletLocationsCountAsyncRequest {
+	r.locationDtoCollectionQueryParameters = &locationDtoCollectionQueryParameters
+	return r
 }
 
 func (r ApiGetWalletLocationsCountAsyncRequest) Execute() (*Int32Envelope, *http.Response, error) {
@@ -1261,7 +1291,7 @@ func (a *LocationsAPIService) GetWalletLocationsCountAsyncExecute(r ApiGetWallet
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1277,6 +1307,8 @@ func (a *LocationsAPIService) GetWalletLocationsCountAsyncExecute(r ApiGetWallet
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.locationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1341,7 +1373,7 @@ type ApiPatchLocationAsyncRequest struct {
 	ApiService *LocationsAPIService
 	tenantId *string
 	locationId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchLocationAsyncRequest) TenantId(tenantId string) ApiPatchLocationAsyncRequest {
@@ -1349,8 +1381,8 @@ func (r ApiPatchLocationAsyncRequest) TenantId(tenantId string) ApiPatchLocation
 	return r
 }
 
-func (r ApiPatchLocationAsyncRequest) Operation(operation []Operation) ApiPatchLocationAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchLocationAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchLocationAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1419,7 +1451,7 @@ func (a *LocationsAPIService) PatchLocationAsyncExecute(r ApiPatchLocationAsyncR
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1484,11 +1516,11 @@ type ApiPatchWalletLocationAsyncRequest struct {
 	ApiService *LocationsAPIService
 	walletId string
 	locationId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
-func (r ApiPatchWalletLocationAsyncRequest) Operation(operation []Operation) ApiPatchWalletLocationAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchWalletLocationAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWalletLocationAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1556,7 +1588,7 @@ func (a *LocationsAPIService) PatchWalletLocationAsyncExecute(r ApiPatchWalletLo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

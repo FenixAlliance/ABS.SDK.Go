@@ -28,10 +28,16 @@ type ApiCountStoresAsyncRequest struct {
 	ctx context.Context
 	ApiService *StoresAPIService
 	tenantId *string
+	storeDtoCollectionQueryParameters *StoreDtoCollectionQueryParameters
 }
 
 func (r ApiCountStoresAsyncRequest) TenantId(tenantId string) ApiCountStoresAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiCountStoresAsyncRequest) StoreDtoCollectionQueryParameters(storeDtoCollectionQueryParameters StoreDtoCollectionQueryParameters) ApiCountStoresAsyncRequest {
+	r.storeDtoCollectionQueryParameters = &storeDtoCollectionQueryParameters
 	return r
 }
 
@@ -80,7 +86,7 @@ func (a *StoresAPIService) CountStoresAsyncExecute(r ApiCountStoresAsyncRequest)
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -96,6 +102,8 @@ func (a *StoresAPIService) CountStoresAsyncExecute(r ApiCountStoresAsyncRequest)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.storeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -524,10 +532,16 @@ type ApiGetStoresAsyncRequest struct {
 	ctx context.Context
 	ApiService *StoresAPIService
 	tenantId *string
+	storeDtoCollectionQueryParameters *StoreDtoCollectionQueryParameters
 }
 
 func (r ApiGetStoresAsyncRequest) TenantId(tenantId string) ApiGetStoresAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetStoresAsyncRequest) StoreDtoCollectionQueryParameters(storeDtoCollectionQueryParameters StoreDtoCollectionQueryParameters) ApiGetStoresAsyncRequest {
+	r.storeDtoCollectionQueryParameters = &storeDtoCollectionQueryParameters
 	return r
 }
 
@@ -576,7 +590,7 @@ func (a *StoresAPIService) GetStoresAsyncExecute(r ApiGetStoresAsyncRequest) (*S
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -592,6 +606,8 @@ func (a *StoresAPIService) GetStoresAsyncExecute(r ApiGetStoresAsyncRequest) (*S
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.storeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -645,7 +661,7 @@ type ApiPatchStoreAsyncRequest struct {
 	ApiService *StoresAPIService
 	tenantId *string
 	storeId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchStoreAsyncRequest) TenantId(tenantId string) ApiPatchStoreAsyncRequest {
@@ -653,8 +669,8 @@ func (r ApiPatchStoreAsyncRequest) TenantId(tenantId string) ApiPatchStoreAsyncR
 	return r
 }
 
-func (r ApiPatchStoreAsyncRequest) Operation(operation []Operation) ApiPatchStoreAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchStoreAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchStoreAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -723,7 +739,7 @@ func (a *StoresAPIService) PatchStoreAsyncExecute(r ApiPatchStoreAsyncRequest) (
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -1041,6 +1041,7 @@ type ApiGetVoyagePortCallsAsyncRequest struct {
 	voyageId string
 	apiVersion *string
 	xApiVersion *string
+	voyagePortCallDtoCollectionQueryParameters *VoyagePortCallDtoCollectionQueryParameters
 }
 
 func (r ApiGetVoyagePortCallsAsyncRequest) TenantId(tenantId string) ApiGetVoyagePortCallsAsyncRequest {
@@ -1055,6 +1056,11 @@ func (r ApiGetVoyagePortCallsAsyncRequest) ApiVersion(apiVersion string) ApiGetV
 
 func (r ApiGetVoyagePortCallsAsyncRequest) XApiVersion(xApiVersion string) ApiGetVoyagePortCallsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetVoyagePortCallsAsyncRequest) VoyagePortCallDtoCollectionQueryParameters(voyagePortCallDtoCollectionQueryParameters VoyagePortCallDtoCollectionQueryParameters) ApiGetVoyagePortCallsAsyncRequest {
+	r.voyagePortCallDtoCollectionQueryParameters = &voyagePortCallDtoCollectionQueryParameters
 	return r
 }
 
@@ -1109,7 +1115,7 @@ func (a *VoyagesAPIService) GetVoyagePortCallsAsyncExecute(r ApiGetVoyagePortCal
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1128,6 +1134,8 @@ func (a *VoyagesAPIService) GetVoyagePortCallsAsyncExecute(r ApiGetVoyagePortCal
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.voyagePortCallDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1183,6 +1191,7 @@ type ApiGetVoyagePortCallsCountAsyncRequest struct {
 	voyageId string
 	apiVersion *string
 	xApiVersion *string
+	voyagePortCallDtoCollectionQueryParameters *VoyagePortCallDtoCollectionQueryParameters
 }
 
 func (r ApiGetVoyagePortCallsCountAsyncRequest) TenantId(tenantId string) ApiGetVoyagePortCallsCountAsyncRequest {
@@ -1197,6 +1206,11 @@ func (r ApiGetVoyagePortCallsCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetVoyagePortCallsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetVoyagePortCallsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetVoyagePortCallsCountAsyncRequest) VoyagePortCallDtoCollectionQueryParameters(voyagePortCallDtoCollectionQueryParameters VoyagePortCallDtoCollectionQueryParameters) ApiGetVoyagePortCallsCountAsyncRequest {
+	r.voyagePortCallDtoCollectionQueryParameters = &voyagePortCallDtoCollectionQueryParameters
 	return r
 }
 
@@ -1251,7 +1265,7 @@ func (a *VoyagesAPIService) GetVoyagePortCallsCountAsyncExecute(r ApiGetVoyagePo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1270,6 +1284,8 @@ func (a *VoyagesAPIService) GetVoyagePortCallsCountAsyncExecute(r ApiGetVoyagePo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.voyagePortCallDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1324,6 +1340,7 @@ type ApiGetVoyagesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	voyageDtoCollectionQueryParameters *VoyageDtoCollectionQueryParameters
 }
 
 func (r ApiGetVoyagesAsyncRequest) TenantId(tenantId string) ApiGetVoyagesAsyncRequest {
@@ -1338,6 +1355,11 @@ func (r ApiGetVoyagesAsyncRequest) ApiVersion(apiVersion string) ApiGetVoyagesAs
 
 func (r ApiGetVoyagesAsyncRequest) XApiVersion(xApiVersion string) ApiGetVoyagesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetVoyagesAsyncRequest) VoyageDtoCollectionQueryParameters(voyageDtoCollectionQueryParameters VoyageDtoCollectionQueryParameters) ApiGetVoyagesAsyncRequest {
+	r.voyageDtoCollectionQueryParameters = &voyageDtoCollectionQueryParameters
 	return r
 }
 
@@ -1389,7 +1411,7 @@ func (a *VoyagesAPIService) GetVoyagesAsyncExecute(r ApiGetVoyagesAsyncRequest) 
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1408,6 +1430,8 @@ func (a *VoyagesAPIService) GetVoyagesAsyncExecute(r ApiGetVoyagesAsyncRequest) 
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.voyageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1473,6 +1497,7 @@ type ApiGetVoyagesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	voyageDtoCollectionQueryParameters *VoyageDtoCollectionQueryParameters
 }
 
 func (r ApiGetVoyagesCountAsyncRequest) TenantId(tenantId string) ApiGetVoyagesCountAsyncRequest {
@@ -1487,6 +1512,11 @@ func (r ApiGetVoyagesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetVoya
 
 func (r ApiGetVoyagesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetVoyagesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetVoyagesCountAsyncRequest) VoyageDtoCollectionQueryParameters(voyageDtoCollectionQueryParameters VoyageDtoCollectionQueryParameters) ApiGetVoyagesCountAsyncRequest {
+	r.voyageDtoCollectionQueryParameters = &voyageDtoCollectionQueryParameters
 	return r
 }
 
@@ -1538,7 +1568,7 @@ func (a *VoyagesAPIService) GetVoyagesCountAsyncExecute(r ApiGetVoyagesCountAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1557,6 +1587,8 @@ func (a *VoyagesAPIService) GetVoyagesCountAsyncExecute(r ApiGetVoyagesCountAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.voyageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1612,7 +1644,7 @@ type ApiPatchVoyageAsyncRequest struct {
 	voyageId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchVoyageAsyncRequest) TenantId(tenantId string) ApiPatchVoyageAsyncRequest {
@@ -1630,8 +1662,8 @@ func (r ApiPatchVoyageAsyncRequest) XApiVersion(xApiVersion string) ApiPatchVoya
 	return r
 }
 
-func (r ApiPatchVoyageAsyncRequest) Operation(operation []Operation) ApiPatchVoyageAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchVoyageAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchVoyageAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1706,7 +1738,7 @@ func (a *VoyagesAPIService) PatchVoyageAsyncExecute(r ApiPatchVoyageAsyncRequest
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1785,7 +1817,7 @@ type ApiPatchVoyagePortCallAsyncRequest struct {
 	portCallId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchVoyagePortCallAsyncRequest) TenantId(tenantId string) ApiPatchVoyagePortCallAsyncRequest {
@@ -1803,8 +1835,8 @@ func (r ApiPatchVoyagePortCallAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchVoyagePortCallAsyncRequest) Operation(operation []Operation) ApiPatchVoyagePortCallAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchVoyagePortCallAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchVoyagePortCallAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1882,7 +1914,7 @@ func (a *VoyagesAPIService) PatchVoyagePortCallAsyncExecute(r ApiPatchVoyagePort
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -29,6 +29,7 @@ type ApiGetWebhookRequestsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	webhookRequestDtoCollectionQueryParameters *WebhookRequestDtoCollectionQueryParameters
 }
 
 func (r ApiGetWebhookRequestsAsyncRequest) TenantId(tenantId string) ApiGetWebhookRequestsAsyncRequest {
@@ -43,6 +44,11 @@ func (r ApiGetWebhookRequestsAsyncRequest) ApiVersion(apiVersion string) ApiGetW
 
 func (r ApiGetWebhookRequestsAsyncRequest) XApiVersion(xApiVersion string) ApiGetWebhookRequestsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWebhookRequestsAsyncRequest) WebhookRequestDtoCollectionQueryParameters(webhookRequestDtoCollectionQueryParameters WebhookRequestDtoCollectionQueryParameters) ApiGetWebhookRequestsAsyncRequest {
+	r.webhookRequestDtoCollectionQueryParameters = &webhookRequestDtoCollectionQueryParameters
 	return r
 }
 
@@ -94,7 +100,7 @@ func (a *WebhooksAPIService) GetWebhookRequestsAsyncExecute(r ApiGetWebhookReque
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -113,6 +119,8 @@ func (a *WebhooksAPIService) GetWebhookRequestsAsyncExecute(r ApiGetWebhookReque
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.webhookRequestDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -178,6 +186,7 @@ type ApiGetWebhookRequestsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	webhookRequestDtoCollectionQueryParameters *WebhookRequestDtoCollectionQueryParameters
 }
 
 func (r ApiGetWebhookRequestsCountAsyncRequest) TenantId(tenantId string) ApiGetWebhookRequestsCountAsyncRequest {
@@ -192,6 +201,11 @@ func (r ApiGetWebhookRequestsCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetWebhookRequestsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWebhookRequestsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWebhookRequestsCountAsyncRequest) WebhookRequestDtoCollectionQueryParameters(webhookRequestDtoCollectionQueryParameters WebhookRequestDtoCollectionQueryParameters) ApiGetWebhookRequestsCountAsyncRequest {
+	r.webhookRequestDtoCollectionQueryParameters = &webhookRequestDtoCollectionQueryParameters
 	return r
 }
 
@@ -243,7 +257,7 @@ func (a *WebhooksAPIService) GetWebhookRequestsCountAsyncExecute(r ApiGetWebhook
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -262,6 +276,8 @@ func (a *WebhooksAPIService) GetWebhookRequestsCountAsyncExecute(r ApiGetWebhook
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.webhookRequestDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

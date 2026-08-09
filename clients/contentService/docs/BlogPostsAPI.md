@@ -536,7 +536,7 @@ No authorization required
 
 ## GetBlogPostsAsync
 
-> BlogPostDtoListEnvelope GetBlogPostsAsync(ctx).TenantId(tenantId).Execute()
+> BlogPostDtoListEnvelope GetBlogPostsAsync(ctx).TenantId(tenantId).BlogPostDtoCollectionQueryParameters(blogPostDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of blog posts
 
@@ -556,10 +556,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	blogPostDtoCollectionQueryParameters := *openapiclient.NewBlogPostDtoCollectionQueryParameters() // BlogPostDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlogPostsAPI.GetBlogPostsAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.BlogPostsAPI.GetBlogPostsAsync(context.Background()).TenantId(tenantId).BlogPostDtoCollectionQueryParameters(blogPostDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlogPostsAPI.GetBlogPostsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -581,6 +582,7 @@ Other parameters are passed through a pointer to a apiGetBlogPostsAsyncRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **blogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -592,7 +594,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -602,7 +604,7 @@ No authorization required
 
 ## GetBlogPostsCountAsync
 
-> Int32Envelope GetBlogPostsCountAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetBlogPostsCountAsync(ctx).TenantId(tenantId).BlogPostDtoCollectionQueryParameters(blogPostDtoCollectionQueryParameters).Execute()
 
 Get the count of blog posts
 
@@ -622,10 +624,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	blogPostDtoCollectionQueryParameters := *openapiclient.NewBlogPostDtoCollectionQueryParameters() // BlogPostDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlogPostsAPI.GetBlogPostsCountAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.BlogPostsAPI.GetBlogPostsCountAsync(context.Background()).TenantId(tenantId).BlogPostDtoCollectionQueryParameters(blogPostDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlogPostsAPI.GetBlogPostsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -647,6 +650,7 @@ Other parameters are passed through a pointer to a apiGetBlogPostsCountAsyncRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **blogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -658,7 +662,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -668,7 +672,7 @@ No authorization required
 
 ## GetCategoriesForBlogPostAsync
 
-> BlogPostCategoryDtoListEnvelope GetCategoriesForBlogPostAsync(ctx, blogPostId).Execute()
+> BlogPostCategoryDtoListEnvelope GetCategoriesForBlogPostAsync(ctx, blogPostId).BlogPostCategoryDtoCollectionQueryParameters(blogPostCategoryDtoCollectionQueryParameters).Execute()
 
 Get categories for a blog post
 
@@ -688,10 +692,11 @@ import (
 
 func main() {
 	blogPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	blogPostCategoryDtoCollectionQueryParameters := *openapiclient.NewBlogPostCategoryDtoCollectionQueryParameters() // BlogPostCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlogPostsAPI.GetCategoriesForBlogPostAsync(context.Background(), blogPostId).Execute()
+	resp, r, err := apiClient.BlogPostsAPI.GetCategoriesForBlogPostAsync(context.Background(), blogPostId).BlogPostCategoryDtoCollectionQueryParameters(blogPostCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlogPostsAPI.GetCategoriesForBlogPostAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -717,6 +722,7 @@ Other parameters are passed through a pointer to a apiGetCategoriesForBlogPostAs
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **blogPostCategoryDtoCollectionQueryParameters** | [**BlogPostCategoryDtoCollectionQueryParameters**](BlogPostCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -728,7 +734,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -738,7 +744,7 @@ No authorization required
 
 ## GetCommentsForBlogPostAsync
 
-> BlogPostCommentDtoListEnvelope GetCommentsForBlogPostAsync(ctx, blogPostId).Execute()
+> BlogPostCommentDtoListEnvelope GetCommentsForBlogPostAsync(ctx, blogPostId).BlogPostCommentDtoCollectionQueryParameters(blogPostCommentDtoCollectionQueryParameters).Execute()
 
 Get comments for a blog post
 
@@ -758,10 +764,11 @@ import (
 
 func main() {
 	blogPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	blogPostCommentDtoCollectionQueryParameters := *openapiclient.NewBlogPostCommentDtoCollectionQueryParameters() // BlogPostCommentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlogPostsAPI.GetCommentsForBlogPostAsync(context.Background(), blogPostId).Execute()
+	resp, r, err := apiClient.BlogPostsAPI.GetCommentsForBlogPostAsync(context.Background(), blogPostId).BlogPostCommentDtoCollectionQueryParameters(blogPostCommentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlogPostsAPI.GetCommentsForBlogPostAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -787,6 +794,7 @@ Other parameters are passed through a pointer to a apiGetCommentsForBlogPostAsyn
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **blogPostCommentDtoCollectionQueryParameters** | [**BlogPostCommentDtoCollectionQueryParameters**](BlogPostCommentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -798,7 +806,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -808,7 +816,7 @@ No authorization required
 
 ## GetRepliesForCommentAsync
 
-> BlogPostCommentDtoListEnvelope GetRepliesForCommentAsync(ctx, commentId, blogPostId).Execute()
+> BlogPostCommentDtoListEnvelope GetRepliesForCommentAsync(ctx, commentId, blogPostId).BlogPostCommentDtoCollectionQueryParameters(blogPostCommentDtoCollectionQueryParameters).Execute()
 
 Get replies for a comment
 
@@ -829,10 +837,11 @@ import (
 func main() {
 	commentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	blogPostId := "blogPostId_example" // string | 
+	blogPostCommentDtoCollectionQueryParameters := *openapiclient.NewBlogPostCommentDtoCollectionQueryParameters() // BlogPostCommentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlogPostsAPI.GetRepliesForCommentAsync(context.Background(), commentId, blogPostId).Execute()
+	resp, r, err := apiClient.BlogPostsAPI.GetRepliesForCommentAsync(context.Background(), commentId, blogPostId).BlogPostCommentDtoCollectionQueryParameters(blogPostCommentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlogPostsAPI.GetRepliesForCommentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -860,6 +869,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **blogPostCommentDtoCollectionQueryParameters** | [**BlogPostCommentDtoCollectionQueryParameters**](BlogPostCommentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -871,7 +881,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -881,7 +891,7 @@ No authorization required
 
 ## GetTagsForBlogPostAsync
 
-> BlogPostTagDtoListEnvelope GetTagsForBlogPostAsync(ctx, blogPostId).Execute()
+> BlogPostTagDtoListEnvelope GetTagsForBlogPostAsync(ctx, blogPostId).BlogPostTagDtoCollectionQueryParameters(blogPostTagDtoCollectionQueryParameters).Execute()
 
 Get tags for a blog post
 
@@ -901,10 +911,11 @@ import (
 
 func main() {
 	blogPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	blogPostTagDtoCollectionQueryParameters := *openapiclient.NewBlogPostTagDtoCollectionQueryParameters() // BlogPostTagDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlogPostsAPI.GetTagsForBlogPostAsync(context.Background(), blogPostId).Execute()
+	resp, r, err := apiClient.BlogPostsAPI.GetTagsForBlogPostAsync(context.Background(), blogPostId).BlogPostTagDtoCollectionQueryParameters(blogPostTagDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlogPostsAPI.GetTagsForBlogPostAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -930,6 +941,7 @@ Other parameters are passed through a pointer to a apiGetTagsForBlogPostAsyncReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **blogPostTagDtoCollectionQueryParameters** | [**BlogPostTagDtoCollectionQueryParameters**](BlogPostTagDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -941,7 +953,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -951,7 +963,7 @@ No authorization required
 
 ## PatchBlogPostAsync
 
-> EmptyEnvelope PatchBlogPostAsync(ctx, blogPostId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchBlogPostAsync(ctx, blogPostId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a blog post
 
@@ -972,11 +984,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	blogPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BlogPostsAPI.PatchBlogPostAsync(context.Background(), blogPostId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.BlogPostsAPI.PatchBlogPostAsync(context.Background(), blogPostId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlogPostsAPI.PatchBlogPostAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1003,7 +1015,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

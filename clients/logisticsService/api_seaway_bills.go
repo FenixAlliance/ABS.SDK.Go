@@ -753,6 +753,7 @@ type ApiGetSeawayBillLinesAsyncRequest struct {
 	billId string
 	apiVersion *string
 	xApiVersion *string
+	waybillLineDtoCollectionQueryParameters *WaybillLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetSeawayBillLinesAsyncRequest) TenantId(tenantId string) ApiGetSeawayBillLinesAsyncRequest {
@@ -767,6 +768,11 @@ func (r ApiGetSeawayBillLinesAsyncRequest) ApiVersion(apiVersion string) ApiGetS
 
 func (r ApiGetSeawayBillLinesAsyncRequest) XApiVersion(xApiVersion string) ApiGetSeawayBillLinesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSeawayBillLinesAsyncRequest) WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters WaybillLineDtoCollectionQueryParameters) ApiGetSeawayBillLinesAsyncRequest {
+	r.waybillLineDtoCollectionQueryParameters = &waybillLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -821,7 +827,7 @@ func (a *SeawayBillsAPIService) GetSeawayBillLinesAsyncExecute(r ApiGetSeawayBil
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -840,6 +846,8 @@ func (a *SeawayBillsAPIService) GetSeawayBillLinesAsyncExecute(r ApiGetSeawayBil
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.waybillLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -895,6 +903,7 @@ type ApiGetSeawayBillLinesCountAsyncRequest struct {
 	billId string
 	apiVersion *string
 	xApiVersion *string
+	waybillLineDtoCollectionQueryParameters *WaybillLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetSeawayBillLinesCountAsyncRequest) TenantId(tenantId string) ApiGetSeawayBillLinesCountAsyncRequest {
@@ -909,6 +918,11 @@ func (r ApiGetSeawayBillLinesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetSeawayBillLinesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSeawayBillLinesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSeawayBillLinesCountAsyncRequest) WaybillLineDtoCollectionQueryParameters(waybillLineDtoCollectionQueryParameters WaybillLineDtoCollectionQueryParameters) ApiGetSeawayBillLinesCountAsyncRequest {
+	r.waybillLineDtoCollectionQueryParameters = &waybillLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -963,7 +977,7 @@ func (a *SeawayBillsAPIService) GetSeawayBillLinesCountAsyncExecute(r ApiGetSeaw
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -982,6 +996,8 @@ func (a *SeawayBillsAPIService) GetSeawayBillLinesCountAsyncExecute(r ApiGetSeaw
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.waybillLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1036,6 +1052,7 @@ type ApiGetSeawayBillsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	seawayBillDtoCollectionQueryParameters *SeawayBillDtoCollectionQueryParameters
 }
 
 func (r ApiGetSeawayBillsAsyncRequest) TenantId(tenantId string) ApiGetSeawayBillsAsyncRequest {
@@ -1050,6 +1067,11 @@ func (r ApiGetSeawayBillsAsyncRequest) ApiVersion(apiVersion string) ApiGetSeawa
 
 func (r ApiGetSeawayBillsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSeawayBillsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSeawayBillsAsyncRequest) SeawayBillDtoCollectionQueryParameters(seawayBillDtoCollectionQueryParameters SeawayBillDtoCollectionQueryParameters) ApiGetSeawayBillsAsyncRequest {
+	r.seawayBillDtoCollectionQueryParameters = &seawayBillDtoCollectionQueryParameters
 	return r
 }
 
@@ -1101,7 +1123,7 @@ func (a *SeawayBillsAPIService) GetSeawayBillsAsyncExecute(r ApiGetSeawayBillsAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1120,6 +1142,8 @@ func (a *SeawayBillsAPIService) GetSeawayBillsAsyncExecute(r ApiGetSeawayBillsAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.seawayBillDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1185,6 +1209,7 @@ type ApiGetSeawayBillsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	seawayBillDtoCollectionQueryParameters *SeawayBillDtoCollectionQueryParameters
 }
 
 func (r ApiGetSeawayBillsCountAsyncRequest) TenantId(tenantId string) ApiGetSeawayBillsCountAsyncRequest {
@@ -1199,6 +1224,11 @@ func (r ApiGetSeawayBillsCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetSeawayBillsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSeawayBillsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSeawayBillsCountAsyncRequest) SeawayBillDtoCollectionQueryParameters(seawayBillDtoCollectionQueryParameters SeawayBillDtoCollectionQueryParameters) ApiGetSeawayBillsCountAsyncRequest {
+	r.seawayBillDtoCollectionQueryParameters = &seawayBillDtoCollectionQueryParameters
 	return r
 }
 
@@ -1250,7 +1280,7 @@ func (a *SeawayBillsAPIService) GetSeawayBillsCountAsyncExecute(r ApiGetSeawayBi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1269,6 +1299,8 @@ func (a *SeawayBillsAPIService) GetSeawayBillsCountAsyncExecute(r ApiGetSeawayBi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.seawayBillDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1750,7 +1782,7 @@ type ApiPatchSeawayBillAsyncRequest struct {
 	billId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSeawayBillAsyncRequest) TenantId(tenantId string) ApiPatchSeawayBillAsyncRequest {
@@ -1768,8 +1800,8 @@ func (r ApiPatchSeawayBillAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchSeawayBillAsyncRequest) Operation(operation []Operation) ApiPatchSeawayBillAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSeawayBillAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSeawayBillAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1844,7 +1876,7 @@ func (a *SeawayBillsAPIService) PatchSeawayBillAsyncExecute(r ApiPatchSeawayBill
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1901,7 +1933,7 @@ type ApiPatchSeawayBillLineAsyncRequest struct {
 	lineId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSeawayBillLineAsyncRequest) TenantId(tenantId string) ApiPatchSeawayBillLineAsyncRequest {
@@ -1919,8 +1951,8 @@ func (r ApiPatchSeawayBillLineAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchSeawayBillLineAsyncRequest) Operation(operation []Operation) ApiPatchSeawayBillLineAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSeawayBillLineAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSeawayBillLineAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1998,7 +2030,7 @@ func (a *SeawayBillsAPIService) PatchSeawayBillLineAsyncExecute(r ApiPatchSeaway
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

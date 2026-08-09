@@ -324,6 +324,7 @@ type ApiCountStockItemTagsByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemTagDtoCollectionQueryParameters *ItemTagDtoCollectionQueryParameters
 }
 
 func (r ApiCountStockItemTagsByItemIdRequest) TenantId(tenantId string) ApiCountStockItemTagsByItemIdRequest {
@@ -338,6 +339,11 @@ func (r ApiCountStockItemTagsByItemIdRequest) ApiVersion(apiVersion string) ApiC
 
 func (r ApiCountStockItemTagsByItemIdRequest) XApiVersion(xApiVersion string) ApiCountStockItemTagsByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountStockItemTagsByItemIdRequest) ItemTagDtoCollectionQueryParameters(itemTagDtoCollectionQueryParameters ItemTagDtoCollectionQueryParameters) ApiCountStockItemTagsByItemIdRequest {
+	r.itemTagDtoCollectionQueryParameters = &itemTagDtoCollectionQueryParameters
 	return r
 }
 
@@ -392,7 +398,7 @@ func (a *ItemsAPIService) CountStockItemTagsByItemIdExecute(r ApiCountStockItemT
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -411,6 +417,8 @@ func (a *ItemsAPIService) CountStockItemTagsByItemIdExecute(r ApiCountStockItemT
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemTagDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -476,6 +484,7 @@ type ApiCountStockItemsByBusinessRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	catalogItemDtoCollectionQueryParameters *CatalogItemDtoCollectionQueryParameters
 }
 
 func (r ApiCountStockItemsByBusinessRequest) TenantId(tenantId string) ApiCountStockItemsByBusinessRequest {
@@ -490,6 +499,11 @@ func (r ApiCountStockItemsByBusinessRequest) ApiVersion(apiVersion string) ApiCo
 
 func (r ApiCountStockItemsByBusinessRequest) XApiVersion(xApiVersion string) ApiCountStockItemsByBusinessRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountStockItemsByBusinessRequest) CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters CatalogItemDtoCollectionQueryParameters) ApiCountStockItemsByBusinessRequest {
+	r.catalogItemDtoCollectionQueryParameters = &catalogItemDtoCollectionQueryParameters
 	return r
 }
 
@@ -540,7 +554,7 @@ func (a *ItemsAPIService) CountStockItemsByBusinessExecute(r ApiCountStockItemsB
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -559,6 +573,8 @@ func (a *ItemsAPIService) CountStockItemsByBusinessExecute(r ApiCountStockItemsB
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.catalogItemDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1333,6 +1349,7 @@ type ApiGetStockItemAttachmentsByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemAttachmentDtoCollectionQueryParameters *ItemAttachmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemAttachmentsByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemAttachmentsByItemIdRequest {
@@ -1342,6 +1359,11 @@ func (r ApiGetStockItemAttachmentsByItemIdRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetStockItemAttachmentsByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemAttachmentsByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemAttachmentsByItemIdRequest) ItemAttachmentDtoCollectionQueryParameters(itemAttachmentDtoCollectionQueryParameters ItemAttachmentDtoCollectionQueryParameters) ApiGetStockItemAttachmentsByItemIdRequest {
+	r.itemAttachmentDtoCollectionQueryParameters = &itemAttachmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -1392,7 +1414,7 @@ func (a *ItemsAPIService) GetStockItemAttachmentsByItemIdExecute(r ApiGetStockIt
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1411,6 +1433,8 @@ func (a *ItemsAPIService) GetStockItemAttachmentsByItemIdExecute(r ApiGetStockIt
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemAttachmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1913,6 +1937,7 @@ type ApiGetStockItemBrandsByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemBrandDtoCollectionQueryParameters *ItemBrandDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemBrandsByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemBrandsByItemIdRequest {
@@ -1922,6 +1947,11 @@ func (r ApiGetStockItemBrandsByItemIdRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetStockItemBrandsByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemBrandsByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemBrandsByItemIdRequest) ItemBrandDtoCollectionQueryParameters(itemBrandDtoCollectionQueryParameters ItemBrandDtoCollectionQueryParameters) ApiGetStockItemBrandsByItemIdRequest {
+	r.itemBrandDtoCollectionQueryParameters = &itemBrandDtoCollectionQueryParameters
 	return r
 }
 
@@ -1972,7 +2002,7 @@ func (a *ItemsAPIService) GetStockItemBrandsByItemIdExecute(r ApiGetStockItemBra
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1991,6 +2021,8 @@ func (a *ItemsAPIService) GetStockItemBrandsByItemIdExecute(r ApiGetStockItemBra
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemBrandDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2199,6 +2231,7 @@ type ApiGetStockItemCategoriesByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemCategoryDtoCollectionQueryParameters *ItemCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemCategoriesByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemCategoriesByItemIdRequest {
@@ -2208,6 +2241,11 @@ func (r ApiGetStockItemCategoriesByItemIdRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetStockItemCategoriesByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemCategoriesByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemCategoriesByItemIdRequest) ItemCategoryDtoCollectionQueryParameters(itemCategoryDtoCollectionQueryParameters ItemCategoryDtoCollectionQueryParameters) ApiGetStockItemCategoriesByItemIdRequest {
+	r.itemCategoryDtoCollectionQueryParameters = &itemCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -2258,7 +2296,7 @@ func (a *ItemsAPIService) GetStockItemCategoriesByItemIdExecute(r ApiGetStockIte
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2277,6 +2315,8 @@ func (a *ItemsAPIService) GetStockItemCategoriesByItemIdExecute(r ApiGetStockIte
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2489,6 +2529,7 @@ type ApiGetStockItemGoogleCategoriesByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemGoogleCategoryDtoCollectionQueryParameters *ItemGoogleCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemGoogleCategoriesByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemGoogleCategoriesByItemIdRequest {
@@ -2498,6 +2539,11 @@ func (r ApiGetStockItemGoogleCategoriesByItemIdRequest) ApiVersion(apiVersion st
 
 func (r ApiGetStockItemGoogleCategoriesByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemGoogleCategoriesByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemGoogleCategoriesByItemIdRequest) ItemGoogleCategoryDtoCollectionQueryParameters(itemGoogleCategoryDtoCollectionQueryParameters ItemGoogleCategoryDtoCollectionQueryParameters) ApiGetStockItemGoogleCategoriesByItemIdRequest {
+	r.itemGoogleCategoryDtoCollectionQueryParameters = &itemGoogleCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -2548,7 +2594,7 @@ func (a *ItemsAPIService) GetStockItemGoogleCategoriesByItemIdExecute(r ApiGetSt
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2567,6 +2613,8 @@ func (a *ItemsAPIService) GetStockItemGoogleCategoriesByItemIdExecute(r ApiGetSt
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemGoogleCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2926,6 +2974,7 @@ type ApiGetStockItemImagesByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemImageDtoCollectionQueryParameters *ItemImageDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemImagesByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemImagesByItemIdRequest {
@@ -2935,6 +2984,11 @@ func (r ApiGetStockItemImagesByItemIdRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetStockItemImagesByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemImagesByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemImagesByItemIdRequest) ItemImageDtoCollectionQueryParameters(itemImageDtoCollectionQueryParameters ItemImageDtoCollectionQueryParameters) ApiGetStockItemImagesByItemIdRequest {
+	r.itemImageDtoCollectionQueryParameters = &itemImageDtoCollectionQueryParameters
 	return r
 }
 
@@ -2985,7 +3039,7 @@ func (a *ItemsAPIService) GetStockItemImagesByItemIdExecute(r ApiGetStockItemIma
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3004,6 +3058,8 @@ func (a *ItemsAPIService) GetStockItemImagesByItemIdExecute(r ApiGetStockItemIma
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemImageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3506,6 +3562,7 @@ type ApiGetStockItemQuestionsByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemQuestionDtoCollectionQueryParameters *ItemQuestionDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemQuestionsByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemQuestionsByItemIdRequest {
@@ -3515,6 +3572,11 @@ func (r ApiGetStockItemQuestionsByItemIdRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetStockItemQuestionsByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemQuestionsByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemQuestionsByItemIdRequest) ItemQuestionDtoCollectionQueryParameters(itemQuestionDtoCollectionQueryParameters ItemQuestionDtoCollectionQueryParameters) ApiGetStockItemQuestionsByItemIdRequest {
+	r.itemQuestionDtoCollectionQueryParameters = &itemQuestionDtoCollectionQueryParameters
 	return r
 }
 
@@ -3565,7 +3627,7 @@ func (a *ItemsAPIService) GetStockItemQuestionsByItemIdExecute(r ApiGetStockItem
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3584,6 +3646,8 @@ func (a *ItemsAPIService) GetStockItemQuestionsByItemIdExecute(r ApiGetStockItem
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemQuestionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3649,6 +3713,7 @@ type ApiGetStockItemRefundPoliciesByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemRefundPolicyDtoCollectionQueryParameters *ItemRefundPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemRefundPoliciesByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemRefundPoliciesByItemIdRequest {
@@ -3658,6 +3723,11 @@ func (r ApiGetStockItemRefundPoliciesByItemIdRequest) ApiVersion(apiVersion stri
 
 func (r ApiGetStockItemRefundPoliciesByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemRefundPoliciesByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemRefundPoliciesByItemIdRequest) ItemRefundPolicyDtoCollectionQueryParameters(itemRefundPolicyDtoCollectionQueryParameters ItemRefundPolicyDtoCollectionQueryParameters) ApiGetStockItemRefundPoliciesByItemIdRequest {
+	r.itemRefundPolicyDtoCollectionQueryParameters = &itemRefundPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -3708,7 +3778,7 @@ func (a *ItemsAPIService) GetStockItemRefundPoliciesByItemIdExecute(r ApiGetStoc
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3727,6 +3797,8 @@ func (a *ItemsAPIService) GetStockItemRefundPoliciesByItemIdExecute(r ApiGetStoc
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemRefundPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3939,6 +4011,7 @@ type ApiGetStockItemReturnPoliciesByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemReturnPolicyDtoCollectionQueryParameters *ItemReturnPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemReturnPoliciesByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemReturnPoliciesByItemIdRequest {
@@ -3948,6 +4021,11 @@ func (r ApiGetStockItemReturnPoliciesByItemIdRequest) ApiVersion(apiVersion stri
 
 func (r ApiGetStockItemReturnPoliciesByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemReturnPoliciesByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemReturnPoliciesByItemIdRequest) ItemReturnPolicyDtoCollectionQueryParameters(itemReturnPolicyDtoCollectionQueryParameters ItemReturnPolicyDtoCollectionQueryParameters) ApiGetStockItemReturnPoliciesByItemIdRequest {
+	r.itemReturnPolicyDtoCollectionQueryParameters = &itemReturnPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -3998,7 +4076,7 @@ func (a *ItemsAPIService) GetStockItemReturnPoliciesByItemIdExecute(r ApiGetStoc
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4017,6 +4095,8 @@ func (a *ItemsAPIService) GetStockItemReturnPoliciesByItemIdExecute(r ApiGetStoc
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemReturnPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4376,6 +4456,7 @@ type ApiGetStockItemReviewsByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemReviewDtoCollectionQueryParameters *ItemReviewDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemReviewsByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemReviewsByItemIdRequest {
@@ -4385,6 +4466,11 @@ func (r ApiGetStockItemReviewsByItemIdRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetStockItemReviewsByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemReviewsByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemReviewsByItemIdRequest) ItemReviewDtoCollectionQueryParameters(itemReviewDtoCollectionQueryParameters ItemReviewDtoCollectionQueryParameters) ApiGetStockItemReviewsByItemIdRequest {
+	r.itemReviewDtoCollectionQueryParameters = &itemReviewDtoCollectionQueryParameters
 	return r
 }
 
@@ -4435,7 +4521,7 @@ func (a *ItemsAPIService) GetStockItemReviewsByItemIdExecute(r ApiGetStockItemRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4454,6 +4540,8 @@ func (a *ItemsAPIService) GetStockItemReviewsByItemIdExecute(r ApiGetStockItemRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemReviewDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4519,6 +4607,7 @@ type ApiGetStockItemShippingPoliciesByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemShippingPolicyDtoCollectionQueryParameters *ItemShippingPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemShippingPoliciesByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemShippingPoliciesByItemIdRequest {
@@ -4528,6 +4617,11 @@ func (r ApiGetStockItemShippingPoliciesByItemIdRequest) ApiVersion(apiVersion st
 
 func (r ApiGetStockItemShippingPoliciesByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemShippingPoliciesByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemShippingPoliciesByItemIdRequest) ItemShippingPolicyDtoCollectionQueryParameters(itemShippingPolicyDtoCollectionQueryParameters ItemShippingPolicyDtoCollectionQueryParameters) ApiGetStockItemShippingPoliciesByItemIdRequest {
+	r.itemShippingPolicyDtoCollectionQueryParameters = &itemShippingPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -4578,7 +4672,7 @@ func (a *ItemsAPIService) GetStockItemShippingPoliciesByItemIdExecute(r ApiGetSt
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4597,6 +4691,8 @@ func (a *ItemsAPIService) GetStockItemShippingPoliciesByItemIdExecute(r ApiGetSt
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemShippingPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4967,6 +5063,7 @@ type ApiGetStockItemTagsByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemTagDtoCollectionQueryParameters *ItemTagDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemTagsByItemIdRequest) TenantId(tenantId string) ApiGetStockItemTagsByItemIdRequest {
@@ -4981,6 +5078,11 @@ func (r ApiGetStockItemTagsByItemIdRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetStockItemTagsByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemTagsByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemTagsByItemIdRequest) ItemTagDtoCollectionQueryParameters(itemTagDtoCollectionQueryParameters ItemTagDtoCollectionQueryParameters) ApiGetStockItemTagsByItemIdRequest {
+	r.itemTagDtoCollectionQueryParameters = &itemTagDtoCollectionQueryParameters
 	return r
 }
 
@@ -5035,7 +5137,7 @@ func (a *ItemsAPIService) GetStockItemTagsByItemIdExecute(r ApiGetStockItemTagsB
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5054,6 +5156,8 @@ func (a *ItemsAPIService) GetStockItemTagsByItemIdExecute(r ApiGetStockItemTagsB
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemTagDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5119,6 +5223,7 @@ type ApiGetStockItemTaxPoliciesByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemTaxPolicyDtoCollectionQueryParameters *ItemTaxPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemTaxPoliciesByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemTaxPoliciesByItemIdRequest {
@@ -5128,6 +5233,11 @@ func (r ApiGetStockItemTaxPoliciesByItemIdRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetStockItemTaxPoliciesByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemTaxPoliciesByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemTaxPoliciesByItemIdRequest) ItemTaxPolicyDtoCollectionQueryParameters(itemTaxPolicyDtoCollectionQueryParameters ItemTaxPolicyDtoCollectionQueryParameters) ApiGetStockItemTaxPoliciesByItemIdRequest {
+	r.itemTaxPolicyDtoCollectionQueryParameters = &itemTaxPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -5178,7 +5288,7 @@ func (a *ItemsAPIService) GetStockItemTaxPoliciesByItemIdExecute(r ApiGetStockIt
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5197,6 +5307,8 @@ func (a *ItemsAPIService) GetStockItemTaxPoliciesByItemIdExecute(r ApiGetStockIt
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemTaxPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5567,6 +5679,7 @@ type ApiGetStockItemTypesByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemTypeDtoCollectionQueryParameters *ItemTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemTypesByItemIdRequest) TenantId(tenantId string) ApiGetStockItemTypesByItemIdRequest {
@@ -5581,6 +5694,11 @@ func (r ApiGetStockItemTypesByItemIdRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetStockItemTypesByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemTypesByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemTypesByItemIdRequest) ItemTypeDtoCollectionQueryParameters(itemTypeDtoCollectionQueryParameters ItemTypeDtoCollectionQueryParameters) ApiGetStockItemTypesByItemIdRequest {
+	r.itemTypeDtoCollectionQueryParameters = &itemTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -5635,7 +5753,7 @@ func (a *ItemsAPIService) GetStockItemTypesByItemIdExecute(r ApiGetStockItemType
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5654,6 +5772,8 @@ func (a *ItemsAPIService) GetStockItemTypesByItemIdExecute(r ApiGetStockItemType
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5719,6 +5839,7 @@ type ApiGetStockItemWarrantyPoliciesByItemIdRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
+	itemWarrantyPolicyDtoCollectionQueryParameters *ItemWarrantyPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemWarrantyPoliciesByItemIdRequest) ApiVersion(apiVersion string) ApiGetStockItemWarrantyPoliciesByItemIdRequest {
@@ -5728,6 +5849,11 @@ func (r ApiGetStockItemWarrantyPoliciesByItemIdRequest) ApiVersion(apiVersion st
 
 func (r ApiGetStockItemWarrantyPoliciesByItemIdRequest) XApiVersion(xApiVersion string) ApiGetStockItemWarrantyPoliciesByItemIdRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemWarrantyPoliciesByItemIdRequest) ItemWarrantyPolicyDtoCollectionQueryParameters(itemWarrantyPolicyDtoCollectionQueryParameters ItemWarrantyPolicyDtoCollectionQueryParameters) ApiGetStockItemWarrantyPoliciesByItemIdRequest {
+	r.itemWarrantyPolicyDtoCollectionQueryParameters = &itemWarrantyPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -5778,7 +5904,7 @@ func (a *ItemsAPIService) GetStockItemWarrantyPoliciesByItemIdExecute(r ApiGetSt
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5797,6 +5923,8 @@ func (a *ItemsAPIService) GetStockItemWarrantyPoliciesByItemIdExecute(r ApiGetSt
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemWarrantyPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6009,6 +6137,7 @@ type ApiGetStockItemsOdataMaxPriceRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	catalogItemDtoCollectionQueryParameters *CatalogItemDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemsOdataMaxPriceRequest) TenantId(tenantId string) ApiGetStockItemsOdataMaxPriceRequest {
@@ -6023,6 +6152,11 @@ func (r ApiGetStockItemsOdataMaxPriceRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetStockItemsOdataMaxPriceRequest) XApiVersion(xApiVersion string) ApiGetStockItemsOdataMaxPriceRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemsOdataMaxPriceRequest) CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters CatalogItemDtoCollectionQueryParameters) ApiGetStockItemsOdataMaxPriceRequest {
+	r.catalogItemDtoCollectionQueryParameters = &catalogItemDtoCollectionQueryParameters
 	return r
 }
 
@@ -6073,7 +6207,7 @@ func (a *ItemsAPIService) GetStockItemsOdataMaxPriceExecute(r ApiGetStockItemsOd
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -6092,6 +6226,8 @@ func (a *ItemsAPIService) GetStockItemsOdataMaxPriceExecute(r ApiGetStockItemsOd
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.catalogItemDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6157,6 +6293,7 @@ type ApiGetStockItemsOdataMinPriceRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	catalogItemDtoCollectionQueryParameters *CatalogItemDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemsOdataMinPriceRequest) TenantId(tenantId string) ApiGetStockItemsOdataMinPriceRequest {
@@ -6171,6 +6308,11 @@ func (r ApiGetStockItemsOdataMinPriceRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetStockItemsOdataMinPriceRequest) XApiVersion(xApiVersion string) ApiGetStockItemsOdataMinPriceRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemsOdataMinPriceRequest) CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters CatalogItemDtoCollectionQueryParameters) ApiGetStockItemsOdataMinPriceRequest {
+	r.catalogItemDtoCollectionQueryParameters = &catalogItemDtoCollectionQueryParameters
 	return r
 }
 
@@ -6221,7 +6363,7 @@ func (a *ItemsAPIService) GetStockItemsOdataMinPriceExecute(r ApiGetStockItemsOd
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -6240,6 +6382,8 @@ func (a *ItemsAPIService) GetStockItemsOdataMinPriceExecute(r ApiGetStockItemsOd
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.catalogItemDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6305,6 +6449,7 @@ type ApiGetStockItemsQueryRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	catalogItemDtoCollectionQueryParameters *CatalogItemDtoCollectionQueryParameters
 }
 
 func (r ApiGetStockItemsQueryRequest) TenantId(tenantId string) ApiGetStockItemsQueryRequest {
@@ -6319,6 +6464,11 @@ func (r ApiGetStockItemsQueryRequest) ApiVersion(apiVersion string) ApiGetStockI
 
 func (r ApiGetStockItemsQueryRequest) XApiVersion(xApiVersion string) ApiGetStockItemsQueryRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetStockItemsQueryRequest) CatalogItemDtoCollectionQueryParameters(catalogItemDtoCollectionQueryParameters CatalogItemDtoCollectionQueryParameters) ApiGetStockItemsQueryRequest {
+	r.catalogItemDtoCollectionQueryParameters = &catalogItemDtoCollectionQueryParameters
 	return r
 }
 
@@ -6369,7 +6519,7 @@ func (a *ItemsAPIService) GetStockItemsQueryExecute(r ApiGetStockItemsQueryReque
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -6388,6 +6538,8 @@ func (a *ItemsAPIService) GetStockItemsQueryExecute(r ApiGetStockItemsQueryReque
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.catalogItemDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6454,7 +6606,7 @@ type ApiPatchStockItemRequest struct {
 	itemId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchStockItemRequest) TenantId(tenantId string) ApiPatchStockItemRequest {
@@ -6472,8 +6624,8 @@ func (r ApiPatchStockItemRequest) XApiVersion(xApiVersion string) ApiPatchStockI
 	return r
 }
 
-func (r ApiPatchStockItemRequest) Operation(operation []Operation) ApiPatchStockItemRequest {
-	r.operation = &operation
+func (r ApiPatchStockItemRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchStockItemRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -6546,7 +6698,7 @@ func (a *ItemsAPIService) PatchStockItemExecute(r ApiPatchStockItemRequest) (*ht
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

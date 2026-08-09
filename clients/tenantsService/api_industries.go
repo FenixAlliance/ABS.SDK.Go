@@ -340,6 +340,7 @@ type ApiGetTenantIndustriesRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantIndustryDtoCollectionQueryParameters *TenantIndustryDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantIndustriesRequest) TenantId(tenantId string) ApiGetTenantIndustriesRequest {
@@ -354,6 +355,11 @@ func (r ApiGetTenantIndustriesRequest) ApiVersion(apiVersion string) ApiGetTenan
 
 func (r ApiGetTenantIndustriesRequest) XApiVersion(xApiVersion string) ApiGetTenantIndustriesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantIndustriesRequest) TenantIndustryDtoCollectionQueryParameters(tenantIndustryDtoCollectionQueryParameters TenantIndustryDtoCollectionQueryParameters) ApiGetTenantIndustriesRequest {
+	r.tenantIndustryDtoCollectionQueryParameters = &tenantIndustryDtoCollectionQueryParameters
 	return r
 }
 
@@ -405,7 +411,7 @@ func (a *IndustriesAPIService) GetTenantIndustriesExecute(r ApiGetTenantIndustri
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -424,6 +430,8 @@ func (a *IndustriesAPIService) GetTenantIndustriesExecute(r ApiGetTenantIndustri
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantIndustryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -489,6 +497,7 @@ type ApiGetTenantIndustriesCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantIndustryDtoCollectionQueryParameters *TenantIndustryDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantIndustriesCountRequest) TenantId(tenantId string) ApiGetTenantIndustriesCountRequest {
@@ -503,6 +512,11 @@ func (r ApiGetTenantIndustriesCountRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetTenantIndustriesCountRequest) XApiVersion(xApiVersion string) ApiGetTenantIndustriesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantIndustriesCountRequest) TenantIndustryDtoCollectionQueryParameters(tenantIndustryDtoCollectionQueryParameters TenantIndustryDtoCollectionQueryParameters) ApiGetTenantIndustriesCountRequest {
+	r.tenantIndustryDtoCollectionQueryParameters = &tenantIndustryDtoCollectionQueryParameters
 	return r
 }
 
@@ -554,7 +568,7 @@ func (a *IndustriesAPIService) GetTenantIndustriesCountExecute(r ApiGetTenantInd
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -573,6 +587,8 @@ func (a *IndustriesAPIService) GetTenantIndustriesCountExecute(r ApiGetTenantInd
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantIndustryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchTenantIndustryAsyncRequest struct {
 	tenantIndustryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTenantIndustryAsyncRequest) TenantId(tenantId string) ApiPatchTenantIndustryAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchTenantIndustryAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchTenantIndustryAsyncRequest) Operation(operation []Operation) ApiPatchTenantIndustryAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchTenantIndustryAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTenantIndustryAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *IndustriesAPIService) PatchTenantIndustryAsyncExecute(r ApiPatchTenantI
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

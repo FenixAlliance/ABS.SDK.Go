@@ -493,6 +493,7 @@ type ApiGetServiceLevelAgreementsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	serviceLevelAgreementDtoCollectionQueryParameters *ServiceLevelAgreementDtoCollectionQueryParameters
 }
 
 func (r ApiGetServiceLevelAgreementsAsyncRequest) TenantId(tenantId string) ApiGetServiceLevelAgreementsAsyncRequest {
@@ -507,6 +508,11 @@ func (r ApiGetServiceLevelAgreementsAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetServiceLevelAgreementsAsyncRequest) XApiVersion(xApiVersion string) ApiGetServiceLevelAgreementsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetServiceLevelAgreementsAsyncRequest) ServiceLevelAgreementDtoCollectionQueryParameters(serviceLevelAgreementDtoCollectionQueryParameters ServiceLevelAgreementDtoCollectionQueryParameters) ApiGetServiceLevelAgreementsAsyncRequest {
+	r.serviceLevelAgreementDtoCollectionQueryParameters = &serviceLevelAgreementDtoCollectionQueryParameters
 	return r
 }
 
@@ -558,7 +564,7 @@ func (a *ServiceLevelAgreementsAPIService) GetServiceLevelAgreementsAsyncExecute
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -577,6 +583,8 @@ func (a *ServiceLevelAgreementsAPIService) GetServiceLevelAgreementsAsyncExecute
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.serviceLevelAgreementDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetServiceLevelAgreementsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	serviceLevelAgreementDtoCollectionQueryParameters *ServiceLevelAgreementDtoCollectionQueryParameters
 }
 
 func (r ApiGetServiceLevelAgreementsCountAsyncRequest) TenantId(tenantId string) ApiGetServiceLevelAgreementsCountAsyncRequest {
@@ -656,6 +665,11 @@ func (r ApiGetServiceLevelAgreementsCountAsyncRequest) ApiVersion(apiVersion str
 
 func (r ApiGetServiceLevelAgreementsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetServiceLevelAgreementsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetServiceLevelAgreementsCountAsyncRequest) ServiceLevelAgreementDtoCollectionQueryParameters(serviceLevelAgreementDtoCollectionQueryParameters ServiceLevelAgreementDtoCollectionQueryParameters) ApiGetServiceLevelAgreementsCountAsyncRequest {
+	r.serviceLevelAgreementDtoCollectionQueryParameters = &serviceLevelAgreementDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *ServiceLevelAgreementsAPIService) GetServiceLevelAgreementsCountAsyncEx
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *ServiceLevelAgreementsAPIService) GetServiceLevelAgreementsCountAsyncEx
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.serviceLevelAgreementDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchServiceLevelAgreementAsyncRequest struct {
 	serviceLevelAgreementId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchServiceLevelAgreementAsyncRequest) TenantId(tenantId string) ApiPatchServiceLevelAgreementAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchServiceLevelAgreementAsyncRequest) XApiVersion(xApiVersion strin
 	return r
 }
 
-func (r ApiPatchServiceLevelAgreementAsyncRequest) Operation(operation []Operation) ApiPatchServiceLevelAgreementAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchServiceLevelAgreementAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchServiceLevelAgreementAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *ServiceLevelAgreementsAPIService) PatchServiceLevelAgreementAsyncExecut
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

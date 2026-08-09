@@ -558,7 +558,7 @@ No authorization required
 
 ## GetVoyagePortCallsAsync
 
-> VoyagePortCallDtoListEnvelope GetVoyagePortCallsAsync(ctx, voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> VoyagePortCallDtoListEnvelope GetVoyagePortCallsAsync(ctx, voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).VoyagePortCallDtoCollectionQueryParameters(voyagePortCallDtoCollectionQueryParameters).Execute()
 
 Get voyage port calls
 
@@ -581,10 +581,11 @@ func main() {
 	voyageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	voyagePortCallDtoCollectionQueryParameters := *openapiclient.NewVoyagePortCallDtoCollectionQueryParameters() // VoyagePortCallDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VoyagesAPI.GetVoyagePortCallsAsync(context.Background(), voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.VoyagesAPI.GetVoyagePortCallsAsync(context.Background(), voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).VoyagePortCallDtoCollectionQueryParameters(voyagePortCallDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VoyagesAPI.GetVoyagePortCallsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -613,6 +614,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **voyagePortCallDtoCollectionQueryParameters** | [**VoyagePortCallDtoCollectionQueryParameters**](VoyagePortCallDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -624,7 +626,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -634,7 +636,7 @@ No authorization required
 
 ## GetVoyagePortCallsCountAsync
 
-> Int32Envelope GetVoyagePortCallsCountAsync(ctx, voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetVoyagePortCallsCountAsync(ctx, voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).VoyagePortCallDtoCollectionQueryParameters(voyagePortCallDtoCollectionQueryParameters).Execute()
 
 Get voyage port calls count
 
@@ -657,10 +659,11 @@ func main() {
 	voyageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	voyagePortCallDtoCollectionQueryParameters := *openapiclient.NewVoyagePortCallDtoCollectionQueryParameters() // VoyagePortCallDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VoyagesAPI.GetVoyagePortCallsCountAsync(context.Background(), voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.VoyagesAPI.GetVoyagePortCallsCountAsync(context.Background(), voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).VoyagePortCallDtoCollectionQueryParameters(voyagePortCallDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VoyagesAPI.GetVoyagePortCallsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -689,6 +692,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **voyagePortCallDtoCollectionQueryParameters** | [**VoyagePortCallDtoCollectionQueryParameters**](VoyagePortCallDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -700,7 +704,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -710,7 +714,7 @@ No authorization required
 
 ## GetVoyagesAsync
 
-> VoyageDtoListEnvelope GetVoyagesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> VoyageDtoListEnvelope GetVoyagesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).VoyageDtoCollectionQueryParameters(voyageDtoCollectionQueryParameters).Execute()
 
 Get all voyages
 
@@ -732,10 +736,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	voyageDtoCollectionQueryParameters := *openapiclient.NewVoyageDtoCollectionQueryParameters() // VoyageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VoyagesAPI.GetVoyagesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.VoyagesAPI.GetVoyagesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).VoyageDtoCollectionQueryParameters(voyageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VoyagesAPI.GetVoyagesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -759,6 +764,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **voyageDtoCollectionQueryParameters** | [**VoyageDtoCollectionQueryParameters**](VoyageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -770,7 +776,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -780,7 +786,7 @@ No authorization required
 
 ## GetVoyagesCountAsync
 
-> Int32Envelope GetVoyagesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetVoyagesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).VoyageDtoCollectionQueryParameters(voyageDtoCollectionQueryParameters).Execute()
 
 Get voyages count
 
@@ -802,10 +808,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	voyageDtoCollectionQueryParameters := *openapiclient.NewVoyageDtoCollectionQueryParameters() // VoyageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VoyagesAPI.GetVoyagesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.VoyagesAPI.GetVoyagesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).VoyageDtoCollectionQueryParameters(voyageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VoyagesAPI.GetVoyagesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -829,6 +836,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **voyageDtoCollectionQueryParameters** | [**VoyageDtoCollectionQueryParameters**](VoyageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -840,7 +848,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -850,7 +858,7 @@ No authorization required
 
 ## PatchVoyageAsync
 
-> EmptyEnvelope PatchVoyageAsync(ctx, voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchVoyageAsync(ctx, voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a voyage
 
@@ -873,11 +881,11 @@ func main() {
 	voyageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VoyagesAPI.PatchVoyageAsync(context.Background(), voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.VoyagesAPI.PatchVoyageAsync(context.Background(), voyageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VoyagesAPI.PatchVoyageAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -906,7 +914,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -928,7 +936,7 @@ No authorization required
 
 ## PatchVoyagePortCallAsync
 
-> EmptyEnvelope PatchVoyagePortCallAsync(ctx, voyageId, portCallId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchVoyagePortCallAsync(ctx, voyageId, portCallId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a voyage port call
 
@@ -952,11 +960,11 @@ func main() {
 	portCallId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VoyagesAPI.PatchVoyagePortCallAsync(context.Background(), voyageId, portCallId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.VoyagesAPI.PatchVoyagePortCallAsync(context.Background(), voyageId, portCallId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VoyagesAPI.PatchVoyagePortCallAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -987,7 +995,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

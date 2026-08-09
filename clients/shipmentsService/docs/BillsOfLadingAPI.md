@@ -483,7 +483,7 @@ No authorization required
 
 ## GetBillOfLadingLinesAsync
 
-> BillOfLadingLineDtoListEnvelope GetBillOfLadingLinesAsync(ctx, billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BillOfLadingLineDtoListEnvelope GetBillOfLadingLinesAsync(ctx, billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BillOfLadingLineDtoCollectionQueryParameters(billOfLadingLineDtoCollectionQueryParameters).Execute()
 
 Get bill of lading lines
 
@@ -506,10 +506,11 @@ func main() {
 	billOfLadingId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	billOfLadingLineDtoCollectionQueryParameters := *openapiclient.NewBillOfLadingLineDtoCollectionQueryParameters() // BillOfLadingLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillsOfLadingAPI.GetBillOfLadingLinesAsync(context.Background(), billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BillsOfLadingAPI.GetBillOfLadingLinesAsync(context.Background(), billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BillOfLadingLineDtoCollectionQueryParameters(billOfLadingLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BillsOfLadingAPI.GetBillOfLadingLinesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -538,6 +539,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **billOfLadingLineDtoCollectionQueryParameters** | [**BillOfLadingLineDtoCollectionQueryParameters**](BillOfLadingLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -549,7 +551,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -559,7 +561,7 @@ No authorization required
 
 ## GetBillOfLadingLinesCountAsync
 
-> Int32Envelope GetBillOfLadingLinesCountAsync(ctx, billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetBillOfLadingLinesCountAsync(ctx, billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BillOfLadingLineDtoCollectionQueryParameters(billOfLadingLineDtoCollectionQueryParameters).Execute()
 
 Get bill of lading lines count
 
@@ -582,10 +584,11 @@ func main() {
 	billOfLadingId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	billOfLadingLineDtoCollectionQueryParameters := *openapiclient.NewBillOfLadingLineDtoCollectionQueryParameters() // BillOfLadingLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillsOfLadingAPI.GetBillOfLadingLinesCountAsync(context.Background(), billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BillsOfLadingAPI.GetBillOfLadingLinesCountAsync(context.Background(), billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BillOfLadingLineDtoCollectionQueryParameters(billOfLadingLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BillsOfLadingAPI.GetBillOfLadingLinesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -614,6 +617,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **billOfLadingLineDtoCollectionQueryParameters** | [**BillOfLadingLineDtoCollectionQueryParameters**](BillOfLadingLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -625,7 +629,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -635,7 +639,7 @@ No authorization required
 
 ## GetBillsOfLadingAsync
 
-> BillOfLadingDtoListEnvelope GetBillsOfLadingAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BillOfLadingDtoListEnvelope GetBillsOfLadingAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BillOfLadingDtoCollectionQueryParameters(billOfLadingDtoCollectionQueryParameters).Execute()
 
 Get all bills of lading
 
@@ -657,10 +661,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	billOfLadingDtoCollectionQueryParameters := *openapiclient.NewBillOfLadingDtoCollectionQueryParameters() // BillOfLadingDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillsOfLadingAPI.GetBillsOfLadingAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BillsOfLadingAPI.GetBillsOfLadingAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BillOfLadingDtoCollectionQueryParameters(billOfLadingDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BillsOfLadingAPI.GetBillsOfLadingAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -684,6 +689,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **billOfLadingDtoCollectionQueryParameters** | [**BillOfLadingDtoCollectionQueryParameters**](BillOfLadingDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -695,7 +701,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -705,7 +711,7 @@ No authorization required
 
 ## GetBillsOfLadingCountAsync
 
-> Int32Envelope GetBillsOfLadingCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetBillsOfLadingCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BillOfLadingDtoCollectionQueryParameters(billOfLadingDtoCollectionQueryParameters).Execute()
 
 Get bills of lading count
 
@@ -727,10 +733,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	billOfLadingDtoCollectionQueryParameters := *openapiclient.NewBillOfLadingDtoCollectionQueryParameters() // BillOfLadingDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillsOfLadingAPI.GetBillsOfLadingCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BillsOfLadingAPI.GetBillsOfLadingCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BillOfLadingDtoCollectionQueryParameters(billOfLadingDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BillsOfLadingAPI.GetBillsOfLadingCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -754,6 +761,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **billOfLadingDtoCollectionQueryParameters** | [**BillOfLadingDtoCollectionQueryParameters**](BillOfLadingDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -765,7 +773,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -775,7 +783,7 @@ No authorization required
 
 ## PatchBillOfLadingAsync
 
-> EmptyEnvelope PatchBillOfLadingAsync(ctx, billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchBillOfLadingAsync(ctx, billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a bill of lading
 
@@ -798,11 +806,11 @@ func main() {
 	billOfLadingId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillsOfLadingAPI.PatchBillOfLadingAsync(context.Background(), billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.BillsOfLadingAPI.PatchBillOfLadingAsync(context.Background(), billOfLadingId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BillsOfLadingAPI.PatchBillOfLadingAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -831,7 +839,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -853,7 +861,7 @@ No authorization required
 
 ## PatchBillOfLadingLineAsync
 
-> EmptyEnvelope PatchBillOfLadingLineAsync(ctx, billOfLadingId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchBillOfLadingLineAsync(ctx, billOfLadingId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a bill of lading line
 
@@ -877,11 +885,11 @@ func main() {
 	lineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillsOfLadingAPI.PatchBillOfLadingLineAsync(context.Background(), billOfLadingId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.BillsOfLadingAPI.PatchBillOfLadingLineAsync(context.Background(), billOfLadingId, lineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BillsOfLadingAPI.PatchBillOfLadingLineAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -912,7 +920,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

@@ -97,7 +97,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebAPI* | [**AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebAPI.md#accountmanagedownloadpersonaldatapost) | **Post** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebAPI* | [**AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountmanagelinkexternalloginpost) | **Post** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebAPI* | [**AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountperformexternalloginpost) | **Post** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebAPI* | [**ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebAPI.md#apiv2aiserviceagentsagentidaguipost) | **Post** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABSWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
 *FenixAllianceABSWebAPI* | [**HealthGet**](docs/FenixAllianceABSWebAPI.md#healthget) | **Get** /health | 
 *FenixAllianceABSWebAPI* | [**HelloGet**](docs/FenixAllianceABSWebAPI.md#helloget) | **Get** /hello | 
@@ -125,10 +124,12 @@ Class | Method | HTTP request | Description
  - [AccessTokenResponse](docs/AccessTokenResponse.md)
  - [BlockchainBlockCreateDto](docs/BlockchainBlockCreateDto.md)
  - [BlockchainBlockDto](docs/BlockchainBlockDto.md)
+ - [BlockchainBlockDtoCollectionQueryParameters](docs/BlockchainBlockDtoCollectionQueryParameters.md)
  - [BlockchainBlockDtoListEnvelope](docs/BlockchainBlockDtoListEnvelope.md)
  - [BlockchainBlockUpdateDto](docs/BlockchainBlockUpdateDto.md)
  - [BlockchainCreateDto](docs/BlockchainCreateDto.md)
  - [BlockchainDto](docs/BlockchainDto.md)
+ - [BlockchainDtoCollectionQueryParameters](docs/BlockchainDtoCollectionQueryParameters.md)
  - [BlockchainDtoListEnvelope](docs/BlockchainDtoListEnvelope.md)
  - [BlockchainUpdateDto](docs/BlockchainUpdateDto.md)
  - [EmptyEnvelope](docs/EmptyEnvelope.md)
@@ -141,9 +142,10 @@ Class | Method | HTTP request | Description
  - [LoginRequest](docs/LoginRequest.md)
  - [NonFungibleTokenCreateDto](docs/NonFungibleTokenCreateDto.md)
  - [NonFungibleTokenDto](docs/NonFungibleTokenDto.md)
+ - [NonFungibleTokenDtoCollectionQueryParameters](docs/NonFungibleTokenDtoCollectionQueryParameters.md)
  - [NonFungibleTokenDtoListEnvelope](docs/NonFungibleTokenDtoListEnvelope.md)
  - [NonFungibleTokenUpdateDto](docs/NonFungibleTokenUpdateDto.md)
- - [Operation](docs/Operation.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [RefreshRequest](docs/RefreshRequest.md)
  - [RegisterRequest](docs/RegisterRequest.md)
  - [ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

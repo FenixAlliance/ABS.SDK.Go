@@ -438,6 +438,7 @@ type ApiGetShippingLabelsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shippingLabelDtoCollectionQueryParameters *ShippingLabelDtoCollectionQueryParameters
 }
 
 func (r ApiGetShippingLabelsAsyncRequest) TenantId(tenantId string) ApiGetShippingLabelsAsyncRequest {
@@ -452,6 +453,11 @@ func (r ApiGetShippingLabelsAsyncRequest) ApiVersion(apiVersion string) ApiGetSh
 
 func (r ApiGetShippingLabelsAsyncRequest) XApiVersion(xApiVersion string) ApiGetShippingLabelsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShippingLabelsAsyncRequest) ShippingLabelDtoCollectionQueryParameters(shippingLabelDtoCollectionQueryParameters ShippingLabelDtoCollectionQueryParameters) ApiGetShippingLabelsAsyncRequest {
+	r.shippingLabelDtoCollectionQueryParameters = &shippingLabelDtoCollectionQueryParameters
 	return r
 }
 
@@ -503,7 +509,7 @@ func (a *ShippingLabelsAPIService) GetShippingLabelsAsyncExecute(r ApiGetShippin
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -522,6 +528,8 @@ func (a *ShippingLabelsAPIService) GetShippingLabelsAsyncExecute(r ApiGetShippin
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shippingLabelDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -587,6 +595,7 @@ type ApiGetShippingLabelsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shippingLabelDtoCollectionQueryParameters *ShippingLabelDtoCollectionQueryParameters
 }
 
 func (r ApiGetShippingLabelsCountAsyncRequest) TenantId(tenantId string) ApiGetShippingLabelsCountAsyncRequest {
@@ -601,6 +610,11 @@ func (r ApiGetShippingLabelsCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetShippingLabelsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetShippingLabelsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShippingLabelsCountAsyncRequest) ShippingLabelDtoCollectionQueryParameters(shippingLabelDtoCollectionQueryParameters ShippingLabelDtoCollectionQueryParameters) ApiGetShippingLabelsCountAsyncRequest {
+	r.shippingLabelDtoCollectionQueryParameters = &shippingLabelDtoCollectionQueryParameters
 	return r
 }
 
@@ -652,7 +666,7 @@ func (a *ShippingLabelsAPIService) GetShippingLabelsCountAsyncExecute(r ApiGetSh
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -671,6 +685,8 @@ func (a *ShippingLabelsAPIService) GetShippingLabelsCountAsyncExecute(r ApiGetSh
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shippingLabelDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -715,7 +731,7 @@ type ApiPatchShippingLabelAsyncRequest struct {
 	labelId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchShippingLabelAsyncRequest) TenantId(tenantId string) ApiPatchShippingLabelAsyncRequest {
@@ -733,8 +749,8 @@ func (r ApiPatchShippingLabelAsyncRequest) XApiVersion(xApiVersion string) ApiPa
 	return r
 }
 
-func (r ApiPatchShippingLabelAsyncRequest) Operation(operation []Operation) ApiPatchShippingLabelAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchShippingLabelAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchShippingLabelAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -809,7 +825,7 @@ func (a *ShippingLabelsAPIService) PatchShippingLabelAsyncExecute(r ApiPatchShip
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -239,7 +239,7 @@ No authorization required
 
 ## GetTrainingProgramsAsync
 
-> TrainingProgramDtoListEnvelope GetTrainingProgramsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TrainingProgramDtoListEnvelope GetTrainingProgramsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TrainingProgramDtoCollectionQueryParameters(trainingProgramDtoCollectionQueryParameters).Execute()
 
 Get training programs
 
@@ -261,10 +261,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	trainingProgramDtoCollectionQueryParameters := *openapiclient.NewTrainingProgramDtoCollectionQueryParameters() // TrainingProgramDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TrainingProgramsAPI.GetTrainingProgramsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TrainingProgramsAPI.GetTrainingProgramsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TrainingProgramDtoCollectionQueryParameters(trainingProgramDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TrainingProgramsAPI.GetTrainingProgramsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -288,6 +289,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **trainingProgramDtoCollectionQueryParameters** | [**TrainingProgramDtoCollectionQueryParameters**](TrainingProgramDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -299,7 +301,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -309,7 +311,7 @@ No authorization required
 
 ## GetTrainingProgramsCountAsync
 
-> Int32Envelope GetTrainingProgramsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetTrainingProgramsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TrainingProgramDtoCollectionQueryParameters(trainingProgramDtoCollectionQueryParameters).Execute()
 
 Count training programs
 
@@ -331,10 +333,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	trainingProgramDtoCollectionQueryParameters := *openapiclient.NewTrainingProgramDtoCollectionQueryParameters() // TrainingProgramDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TrainingProgramsAPI.GetTrainingProgramsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TrainingProgramsAPI.GetTrainingProgramsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TrainingProgramDtoCollectionQueryParameters(trainingProgramDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TrainingProgramsAPI.GetTrainingProgramsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -358,6 +361,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **trainingProgramDtoCollectionQueryParameters** | [**TrainingProgramDtoCollectionQueryParameters**](TrainingProgramDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -369,7 +373,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

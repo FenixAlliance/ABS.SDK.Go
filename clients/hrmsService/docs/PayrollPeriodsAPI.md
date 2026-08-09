@@ -240,7 +240,7 @@ No authorization required
 
 ## GetPayrollPeriodsAsync
 
-> PayrollPeriodDtoListEnvelope GetPayrollPeriodsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> PayrollPeriodDtoListEnvelope GetPayrollPeriodsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PayrollPeriodDtoCollectionQueryParameters(payrollPeriodDtoCollectionQueryParameters).Execute()
 
 Get payroll periods
 
@@ -262,10 +262,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	payrollPeriodDtoCollectionQueryParameters := *openapiclient.NewPayrollPeriodDtoCollectionQueryParameters() // PayrollPeriodDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PayrollPeriodsAPI.GetPayrollPeriodsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PayrollPeriodsAPI.GetPayrollPeriodsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PayrollPeriodDtoCollectionQueryParameters(payrollPeriodDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PayrollPeriodsAPI.GetPayrollPeriodsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -289,6 +290,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **payrollPeriodDtoCollectionQueryParameters** | [**PayrollPeriodDtoCollectionQueryParameters**](PayrollPeriodDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -300,7 +302,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -310,7 +312,7 @@ No authorization required
 
 ## GetPayrollPeriodsCountAsync
 
-> Int32Envelope GetPayrollPeriodsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetPayrollPeriodsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PayrollPeriodDtoCollectionQueryParameters(payrollPeriodDtoCollectionQueryParameters).Execute()
 
 Count payroll periods
 
@@ -332,10 +334,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	payrollPeriodDtoCollectionQueryParameters := *openapiclient.NewPayrollPeriodDtoCollectionQueryParameters() // PayrollPeriodDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PayrollPeriodsAPI.GetPayrollPeriodsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.PayrollPeriodsAPI.GetPayrollPeriodsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PayrollPeriodDtoCollectionQueryParameters(payrollPeriodDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PayrollPeriodsAPI.GetPayrollPeriodsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -359,6 +362,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **payrollPeriodDtoCollectionQueryParameters** | [**PayrollPeriodDtoCollectionQueryParameters**](PayrollPeriodDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -370,7 +374,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

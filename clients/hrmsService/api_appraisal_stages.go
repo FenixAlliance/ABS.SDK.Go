@@ -515,6 +515,7 @@ type ApiGetAppraisalStagesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	appraisalStageDtoCollectionQueryParameters *AppraisalStageDtoCollectionQueryParameters
 }
 
 func (r ApiGetAppraisalStagesAsyncRequest) TenantId(tenantId string) ApiGetAppraisalStagesAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetAppraisalStagesAsyncRequest) ApiVersion(apiVersion string) ApiGetA
 
 func (r ApiGetAppraisalStagesAsyncRequest) XApiVersion(xApiVersion string) ApiGetAppraisalStagesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAppraisalStagesAsyncRequest) AppraisalStageDtoCollectionQueryParameters(appraisalStageDtoCollectionQueryParameters AppraisalStageDtoCollectionQueryParameters) ApiGetAppraisalStagesAsyncRequest {
+	r.appraisalStageDtoCollectionQueryParameters = &appraisalStageDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *AppraisalStagesAPIService) GetAppraisalStagesAsyncExecute(r ApiGetAppra
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *AppraisalStagesAPIService) GetAppraisalStagesAsyncExecute(r ApiGetAppra
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.appraisalStageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetAppraisalStagesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	appraisalStageDtoCollectionQueryParameters *AppraisalStageDtoCollectionQueryParameters
 }
 
 func (r ApiGetAppraisalStagesCountAsyncRequest) TenantId(tenantId string) ApiGetAppraisalStagesCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetAppraisalStagesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetAppraisalStagesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAppraisalStagesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAppraisalStagesCountAsyncRequest) AppraisalStageDtoCollectionQueryParameters(appraisalStageDtoCollectionQueryParameters AppraisalStageDtoCollectionQueryParameters) ApiGetAppraisalStagesCountAsyncRequest {
+	r.appraisalStageDtoCollectionQueryParameters = &appraisalStageDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *AppraisalStagesAPIService) GetAppraisalStagesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *AppraisalStagesAPIService) GetAppraisalStagesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.appraisalStageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

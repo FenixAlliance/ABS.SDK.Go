@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 ## CountWebPagesAsync
 
-> Int32Envelope CountWebPagesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountWebPagesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WebPageDtoCollectionQueryParameters(webPageDtoCollectionQueryParameters).Execute()
 
 Count web pages
 
@@ -46,10 +46,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	webPageDtoCollectionQueryParameters := *openapiclient.NewWebPageDtoCollectionQueryParameters() // WebPageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebPagesAPI.CountWebPagesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WebPagesAPI.CountWebPagesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WebPageDtoCollectionQueryParameters(webPageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebPagesAPI.CountWebPagesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -73,6 +74,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **webPageDtoCollectionQueryParameters** | [**WebPageDtoCollectionQueryParameters**](WebPageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -84,7 +86,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -390,7 +392,7 @@ No authorization required
 
 ## GetCategoriesByWebPageAsync
 
-> WebPageCategoryDtoListEnvelope GetCategoriesByWebPageAsync(ctx, webPageId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> WebPageCategoryDtoListEnvelope GetCategoriesByWebPageAsync(ctx, webPageId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WebPageCategoryDtoCollectionQueryParameters(webPageCategoryDtoCollectionQueryParameters).Execute()
 
 Get categories by web page
 
@@ -412,10 +414,11 @@ func main() {
 	webPageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	webPageCategoryDtoCollectionQueryParameters := *openapiclient.NewWebPageCategoryDtoCollectionQueryParameters() // WebPageCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebPagesAPI.GetCategoriesByWebPageAsync(context.Background(), webPageId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WebPagesAPI.GetCategoriesByWebPageAsync(context.Background(), webPageId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WebPageCategoryDtoCollectionQueryParameters(webPageCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebPagesAPI.GetCategoriesByWebPageAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -443,6 +446,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **webPageCategoryDtoCollectionQueryParameters** | [**WebPageCategoryDtoCollectionQueryParameters**](WebPageCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -454,7 +458,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -464,7 +468,7 @@ No authorization required
 
 ## GetTagsByWebPageAsync
 
-> WebPageTagDtoListEnvelope GetTagsByWebPageAsync(ctx, webPageId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> WebPageTagDtoListEnvelope GetTagsByWebPageAsync(ctx, webPageId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WebPageTagDtoCollectionQueryParameters(webPageTagDtoCollectionQueryParameters).Execute()
 
 Get tags by web page
 
@@ -486,10 +490,11 @@ func main() {
 	webPageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	webPageTagDtoCollectionQueryParameters := *openapiclient.NewWebPageTagDtoCollectionQueryParameters() // WebPageTagDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebPagesAPI.GetTagsByWebPageAsync(context.Background(), webPageId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WebPagesAPI.GetTagsByWebPageAsync(context.Background(), webPageId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WebPageTagDtoCollectionQueryParameters(webPageTagDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebPagesAPI.GetTagsByWebPageAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -517,6 +522,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **webPageTagDtoCollectionQueryParameters** | [**WebPageTagDtoCollectionQueryParameters**](WebPageTagDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -528,7 +534,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -614,7 +620,7 @@ No authorization required
 
 ## GetWebPagesAsync
 
-> WebPageDtoListEnvelope GetWebPagesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> WebPageDtoListEnvelope GetWebPagesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WebPageDtoCollectionQueryParameters(webPageDtoCollectionQueryParameters).Execute()
 
 Get web pages
 
@@ -636,10 +642,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	webPageDtoCollectionQueryParameters := *openapiclient.NewWebPageDtoCollectionQueryParameters() // WebPageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebPagesAPI.GetWebPagesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WebPagesAPI.GetWebPagesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WebPageDtoCollectionQueryParameters(webPageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebPagesAPI.GetWebPagesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -663,6 +670,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **webPageDtoCollectionQueryParameters** | [**WebPageDtoCollectionQueryParameters**](WebPageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -674,7 +682,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -684,7 +692,7 @@ No authorization required
 
 ## PatchWebPageAsync
 
-> PatchWebPageAsync(ctx, webPageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> PatchWebPageAsync(ctx, webPageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a web page
 
@@ -707,11 +715,11 @@ func main() {
 	webPageId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WebPagesAPI.PatchWebPageAsync(context.Background(), webPageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	r, err := apiClient.WebPagesAPI.PatchWebPageAsync(context.Background(), webPageId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebPagesAPI.PatchWebPageAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -738,7 +746,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

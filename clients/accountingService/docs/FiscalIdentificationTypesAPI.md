@@ -243,7 +243,7 @@ No authorization required
 
 ## GetFiscalIdentificationTypes
 
-> FiscalIdentificationTypeDtoListEnvelope GetFiscalIdentificationTypes(ctx, authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FiscalIdentificationTypeDtoListEnvelope GetFiscalIdentificationTypes(ctx, authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalIdentificationTypeDtoCollectionQueryParameters(fiscalIdentificationTypeDtoCollectionQueryParameters).Execute()
 
 Get fiscal identification types for an authority
 
@@ -266,10 +266,11 @@ func main() {
 	authorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	fiscalIdentificationTypeDtoCollectionQueryParameters := *openapiclient.NewFiscalIdentificationTypeDtoCollectionQueryParameters() // FiscalIdentificationTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalIdentificationTypesAPI.GetFiscalIdentificationTypes(context.Background(), authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalIdentificationTypesAPI.GetFiscalIdentificationTypes(context.Background(), authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalIdentificationTypeDtoCollectionQueryParameters(fiscalIdentificationTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalIdentificationTypesAPI.GetFiscalIdentificationTypes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -298,6 +299,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **fiscalIdentificationTypeDtoCollectionQueryParameters** | [**FiscalIdentificationTypeDtoCollectionQueryParameters**](FiscalIdentificationTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -309,7 +311,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -319,7 +321,7 @@ No authorization required
 
 ## GetFiscalIdentificationTypesCount
 
-> Int32Envelope GetFiscalIdentificationTypesCount(ctx, authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetFiscalIdentificationTypesCount(ctx, authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalIdentificationTypeDtoCollectionQueryParameters(fiscalIdentificationTypeDtoCollectionQueryParameters).Execute()
 
 Get fiscal identification types count
 
@@ -342,10 +344,11 @@ func main() {
 	authorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	fiscalIdentificationTypeDtoCollectionQueryParameters := *openapiclient.NewFiscalIdentificationTypeDtoCollectionQueryParameters() // FiscalIdentificationTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalIdentificationTypesAPI.GetFiscalIdentificationTypesCount(context.Background(), authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FiscalIdentificationTypesAPI.GetFiscalIdentificationTypesCount(context.Background(), authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FiscalIdentificationTypeDtoCollectionQueryParameters(fiscalIdentificationTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalIdentificationTypesAPI.GetFiscalIdentificationTypesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -374,6 +377,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **fiscalIdentificationTypeDtoCollectionQueryParameters** | [**FiscalIdentificationTypeDtoCollectionQueryParameters**](FiscalIdentificationTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -385,7 +389,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -395,7 +399,7 @@ No authorization required
 
 ## PatchFiscalIdentificationTypeAsync
 
-> EmptyEnvelope PatchFiscalIdentificationTypeAsync(ctx, identificationTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchFiscalIdentificationTypeAsync(ctx, identificationTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a fiscal identification type
 
@@ -418,11 +422,11 @@ func main() {
 	identificationTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FiscalIdentificationTypesAPI.PatchFiscalIdentificationTypeAsync(context.Background(), identificationTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.FiscalIdentificationTypesAPI.PatchFiscalIdentificationTypeAsync(context.Background(), identificationTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FiscalIdentificationTypesAPI.PatchFiscalIdentificationTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -451,7 +455,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

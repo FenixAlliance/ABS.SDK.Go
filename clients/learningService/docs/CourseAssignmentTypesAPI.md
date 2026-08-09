@@ -234,7 +234,7 @@ No authorization required
 
 ## GetCourseAssignmentTypesAsync
 
-> []CourseAssignmentTypeDto GetCourseAssignmentTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseAssignmentTypeDto GetCourseAssignmentTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseAssignmentTypeDtoCollectionQueryParameters(courseAssignmentTypeDtoCollectionQueryParameters).Execute()
 
 Get all course assignment types
 
@@ -256,10 +256,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseAssignmentTypeDtoCollectionQueryParameters := *openapiclient.NewCourseAssignmentTypeDtoCollectionQueryParameters() // CourseAssignmentTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseAssignmentTypesAPI.GetCourseAssignmentTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CourseAssignmentTypesAPI.GetCourseAssignmentTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseAssignmentTypeDtoCollectionQueryParameters(courseAssignmentTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseAssignmentTypesAPI.GetCourseAssignmentTypesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -283,6 +284,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseAssignmentTypeDtoCollectionQueryParameters** | [**CourseAssignmentTypeDtoCollectionQueryParameters**](CourseAssignmentTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -294,7 +296,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -304,7 +306,7 @@ No authorization required
 
 ## GetCourseAssignmentTypesCountAsync
 
-> int32 GetCourseAssignmentTypesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseAssignmentTypesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseAssignmentTypeDtoCollectionQueryParameters(courseAssignmentTypeDtoCollectionQueryParameters).Execute()
 
 Get course assignment types count
 
@@ -326,10 +328,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseAssignmentTypeDtoCollectionQueryParameters := *openapiclient.NewCourseAssignmentTypeDtoCollectionQueryParameters() // CourseAssignmentTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseAssignmentTypesAPI.GetCourseAssignmentTypesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CourseAssignmentTypesAPI.GetCourseAssignmentTypesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseAssignmentTypeDtoCollectionQueryParameters(courseAssignmentTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseAssignmentTypesAPI.GetCourseAssignmentTypesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -353,6 +356,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseAssignmentTypeDtoCollectionQueryParameters** | [**CourseAssignmentTypeDtoCollectionQueryParameters**](CourseAssignmentTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -364,7 +368,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -374,7 +378,7 @@ No authorization required
 
 ## PatchCourseAssignmentTypeAsync
 
-> EmptyEnvelope PatchCourseAssignmentTypeAsync(ctx, assignmentTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchCourseAssignmentTypeAsync(ctx, assignmentTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a course assignment type
 
@@ -397,11 +401,11 @@ func main() {
 	assignmentTypeId := "assignmentTypeId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseAssignmentTypesAPI.PatchCourseAssignmentTypeAsync(context.Background(), assignmentTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.CourseAssignmentTypesAPI.PatchCourseAssignmentTypeAsync(context.Background(), assignmentTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseAssignmentTypesAPI.PatchCourseAssignmentTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -430,7 +434,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

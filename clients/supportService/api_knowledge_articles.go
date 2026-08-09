@@ -421,6 +421,7 @@ type ApiGetKnowledgeArticlesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	knowledgeArticleDtoCollectionQueryParameters *KnowledgeArticleDtoCollectionQueryParameters
 }
 
 func (r ApiGetKnowledgeArticlesAsyncRequest) TenantId(tenantId string) ApiGetKnowledgeArticlesAsyncRequest {
@@ -435,6 +436,11 @@ func (r ApiGetKnowledgeArticlesAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetKnowledgeArticlesAsyncRequest) XApiVersion(xApiVersion string) ApiGetKnowledgeArticlesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetKnowledgeArticlesAsyncRequest) KnowledgeArticleDtoCollectionQueryParameters(knowledgeArticleDtoCollectionQueryParameters KnowledgeArticleDtoCollectionQueryParameters) ApiGetKnowledgeArticlesAsyncRequest {
+	r.knowledgeArticleDtoCollectionQueryParameters = &knowledgeArticleDtoCollectionQueryParameters
 	return r
 }
 
@@ -484,7 +490,7 @@ func (a *KnowledgeArticlesAPIService) GetKnowledgeArticlesAsyncExecute(r ApiGetK
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -503,6 +509,8 @@ func (a *KnowledgeArticlesAPIService) GetKnowledgeArticlesAsyncExecute(r ApiGetK
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.knowledgeArticleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -546,6 +554,7 @@ type ApiGetKnowledgeArticlesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	knowledgeArticleDtoCollectionQueryParameters *KnowledgeArticleDtoCollectionQueryParameters
 }
 
 func (r ApiGetKnowledgeArticlesCountAsyncRequest) TenantId(tenantId string) ApiGetKnowledgeArticlesCountAsyncRequest {
@@ -560,6 +569,11 @@ func (r ApiGetKnowledgeArticlesCountAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetKnowledgeArticlesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetKnowledgeArticlesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetKnowledgeArticlesCountAsyncRequest) KnowledgeArticleDtoCollectionQueryParameters(knowledgeArticleDtoCollectionQueryParameters KnowledgeArticleDtoCollectionQueryParameters) ApiGetKnowledgeArticlesCountAsyncRequest {
+	r.knowledgeArticleDtoCollectionQueryParameters = &knowledgeArticleDtoCollectionQueryParameters
 	return r
 }
 
@@ -609,7 +623,7 @@ func (a *KnowledgeArticlesAPIService) GetKnowledgeArticlesCountAsyncExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -628,6 +642,8 @@ func (a *KnowledgeArticlesAPIService) GetKnowledgeArticlesCountAsyncExecute(r Ap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.knowledgeArticleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -672,7 +688,7 @@ type ApiPatchKnowledgeArticleAsyncRequest struct {
 	knowledgeArticleId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchKnowledgeArticleAsyncRequest) TenantId(tenantId string) ApiPatchKnowledgeArticleAsyncRequest {
@@ -690,8 +706,8 @@ func (r ApiPatchKnowledgeArticleAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchKnowledgeArticleAsyncRequest) Operation(operation []Operation) ApiPatchKnowledgeArticleAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchKnowledgeArticleAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchKnowledgeArticleAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -766,7 +782,7 @@ func (a *KnowledgeArticlesAPIService) PatchKnowledgeArticleAsyncExecute(r ApiPat
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -9,6 +9,7 @@ client.go
 configuration.go
 docs/AccessTokenResponse.md
 docs/AddressDto.md
+docs/AddressDtoCollectionQueryParameters.md
 docs/AddressDtoListEnvelope.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
@@ -22,6 +23,7 @@ docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
 docs/FenixAllianceABSWebAPI.md
 docs/FollowRecordDto.md
+docs/FollowRecordDtoCollectionQueryParameters.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -30,14 +32,16 @@ docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
 docs/NotificationDto.md
+docs/NotificationDtoCollectionQueryParameters.md
 docs/NotificationDtoListEnvelope.md
-docs/Operation.md
 docs/OptionCreateDto.md
 docs/OptionDto.md
+docs/OptionDtoCollectionQueryParameters.md
 docs/OptionDtoEnvelope.md
 docs/OptionDtoListEnvelope.md
 docs/OptionUpdateDto.md
 docs/OptionsAPI.md
+docs/PatchOperation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -45,6 +49,7 @@ docs/ResetPasswordRequest.md
 docs/SocialProfileDto.md
 docs/SocialProfileDtoEnvelope.md
 docs/TenantDto.md
+docs/TenantDtoCollectionQueryParameters.md
 docs/TenantDtoListEnvelope.md
 docs/TenantEnrollmentDto.md
 docs/TenantEnrollmentDtoEnvelope.md
@@ -68,6 +73,7 @@ go.mod
 go.sum
 model_access_token_response.go
 model_address_dto.go
+model_address_dto_collection_query_parameters.go
 model_address_dto_list_envelope.go
 model_cart_dto.go
 model_cart_dto_envelope.go
@@ -80,6 +86,7 @@ model_extended_tenant_enrollment_dto_list_envelope.go
 model_extended_user_dto.go
 model_extended_user_dto_envelope.go
 model_follow_record_dto.go
+model_follow_record_dto_collection_query_parameters.go
 model_follow_record_dto_list_envelope.go
 model_forgot_password_request.go
 model_http_validation_problem_details.go
@@ -88,13 +95,15 @@ model_info_response.go
 model_int32_envelope.go
 model_login_request.go
 model_notification_dto.go
+model_notification_dto_collection_query_parameters.go
 model_notification_dto_list_envelope.go
-model_operation.go
 model_option_create_dto.go
 model_option_dto.go
+model_option_dto_collection_query_parameters.go
 model_option_dto_envelope.go
 model_option_dto_list_envelope.go
 model_option_update_dto.go
+model_patch_operation.go
 model_refresh_request.go
 model_register_request.go
 model_resend_confirmation_email_request.go
@@ -102,6 +111,7 @@ model_reset_password_request.go
 model_social_profile_dto.go
 model_social_profile_dto_envelope.go
 model_tenant_dto.go
+model_tenant_dto_collection_query_parameters.go
 model_tenant_dto_list_envelope.go
 model_tenant_enrollment_dto.go
 model_tenant_enrollment_dto_envelope.go

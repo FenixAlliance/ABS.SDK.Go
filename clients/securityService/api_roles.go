@@ -1481,6 +1481,7 @@ type ApiGetRolesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	securityRoleDtoCollectionQueryParameters *SecurityRoleDtoCollectionQueryParameters
 }
 
 func (r ApiGetRolesAsyncRequest) TenantId(tenantId string) ApiGetRolesAsyncRequest {
@@ -1495,6 +1496,11 @@ func (r ApiGetRolesAsyncRequest) ApiVersion(apiVersion string) ApiGetRolesAsyncR
 
 func (r ApiGetRolesAsyncRequest) XApiVersion(xApiVersion string) ApiGetRolesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRolesAsyncRequest) SecurityRoleDtoCollectionQueryParameters(securityRoleDtoCollectionQueryParameters SecurityRoleDtoCollectionQueryParameters) ApiGetRolesAsyncRequest {
+	r.securityRoleDtoCollectionQueryParameters = &securityRoleDtoCollectionQueryParameters
 	return r
 }
 
@@ -1546,7 +1552,7 @@ func (a *RolesAPIService) GetRolesAsyncExecute(r ApiGetRolesAsyncRequest) (*Secu
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1565,6 +1571,8 @@ func (a *RolesAPIService) GetRolesAsyncExecute(r ApiGetRolesAsyncRequest) (*Secu
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.securityRoleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1783,6 +1791,7 @@ type ApiGetRolesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	securityRoleDtoCollectionQueryParameters *SecurityRoleDtoCollectionQueryParameters
 }
 
 func (r ApiGetRolesCountAsyncRequest) TenantId(tenantId string) ApiGetRolesCountAsyncRequest {
@@ -1797,6 +1806,11 @@ func (r ApiGetRolesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetRolesC
 
 func (r ApiGetRolesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetRolesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRolesCountAsyncRequest) SecurityRoleDtoCollectionQueryParameters(securityRoleDtoCollectionQueryParameters SecurityRoleDtoCollectionQueryParameters) ApiGetRolesCountAsyncRequest {
+	r.securityRoleDtoCollectionQueryParameters = &securityRoleDtoCollectionQueryParameters
 	return r
 }
 
@@ -1848,7 +1862,7 @@ func (a *RolesAPIService) GetRolesCountAsyncExecute(r ApiGetRolesCountAsyncReque
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1867,6 +1881,8 @@ func (a *RolesAPIService) GetRolesCountAsyncExecute(r ApiGetRolesCountAsyncReque
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.securityRoleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1931,7 +1947,7 @@ type ApiPatchRoleAsyncRequest struct {
 	ApiService *RolesAPIService
 	tenantId *string
 	securityRoleId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 	apiVersion *string
 	xApiVersion *string
 }
@@ -1941,8 +1957,8 @@ func (r ApiPatchRoleAsyncRequest) TenantId(tenantId string) ApiPatchRoleAsyncReq
 	return r
 }
 
-func (r ApiPatchRoleAsyncRequest) Operation(operation []Operation) ApiPatchRoleAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchRoleAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchRoleAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2001,8 +2017,8 @@ func (a *RolesAPIService) PatchRoleAsyncExecute(r ApiPatchRoleAsyncRequest) (*Em
 	if r.tenantId == nil {
 		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
 	}
-	if r.operation == nil {
-		return localVarReturnValue, nil, reportError("operation is required and must be specified")
+	if r.patchOperation == nil {
+		return localVarReturnValue, nil, reportError("patchOperation is required and must be specified")
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
@@ -2030,7 +2046,7 @@ func (a *RolesAPIService) PatchRoleAsyncExecute(r ApiPatchRoleAsyncRequest) (*Em
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

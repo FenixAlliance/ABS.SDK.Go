@@ -744,6 +744,7 @@ type ApiGetTruckDriversAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	truckDriverDtoCollectionQueryParameters *TruckDriverDtoCollectionQueryParameters
 }
 
 func (r ApiGetTruckDriversAsyncRequest) TenantId(tenantId string) ApiGetTruckDriversAsyncRequest {
@@ -758,6 +759,11 @@ func (r ApiGetTruckDriversAsyncRequest) ApiVersion(apiVersion string) ApiGetTruc
 
 func (r ApiGetTruckDriversAsyncRequest) XApiVersion(xApiVersion string) ApiGetTruckDriversAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTruckDriversAsyncRequest) TruckDriverDtoCollectionQueryParameters(truckDriverDtoCollectionQueryParameters TruckDriverDtoCollectionQueryParameters) ApiGetTruckDriversAsyncRequest {
+	r.truckDriverDtoCollectionQueryParameters = &truckDriverDtoCollectionQueryParameters
 	return r
 }
 
@@ -809,7 +815,7 @@ func (a *TruckDriversAPIService) GetTruckDriversAsyncExecute(r ApiGetTruckDriver
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -828,6 +834,8 @@ func (a *TruckDriversAPIService) GetTruckDriversAsyncExecute(r ApiGetTruckDriver
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.truckDriverDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -893,6 +901,7 @@ type ApiGetTruckDriversCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	truckDriverDtoCollectionQueryParameters *TruckDriverDtoCollectionQueryParameters
 }
 
 func (r ApiGetTruckDriversCountAsyncRequest) TenantId(tenantId string) ApiGetTruckDriversCountAsyncRequest {
@@ -907,6 +916,11 @@ func (r ApiGetTruckDriversCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetTruckDriversCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetTruckDriversCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTruckDriversCountAsyncRequest) TruckDriverDtoCollectionQueryParameters(truckDriverDtoCollectionQueryParameters TruckDriverDtoCollectionQueryParameters) ApiGetTruckDriversCountAsyncRequest {
+	r.truckDriverDtoCollectionQueryParameters = &truckDriverDtoCollectionQueryParameters
 	return r
 }
 
@@ -958,7 +972,7 @@ func (a *TruckDriversAPIService) GetTruckDriversCountAsyncExecute(r ApiGetTruckD
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -977,6 +991,8 @@ func (a *TruckDriversAPIService) GetTruckDriversCountAsyncExecute(r ApiGetTruckD
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.truckDriverDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1032,7 +1048,7 @@ type ApiPatchTruckDriverAsyncRequest struct {
 	driverId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTruckDriverAsyncRequest) TenantId(tenantId string) ApiPatchTruckDriverAsyncRequest {
@@ -1050,8 +1066,8 @@ func (r ApiPatchTruckDriverAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchTruckDriverAsyncRequest) Operation(operation []Operation) ApiPatchTruckDriverAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchTruckDriverAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTruckDriverAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1126,7 +1142,7 @@ func (a *TruckDriversAPIService) PatchTruckDriverAsyncExecute(r ApiPatchTruckDri
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

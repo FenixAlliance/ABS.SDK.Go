@@ -29,6 +29,7 @@ type ApiCountCurrenciesAsyncRequest struct {
 	ApiService *CurrenciesAPIService
 	apiVersion *string
 	xApiVersion *string
+	currencyDtoCollectionQueryParameters *CurrencyDtoCollectionQueryParameters
 }
 
 func (r ApiCountCurrenciesAsyncRequest) ApiVersion(apiVersion string) ApiCountCurrenciesAsyncRequest {
@@ -38,6 +39,11 @@ func (r ApiCountCurrenciesAsyncRequest) ApiVersion(apiVersion string) ApiCountCu
 
 func (r ApiCountCurrenciesAsyncRequest) XApiVersion(xApiVersion string) ApiCountCurrenciesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountCurrenciesAsyncRequest) CurrencyDtoCollectionQueryParameters(currencyDtoCollectionQueryParameters CurrencyDtoCollectionQueryParameters) ApiCountCurrenciesAsyncRequest {
+	r.currencyDtoCollectionQueryParameters = &currencyDtoCollectionQueryParameters
 	return r
 }
 
@@ -85,7 +91,7 @@ func (a *CurrenciesAPIService) CountCurrenciesAsyncExecute(r ApiCountCurrenciesA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -104,6 +110,8 @@ func (a *CurrenciesAPIService) CountCurrenciesAsyncExecute(r ApiCountCurrenciesA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.currencyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -311,6 +319,7 @@ type ApiGetEnabledCurrenciesAsyncRequest struct {
 	ApiService *CurrenciesAPIService
 	apiVersion *string
 	xApiVersion *string
+	currencyDtoCollectionQueryParameters *CurrencyDtoCollectionQueryParameters
 }
 
 func (r ApiGetEnabledCurrenciesAsyncRequest) ApiVersion(apiVersion string) ApiGetEnabledCurrenciesAsyncRequest {
@@ -320,6 +329,11 @@ func (r ApiGetEnabledCurrenciesAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetEnabledCurrenciesAsyncRequest) XApiVersion(xApiVersion string) ApiGetEnabledCurrenciesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetEnabledCurrenciesAsyncRequest) CurrencyDtoCollectionQueryParameters(currencyDtoCollectionQueryParameters CurrencyDtoCollectionQueryParameters) ApiGetEnabledCurrenciesAsyncRequest {
+	r.currencyDtoCollectionQueryParameters = &currencyDtoCollectionQueryParameters
 	return r
 }
 
@@ -367,7 +381,7 @@ func (a *CurrenciesAPIService) GetEnabledCurrenciesAsyncExecute(r ApiGetEnabledC
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -386,6 +400,8 @@ func (a *CurrenciesAPIService) GetEnabledCurrenciesAsyncExecute(r ApiGetEnabledC
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.currencyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

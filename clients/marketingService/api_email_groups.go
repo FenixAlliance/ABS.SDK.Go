@@ -529,6 +529,7 @@ type ApiGetEmailGroupsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	emailGroupDtoCollectionQueryParameters *EmailGroupDtoCollectionQueryParameters
 }
 
 func (r ApiGetEmailGroupsCountAsyncRequest) TenantId(tenantId string) ApiGetEmailGroupsCountAsyncRequest {
@@ -543,6 +544,11 @@ func (r ApiGetEmailGroupsCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetEmailGroupsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetEmailGroupsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetEmailGroupsCountAsyncRequest) EmailGroupDtoCollectionQueryParameters(emailGroupDtoCollectionQueryParameters EmailGroupDtoCollectionQueryParameters) ApiGetEmailGroupsCountAsyncRequest {
+	r.emailGroupDtoCollectionQueryParameters = &emailGroupDtoCollectionQueryParameters
 	return r
 }
 
@@ -594,7 +600,7 @@ func (a *EmailGroupsAPIService) GetEmailGroupsCountAsyncExecute(r ApiGetEmailGro
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -613,6 +619,8 @@ func (a *EmailGroupsAPIService) GetEmailGroupsCountAsyncExecute(r ApiGetEmailGro
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.emailGroupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -689,6 +697,7 @@ type ApiGetEmailGroupsODataAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	emailGroupDtoCollectionQueryParameters *EmailGroupDtoCollectionQueryParameters
 }
 
 func (r ApiGetEmailGroupsODataAsyncRequest) TenantId(tenantId string) ApiGetEmailGroupsODataAsyncRequest {
@@ -703,6 +712,11 @@ func (r ApiGetEmailGroupsODataAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetEmailGroupsODataAsyncRequest) XApiVersion(xApiVersion string) ApiGetEmailGroupsODataAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetEmailGroupsODataAsyncRequest) EmailGroupDtoCollectionQueryParameters(emailGroupDtoCollectionQueryParameters EmailGroupDtoCollectionQueryParameters) ApiGetEmailGroupsODataAsyncRequest {
+	r.emailGroupDtoCollectionQueryParameters = &emailGroupDtoCollectionQueryParameters
 	return r
 }
 
@@ -754,7 +768,7 @@ func (a *EmailGroupsAPIService) GetEmailGroupsODataAsyncExecute(r ApiGetEmailGro
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -773,6 +787,8 @@ func (a *EmailGroupsAPIService) GetEmailGroupsODataAsyncExecute(r ApiGetEmailGro
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.emailGroupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -839,7 +855,7 @@ type ApiPatchEmailGroupAsyncRequest struct {
 	emailgroupId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchEmailGroupAsyncRequest) TenantId(tenantId string) ApiPatchEmailGroupAsyncRequest {
@@ -857,8 +873,8 @@ func (r ApiPatchEmailGroupAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchEmailGroupAsyncRequest) Operation(operation []Operation) ApiPatchEmailGroupAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchEmailGroupAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchEmailGroupAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -933,7 +949,7 @@ func (a *EmailGroupsAPIService) PatchEmailGroupAsyncExecute(r ApiPatchEmailGroup
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -30,6 +30,7 @@ type ApiCountBlogPostTagsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	blogPostTagDtoCollectionQueryParameters *BlogPostTagDtoCollectionQueryParameters
 }
 
 func (r ApiCountBlogPostTagsAsyncRequest) TenantId(tenantId string) ApiCountBlogPostTagsAsyncRequest {
@@ -44,6 +45,11 @@ func (r ApiCountBlogPostTagsAsyncRequest) ApiVersion(apiVersion string) ApiCount
 
 func (r ApiCountBlogPostTagsAsyncRequest) XApiVersion(xApiVersion string) ApiCountBlogPostTagsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountBlogPostTagsAsyncRequest) BlogPostTagDtoCollectionQueryParameters(blogPostTagDtoCollectionQueryParameters BlogPostTagDtoCollectionQueryParameters) ApiCountBlogPostTagsAsyncRequest {
+	r.blogPostTagDtoCollectionQueryParameters = &blogPostTagDtoCollectionQueryParameters
 	return r
 }
 
@@ -95,7 +101,7 @@ func (a *BlogPostTagsAPIService) CountBlogPostTagsAsyncExecute(r ApiCountBlogPos
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -114,6 +120,8 @@ func (a *BlogPostTagsAPIService) CountBlogPostTagsAsyncExecute(r ApiCountBlogPos
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blogPostTagDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetBlogPostTagsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	blogPostTagDtoCollectionQueryParameters *BlogPostTagDtoCollectionQueryParameters
 }
 
 func (r ApiGetBlogPostTagsAsyncRequest) TenantId(tenantId string) ApiGetBlogPostTagsAsyncRequest {
@@ -656,6 +665,11 @@ func (r ApiGetBlogPostTagsAsyncRequest) ApiVersion(apiVersion string) ApiGetBlog
 
 func (r ApiGetBlogPostTagsAsyncRequest) XApiVersion(xApiVersion string) ApiGetBlogPostTagsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBlogPostTagsAsyncRequest) BlogPostTagDtoCollectionQueryParameters(blogPostTagDtoCollectionQueryParameters BlogPostTagDtoCollectionQueryParameters) ApiGetBlogPostTagsAsyncRequest {
+	r.blogPostTagDtoCollectionQueryParameters = &blogPostTagDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *BlogPostTagsAPIService) GetBlogPostTagsAsyncExecute(r ApiGetBlogPostTag
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *BlogPostTagsAPIService) GetBlogPostTagsAsyncExecute(r ApiGetBlogPostTag
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blogPostTagDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchBlogPostTagAsyncRequest struct {
 	blogPostTagId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBlogPostTagAsyncRequest) TenantId(tenantId string) ApiPatchBlogPostTagAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchBlogPostTagAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchBlogPostTagAsyncRequest) Operation(operation []Operation) ApiPatchBlogPostTagAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBlogPostTagAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBlogPostTagAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *BlogPostTagsAPIService) PatchBlogPostTagAsyncExecute(r ApiPatchBlogPost
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

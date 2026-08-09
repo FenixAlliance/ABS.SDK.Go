@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **Message** | Pointer to **NullableString** |  | [optional] 
 **SocialFeedId** | Pointer to **NullableString** |  | [optional] 
 **SocialProfileId** | Pointer to **NullableString** |  | [optional] 
+**BodyHtml** | Pointer to **NullableString** |  | [optional] 
+**BodyFormat** | Pointer to **NullableString** |  | [optional] 
+**BackgroundStyle** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -220,6 +223,111 @@ HasSocialProfileId returns a boolean if a field has been set.
 `func (o *SocialFeedPostCreateDto) UnsetSocialProfileId()`
 
 UnsetSocialProfileId ensures that no value is present for SocialProfileId, not even an explicit nil
+### GetBodyHtml
+
+`func (o *SocialFeedPostCreateDto) GetBodyHtml() string`
+
+GetBodyHtml returns the BodyHtml field if non-nil, zero value otherwise.
+
+### GetBodyHtmlOk
+
+`func (o *SocialFeedPostCreateDto) GetBodyHtmlOk() (*string, bool)`
+
+GetBodyHtmlOk returns a tuple with the BodyHtml field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBodyHtml
+
+`func (o *SocialFeedPostCreateDto) SetBodyHtml(v string)`
+
+SetBodyHtml sets BodyHtml field to given value.
+
+### HasBodyHtml
+
+`func (o *SocialFeedPostCreateDto) HasBodyHtml() bool`
+
+HasBodyHtml returns a boolean if a field has been set.
+
+### SetBodyHtmlNil
+
+`func (o *SocialFeedPostCreateDto) SetBodyHtmlNil(b bool)`
+
+ SetBodyHtmlNil sets the value for BodyHtml to be an explicit nil
+
+### UnsetBodyHtml
+`func (o *SocialFeedPostCreateDto) UnsetBodyHtml()`
+
+UnsetBodyHtml ensures that no value is present for BodyHtml, not even an explicit nil
+### GetBodyFormat
+
+`func (o *SocialFeedPostCreateDto) GetBodyFormat() string`
+
+GetBodyFormat returns the BodyFormat field if non-nil, zero value otherwise.
+
+### GetBodyFormatOk
+
+`func (o *SocialFeedPostCreateDto) GetBodyFormatOk() (*string, bool)`
+
+GetBodyFormatOk returns a tuple with the BodyFormat field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBodyFormat
+
+`func (o *SocialFeedPostCreateDto) SetBodyFormat(v string)`
+
+SetBodyFormat sets BodyFormat field to given value.
+
+### HasBodyFormat
+
+`func (o *SocialFeedPostCreateDto) HasBodyFormat() bool`
+
+HasBodyFormat returns a boolean if a field has been set.
+
+### SetBodyFormatNil
+
+`func (o *SocialFeedPostCreateDto) SetBodyFormatNil(b bool)`
+
+ SetBodyFormatNil sets the value for BodyFormat to be an explicit nil
+
+### UnsetBodyFormat
+`func (o *SocialFeedPostCreateDto) UnsetBodyFormat()`
+
+UnsetBodyFormat ensures that no value is present for BodyFormat, not even an explicit nil
+### GetBackgroundStyle
+
+`func (o *SocialFeedPostCreateDto) GetBackgroundStyle() string`
+
+GetBackgroundStyle returns the BackgroundStyle field if non-nil, zero value otherwise.
+
+### GetBackgroundStyleOk
+
+`func (o *SocialFeedPostCreateDto) GetBackgroundStyleOk() (*string, bool)`
+
+GetBackgroundStyleOk returns a tuple with the BackgroundStyle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackgroundStyle
+
+`func (o *SocialFeedPostCreateDto) SetBackgroundStyle(v string)`
+
+SetBackgroundStyle sets BackgroundStyle field to given value.
+
+### HasBackgroundStyle
+
+`func (o *SocialFeedPostCreateDto) HasBackgroundStyle() bool`
+
+HasBackgroundStyle returns a boolean if a field has been set.
+
+### SetBackgroundStyleNil
+
+`func (o *SocialFeedPostCreateDto) SetBackgroundStyleNil(b bool)`
+
+ SetBackgroundStyleNil sets the value for BackgroundStyle to be an explicit nil
+
+### UnsetBackgroundStyle
+`func (o *SocialFeedPostCreateDto) UnsetBackgroundStyle()`
+
+UnsetBackgroundStyle ensures that no value is present for BackgroundStyle, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

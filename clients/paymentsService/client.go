@@ -56,6 +56,8 @@ type APIClient struct {
 
 	PaymentModesAPI *PaymentModesAPIService
 
+	PaymentProviderRegistrationsAPI *PaymentProviderRegistrationsAPIService
+
 	PaymentTermsAPI *PaymentTermsAPIService
 
 	PaymentsAPI *PaymentsAPIService
@@ -80,6 +82,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.FenixAllianceABSWebAPI = (*FenixAllianceABSWebAPIService)(&c.common)
 	c.PaymentMethodsAPI = (*PaymentMethodsAPIService)(&c.common)
 	c.PaymentModesAPI = (*PaymentModesAPIService)(&c.common)
+	c.PaymentProviderRegistrationsAPI = (*PaymentProviderRegistrationsAPIService)(&c.common)
 	c.PaymentTermsAPI = (*PaymentTermsAPIService)(&c.common)
 	c.PaymentsAPI = (*PaymentsAPIService)(&c.common)
 

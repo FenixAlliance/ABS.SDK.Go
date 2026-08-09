@@ -1667,6 +1667,7 @@ type ApiGetBankAccountsRequest struct {
 	bankId string
 	apiVersion *string
 	xApiVersion *string
+	bankAccountDtoCollectionQueryParameters *BankAccountDtoCollectionQueryParameters
 }
 
 func (r ApiGetBankAccountsRequest) TenantId(tenantId string) ApiGetBankAccountsRequest {
@@ -1681,6 +1682,11 @@ func (r ApiGetBankAccountsRequest) ApiVersion(apiVersion string) ApiGetBankAccou
 
 func (r ApiGetBankAccountsRequest) XApiVersion(xApiVersion string) ApiGetBankAccountsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBankAccountsRequest) BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters BankAccountDtoCollectionQueryParameters) ApiGetBankAccountsRequest {
+	r.bankAccountDtoCollectionQueryParameters = &bankAccountDtoCollectionQueryParameters
 	return r
 }
 
@@ -1735,7 +1741,7 @@ func (a *BankingAPIService) GetBankAccountsExecute(r ApiGetBankAccountsRequest) 
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1754,6 +1760,8 @@ func (a *BankingAPIService) GetBankAccountsExecute(r ApiGetBankAccountsRequest) 
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.bankAccountDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1820,6 +1828,7 @@ type ApiGetBankAccountsCountRequest struct {
 	bankId string
 	apiVersion *string
 	xApiVersion *string
+	bankAccountDtoCollectionQueryParameters *BankAccountDtoCollectionQueryParameters
 }
 
 func (r ApiGetBankAccountsCountRequest) TenantId(tenantId string) ApiGetBankAccountsCountRequest {
@@ -1834,6 +1843,11 @@ func (r ApiGetBankAccountsCountRequest) ApiVersion(apiVersion string) ApiGetBank
 
 func (r ApiGetBankAccountsCountRequest) XApiVersion(xApiVersion string) ApiGetBankAccountsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBankAccountsCountRequest) BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters BankAccountDtoCollectionQueryParameters) ApiGetBankAccountsCountRequest {
+	r.bankAccountDtoCollectionQueryParameters = &bankAccountDtoCollectionQueryParameters
 	return r
 }
 
@@ -1888,7 +1902,7 @@ func (a *BankingAPIService) GetBankAccountsCountExecute(r ApiGetBankAccountsCoun
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1907,6 +1921,8 @@ func (a *BankingAPIService) GetBankAccountsCountExecute(r ApiGetBankAccountsCoun
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.bankAccountDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2141,6 +2157,7 @@ type ApiGetBankGuaranteesRequest struct {
 	bankId string
 	apiVersion *string
 	xApiVersion *string
+	bankGuaranteeDtoCollectionQueryParameters *BankGuaranteeDtoCollectionQueryParameters
 }
 
 func (r ApiGetBankGuaranteesRequest) TenantId(tenantId string) ApiGetBankGuaranteesRequest {
@@ -2155,6 +2172,11 @@ func (r ApiGetBankGuaranteesRequest) ApiVersion(apiVersion string) ApiGetBankGua
 
 func (r ApiGetBankGuaranteesRequest) XApiVersion(xApiVersion string) ApiGetBankGuaranteesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBankGuaranteesRequest) BankGuaranteeDtoCollectionQueryParameters(bankGuaranteeDtoCollectionQueryParameters BankGuaranteeDtoCollectionQueryParameters) ApiGetBankGuaranteesRequest {
+	r.bankGuaranteeDtoCollectionQueryParameters = &bankGuaranteeDtoCollectionQueryParameters
 	return r
 }
 
@@ -2209,7 +2231,7 @@ func (a *BankingAPIService) GetBankGuaranteesExecute(r ApiGetBankGuaranteesReque
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2228,6 +2250,8 @@ func (a *BankingAPIService) GetBankGuaranteesExecute(r ApiGetBankGuaranteesReque
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.bankGuaranteeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2294,6 +2318,7 @@ type ApiGetBankGuaranteesCountRequest struct {
 	bankId string
 	apiVersion *string
 	xApiVersion *string
+	bankGuaranteeDtoCollectionQueryParameters *BankGuaranteeDtoCollectionQueryParameters
 }
 
 func (r ApiGetBankGuaranteesCountRequest) TenantId(tenantId string) ApiGetBankGuaranteesCountRequest {
@@ -2308,6 +2333,11 @@ func (r ApiGetBankGuaranteesCountRequest) ApiVersion(apiVersion string) ApiGetBa
 
 func (r ApiGetBankGuaranteesCountRequest) XApiVersion(xApiVersion string) ApiGetBankGuaranteesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBankGuaranteesCountRequest) BankGuaranteeDtoCollectionQueryParameters(bankGuaranteeDtoCollectionQueryParameters BankGuaranteeDtoCollectionQueryParameters) ApiGetBankGuaranteesCountRequest {
+	r.bankGuaranteeDtoCollectionQueryParameters = &bankGuaranteeDtoCollectionQueryParameters
 	return r
 }
 
@@ -2362,7 +2392,7 @@ func (a *BankingAPIService) GetBankGuaranteesCountExecute(r ApiGetBankGuarantees
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2381,6 +2411,8 @@ func (a *BankingAPIService) GetBankGuaranteesCountExecute(r ApiGetBankGuarantees
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.bankGuaranteeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2615,6 +2647,7 @@ type ApiGetBankTransactionsRequest struct {
 	bankId string
 	apiVersion *string
 	xApiVersion *string
+	bankTransactionDtoCollectionQueryParameters *BankTransactionDtoCollectionQueryParameters
 }
 
 func (r ApiGetBankTransactionsRequest) TenantId(tenantId string) ApiGetBankTransactionsRequest {
@@ -2629,6 +2662,11 @@ func (r ApiGetBankTransactionsRequest) ApiVersion(apiVersion string) ApiGetBankT
 
 func (r ApiGetBankTransactionsRequest) XApiVersion(xApiVersion string) ApiGetBankTransactionsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBankTransactionsRequest) BankTransactionDtoCollectionQueryParameters(bankTransactionDtoCollectionQueryParameters BankTransactionDtoCollectionQueryParameters) ApiGetBankTransactionsRequest {
+	r.bankTransactionDtoCollectionQueryParameters = &bankTransactionDtoCollectionQueryParameters
 	return r
 }
 
@@ -2683,7 +2721,7 @@ func (a *BankingAPIService) GetBankTransactionsExecute(r ApiGetBankTransactionsR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2702,6 +2740,8 @@ func (a *BankingAPIService) GetBankTransactionsExecute(r ApiGetBankTransactionsR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.bankTransactionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2768,6 +2808,7 @@ type ApiGetBankTransactionsCountRequest struct {
 	bankId string
 	apiVersion *string
 	xApiVersion *string
+	bankTransactionDtoCollectionQueryParameters *BankTransactionDtoCollectionQueryParameters
 }
 
 func (r ApiGetBankTransactionsCountRequest) TenantId(tenantId string) ApiGetBankTransactionsCountRequest {
@@ -2782,6 +2823,11 @@ func (r ApiGetBankTransactionsCountRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetBankTransactionsCountRequest) XApiVersion(xApiVersion string) ApiGetBankTransactionsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBankTransactionsCountRequest) BankTransactionDtoCollectionQueryParameters(bankTransactionDtoCollectionQueryParameters BankTransactionDtoCollectionQueryParameters) ApiGetBankTransactionsCountRequest {
+	r.bankTransactionDtoCollectionQueryParameters = &bankTransactionDtoCollectionQueryParameters
 	return r
 }
 
@@ -2836,7 +2882,7 @@ func (a *BankingAPIService) GetBankTransactionsCountExecute(r ApiGetBankTransact
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2855,6 +2901,8 @@ func (a *BankingAPIService) GetBankTransactionsCountExecute(r ApiGetBankTransact
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.bankTransactionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2920,6 +2968,7 @@ type ApiGetBanksRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	bankDtoCollectionQueryParameters *BankDtoCollectionQueryParameters
 }
 
 func (r ApiGetBanksRequest) TenantId(tenantId string) ApiGetBanksRequest {
@@ -2934,6 +2983,11 @@ func (r ApiGetBanksRequest) ApiVersion(apiVersion string) ApiGetBanksRequest {
 
 func (r ApiGetBanksRequest) XApiVersion(xApiVersion string) ApiGetBanksRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBanksRequest) BankDtoCollectionQueryParameters(bankDtoCollectionQueryParameters BankDtoCollectionQueryParameters) ApiGetBanksRequest {
+	r.bankDtoCollectionQueryParameters = &bankDtoCollectionQueryParameters
 	return r
 }
 
@@ -2985,7 +3039,7 @@ func (a *BankingAPIService) GetBanksExecute(r ApiGetBanksRequest) (*BankDtoListE
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3004,6 +3058,8 @@ func (a *BankingAPIService) GetBanksExecute(r ApiGetBanksRequest) (*BankDtoListE
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.bankDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3069,6 +3125,7 @@ type ApiGetBanksCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	bankDtoCollectionQueryParameters *BankDtoCollectionQueryParameters
 }
 
 func (r ApiGetBanksCountRequest) TenantId(tenantId string) ApiGetBanksCountRequest {
@@ -3083,6 +3140,11 @@ func (r ApiGetBanksCountRequest) ApiVersion(apiVersion string) ApiGetBanksCountR
 
 func (r ApiGetBanksCountRequest) XApiVersion(xApiVersion string) ApiGetBanksCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBanksCountRequest) BankDtoCollectionQueryParameters(bankDtoCollectionQueryParameters BankDtoCollectionQueryParameters) ApiGetBanksCountRequest {
+	r.bankDtoCollectionQueryParameters = &bankDtoCollectionQueryParameters
 	return r
 }
 
@@ -3134,7 +3196,7 @@ func (a *BankingAPIService) GetBanksCountExecute(r ApiGetBanksCountRequest) (*In
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3153,6 +3215,8 @@ func (a *BankingAPIService) GetBanksCountExecute(r ApiGetBanksCountRequest) (*In
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.bankDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3219,7 +3283,7 @@ type ApiPatchBankRequest struct {
 	bankId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBankRequest) TenantId(tenantId string) ApiPatchBankRequest {
@@ -3237,8 +3301,8 @@ func (r ApiPatchBankRequest) XApiVersion(xApiVersion string) ApiPatchBankRequest
 	return r
 }
 
-func (r ApiPatchBankRequest) Operation(operation []Operation) ApiPatchBankRequest {
-	r.operation = &operation
+func (r ApiPatchBankRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBankRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -3313,7 +3377,7 @@ func (a *BankingAPIService) PatchBankExecute(r ApiPatchBankRequest) (*EmptyEnvel
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3403,7 +3467,7 @@ type ApiPatchBankAccountRequest struct {
 	accountId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBankAccountRequest) TenantId(tenantId string) ApiPatchBankAccountRequest {
@@ -3421,8 +3485,8 @@ func (r ApiPatchBankAccountRequest) XApiVersion(xApiVersion string) ApiPatchBank
 	return r
 }
 
-func (r ApiPatchBankAccountRequest) Operation(operation []Operation) ApiPatchBankAccountRequest {
-	r.operation = &operation
+func (r ApiPatchBankAccountRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBankAccountRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -3500,7 +3564,7 @@ func (a *BankingAPIService) PatchBankAccountExecute(r ApiPatchBankAccountRequest
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3590,7 +3654,7 @@ type ApiPatchBankGuaranteeRequest struct {
 	guaranteeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBankGuaranteeRequest) TenantId(tenantId string) ApiPatchBankGuaranteeRequest {
@@ -3608,8 +3672,8 @@ func (r ApiPatchBankGuaranteeRequest) XApiVersion(xApiVersion string) ApiPatchBa
 	return r
 }
 
-func (r ApiPatchBankGuaranteeRequest) Operation(operation []Operation) ApiPatchBankGuaranteeRequest {
-	r.operation = &operation
+func (r ApiPatchBankGuaranteeRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBankGuaranteeRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -3687,7 +3751,7 @@ func (a *BankingAPIService) PatchBankGuaranteeExecute(r ApiPatchBankGuaranteeReq
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3777,7 +3841,7 @@ type ApiPatchBankTransactionRequest struct {
 	transactionId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBankTransactionRequest) TenantId(tenantId string) ApiPatchBankTransactionRequest {
@@ -3795,8 +3859,8 @@ func (r ApiPatchBankTransactionRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchBankTransactionRequest) Operation(operation []Operation) ApiPatchBankTransactionRequest {
-	r.operation = &operation
+func (r ApiPatchBankTransactionRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBankTransactionRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -3874,7 +3938,7 @@ func (a *BankingAPIService) PatchBankTransactionExecute(r ApiPatchBankTransactio
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

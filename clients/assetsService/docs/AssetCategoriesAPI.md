@@ -154,7 +154,7 @@ No authorization required
 
 ## GetAssetCategories
 
-> AssetCategoryDtoListEnvelope GetAssetCategories(ctx).TenantId(tenantId).Execute()
+> AssetCategoryDtoListEnvelope GetAssetCategories(ctx).TenantId(tenantId).AssetCategoryDtoCollectionQueryParameters(assetCategoryDtoCollectionQueryParameters).Execute()
 
 Gets all asset categories for the current tenant
 
@@ -174,10 +174,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	assetCategoryDtoCollectionQueryParameters := *openapiclient.NewAssetCategoryDtoCollectionQueryParameters() // AssetCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AssetCategoriesAPI.GetAssetCategories(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.AssetCategoriesAPI.GetAssetCategories(context.Background()).TenantId(tenantId).AssetCategoryDtoCollectionQueryParameters(assetCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AssetCategoriesAPI.GetAssetCategories``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -199,6 +200,7 @@ Other parameters are passed through a pointer to a apiGetAssetCategoriesRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **assetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -210,7 +212,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -220,7 +222,7 @@ No authorization required
 
 ## GetAssetCategoriesCount
 
-> Int32Envelope GetAssetCategoriesCount(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetAssetCategoriesCount(ctx).TenantId(tenantId).AssetCategoryDtoCollectionQueryParameters(assetCategoryDtoCollectionQueryParameters).Execute()
 
 Gets the count of asset categories
 
@@ -240,10 +242,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	assetCategoryDtoCollectionQueryParameters := *openapiclient.NewAssetCategoryDtoCollectionQueryParameters() // AssetCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AssetCategoriesAPI.GetAssetCategoriesCount(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.AssetCategoriesAPI.GetAssetCategoriesCount(context.Background()).TenantId(tenantId).AssetCategoryDtoCollectionQueryParameters(assetCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AssetCategoriesAPI.GetAssetCategoriesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -265,6 +268,7 @@ Other parameters are passed through a pointer to a apiGetAssetCategoriesCountReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **assetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -276,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -358,7 +362,7 @@ No authorization required
 
 ## PatchAssetCategory
 
-> EmptyEnvelope PatchAssetCategory(ctx, categoryId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchAssetCategory(ctx, categoryId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Partially updates an existing asset category
 
@@ -379,11 +383,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	categoryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AssetCategoriesAPI.PatchAssetCategory(context.Background(), categoryId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.AssetCategoriesAPI.PatchAssetCategory(context.Background(), categoryId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AssetCategoriesAPI.PatchAssetCategory``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -410,7 +414,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

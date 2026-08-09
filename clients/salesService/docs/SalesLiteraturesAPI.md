@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## CountSalesLiteraturesAsync
 
-> Int32Envelope CountSalesLiteraturesAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope CountSalesLiteraturesAsync(ctx).TenantId(tenantId).SalesLiteratureDtoCollectionQueryParameters(salesLiteratureDtoCollectionQueryParameters).Execute()
 
 Get sales literatures count
 
@@ -37,10 +37,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	salesLiteratureDtoCollectionQueryParameters := *openapiclient.NewSalesLiteratureDtoCollectionQueryParameters() // SalesLiteratureDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SalesLiteraturesAPI.CountSalesLiteraturesAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.SalesLiteraturesAPI.CountSalesLiteraturesAsync(context.Background()).TenantId(tenantId).SalesLiteratureDtoCollectionQueryParameters(salesLiteratureDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SalesLiteraturesAPI.CountSalesLiteraturesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,6 +63,7 @@ Other parameters are passed through a pointer to a apiCountSalesLiteraturesAsync
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **salesLiteratureDtoCollectionQueryParameters** | [**SalesLiteratureDtoCollectionQueryParameters**](SalesLiteratureDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -73,7 +75,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -223,7 +225,7 @@ No authorization required
 
 ## GetExtendedSalesLiteraturesAsync
 
-> ExtendedSalesLiteratureDtoListEnvelope GetExtendedSalesLiteraturesAsync(ctx).TenantId(tenantId).Execute()
+> ExtendedSalesLiteratureDtoListEnvelope GetExtendedSalesLiteraturesAsync(ctx).TenantId(tenantId).ExtendedSalesLiteratureDtoCollectionQueryParameters(extendedSalesLiteratureDtoCollectionQueryParameters).Execute()
 
 Get extended sales literatures
 
@@ -243,10 +245,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	extendedSalesLiteratureDtoCollectionQueryParameters := *openapiclient.NewExtendedSalesLiteratureDtoCollectionQueryParameters() // ExtendedSalesLiteratureDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SalesLiteraturesAPI.GetExtendedSalesLiteraturesAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.SalesLiteraturesAPI.GetExtendedSalesLiteraturesAsync(context.Background()).TenantId(tenantId).ExtendedSalesLiteratureDtoCollectionQueryParameters(extendedSalesLiteratureDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SalesLiteraturesAPI.GetExtendedSalesLiteraturesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -268,6 +271,7 @@ Other parameters are passed through a pointer to a apiGetExtendedSalesLiterature
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **extendedSalesLiteratureDtoCollectionQueryParameters** | [**ExtendedSalesLiteratureDtoCollectionQueryParameters**](ExtendedSalesLiteratureDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -279,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -361,7 +365,7 @@ No authorization required
 
 ## GetSalesLiteraturesAsync
 
-> SalesLiteratureDtoListEnvelope GetSalesLiteraturesAsync(ctx).TenantId(tenantId).Execute()
+> SalesLiteratureDtoListEnvelope GetSalesLiteraturesAsync(ctx).TenantId(tenantId).SalesLiteratureDtoCollectionQueryParameters(salesLiteratureDtoCollectionQueryParameters).Execute()
 
 Get sales literatures
 
@@ -381,10 +385,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	salesLiteratureDtoCollectionQueryParameters := *openapiclient.NewSalesLiteratureDtoCollectionQueryParameters() // SalesLiteratureDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SalesLiteraturesAPI.GetSalesLiteraturesAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.SalesLiteraturesAPI.GetSalesLiteraturesAsync(context.Background()).TenantId(tenantId).SalesLiteratureDtoCollectionQueryParameters(salesLiteratureDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SalesLiteraturesAPI.GetSalesLiteraturesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -406,6 +411,7 @@ Other parameters are passed through a pointer to a apiGetSalesLiteraturesAsyncRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **salesLiteratureDtoCollectionQueryParameters** | [**SalesLiteratureDtoCollectionQueryParameters**](SalesLiteratureDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -417,7 +423,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -427,7 +433,7 @@ No authorization required
 
 ## PatchSalesLiteratureAsync
 
-> EmptyEnvelope PatchSalesLiteratureAsync(ctx, salesLiteratureId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchSalesLiteratureAsync(ctx, salesLiteratureId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a sales literature
 
@@ -448,11 +454,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	salesLiteratureId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SalesLiteraturesAPI.PatchSalesLiteratureAsync(context.Background(), salesLiteratureId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.SalesLiteraturesAPI.PatchSalesLiteratureAsync(context.Background(), salesLiteratureId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SalesLiteraturesAPI.PatchSalesLiteratureAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -479,7 +485,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

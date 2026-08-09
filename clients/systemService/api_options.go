@@ -635,6 +635,7 @@ type ApiGetSystemOptionsRequest struct {
 	portalId *string
 	apiVersion *string
 	xApiVersion *string
+	optionDtoCollectionQueryParameters *OptionDtoCollectionQueryParameters
 }
 
 func (r ApiGetSystemOptionsRequest) PortalId(portalId string) ApiGetSystemOptionsRequest {
@@ -649,6 +650,11 @@ func (r ApiGetSystemOptionsRequest) ApiVersion(apiVersion string) ApiGetSystemOp
 
 func (r ApiGetSystemOptionsRequest) XApiVersion(xApiVersion string) ApiGetSystemOptionsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSystemOptionsRequest) OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters OptionDtoCollectionQueryParameters) ApiGetSystemOptionsRequest {
+	r.optionDtoCollectionQueryParameters = &optionDtoCollectionQueryParameters
 	return r
 }
 
@@ -700,7 +706,7 @@ func (a *OptionsAPIService) GetSystemOptionsExecute(r ApiGetSystemOptionsRequest
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -719,6 +725,8 @@ func (a *OptionsAPIService) GetSystemOptionsExecute(r ApiGetSystemOptionsRequest
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.optionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -784,6 +792,7 @@ type ApiGetSystemOptionsCountRequest struct {
 	portalId *string
 	apiVersion *string
 	xApiVersion *string
+	optionDtoCollectionQueryParameters *OptionDtoCollectionQueryParameters
 }
 
 func (r ApiGetSystemOptionsCountRequest) PortalId(portalId string) ApiGetSystemOptionsCountRequest {
@@ -798,6 +807,11 @@ func (r ApiGetSystemOptionsCountRequest) ApiVersion(apiVersion string) ApiGetSys
 
 func (r ApiGetSystemOptionsCountRequest) XApiVersion(xApiVersion string) ApiGetSystemOptionsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSystemOptionsCountRequest) OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters OptionDtoCollectionQueryParameters) ApiGetSystemOptionsCountRequest {
+	r.optionDtoCollectionQueryParameters = &optionDtoCollectionQueryParameters
 	return r
 }
 
@@ -849,7 +863,7 @@ func (a *OptionsAPIService) GetSystemOptionsCountExecute(r ApiGetSystemOptionsCo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -868,6 +882,8 @@ func (a *OptionsAPIService) GetSystemOptionsCountExecute(r ApiGetSystemOptionsCo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.optionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -933,7 +949,7 @@ type ApiPatchSystemOptionRequest struct {
 	optionId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSystemOptionRequest) ApiVersion(apiVersion string) ApiPatchSystemOptionRequest {
@@ -946,8 +962,8 @@ func (r ApiPatchSystemOptionRequest) XApiVersion(xApiVersion string) ApiPatchSys
 	return r
 }
 
-func (r ApiPatchSystemOptionRequest) Operation(operation []Operation) ApiPatchSystemOptionRequest {
-	r.operation = &operation
+func (r ApiPatchSystemOptionRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSystemOptionRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1018,7 +1034,7 @@ func (a *OptionsAPIService) PatchSystemOptionExecute(r ApiPatchSystemOptionReque
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

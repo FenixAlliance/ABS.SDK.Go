@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **ErrorMessage** | Pointer to **NullableString** |  | [optional] 
 **CorrelationId** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**HttpStatus** | Pointer to **NullableInt32** |  | [optional] 
+**ErrorCode** | Pointer to **NullableString** |  | [optional] 
+**ValidationDetails** | Pointer to **map[string][]string** |  | [optional] 
 **ActivityId** | Pointer to **NullableString** |  | [optional] [readonly] 
 **Result** | Pointer to [**ShippingLabelDto**](ShippingLabelDto.md) |  | [optional] 
 
@@ -150,6 +153,111 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
+### GetHttpStatus
+
+`func (o *ShippingLabelDtoEnvelope) GetHttpStatus() int32`
+
+GetHttpStatus returns the HttpStatus field if non-nil, zero value otherwise.
+
+### GetHttpStatusOk
+
+`func (o *ShippingLabelDtoEnvelope) GetHttpStatusOk() (*int32, bool)`
+
+GetHttpStatusOk returns a tuple with the HttpStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHttpStatus
+
+`func (o *ShippingLabelDtoEnvelope) SetHttpStatus(v int32)`
+
+SetHttpStatus sets HttpStatus field to given value.
+
+### HasHttpStatus
+
+`func (o *ShippingLabelDtoEnvelope) HasHttpStatus() bool`
+
+HasHttpStatus returns a boolean if a field has been set.
+
+### SetHttpStatusNil
+
+`func (o *ShippingLabelDtoEnvelope) SetHttpStatusNil(b bool)`
+
+ SetHttpStatusNil sets the value for HttpStatus to be an explicit nil
+
+### UnsetHttpStatus
+`func (o *ShippingLabelDtoEnvelope) UnsetHttpStatus()`
+
+UnsetHttpStatus ensures that no value is present for HttpStatus, not even an explicit nil
+### GetErrorCode
+
+`func (o *ShippingLabelDtoEnvelope) GetErrorCode() string`
+
+GetErrorCode returns the ErrorCode field if non-nil, zero value otherwise.
+
+### GetErrorCodeOk
+
+`func (o *ShippingLabelDtoEnvelope) GetErrorCodeOk() (*string, bool)`
+
+GetErrorCodeOk returns a tuple with the ErrorCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorCode
+
+`func (o *ShippingLabelDtoEnvelope) SetErrorCode(v string)`
+
+SetErrorCode sets ErrorCode field to given value.
+
+### HasErrorCode
+
+`func (o *ShippingLabelDtoEnvelope) HasErrorCode() bool`
+
+HasErrorCode returns a boolean if a field has been set.
+
+### SetErrorCodeNil
+
+`func (o *ShippingLabelDtoEnvelope) SetErrorCodeNil(b bool)`
+
+ SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
+
+### UnsetErrorCode
+`func (o *ShippingLabelDtoEnvelope) UnsetErrorCode()`
+
+UnsetErrorCode ensures that no value is present for ErrorCode, not even an explicit nil
+### GetValidationDetails
+
+`func (o *ShippingLabelDtoEnvelope) GetValidationDetails() map[string][]string`
+
+GetValidationDetails returns the ValidationDetails field if non-nil, zero value otherwise.
+
+### GetValidationDetailsOk
+
+`func (o *ShippingLabelDtoEnvelope) GetValidationDetailsOk() (*map[string][]string, bool)`
+
+GetValidationDetailsOk returns a tuple with the ValidationDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidationDetails
+
+`func (o *ShippingLabelDtoEnvelope) SetValidationDetails(v map[string][]string)`
+
+SetValidationDetails sets ValidationDetails field to given value.
+
+### HasValidationDetails
+
+`func (o *ShippingLabelDtoEnvelope) HasValidationDetails() bool`
+
+HasValidationDetails returns a boolean if a field has been set.
+
+### SetValidationDetailsNil
+
+`func (o *ShippingLabelDtoEnvelope) SetValidationDetailsNil(b bool)`
+
+ SetValidationDetailsNil sets the value for ValidationDetails to be an explicit nil
+
+### UnsetValidationDetails
+`func (o *ShippingLabelDtoEnvelope) UnsetValidationDetails()`
+
+UnsetValidationDetails ensures that no value is present for ValidationDetails, not even an explicit nil
 ### GetActivityId
 
 `func (o *ShippingLabelDtoEnvelope) GetActivityId() string`

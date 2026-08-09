@@ -307,6 +307,7 @@ type ApiGetCourseLibrariesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	courseLibraryDtoCollectionQueryParameters *CourseLibraryDtoCollectionQueryParameters
 }
 
 func (r ApiGetCourseLibrariesAsyncRequest) TenantId(tenantId string) ApiGetCourseLibrariesAsyncRequest {
@@ -321,6 +322,11 @@ func (r ApiGetCourseLibrariesAsyncRequest) ApiVersion(apiVersion string) ApiGetC
 
 func (r ApiGetCourseLibrariesAsyncRequest) XApiVersion(xApiVersion string) ApiGetCourseLibrariesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCourseLibrariesAsyncRequest) CourseLibraryDtoCollectionQueryParameters(courseLibraryDtoCollectionQueryParameters CourseLibraryDtoCollectionQueryParameters) ApiGetCourseLibrariesAsyncRequest {
+	r.courseLibraryDtoCollectionQueryParameters = &courseLibraryDtoCollectionQueryParameters
 	return r
 }
 
@@ -372,7 +378,7 @@ func (a *CourseLibrariesAPIService) GetCourseLibrariesAsyncExecute(r ApiGetCours
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -391,6 +397,8 @@ func (a *CourseLibrariesAPIService) GetCourseLibrariesAsyncExecute(r ApiGetCours
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseLibraryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -445,6 +453,7 @@ type ApiGetCourseLibrariesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	courseLibraryDtoCollectionQueryParameters *CourseLibraryDtoCollectionQueryParameters
 }
 
 func (r ApiGetCourseLibrariesCountAsyncRequest) TenantId(tenantId string) ApiGetCourseLibrariesCountAsyncRequest {
@@ -459,6 +468,11 @@ func (r ApiGetCourseLibrariesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetCourseLibrariesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetCourseLibrariesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCourseLibrariesCountAsyncRequest) CourseLibraryDtoCollectionQueryParameters(courseLibraryDtoCollectionQueryParameters CourseLibraryDtoCollectionQueryParameters) ApiGetCourseLibrariesCountAsyncRequest {
+	r.courseLibraryDtoCollectionQueryParameters = &courseLibraryDtoCollectionQueryParameters
 	return r
 }
 
@@ -510,7 +524,7 @@ func (a *CourseLibrariesAPIService) GetCourseLibrariesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -529,6 +543,8 @@ func (a *CourseLibrariesAPIService) GetCourseLibrariesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseLibraryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -716,7 +732,7 @@ type ApiPatchCourseLibraryAsyncRequest struct {
 	libraryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCourseLibraryAsyncRequest) TenantId(tenantId string) ApiPatchCourseLibraryAsyncRequest {
@@ -734,8 +750,8 @@ func (r ApiPatchCourseLibraryAsyncRequest) XApiVersion(xApiVersion string) ApiPa
 	return r
 }
 
-func (r ApiPatchCourseLibraryAsyncRequest) Operation(operation []Operation) ApiPatchCourseLibraryAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchCourseLibraryAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCourseLibraryAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -808,7 +824,7 @@ func (a *CourseLibrariesAPIService) PatchCourseLibraryAsyncExecute(r ApiPatchCou
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

@@ -581,7 +581,7 @@ No authorization required
 
 ## GetBusinessOwnedIndividualsAsync
 
-> ContactDtoListEnvelope GetBusinessOwnedIndividualsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ContactDtoListEnvelope GetBusinessOwnedIndividualsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 
 Get all contacts of type individual
 
@@ -603,10 +603,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactDtoCollectionQueryParameters := *openapiclient.NewContactDtoCollectionQueryParameters() // ContactDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetBusinessOwnedIndividualsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetBusinessOwnedIndividualsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetBusinessOwnedIndividualsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -630,6 +631,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -641,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -651,7 +653,7 @@ No authorization required
 
 ## GetBusinessOwnedIndividualsCountAsync
 
-> ContactDtoListEnvelope GetBusinessOwnedIndividualsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ContactDtoListEnvelope GetBusinessOwnedIndividualsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 
 Get all contacts of type individual count
 
@@ -673,10 +675,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactDtoCollectionQueryParameters := *openapiclient.NewContactDtoCollectionQueryParameters() // ContactDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetBusinessOwnedIndividualsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetBusinessOwnedIndividualsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetBusinessOwnedIndividualsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -700,6 +703,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -711,7 +715,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -797,7 +801,7 @@ No authorization required
 
 ## GetBusinessOwnedOrganizationsAsync
 
-> []ContactDto GetBusinessOwnedOrganizationsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []ContactDto GetBusinessOwnedOrganizationsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 
 Get all contacts of type organization
 
@@ -819,10 +823,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactDtoCollectionQueryParameters := *openapiclient.NewContactDtoCollectionQueryParameters() // ContactDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetBusinessOwnedOrganizationsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetBusinessOwnedOrganizationsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetBusinessOwnedOrganizationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -846,6 +851,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -857,7 +863,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -867,7 +873,7 @@ No authorization required
 
 ## GetBusinessOwnedOrganizationsCountAsync
 
-> ContactDtoListEnvelope GetBusinessOwnedOrganizationsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ContactDtoListEnvelope GetBusinessOwnedOrganizationsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 
 Get all contacts of type organization count
 
@@ -889,10 +895,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactDtoCollectionQueryParameters := *openapiclient.NewContactDtoCollectionQueryParameters() // ContactDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetBusinessOwnedOrganizationsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetBusinessOwnedOrganizationsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetBusinessOwnedOrganizationsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -916,6 +923,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -927,7 +935,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1165,7 +1173,7 @@ No authorization required
 
 ## GetContactEmailsAsync
 
-> ContactEmailDtoListEnvelope GetContactEmailsAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ContactEmailDtoListEnvelope GetContactEmailsAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactEmailDtoCollectionQueryParameters(contactEmailDtoCollectionQueryParameters).Execute()
 
 Get a contact's email addresses
 
@@ -1188,10 +1196,11 @@ func main() {
 	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactEmailDtoCollectionQueryParameters := *openapiclient.NewContactEmailDtoCollectionQueryParameters() // ContactEmailDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetContactEmailsAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetContactEmailsAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactEmailDtoCollectionQueryParameters(contactEmailDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetContactEmailsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1220,6 +1229,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **contactEmailDtoCollectionQueryParameters** | [**ContactEmailDtoCollectionQueryParameters**](ContactEmailDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1231,7 +1241,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1241,7 +1251,7 @@ No authorization required
 
 ## GetContactEmailsCountAsync
 
-> Int32Envelope GetContactEmailsCountAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetContactEmailsCountAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactEmailDtoCollectionQueryParameters(contactEmailDtoCollectionQueryParameters).Execute()
 
 Get contact email addresses count
 
@@ -1264,10 +1274,11 @@ func main() {
 	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactEmailDtoCollectionQueryParameters := *openapiclient.NewContactEmailDtoCollectionQueryParameters() // ContactEmailDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetContactEmailsCountAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetContactEmailsCountAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactEmailDtoCollectionQueryParameters(contactEmailDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetContactEmailsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1296,6 +1307,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **contactEmailDtoCollectionQueryParameters** | [**ContactEmailDtoCollectionQueryParameters**](ContactEmailDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1307,7 +1319,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1469,7 +1481,7 @@ No authorization required
 
 ## GetContactsAsync
 
-> ContactDtoListEnvelope GetContactsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ContactDtoListEnvelope GetContactsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 
 Get all business owned contacts
 
@@ -1491,10 +1503,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactDtoCollectionQueryParameters := *openapiclient.NewContactDtoCollectionQueryParameters() // ContactDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetContactsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetContactsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetContactsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1518,6 +1531,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1529,7 +1543,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1539,7 +1553,7 @@ No authorization required
 
 ## GetContactsCountAsync
 
-> ContactDtoListEnvelope GetContactsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ContactDtoListEnvelope GetContactsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 
 Get all business owned contacts count
 
@@ -1561,10 +1575,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactDtoCollectionQueryParameters := *openapiclient.NewContactDtoCollectionQueryParameters() // ContactDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetContactsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetContactsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactDtoCollectionQueryParameters(contactDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetContactsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1588,6 +1603,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1599,7 +1615,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1609,7 +1625,7 @@ No authorization required
 
 ## GetExtendedBusinessOwnedIndividualsAsync
 
-> ExtendedContactDtoListEnvelope GetExtendedBusinessOwnedIndividualsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ExtendedContactDtoListEnvelope GetExtendedBusinessOwnedIndividualsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedContactDtoCollectionQueryParameters(extendedContactDtoCollectionQueryParameters).Execute()
 
 Get all contacts of type individual
 
@@ -1631,10 +1647,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	extendedContactDtoCollectionQueryParameters := *openapiclient.NewExtendedContactDtoCollectionQueryParameters() // ExtendedContactDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetExtendedBusinessOwnedIndividualsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetExtendedBusinessOwnedIndividualsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedContactDtoCollectionQueryParameters(extendedContactDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetExtendedBusinessOwnedIndividualsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1658,6 +1675,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **extendedContactDtoCollectionQueryParameters** | [**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1669,7 +1687,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1679,7 +1697,7 @@ No authorization required
 
 ## GetExtendedBusinessOwnedOrganizationsAsync
 
-> ExtendedContactDtoListEnvelope GetExtendedBusinessOwnedOrganizationsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ExtendedContactDtoListEnvelope GetExtendedBusinessOwnedOrganizationsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedContactDtoCollectionQueryParameters(extendedContactDtoCollectionQueryParameters).Execute()
 
 Get all contacts of type organization
 
@@ -1701,10 +1719,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	extendedContactDtoCollectionQueryParameters := *openapiclient.NewExtendedContactDtoCollectionQueryParameters() // ExtendedContactDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetExtendedBusinessOwnedOrganizationsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetExtendedBusinessOwnedOrganizationsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedContactDtoCollectionQueryParameters(extendedContactDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetExtendedBusinessOwnedOrganizationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1728,6 +1747,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **extendedContactDtoCollectionQueryParameters** | [**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1739,7 +1759,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1825,7 +1845,7 @@ No authorization required
 
 ## GetExtendedContactsAsync
 
-> ExtendedContactDtoListEnvelope GetExtendedContactsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ExtendedContactDtoListEnvelope GetExtendedContactsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedContactDtoCollectionQueryParameters(extendedContactDtoCollectionQueryParameters).Execute()
 
 Get all business owned contacts
 
@@ -1847,10 +1867,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	extendedContactDtoCollectionQueryParameters := *openapiclient.NewExtendedContactDtoCollectionQueryParameters() // ExtendedContactDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetExtendedContactsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetExtendedContactsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedContactDtoCollectionQueryParameters(extendedContactDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetExtendedContactsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1874,6 +1895,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **extendedContactDtoCollectionQueryParameters** | [**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1885,7 +1907,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2275,7 +2297,7 @@ No authorization required
 
 ## GetProfilesForContactCountAsync
 
-> Int32Envelope GetProfilesForContactCountAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetProfilesForContactCountAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactProfileDtoCollectionQueryParameters(contactProfileDtoCollectionQueryParameters).Execute()
 
 Get contact profiles count
 
@@ -2298,10 +2320,11 @@ func main() {
 	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	contactProfileDtoCollectionQueryParameters := *openapiclient.NewContactProfileDtoCollectionQueryParameters() // ContactProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.GetProfilesForContactCountAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ContactsAPI.GetProfilesForContactCountAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ContactProfileDtoCollectionQueryParameters(contactProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.GetProfilesForContactCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2330,6 +2353,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2341,7 +2365,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2351,7 +2375,7 @@ No authorization required
 
 ## PatchContactAsync
 
-> EmptyEnvelope PatchContactAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchContactAsync(ctx, contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a contact
 
@@ -2374,11 +2398,11 @@ func main() {
 	contactId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ContactsAPI.PatchContactAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ContactsAPI.PatchContactAsync(context.Background(), contactId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.PatchContactAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2407,7 +2431,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -2429,7 +2453,7 @@ No authorization required
 
 ## PatchContactEmailAsync
 
-> PatchContactEmailAsync(ctx, contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> PatchContactEmailAsync(ctx, contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a contact email address
 
@@ -2453,11 +2477,11 @@ func main() {
 	emailId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ContactsAPI.PatchContactEmailAsync(context.Background(), contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	r, err := apiClient.ContactsAPI.PatchContactEmailAsync(context.Background(), contactId, emailId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactsAPI.PatchContactEmailAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2486,7 +2510,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

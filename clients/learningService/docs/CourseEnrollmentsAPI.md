@@ -237,7 +237,7 @@ No authorization required
 
 ## GetEnrollmentsAsync
 
-> []CourseEnrollmentDto GetEnrollmentsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseEnrollmentDto GetEnrollmentsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 
 Get all course enrollments
 
@@ -259,10 +259,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseEnrollmentDtoCollectionQueryParameters := *openapiclient.NewCourseEnrollmentDtoCollectionQueryParameters() // CourseEnrollmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseEnrollmentsAPI.GetEnrollmentsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CourseEnrollmentsAPI.GetEnrollmentsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseEnrollmentsAPI.GetEnrollmentsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -286,6 +287,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -297,7 +299,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -307,7 +309,7 @@ No authorization required
 
 ## GetEnrollmentsCountAsync
 
-> int32 GetEnrollmentsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetEnrollmentsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 
 Get course enrollments count
 
@@ -329,10 +331,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseEnrollmentDtoCollectionQueryParameters := *openapiclient.NewCourseEnrollmentDtoCollectionQueryParameters() // CourseEnrollmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseEnrollmentsAPI.GetEnrollmentsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CourseEnrollmentsAPI.GetEnrollmentsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseEnrollmentsAPI.GetEnrollmentsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -356,6 +359,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -367,7 +371,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -377,7 +381,7 @@ No authorization required
 
 ## GetStudentCourseEnrollmentsAsync
 
-> []CourseEnrollmentDto GetStudentCourseEnrollmentsAsync(ctx, studentProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseEnrollmentDto GetStudentCourseEnrollmentsAsync(ctx, studentProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 
 Get enrollments by student
 
@@ -400,10 +404,11 @@ func main() {
 	studentProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseEnrollmentDtoCollectionQueryParameters := *openapiclient.NewCourseEnrollmentDtoCollectionQueryParameters() // CourseEnrollmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseEnrollmentsAPI.GetStudentCourseEnrollmentsAsync(context.Background(), studentProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CourseEnrollmentsAPI.GetStudentCourseEnrollmentsAsync(context.Background(), studentProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseEnrollmentsAPI.GetStudentCourseEnrollmentsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -432,6 +437,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -443,7 +449,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -453,7 +459,7 @@ No authorization required
 
 ## PatchCourseEnrollmentAsync
 
-> PatchCourseEnrollmentAsync(ctx, courseEnrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> PatchCourseEnrollmentAsync(ctx, courseEnrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a course enrollment
 
@@ -476,11 +482,11 @@ func main() {
 	courseEnrollmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.CourseEnrollmentsAPI.PatchCourseEnrollmentAsync(context.Background(), courseEnrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	r, err := apiClient.CourseEnrollmentsAPI.PatchCourseEnrollmentAsync(context.Background(), courseEnrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseEnrollmentsAPI.PatchCourseEnrollmentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -507,7 +513,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## CountStoresAsync
 
-> Int32Envelope CountStoresAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope CountStoresAsync(ctx).TenantId(tenantId).StoreDtoCollectionQueryParameters(storeDtoCollectionQueryParameters).Execute()
 
 Get stores count
 
@@ -36,10 +36,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	storeDtoCollectionQueryParameters := *openapiclient.NewStoreDtoCollectionQueryParameters() // StoreDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StoresAPI.CountStoresAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.StoresAPI.CountStoresAsync(context.Background()).TenantId(tenantId).StoreDtoCollectionQueryParameters(storeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StoresAPI.CountStoresAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,6 +62,7 @@ Other parameters are passed through a pointer to a apiCountStoresAsyncRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **storeDtoCollectionQueryParameters** | [**StoreDtoCollectionQueryParameters**](StoreDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -72,7 +74,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -294,7 +296,7 @@ No authorization required
 
 ## GetStoresAsync
 
-> StoreDtoListEnvelope GetStoresAsync(ctx).TenantId(tenantId).Execute()
+> StoreDtoListEnvelope GetStoresAsync(ctx).TenantId(tenantId).StoreDtoCollectionQueryParameters(storeDtoCollectionQueryParameters).Execute()
 
 Get stores
 
@@ -314,10 +316,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	storeDtoCollectionQueryParameters := *openapiclient.NewStoreDtoCollectionQueryParameters() // StoreDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StoresAPI.GetStoresAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.StoresAPI.GetStoresAsync(context.Background()).TenantId(tenantId).StoreDtoCollectionQueryParameters(storeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StoresAPI.GetStoresAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -339,6 +342,7 @@ Other parameters are passed through a pointer to a apiGetStoresAsyncRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **storeDtoCollectionQueryParameters** | [**StoreDtoCollectionQueryParameters**](StoreDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -350,7 +354,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -360,7 +364,7 @@ No authorization required
 
 ## PatchStoreAsync
 
-> EmptyEnvelope PatchStoreAsync(ctx, storeId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchStoreAsync(ctx, storeId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a store
 
@@ -381,11 +385,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	storeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StoresAPI.PatchStoreAsync(context.Background(), storeId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.StoresAPI.PatchStoreAsync(context.Background(), storeId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StoresAPI.PatchStoreAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -412,7 +416,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

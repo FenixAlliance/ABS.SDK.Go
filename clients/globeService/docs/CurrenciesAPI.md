@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## CountCurrenciesAsync
 
-> Int32Envelope CountCurrenciesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCurrenciesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CurrencyDtoCollectionQueryParameters(currencyDtoCollectionQueryParameters).Execute()
 
 Count currencies
 
@@ -33,10 +33,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	currencyDtoCollectionQueryParameters := *openapiclient.NewCurrencyDtoCollectionQueryParameters() // CurrencyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CurrenciesAPI.CountCurrenciesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CurrenciesAPI.CountCurrenciesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CurrencyDtoCollectionQueryParameters(currencyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CurrenciesAPI.CountCurrenciesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -59,6 +60,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **currencyDtoCollectionQueryParameters** | [**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -70,7 +72,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -154,7 +156,7 @@ No authorization required
 
 ## GetEnabledCurrenciesAsync
 
-> CurrencyDtoListEnvelope GetEnabledCurrenciesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CurrencyDtoListEnvelope GetEnabledCurrenciesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CurrencyDtoCollectionQueryParameters(currencyDtoCollectionQueryParameters).Execute()
 
 Get all currencies
 
@@ -175,10 +177,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	currencyDtoCollectionQueryParameters := *openapiclient.NewCurrencyDtoCollectionQueryParameters() // CurrencyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CurrenciesAPI.GetEnabledCurrenciesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CurrenciesAPI.GetEnabledCurrenciesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CurrencyDtoCollectionQueryParameters(currencyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CurrenciesAPI.GetEnabledCurrenciesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,6 +204,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **currencyDtoCollectionQueryParameters** | [**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -212,7 +216,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

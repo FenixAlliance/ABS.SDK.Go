@@ -1240,7 +1240,7 @@ type ApiPatchItemCartRecordRequest struct {
 	recordId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemCartRecordRequest) ApiVersion(apiVersion string) ApiPatchItemCartRecordRequest {
@@ -1253,8 +1253,8 @@ func (r ApiPatchItemCartRecordRequest) XApiVersion(xApiVersion string) ApiPatchI
 	return r
 }
 
-func (r ApiPatchItemCartRecordRequest) Operation(operation []Operation) ApiPatchItemCartRecordRequest {
-	r.operation = &operation
+func (r ApiPatchItemCartRecordRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemCartRecordRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1325,7 +1325,7 @@ func (a *RecordsAPIService) PatchItemCartRecordExecute(r ApiPatchItemCartRecordR
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

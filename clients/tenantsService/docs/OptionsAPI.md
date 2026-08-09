@@ -324,7 +324,7 @@ No authorization required
 
 ## GetTenantOptions
 
-> OptionDtoListEnvelope GetTenantOptions(ctx).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> OptionDtoListEnvelope GetTenantOptions(ctx).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of tenant options
 
@@ -347,10 +347,11 @@ func main() {
 	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	optionDtoCollectionQueryParameters := *openapiclient.NewOptionDtoCollectionQueryParameters() // OptionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OptionsAPI.GetTenantOptions(context.Background()).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.OptionsAPI.GetTenantOptions(context.Background()).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.GetTenantOptions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -375,6 +376,7 @@ Name | Type | Description  | Notes
  **portalId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -386,7 +388,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -396,7 +398,7 @@ No authorization required
 
 ## GetTenantOptionsCount
 
-> Int32Envelope GetTenantOptionsCount(ctx).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetTenantOptionsCount(ctx).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 
 Get the count of tenant options
 
@@ -419,10 +421,11 @@ func main() {
 	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	optionDtoCollectionQueryParameters := *openapiclient.NewOptionDtoCollectionQueryParameters() // OptionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OptionsAPI.GetTenantOptionsCount(context.Background()).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.OptionsAPI.GetTenantOptionsCount(context.Background()).TenantId(tenantId).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.GetTenantOptionsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -447,6 +450,7 @@ Name | Type | Description  | Notes
  **portalId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -458,7 +462,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -468,7 +472,7 @@ No authorization required
 
 ## PatchTenantOption
 
-> EmptyEnvelope PatchTenantOption(ctx, optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchTenantOption(ctx, optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a tenant option
 
@@ -491,11 +495,11 @@ func main() {
 	optionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OptionsAPI.PatchTenantOption(context.Background(), optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.OptionsAPI.PatchTenantOption(context.Background(), optionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.PatchTenantOption``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -524,7 +528,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

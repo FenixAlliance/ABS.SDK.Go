@@ -515,6 +515,7 @@ type ApiGetShiftsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shiftDtoCollectionQueryParameters *ShiftDtoCollectionQueryParameters
 }
 
 func (r ApiGetShiftsAsyncRequest) TenantId(tenantId string) ApiGetShiftsAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetShiftsAsyncRequest) ApiVersion(apiVersion string) ApiGetShiftsAsyn
 
 func (r ApiGetShiftsAsyncRequest) XApiVersion(xApiVersion string) ApiGetShiftsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShiftsAsyncRequest) ShiftDtoCollectionQueryParameters(shiftDtoCollectionQueryParameters ShiftDtoCollectionQueryParameters) ApiGetShiftsAsyncRequest {
+	r.shiftDtoCollectionQueryParameters = &shiftDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *ShiftsAPIService) GetShiftsAsyncExecute(r ApiGetShiftsAsyncRequest) (*S
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *ShiftsAPIService) GetShiftsAsyncExecute(r ApiGetShiftsAsyncRequest) (*S
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shiftDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetShiftsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shiftDtoCollectionQueryParameters *ShiftDtoCollectionQueryParameters
 }
 
 func (r ApiGetShiftsCountAsyncRequest) TenantId(tenantId string) ApiGetShiftsCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetShiftsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetShift
 
 func (r ApiGetShiftsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetShiftsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShiftsCountAsyncRequest) ShiftDtoCollectionQueryParameters(shiftDtoCollectionQueryParameters ShiftDtoCollectionQueryParameters) ApiGetShiftsCountAsyncRequest {
+	r.shiftDtoCollectionQueryParameters = &shiftDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *ShiftsAPIService) GetShiftsCountAsyncExecute(r ApiGetShiftsCountAsyncRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *ShiftsAPIService) GetShiftsCountAsyncExecute(r ApiGetShiftsCountAsyncRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shiftDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchShiftAsyncRequest struct {
 	shiftId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchShiftAsyncRequest) TenantId(tenantId string) ApiPatchShiftAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchShiftAsyncRequest) XApiVersion(xApiVersion string) ApiPatchShift
 	return r
 }
 
-func (r ApiPatchShiftAsyncRequest) Operation(operation []Operation) ApiPatchShiftAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchShiftAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchShiftAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *ShiftsAPIService) PatchShiftAsyncExecute(r ApiPatchShiftAsyncRequest) (
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

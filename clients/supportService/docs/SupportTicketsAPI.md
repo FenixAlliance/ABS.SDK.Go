@@ -486,7 +486,7 @@ No authorization required
 
 ## GetSupportTicketConversationsAsync
 
-> SupportTicketConversationDtoListEnvelope GetSupportTicketConversationsAsync(ctx, supportTicketId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SupportTicketConversationDtoListEnvelope GetSupportTicketConversationsAsync(ctx, supportTicketId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketConversationDtoCollectionQueryParameters(supportTicketConversationDtoCollectionQueryParameters).Execute()
 
 Retrieve conversations for a support ticket
 
@@ -509,10 +509,11 @@ func main() {
 	supportTicketId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportTicketConversationDtoCollectionQueryParameters := *openapiclient.NewSupportTicketConversationDtoCollectionQueryParameters() // SupportTicketConversationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportTicketsAPI.GetSupportTicketConversationsAsync(context.Background(), supportTicketId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportTicketsAPI.GetSupportTicketConversationsAsync(context.Background(), supportTicketId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketConversationDtoCollectionQueryParameters(supportTicketConversationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketsAPI.GetSupportTicketConversationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -541,6 +542,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **supportTicketConversationDtoCollectionQueryParameters** | [**SupportTicketConversationDtoCollectionQueryParameters**](SupportTicketConversationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -552,7 +554,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -562,7 +564,7 @@ No authorization required
 
 ## GetSupportTicketsAsync
 
-> SupportTicketDtoListEnvelope GetSupportTicketsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SupportTicketDtoListEnvelope GetSupportTicketsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketDtoCollectionQueryParameters(supportTicketDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of support tickets
 
@@ -584,10 +586,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportTicketDtoCollectionQueryParameters := *openapiclient.NewSupportTicketDtoCollectionQueryParameters() // SupportTicketDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportTicketsAPI.GetSupportTicketsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportTicketsAPI.GetSupportTicketsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketDtoCollectionQueryParameters(supportTicketDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketsAPI.GetSupportTicketsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -611,6 +614,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **supportTicketDtoCollectionQueryParameters** | [**SupportTicketDtoCollectionQueryParameters**](SupportTicketDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -622,7 +626,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -632,7 +636,7 @@ No authorization required
 
 ## GetSupportTicketsCountAsync
 
-> Int32Envelope GetSupportTicketsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetSupportTicketsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketDtoCollectionQueryParameters(supportTicketDtoCollectionQueryParameters).Execute()
 
 Get the count of support tickets
 
@@ -654,10 +658,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	supportTicketDtoCollectionQueryParameters := *openapiclient.NewSupportTicketDtoCollectionQueryParameters() // SupportTicketDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportTicketsAPI.GetSupportTicketsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SupportTicketsAPI.GetSupportTicketsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SupportTicketDtoCollectionQueryParameters(supportTicketDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketsAPI.GetSupportTicketsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -681,6 +686,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **supportTicketDtoCollectionQueryParameters** | [**SupportTicketDtoCollectionQueryParameters**](SupportTicketDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -692,7 +698,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -702,7 +708,7 @@ No authorization required
 
 ## PatchSupportTicketAsync
 
-> EmptyEnvelope PatchSupportTicketAsync(ctx, supportTicketId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchSupportTicketAsync(ctx, supportTicketId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a support ticket
 
@@ -725,11 +731,11 @@ func main() {
 	supportTicketId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SupportTicketsAPI.PatchSupportTicketAsync(context.Background(), supportTicketId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.SupportTicketsAPI.PatchSupportTicketAsync(context.Background(), supportTicketId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SupportTicketsAPI.PatchSupportTicketAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -758,7 +764,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

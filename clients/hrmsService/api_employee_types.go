@@ -515,6 +515,7 @@ type ApiGetEmployeeTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	employeeTypeDtoCollectionQueryParameters *EmployeeTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetEmployeeTypesAsyncRequest) TenantId(tenantId string) ApiGetEmployeeTypesAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetEmployeeTypesAsyncRequest) ApiVersion(apiVersion string) ApiGetEmp
 
 func (r ApiGetEmployeeTypesAsyncRequest) XApiVersion(xApiVersion string) ApiGetEmployeeTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetEmployeeTypesAsyncRequest) EmployeeTypeDtoCollectionQueryParameters(employeeTypeDtoCollectionQueryParameters EmployeeTypeDtoCollectionQueryParameters) ApiGetEmployeeTypesAsyncRequest {
+	r.employeeTypeDtoCollectionQueryParameters = &employeeTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *EmployeeTypesAPIService) GetEmployeeTypesAsyncExecute(r ApiGetEmployeeT
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *EmployeeTypesAPIService) GetEmployeeTypesAsyncExecute(r ApiGetEmployeeT
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.employeeTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetEmployeeTypesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	employeeTypeDtoCollectionQueryParameters *EmployeeTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetEmployeeTypesCountAsyncRequest) TenantId(tenantId string) ApiGetEmployeeTypesCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetEmployeeTypesCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetEmployeeTypesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetEmployeeTypesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetEmployeeTypesCountAsyncRequest) EmployeeTypeDtoCollectionQueryParameters(employeeTypeDtoCollectionQueryParameters EmployeeTypeDtoCollectionQueryParameters) ApiGetEmployeeTypesCountAsyncRequest {
+	r.employeeTypeDtoCollectionQueryParameters = &employeeTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *EmployeeTypesAPIService) GetEmployeeTypesCountAsyncExecute(r ApiGetEmpl
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *EmployeeTypesAPIService) GetEmployeeTypesCountAsyncExecute(r ApiGetEmpl
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.employeeTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchEmployeeTypeAsyncRequest struct {
 	employeeTypeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchEmployeeTypeAsyncRequest) TenantId(tenantId string) ApiPatchEmployeeTypeAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchEmployeeTypeAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchEmployeeTypeAsyncRequest) Operation(operation []Operation) ApiPatchEmployeeTypeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchEmployeeTypeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchEmployeeTypeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *EmployeeTypesAPIService) PatchEmployeeTypeAsyncExecute(r ApiPatchEmploy
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

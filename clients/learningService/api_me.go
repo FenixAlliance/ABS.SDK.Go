@@ -153,6 +153,7 @@ type ApiGetMyCertificatesAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	courseCompletionCertificateDtoCollectionQueryParameters *CourseCompletionCertificateDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyCertificatesAsyncRequest) ApiVersion(apiVersion string) ApiGetMyCertificatesAsyncRequest {
@@ -162,6 +163,11 @@ func (r ApiGetMyCertificatesAsyncRequest) ApiVersion(apiVersion string) ApiGetMy
 
 func (r ApiGetMyCertificatesAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyCertificatesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyCertificatesAsyncRequest) CourseCompletionCertificateDtoCollectionQueryParameters(courseCompletionCertificateDtoCollectionQueryParameters CourseCompletionCertificateDtoCollectionQueryParameters) ApiGetMyCertificatesAsyncRequest {
+	r.courseCompletionCertificateDtoCollectionQueryParameters = &courseCompletionCertificateDtoCollectionQueryParameters
 	return r
 }
 
@@ -207,7 +213,7 @@ func (a *MeAPIService) GetMyCertificatesAsyncExecute(r ApiGetMyCertificatesAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -226,6 +232,8 @@ func (a *MeAPIService) GetMyCertificatesAsyncExecute(r ApiGetMyCertificatesAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseCompletionCertificateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -278,6 +286,7 @@ type ApiGetMyCertificatesCountAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	courseCompletionCertificateDtoCollectionQueryParameters *CourseCompletionCertificateDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyCertificatesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetMyCertificatesCountAsyncRequest {
@@ -287,6 +296,11 @@ func (r ApiGetMyCertificatesCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetMyCertificatesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyCertificatesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyCertificatesCountAsyncRequest) CourseCompletionCertificateDtoCollectionQueryParameters(courseCompletionCertificateDtoCollectionQueryParameters CourseCompletionCertificateDtoCollectionQueryParameters) ApiGetMyCertificatesCountAsyncRequest {
+	r.courseCompletionCertificateDtoCollectionQueryParameters = &courseCompletionCertificateDtoCollectionQueryParameters
 	return r
 }
 
@@ -332,7 +346,7 @@ func (a *MeAPIService) GetMyCertificatesCountAsyncExecute(r ApiGetMyCertificates
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -351,6 +365,8 @@ func (a *MeAPIService) GetMyCertificatesCountAsyncExecute(r ApiGetMyCertificates
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseCompletionCertificateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -403,6 +419,7 @@ type ApiGetMyEnrollmentsAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	courseEnrollmentDtoCollectionQueryParameters *CourseEnrollmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyEnrollmentsAsyncRequest) ApiVersion(apiVersion string) ApiGetMyEnrollmentsAsyncRequest {
@@ -412,6 +429,11 @@ func (r ApiGetMyEnrollmentsAsyncRequest) ApiVersion(apiVersion string) ApiGetMyE
 
 func (r ApiGetMyEnrollmentsAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyEnrollmentsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyEnrollmentsAsyncRequest) CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters CourseEnrollmentDtoCollectionQueryParameters) ApiGetMyEnrollmentsAsyncRequest {
+	r.courseEnrollmentDtoCollectionQueryParameters = &courseEnrollmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -457,7 +479,7 @@ func (a *MeAPIService) GetMyEnrollmentsAsyncExecute(r ApiGetMyEnrollmentsAsyncRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -476,6 +498,8 @@ func (a *MeAPIService) GetMyEnrollmentsAsyncExecute(r ApiGetMyEnrollmentsAsyncRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseEnrollmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -528,6 +552,7 @@ type ApiGetMyEnrollmentsCountAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	courseEnrollmentDtoCollectionQueryParameters *CourseEnrollmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyEnrollmentsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetMyEnrollmentsCountAsyncRequest {
@@ -537,6 +562,11 @@ func (r ApiGetMyEnrollmentsCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetMyEnrollmentsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyEnrollmentsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyEnrollmentsCountAsyncRequest) CourseEnrollmentDtoCollectionQueryParameters(courseEnrollmentDtoCollectionQueryParameters CourseEnrollmentDtoCollectionQueryParameters) ApiGetMyEnrollmentsCountAsyncRequest {
+	r.courseEnrollmentDtoCollectionQueryParameters = &courseEnrollmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -582,7 +612,7 @@ func (a *MeAPIService) GetMyEnrollmentsCountAsyncExecute(r ApiGetMyEnrollmentsCo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -601,6 +631,8 @@ func (a *MeAPIService) GetMyEnrollmentsCountAsyncExecute(r ApiGetMyEnrollmentsCo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseEnrollmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -778,6 +810,7 @@ type ApiGetMyInstructorCoursesAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	courseDtoCollectionQueryParameters *CourseDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyInstructorCoursesAsyncRequest) ApiVersion(apiVersion string) ApiGetMyInstructorCoursesAsyncRequest {
@@ -787,6 +820,11 @@ func (r ApiGetMyInstructorCoursesAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetMyInstructorCoursesAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyInstructorCoursesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyInstructorCoursesAsyncRequest) CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters CourseDtoCollectionQueryParameters) ApiGetMyInstructorCoursesAsyncRequest {
+	r.courseDtoCollectionQueryParameters = &courseDtoCollectionQueryParameters
 	return r
 }
 
@@ -832,7 +870,7 @@ func (a *MeAPIService) GetMyInstructorCoursesAsyncExecute(r ApiGetMyInstructorCo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -851,6 +889,8 @@ func (a *MeAPIService) GetMyInstructorCoursesAsyncExecute(r ApiGetMyInstructorCo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -903,6 +943,7 @@ type ApiGetMyInstructorCoursesCountAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	courseDtoCollectionQueryParameters *CourseDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyInstructorCoursesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetMyInstructorCoursesCountAsyncRequest {
@@ -912,6 +953,11 @@ func (r ApiGetMyInstructorCoursesCountAsyncRequest) ApiVersion(apiVersion string
 
 func (r ApiGetMyInstructorCoursesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyInstructorCoursesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyInstructorCoursesCountAsyncRequest) CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters CourseDtoCollectionQueryParameters) ApiGetMyInstructorCoursesCountAsyncRequest {
+	r.courseDtoCollectionQueryParameters = &courseDtoCollectionQueryParameters
 	return r
 }
 
@@ -957,7 +1003,7 @@ func (a *MeAPIService) GetMyInstructorCoursesCountAsyncExecute(r ApiGetMyInstruc
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -976,6 +1022,8 @@ func (a *MeAPIService) GetMyInstructorCoursesCountAsyncExecute(r ApiGetMyInstruc
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1028,6 +1076,7 @@ type ApiGetMyInstructorProfilesAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	instructorProfileDtoCollectionQueryParameters *InstructorProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyInstructorProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGetMyInstructorProfilesAsyncRequest {
@@ -1037,6 +1086,11 @@ func (r ApiGetMyInstructorProfilesAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetMyInstructorProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyInstructorProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyInstructorProfilesAsyncRequest) InstructorProfileDtoCollectionQueryParameters(instructorProfileDtoCollectionQueryParameters InstructorProfileDtoCollectionQueryParameters) ApiGetMyInstructorProfilesAsyncRequest {
+	r.instructorProfileDtoCollectionQueryParameters = &instructorProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -1082,7 +1136,7 @@ func (a *MeAPIService) GetMyInstructorProfilesAsyncExecute(r ApiGetMyInstructorP
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1101,6 +1155,8 @@ func (a *MeAPIService) GetMyInstructorProfilesAsyncExecute(r ApiGetMyInstructorP
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.instructorProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1153,6 +1209,7 @@ type ApiGetMyInstructorProfilesCountAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	instructorProfileDtoCollectionQueryParameters *InstructorProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyInstructorProfilesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetMyInstructorProfilesCountAsyncRequest {
@@ -1162,6 +1219,11 @@ func (r ApiGetMyInstructorProfilesCountAsyncRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetMyInstructorProfilesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyInstructorProfilesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyInstructorProfilesCountAsyncRequest) InstructorProfileDtoCollectionQueryParameters(instructorProfileDtoCollectionQueryParameters InstructorProfileDtoCollectionQueryParameters) ApiGetMyInstructorProfilesCountAsyncRequest {
+	r.instructorProfileDtoCollectionQueryParameters = &instructorProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -1207,7 +1269,7 @@ func (a *MeAPIService) GetMyInstructorProfilesCountAsyncExecute(r ApiGetMyInstru
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1226,6 +1288,8 @@ func (a *MeAPIService) GetMyInstructorProfilesCountAsyncExecute(r ApiGetMyInstru
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.instructorProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1403,6 +1467,7 @@ type ApiGetMyStudentCoursesAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	courseDtoCollectionQueryParameters *CourseDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyStudentCoursesAsyncRequest) ApiVersion(apiVersion string) ApiGetMyStudentCoursesAsyncRequest {
@@ -1412,6 +1477,11 @@ func (r ApiGetMyStudentCoursesAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetMyStudentCoursesAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyStudentCoursesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyStudentCoursesAsyncRequest) CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters CourseDtoCollectionQueryParameters) ApiGetMyStudentCoursesAsyncRequest {
+	r.courseDtoCollectionQueryParameters = &courseDtoCollectionQueryParameters
 	return r
 }
 
@@ -1457,7 +1527,7 @@ func (a *MeAPIService) GetMyStudentCoursesAsyncExecute(r ApiGetMyStudentCoursesA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1476,6 +1546,8 @@ func (a *MeAPIService) GetMyStudentCoursesAsyncExecute(r ApiGetMyStudentCoursesA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1528,6 +1600,7 @@ type ApiGetMyStudentCoursesCountAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	courseDtoCollectionQueryParameters *CourseDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyStudentCoursesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetMyStudentCoursesCountAsyncRequest {
@@ -1537,6 +1610,11 @@ func (r ApiGetMyStudentCoursesCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetMyStudentCoursesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyStudentCoursesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyStudentCoursesCountAsyncRequest) CourseDtoCollectionQueryParameters(courseDtoCollectionQueryParameters CourseDtoCollectionQueryParameters) ApiGetMyStudentCoursesCountAsyncRequest {
+	r.courseDtoCollectionQueryParameters = &courseDtoCollectionQueryParameters
 	return r
 }
 
@@ -1582,7 +1660,7 @@ func (a *MeAPIService) GetMyStudentCoursesCountAsyncExecute(r ApiGetMyStudentCou
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1601,6 +1679,8 @@ func (a *MeAPIService) GetMyStudentCoursesCountAsyncExecute(r ApiGetMyStudentCou
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1653,6 +1733,7 @@ type ApiGetMyStudentProfilesAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	studentProfileDtoCollectionQueryParameters *StudentProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyStudentProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGetMyStudentProfilesAsyncRequest {
@@ -1662,6 +1743,11 @@ func (r ApiGetMyStudentProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetMyStudentProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyStudentProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyStudentProfilesAsyncRequest) StudentProfileDtoCollectionQueryParameters(studentProfileDtoCollectionQueryParameters StudentProfileDtoCollectionQueryParameters) ApiGetMyStudentProfilesAsyncRequest {
+	r.studentProfileDtoCollectionQueryParameters = &studentProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -1707,7 +1793,7 @@ func (a *MeAPIService) GetMyStudentProfilesAsyncExecute(r ApiGetMyStudentProfile
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1726,6 +1812,8 @@ func (a *MeAPIService) GetMyStudentProfilesAsyncExecute(r ApiGetMyStudentProfile
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.studentProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1778,6 +1866,7 @@ type ApiGetMyStudentProfilesCountAsyncRequest struct {
 	ApiService *MeAPIService
 	apiVersion *string
 	xApiVersion *string
+	studentProfileDtoCollectionQueryParameters *StudentProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetMyStudentProfilesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetMyStudentProfilesCountAsyncRequest {
@@ -1787,6 +1876,11 @@ func (r ApiGetMyStudentProfilesCountAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetMyStudentProfilesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetMyStudentProfilesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMyStudentProfilesCountAsyncRequest) StudentProfileDtoCollectionQueryParameters(studentProfileDtoCollectionQueryParameters StudentProfileDtoCollectionQueryParameters) ApiGetMyStudentProfilesCountAsyncRequest {
+	r.studentProfileDtoCollectionQueryParameters = &studentProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -1832,7 +1926,7 @@ func (a *MeAPIService) GetMyStudentProfilesCountAsyncExecute(r ApiGetMyStudentPr
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1851,6 +1945,8 @@ func (a *MeAPIService) GetMyStudentProfilesCountAsyncExecute(r ApiGetMyStudentPr
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.studentProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

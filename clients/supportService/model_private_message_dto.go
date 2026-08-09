@@ -32,6 +32,9 @@ type PrivateMessageDto struct {
 	SentTimestamp *time.Time `json:"sentTimestamp,omitempty"`
 	ReadTimestamp *time.Time `json:"readTimestamp,omitempty"`
 	ReceivedTimestamp *time.Time `json:"receivedTimestamp,omitempty"`
+	SocialProfileName NullableString `json:"socialProfileName,omitempty"`
+	SocialProfileAvatarUrl NullableString `json:"socialProfileAvatarUrl,omitempty"`
+	SocialProfileType NullableString `json:"socialProfileType,omitempty"`
 }
 
 // NewPrivateMessageDto instantiates a new PrivateMessageDto object
@@ -473,6 +476,132 @@ func (o *PrivateMessageDto) SetReceivedTimestamp(v time.Time) {
 	o.ReceivedTimestamp = &v
 }
 
+// GetSocialProfileName returns the SocialProfileName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PrivateMessageDto) GetSocialProfileName() string {
+	if o == nil || IsNil(o.SocialProfileName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SocialProfileName.Get()
+}
+
+// GetSocialProfileNameOk returns a tuple with the SocialProfileName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PrivateMessageDto) GetSocialProfileNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SocialProfileName.Get(), o.SocialProfileName.IsSet()
+}
+
+// HasSocialProfileName returns a boolean if a field has been set.
+func (o *PrivateMessageDto) HasSocialProfileName() bool {
+	if o != nil && o.SocialProfileName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSocialProfileName gets a reference to the given NullableString and assigns it to the SocialProfileName field.
+func (o *PrivateMessageDto) SetSocialProfileName(v string) {
+	o.SocialProfileName.Set(&v)
+}
+// SetSocialProfileNameNil sets the value for SocialProfileName to be an explicit nil
+func (o *PrivateMessageDto) SetSocialProfileNameNil() {
+	o.SocialProfileName.Set(nil)
+}
+
+// UnsetSocialProfileName ensures that no value is present for SocialProfileName, not even an explicit nil
+func (o *PrivateMessageDto) UnsetSocialProfileName() {
+	o.SocialProfileName.Unset()
+}
+
+// GetSocialProfileAvatarUrl returns the SocialProfileAvatarUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PrivateMessageDto) GetSocialProfileAvatarUrl() string {
+	if o == nil || IsNil(o.SocialProfileAvatarUrl.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SocialProfileAvatarUrl.Get()
+}
+
+// GetSocialProfileAvatarUrlOk returns a tuple with the SocialProfileAvatarUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PrivateMessageDto) GetSocialProfileAvatarUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SocialProfileAvatarUrl.Get(), o.SocialProfileAvatarUrl.IsSet()
+}
+
+// HasSocialProfileAvatarUrl returns a boolean if a field has been set.
+func (o *PrivateMessageDto) HasSocialProfileAvatarUrl() bool {
+	if o != nil && o.SocialProfileAvatarUrl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSocialProfileAvatarUrl gets a reference to the given NullableString and assigns it to the SocialProfileAvatarUrl field.
+func (o *PrivateMessageDto) SetSocialProfileAvatarUrl(v string) {
+	o.SocialProfileAvatarUrl.Set(&v)
+}
+// SetSocialProfileAvatarUrlNil sets the value for SocialProfileAvatarUrl to be an explicit nil
+func (o *PrivateMessageDto) SetSocialProfileAvatarUrlNil() {
+	o.SocialProfileAvatarUrl.Set(nil)
+}
+
+// UnsetSocialProfileAvatarUrl ensures that no value is present for SocialProfileAvatarUrl, not even an explicit nil
+func (o *PrivateMessageDto) UnsetSocialProfileAvatarUrl() {
+	o.SocialProfileAvatarUrl.Unset()
+}
+
+// GetSocialProfileType returns the SocialProfileType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PrivateMessageDto) GetSocialProfileType() string {
+	if o == nil || IsNil(o.SocialProfileType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SocialProfileType.Get()
+}
+
+// GetSocialProfileTypeOk returns a tuple with the SocialProfileType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PrivateMessageDto) GetSocialProfileTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SocialProfileType.Get(), o.SocialProfileType.IsSet()
+}
+
+// HasSocialProfileType returns a boolean if a field has been set.
+func (o *PrivateMessageDto) HasSocialProfileType() bool {
+	if o != nil && o.SocialProfileType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSocialProfileType gets a reference to the given NullableString and assigns it to the SocialProfileType field.
+func (o *PrivateMessageDto) SetSocialProfileType(v string) {
+	o.SocialProfileType.Set(&v)
+}
+// SetSocialProfileTypeNil sets the value for SocialProfileType to be an explicit nil
+func (o *PrivateMessageDto) SetSocialProfileTypeNil() {
+	o.SocialProfileType.Set(nil)
+}
+
+// UnsetSocialProfileType ensures that no value is present for SocialProfileType, not even an explicit nil
+func (o *PrivateMessageDto) UnsetSocialProfileType() {
+	o.SocialProfileType.Unset()
+}
+
 func (o PrivateMessageDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -515,6 +644,15 @@ func (o PrivateMessageDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ReceivedTimestamp) {
 		toSerialize["receivedTimestamp"] = o.ReceivedTimestamp
+	}
+	if o.SocialProfileName.IsSet() {
+		toSerialize["socialProfileName"] = o.SocialProfileName.Get()
+	}
+	if o.SocialProfileAvatarUrl.IsSet() {
+		toSerialize["socialProfileAvatarUrl"] = o.SocialProfileAvatarUrl.Get()
+	}
+	if o.SocialProfileType.IsSet() {
+		toSerialize["socialProfileType"] = o.SocialProfileType.Get()
 	}
 	return toSerialize, nil
 }

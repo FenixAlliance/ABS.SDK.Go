@@ -25,6 +25,7 @@ type SecurityPermissionDto struct {
 	Timestamp NullableTime `json:"timestamp,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	TenantId NullableString `json:"tenantId,omitempty"`
+	Category NullableString `json:"category,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	IsSystemPermission *bool `json:"isSystemPermission,omitempty"`
 }
@@ -214,6 +215,48 @@ func (o *SecurityPermissionDto) UnsetTenantId() {
 	o.TenantId.Unset()
 }
 
+// GetCategory returns the Category field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SecurityPermissionDto) GetCategory() string {
+	if o == nil || IsNil(o.Category.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Category.Get()
+}
+
+// GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SecurityPermissionDto) GetCategoryOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Category.Get(), o.Category.IsSet()
+}
+
+// HasCategory returns a boolean if a field has been set.
+func (o *SecurityPermissionDto) HasCategory() bool {
+	if o != nil && o.Category.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCategory gets a reference to the given NullableString and assigns it to the Category field.
+func (o *SecurityPermissionDto) SetCategory(v string) {
+	o.Category.Set(&v)
+}
+// SetCategoryNil sets the value for Category to be an explicit nil
+func (o *SecurityPermissionDto) SetCategoryNil() {
+	o.Category.Set(nil)
+}
+
+// UnsetCategory ensures that no value is present for Category, not even an explicit nil
+func (o *SecurityPermissionDto) UnsetCategory() {
+	o.Category.Unset()
+}
+
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SecurityPermissionDto) GetDescription() string {
 	if o == nil || IsNil(o.Description.Get()) {
@@ -309,6 +352,9 @@ func (o SecurityPermissionDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TenantId.IsSet() {
 		toSerialize["tenantId"] = o.TenantId.Get()
+	}
+	if o.Category.IsSet() {
+		toSerialize["category"] = o.Category.Get()
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()

@@ -597,10 +597,16 @@ type ApiGetPaymentsAsyncRequest struct {
 	ctx context.Context
 	ApiService *PaymentsAPIService
 	tenantId *string
+	paymentDtoCollectionQueryParameters *PaymentDtoCollectionQueryParameters
 }
 
 func (r ApiGetPaymentsAsyncRequest) TenantId(tenantId string) ApiGetPaymentsAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetPaymentsAsyncRequest) PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters PaymentDtoCollectionQueryParameters) ApiGetPaymentsAsyncRequest {
+	r.paymentDtoCollectionQueryParameters = &paymentDtoCollectionQueryParameters
 	return r
 }
 
@@ -649,7 +655,7 @@ func (a *PaymentsAPIService) GetPaymentsAsyncExecute(r ApiGetPaymentsAsyncReques
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -665,6 +671,8 @@ func (a *PaymentsAPIService) GetPaymentsAsyncExecute(r ApiGetPaymentsAsyncReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.paymentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -740,7 +748,7 @@ type ApiPatchPaymentAsyncRequest struct {
 	ApiService *PaymentsAPIService
 	tenantId *string
 	paymentId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchPaymentAsyncRequest) TenantId(tenantId string) ApiPatchPaymentAsyncRequest {
@@ -748,8 +756,8 @@ func (r ApiPatchPaymentAsyncRequest) TenantId(tenantId string) ApiPatchPaymentAs
 	return r
 }
 
-func (r ApiPatchPaymentAsyncRequest) Operation(operation []Operation) ApiPatchPaymentAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchPaymentAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchPaymentAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -818,7 +826,7 @@ func (a *PaymentsAPIService) PatchPaymentAsyncExecute(r ApiPatchPaymentAsyncRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

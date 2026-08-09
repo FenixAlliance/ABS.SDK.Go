@@ -526,6 +526,7 @@ type ApiGetInvoiceEnumerationRangesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	invoiceEnumerationRangeDtoCollectionQueryParameters *InvoiceEnumerationRangeDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceEnumerationRangesAsyncRequest) TenantId(tenantId string) ApiGetInvoiceEnumerationRangesAsyncRequest {
@@ -540,6 +541,11 @@ func (r ApiGetInvoiceEnumerationRangesAsyncRequest) ApiVersion(apiVersion string
 
 func (r ApiGetInvoiceEnumerationRangesAsyncRequest) XApiVersion(xApiVersion string) ApiGetInvoiceEnumerationRangesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetInvoiceEnumerationRangesAsyncRequest) InvoiceEnumerationRangeDtoCollectionQueryParameters(invoiceEnumerationRangeDtoCollectionQueryParameters InvoiceEnumerationRangeDtoCollectionQueryParameters) ApiGetInvoiceEnumerationRangesAsyncRequest {
+	r.invoiceEnumerationRangeDtoCollectionQueryParameters = &invoiceEnumerationRangeDtoCollectionQueryParameters
 	return r
 }
 
@@ -591,7 +597,7 @@ func (a *InvoiceEnumerationRangesAPIService) GetInvoiceEnumerationRangesAsyncExe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -610,6 +616,8 @@ func (a *InvoiceEnumerationRangesAPIService) GetInvoiceEnumerationRangesAsyncExe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.invoiceEnumerationRangeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -687,7 +695,7 @@ type ApiPatchInvoiceEnumerationRangeAsyncRequest struct {
 	rangeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchInvoiceEnumerationRangeAsyncRequest) TenantId(tenantId string) ApiPatchInvoiceEnumerationRangeAsyncRequest {
@@ -705,8 +713,8 @@ func (r ApiPatchInvoiceEnumerationRangeAsyncRequest) XApiVersion(xApiVersion str
 	return r
 }
 
-func (r ApiPatchInvoiceEnumerationRangeAsyncRequest) Operation(operation []Operation) ApiPatchInvoiceEnumerationRangeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchInvoiceEnumerationRangeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchInvoiceEnumerationRangeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -781,7 +789,7 @@ func (a *InvoiceEnumerationRangesAPIService) PatchInvoiceEnumerationRangeAsyncEx
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

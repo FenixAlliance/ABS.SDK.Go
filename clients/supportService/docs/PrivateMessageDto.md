@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **SentTimestamp** | Pointer to **time.Time** |  | [optional] 
 **ReadTimestamp** | Pointer to **time.Time** |  | [optional] 
 **ReceivedTimestamp** | Pointer to **time.Time** |  | [optional] 
+**SocialProfileName** | Pointer to **NullableString** |  | [optional] 
+**SocialProfileAvatarUrl** | Pointer to **NullableString** |  | [optional] 
+**SocialProfileType** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -380,6 +383,111 @@ SetReceivedTimestamp sets ReceivedTimestamp field to given value.
 
 HasReceivedTimestamp returns a boolean if a field has been set.
 
+### GetSocialProfileName
+
+`func (o *PrivateMessageDto) GetSocialProfileName() string`
+
+GetSocialProfileName returns the SocialProfileName field if non-nil, zero value otherwise.
+
+### GetSocialProfileNameOk
+
+`func (o *PrivateMessageDto) GetSocialProfileNameOk() (*string, bool)`
+
+GetSocialProfileNameOk returns a tuple with the SocialProfileName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSocialProfileName
+
+`func (o *PrivateMessageDto) SetSocialProfileName(v string)`
+
+SetSocialProfileName sets SocialProfileName field to given value.
+
+### HasSocialProfileName
+
+`func (o *PrivateMessageDto) HasSocialProfileName() bool`
+
+HasSocialProfileName returns a boolean if a field has been set.
+
+### SetSocialProfileNameNil
+
+`func (o *PrivateMessageDto) SetSocialProfileNameNil(b bool)`
+
+ SetSocialProfileNameNil sets the value for SocialProfileName to be an explicit nil
+
+### UnsetSocialProfileName
+`func (o *PrivateMessageDto) UnsetSocialProfileName()`
+
+UnsetSocialProfileName ensures that no value is present for SocialProfileName, not even an explicit nil
+### GetSocialProfileAvatarUrl
+
+`func (o *PrivateMessageDto) GetSocialProfileAvatarUrl() string`
+
+GetSocialProfileAvatarUrl returns the SocialProfileAvatarUrl field if non-nil, zero value otherwise.
+
+### GetSocialProfileAvatarUrlOk
+
+`func (o *PrivateMessageDto) GetSocialProfileAvatarUrlOk() (*string, bool)`
+
+GetSocialProfileAvatarUrlOk returns a tuple with the SocialProfileAvatarUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSocialProfileAvatarUrl
+
+`func (o *PrivateMessageDto) SetSocialProfileAvatarUrl(v string)`
+
+SetSocialProfileAvatarUrl sets SocialProfileAvatarUrl field to given value.
+
+### HasSocialProfileAvatarUrl
+
+`func (o *PrivateMessageDto) HasSocialProfileAvatarUrl() bool`
+
+HasSocialProfileAvatarUrl returns a boolean if a field has been set.
+
+### SetSocialProfileAvatarUrlNil
+
+`func (o *PrivateMessageDto) SetSocialProfileAvatarUrlNil(b bool)`
+
+ SetSocialProfileAvatarUrlNil sets the value for SocialProfileAvatarUrl to be an explicit nil
+
+### UnsetSocialProfileAvatarUrl
+`func (o *PrivateMessageDto) UnsetSocialProfileAvatarUrl()`
+
+UnsetSocialProfileAvatarUrl ensures that no value is present for SocialProfileAvatarUrl, not even an explicit nil
+### GetSocialProfileType
+
+`func (o *PrivateMessageDto) GetSocialProfileType() string`
+
+GetSocialProfileType returns the SocialProfileType field if non-nil, zero value otherwise.
+
+### GetSocialProfileTypeOk
+
+`func (o *PrivateMessageDto) GetSocialProfileTypeOk() (*string, bool)`
+
+GetSocialProfileTypeOk returns a tuple with the SocialProfileType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSocialProfileType
+
+`func (o *PrivateMessageDto) SetSocialProfileType(v string)`
+
+SetSocialProfileType sets SocialProfileType field to given value.
+
+### HasSocialProfileType
+
+`func (o *PrivateMessageDto) HasSocialProfileType() bool`
+
+HasSocialProfileType returns a boolean if a field has been set.
+
+### SetSocialProfileTypeNil
+
+`func (o *PrivateMessageDto) SetSocialProfileTypeNil(b bool)`
+
+ SetSocialProfileTypeNil sets the value for SocialProfileType to be an explicit nil
+
+### UnsetSocialProfileType
+`func (o *PrivateMessageDto) UnsetSocialProfileType()`
+
+UnsetSocialProfileType ensures that no value is present for SocialProfileType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

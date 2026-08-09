@@ -87,7 +87,6 @@ Name | Type | Description | Notes
 **PriceListItemId** | Pointer to **NullableString** |  | [optional] 
 **UnitId** | Pointer to **NullableString** |  | [optional] 
 **UnitGroupId** | Pointer to **NullableString** |  | [optional] 
-**ForexRatesSnapshot** | Pointer to **NullableString** |  | [optional] 
 **TotalBaseAmountInUsd** | Pointer to **float64** |  | [optional] 
 **TotalProfitInUsd** | Pointer to **float64** |  | [optional] 
 **TotalDetailAmountInUsd** | Pointer to **float64** |  | [optional] 
@@ -2862,41 +2861,6 @@ HasUnitGroupId returns a boolean if a field has been set.
 `func (o *QuoteLineUpsertDto) UnsetUnitGroupId()`
 
 UnsetUnitGroupId ensures that no value is present for UnitGroupId, not even an explicit nil
-### GetForexRatesSnapshot
-
-`func (o *QuoteLineUpsertDto) GetForexRatesSnapshot() string`
-
-GetForexRatesSnapshot returns the ForexRatesSnapshot field if non-nil, zero value otherwise.
-
-### GetForexRatesSnapshotOk
-
-`func (o *QuoteLineUpsertDto) GetForexRatesSnapshotOk() (*string, bool)`
-
-GetForexRatesSnapshotOk returns a tuple with the ForexRatesSnapshot field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetForexRatesSnapshot
-
-`func (o *QuoteLineUpsertDto) SetForexRatesSnapshot(v string)`
-
-SetForexRatesSnapshot sets ForexRatesSnapshot field to given value.
-
-### HasForexRatesSnapshot
-
-`func (o *QuoteLineUpsertDto) HasForexRatesSnapshot() bool`
-
-HasForexRatesSnapshot returns a boolean if a field has been set.
-
-### SetForexRatesSnapshotNil
-
-`func (o *QuoteLineUpsertDto) SetForexRatesSnapshotNil(b bool)`
-
- SetForexRatesSnapshotNil sets the value for ForexRatesSnapshot to be an explicit nil
-
-### UnsetForexRatesSnapshot
-`func (o *QuoteLineUpsertDto) UnsetForexRatesSnapshot()`
-
-UnsetForexRatesSnapshot ensures that no value is present for ForexRatesSnapshot, not even an explicit nil
 ### GetTotalBaseAmountInUsd
 
 `func (o *QuoteLineUpsertDto) GetTotalBaseAmountInUsd() float64`

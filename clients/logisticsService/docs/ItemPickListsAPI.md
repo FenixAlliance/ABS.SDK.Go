@@ -404,7 +404,7 @@ No authorization required
 
 ## GetItemPickListEntriesAsync
 
-> ItemPickListEntryDtoListEnvelope GetItemPickListEntriesAsync(ctx, pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemPickListEntryDtoListEnvelope GetItemPickListEntriesAsync(ctx, pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPickListEntryDtoCollectionQueryParameters(itemPickListEntryDtoCollectionQueryParameters).Execute()
 
 Get pick list entries
 
@@ -427,10 +427,11 @@ func main() {
 	pickListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemPickListEntryDtoCollectionQueryParameters := *openapiclient.NewItemPickListEntryDtoCollectionQueryParameters() // ItemPickListEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPickListsAPI.GetItemPickListEntriesAsync(context.Background(), pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemPickListsAPI.GetItemPickListEntriesAsync(context.Background(), pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPickListEntryDtoCollectionQueryParameters(itemPickListEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPickListsAPI.GetItemPickListEntriesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -459,6 +460,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemPickListEntryDtoCollectionQueryParameters** | [**ItemPickListEntryDtoCollectionQueryParameters**](ItemPickListEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -470,7 +472,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -480,7 +482,7 @@ No authorization required
 
 ## GetItemPickListEntriesCountAsync
 
-> Int32Envelope GetItemPickListEntriesCountAsync(ctx, pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetItemPickListEntriesCountAsync(ctx, pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPickListEntryDtoCollectionQueryParameters(itemPickListEntryDtoCollectionQueryParameters).Execute()
 
 Get pick list entries count
 
@@ -503,10 +505,11 @@ func main() {
 	pickListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemPickListEntryDtoCollectionQueryParameters := *openapiclient.NewItemPickListEntryDtoCollectionQueryParameters() // ItemPickListEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPickListsAPI.GetItemPickListEntriesCountAsync(context.Background(), pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemPickListsAPI.GetItemPickListEntriesCountAsync(context.Background(), pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPickListEntryDtoCollectionQueryParameters(itemPickListEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPickListsAPI.GetItemPickListEntriesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -535,6 +538,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemPickListEntryDtoCollectionQueryParameters** | [**ItemPickListEntryDtoCollectionQueryParameters**](ItemPickListEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -546,7 +550,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -635,7 +639,7 @@ No authorization required
 
 ## GetItemPickListsAsync
 
-> ItemPickListDtoListEnvelope GetItemPickListsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemPickListDtoListEnvelope GetItemPickListsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPickListDtoCollectionQueryParameters(itemPickListDtoCollectionQueryParameters).Execute()
 
 Get all item pick lists
 
@@ -657,10 +661,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemPickListDtoCollectionQueryParameters := *openapiclient.NewItemPickListDtoCollectionQueryParameters() // ItemPickListDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPickListsAPI.GetItemPickListsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemPickListsAPI.GetItemPickListsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPickListDtoCollectionQueryParameters(itemPickListDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPickListsAPI.GetItemPickListsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -684,6 +689,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemPickListDtoCollectionQueryParameters** | [**ItemPickListDtoCollectionQueryParameters**](ItemPickListDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -695,7 +701,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -705,7 +711,7 @@ No authorization required
 
 ## GetItemPickListsCountAsync
 
-> Int32Envelope GetItemPickListsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetItemPickListsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPickListDtoCollectionQueryParameters(itemPickListDtoCollectionQueryParameters).Execute()
 
 Get item pick lists count
 
@@ -727,10 +733,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemPickListDtoCollectionQueryParameters := *openapiclient.NewItemPickListDtoCollectionQueryParameters() // ItemPickListDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPickListsAPI.GetItemPickListsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemPickListsAPI.GetItemPickListsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPickListDtoCollectionQueryParameters(itemPickListDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPickListsAPI.GetItemPickListsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -754,6 +761,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemPickListDtoCollectionQueryParameters** | [**ItemPickListDtoCollectionQueryParameters**](ItemPickListDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -765,7 +773,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -775,7 +783,7 @@ No authorization required
 
 ## PatchItemPickListAsync
 
-> EmptyEnvelope PatchItemPickListAsync(ctx, pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchItemPickListAsync(ctx, pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an item pick list
 
@@ -798,11 +806,11 @@ func main() {
 	pickListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPickListsAPI.PatchItemPickListAsync(context.Background(), pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ItemPickListsAPI.PatchItemPickListAsync(context.Background(), pickListId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPickListsAPI.PatchItemPickListAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -831,7 +839,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -853,7 +861,7 @@ No authorization required
 
 ## PatchItemPickListEntryAsync
 
-> EmptyEnvelope PatchItemPickListEntryAsync(ctx, pickListId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchItemPickListEntryAsync(ctx, pickListId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a pick list entry
 
@@ -877,11 +885,11 @@ func main() {
 	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPickListsAPI.PatchItemPickListEntryAsync(context.Background(), pickListId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ItemPickListsAPI.PatchItemPickListEntryAsync(context.Background(), pickListId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPickListsAPI.PatchItemPickListEntryAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -912,7 +920,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

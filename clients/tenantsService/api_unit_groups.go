@@ -968,6 +968,7 @@ type ApiGetUnitGroupsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	unitGroupDtoCollectionQueryParameters *UnitGroupDtoCollectionQueryParameters
 }
 
 func (r ApiGetUnitGroupsAsyncRequest) TenantId(tenantId string) ApiGetUnitGroupsAsyncRequest {
@@ -982,6 +983,11 @@ func (r ApiGetUnitGroupsAsyncRequest) ApiVersion(apiVersion string) ApiGetUnitGr
 
 func (r ApiGetUnitGroupsAsyncRequest) XApiVersion(xApiVersion string) ApiGetUnitGroupsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetUnitGroupsAsyncRequest) UnitGroupDtoCollectionQueryParameters(unitGroupDtoCollectionQueryParameters UnitGroupDtoCollectionQueryParameters) ApiGetUnitGroupsAsyncRequest {
+	r.unitGroupDtoCollectionQueryParameters = &unitGroupDtoCollectionQueryParameters
 	return r
 }
 
@@ -1033,7 +1039,7 @@ func (a *UnitGroupsAPIService) GetUnitGroupsAsyncExecute(r ApiGetUnitGroupsAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1052,6 +1058,8 @@ func (a *UnitGroupsAPIService) GetUnitGroupsAsyncExecute(r ApiGetUnitGroupsAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.unitGroupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1117,6 +1125,7 @@ type ApiGetUnitGroupsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	unitGroupDtoCollectionQueryParameters *UnitGroupDtoCollectionQueryParameters
 }
 
 func (r ApiGetUnitGroupsCountAsyncRequest) TenantId(tenantId string) ApiGetUnitGroupsCountAsyncRequest {
@@ -1131,6 +1140,11 @@ func (r ApiGetUnitGroupsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetU
 
 func (r ApiGetUnitGroupsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetUnitGroupsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetUnitGroupsCountAsyncRequest) UnitGroupDtoCollectionQueryParameters(unitGroupDtoCollectionQueryParameters UnitGroupDtoCollectionQueryParameters) ApiGetUnitGroupsCountAsyncRequest {
+	r.unitGroupDtoCollectionQueryParameters = &unitGroupDtoCollectionQueryParameters
 	return r
 }
 
@@ -1182,7 +1196,7 @@ func (a *UnitGroupsAPIService) GetUnitGroupsCountAsyncExecute(r ApiGetUnitGroups
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1201,6 +1215,8 @@ func (a *UnitGroupsAPIService) GetUnitGroupsCountAsyncExecute(r ApiGetUnitGroups
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.unitGroupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1267,6 +1283,7 @@ type ApiGetUnitsAsyncRequest struct {
 	unitGroupId string
 	apiVersion *string
 	xApiVersion *string
+	unitDtoCollectionQueryParameters *UnitDtoCollectionQueryParameters
 }
 
 func (r ApiGetUnitsAsyncRequest) TenantId(tenantId string) ApiGetUnitsAsyncRequest {
@@ -1281,6 +1298,11 @@ func (r ApiGetUnitsAsyncRequest) ApiVersion(apiVersion string) ApiGetUnitsAsyncR
 
 func (r ApiGetUnitsAsyncRequest) XApiVersion(xApiVersion string) ApiGetUnitsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetUnitsAsyncRequest) UnitDtoCollectionQueryParameters(unitDtoCollectionQueryParameters UnitDtoCollectionQueryParameters) ApiGetUnitsAsyncRequest {
+	r.unitDtoCollectionQueryParameters = &unitDtoCollectionQueryParameters
 	return r
 }
 
@@ -1335,7 +1357,7 @@ func (a *UnitGroupsAPIService) GetUnitsAsyncExecute(r ApiGetUnitsAsyncRequest) (
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1354,6 +1376,8 @@ func (a *UnitGroupsAPIService) GetUnitsAsyncExecute(r ApiGetUnitsAsyncRequest) (
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.unitDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1420,6 +1444,7 @@ type ApiGetUnitsCountAsyncRequest struct {
 	unitGroupId string
 	apiVersion *string
 	xApiVersion *string
+	unitDtoCollectionQueryParameters *UnitDtoCollectionQueryParameters
 }
 
 func (r ApiGetUnitsCountAsyncRequest) TenantId(tenantId string) ApiGetUnitsCountAsyncRequest {
@@ -1434,6 +1459,11 @@ func (r ApiGetUnitsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetUnitsC
 
 func (r ApiGetUnitsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetUnitsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetUnitsCountAsyncRequest) UnitDtoCollectionQueryParameters(unitDtoCollectionQueryParameters UnitDtoCollectionQueryParameters) ApiGetUnitsCountAsyncRequest {
+	r.unitDtoCollectionQueryParameters = &unitDtoCollectionQueryParameters
 	return r
 }
 
@@ -1488,7 +1518,7 @@ func (a *UnitGroupsAPIService) GetUnitsCountAsyncExecute(r ApiGetUnitsCountAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1507,6 +1537,8 @@ func (a *UnitGroupsAPIService) GetUnitsCountAsyncExecute(r ApiGetUnitsCountAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.unitDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1574,7 +1606,7 @@ type ApiPatchUnitAsyncRequest struct {
 	unitId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchUnitAsyncRequest) TenantId(tenantId string) ApiPatchUnitAsyncRequest {
@@ -1592,8 +1624,8 @@ func (r ApiPatchUnitAsyncRequest) XApiVersion(xApiVersion string) ApiPatchUnitAs
 	return r
 }
 
-func (r ApiPatchUnitAsyncRequest) Operation(operation []Operation) ApiPatchUnitAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchUnitAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchUnitAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1671,7 +1703,7 @@ func (a *UnitGroupsAPIService) PatchUnitAsyncExecute(r ApiPatchUnitAsyncRequest)
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1738,7 +1770,7 @@ type ApiPatchUnitGroupAsyncRequest struct {
 	unitGroupId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchUnitGroupAsyncRequest) TenantId(tenantId string) ApiPatchUnitGroupAsyncRequest {
@@ -1756,8 +1788,8 @@ func (r ApiPatchUnitGroupAsyncRequest) XApiVersion(xApiVersion string) ApiPatchU
 	return r
 }
 
-func (r ApiPatchUnitGroupAsyncRequest) Operation(operation []Operation) ApiPatchUnitGroupAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchUnitGroupAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchUnitGroupAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1832,7 +1864,7 @@ func (a *UnitGroupsAPIService) PatchUnitGroupAsyncExecute(r ApiPatchUnitGroupAsy
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

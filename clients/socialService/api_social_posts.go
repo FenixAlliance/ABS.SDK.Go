@@ -18,11 +18,177 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
 // SocialPostsAPIService SocialPostsAPI service
 type SocialPostsAPIService service
+
+type ApiCreateSocialCommentReactionAsyncRequest struct {
+	ctx context.Context
+	ApiService *SocialPostsAPIService
+	socialPostId string
+	commentId string
+	socialProfileId *string
+	apiVersion *string
+	xApiVersion *string
+	socialReactionCreateDto *SocialReactionCreateDto
+}
+
+func (r ApiCreateSocialCommentReactionAsyncRequest) SocialProfileId(socialProfileId string) ApiCreateSocialCommentReactionAsyncRequest {
+	r.socialProfileId = &socialProfileId
+	return r
+}
+
+func (r ApiCreateSocialCommentReactionAsyncRequest) ApiVersion(apiVersion string) ApiCreateSocialCommentReactionAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiCreateSocialCommentReactionAsyncRequest) XApiVersion(xApiVersion string) ApiCreateSocialCommentReactionAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCreateSocialCommentReactionAsyncRequest) SocialReactionCreateDto(socialReactionCreateDto SocialReactionCreateDto) ApiCreateSocialCommentReactionAsyncRequest {
+	r.socialReactionCreateDto = &socialReactionCreateDto
+	return r
+}
+
+func (r ApiCreateSocialCommentReactionAsyncRequest) Execute() (*SocialCommentReactionDtoEnvelope, *http.Response, error) {
+	return r.ApiService.CreateSocialCommentReactionAsyncExecute(r)
+}
+
+/*
+CreateSocialCommentReactionAsync Create a social comment reaction
+
+Creates a new reaction on a specific social comment.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param socialPostId
+ @param commentId
+ @return ApiCreateSocialCommentReactionAsyncRequest
+*/
+func (a *SocialPostsAPIService) CreateSocialCommentReactionAsync(ctx context.Context, socialPostId string, commentId string) ApiCreateSocialCommentReactionAsyncRequest {
+	return ApiCreateSocialCommentReactionAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		socialPostId: socialPostId,
+		commentId: commentId,
+	}
+}
+
+// Execute executes the request
+//  @return SocialCommentReactionDtoEnvelope
+func (a *SocialPostsAPIService) CreateSocialCommentReactionAsyncExecute(r ApiCreateSocialCommentReactionAsyncRequest) (*SocialCommentReactionDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SocialCommentReactionDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialPostsAPIService.CreateSocialCommentReactionAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions"
+	localVarPath = strings.Replace(localVarPath, "{"+"socialPostId"+"}", url.PathEscape(parameterValueToString(r.socialPostId, "socialPostId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.socialProfileId == nil {
+		return localVarReturnValue, nil, reportError("socialProfileId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "socialProfileId", r.socialProfileId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.socialReactionCreateDto
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiCreateSocialPostAsyncRequest struct {
 	ctx context.Context
@@ -533,7 +699,7 @@ func (r ApiCreateSocialPostReactionAsyncRequest) SocialReactionCreateDto(socialR
 	return r
 }
 
-func (r ApiCreateSocialPostReactionAsyncRequest) Execute() (*SocialReactionDtoEnvelope, *http.Response, error) {
+func (r ApiCreateSocialPostReactionAsyncRequest) Execute() (*SocialPostReactionDtoEnvelope, *http.Response, error) {
 	return r.ApiService.CreateSocialPostReactionAsyncExecute(r)
 }
 
@@ -555,13 +721,13 @@ func (a *SocialPostsAPIService) CreateSocialPostReactionAsync(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return SocialReactionDtoEnvelope
-func (a *SocialPostsAPIService) CreateSocialPostReactionAsyncExecute(r ApiCreateSocialPostReactionAsyncRequest) (*SocialReactionDtoEnvelope, *http.Response, error) {
+//  @return SocialPostReactionDtoEnvelope
+func (a *SocialPostsAPIService) CreateSocialPostReactionAsyncExecute(r ApiCreateSocialPostReactionAsyncRequest) (*SocialPostReactionDtoEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SocialReactionDtoEnvelope
+		localVarReturnValue  *SocialPostReactionDtoEnvelope
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialPostsAPIService.CreateSocialPostReactionAsync")
@@ -605,6 +771,167 @@ func (a *SocialPostsAPIService) CreateSocialPostReactionAsyncExecute(r ApiCreate
 	}
 	// body params
 	localVarPostBody = r.socialReactionCreateDto
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteSocialCommentReactionAsyncRequest struct {
+	ctx context.Context
+	ApiService *SocialPostsAPIService
+	socialPostId string
+	commentId string
+	reactionId string
+	socialProfileId *string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiDeleteSocialCommentReactionAsyncRequest) SocialProfileId(socialProfileId string) ApiDeleteSocialCommentReactionAsyncRequest {
+	r.socialProfileId = &socialProfileId
+	return r
+}
+
+func (r ApiDeleteSocialCommentReactionAsyncRequest) ApiVersion(apiVersion string) ApiDeleteSocialCommentReactionAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiDeleteSocialCommentReactionAsyncRequest) XApiVersion(xApiVersion string) ApiDeleteSocialCommentReactionAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiDeleteSocialCommentReactionAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.DeleteSocialCommentReactionAsyncExecute(r)
+}
+
+/*
+DeleteSocialCommentReactionAsync Delete a social comment reaction
+
+Deletes a reaction from a specific social comment.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param socialPostId
+ @param commentId
+ @param reactionId
+ @return ApiDeleteSocialCommentReactionAsyncRequest
+*/
+func (a *SocialPostsAPIService) DeleteSocialCommentReactionAsync(ctx context.Context, socialPostId string, commentId string, reactionId string) ApiDeleteSocialCommentReactionAsyncRequest {
+	return ApiDeleteSocialCommentReactionAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		socialPostId: socialPostId,
+		commentId: commentId,
+		reactionId: reactionId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *SocialPostsAPIService) DeleteSocialCommentReactionAsyncExecute(r ApiDeleteSocialCommentReactionAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialPostsAPIService.DeleteSocialCommentReactionAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"socialPostId"+"}", url.PathEscape(parameterValueToString(r.socialPostId, "socialPostId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"reactionId"+"}", url.PathEscape(parameterValueToString(r.reactionId, "reactionId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.socialProfileId == nil {
+		return localVarReturnValue, nil, reportError("socialProfileId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "socialProfileId", r.socialProfileId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1288,6 +1615,487 @@ func (a *SocialPostsAPIService) DeleteSocialPostReactionAsyncExecute(r ApiDelete
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetSocialCommentReactionAsyncRequest struct {
+	ctx context.Context
+	ApiService *SocialPostsAPIService
+	socialPostId string
+	commentId string
+	reactionId string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetSocialCommentReactionAsyncRequest) ApiVersion(apiVersion string) ApiGetSocialCommentReactionAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetSocialCommentReactionAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialCommentReactionAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialCommentReactionAsyncRequest) Execute() (*SocialCommentReactionDtoEnvelope, *http.Response, error) {
+	return r.ApiService.GetSocialCommentReactionAsyncExecute(r)
+}
+
+/*
+GetSocialCommentReactionAsync Get social comment reaction by ID
+
+Retrieves a specific reaction from a social comment by its ID.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param socialPostId
+ @param commentId
+ @param reactionId
+ @return ApiGetSocialCommentReactionAsyncRequest
+*/
+func (a *SocialPostsAPIService) GetSocialCommentReactionAsync(ctx context.Context, socialPostId string, commentId string, reactionId string) ApiGetSocialCommentReactionAsyncRequest {
+	return ApiGetSocialCommentReactionAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		socialPostId: socialPostId,
+		commentId: commentId,
+		reactionId: reactionId,
+	}
+}
+
+// Execute executes the request
+//  @return SocialCommentReactionDtoEnvelope
+func (a *SocialPostsAPIService) GetSocialCommentReactionAsyncExecute(r ApiGetSocialCommentReactionAsyncRequest) (*SocialCommentReactionDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SocialCommentReactionDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialPostsAPIService.GetSocialCommentReactionAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"socialPostId"+"}", url.PathEscape(parameterValueToString(r.socialPostId, "socialPostId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"reactionId"+"}", url.PathEscape(parameterValueToString(r.reactionId, "reactionId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetSocialCommentReactionsAsyncRequest struct {
+	ctx context.Context
+	ApiService *SocialPostsAPIService
+	socialPostId string
+	commentId string
+	socialProfileId *string
+	apiVersion *string
+	xApiVersion *string
+	socialCommentReactionDtoCollectionQueryParameters *SocialCommentReactionDtoCollectionQueryParameters
+}
+
+func (r ApiGetSocialCommentReactionsAsyncRequest) SocialProfileId(socialProfileId string) ApiGetSocialCommentReactionsAsyncRequest {
+	r.socialProfileId = &socialProfileId
+	return r
+}
+
+func (r ApiGetSocialCommentReactionsAsyncRequest) ApiVersion(apiVersion string) ApiGetSocialCommentReactionsAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetSocialCommentReactionsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialCommentReactionsAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialCommentReactionsAsyncRequest) SocialCommentReactionDtoCollectionQueryParameters(socialCommentReactionDtoCollectionQueryParameters SocialCommentReactionDtoCollectionQueryParameters) ApiGetSocialCommentReactionsAsyncRequest {
+	r.socialCommentReactionDtoCollectionQueryParameters = &socialCommentReactionDtoCollectionQueryParameters
+	return r
+}
+
+func (r ApiGetSocialCommentReactionsAsyncRequest) Execute() (*SocialCommentReactionDtoListEnvelope, *http.Response, error) {
+	return r.ApiService.GetSocialCommentReactionsAsyncExecute(r)
+}
+
+/*
+GetSocialCommentReactionsAsync Get social comment reactions
+
+Retrieves a list of reactions for a specific social comment.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param socialPostId
+ @param commentId
+ @return ApiGetSocialCommentReactionsAsyncRequest
+*/
+func (a *SocialPostsAPIService) GetSocialCommentReactionsAsync(ctx context.Context, socialPostId string, commentId string) ApiGetSocialCommentReactionsAsyncRequest {
+	return ApiGetSocialCommentReactionsAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		socialPostId: socialPostId,
+		commentId: commentId,
+	}
+}
+
+// Execute executes the request
+//  @return SocialCommentReactionDtoListEnvelope
+func (a *SocialPostsAPIService) GetSocialCommentReactionsAsyncExecute(r ApiGetSocialCommentReactionsAsyncRequest) (*SocialCommentReactionDtoListEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SocialCommentReactionDtoListEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialPostsAPIService.GetSocialCommentReactionsAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions"
+	localVarPath = strings.Replace(localVarPath, "{"+"socialPostId"+"}", url.PathEscape(parameterValueToString(r.socialPostId, "socialPostId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.socialProfileId == nil {
+		return localVarReturnValue, nil, reportError("socialProfileId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "socialProfileId", r.socialProfileId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.socialCommentReactionDtoCollectionQueryParameters
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetSocialCommentReactionsCountAsyncRequest struct {
+	ctx context.Context
+	ApiService *SocialPostsAPIService
+	socialPostId string
+	commentId string
+	socialProfileId *string
+	apiVersion *string
+	xApiVersion *string
+	socialCommentReactionDtoCollectionQueryParameters *SocialCommentReactionDtoCollectionQueryParameters
+}
+
+func (r ApiGetSocialCommentReactionsCountAsyncRequest) SocialProfileId(socialProfileId string) ApiGetSocialCommentReactionsCountAsyncRequest {
+	r.socialProfileId = &socialProfileId
+	return r
+}
+
+func (r ApiGetSocialCommentReactionsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetSocialCommentReactionsCountAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetSocialCommentReactionsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialCommentReactionsCountAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialCommentReactionsCountAsyncRequest) SocialCommentReactionDtoCollectionQueryParameters(socialCommentReactionDtoCollectionQueryParameters SocialCommentReactionDtoCollectionQueryParameters) ApiGetSocialCommentReactionsCountAsyncRequest {
+	r.socialCommentReactionDtoCollectionQueryParameters = &socialCommentReactionDtoCollectionQueryParameters
+	return r
+}
+
+func (r ApiGetSocialCommentReactionsCountAsyncRequest) Execute() (*Int32Envelope, *http.Response, error) {
+	return r.ApiService.GetSocialCommentReactionsCountAsyncExecute(r)
+}
+
+/*
+GetSocialCommentReactionsCountAsync Count social comment reactions
+
+Returns the count of reactions for a specific social comment.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param socialPostId
+ @param commentId
+ @return ApiGetSocialCommentReactionsCountAsyncRequest
+*/
+func (a *SocialPostsAPIService) GetSocialCommentReactionsCountAsync(ctx context.Context, socialPostId string, commentId string) ApiGetSocialCommentReactionsCountAsyncRequest {
+	return ApiGetSocialCommentReactionsCountAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		socialPostId: socialPostId,
+		commentId: commentId,
+	}
+}
+
+// Execute executes the request
+//  @return Int32Envelope
+func (a *SocialPostsAPIService) GetSocialCommentReactionsCountAsyncExecute(r ApiGetSocialCommentReactionsCountAsyncRequest) (*Int32Envelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Int32Envelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialPostsAPIService.GetSocialCommentReactionsCountAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count"
+	localVarPath = strings.Replace(localVarPath, "{"+"socialPostId"+"}", url.PathEscape(parameterValueToString(r.socialPostId, "socialPostId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.socialProfileId == nil {
+		return localVarReturnValue, nil, reportError("socialProfileId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "socialProfileId", r.socialProfileId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.socialCommentReactionDtoCollectionQueryParameters
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetSocialPostAsyncRequest struct {
 	ctx context.Context
 	ApiService *SocialPostsAPIService
@@ -1594,6 +2402,7 @@ type ApiGetSocialPostAttachmentsAsyncRequest struct {
 	socialPostId string
 	apiVersion *string
 	xApiVersion *string
+	socialPostAttachmentDtoCollectionQueryParameters *SocialPostAttachmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialPostAttachmentsAsyncRequest) ApiVersion(apiVersion string) ApiGetSocialPostAttachmentsAsyncRequest {
@@ -1603,6 +2412,11 @@ func (r ApiGetSocialPostAttachmentsAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetSocialPostAttachmentsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialPostAttachmentsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialPostAttachmentsAsyncRequest) SocialPostAttachmentDtoCollectionQueryParameters(socialPostAttachmentDtoCollectionQueryParameters SocialPostAttachmentDtoCollectionQueryParameters) ApiGetSocialPostAttachmentsAsyncRequest {
+	r.socialPostAttachmentDtoCollectionQueryParameters = &socialPostAttachmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -1653,7 +2467,7 @@ func (a *SocialPostsAPIService) GetSocialPostAttachmentsAsyncExecute(r ApiGetSoc
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1672,6 +2486,8 @@ func (a *SocialPostsAPIService) GetSocialPostAttachmentsAsyncExecute(r ApiGetSoc
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialPostAttachmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1737,6 +2553,7 @@ type ApiGetSocialPostAttachmentsCountAsyncRequest struct {
 	socialPostId string
 	apiVersion *string
 	xApiVersion *string
+	socialPostAttachmentDtoCollectionQueryParameters *SocialPostAttachmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialPostAttachmentsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetSocialPostAttachmentsCountAsyncRequest {
@@ -1746,6 +2563,11 @@ func (r ApiGetSocialPostAttachmentsCountAsyncRequest) ApiVersion(apiVersion stri
 
 func (r ApiGetSocialPostAttachmentsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialPostAttachmentsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialPostAttachmentsCountAsyncRequest) SocialPostAttachmentDtoCollectionQueryParameters(socialPostAttachmentDtoCollectionQueryParameters SocialPostAttachmentDtoCollectionQueryParameters) ApiGetSocialPostAttachmentsCountAsyncRequest {
+	r.socialPostAttachmentDtoCollectionQueryParameters = &socialPostAttachmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -1796,7 +2618,7 @@ func (a *SocialPostsAPIService) GetSocialPostAttachmentsCountAsyncExecute(r ApiG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1815,6 +2637,8 @@ func (a *SocialPostsAPIService) GetSocialPostAttachmentsCountAsyncExecute(r ApiG
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialPostAttachmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2036,12 +2860,19 @@ type ApiGetSocialPostCommentsAsyncRequest struct {
 	ApiService *SocialPostsAPIService
 	socialProfileId *string
 	socialPostId string
+	parentCommentId *string
 	apiVersion *string
 	xApiVersion *string
+	socialPostCommentDtoCollectionQueryParameters *SocialPostCommentDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialPostCommentsAsyncRequest) SocialProfileId(socialProfileId string) ApiGetSocialPostCommentsAsyncRequest {
 	r.socialProfileId = &socialProfileId
+	return r
+}
+
+func (r ApiGetSocialPostCommentsAsyncRequest) ParentCommentId(parentCommentId string) ApiGetSocialPostCommentsAsyncRequest {
+	r.parentCommentId = &parentCommentId
 	return r
 }
 
@@ -2052,6 +2883,11 @@ func (r ApiGetSocialPostCommentsAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetSocialPostCommentsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialPostCommentsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialPostCommentsAsyncRequest) SocialPostCommentDtoCollectionQueryParameters(socialPostCommentDtoCollectionQueryParameters SocialPostCommentDtoCollectionQueryParameters) ApiGetSocialPostCommentsAsyncRequest {
+	r.socialPostCommentDtoCollectionQueryParameters = &socialPostCommentDtoCollectionQueryParameters
 	return r
 }
 
@@ -2102,11 +2938,14 @@ func (a *SocialPostsAPIService) GetSocialPostCommentsAsyncExecute(r ApiGetSocial
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "socialProfileId", r.socialProfileId, "form", "")
+	if r.parentCommentId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "parentCommentId", r.parentCommentId, "form", "")
+	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2125,6 +2964,8 @@ func (a *SocialPostsAPIService) GetSocialPostCommentsAsyncExecute(r ApiGetSocial
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialPostCommentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2189,12 +3030,19 @@ type ApiGetSocialPostCommentsCountAsyncRequest struct {
 	ApiService *SocialPostsAPIService
 	socialProfileId *string
 	socialPostId string
+	parentCommentId *string
 	apiVersion *string
 	xApiVersion *string
+	socialPostCommentDtoCollectionQueryParameters *SocialPostCommentDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialPostCommentsCountAsyncRequest) SocialProfileId(socialProfileId string) ApiGetSocialPostCommentsCountAsyncRequest {
 	r.socialProfileId = &socialProfileId
+	return r
+}
+
+func (r ApiGetSocialPostCommentsCountAsyncRequest) ParentCommentId(parentCommentId string) ApiGetSocialPostCommentsCountAsyncRequest {
+	r.parentCommentId = &parentCommentId
 	return r
 }
 
@@ -2205,6 +3053,11 @@ func (r ApiGetSocialPostCommentsCountAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetSocialPostCommentsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialPostCommentsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialPostCommentsCountAsyncRequest) SocialPostCommentDtoCollectionQueryParameters(socialPostCommentDtoCollectionQueryParameters SocialPostCommentDtoCollectionQueryParameters) ApiGetSocialPostCommentsCountAsyncRequest {
+	r.socialPostCommentDtoCollectionQueryParameters = &socialPostCommentDtoCollectionQueryParameters
 	return r
 }
 
@@ -2255,11 +3108,14 @@ func (a *SocialPostsAPIService) GetSocialPostCommentsCountAsyncExecute(r ApiGetS
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "socialProfileId", r.socialProfileId, "form", "")
+	if r.parentCommentId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "parentCommentId", r.parentCommentId, "form", "")
+	}
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2278,6 +3134,8 @@ func (a *SocialPostsAPIService) GetSocialPostCommentsCountAsyncExecute(r ApiGetS
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialPostCommentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2491,6 +3349,7 @@ type ApiGetSocialPostReactionsAsyncRequest struct {
 	socialProfileId *string
 	apiVersion *string
 	xApiVersion *string
+	socialPostReactionDtoCollectionQueryParameters *SocialPostReactionDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialPostReactionsAsyncRequest) SocialProfileId(socialProfileId string) ApiGetSocialPostReactionsAsyncRequest {
@@ -2505,6 +3364,11 @@ func (r ApiGetSocialPostReactionsAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetSocialPostReactionsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialPostReactionsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialPostReactionsAsyncRequest) SocialPostReactionDtoCollectionQueryParameters(socialPostReactionDtoCollectionQueryParameters SocialPostReactionDtoCollectionQueryParameters) ApiGetSocialPostReactionsAsyncRequest {
+	r.socialPostReactionDtoCollectionQueryParameters = &socialPostReactionDtoCollectionQueryParameters
 	return r
 }
 
@@ -2559,7 +3423,7 @@ func (a *SocialPostsAPIService) GetSocialPostReactionsAsyncExecute(r ApiGetSocia
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2578,6 +3442,8 @@ func (a *SocialPostsAPIService) GetSocialPostReactionsAsyncExecute(r ApiGetSocia
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialPostReactionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2644,6 +3510,7 @@ type ApiGetSocialPostReactionsCountAsyncRequest struct {
 	socialProfileId *string
 	apiVersion *string
 	xApiVersion *string
+	socialPostReactionDtoCollectionQueryParameters *SocialPostReactionDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialPostReactionsCountAsyncRequest) SocialProfileId(socialProfileId string) ApiGetSocialPostReactionsCountAsyncRequest {
@@ -2658,6 +3525,11 @@ func (r ApiGetSocialPostReactionsCountAsyncRequest) ApiVersion(apiVersion string
 
 func (r ApiGetSocialPostReactionsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialPostReactionsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialPostReactionsCountAsyncRequest) SocialPostReactionDtoCollectionQueryParameters(socialPostReactionDtoCollectionQueryParameters SocialPostReactionDtoCollectionQueryParameters) ApiGetSocialPostReactionsCountAsyncRequest {
+	r.socialPostReactionDtoCollectionQueryParameters = &socialPostReactionDtoCollectionQueryParameters
 	return r
 }
 
@@ -2712,7 +3584,7 @@ func (a *SocialPostsAPIService) GetSocialPostReactionsCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2731,6 +3603,8 @@ func (a *SocialPostsAPIService) GetSocialPostReactionsCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialPostReactionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2796,6 +3670,7 @@ type ApiGetSocialPostsAsyncRequest struct {
 	socialProfileId *string
 	apiVersion *string
 	xApiVersion *string
+	socialPostDtoCollectionQueryParameters *SocialPostDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialPostsAsyncRequest) SocialProfileId(socialProfileId string) ApiGetSocialPostsAsyncRequest {
@@ -2810,6 +3685,11 @@ func (r ApiGetSocialPostsAsyncRequest) ApiVersion(apiVersion string) ApiGetSocia
 
 func (r ApiGetSocialPostsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialPostsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialPostsAsyncRequest) SocialPostDtoCollectionQueryParameters(socialPostDtoCollectionQueryParameters SocialPostDtoCollectionQueryParameters) ApiGetSocialPostsAsyncRequest {
+	r.socialPostDtoCollectionQueryParameters = &socialPostDtoCollectionQueryParameters
 	return r
 }
 
@@ -2861,7 +3741,7 @@ func (a *SocialPostsAPIService) GetSocialPostsAsyncExecute(r ApiGetSocialPostsAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2880,6 +3760,8 @@ func (a *SocialPostsAPIService) GetSocialPostsAsyncExecute(r ApiGetSocialPostsAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialPostDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2945,6 +3827,7 @@ type ApiGetSocialPostsCountAsyncRequest struct {
 	socialProfileId *string
 	apiVersion *string
 	xApiVersion *string
+	socialPostDtoCollectionQueryParameters *SocialPostDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialPostsCountAsyncRequest) SocialProfileId(socialProfileId string) ApiGetSocialPostsCountAsyncRequest {
@@ -2959,6 +3842,11 @@ func (r ApiGetSocialPostsCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetSocialPostsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialPostsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialPostsCountAsyncRequest) SocialPostDtoCollectionQueryParameters(socialPostDtoCollectionQueryParameters SocialPostDtoCollectionQueryParameters) ApiGetSocialPostsCountAsyncRequest {
+	r.socialPostDtoCollectionQueryParameters = &socialPostDtoCollectionQueryParameters
 	return r
 }
 
@@ -3010,7 +3898,7 @@ func (a *SocialPostsAPIService) GetSocialPostsCountAsyncExecute(r ApiGetSocialPo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3029,6 +3917,8 @@ func (a *SocialPostsAPIService) GetSocialPostsCountAsyncExecute(r ApiGetSocialPo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialPostDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3095,7 +3985,7 @@ type ApiPatchSocialPostAsyncRequest struct {
 	socialPostId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSocialPostAsyncRequest) SocialProfileId(socialProfileId string) ApiPatchSocialPostAsyncRequest {
@@ -3113,8 +4003,8 @@ func (r ApiPatchSocialPostAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchSocialPostAsyncRequest) Operation(operation []Operation) ApiPatchSocialPostAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSocialPostAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSocialPostAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -3189,7 +4079,176 @@ func (a *SocialPostsAPIService) PatchSocialPostAsyncExecute(r ApiPatchSocialPost
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateSocialCommentReactionAsyncRequest struct {
+	ctx context.Context
+	ApiService *SocialPostsAPIService
+	socialPostId string
+	commentId string
+	reactionId string
+	socialProfileId *string
+	apiVersion *string
+	xApiVersion *string
+	socialReactionUpdateDto *SocialReactionUpdateDto
+}
+
+func (r ApiUpdateSocialCommentReactionAsyncRequest) SocialProfileId(socialProfileId string) ApiUpdateSocialCommentReactionAsyncRequest {
+	r.socialProfileId = &socialProfileId
+	return r
+}
+
+func (r ApiUpdateSocialCommentReactionAsyncRequest) ApiVersion(apiVersion string) ApiUpdateSocialCommentReactionAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiUpdateSocialCommentReactionAsyncRequest) XApiVersion(xApiVersion string) ApiUpdateSocialCommentReactionAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiUpdateSocialCommentReactionAsyncRequest) SocialReactionUpdateDto(socialReactionUpdateDto SocialReactionUpdateDto) ApiUpdateSocialCommentReactionAsyncRequest {
+	r.socialReactionUpdateDto = &socialReactionUpdateDto
+	return r
+}
+
+func (r ApiUpdateSocialCommentReactionAsyncRequest) Execute() (*SocialCommentReactionDtoEnvelope, *http.Response, error) {
+	return r.ApiService.UpdateSocialCommentReactionAsyncExecute(r)
+}
+
+/*
+UpdateSocialCommentReactionAsync Update a social comment reaction
+
+Updates an existing reaction on a specific social comment.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param socialPostId
+ @param commentId
+ @param reactionId
+ @return ApiUpdateSocialCommentReactionAsyncRequest
+*/
+func (a *SocialPostsAPIService) UpdateSocialCommentReactionAsync(ctx context.Context, socialPostId string, commentId string, reactionId string) ApiUpdateSocialCommentReactionAsyncRequest {
+	return ApiUpdateSocialCommentReactionAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		socialPostId: socialPostId,
+		commentId: commentId,
+		reactionId: reactionId,
+	}
+}
+
+// Execute executes the request
+//  @return SocialCommentReactionDtoEnvelope
+func (a *SocialPostsAPIService) UpdateSocialCommentReactionAsyncExecute(r ApiUpdateSocialCommentReactionAsyncRequest) (*SocialCommentReactionDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SocialCommentReactionDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialPostsAPIService.UpdateSocialCommentReactionAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"socialPostId"+"}", url.PathEscape(parameterValueToString(r.socialPostId, "socialPostId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"reactionId"+"}", url.PathEscape(parameterValueToString(r.reactionId, "reactionId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.socialProfileId == nil {
+		return localVarReturnValue, nil, reportError("socialProfileId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "socialProfileId", r.socialProfileId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.socialReactionUpdateDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3771,7 +4830,7 @@ func (r ApiUpdateSocialPostReactionAsyncRequest) SocialReactionUpdateDto(socialR
 	return r
 }
 
-func (r ApiUpdateSocialPostReactionAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+func (r ApiUpdateSocialPostReactionAsyncRequest) Execute() (*SocialPostReactionDtoEnvelope, *http.Response, error) {
 	return r.ApiService.UpdateSocialPostReactionAsyncExecute(r)
 }
 
@@ -3795,13 +4854,13 @@ func (a *SocialPostsAPIService) UpdateSocialPostReactionAsync(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return EmptyEnvelope
-func (a *SocialPostsAPIService) UpdateSocialPostReactionAsyncExecute(r ApiUpdateSocialPostReactionAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+//  @return SocialPostReactionDtoEnvelope
+func (a *SocialPostsAPIService) UpdateSocialPostReactionAsyncExecute(r ApiUpdateSocialPostReactionAsyncRequest) (*SocialPostReactionDtoEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EmptyEnvelope
+		localVarReturnValue  *SocialPostReactionDtoEnvelope
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialPostsAPIService.UpdateSocialPostReactionAsync")
@@ -3880,6 +4939,191 @@ func (a *SocialPostsAPIService) UpdateSocialPostReactionAsyncExecute(r ApiUpdate
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUploadSocialPostImageAttachmentAsyncRequest struct {
+	ctx context.Context
+	ApiService *SocialPostsAPIService
+	socialPostId string
+	socialProfileId *string
+	apiVersion *string
+	xApiVersion *string
+	file *os.File
+}
+
+func (r ApiUploadSocialPostImageAttachmentAsyncRequest) SocialProfileId(socialProfileId string) ApiUploadSocialPostImageAttachmentAsyncRequest {
+	r.socialProfileId = &socialProfileId
+	return r
+}
+
+func (r ApiUploadSocialPostImageAttachmentAsyncRequest) ApiVersion(apiVersion string) ApiUploadSocialPostImageAttachmentAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiUploadSocialPostImageAttachmentAsyncRequest) XApiVersion(xApiVersion string) ApiUploadSocialPostImageAttachmentAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiUploadSocialPostImageAttachmentAsyncRequest) File(file *os.File) ApiUploadSocialPostImageAttachmentAsyncRequest {
+	r.file = file
+	return r
+}
+
+func (r ApiUploadSocialPostImageAttachmentAsyncRequest) Execute() (*SocialPostAttachmentDtoEnvelope, *http.Response, error) {
+	return r.ApiService.UploadSocialPostImageAttachmentAsyncExecute(r)
+}
+
+/*
+UploadSocialPostImageAttachmentAsync Upload a social post image attachment
+
+Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param socialPostId
+ @return ApiUploadSocialPostImageAttachmentAsyncRequest
+*/
+func (a *SocialPostsAPIService) UploadSocialPostImageAttachmentAsync(ctx context.Context, socialPostId string) ApiUploadSocialPostImageAttachmentAsyncRequest {
+	return ApiUploadSocialPostImageAttachmentAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		socialPostId: socialPostId,
+	}
+}
+
+// Execute executes the request
+//  @return SocialPostAttachmentDtoEnvelope
+func (a *SocialPostsAPIService) UploadSocialPostImageAttachmentAsyncExecute(r ApiUploadSocialPostImageAttachmentAsyncRequest) (*SocialPostAttachmentDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SocialPostAttachmentDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SocialPostsAPIService.UploadSocialPostImageAttachmentAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image"
+	localVarPath = strings.Replace(localVarPath, "{"+"socialPostId"+"}", url.PathEscape(parameterValueToString(r.socialPostId, "socialPostId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.socialProfileId == nil {
+		return localVarReturnValue, nil, reportError("socialProfileId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "socialProfileId", r.socialProfileId, "form", "")
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"multipart/form-data", "application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	var fileLocalVarFormFileName string
+	var fileLocalVarFileName     string
+	var fileLocalVarFileBytes    []byte
+
+	fileLocalVarFormFileName = "file"
+	fileLocalVarFile := r.file
+
+	if fileLocalVarFile != nil {
+		fbs, _ := io.ReadAll(fileLocalVarFile)
+
+		fileLocalVarFileBytes = fbs
+		fileLocalVarFileName = fileLocalVarFile.Name()
+		fileLocalVarFile.Close()
+		formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorEnvelope
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

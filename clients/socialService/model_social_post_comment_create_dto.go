@@ -14,8 +14,6 @@ package openapi
 import (
 	"encoding/json"
 	"time"
-	"bytes"
-	"fmt"
 )
 
 // checks if the SocialPostCommentCreateDto type satisfies the MappedNullable interface at compile time
@@ -25,7 +23,7 @@ var _ MappedNullable = &SocialPostCommentCreateDto{}
 type SocialPostCommentCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-	Message string `json:"message" validate:"regexp=^[\\\\w\\\\s\\\\.\\\\,\\\\!\\\\?\\\\-\\\\(\\\\)\\\\[\\\\]\\\\{\\\\}\\\\'\\\\\\"\\\\:\\\\;]{1,280}$"`
+	Message NullableString `json:"message,omitempty"`
 	BodyHtml NullableString `json:"bodyHtml,omitempty"`
 	BodyFormat NullableString `json:"bodyFormat,omitempty"`
 	ParentCommentId NullableString `json:"parentCommentId,omitempty"`
@@ -34,15 +32,12 @@ type SocialPostCommentCreateDto struct {
 	SocialPostId NullableString `json:"socialPostId,omitempty"`
 }
 
-type _SocialPostCommentCreateDto SocialPostCommentCreateDto
-
 // NewSocialPostCommentCreateDto instantiates a new SocialPostCommentCreateDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSocialPostCommentCreateDto(message string) *SocialPostCommentCreateDto {
+func NewSocialPostCommentCreateDto() *SocialPostCommentCreateDto {
 	this := SocialPostCommentCreateDto{}
-	this.Message = message
 	return &this
 }
 
@@ -118,28 +113,46 @@ func (o *SocialPostCommentCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
-// GetMessage returns the Message field value
+// GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SocialPostCommentCreateDto) GetMessage() string {
-	if o == nil {
+	if o == nil || IsNil(o.Message.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Message
+	return *o.Message.Get()
 }
 
-// GetMessageOk returns a tuple with the Message field value
+// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SocialPostCommentCreateDto) GetMessageOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Message, true
+	return o.Message.Get(), o.Message.IsSet()
 }
 
-// SetMessage sets field value
+// HasMessage returns a boolean if a field has been set.
+func (o *SocialPostCommentCreateDto) HasMessage() bool {
+	if o != nil && o.Message.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMessage gets a reference to the given NullableString and assigns it to the Message field.
 func (o *SocialPostCommentCreateDto) SetMessage(v string) {
-	o.Message = v
+	o.Message.Set(&v)
+}
+// SetMessageNil sets the value for Message to be an explicit nil
+func (o *SocialPostCommentCreateDto) SetMessageNil() {
+	o.Message.Set(nil)
+}
+
+// UnsetMessage ensures that no value is present for Message, not even an explicit nil
+func (o *SocialPostCommentCreateDto) UnsetMessage() {
+	o.Message.Unset()
 }
 
 // GetBodyHtml returns the BodyHtml field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -410,7 +423,9 @@ func (o SocialPostCommentCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-	toSerialize["message"] = o.Message
+	if o.Message.IsSet() {
+		toSerialize["message"] = o.Message.Get()
+	}
 	if o.BodyHtml.IsSet() {
 		toSerialize["bodyHtml"] = o.BodyHtml.Get()
 	}
@@ -430,43 +445,6 @@ func (o SocialPostCommentCreateDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["socialPostId"] = o.SocialPostId.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *SocialPostCommentCreateDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"message",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSocialPostCommentCreateDto := _SocialPostCommentCreateDto{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSocialPostCommentCreateDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SocialPostCommentCreateDto(varSocialPostCommentCreateDto)
-
-	return err
 }
 
 type NullableSocialPostCommentCreateDto struct {

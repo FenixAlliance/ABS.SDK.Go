@@ -1134,6 +1134,7 @@ type ApiGetAppliedTaxPolicyRecordsRequest struct {
 	taxPolicyId string
 	apiVersion *string
 	xApiVersion *string
+	appliedTaxPolicyRecordDtoCollectionQueryParameters *AppliedTaxPolicyRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetAppliedTaxPolicyRecordsRequest) TenantId(tenantId string) ApiGetAppliedTaxPolicyRecordsRequest {
@@ -1148,6 +1149,11 @@ func (r ApiGetAppliedTaxPolicyRecordsRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetAppliedTaxPolicyRecordsRequest) XApiVersion(xApiVersion string) ApiGetAppliedTaxPolicyRecordsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAppliedTaxPolicyRecordsRequest) AppliedTaxPolicyRecordDtoCollectionQueryParameters(appliedTaxPolicyRecordDtoCollectionQueryParameters AppliedTaxPolicyRecordDtoCollectionQueryParameters) ApiGetAppliedTaxPolicyRecordsRequest {
+	r.appliedTaxPolicyRecordDtoCollectionQueryParameters = &appliedTaxPolicyRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -1202,7 +1208,7 @@ func (a *TaxPoliciesAPIService) GetAppliedTaxPolicyRecordsExecute(r ApiGetApplie
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1221,6 +1227,8 @@ func (a *TaxPoliciesAPIService) GetAppliedTaxPolicyRecordsExecute(r ApiGetApplie
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.appliedTaxPolicyRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1287,6 +1295,7 @@ type ApiGetAppliedTaxPolicyRecordsCountRequest struct {
 	taxPolicyId string
 	apiVersion *string
 	xApiVersion *string
+	appliedTaxPolicyRecordDtoCollectionQueryParameters *AppliedTaxPolicyRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetAppliedTaxPolicyRecordsCountRequest) TenantId(tenantId string) ApiGetAppliedTaxPolicyRecordsCountRequest {
@@ -1301,6 +1310,11 @@ func (r ApiGetAppliedTaxPolicyRecordsCountRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetAppliedTaxPolicyRecordsCountRequest) XApiVersion(xApiVersion string) ApiGetAppliedTaxPolicyRecordsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAppliedTaxPolicyRecordsCountRequest) AppliedTaxPolicyRecordDtoCollectionQueryParameters(appliedTaxPolicyRecordDtoCollectionQueryParameters AppliedTaxPolicyRecordDtoCollectionQueryParameters) ApiGetAppliedTaxPolicyRecordsCountRequest {
+	r.appliedTaxPolicyRecordDtoCollectionQueryParameters = &appliedTaxPolicyRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -1355,7 +1369,7 @@ func (a *TaxPoliciesAPIService) GetAppliedTaxPolicyRecordsCountExecute(r ApiGetA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1374,6 +1388,8 @@ func (a *TaxPoliciesAPIService) GetAppliedTaxPolicyRecordsCountExecute(r ApiGetA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.appliedTaxPolicyRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1597,6 +1613,7 @@ type ApiGetItemTaxPolicyRecordsRequest struct {
 	taxPolicyId string
 	apiVersion *string
 	xApiVersion *string
+	itemTaxPolicyRecordDtoCollectionQueryParameters *ItemTaxPolicyRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemTaxPolicyRecordsRequest) TenantId(tenantId string) ApiGetItemTaxPolicyRecordsRequest {
@@ -1611,6 +1628,11 @@ func (r ApiGetItemTaxPolicyRecordsRequest) ApiVersion(apiVersion string) ApiGetI
 
 func (r ApiGetItemTaxPolicyRecordsRequest) XApiVersion(xApiVersion string) ApiGetItemTaxPolicyRecordsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemTaxPolicyRecordsRequest) ItemTaxPolicyRecordDtoCollectionQueryParameters(itemTaxPolicyRecordDtoCollectionQueryParameters ItemTaxPolicyRecordDtoCollectionQueryParameters) ApiGetItemTaxPolicyRecordsRequest {
+	r.itemTaxPolicyRecordDtoCollectionQueryParameters = &itemTaxPolicyRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -1665,7 +1687,7 @@ func (a *TaxPoliciesAPIService) GetItemTaxPolicyRecordsExecute(r ApiGetItemTaxPo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1684,6 +1706,8 @@ func (a *TaxPoliciesAPIService) GetItemTaxPolicyRecordsExecute(r ApiGetItemTaxPo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemTaxPolicyRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1749,6 +1773,7 @@ type ApiGetTaxPoliciesRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	taxPolicyDtoCollectionQueryParameters *TaxPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetTaxPoliciesRequest) TenantId(tenantId string) ApiGetTaxPoliciesRequest {
@@ -1763,6 +1788,11 @@ func (r ApiGetTaxPoliciesRequest) ApiVersion(apiVersion string) ApiGetTaxPolicie
 
 func (r ApiGetTaxPoliciesRequest) XApiVersion(xApiVersion string) ApiGetTaxPoliciesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTaxPoliciesRequest) TaxPolicyDtoCollectionQueryParameters(taxPolicyDtoCollectionQueryParameters TaxPolicyDtoCollectionQueryParameters) ApiGetTaxPoliciesRequest {
+	r.taxPolicyDtoCollectionQueryParameters = &taxPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -1814,7 +1844,7 @@ func (a *TaxPoliciesAPIService) GetTaxPoliciesExecute(r ApiGetTaxPoliciesRequest
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1833,6 +1863,8 @@ func (a *TaxPoliciesAPIService) GetTaxPoliciesExecute(r ApiGetTaxPoliciesRequest
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.taxPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1899,6 +1931,7 @@ type ApiGetTaxPoliciesByAuthorityRequest struct {
 	authorityId string
 	apiVersion *string
 	xApiVersion *string
+	taxPolicyDtoCollectionQueryParameters *TaxPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetTaxPoliciesByAuthorityRequest) TenantId(tenantId string) ApiGetTaxPoliciesByAuthorityRequest {
@@ -1913,6 +1946,11 @@ func (r ApiGetTaxPoliciesByAuthorityRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetTaxPoliciesByAuthorityRequest) XApiVersion(xApiVersion string) ApiGetTaxPoliciesByAuthorityRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTaxPoliciesByAuthorityRequest) TaxPolicyDtoCollectionQueryParameters(taxPolicyDtoCollectionQueryParameters TaxPolicyDtoCollectionQueryParameters) ApiGetTaxPoliciesByAuthorityRequest {
+	r.taxPolicyDtoCollectionQueryParameters = &taxPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -1967,7 +2005,7 @@ func (a *TaxPoliciesAPIService) GetTaxPoliciesByAuthorityExecute(r ApiGetTaxPoli
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1986,6 +2024,8 @@ func (a *TaxPoliciesAPIService) GetTaxPoliciesByAuthorityExecute(r ApiGetTaxPoli
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.taxPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2051,6 +2091,7 @@ type ApiGetTaxPoliciesCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	taxPolicyDtoCollectionQueryParameters *TaxPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetTaxPoliciesCountRequest) TenantId(tenantId string) ApiGetTaxPoliciesCountRequest {
@@ -2065,6 +2106,11 @@ func (r ApiGetTaxPoliciesCountRequest) ApiVersion(apiVersion string) ApiGetTaxPo
 
 func (r ApiGetTaxPoliciesCountRequest) XApiVersion(xApiVersion string) ApiGetTaxPoliciesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTaxPoliciesCountRequest) TaxPolicyDtoCollectionQueryParameters(taxPolicyDtoCollectionQueryParameters TaxPolicyDtoCollectionQueryParameters) ApiGetTaxPoliciesCountRequest {
+	r.taxPolicyDtoCollectionQueryParameters = &taxPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -2116,7 +2162,7 @@ func (a *TaxPoliciesAPIService) GetTaxPoliciesCountExecute(r ApiGetTaxPoliciesCo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2135,6 +2181,8 @@ func (a *TaxPoliciesAPIService) GetTaxPoliciesCountExecute(r ApiGetTaxPoliciesCo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.taxPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2355,7 +2403,7 @@ type ApiPatchAppliedTaxPolicyRecordRequest struct {
 	appliedTaxPolicyRecordId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAppliedTaxPolicyRecordRequest) TenantId(tenantId string) ApiPatchAppliedTaxPolicyRecordRequest {
@@ -2373,8 +2421,8 @@ func (r ApiPatchAppliedTaxPolicyRecordRequest) XApiVersion(xApiVersion string) A
 	return r
 }
 
-func (r ApiPatchAppliedTaxPolicyRecordRequest) Operation(operation []Operation) ApiPatchAppliedTaxPolicyRecordRequest {
-	r.operation = &operation
+func (r ApiPatchAppliedTaxPolicyRecordRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAppliedTaxPolicyRecordRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2452,7 +2500,7 @@ func (a *TaxPoliciesAPIService) PatchAppliedTaxPolicyRecordExecute(r ApiPatchApp
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2520,7 +2568,7 @@ type ApiPatchItemTaxPolicyRecordRequest struct {
 	itemTaxPolicyRecordId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemTaxPolicyRecordRequest) TenantId(tenantId string) ApiPatchItemTaxPolicyRecordRequest {
@@ -2538,8 +2586,8 @@ func (r ApiPatchItemTaxPolicyRecordRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchItemTaxPolicyRecordRequest) Operation(operation []Operation) ApiPatchItemTaxPolicyRecordRequest {
-	r.operation = &operation
+func (r ApiPatchItemTaxPolicyRecordRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemTaxPolicyRecordRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2617,7 +2665,7 @@ func (a *TaxPoliciesAPIService) PatchItemTaxPolicyRecordExecute(r ApiPatchItemTa
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2684,7 +2732,7 @@ type ApiPatchTaxPolicyRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTaxPolicyRequest) TenantId(tenantId string) ApiPatchTaxPolicyRequest {
@@ -2702,8 +2750,8 @@ func (r ApiPatchTaxPolicyRequest) XApiVersion(xApiVersion string) ApiPatchTaxPol
 	return r
 }
 
-func (r ApiPatchTaxPolicyRequest) Operation(operation []Operation) ApiPatchTaxPolicyRequest {
-	r.operation = &operation
+func (r ApiPatchTaxPolicyRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTaxPolicyRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2778,7 +2826,7 @@ func (a *TaxPoliciesAPIService) PatchTaxPolicyExecute(r ApiPatchTaxPolicyRequest
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

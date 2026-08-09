@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **FiscalYearId** | Pointer to **NullableString** |  | [optional] 
 **JournalTypeId** | Pointer to **NullableString** |  | [optional] 
 **ParentJournalId** | Pointer to **NullableString** |  | [optional] 
+**FinancialBookId** | Pointer to **NullableString** |  | [optional] 
+**Code** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -384,6 +386,76 @@ HasParentJournalId returns a boolean if a field has been set.
 `func (o *JournalDto) UnsetParentJournalId()`
 
 UnsetParentJournalId ensures that no value is present for ParentJournalId, not even an explicit nil
+### GetFinancialBookId
+
+`func (o *JournalDto) GetFinancialBookId() string`
+
+GetFinancialBookId returns the FinancialBookId field if non-nil, zero value otherwise.
+
+### GetFinancialBookIdOk
+
+`func (o *JournalDto) GetFinancialBookIdOk() (*string, bool)`
+
+GetFinancialBookIdOk returns a tuple with the FinancialBookId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFinancialBookId
+
+`func (o *JournalDto) SetFinancialBookId(v string)`
+
+SetFinancialBookId sets FinancialBookId field to given value.
+
+### HasFinancialBookId
+
+`func (o *JournalDto) HasFinancialBookId() bool`
+
+HasFinancialBookId returns a boolean if a field has been set.
+
+### SetFinancialBookIdNil
+
+`func (o *JournalDto) SetFinancialBookIdNil(b bool)`
+
+ SetFinancialBookIdNil sets the value for FinancialBookId to be an explicit nil
+
+### UnsetFinancialBookId
+`func (o *JournalDto) UnsetFinancialBookId()`
+
+UnsetFinancialBookId ensures that no value is present for FinancialBookId, not even an explicit nil
+### GetCode
+
+`func (o *JournalDto) GetCode() string`
+
+GetCode returns the Code field if non-nil, zero value otherwise.
+
+### GetCodeOk
+
+`func (o *JournalDto) GetCodeOk() (*string, bool)`
+
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCode
+
+`func (o *JournalDto) SetCode(v string)`
+
+SetCode sets Code field to given value.
+
+### HasCode
+
+`func (o *JournalDto) HasCode() bool`
+
+HasCode returns a boolean if a field has been set.
+
+### SetCodeNil
+
+`func (o *JournalDto) SetCodeNil(b bool)`
+
+ SetCodeNil sets the value for Code to be an explicit nil
+
+### UnsetCode
+`func (o *JournalDto) UnsetCode()`
+
+UnsetCode ensures that no value is present for Code, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

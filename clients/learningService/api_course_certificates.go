@@ -1399,7 +1399,7 @@ type ApiPatchCourseCertificateAsyncRequest struct {
 	courseCertificateId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCourseCertificateAsyncRequest) TenantId(tenantId string) ApiPatchCourseCertificateAsyncRequest {
@@ -1417,8 +1417,8 @@ func (r ApiPatchCourseCertificateAsyncRequest) XApiVersion(xApiVersion string) A
 	return r
 }
 
-func (r ApiPatchCourseCertificateAsyncRequest) Operation(operation []Operation) ApiPatchCourseCertificateAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchCourseCertificateAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCourseCertificateAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1493,7 +1493,7 @@ func (a *CourseCertificatesAPIService) PatchCourseCertificateAsyncExecute(r ApiP
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1549,7 +1549,7 @@ type ApiPatchCourseCertificateTemplateAsyncRequest struct {
 	courseCertificateTemplateId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCourseCertificateTemplateAsyncRequest) TenantId(tenantId string) ApiPatchCourseCertificateTemplateAsyncRequest {
@@ -1567,8 +1567,8 @@ func (r ApiPatchCourseCertificateTemplateAsyncRequest) XApiVersion(xApiVersion s
 	return r
 }
 
-func (r ApiPatchCourseCertificateTemplateAsyncRequest) Operation(operation []Operation) ApiPatchCourseCertificateTemplateAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchCourseCertificateTemplateAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCourseCertificateTemplateAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1643,7 +1643,7 @@ func (a *CourseCertificatesAPIService) PatchCourseCertificateTemplateAsyncExecut
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

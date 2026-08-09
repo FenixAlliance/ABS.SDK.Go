@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## CountLanguagesAsync
 
-> Int32Envelope CountLanguagesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountLanguagesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryLanguageDtoCollectionQueryParameters(countryLanguageDtoCollectionQueryParameters).Execute()
 
 Count languages
 
@@ -33,10 +33,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryLanguageDtoCollectionQueryParameters := *openapiclient.NewCountryLanguageDtoCollectionQueryParameters() // CountryLanguageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LanguagesAPI.CountLanguagesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.LanguagesAPI.CountLanguagesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryLanguageDtoCollectionQueryParameters(countryLanguageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LanguagesAPI.CountLanguagesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -59,6 +60,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryLanguageDtoCollectionQueryParameters** | [**CountryLanguageDtoCollectionQueryParameters**](CountryLanguageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -70,7 +72,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -154,7 +156,7 @@ No authorization required
 
 ## GetLanguagesAsync
 
-> CountryLanguageDtoListEnvelope GetLanguagesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CountryLanguageDtoListEnvelope GetLanguagesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryLanguageDtoCollectionQueryParameters(countryLanguageDtoCollectionQueryParameters).Execute()
 
 Get all languages
 
@@ -175,10 +177,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryLanguageDtoCollectionQueryParameters := *openapiclient.NewCountryLanguageDtoCollectionQueryParameters() // CountryLanguageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LanguagesAPI.GetLanguagesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.LanguagesAPI.GetLanguagesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryLanguageDtoCollectionQueryParameters(countryLanguageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LanguagesAPI.GetLanguagesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,6 +204,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryLanguageDtoCollectionQueryParameters** | [**CountryLanguageDtoCollectionQueryParameters**](CountryLanguageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -212,7 +216,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

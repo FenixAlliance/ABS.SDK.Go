@@ -481,6 +481,7 @@ type ApiGetItemBrandsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemBrandDtoCollectionQueryParameters *ItemBrandDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemBrandsAsyncRequest) TenantId(tenantId string) ApiGetItemBrandsAsyncRequest {
@@ -495,6 +496,11 @@ func (r ApiGetItemBrandsAsyncRequest) ApiVersion(apiVersion string) ApiGetItemBr
 
 func (r ApiGetItemBrandsAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemBrandsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemBrandsAsyncRequest) ItemBrandDtoCollectionQueryParameters(itemBrandDtoCollectionQueryParameters ItemBrandDtoCollectionQueryParameters) ApiGetItemBrandsAsyncRequest {
+	r.itemBrandDtoCollectionQueryParameters = &itemBrandDtoCollectionQueryParameters
 	return r
 }
 
@@ -545,7 +551,7 @@ func (a *ItemBrandsAPIService) GetItemBrandsAsyncExecute(r ApiGetItemBrandsAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -564,6 +570,8 @@ func (a *ItemBrandsAPIService) GetItemBrandsAsyncExecute(r ApiGetItemBrandsAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemBrandDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -630,7 +638,7 @@ type ApiPatchItemBrandAsyncRequest struct {
 	itemBrandId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemBrandAsyncRequest) TenantId(tenantId string) ApiPatchItemBrandAsyncRequest {
@@ -648,8 +656,8 @@ func (r ApiPatchItemBrandAsyncRequest) XApiVersion(xApiVersion string) ApiPatchI
 	return r
 }
 
-func (r ApiPatchItemBrandAsyncRequest) Operation(operation []Operation) ApiPatchItemBrandAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemBrandAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemBrandAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -722,7 +730,7 @@ func (a *ItemBrandsAPIService) PatchItemBrandAsyncExecute(r ApiPatchItemBrandAsy
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

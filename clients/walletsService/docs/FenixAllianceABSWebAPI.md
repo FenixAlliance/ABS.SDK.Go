@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**AccountManageDownloadPersonalDataPost**](FenixAllianceABSWebAPI.md#AccountManageDownloadPersonalDataPost) | **Post** /Account/Manage/DownloadPersonalData | 
 [**AccountManageLinkExternalLoginPost**](FenixAllianceABSWebAPI.md#AccountManageLinkExternalLoginPost) | **Post** /Account/Manage/LinkExternalLogin | 
 [**AccountPerformExternalLoginPost**](FenixAllianceABSWebAPI.md#AccountPerformExternalLoginPost) | **Post** /Account/PerformExternalLogin | 
-[**ApiV2AIServiceAgentsAgentIdAguiPost**](FenixAllianceABSWebAPI.md#ApiV2AIServiceAgentsAgentIdAguiPost) | **Post** /api/v2/AIService/Agents/{agentId}/agui | 
 [**ForgotPasswordPost**](FenixAllianceABSWebAPI.md#ForgotPasswordPost) | **Post** /forgotPassword | 
 [**HealthGet**](FenixAllianceABSWebAPI.md#HealthGet) | **Get** /health | 
 [**HelloGet**](FenixAllianceABSWebAPI.md#HelloGet) | **Get** /hello | 
@@ -263,72 +262,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data, application/x-www-form-urlencoded
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2AIServiceAgentsAgentIdAguiPost
-
-> ApiV2AIServiceAgentsAgentIdAguiPost(ctx, agentId).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	agentId := "agentId_example" // string | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.FenixAllianceABSWebAPI.ApiV2AIServiceAgentsAgentIdAguiPost(context.Background(), agentId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `FenixAllianceABSWebAPI.ApiV2AIServiceAgentsAgentIdAguiPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**agentId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2AIServiceAgentsAgentIdAguiPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

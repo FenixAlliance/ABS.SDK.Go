@@ -30,6 +30,7 @@ type ApiCountSocialGroupsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	socialGroupDtoCollectionQueryParameters *SocialGroupDtoCollectionQueryParameters
 }
 
 func (r ApiCountSocialGroupsAsyncRequest) TenantId(tenantId string) ApiCountSocialGroupsAsyncRequest {
@@ -44,6 +45,11 @@ func (r ApiCountSocialGroupsAsyncRequest) ApiVersion(apiVersion string) ApiCount
 
 func (r ApiCountSocialGroupsAsyncRequest) XApiVersion(xApiVersion string) ApiCountSocialGroupsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountSocialGroupsAsyncRequest) SocialGroupDtoCollectionQueryParameters(socialGroupDtoCollectionQueryParameters SocialGroupDtoCollectionQueryParameters) ApiCountSocialGroupsAsyncRequest {
+	r.socialGroupDtoCollectionQueryParameters = &socialGroupDtoCollectionQueryParameters
 	return r
 }
 
@@ -95,7 +101,7 @@ func (a *SocialGroupsAPIService) CountSocialGroupsAsyncExecute(r ApiCountSocialG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -114,6 +120,8 @@ func (a *SocialGroupsAPIService) CountSocialGroupsAsyncExecute(r ApiCountSocialG
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialGroupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -662,6 +670,7 @@ type ApiGetSocialGroupsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	socialGroupDtoCollectionQueryParameters *SocialGroupDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialGroupsAsyncRequest) TenantId(tenantId string) ApiGetSocialGroupsAsyncRequest {
@@ -676,6 +685,11 @@ func (r ApiGetSocialGroupsAsyncRequest) ApiVersion(apiVersion string) ApiGetSoci
 
 func (r ApiGetSocialGroupsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialGroupsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialGroupsAsyncRequest) SocialGroupDtoCollectionQueryParameters(socialGroupDtoCollectionQueryParameters SocialGroupDtoCollectionQueryParameters) ApiGetSocialGroupsAsyncRequest {
+	r.socialGroupDtoCollectionQueryParameters = &socialGroupDtoCollectionQueryParameters
 	return r
 }
 
@@ -727,7 +741,7 @@ func (a *SocialGroupsAPIService) GetSocialGroupsAsyncExecute(r ApiGetSocialGroup
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -746,6 +760,8 @@ func (a *SocialGroupsAPIService) GetSocialGroupsAsyncExecute(r ApiGetSocialGroup
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialGroupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -813,7 +829,7 @@ type ApiPatchSocialGroupAsyncRequest struct {
 	socialGroupId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSocialGroupAsyncRequest) TenantId(tenantId string) ApiPatchSocialGroupAsyncRequest {
@@ -836,8 +852,8 @@ func (r ApiPatchSocialGroupAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchSocialGroupAsyncRequest) Operation(operation []Operation) ApiPatchSocialGroupAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSocialGroupAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSocialGroupAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -916,7 +932,7 @@ func (a *SocialGroupsAPIService) PatchSocialGroupAsyncExecute(r ApiPatchSocialGr
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

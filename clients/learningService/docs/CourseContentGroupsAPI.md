@@ -236,7 +236,7 @@ No authorization required
 
 ## GetCourseContentGroupsAsync
 
-> []CourseContentGroupDto GetCourseContentGroupsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseContentGroupDto GetCourseContentGroupsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseContentGroupDtoCollectionQueryParameters(courseContentGroupDtoCollectionQueryParameters).Execute()
 
 Get all course content groups
 
@@ -258,10 +258,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseContentGroupDtoCollectionQueryParameters := *openapiclient.NewCourseContentGroupDtoCollectionQueryParameters() // CourseContentGroupDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseContentGroupsAPI.GetCourseContentGroupsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CourseContentGroupsAPI.GetCourseContentGroupsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseContentGroupDtoCollectionQueryParameters(courseContentGroupDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseContentGroupsAPI.GetCourseContentGroupsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -285,6 +286,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseContentGroupDtoCollectionQueryParameters** | [**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -296,7 +298,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -306,7 +308,7 @@ No authorization required
 
 ## GetCourseContentGroupsByCourseAsync
 
-> []CourseContentGroupDto GetCourseContentGroupsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> []CourseContentGroupDto GetCourseContentGroupsByCourseAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseContentGroupDtoCollectionQueryParameters(courseContentGroupDtoCollectionQueryParameters).Execute()
 
 Get course content groups by course
 
@@ -328,10 +330,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseContentGroupDtoCollectionQueryParameters := *openapiclient.NewCourseContentGroupDtoCollectionQueryParameters() // CourseContentGroupDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseContentGroupsAPI.GetCourseContentGroupsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CourseContentGroupsAPI.GetCourseContentGroupsByCourseAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseContentGroupDtoCollectionQueryParameters(courseContentGroupDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseContentGroupsAPI.GetCourseContentGroupsByCourseAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -359,6 +362,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseContentGroupDtoCollectionQueryParameters** | [**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -370,7 +374,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -380,7 +384,7 @@ No authorization required
 
 ## GetCourseContentGroupsByCourseCountAsync
 
-> int32 GetCourseContentGroupsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseContentGroupsByCourseCountAsync(ctx, courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseContentGroupDtoCollectionQueryParameters(courseContentGroupDtoCollectionQueryParameters).Execute()
 
 Get course content groups count by course
 
@@ -402,10 +406,11 @@ func main() {
 	courseId := "courseId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseContentGroupDtoCollectionQueryParameters := *openapiclient.NewCourseContentGroupDtoCollectionQueryParameters() // CourseContentGroupDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseContentGroupsAPI.GetCourseContentGroupsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CourseContentGroupsAPI.GetCourseContentGroupsByCourseCountAsync(context.Background(), courseId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseContentGroupDtoCollectionQueryParameters(courseContentGroupDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseContentGroupsAPI.GetCourseContentGroupsByCourseCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -433,6 +438,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseContentGroupDtoCollectionQueryParameters** | [**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -444,7 +450,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -454,7 +460,7 @@ No authorization required
 
 ## GetCourseContentGroupsCountAsync
 
-> int32 GetCourseContentGroupsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int32 GetCourseContentGroupsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseContentGroupDtoCollectionQueryParameters(courseContentGroupDtoCollectionQueryParameters).Execute()
 
 Get course content groups count
 
@@ -476,10 +482,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	courseContentGroupDtoCollectionQueryParameters := *openapiclient.NewCourseContentGroupDtoCollectionQueryParameters() // CourseContentGroupDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseContentGroupsAPI.GetCourseContentGroupsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CourseContentGroupsAPI.GetCourseContentGroupsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CourseContentGroupDtoCollectionQueryParameters(courseContentGroupDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseContentGroupsAPI.GetCourseContentGroupsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -503,6 +510,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **courseContentGroupDtoCollectionQueryParameters** | [**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -514,7 +522,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -524,7 +532,7 @@ No authorization required
 
 ## PatchCourseContentGroupAsync
 
-> EmptyEnvelope PatchCourseContentGroupAsync(ctx, groupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchCourseContentGroupAsync(ctx, groupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a course content group
 
@@ -547,11 +555,11 @@ func main() {
 	groupId := "groupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CourseContentGroupsAPI.PatchCourseContentGroupAsync(context.Background(), groupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.CourseContentGroupsAPI.PatchCourseContentGroupAsync(context.Background(), groupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CourseContentGroupsAPI.PatchCourseContentGroupAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -580,7 +588,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

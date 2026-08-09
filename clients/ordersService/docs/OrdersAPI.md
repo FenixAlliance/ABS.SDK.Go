@@ -465,7 +465,7 @@ No authorization required
 
 ## GetExtendedOrders
 
-> ExtendedOrderDtoListEnvelope GetExtendedOrders(ctx).TenantId(tenantId).Execute()
+> ExtendedOrderDtoListEnvelope GetExtendedOrders(ctx).TenantId(tenantId).ExtendedOrderDtoCollectionQueryParameters(extendedOrderDtoCollectionQueryParameters).Execute()
 
 Gets a list of extended orders for a tenant.
 
@@ -485,10 +485,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	extendedOrderDtoCollectionQueryParameters := *openapiclient.NewExtendedOrderDtoCollectionQueryParameters() // ExtendedOrderDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrdersAPI.GetExtendedOrders(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.OrdersAPI.GetExtendedOrders(context.Background()).TenantId(tenantId).ExtendedOrderDtoCollectionQueryParameters(extendedOrderDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrdersAPI.GetExtendedOrders``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -510,6 +511,7 @@ Other parameters are passed through a pointer to a apiGetExtendedOrdersRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **extendedOrderDtoCollectionQueryParameters** | [**ExtendedOrderDtoCollectionQueryParameters**](ExtendedOrderDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -521,7 +523,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -678,7 +680,7 @@ No authorization required
 
 ## GetOrderLines
 
-> OrderLineDtoListEnvelope GetOrderLines(ctx, orderId).TenantId(tenantId).ItemId(itemId).Execute()
+> OrderLineDtoListEnvelope GetOrderLines(ctx, orderId).TenantId(tenantId).ItemId(itemId).OrderLineDtoCollectionQueryParameters(orderLineDtoCollectionQueryParameters).Execute()
 
 Gets order lines for an order.
 
@@ -700,10 +702,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	orderId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	orderLineDtoCollectionQueryParameters := *openapiclient.NewOrderLineDtoCollectionQueryParameters() // OrderLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrdersAPI.GetOrderLines(context.Background(), orderId).TenantId(tenantId).ItemId(itemId).Execute()
+	resp, r, err := apiClient.OrdersAPI.GetOrderLines(context.Background(), orderId).TenantId(tenantId).ItemId(itemId).OrderLineDtoCollectionQueryParameters(orderLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrdersAPI.GetOrderLines``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -731,6 +734,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
  **itemId** | **string** |  | 
+ **orderLineDtoCollectionQueryParameters** | [**OrderLineDtoCollectionQueryParameters**](OrderLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -742,7 +746,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -752,7 +756,7 @@ No authorization required
 
 ## GetOrderLinesCount
 
-> Int32Envelope GetOrderLinesCount(ctx, orderId).TenantId(tenantId).Execute()
+> Int32Envelope GetOrderLinesCount(ctx, orderId).TenantId(tenantId).OrderLineDtoCollectionQueryParameters(orderLineDtoCollectionQueryParameters).Execute()
 
 Gets the count of order lines for an order.
 
@@ -773,10 +777,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	orderId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	orderLineDtoCollectionQueryParameters := *openapiclient.NewOrderLineDtoCollectionQueryParameters() // OrderLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrdersAPI.GetOrderLinesCount(context.Background(), orderId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.OrdersAPI.GetOrderLinesCount(context.Background(), orderId).TenantId(tenantId).OrderLineDtoCollectionQueryParameters(orderLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrdersAPI.GetOrderLinesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -803,6 +808,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **orderLineDtoCollectionQueryParameters** | [**OrderLineDtoCollectionQueryParameters**](OrderLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -814,7 +820,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -824,7 +830,7 @@ No authorization required
 
 ## GetOrders
 
-> OrderDtoListEnvelope GetOrders(ctx).TenantId(tenantId).Execute()
+> OrderDtoListEnvelope GetOrders(ctx).TenantId(tenantId).OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters).Execute()
 
 Gets a list of orders for a tenant.
 
@@ -844,10 +850,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	orderDtoCollectionQueryParameters := *openapiclient.NewOrderDtoCollectionQueryParameters() // OrderDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrdersAPI.GetOrders(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.OrdersAPI.GetOrders(context.Background()).TenantId(tenantId).OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrdersAPI.GetOrders``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -869,6 +876,7 @@ Other parameters are passed through a pointer to a apiGetOrdersRequest struct vi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -880,7 +888,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -890,7 +898,7 @@ No authorization required
 
 ## GetOrdersCount
 
-> Int32Envelope GetOrdersCount(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetOrdersCount(ctx).TenantId(tenantId).OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters).Execute()
 
 Gets the count of orders for a tenant.
 
@@ -910,10 +918,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	orderDtoCollectionQueryParameters := *openapiclient.NewOrderDtoCollectionQueryParameters() // OrderDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrdersAPI.GetOrdersCount(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.OrdersAPI.GetOrdersCount(context.Background()).TenantId(tenantId).OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrdersAPI.GetOrdersCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -935,6 +944,7 @@ Other parameters are passed through a pointer to a apiGetOrdersCountRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -946,7 +956,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -956,7 +966,7 @@ No authorization required
 
 ## PatchOrder
 
-> EmptyEnvelope PatchOrder(ctx, orderId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchOrder(ctx, orderId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Partially updates an existing order.
 
@@ -977,11 +987,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	orderId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrdersAPI.PatchOrder(context.Background(), orderId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.OrdersAPI.PatchOrder(context.Background(), orderId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrdersAPI.PatchOrder``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1008,7 +1018,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1030,7 +1040,7 @@ No authorization required
 
 ## PatchOrderLine
 
-> EmptyEnvelope PatchOrderLine(ctx, orderId, orderLineId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchOrderLine(ctx, orderId, orderLineId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Partially updates an order line.
 
@@ -1052,11 +1062,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	orderId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	orderLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrdersAPI.PatchOrderLine(context.Background(), orderId, orderLineId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.OrdersAPI.PatchOrderLine(context.Background(), orderId, orderLineId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrdersAPI.PatchOrderLine``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1085,7 +1095,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

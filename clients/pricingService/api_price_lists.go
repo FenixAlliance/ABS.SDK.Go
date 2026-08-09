@@ -794,6 +794,7 @@ type ApiGetPriceListPricesAsyncRequest struct {
 	tenantId *string
 	priceListId string
 	itemId *string
+	itemPriceDtoCollectionQueryParameters *ItemPriceDtoCollectionQueryParameters
 }
 
 func (r ApiGetPriceListPricesAsyncRequest) TenantId(tenantId string) ApiGetPriceListPricesAsyncRequest {
@@ -803,6 +804,11 @@ func (r ApiGetPriceListPricesAsyncRequest) TenantId(tenantId string) ApiGetPrice
 
 func (r ApiGetPriceListPricesAsyncRequest) ItemId(itemId string) ApiGetPriceListPricesAsyncRequest {
 	r.itemId = &itemId
+	return r
+}
+
+func (r ApiGetPriceListPricesAsyncRequest) ItemPriceDtoCollectionQueryParameters(itemPriceDtoCollectionQueryParameters ItemPriceDtoCollectionQueryParameters) ApiGetPriceListPricesAsyncRequest {
+	r.itemPriceDtoCollectionQueryParameters = &itemPriceDtoCollectionQueryParameters
 	return r
 }
 
@@ -857,7 +863,7 @@ func (a *PriceListsAPIService) GetPriceListPricesAsyncExecute(r ApiGetPriceListP
 		parameterAddToHeaderOrQuery(localVarQueryParams, "itemId", r.itemId, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -873,6 +879,8 @@ func (a *PriceListsAPIService) GetPriceListPricesAsyncExecute(r ApiGetPriceListP
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.itemPriceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -926,10 +934,16 @@ type ApiGetPriceListPricesCountAsyncRequest struct {
 	ApiService *PriceListsAPIService
 	tenantId *string
 	priceListId string
+	itemPriceDtoCollectionQueryParameters *ItemPriceDtoCollectionQueryParameters
 }
 
 func (r ApiGetPriceListPricesCountAsyncRequest) TenantId(tenantId string) ApiGetPriceListPricesCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetPriceListPricesCountAsyncRequest) ItemPriceDtoCollectionQueryParameters(itemPriceDtoCollectionQueryParameters ItemPriceDtoCollectionQueryParameters) ApiGetPriceListPricesCountAsyncRequest {
+	r.itemPriceDtoCollectionQueryParameters = &itemPriceDtoCollectionQueryParameters
 	return r
 }
 
@@ -981,7 +995,7 @@ func (a *PriceListsAPIService) GetPriceListPricesCountAsyncExecute(r ApiGetPrice
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -997,6 +1011,8 @@ func (a *PriceListsAPIService) GetPriceListPricesCountAsyncExecute(r ApiGetPrice
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.itemPriceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1049,10 +1065,16 @@ type ApiGetPriceListsAsyncRequest struct {
 	ctx context.Context
 	ApiService *PriceListsAPIService
 	tenantId *string
+	priceListDtoCollectionQueryParameters *PriceListDtoCollectionQueryParameters
 }
 
 func (r ApiGetPriceListsAsyncRequest) TenantId(tenantId string) ApiGetPriceListsAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetPriceListsAsyncRequest) PriceListDtoCollectionQueryParameters(priceListDtoCollectionQueryParameters PriceListDtoCollectionQueryParameters) ApiGetPriceListsAsyncRequest {
+	r.priceListDtoCollectionQueryParameters = &priceListDtoCollectionQueryParameters
 	return r
 }
 
@@ -1101,7 +1123,7 @@ func (a *PriceListsAPIService) GetPriceListsAsyncExecute(r ApiGetPriceListsAsync
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1117,6 +1139,8 @@ func (a *PriceListsAPIService) GetPriceListsAsyncExecute(r ApiGetPriceListsAsync
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.priceListDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1169,10 +1193,16 @@ type ApiGetPriceListsCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *PriceListsAPIService
 	tenantId *string
+	priceListDtoCollectionQueryParameters *PriceListDtoCollectionQueryParameters
 }
 
 func (r ApiGetPriceListsCountAsyncRequest) TenantId(tenantId string) ApiGetPriceListsCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetPriceListsCountAsyncRequest) PriceListDtoCollectionQueryParameters(priceListDtoCollectionQueryParameters PriceListDtoCollectionQueryParameters) ApiGetPriceListsCountAsyncRequest {
+	r.priceListDtoCollectionQueryParameters = &priceListDtoCollectionQueryParameters
 	return r
 }
 
@@ -1221,7 +1251,7 @@ func (a *PriceListsAPIService) GetPriceListsCountAsyncExecute(r ApiGetPriceLists
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1237,6 +1267,8 @@ func (a *PriceListsAPIService) GetPriceListsCountAsyncExecute(r ApiGetPriceLists
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.priceListDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1290,7 +1322,7 @@ type ApiPatchPriceListAsyncRequest struct {
 	ApiService *PriceListsAPIService
 	tenantId *string
 	priceListId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchPriceListAsyncRequest) TenantId(tenantId string) ApiPatchPriceListAsyncRequest {
@@ -1298,8 +1330,8 @@ func (r ApiPatchPriceListAsyncRequest) TenantId(tenantId string) ApiPatchPriceLi
 	return r
 }
 
-func (r ApiPatchPriceListAsyncRequest) Operation(operation []Operation) ApiPatchPriceListAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchPriceListAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchPriceListAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1368,7 +1400,7 @@ func (a *PriceListsAPIService) PatchPriceListAsyncExecute(r ApiPatchPriceListAsy
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1423,7 +1455,7 @@ type ApiPatchPriceListPriceAsyncRequest struct {
 	tenantId *string
 	priceListId string
 	priceId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchPriceListPriceAsyncRequest) TenantId(tenantId string) ApiPatchPriceListPriceAsyncRequest {
@@ -1431,8 +1463,8 @@ func (r ApiPatchPriceListPriceAsyncRequest) TenantId(tenantId string) ApiPatchPr
 	return r
 }
 
-func (r ApiPatchPriceListPriceAsyncRequest) Operation(operation []Operation) ApiPatchPriceListPriceAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchPriceListPriceAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchPriceListPriceAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1504,7 +1536,7 @@ func (a *PriceListsAPIService) PatchPriceListPriceAsyncExecute(r ApiPatchPriceLi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

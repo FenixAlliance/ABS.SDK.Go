@@ -481,6 +481,7 @@ type ApiGetItemBundlesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemBundleDtoCollectionQueryParameters *ItemBundleDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemBundlesAsyncRequest) TenantId(tenantId string) ApiGetItemBundlesAsyncRequest {
@@ -495,6 +496,11 @@ func (r ApiGetItemBundlesAsyncRequest) ApiVersion(apiVersion string) ApiGetItemB
 
 func (r ApiGetItemBundlesAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemBundlesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemBundlesAsyncRequest) ItemBundleDtoCollectionQueryParameters(itemBundleDtoCollectionQueryParameters ItemBundleDtoCollectionQueryParameters) ApiGetItemBundlesAsyncRequest {
+	r.itemBundleDtoCollectionQueryParameters = &itemBundleDtoCollectionQueryParameters
 	return r
 }
 
@@ -545,7 +551,7 @@ func (a *ItemBundlesAPIService) GetItemBundlesAsyncExecute(r ApiGetItemBundlesAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -564,6 +570,8 @@ func (a *ItemBundlesAPIService) GetItemBundlesAsyncExecute(r ApiGetItemBundlesAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemBundleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -629,6 +637,7 @@ type ApiGetItemBundlesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemBundleDtoCollectionQueryParameters *ItemBundleDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemBundlesCountAsyncRequest) TenantId(tenantId string) ApiGetItemBundlesCountAsyncRequest {
@@ -643,6 +652,11 @@ func (r ApiGetItemBundlesCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetItemBundlesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemBundlesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemBundlesCountAsyncRequest) ItemBundleDtoCollectionQueryParameters(itemBundleDtoCollectionQueryParameters ItemBundleDtoCollectionQueryParameters) ApiGetItemBundlesCountAsyncRequest {
+	r.itemBundleDtoCollectionQueryParameters = &itemBundleDtoCollectionQueryParameters
 	return r
 }
 
@@ -693,7 +707,7 @@ func (a *ItemBundlesAPIService) GetItemBundlesCountAsyncExecute(r ApiGetItemBund
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -712,6 +726,8 @@ func (a *ItemBundlesAPIService) GetItemBundlesCountAsyncExecute(r ApiGetItemBund
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemBundleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -778,7 +794,7 @@ type ApiPatchItemBundleAsyncRequest struct {
 	itemBundleId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemBundleAsyncRequest) TenantId(tenantId string) ApiPatchItemBundleAsyncRequest {
@@ -796,8 +812,8 @@ func (r ApiPatchItemBundleAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchItemBundleAsyncRequest) Operation(operation []Operation) ApiPatchItemBundleAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemBundleAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemBundleAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -872,7 +888,7 @@ func (a *ItemBundlesAPIService) PatchItemBundleAsyncExecute(r ApiPatchItemBundle
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

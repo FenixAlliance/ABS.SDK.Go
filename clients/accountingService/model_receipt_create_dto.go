@@ -23,6 +23,7 @@ var _ MappedNullable = &ReceiptCreateDto{}
 type ReceiptCreateDto struct {
 	Id *string `json:"id,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
+	Closed *bool `json:"closed,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	PriceListId NullableString `json:"priceListId,omitempty"`
 	Description NullableString `json:"description,omitempty"`
@@ -40,6 +41,7 @@ type ReceiptCreateDto struct {
 	CountryId NullableString `json:"countryId,omitempty"`
 	StateId NullableString `json:"stateId,omitempty"`
 	CityId NullableString `json:"cityId,omitempty"`
+	ForexRate *float64 `json:"forexRate,omitempty"`
 	CurrencyId NullableString `json:"currencyId,omitempty"`
 	TotalDetail *float64 `json:"totalDetail,omitempty"`
 	TotalDetailCurrencyId NullableString `json:"totalDetailCurrencyId,omitempty"`
@@ -68,10 +70,8 @@ type ReceiptCreateDto struct {
 	CostCalculationMethod *string `json:"costCalculationMethod,omitempty"`
 	TaxCalculationMethod *string `json:"taxCalculationMethod,omitempty"`
 	PaymentId NullableString `json:"paymentId,omitempty"`
-	ForexRate *float64 `json:"forexRate,omitempty"`
 	TotalAmount *float64 `json:"totalAmount,omitempty"`
 	TotalAmountInUSD *float64 `json:"totalAmountInUSD,omitempty"`
-	Closed *bool `json:"closed,omitempty"`
 	ContactId NullableString `json:"contactId,omitempty"`
 	ReceiptType *string `json:"receiptType,omitempty"`
 	OrderId NullableString `json:"orderId,omitempty"`
@@ -157,6 +157,38 @@ func (o *ReceiptCreateDto) HasTimestamp() bool {
 // SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
 func (o *ReceiptCreateDto) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
+}
+
+// GetClosed returns the Closed field value if set, zero value otherwise.
+func (o *ReceiptCreateDto) GetClosed() bool {
+	if o == nil || IsNil(o.Closed) {
+		var ret bool
+		return ret
+	}
+	return *o.Closed
+}
+
+// GetClosedOk returns a tuple with the Closed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReceiptCreateDto) GetClosedOk() (*bool, bool) {
+	if o == nil || IsNil(o.Closed) {
+		return nil, false
+	}
+	return o.Closed, true
+}
+
+// HasClosed returns a boolean if a field has been set.
+func (o *ReceiptCreateDto) HasClosed() bool {
+	if o != nil && !IsNil(o.Closed) {
+		return true
+	}
+
+	return false
+}
+
+// SetClosed gets a reference to the given bool and assigns it to the Closed field.
+func (o *ReceiptCreateDto) SetClosed(v bool) {
+	o.Closed = &v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -871,6 +903,38 @@ func (o *ReceiptCreateDto) SetCityIdNil() {
 // UnsetCityId ensures that no value is present for CityId, not even an explicit nil
 func (o *ReceiptCreateDto) UnsetCityId() {
 	o.CityId.Unset()
+}
+
+// GetForexRate returns the ForexRate field value if set, zero value otherwise.
+func (o *ReceiptCreateDto) GetForexRate() float64 {
+	if o == nil || IsNil(o.ForexRate) {
+		var ret float64
+		return ret
+	}
+	return *o.ForexRate
+}
+
+// GetForexRateOk returns a tuple with the ForexRate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReceiptCreateDto) GetForexRateOk() (*float64, bool) {
+	if o == nil || IsNil(o.ForexRate) {
+		return nil, false
+	}
+	return o.ForexRate, true
+}
+
+// HasForexRate returns a boolean if a field has been set.
+func (o *ReceiptCreateDto) HasForexRate() bool {
+	if o != nil && !IsNil(o.ForexRate) {
+		return true
+	}
+
+	return false
+}
+
+// SetForexRate gets a reference to the given float64 and assigns it to the ForexRate field.
+func (o *ReceiptCreateDto) SetForexRate(v float64) {
+	o.ForexRate = &v
 }
 
 // GetCurrencyId returns the CurrencyId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1909,38 +1973,6 @@ func (o *ReceiptCreateDto) UnsetPaymentId() {
 	o.PaymentId.Unset()
 }
 
-// GetForexRate returns the ForexRate field value if set, zero value otherwise.
-func (o *ReceiptCreateDto) GetForexRate() float64 {
-	if o == nil || IsNil(o.ForexRate) {
-		var ret float64
-		return ret
-	}
-	return *o.ForexRate
-}
-
-// GetForexRateOk returns a tuple with the ForexRate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReceiptCreateDto) GetForexRateOk() (*float64, bool) {
-	if o == nil || IsNil(o.ForexRate) {
-		return nil, false
-	}
-	return o.ForexRate, true
-}
-
-// HasForexRate returns a boolean if a field has been set.
-func (o *ReceiptCreateDto) HasForexRate() bool {
-	if o != nil && !IsNil(o.ForexRate) {
-		return true
-	}
-
-	return false
-}
-
-// SetForexRate gets a reference to the given float64 and assigns it to the ForexRate field.
-func (o *ReceiptCreateDto) SetForexRate(v float64) {
-	o.ForexRate = &v
-}
-
 // GetTotalAmount returns the TotalAmount field value if set, zero value otherwise.
 func (o *ReceiptCreateDto) GetTotalAmount() float64 {
 	if o == nil || IsNil(o.TotalAmount) {
@@ -2003,38 +2035,6 @@ func (o *ReceiptCreateDto) HasTotalAmountInUSD() bool {
 // SetTotalAmountInUSD gets a reference to the given float64 and assigns it to the TotalAmountInUSD field.
 func (o *ReceiptCreateDto) SetTotalAmountInUSD(v float64) {
 	o.TotalAmountInUSD = &v
-}
-
-// GetClosed returns the Closed field value if set, zero value otherwise.
-func (o *ReceiptCreateDto) GetClosed() bool {
-	if o == nil || IsNil(o.Closed) {
-		var ret bool
-		return ret
-	}
-	return *o.Closed
-}
-
-// GetClosedOk returns a tuple with the Closed field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReceiptCreateDto) GetClosedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Closed) {
-		return nil, false
-	}
-	return o.Closed, true
-}
-
-// HasClosed returns a boolean if a field has been set.
-func (o *ReceiptCreateDto) HasClosed() bool {
-	if o != nil && !IsNil(o.Closed) {
-		return true
-	}
-
-	return false
-}
-
-// SetClosed gets a reference to the given bool and assigns it to the Closed field.
-func (o *ReceiptCreateDto) SetClosed(v bool) {
-	o.Closed = &v
 }
 
 // GetContactId returns the ContactId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2211,6 +2211,9 @@ func (o ReceiptCreateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
+	if !IsNil(o.Closed) {
+		toSerialize["closed"] = o.Closed
+	}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
 	}
@@ -2261,6 +2264,9 @@ func (o ReceiptCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.CityId.IsSet() {
 		toSerialize["cityId"] = o.CityId.Get()
+	}
+	if !IsNil(o.ForexRate) {
+		toSerialize["forexRate"] = o.ForexRate
 	}
 	if o.CurrencyId.IsSet() {
 		toSerialize["currencyId"] = o.CurrencyId.Get()
@@ -2346,17 +2352,11 @@ func (o ReceiptCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.PaymentId.IsSet() {
 		toSerialize["paymentId"] = o.PaymentId.Get()
 	}
-	if !IsNil(o.ForexRate) {
-		toSerialize["forexRate"] = o.ForexRate
-	}
 	if !IsNil(o.TotalAmount) {
 		toSerialize["totalAmount"] = o.TotalAmount
 	}
 	if !IsNil(o.TotalAmountInUSD) {
 		toSerialize["totalAmountInUSD"] = o.TotalAmountInUSD
-	}
-	if !IsNil(o.Closed) {
-		toSerialize["closed"] = o.Closed
 	}
 	if o.ContactId.IsSet() {
 		toSerialize["contactId"] = o.ContactId.Get()

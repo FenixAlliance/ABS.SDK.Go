@@ -444,7 +444,7 @@ No authorization required
 
 ## GetFilesAsync
 
-> FileUploadDtoEnvelope GetFilesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FileUploadDtoEnvelope GetFilesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Top(top).Skip(skip).Count(count).Filter(filter).OrderBy(orderBy).Search(search).Select_(select_).Expand(expand).IsEmpty(isEmpty).Execute()
 
 
 
@@ -464,10 +464,19 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	top := int32(56) // int32 |  (optional)
+	skip := int32(56) // int32 |  (optional)
+	count := true // bool |  (optional)
+	filter := "filter_example" // string |  (optional)
+	orderBy := "orderBy_example" // string |  (optional)
+	search := "search_example" // string |  (optional)
+	select_ := "select__example" // string |  (optional)
+	expand := "expand_example" // string |  (optional)
+	isEmpty := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FilesAPI.GetFilesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FilesAPI.GetFilesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Top(top).Skip(skip).Count(count).Filter(filter).OrderBy(orderBy).Search(search).Select_(select_).Expand(expand).IsEmpty(isEmpty).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.GetFilesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -491,6 +500,15 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **top** | **int32** |  | 
+ **skip** | **int32** |  | 
+ **count** | **bool** |  | 
+ **filter** | **string** |  | 
+ **orderBy** | **string** |  | 
+ **search** | **string** |  | 
+ **select_** | **string** |  | 
+ **expand** | **string** |  | 
+ **isEmpty** | **bool** |  | 
 
 ### Return type
 
@@ -502,7 +520,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json, image/png
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -512,7 +530,7 @@ No authorization required
 
 ## GetFilesCountAsync
 
-> int64 GetFilesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> int64 GetFilesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Top(top).Skip(skip).Count(count).Filter(filter).OrderBy(orderBy).Search(search).Select_(select_).Expand(expand).IsEmpty(isEmpty).Execute()
 
 
 
@@ -532,10 +550,19 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	top := int32(56) // int32 |  (optional)
+	skip := int32(56) // int32 |  (optional)
+	count := true // bool |  (optional)
+	filter := "filter_example" // string |  (optional)
+	orderBy := "orderBy_example" // string |  (optional)
+	search := "search_example" // string |  (optional)
+	select_ := "select__example" // string |  (optional)
+	expand := "expand_example" // string |  (optional)
+	isEmpty := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FilesAPI.GetFilesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.FilesAPI.GetFilesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Top(top).Skip(skip).Count(count).Filter(filter).OrderBy(orderBy).Search(search).Select_(select_).Expand(expand).IsEmpty(isEmpty).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.GetFilesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -559,6 +586,15 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **top** | **int32** |  | 
+ **skip** | **int32** |  | 
+ **count** | **bool** |  | 
+ **filter** | **string** |  | 
+ **orderBy** | **string** |  | 
+ **search** | **string** |  | 
+ **select_** | **string** |  | 
+ **expand** | **string** |  | 
+ **isEmpty** | **bool** |  | 
 
 ### Return type
 
@@ -570,7 +606,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json, image/png
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

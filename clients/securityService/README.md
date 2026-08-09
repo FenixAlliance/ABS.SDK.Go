@@ -79,6 +79,15 @@ All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ApplicationPrincipalsAPI* | [**DisableApplicationPrincipalAsync**](docs/ApplicationPrincipalsAPI.md#disableapplicationprincipalasync) | **Post** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Disable | Disable an application principal
+*ApplicationPrincipalsAPI* | [**EnableApplicationPrincipalAsync**](docs/ApplicationPrincipalsAPI.md#enableapplicationprincipalasync) | **Post** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Enable | Enable an application principal
+*ApplicationPrincipalsAPI* | [**GetApplicationPrincipalAsync**](docs/ApplicationPrincipalsAPI.md#getapplicationprincipalasync) | **Get** /api/v2/SecurityService/ApplicationPrincipals/{principalId} | Get application principal by ID
+*ApplicationPrincipalsAPI* | [**GetApplicationPrincipalsAsync**](docs/ApplicationPrincipalsAPI.md#getapplicationprincipalsasync) | **Get** /api/v2/SecurityService/ApplicationPrincipals | Get all application principals
+*ApplicationPrincipalsAPI* | [**GetApplicationPrincipalsCountAsync**](docs/ApplicationPrincipalsAPI.md#getapplicationprincipalscountasync) | **Get** /api/v2/SecurityService/ApplicationPrincipals/Count | Get application principals count
+*ApplicationPrincipalsAPI* | [**GrantPermissionAsync**](docs/ApplicationPrincipalsAPI.md#grantpermissionasync) | **Post** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Permissions | Grant a permission to an application principal
+*ApplicationPrincipalsAPI* | [**ProvisionApplicationPrincipalAsync**](docs/ApplicationPrincipalsAPI.md#provisionapplicationprincipalasync) | **Post** /api/v2/SecurityService/ApplicationPrincipals/Provision | Provision an application principal
+*ApplicationPrincipalsAPI* | [**RevokePermissionAsync**](docs/ApplicationPrincipalsAPI.md#revokepermissionasync) | **Delete** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Permissions/{permission} | Revoke a permission from an application principal
+*ApplicationPrincipalsAPI* | [**SuspendApplicationPrincipalAsync**](docs/ApplicationPrincipalsAPI.md#suspendapplicationprincipalasync) | **Post** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Suspend | Suspend an application principal
 *ApplicationsAPI* | [**CreateBusinessApplicationAsync**](docs/ApplicationsAPI.md#createbusinessapplicationasync) | **Post** /api/v2/SecurityService/Applications | Create a new business application
 *ApplicationsAPI* | [**DeleteBusinessApplicationAsync**](docs/ApplicationsAPI.md#deletebusinessapplicationasync) | **Delete** /api/v2/SecurityService/Applications/{applicationId} | Delete a business application
 *ApplicationsAPI* | [**GetBusinessApplicationByIdAsync**](docs/ApplicationsAPI.md#getbusinessapplicationbyidasync) | **Get** /api/v2/SecurityService/Applications/{applicationId} | Get business application by ID
@@ -92,7 +101,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebAPI* | [**AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebAPI.md#accountmanagedownloadpersonaldatapost) | **Post** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebAPI* | [**AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountmanagelinkexternalloginpost) | **Post** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebAPI* | [**AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountperformexternalloginpost) | **Post** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebAPI* | [**ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebAPI.md#apiv2aiserviceagentsagentidaguipost) | **Post** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABSWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
 *FenixAllianceABSWebAPI* | [**HealthGet**](docs/FenixAllianceABSWebAPI.md#healthget) | **Get** /health | 
 *FenixAllianceABSWebAPI* | [**HelloGet**](docs/FenixAllianceABSWebAPI.md#helloget) | **Get** /hello | 
@@ -163,14 +171,25 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccessTokenResponse](docs/AccessTokenResponse.md)
+ - [ApplicationPrincipalDetailDto](docs/ApplicationPrincipalDetailDto.md)
+ - [ApplicationPrincipalDetailDtoEnvelope](docs/ApplicationPrincipalDetailDtoEnvelope.md)
+ - [ApplicationPrincipalDto](docs/ApplicationPrincipalDto.md)
+ - [ApplicationPrincipalDtoCollectionQueryParameters](docs/ApplicationPrincipalDtoCollectionQueryParameters.md)
+ - [ApplicationPrincipalDtoListEnvelope](docs/ApplicationPrincipalDtoListEnvelope.md)
+ - [ApplicationPrincipalPermissionRequestDto](docs/ApplicationPrincipalPermissionRequestDto.md)
+ - [ApplicationPrincipalProvisionRequestDto](docs/ApplicationPrincipalProvisionRequestDto.md)
+ - [ApplicationPrincipalProvisioningResultDto](docs/ApplicationPrincipalProvisioningResultDto.md)
+ - [ApplicationPrincipalProvisioningResultDtoEnvelope](docs/ApplicationPrincipalProvisioningResultDtoEnvelope.md)
  - [BusinessApplicationCreateDto](docs/BusinessApplicationCreateDto.md)
  - [BusinessApplicationDto](docs/BusinessApplicationDto.md)
+ - [BusinessApplicationDtoCollectionQueryParameters](docs/BusinessApplicationDtoCollectionQueryParameters.md)
  - [BusinessApplicationDtoEnvelope](docs/BusinessApplicationDtoEnvelope.md)
  - [BusinessApplicationDtoListEnvelope](docs/BusinessApplicationDtoListEnvelope.md)
  - [BusinessApplicationSimpleDto](docs/BusinessApplicationSimpleDto.md)
  - [BusinessApplicationSimpleDtoListEnvelope](docs/BusinessApplicationSimpleDtoListEnvelope.md)
  - [BusinessApplicationUpdateDto](docs/BusinessApplicationUpdateDto.md)
  - [BusinessSecurityLogDto](docs/BusinessSecurityLogDto.md)
+ - [BusinessSecurityLogDtoCollectionQueryParameters](docs/BusinessSecurityLogDtoCollectionQueryParameters.md)
  - [BusinessSecurityLogDtoListEnvelope](docs/BusinessSecurityLogDtoListEnvelope.md)
  - [EmptyEnvelope](docs/EmptyEnvelope.md)
  - [ErrorEnvelope](docs/ErrorEnvelope.md)
@@ -180,6 +199,7 @@ Class | Method | HTTP request | Description
  - [InfoResponse](docs/InfoResponse.md)
  - [Int32Envelope](docs/Int32Envelope.md)
  - [LogDto](docs/LogDto.md)
+ - [LogDtoCollectionQueryParameters](docs/LogDtoCollectionQueryParameters.md)
  - [LogDtoListEnvelope](docs/LogDtoListEnvelope.md)
  - [LoginRequest](docs/LoginRequest.md)
  - [OAuthApplicationCreateDto](docs/OAuthApplicationCreateDto.md)
@@ -190,20 +210,23 @@ Class | Method | HTTP request | Description
  - [OAuthAuthorizationDto](docs/OAuthAuthorizationDto.md)
  - [OAuthAuthorizationDtoEnvelope](docs/OAuthAuthorizationDtoEnvelope.md)
  - [OAuthAuthorizationDtoListEnvelope](docs/OAuthAuthorizationDtoListEnvelope.md)
- - [Operation](docs/Operation.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [RefreshRequest](docs/RefreshRequest.md)
  - [RegisterRequest](docs/RegisterRequest.md)
  - [ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [SecurityCertificateDto](docs/SecurityCertificateDto.md)
+ - [SecurityCertificateDtoCollectionQueryParameters](docs/SecurityCertificateDtoCollectionQueryParameters.md)
  - [SecurityCertificateDtoListEnvelope](docs/SecurityCertificateDtoListEnvelope.md)
  - [SecurityPermissionCreateDto](docs/SecurityPermissionCreateDto.md)
  - [SecurityPermissionDto](docs/SecurityPermissionDto.md)
+ - [SecurityPermissionDtoCollectionQueryParameters](docs/SecurityPermissionDtoCollectionQueryParameters.md)
  - [SecurityPermissionDtoEnvelope](docs/SecurityPermissionDtoEnvelope.md)
  - [SecurityPermissionDtoListEnvelope](docs/SecurityPermissionDtoListEnvelope.md)
  - [SecurityPermissionUpdateDto](docs/SecurityPermissionUpdateDto.md)
  - [SecurityRoleCreateDto](docs/SecurityRoleCreateDto.md)
  - [SecurityRoleDto](docs/SecurityRoleDto.md)
+ - [SecurityRoleDtoCollectionQueryParameters](docs/SecurityRoleDtoCollectionQueryParameters.md)
  - [SecurityRoleDtoEnvelope](docs/SecurityRoleDtoEnvelope.md)
  - [SecurityRoleDtoListEnvelope](docs/SecurityRoleDtoListEnvelope.md)
  - [SecurityRoleUpdateDto](docs/SecurityRoleUpdateDto.md)
@@ -212,6 +235,7 @@ Class | Method | HTTP request | Description
  - [TwoFactorRequest](docs/TwoFactorRequest.md)
  - [TwoFactorResponse](docs/TwoFactorResponse.md)
  - [WebhookRequestDto](docs/WebhookRequestDto.md)
+ - [WebhookRequestDtoCollectionQueryParameters](docs/WebhookRequestDtoCollectionQueryParameters.md)
  - [WebhookRequestDtoListEnvelope](docs/WebhookRequestDtoListEnvelope.md)
 
 

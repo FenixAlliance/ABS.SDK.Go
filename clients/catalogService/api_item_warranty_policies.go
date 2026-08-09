@@ -31,6 +31,7 @@ type ApiCountItemWarrantyPoliciesAsyncRequest struct {
 	itemId *string
 	apiVersion *string
 	xApiVersion *string
+	itemWarrantyPolicyDtoCollectionQueryParameters *ItemWarrantyPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiCountItemWarrantyPoliciesAsyncRequest) TenantId(tenantId string) ApiCountItemWarrantyPoliciesAsyncRequest {
@@ -50,6 +51,11 @@ func (r ApiCountItemWarrantyPoliciesAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiCountItemWarrantyPoliciesAsyncRequest) XApiVersion(xApiVersion string) ApiCountItemWarrantyPoliciesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountItemWarrantyPoliciesAsyncRequest) ItemWarrantyPolicyDtoCollectionQueryParameters(itemWarrantyPolicyDtoCollectionQueryParameters ItemWarrantyPolicyDtoCollectionQueryParameters) ApiCountItemWarrantyPoliciesAsyncRequest {
+	r.itemWarrantyPolicyDtoCollectionQueryParameters = &itemWarrantyPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -103,7 +109,7 @@ func (a *ItemWarrantyPoliciesAPIService) CountItemWarrantyPoliciesAsyncExecute(r
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -122,6 +128,8 @@ func (a *ItemWarrantyPoliciesAPIService) CountItemWarrantyPoliciesAsyncExecute(r
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemWarrantyPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -188,6 +196,7 @@ type ApiGetItemWarrantyPoliciesAsyncRequest struct {
 	itemId *string
 	apiVersion *string
 	xApiVersion *string
+	itemWarrantyPolicyDtoCollectionQueryParameters *ItemWarrantyPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemWarrantyPoliciesAsyncRequest) TenantId(tenantId string) ApiGetItemWarrantyPoliciesAsyncRequest {
@@ -207,6 +216,11 @@ func (r ApiGetItemWarrantyPoliciesAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetItemWarrantyPoliciesAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemWarrantyPoliciesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemWarrantyPoliciesAsyncRequest) ItemWarrantyPolicyDtoCollectionQueryParameters(itemWarrantyPolicyDtoCollectionQueryParameters ItemWarrantyPolicyDtoCollectionQueryParameters) ApiGetItemWarrantyPoliciesAsyncRequest {
+	r.itemWarrantyPolicyDtoCollectionQueryParameters = &itemWarrantyPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -260,7 +274,7 @@ func (a *ItemWarrantyPoliciesAPIService) GetItemWarrantyPoliciesAsyncExecute(r A
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -279,6 +293,8 @@ func (a *ItemWarrantyPoliciesAPIService) GetItemWarrantyPoliciesAsyncExecute(r A
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemWarrantyPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

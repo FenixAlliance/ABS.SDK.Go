@@ -313,10 +313,16 @@ type ApiGetAssetCategoriesRequest struct {
 	ctx context.Context
 	ApiService *AssetCategoriesAPIService
 	tenantId *string
+	assetCategoryDtoCollectionQueryParameters *AssetCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetCategoriesRequest) TenantId(tenantId string) ApiGetAssetCategoriesRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetCategoriesRequest) AssetCategoryDtoCollectionQueryParameters(assetCategoryDtoCollectionQueryParameters AssetCategoryDtoCollectionQueryParameters) ApiGetAssetCategoriesRequest {
+	r.assetCategoryDtoCollectionQueryParameters = &assetCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -365,7 +371,7 @@ func (a *AssetCategoriesAPIService) GetAssetCategoriesExecute(r ApiGetAssetCateg
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -381,6 +387,8 @@ func (a *AssetCategoriesAPIService) GetAssetCategoriesExecute(r ApiGetAssetCateg
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -444,10 +452,16 @@ type ApiGetAssetCategoriesCountRequest struct {
 	ctx context.Context
 	ApiService *AssetCategoriesAPIService
 	tenantId *string
+	assetCategoryDtoCollectionQueryParameters *AssetCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetCategoriesCountRequest) TenantId(tenantId string) ApiGetAssetCategoriesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetCategoriesCountRequest) AssetCategoryDtoCollectionQueryParameters(assetCategoryDtoCollectionQueryParameters AssetCategoryDtoCollectionQueryParameters) ApiGetAssetCategoriesCountRequest {
+	r.assetCategoryDtoCollectionQueryParameters = &assetCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -496,7 +510,7 @@ func (a *AssetCategoriesAPIService) GetAssetCategoriesCountExecute(r ApiGetAsset
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -512,6 +526,8 @@ func (a *AssetCategoriesAPIService) GetAssetCategoriesCountExecute(r ApiGetAsset
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -722,7 +738,7 @@ type ApiPatchAssetCategoryRequest struct {
 	ApiService *AssetCategoriesAPIService
 	tenantId *string
 	categoryId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAssetCategoryRequest) TenantId(tenantId string) ApiPatchAssetCategoryRequest {
@@ -730,8 +746,8 @@ func (r ApiPatchAssetCategoryRequest) TenantId(tenantId string) ApiPatchAssetCat
 	return r
 }
 
-func (r ApiPatchAssetCategoryRequest) Operation(operation []Operation) ApiPatchAssetCategoryRequest {
-	r.operation = &operation
+func (r ApiPatchAssetCategoryRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAssetCategoryRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -800,7 +816,7 @@ func (a *AssetCategoriesAPIService) PatchAssetCategoryExecute(r ApiPatchAssetCat
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

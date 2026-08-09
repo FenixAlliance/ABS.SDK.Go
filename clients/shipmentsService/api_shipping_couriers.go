@@ -438,6 +438,7 @@ type ApiGetShippingCouriersAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shippingCourierDtoCollectionQueryParameters *ShippingCourierDtoCollectionQueryParameters
 }
 
 func (r ApiGetShippingCouriersAsyncRequest) TenantId(tenantId string) ApiGetShippingCouriersAsyncRequest {
@@ -452,6 +453,11 @@ func (r ApiGetShippingCouriersAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetShippingCouriersAsyncRequest) XApiVersion(xApiVersion string) ApiGetShippingCouriersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShippingCouriersAsyncRequest) ShippingCourierDtoCollectionQueryParameters(shippingCourierDtoCollectionQueryParameters ShippingCourierDtoCollectionQueryParameters) ApiGetShippingCouriersAsyncRequest {
+	r.shippingCourierDtoCollectionQueryParameters = &shippingCourierDtoCollectionQueryParameters
 	return r
 }
 
@@ -503,7 +509,7 @@ func (a *ShippingCouriersAPIService) GetShippingCouriersAsyncExecute(r ApiGetShi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -522,6 +528,8 @@ func (a *ShippingCouriersAPIService) GetShippingCouriersAsyncExecute(r ApiGetShi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shippingCourierDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -587,6 +595,7 @@ type ApiGetShippingCouriersCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	shippingCourierDtoCollectionQueryParameters *ShippingCourierDtoCollectionQueryParameters
 }
 
 func (r ApiGetShippingCouriersCountAsyncRequest) TenantId(tenantId string) ApiGetShippingCouriersCountAsyncRequest {
@@ -601,6 +610,11 @@ func (r ApiGetShippingCouriersCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetShippingCouriersCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetShippingCouriersCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetShippingCouriersCountAsyncRequest) ShippingCourierDtoCollectionQueryParameters(shippingCourierDtoCollectionQueryParameters ShippingCourierDtoCollectionQueryParameters) ApiGetShippingCouriersCountAsyncRequest {
+	r.shippingCourierDtoCollectionQueryParameters = &shippingCourierDtoCollectionQueryParameters
 	return r
 }
 
@@ -652,7 +666,7 @@ func (a *ShippingCouriersAPIService) GetShippingCouriersCountAsyncExecute(r ApiG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -671,6 +685,8 @@ func (a *ShippingCouriersAPIService) GetShippingCouriersCountAsyncExecute(r ApiG
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.shippingCourierDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -726,7 +742,7 @@ type ApiPatchShippingCourierAsyncRequest struct {
 	courierId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchShippingCourierAsyncRequest) TenantId(tenantId string) ApiPatchShippingCourierAsyncRequest {
@@ -744,8 +760,8 @@ func (r ApiPatchShippingCourierAsyncRequest) XApiVersion(xApiVersion string) Api
 	return r
 }
 
-func (r ApiPatchShippingCourierAsyncRequest) Operation(operation []Operation) ApiPatchShippingCourierAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchShippingCourierAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchShippingCourierAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -820,7 +836,7 @@ func (a *ShippingCouriersAPIService) PatchShippingCourierAsyncExecute(r ApiPatch
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

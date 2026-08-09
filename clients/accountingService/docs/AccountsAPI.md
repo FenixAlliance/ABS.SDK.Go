@@ -51,7 +51,7 @@ Method | HTTP request | Description
 
 ## AggregateAccountsBalanceAsync
 
-> MoneyEnvelope AggregateAccountsBalanceAsync(ctx).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> MoneyEnvelope AggregateAccountsBalanceAsync(ctx).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters).Execute()
 
 Aggregate accounts balance
 
@@ -74,10 +74,11 @@ func main() {
 	currencyId := "currencyId_example" // string |  (optional) (default to "USD.USA")
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountDtoCollectionQueryParameters := *openapiclient.NewAccountDtoCollectionQueryParameters() // AccountDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.AggregateAccountsBalanceAsync(context.Background()).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.AggregateAccountsBalanceAsync(context.Background()).TenantId(tenantId).CurrencyId(currencyId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.AggregateAccountsBalanceAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
  **currencyId** | **string** |  | [default to &quot;USD.USA&quot;]
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -113,7 +115,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1104,7 +1106,7 @@ No authorization required
 
 ## GetAccountCreditsAsync
 
-> AccountingEntryDtoListEnvelope GetAccountCreditsAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountingEntryDtoListEnvelope GetAccountCreditsAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 
 Get account credits
 
@@ -1127,10 +1129,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountingEntryDtoCollectionQueryParameters := *openapiclient.NewAccountingEntryDtoCollectionQueryParameters() // AccountingEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountCreditsAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountCreditsAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountCreditsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1159,6 +1162,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1170,7 +1174,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1180,7 +1184,7 @@ No authorization required
 
 ## GetAccountCreditsCountAsync
 
-> Int32Envelope GetAccountCreditsCountAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetAccountCreditsCountAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 
 Get account credits count
 
@@ -1203,10 +1207,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountingEntryDtoCollectionQueryParameters := *openapiclient.NewAccountingEntryDtoCollectionQueryParameters() // AccountingEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountCreditsCountAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountCreditsCountAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountCreditsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1235,6 +1240,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1246,7 +1252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1256,7 +1262,7 @@ No authorization required
 
 ## GetAccountDebitsAsync
 
-> AccountingEntryDtoListEnvelope GetAccountDebitsAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountingEntryDtoListEnvelope GetAccountDebitsAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 
 Get account debits
 
@@ -1279,10 +1285,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountingEntryDtoCollectionQueryParameters := *openapiclient.NewAccountingEntryDtoCollectionQueryParameters() // AccountingEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountDebitsAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountDebitsAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountDebitsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1311,6 +1318,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1322,7 +1330,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1332,7 +1340,7 @@ No authorization required
 
 ## GetAccountDebitsCountAsync
 
-> Int32Envelope GetAccountDebitsCountAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetAccountDebitsCountAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 
 Get account debits count
 
@@ -1355,10 +1363,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountingEntryDtoCollectionQueryParameters := *openapiclient.NewAccountingEntryDtoCollectionQueryParameters() // AccountingEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountDebitsCountAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountDebitsCountAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountDebitsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1387,6 +1396,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1398,7 +1408,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1484,7 +1494,7 @@ No authorization required
 
 ## GetAccountEntriesAsync
 
-> AccountingEntryDtoListEnvelope GetAccountEntriesAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountingEntryDtoListEnvelope GetAccountEntriesAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 
 Get account entries
 
@@ -1507,10 +1517,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountingEntryDtoCollectionQueryParameters := *openapiclient.NewAccountingEntryDtoCollectionQueryParameters() // AccountingEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountEntriesAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountEntriesAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountEntriesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1539,6 +1550,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1550,7 +1562,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1639,7 +1651,7 @@ No authorization required
 
 ## GetAccountRelationsAsync
 
-> AccountRelationDtoListEnvelope GetAccountRelationsAsync(ctx).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountRelationDtoListEnvelope GetAccountRelationsAsync(ctx).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountRelationDtoCollectionQueryParameters(accountRelationDtoCollectionQueryParameters).Execute()
 
 Get account relations
 
@@ -1662,10 +1674,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountRelationDtoCollectionQueryParameters := *openapiclient.NewAccountRelationDtoCollectionQueryParameters() // AccountRelationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountRelationsAsync(context.Background()).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountRelationsAsync(context.Background()).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountRelationDtoCollectionQueryParameters(accountRelationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountRelationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1690,6 +1703,7 @@ Name | Type | Description  | Notes
  **accountId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountRelationDtoCollectionQueryParameters** | [**AccountRelationDtoCollectionQueryParameters**](AccountRelationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1701,7 +1715,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1711,7 +1725,7 @@ No authorization required
 
 ## GetAccountRelationsCountAsync
 
-> Int32Envelope GetAccountRelationsCountAsync(ctx).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetAccountRelationsCountAsync(ctx).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountRelationDtoCollectionQueryParameters(accountRelationDtoCollectionQueryParameters).Execute()
 
 Get account relations count
 
@@ -1734,10 +1748,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountRelationDtoCollectionQueryParameters := *openapiclient.NewAccountRelationDtoCollectionQueryParameters() // AccountRelationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountRelationsCountAsync(context.Background()).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountRelationsCountAsync(context.Background()).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountRelationDtoCollectionQueryParameters(accountRelationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountRelationsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1762,6 +1777,7 @@ Name | Type | Description  | Notes
  **accountId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountRelationDtoCollectionQueryParameters** | [**AccountRelationDtoCollectionQueryParameters**](AccountRelationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1773,7 +1789,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1859,7 +1875,7 @@ No authorization required
 
 ## GetAccountTypesAsync
 
-> AccountTypeDtoListEnvelope GetAccountTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountTypeDtoListEnvelope GetAccountTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeDtoCollectionQueryParameters(accountTypeDtoCollectionQueryParameters).Execute()
 
 Get account types
 
@@ -1881,10 +1897,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountTypeDtoCollectionQueryParameters := *openapiclient.NewAccountTypeDtoCollectionQueryParameters() // AccountTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeDtoCollectionQueryParameters(accountTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountTypesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1908,6 +1925,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountTypeDtoCollectionQueryParameters** | [**AccountTypeDtoCollectionQueryParameters**](AccountTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1919,7 +1937,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1929,7 +1947,7 @@ No authorization required
 
 ## GetAccountTypesCountAsync
 
-> Int32Envelope GetAccountTypesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetAccountTypesCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeDtoCollectionQueryParameters(accountTypeDtoCollectionQueryParameters).Execute()
 
 Get account types count
 
@@ -1951,10 +1969,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountTypeDtoCollectionQueryParameters := *openapiclient.NewAccountTypeDtoCollectionQueryParameters() // AccountTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountTypesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountTypesCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountTypeDtoCollectionQueryParameters(accountTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountTypesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1978,6 +1997,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountTypeDtoCollectionQueryParameters** | [**AccountTypeDtoCollectionQueryParameters**](AccountTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1989,7 +2009,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1999,7 +2019,7 @@ No authorization required
 
 ## GetAccountsAsync
 
-> AccountDtoListEnvelope GetAccountsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountDtoListEnvelope GetAccountsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters).Execute()
 
 Creates a new account
 
@@ -2021,10 +2041,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountDtoCollectionQueryParameters := *openapiclient.NewAccountDtoCollectionQueryParameters() // AccountDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2048,6 +2069,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2059,7 +2081,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2069,7 +2091,7 @@ No authorization required
 
 ## GetAccountsCountAsync
 
-> Int32Envelope GetAccountsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetAccountsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters).Execute()
 
 Get the number of accounts
 
@@ -2091,10 +2113,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountDtoCollectionQueryParameters := *openapiclient.NewAccountDtoCollectionQueryParameters() // AccountDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetAccountsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetAccountsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2118,6 +2141,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2129,7 +2153,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2283,7 +2307,7 @@ No authorization required
 
 ## GetCreditAccountEntriesAsync
 
-> AccountingEntryDtoListEnvelope GetCreditAccountEntriesAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountingEntryDtoListEnvelope GetCreditAccountEntriesAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 
 Get credit account entries
 
@@ -2306,10 +2330,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountingEntryDtoCollectionQueryParameters := *openapiclient.NewAccountingEntryDtoCollectionQueryParameters() // AccountingEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetCreditAccountEntriesAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetCreditAccountEntriesAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetCreditAccountEntriesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2338,6 +2363,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2349,7 +2375,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2359,7 +2385,7 @@ No authorization required
 
 ## GetDebitAccountEntriesAsync
 
-> AccountingEntryDtoListEnvelope GetDebitAccountEntriesAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountingEntryDtoListEnvelope GetDebitAccountEntriesAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 
 Get debit account entries
 
@@ -2382,10 +2408,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountingEntryDtoCollectionQueryParameters := *openapiclient.NewAccountingEntryDtoCollectionQueryParameters() // AccountingEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetDebitAccountEntriesAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetDebitAccountEntriesAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountingEntryDtoCollectionQueryParameters(accountingEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetDebitAccountEntriesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2414,6 +2441,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2425,7 +2453,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2435,7 +2463,7 @@ No authorization required
 
 ## GetRootAccountsAsync
 
-> AccountDtoListEnvelope GetRootAccountsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AccountDtoListEnvelope GetRootAccountsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters).Execute()
 
 Get root accounts
 
@@ -2457,10 +2485,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	accountDtoCollectionQueryParameters := *openapiclient.NewAccountDtoCollectionQueryParameters() // AccountDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.GetRootAccountsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.AccountsAPI.GetRootAccountsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AccountDtoCollectionQueryParameters(accountDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetRootAccountsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2484,6 +2513,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2495,7 +2525,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2505,7 +2535,7 @@ No authorization required
 
 ## PatchAccountAsync
 
-> EmptyEnvelope PatchAccountAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchAccountAsync(ctx, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an account
 
@@ -2528,11 +2558,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.PatchAccountAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.AccountsAPI.PatchAccountAsync(context.Background(), accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.PatchAccountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2561,7 +2591,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -2583,7 +2613,7 @@ No authorization required
 
 ## PatchAccountEntryAsync
 
-> EmptyEnvelope PatchAccountEntryAsync(ctx, accountId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchAccountEntryAsync(ctx, accountId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch account entry
 
@@ -2607,11 +2637,11 @@ func main() {
 	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.PatchAccountEntryAsync(context.Background(), accountId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.AccountsAPI.PatchAccountEntryAsync(context.Background(), accountId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.PatchAccountEntryAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2642,7 +2672,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -2664,7 +2694,7 @@ No authorization required
 
 ## PatchAccountRelationAsync
 
-> EmptyEnvelope PatchAccountRelationAsync(ctx, accountRelationId).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchAccountRelationAsync(ctx, accountRelationId).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch account relation
 
@@ -2688,11 +2718,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.PatchAccountRelationAsync(context.Background(), accountRelationId).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.AccountsAPI.PatchAccountRelationAsync(context.Background(), accountRelationId).TenantId(tenantId).AccountId(accountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.PatchAccountRelationAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2722,7 +2752,7 @@ Name | Type | Description  | Notes
  **accountId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -2744,7 +2774,7 @@ No authorization required
 
 ## PatchAccountTypeAsync
 
-> EmptyEnvelope PatchAccountTypeAsync(ctx, accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchAccountTypeAsync(ctx, accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch account type
 
@@ -2767,11 +2797,11 @@ func main() {
 	accountTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountsAPI.PatchAccountTypeAsync(context.Background(), accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.AccountsAPI.PatchAccountTypeAsync(context.Background(), accountTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.PatchAccountTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2800,7 +2830,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

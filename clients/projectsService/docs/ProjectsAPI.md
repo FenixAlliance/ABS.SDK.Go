@@ -613,7 +613,7 @@ No authorization required
 
 ## GetProjectTaskCategoriesAsync
 
-> TaskCategoryDtoListEnvelope GetProjectTaskCategoriesAsync(ctx, projectId).TenantId(tenantId).Execute()
+> TaskCategoryDtoListEnvelope GetProjectTaskCategoriesAsync(ctx, projectId).TenantId(tenantId).TaskCategoryDtoCollectionQueryParameters(taskCategoryDtoCollectionQueryParameters).Execute()
 
 Retrieves project task categories
 
@@ -634,10 +634,11 @@ import (
 func main() {
 	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	taskCategoryDtoCollectionQueryParameters := *openapiclient.NewTaskCategoryDtoCollectionQueryParameters() // TaskCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetProjectTaskCategoriesAsync(context.Background(), projectId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ProjectsAPI.GetProjectTaskCategoriesAsync(context.Background(), projectId).TenantId(tenantId).TaskCategoryDtoCollectionQueryParameters(taskCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectTaskCategoriesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -664,6 +665,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
+ **taskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -675,7 +677,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -685,7 +687,7 @@ No authorization required
 
 ## GetProjectTaskCategoriesCountAsync
 
-> Int32Envelope GetProjectTaskCategoriesCountAsync(ctx, projectId).TenantId(tenantId).Execute()
+> Int32Envelope GetProjectTaskCategoriesCountAsync(ctx, projectId).TenantId(tenantId).TaskCategoryDtoCollectionQueryParameters(taskCategoryDtoCollectionQueryParameters).Execute()
 
 Counts project task categories
 
@@ -706,10 +708,11 @@ import (
 func main() {
 	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	taskCategoryDtoCollectionQueryParameters := *openapiclient.NewTaskCategoryDtoCollectionQueryParameters() // TaskCategoryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetProjectTaskCategoriesCountAsync(context.Background(), projectId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ProjectsAPI.GetProjectTaskCategoriesCountAsync(context.Background(), projectId).TenantId(tenantId).TaskCategoryDtoCollectionQueryParameters(taskCategoryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectTaskCategoriesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -736,6 +739,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
+ **taskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -747,7 +751,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -757,7 +761,7 @@ No authorization required
 
 ## GetProjectTimeLogsCountAsync
 
-> Int32Envelope GetProjectTimeLogsCountAsync(ctx, projectId).TenantId(tenantId).Execute()
+> Int32Envelope GetProjectTimeLogsCountAsync(ctx, projectId).TenantId(tenantId).ProjectTimeLogDtoCollectionQueryParameters(projectTimeLogDtoCollectionQueryParameters).Execute()
 
 Counts project time logs
 
@@ -778,10 +782,11 @@ import (
 func main() {
 	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	projectTimeLogDtoCollectionQueryParameters := *openapiclient.NewProjectTimeLogDtoCollectionQueryParameters() // ProjectTimeLogDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetProjectTimeLogsCountAsync(context.Background(), projectId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ProjectsAPI.GetProjectTimeLogsCountAsync(context.Background(), projectId).TenantId(tenantId).ProjectTimeLogDtoCollectionQueryParameters(projectTimeLogDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectTimeLogsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -808,6 +813,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
+ **projectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -819,7 +825,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -829,7 +835,7 @@ No authorization required
 
 ## GetProjectsByTenantIdAsync
 
-> ProjectDtoListEnvelope GetProjectsByTenantIdAsync(ctx).TenantId(tenantId).Execute()
+> ProjectDtoListEnvelope GetProjectsByTenantIdAsync(ctx).TenantId(tenantId).ProjectDtoCollectionQueryParameters(projectDtoCollectionQueryParameters).Execute()
 
 Retrieves all projects
 
@@ -849,10 +855,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	projectDtoCollectionQueryParameters := *openapiclient.NewProjectDtoCollectionQueryParameters() // ProjectDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetProjectsByTenantIdAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ProjectsAPI.GetProjectsByTenantIdAsync(context.Background()).TenantId(tenantId).ProjectDtoCollectionQueryParameters(projectDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectsByTenantIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -874,6 +881,7 @@ Other parameters are passed through a pointer to a apiGetProjectsByTenantIdAsync
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **projectDtoCollectionQueryParameters** | [**ProjectDtoCollectionQueryParameters**](ProjectDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -885,7 +893,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -895,7 +903,7 @@ No authorization required
 
 ## GetProjectsCountByTenantIdAsync
 
-> Int32Envelope GetProjectsCountByTenantIdAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetProjectsCountByTenantIdAsync(ctx).TenantId(tenantId).ProjectDtoCollectionQueryParameters(projectDtoCollectionQueryParameters).Execute()
 
 Counts projects
 
@@ -915,10 +923,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	projectDtoCollectionQueryParameters := *openapiclient.NewProjectDtoCollectionQueryParameters() // ProjectDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetProjectsCountByTenantIdAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ProjectsAPI.GetProjectsCountByTenantIdAsync(context.Background()).TenantId(tenantId).ProjectDtoCollectionQueryParameters(projectDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectsCountByTenantIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -940,6 +949,7 @@ Other parameters are passed through a pointer to a apiGetProjectsCountByTenantId
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **projectDtoCollectionQueryParameters** | [**ProjectDtoCollectionQueryParameters**](ProjectDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -951,7 +961,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -961,7 +971,7 @@ No authorization required
 
 ## GetTasksForProjectAsync
 
-> ProjectTaskDtoListEnvelope GetTasksForProjectAsync(ctx, projectId).TenantId(tenantId).Execute()
+> ProjectTaskDtoListEnvelope GetTasksForProjectAsync(ctx, projectId).TenantId(tenantId).ProjectTaskDtoCollectionQueryParameters(projectTaskDtoCollectionQueryParameters).Execute()
 
 Retrieves project tasks
 
@@ -982,10 +992,11 @@ import (
 func main() {
 	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	projectTaskDtoCollectionQueryParameters := *openapiclient.NewProjectTaskDtoCollectionQueryParameters() // ProjectTaskDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetTasksForProjectAsync(context.Background(), projectId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ProjectsAPI.GetTasksForProjectAsync(context.Background(), projectId).TenantId(tenantId).ProjectTaskDtoCollectionQueryParameters(projectTaskDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetTasksForProjectAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1012,6 +1023,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
+ **projectTaskDtoCollectionQueryParameters** | [**ProjectTaskDtoCollectionQueryParameters**](ProjectTaskDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1023,7 +1035,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1033,7 +1045,7 @@ No authorization required
 
 ## GetTasksForProjectCountAsync
 
-> Int32Envelope GetTasksForProjectCountAsync(ctx, projectId).TenantId(tenantId).Execute()
+> Int32Envelope GetTasksForProjectCountAsync(ctx, projectId).TenantId(tenantId).ProjectTaskDtoCollectionQueryParameters(projectTaskDtoCollectionQueryParameters).Execute()
 
 Counts project tasks
 
@@ -1054,10 +1066,11 @@ import (
 func main() {
 	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	projectTaskDtoCollectionQueryParameters := *openapiclient.NewProjectTaskDtoCollectionQueryParameters() // ProjectTaskDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetTasksForProjectCountAsync(context.Background(), projectId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ProjectsAPI.GetTasksForProjectCountAsync(context.Background(), projectId).TenantId(tenantId).ProjectTaskDtoCollectionQueryParameters(projectTaskDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetTasksForProjectCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1084,6 +1097,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
+ **projectTaskDtoCollectionQueryParameters** | [**ProjectTaskDtoCollectionQueryParameters**](ProjectTaskDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1095,7 +1109,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1105,7 +1119,7 @@ No authorization required
 
 ## GetTimeLogsForProjectAsync
 
-> ProjectTimeLogDtoListEnvelope GetTimeLogsForProjectAsync(ctx, projectId).TenantId(tenantId).Execute()
+> ProjectTimeLogDtoListEnvelope GetTimeLogsForProjectAsync(ctx, projectId).TenantId(tenantId).ProjectTimeLogDtoCollectionQueryParameters(projectTimeLogDtoCollectionQueryParameters).Execute()
 
 Retrieves project time logs
 
@@ -1126,10 +1140,11 @@ import (
 func main() {
 	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	projectTimeLogDtoCollectionQueryParameters := *openapiclient.NewProjectTimeLogDtoCollectionQueryParameters() // ProjectTimeLogDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.GetTimeLogsForProjectAsync(context.Background(), projectId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ProjectsAPI.GetTimeLogsForProjectAsync(context.Background(), projectId).TenantId(tenantId).ProjectTimeLogDtoCollectionQueryParameters(projectTimeLogDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetTimeLogsForProjectAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1156,6 +1171,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
+ **projectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1167,7 +1183,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1177,7 +1193,7 @@ No authorization required
 
 ## PatchProjectAsync
 
-> EmptyEnvelope PatchProjectAsync(ctx, projectId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchProjectAsync(ctx, projectId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patches a project
 
@@ -1198,11 +1214,11 @@ import (
 func main() {
 	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.PatchProjectAsync(context.Background(), projectId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.ProjectsAPI.PatchProjectAsync(context.Background(), projectId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.PatchProjectAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1229,7 +1245,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **tenantId** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1251,7 +1267,7 @@ No authorization required
 
 ## PatchProjectPeriodAsync
 
-> EmptyEnvelope PatchProjectPeriodAsync(ctx, projectId, projectPeriodId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchProjectPeriodAsync(ctx, projectId, projectPeriodId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patches a project period
 
@@ -1273,11 +1289,11 @@ func main() {
 	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	projectPeriodId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.PatchProjectPeriodAsync(context.Background(), projectId, projectPeriodId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.ProjectsAPI.PatchProjectPeriodAsync(context.Background(), projectId, projectPeriodId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.PatchProjectPeriodAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1306,7 +1322,7 @@ Name | Type | Description  | Notes
 
 
  **tenantId** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1328,7 +1344,7 @@ No authorization required
 
 ## PatchTaskForProjectAsync
 
-> EmptyEnvelope PatchTaskForProjectAsync(ctx, projectId, projectTaskId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchTaskForProjectAsync(ctx, projectId, projectTaskId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patches a project task
 
@@ -1350,11 +1366,11 @@ func main() {
 	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	projectTaskId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.PatchTaskForProjectAsync(context.Background(), projectId, projectTaskId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.ProjectsAPI.PatchTaskForProjectAsync(context.Background(), projectId, projectTaskId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.PatchTaskForProjectAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1383,7 +1399,7 @@ Name | Type | Description  | Notes
 
 
  **tenantId** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

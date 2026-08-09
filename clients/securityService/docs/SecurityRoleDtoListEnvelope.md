@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **ErrorMessage** | Pointer to **NullableString** |  | [optional] 
 **CorrelationId** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**HttpStatus** | Pointer to **NullableInt32** |  | [optional] 
+**ErrorCode** | Pointer to **NullableString** |  | [optional] 
+**ValidationDetails** | Pointer to **map[string][]string** |  | [optional] 
 **ActivityId** | Pointer to **NullableString** |  | [optional] [readonly] 
 **Result** | Pointer to [**[]SecurityRoleDto**](SecurityRoleDto.md) |  | [optional] 
 
@@ -150,6 +153,111 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
+### GetHttpStatus
+
+`func (o *SecurityRoleDtoListEnvelope) GetHttpStatus() int32`
+
+GetHttpStatus returns the HttpStatus field if non-nil, zero value otherwise.
+
+### GetHttpStatusOk
+
+`func (o *SecurityRoleDtoListEnvelope) GetHttpStatusOk() (*int32, bool)`
+
+GetHttpStatusOk returns a tuple with the HttpStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHttpStatus
+
+`func (o *SecurityRoleDtoListEnvelope) SetHttpStatus(v int32)`
+
+SetHttpStatus sets HttpStatus field to given value.
+
+### HasHttpStatus
+
+`func (o *SecurityRoleDtoListEnvelope) HasHttpStatus() bool`
+
+HasHttpStatus returns a boolean if a field has been set.
+
+### SetHttpStatusNil
+
+`func (o *SecurityRoleDtoListEnvelope) SetHttpStatusNil(b bool)`
+
+ SetHttpStatusNil sets the value for HttpStatus to be an explicit nil
+
+### UnsetHttpStatus
+`func (o *SecurityRoleDtoListEnvelope) UnsetHttpStatus()`
+
+UnsetHttpStatus ensures that no value is present for HttpStatus, not even an explicit nil
+### GetErrorCode
+
+`func (o *SecurityRoleDtoListEnvelope) GetErrorCode() string`
+
+GetErrorCode returns the ErrorCode field if non-nil, zero value otherwise.
+
+### GetErrorCodeOk
+
+`func (o *SecurityRoleDtoListEnvelope) GetErrorCodeOk() (*string, bool)`
+
+GetErrorCodeOk returns a tuple with the ErrorCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorCode
+
+`func (o *SecurityRoleDtoListEnvelope) SetErrorCode(v string)`
+
+SetErrorCode sets ErrorCode field to given value.
+
+### HasErrorCode
+
+`func (o *SecurityRoleDtoListEnvelope) HasErrorCode() bool`
+
+HasErrorCode returns a boolean if a field has been set.
+
+### SetErrorCodeNil
+
+`func (o *SecurityRoleDtoListEnvelope) SetErrorCodeNil(b bool)`
+
+ SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
+
+### UnsetErrorCode
+`func (o *SecurityRoleDtoListEnvelope) UnsetErrorCode()`
+
+UnsetErrorCode ensures that no value is present for ErrorCode, not even an explicit nil
+### GetValidationDetails
+
+`func (o *SecurityRoleDtoListEnvelope) GetValidationDetails() map[string][]string`
+
+GetValidationDetails returns the ValidationDetails field if non-nil, zero value otherwise.
+
+### GetValidationDetailsOk
+
+`func (o *SecurityRoleDtoListEnvelope) GetValidationDetailsOk() (*map[string][]string, bool)`
+
+GetValidationDetailsOk returns a tuple with the ValidationDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidationDetails
+
+`func (o *SecurityRoleDtoListEnvelope) SetValidationDetails(v map[string][]string)`
+
+SetValidationDetails sets ValidationDetails field to given value.
+
+### HasValidationDetails
+
+`func (o *SecurityRoleDtoListEnvelope) HasValidationDetails() bool`
+
+HasValidationDetails returns a boolean if a field has been set.
+
+### SetValidationDetailsNil
+
+`func (o *SecurityRoleDtoListEnvelope) SetValidationDetailsNil(b bool)`
+
+ SetValidationDetailsNil sets the value for ValidationDetails to be an explicit nil
+
+### UnsetValidationDetails
+`func (o *SecurityRoleDtoListEnvelope) UnsetValidationDetails()`
+
+UnsetValidationDetails ensures that no value is present for ValidationDetails, not even an explicit nil
 ### GetActivityId
 
 `func (o *SecurityRoleDtoListEnvelope) GetActivityId() string`

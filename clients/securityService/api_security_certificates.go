@@ -29,6 +29,7 @@ type ApiGetSecurityCertificatesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	securityCertificateDtoCollectionQueryParameters *SecurityCertificateDtoCollectionQueryParameters
 }
 
 func (r ApiGetSecurityCertificatesAsyncRequest) TenantId(tenantId string) ApiGetSecurityCertificatesAsyncRequest {
@@ -43,6 +44,11 @@ func (r ApiGetSecurityCertificatesAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetSecurityCertificatesAsyncRequest) XApiVersion(xApiVersion string) ApiGetSecurityCertificatesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSecurityCertificatesAsyncRequest) SecurityCertificateDtoCollectionQueryParameters(securityCertificateDtoCollectionQueryParameters SecurityCertificateDtoCollectionQueryParameters) ApiGetSecurityCertificatesAsyncRequest {
+	r.securityCertificateDtoCollectionQueryParameters = &securityCertificateDtoCollectionQueryParameters
 	return r
 }
 
@@ -94,7 +100,7 @@ func (a *SecurityCertificatesAPIService) GetSecurityCertificatesAsyncExecute(r A
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -113,6 +119,8 @@ func (a *SecurityCertificatesAPIService) GetSecurityCertificatesAsyncExecute(r A
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.securityCertificateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -178,6 +186,7 @@ type ApiGetSecurityCertificatesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	securityCertificateDtoCollectionQueryParameters *SecurityCertificateDtoCollectionQueryParameters
 }
 
 func (r ApiGetSecurityCertificatesCountAsyncRequest) TenantId(tenantId string) ApiGetSecurityCertificatesCountAsyncRequest {
@@ -192,6 +201,11 @@ func (r ApiGetSecurityCertificatesCountAsyncRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetSecurityCertificatesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSecurityCertificatesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSecurityCertificatesCountAsyncRequest) SecurityCertificateDtoCollectionQueryParameters(securityCertificateDtoCollectionQueryParameters SecurityCertificateDtoCollectionQueryParameters) ApiGetSecurityCertificatesCountAsyncRequest {
+	r.securityCertificateDtoCollectionQueryParameters = &securityCertificateDtoCollectionQueryParameters
 	return r
 }
 
@@ -243,7 +257,7 @@ func (a *SecurityCertificatesAPIService) GetSecurityCertificatesCountAsyncExecut
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -262,6 +276,8 @@ func (a *SecurityCertificatesAPIService) GetSecurityCertificatesCountAsyncExecut
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.securityCertificateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

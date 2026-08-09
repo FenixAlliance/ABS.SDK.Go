@@ -30,6 +30,7 @@ type ApiCountLocalizationStringsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	localizationStringDtoCollectionQueryParameters *LocalizationStringDtoCollectionQueryParameters
 }
 
 func (r ApiCountLocalizationStringsAsyncRequest) TenantId(tenantId string) ApiCountLocalizationStringsAsyncRequest {
@@ -44,6 +45,11 @@ func (r ApiCountLocalizationStringsAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiCountLocalizationStringsAsyncRequest) XApiVersion(xApiVersion string) ApiCountLocalizationStringsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountLocalizationStringsAsyncRequest) LocalizationStringDtoCollectionQueryParameters(localizationStringDtoCollectionQueryParameters LocalizationStringDtoCollectionQueryParameters) ApiCountLocalizationStringsAsyncRequest {
+	r.localizationStringDtoCollectionQueryParameters = &localizationStringDtoCollectionQueryParameters
 	return r
 }
 
@@ -95,7 +101,7 @@ func (a *LocalizationStringsAPIService) CountLocalizationStringsAsyncExecute(r A
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -114,6 +120,8 @@ func (a *LocalizationStringsAPIService) CountLocalizationStringsAsyncExecute(r A
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.localizationStringDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -645,6 +653,7 @@ type ApiGetLocalizationStringsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	localizationStringDtoCollectionQueryParameters *LocalizationStringDtoCollectionQueryParameters
 }
 
 func (r ApiGetLocalizationStringsAsyncRequest) TenantId(tenantId string) ApiGetLocalizationStringsAsyncRequest {
@@ -659,6 +668,11 @@ func (r ApiGetLocalizationStringsAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetLocalizationStringsAsyncRequest) XApiVersion(xApiVersion string) ApiGetLocalizationStringsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLocalizationStringsAsyncRequest) LocalizationStringDtoCollectionQueryParameters(localizationStringDtoCollectionQueryParameters LocalizationStringDtoCollectionQueryParameters) ApiGetLocalizationStringsAsyncRequest {
+	r.localizationStringDtoCollectionQueryParameters = &localizationStringDtoCollectionQueryParameters
 	return r
 }
 
@@ -710,7 +724,7 @@ func (a *LocalizationStringsAPIService) GetLocalizationStringsAsyncExecute(r Api
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -729,6 +743,8 @@ func (a *LocalizationStringsAPIService) GetLocalizationStringsAsyncExecute(r Api
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.localizationStringDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

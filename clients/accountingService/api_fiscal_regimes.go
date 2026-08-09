@@ -499,6 +499,7 @@ type ApiGetFiscalRegimesRequest struct {
 	authorityId string
 	apiVersion *string
 	xApiVersion *string
+	fiscalRegimeDtoCollectionQueryParameters *FiscalRegimeDtoCollectionQueryParameters
 }
 
 func (r ApiGetFiscalRegimesRequest) TenantId(tenantId string) ApiGetFiscalRegimesRequest {
@@ -518,6 +519,11 @@ func (r ApiGetFiscalRegimesRequest) ApiVersion(apiVersion string) ApiGetFiscalRe
 
 func (r ApiGetFiscalRegimesRequest) XApiVersion(xApiVersion string) ApiGetFiscalRegimesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFiscalRegimesRequest) FiscalRegimeDtoCollectionQueryParameters(fiscalRegimeDtoCollectionQueryParameters FiscalRegimeDtoCollectionQueryParameters) ApiGetFiscalRegimesRequest {
+	r.fiscalRegimeDtoCollectionQueryParameters = &fiscalRegimeDtoCollectionQueryParameters
 	return r
 }
 
@@ -576,7 +582,7 @@ func (a *FiscalRegimesAPIService) GetFiscalRegimesExecute(r ApiGetFiscalRegimesR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -595,6 +601,8 @@ func (a *FiscalRegimesAPIService) GetFiscalRegimesExecute(r ApiGetFiscalRegimesR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.fiscalRegimeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -661,6 +669,7 @@ type ApiGetFiscalRegimesCountRequest struct {
 	fiscalAuthorityId string
 	apiVersion *string
 	xApiVersion *string
+	fiscalRegimeDtoCollectionQueryParameters *FiscalRegimeDtoCollectionQueryParameters
 }
 
 func (r ApiGetFiscalRegimesCountRequest) TenantId(tenantId string) ApiGetFiscalRegimesCountRequest {
@@ -675,6 +684,11 @@ func (r ApiGetFiscalRegimesCountRequest) ApiVersion(apiVersion string) ApiGetFis
 
 func (r ApiGetFiscalRegimesCountRequest) XApiVersion(xApiVersion string) ApiGetFiscalRegimesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFiscalRegimesCountRequest) FiscalRegimeDtoCollectionQueryParameters(fiscalRegimeDtoCollectionQueryParameters FiscalRegimeDtoCollectionQueryParameters) ApiGetFiscalRegimesCountRequest {
+	r.fiscalRegimeDtoCollectionQueryParameters = &fiscalRegimeDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *FiscalRegimesAPIService) GetFiscalRegimesCountExecute(r ApiGetFiscalReg
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *FiscalRegimesAPIService) GetFiscalRegimesCountExecute(r ApiGetFiscalReg
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.fiscalRegimeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchFiscalRegimeAsyncRequest struct {
 	regimeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchFiscalRegimeAsyncRequest) TenantId(tenantId string) ApiPatchFiscalRegimeAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchFiscalRegimeAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchFiscalRegimeAsyncRequest) Operation(operation []Operation) ApiPatchFiscalRegimeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchFiscalRegimeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchFiscalRegimeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *FiscalRegimesAPIService) PatchFiscalRegimeAsyncExecute(r ApiPatchFiscal
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

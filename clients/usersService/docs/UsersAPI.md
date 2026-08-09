@@ -34,7 +34,7 @@ Method | HTTP request | Description
 
 ## CountCurrentUserFollowersAsync
 
-> Int32Envelope CountCurrentUserFollowersAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCurrentUserFollowersAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 
 Count the social profiles that follow the current user
 
@@ -55,10 +55,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	followRecordDtoCollectionQueryParameters := *openapiclient.NewFollowRecordDtoCollectionQueryParameters() // FollowRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.CountCurrentUserFollowersAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.CountCurrentUserFollowersAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CountCurrentUserFollowersAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -81,6 +82,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -92,7 +94,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -102,7 +104,7 @@ No authorization required
 
 ## CountCurrentUserFollowsAsync
 
-> Int32Envelope CountCurrentUserFollowsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCurrentUserFollowsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 
 Count the social profiles that the current user follows
 
@@ -123,10 +125,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	followRecordDtoCollectionQueryParameters := *openapiclient.NewFollowRecordDtoCollectionQueryParameters() // FollowRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.CountCurrentUserFollowsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.CountCurrentUserFollowsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CountCurrentUserFollowsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -149,6 +152,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -160,7 +164,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -170,7 +174,7 @@ No authorization required
 
 ## CountCurrentUserNotificationsAsync
 
-> Int32Envelope CountCurrentUserNotificationsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCurrentUserNotificationsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters).Execute()
 
 Count the notifications for the current user
 
@@ -191,10 +195,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	notificationDtoCollectionQueryParameters := *openapiclient.NewNotificationDtoCollectionQueryParameters() // NotificationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.CountCurrentUserNotificationsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.CountCurrentUserNotificationsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CountCurrentUserNotificationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -217,6 +222,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -228,7 +234,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -238,7 +244,7 @@ No authorization required
 
 ## CountCurrentUserTenantsAsync
 
-> Int32Envelope CountCurrentUserTenantsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCurrentUserTenantsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters).Execute()
 
 Count the tenants that the current user is enrolled in
 
@@ -259,10 +265,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	tenantDtoCollectionQueryParameters := *openapiclient.NewTenantDtoCollectionQueryParameters() // TenantDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.CountCurrentUserTenantsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.CountCurrentUserTenantsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CountCurrentUserTenantsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -285,6 +292,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -296,7 +304,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -306,7 +314,7 @@ No authorization required
 
 ## GetCurrentUserAddressesAsync
 
-> AddressDtoListEnvelope GetCurrentUserAddressesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AddressDtoListEnvelope GetCurrentUserAddressesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).AddressDtoCollectionQueryParameters(addressDtoCollectionQueryParameters).Execute()
 
 Get the list of addresses for the current user
 
@@ -327,10 +335,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	addressDtoCollectionQueryParameters := *openapiclient.NewAddressDtoCollectionQueryParameters() // AddressDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.GetCurrentUserAddressesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.GetCurrentUserAddressesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).AddressDtoCollectionQueryParameters(addressDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetCurrentUserAddressesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -353,6 +362,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **addressDtoCollectionQueryParameters** | [**AddressDtoCollectionQueryParameters**](AddressDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -364,7 +374,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -714,7 +724,7 @@ No authorization required
 
 ## GetCurrentUserFollowersAsync
 
-> FollowRecordDtoListEnvelope GetCurrentUserFollowersAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FollowRecordDtoListEnvelope GetCurrentUserFollowersAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 
 Get the social profiles that follow the current user
 
@@ -735,10 +745,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	followRecordDtoCollectionQueryParameters := *openapiclient.NewFollowRecordDtoCollectionQueryParameters() // FollowRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.GetCurrentUserFollowersAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.GetCurrentUserFollowersAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetCurrentUserFollowersAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -761,6 +772,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -772,7 +784,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -782,7 +794,7 @@ No authorization required
 
 ## GetCurrentUserFollowsAsync
 
-> FollowRecordDtoListEnvelope GetCurrentUserFollowsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FollowRecordDtoListEnvelope GetCurrentUserFollowsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 
 Get the social profiles that the current user follows
 
@@ -803,10 +815,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	followRecordDtoCollectionQueryParameters := *openapiclient.NewFollowRecordDtoCollectionQueryParameters() // FollowRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.GetCurrentUserFollowsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.GetCurrentUserFollowsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetCurrentUserFollowsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -829,6 +842,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -840,7 +854,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -918,7 +932,7 @@ No authorization required
 
 ## GetCurrentUserNotificationsAsync
 
-> NotificationDtoListEnvelope GetCurrentUserNotificationsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> NotificationDtoListEnvelope GetCurrentUserNotificationsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters).Execute()
 
 Get the list of notifications for the current user
 
@@ -939,10 +953,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	notificationDtoCollectionQueryParameters := *openapiclient.NewNotificationDtoCollectionQueryParameters() // NotificationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.GetCurrentUserNotificationsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.GetCurrentUserNotificationsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetCurrentUserNotificationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -965,6 +980,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -976,7 +992,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1122,7 +1138,7 @@ No authorization required
 
 ## GetCurrentUserTenantsAsync
 
-> TenantDtoListEnvelope GetCurrentUserTenantsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TenantDtoListEnvelope GetCurrentUserTenantsAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters).Execute()
 
 Get the tenants that the current user is enrolled in
 
@@ -1143,10 +1159,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	tenantDtoCollectionQueryParameters := *openapiclient.NewTenantDtoCollectionQueryParameters() // TenantDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.GetCurrentUserTenantsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.GetCurrentUserTenantsAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantDtoCollectionQueryParameters(tenantDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetCurrentUserTenantsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1169,6 +1186,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1180,7 +1198,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1468,7 +1486,7 @@ No authorization required
 
 ## PatchCurrentUserAsync
 
-> EmptyEnvelope PatchCurrentUserAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchCurrentUserAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Partially update the current user's profile
 
@@ -1489,11 +1507,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.PatchCurrentUserAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.UsersAPI.PatchCurrentUserAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.PatchCurrentUserAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1516,7 +1534,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

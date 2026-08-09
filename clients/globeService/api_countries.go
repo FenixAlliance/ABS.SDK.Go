@@ -30,6 +30,7 @@ type ApiCountCallingCodesByCountryAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	countryCallingCodeDtoCollectionQueryParameters *CountryCallingCodeDtoCollectionQueryParameters
 }
 
 func (r ApiCountCallingCodesByCountryAsyncRequest) ApiVersion(apiVersion string) ApiCountCallingCodesByCountryAsyncRequest {
@@ -39,6 +40,11 @@ func (r ApiCountCallingCodesByCountryAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiCountCallingCodesByCountryAsyncRequest) XApiVersion(xApiVersion string) ApiCountCallingCodesByCountryAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountCallingCodesByCountryAsyncRequest) CountryCallingCodeDtoCollectionQueryParameters(countryCallingCodeDtoCollectionQueryParameters CountryCallingCodeDtoCollectionQueryParameters) ApiCountCallingCodesByCountryAsyncRequest {
+	r.countryCallingCodeDtoCollectionQueryParameters = &countryCallingCodeDtoCollectionQueryParameters
 	return r
 }
 
@@ -89,7 +95,7 @@ func (a *CountriesAPIService) CountCallingCodesByCountryAsyncExecute(r ApiCountC
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -108,6 +114,8 @@ func (a *CountriesAPIService) CountCallingCodesByCountryAsyncExecute(r ApiCountC
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryCallingCodeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -174,6 +182,7 @@ type ApiCountCitiesByStateAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	cityDtoCollectionQueryParameters *CityDtoCollectionQueryParameters
 }
 
 func (r ApiCountCitiesByStateAsyncRequest) ApiVersion(apiVersion string) ApiCountCitiesByStateAsyncRequest {
@@ -183,6 +192,11 @@ func (r ApiCountCitiesByStateAsyncRequest) ApiVersion(apiVersion string) ApiCoun
 
 func (r ApiCountCitiesByStateAsyncRequest) XApiVersion(xApiVersion string) ApiCountCitiesByStateAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountCitiesByStateAsyncRequest) CityDtoCollectionQueryParameters(cityDtoCollectionQueryParameters CityDtoCollectionQueryParameters) ApiCountCitiesByStateAsyncRequest {
+	r.cityDtoCollectionQueryParameters = &cityDtoCollectionQueryParameters
 	return r
 }
 
@@ -236,7 +250,7 @@ func (a *CountriesAPIService) CountCitiesByStateAsyncExecute(r ApiCountCitiesByS
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -255,6 +269,8 @@ func (a *CountriesAPIService) CountCitiesByStateAsyncExecute(r ApiCountCitiesByS
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.cityDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -319,6 +335,7 @@ type ApiCountCountriesRequest struct {
 	ApiService *CountriesAPIService
 	apiVersion *string
 	xApiVersion *string
+	countryDtoCollectionQueryParameters *CountryDtoCollectionQueryParameters
 }
 
 func (r ApiCountCountriesRequest) ApiVersion(apiVersion string) ApiCountCountriesRequest {
@@ -328,6 +345,11 @@ func (r ApiCountCountriesRequest) ApiVersion(apiVersion string) ApiCountCountrie
 
 func (r ApiCountCountriesRequest) XApiVersion(xApiVersion string) ApiCountCountriesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountCountriesRequest) CountryDtoCollectionQueryParameters(countryDtoCollectionQueryParameters CountryDtoCollectionQueryParameters) ApiCountCountriesRequest {
+	r.countryDtoCollectionQueryParameters = &countryDtoCollectionQueryParameters
 	return r
 }
 
@@ -375,7 +397,7 @@ func (a *CountriesAPIService) CountCountriesExecute(r ApiCountCountriesRequest) 
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -394,6 +416,8 @@ func (a *CountriesAPIService) CountCountriesExecute(r ApiCountCountriesRequest) 
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -459,6 +483,7 @@ type ApiCountCountryStatesAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	countryStateDtoCollectionQueryParameters *CountryStateDtoCollectionQueryParameters
 }
 
 func (r ApiCountCountryStatesAsyncRequest) ApiVersion(apiVersion string) ApiCountCountryStatesAsyncRequest {
@@ -468,6 +493,11 @@ func (r ApiCountCountryStatesAsyncRequest) ApiVersion(apiVersion string) ApiCoun
 
 func (r ApiCountCountryStatesAsyncRequest) XApiVersion(xApiVersion string) ApiCountCountryStatesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountCountryStatesAsyncRequest) CountryStateDtoCollectionQueryParameters(countryStateDtoCollectionQueryParameters CountryStateDtoCollectionQueryParameters) ApiCountCountryStatesAsyncRequest {
+	r.countryStateDtoCollectionQueryParameters = &countryStateDtoCollectionQueryParameters
 	return r
 }
 
@@ -518,7 +548,7 @@ func (a *CountriesAPIService) CountCountryStatesAsyncExecute(r ApiCountCountrySt
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -537,6 +567,8 @@ func (a *CountriesAPIService) CountCountryStatesAsyncExecute(r ApiCountCountrySt
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryStateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -602,6 +634,7 @@ type ApiCountTimezonesByCountryAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	timezoneDtoCollectionQueryParameters *TimezoneDtoCollectionQueryParameters
 }
 
 func (r ApiCountTimezonesByCountryAsyncRequest) ApiVersion(apiVersion string) ApiCountTimezonesByCountryAsyncRequest {
@@ -611,6 +644,11 @@ func (r ApiCountTimezonesByCountryAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiCountTimezonesByCountryAsyncRequest) XApiVersion(xApiVersion string) ApiCountTimezonesByCountryAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountTimezonesByCountryAsyncRequest) TimezoneDtoCollectionQueryParameters(timezoneDtoCollectionQueryParameters TimezoneDtoCollectionQueryParameters) ApiCountTimezonesByCountryAsyncRequest {
+	r.timezoneDtoCollectionQueryParameters = &timezoneDtoCollectionQueryParameters
 	return r
 }
 
@@ -661,7 +699,7 @@ func (a *CountriesAPIService) CountTimezonesByCountryAsyncExecute(r ApiCountTime
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -680,6 +718,8 @@ func (a *CountriesAPIService) CountTimezonesByCountryAsyncExecute(r ApiCountTime
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.timezoneDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -745,6 +785,7 @@ type ApiCountTopLevelDomainsByCountryAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	countryTopLevelDomainDtoCollectionQueryParameters *CountryTopLevelDomainDtoCollectionQueryParameters
 }
 
 func (r ApiCountTopLevelDomainsByCountryAsyncRequest) ApiVersion(apiVersion string) ApiCountTopLevelDomainsByCountryAsyncRequest {
@@ -754,6 +795,11 @@ func (r ApiCountTopLevelDomainsByCountryAsyncRequest) ApiVersion(apiVersion stri
 
 func (r ApiCountTopLevelDomainsByCountryAsyncRequest) XApiVersion(xApiVersion string) ApiCountTopLevelDomainsByCountryAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountTopLevelDomainsByCountryAsyncRequest) CountryTopLevelDomainDtoCollectionQueryParameters(countryTopLevelDomainDtoCollectionQueryParameters CountryTopLevelDomainDtoCollectionQueryParameters) ApiCountTopLevelDomainsByCountryAsyncRequest {
+	r.countryTopLevelDomainDtoCollectionQueryParameters = &countryTopLevelDomainDtoCollectionQueryParameters
 	return r
 }
 
@@ -804,7 +850,7 @@ func (a *CountriesAPIService) CountTopLevelDomainsByCountryAsyncExecute(r ApiCou
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -823,6 +869,8 @@ func (a *CountriesAPIService) CountTopLevelDomainsByCountryAsyncExecute(r ApiCou
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryTopLevelDomainDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -887,6 +935,7 @@ type ApiGetAllCountriesRequest struct {
 	ApiService *CountriesAPIService
 	apiVersion *string
 	xApiVersion *string
+	countryDtoCollectionQueryParameters *CountryDtoCollectionQueryParameters
 }
 
 func (r ApiGetAllCountriesRequest) ApiVersion(apiVersion string) ApiGetAllCountriesRequest {
@@ -896,6 +945,11 @@ func (r ApiGetAllCountriesRequest) ApiVersion(apiVersion string) ApiGetAllCountr
 
 func (r ApiGetAllCountriesRequest) XApiVersion(xApiVersion string) ApiGetAllCountriesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAllCountriesRequest) CountryDtoCollectionQueryParameters(countryDtoCollectionQueryParameters CountryDtoCollectionQueryParameters) ApiGetAllCountriesRequest {
+	r.countryDtoCollectionQueryParameters = &countryDtoCollectionQueryParameters
 	return r
 }
 
@@ -943,7 +997,7 @@ func (a *CountriesAPIService) GetAllCountriesExecute(r ApiGetAllCountriesRequest
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -962,6 +1016,8 @@ func (a *CountriesAPIService) GetAllCountriesExecute(r ApiGetAllCountriesRequest
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1027,6 +1083,7 @@ type ApiGetCallingCodesByCountryIdAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	countryCallingCodeDtoCollectionQueryParameters *CountryCallingCodeDtoCollectionQueryParameters
 }
 
 func (r ApiGetCallingCodesByCountryIdAsyncRequest) ApiVersion(apiVersion string) ApiGetCallingCodesByCountryIdAsyncRequest {
@@ -1036,6 +1093,11 @@ func (r ApiGetCallingCodesByCountryIdAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetCallingCodesByCountryIdAsyncRequest) XApiVersion(xApiVersion string) ApiGetCallingCodesByCountryIdAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCallingCodesByCountryIdAsyncRequest) CountryCallingCodeDtoCollectionQueryParameters(countryCallingCodeDtoCollectionQueryParameters CountryCallingCodeDtoCollectionQueryParameters) ApiGetCallingCodesByCountryIdAsyncRequest {
+	r.countryCallingCodeDtoCollectionQueryParameters = &countryCallingCodeDtoCollectionQueryParameters
 	return r
 }
 
@@ -1086,7 +1148,7 @@ func (a *CountriesAPIService) GetCallingCodesByCountryIdAsyncExecute(r ApiGetCal
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1105,6 +1167,8 @@ func (a *CountriesAPIService) GetCallingCodesByCountryIdAsyncExecute(r ApiGetCal
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryCallingCodeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1171,6 +1235,7 @@ type ApiGetCitiesByCountryStateIdAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	cityDtoCollectionQueryParameters *CityDtoCollectionQueryParameters
 }
 
 func (r ApiGetCitiesByCountryStateIdAsyncRequest) ApiVersion(apiVersion string) ApiGetCitiesByCountryStateIdAsyncRequest {
@@ -1180,6 +1245,11 @@ func (r ApiGetCitiesByCountryStateIdAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetCitiesByCountryStateIdAsyncRequest) XApiVersion(xApiVersion string) ApiGetCitiesByCountryStateIdAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCitiesByCountryStateIdAsyncRequest) CityDtoCollectionQueryParameters(cityDtoCollectionQueryParameters CityDtoCollectionQueryParameters) ApiGetCitiesByCountryStateIdAsyncRequest {
+	r.cityDtoCollectionQueryParameters = &cityDtoCollectionQueryParameters
 	return r
 }
 
@@ -1233,7 +1303,7 @@ func (a *CountriesAPIService) GetCitiesByCountryStateIdAsyncExecute(r ApiGetCiti
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1252,6 +1322,8 @@ func (a *CountriesAPIService) GetCitiesByCountryStateIdAsyncExecute(r ApiGetCiti
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.cityDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1461,6 +1533,7 @@ type ApiGetCountryStateByIdAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	countryStateDtoCollectionQueryParameters *CountryStateDtoCollectionQueryParameters
 }
 
 func (r ApiGetCountryStateByIdAsyncRequest) ApiVersion(apiVersion string) ApiGetCountryStateByIdAsyncRequest {
@@ -1470,6 +1543,11 @@ func (r ApiGetCountryStateByIdAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetCountryStateByIdAsyncRequest) XApiVersion(xApiVersion string) ApiGetCountryStateByIdAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCountryStateByIdAsyncRequest) CountryStateDtoCollectionQueryParameters(countryStateDtoCollectionQueryParameters CountryStateDtoCollectionQueryParameters) ApiGetCountryStateByIdAsyncRequest {
+	r.countryStateDtoCollectionQueryParameters = &countryStateDtoCollectionQueryParameters
 	return r
 }
 
@@ -1523,7 +1601,7 @@ func (a *CountriesAPIService) GetCountryStateByIdAsyncExecute(r ApiGetCountrySta
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1542,6 +1620,8 @@ func (a *CountriesAPIService) GetCountryStateByIdAsyncExecute(r ApiGetCountrySta
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryStateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1607,6 +1687,7 @@ type ApiGetCountryStatesAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	countryStateDtoCollectionQueryParameters *CountryStateDtoCollectionQueryParameters
 }
 
 func (r ApiGetCountryStatesAsyncRequest) ApiVersion(apiVersion string) ApiGetCountryStatesAsyncRequest {
@@ -1616,6 +1697,11 @@ func (r ApiGetCountryStatesAsyncRequest) ApiVersion(apiVersion string) ApiGetCou
 
 func (r ApiGetCountryStatesAsyncRequest) XApiVersion(xApiVersion string) ApiGetCountryStatesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCountryStatesAsyncRequest) CountryStateDtoCollectionQueryParameters(countryStateDtoCollectionQueryParameters CountryStateDtoCollectionQueryParameters) ApiGetCountryStatesAsyncRequest {
+	r.countryStateDtoCollectionQueryParameters = &countryStateDtoCollectionQueryParameters
 	return r
 }
 
@@ -1666,7 +1752,7 @@ func (a *CountriesAPIService) GetCountryStatesAsyncExecute(r ApiGetCountryStates
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1685,6 +1771,8 @@ func (a *CountriesAPIService) GetCountryStatesAsyncExecute(r ApiGetCountryStates
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryStateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1750,6 +1838,7 @@ type ApiGetEnabledCurrenciesByCountryIdAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	currencyDtoCollectionQueryParameters *CurrencyDtoCollectionQueryParameters
 }
 
 func (r ApiGetEnabledCurrenciesByCountryIdAsyncRequest) ApiVersion(apiVersion string) ApiGetEnabledCurrenciesByCountryIdAsyncRequest {
@@ -1759,6 +1848,11 @@ func (r ApiGetEnabledCurrenciesByCountryIdAsyncRequest) ApiVersion(apiVersion st
 
 func (r ApiGetEnabledCurrenciesByCountryIdAsyncRequest) XApiVersion(xApiVersion string) ApiGetEnabledCurrenciesByCountryIdAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetEnabledCurrenciesByCountryIdAsyncRequest) CurrencyDtoCollectionQueryParameters(currencyDtoCollectionQueryParameters CurrencyDtoCollectionQueryParameters) ApiGetEnabledCurrenciesByCountryIdAsyncRequest {
+	r.currencyDtoCollectionQueryParameters = &currencyDtoCollectionQueryParameters
 	return r
 }
 
@@ -1809,7 +1903,7 @@ func (a *CountriesAPIService) GetEnabledCurrenciesByCountryIdAsyncExecute(r ApiG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1828,6 +1922,8 @@ func (a *CountriesAPIService) GetEnabledCurrenciesByCountryIdAsyncExecute(r ApiG
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.currencyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1893,6 +1989,7 @@ type ApiGetTimeZonesByCountryIdAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	timezoneDtoCollectionQueryParameters *TimezoneDtoCollectionQueryParameters
 }
 
 func (r ApiGetTimeZonesByCountryIdAsyncRequest) ApiVersion(apiVersion string) ApiGetTimeZonesByCountryIdAsyncRequest {
@@ -1902,6 +1999,11 @@ func (r ApiGetTimeZonesByCountryIdAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetTimeZonesByCountryIdAsyncRequest) XApiVersion(xApiVersion string) ApiGetTimeZonesByCountryIdAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTimeZonesByCountryIdAsyncRequest) TimezoneDtoCollectionQueryParameters(timezoneDtoCollectionQueryParameters TimezoneDtoCollectionQueryParameters) ApiGetTimeZonesByCountryIdAsyncRequest {
+	r.timezoneDtoCollectionQueryParameters = &timezoneDtoCollectionQueryParameters
 	return r
 }
 
@@ -1952,7 +2054,7 @@ func (a *CountriesAPIService) GetTimeZonesByCountryIdAsyncExecute(r ApiGetTimeZo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1971,6 +2073,8 @@ func (a *CountriesAPIService) GetTimeZonesByCountryIdAsyncExecute(r ApiGetTimeZo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.timezoneDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2036,6 +2140,7 @@ type ApiGetTopLevelDomainsByCountryIdAsyncRequest struct {
 	countryId string
 	apiVersion *string
 	xApiVersion *string
+	countryTopLevelDomainDtoCollectionQueryParameters *CountryTopLevelDomainDtoCollectionQueryParameters
 }
 
 func (r ApiGetTopLevelDomainsByCountryIdAsyncRequest) ApiVersion(apiVersion string) ApiGetTopLevelDomainsByCountryIdAsyncRequest {
@@ -2045,6 +2150,11 @@ func (r ApiGetTopLevelDomainsByCountryIdAsyncRequest) ApiVersion(apiVersion stri
 
 func (r ApiGetTopLevelDomainsByCountryIdAsyncRequest) XApiVersion(xApiVersion string) ApiGetTopLevelDomainsByCountryIdAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTopLevelDomainsByCountryIdAsyncRequest) CountryTopLevelDomainDtoCollectionQueryParameters(countryTopLevelDomainDtoCollectionQueryParameters CountryTopLevelDomainDtoCollectionQueryParameters) ApiGetTopLevelDomainsByCountryIdAsyncRequest {
+	r.countryTopLevelDomainDtoCollectionQueryParameters = &countryTopLevelDomainDtoCollectionQueryParameters
 	return r
 }
 
@@ -2095,7 +2205,7 @@ func (a *CountriesAPIService) GetTopLevelDomainsByCountryIdAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2114,6 +2224,8 @@ func (a *CountriesAPIService) GetTopLevelDomainsByCountryIdAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryTopLevelDomainDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -30,6 +30,7 @@ type ApiCountWebTemplatesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	webTemplateDtoCollectionQueryParameters *WebTemplateDtoCollectionQueryParameters
 }
 
 func (r ApiCountWebTemplatesAsyncRequest) TenantId(tenantId string) ApiCountWebTemplatesAsyncRequest {
@@ -44,6 +45,11 @@ func (r ApiCountWebTemplatesAsyncRequest) ApiVersion(apiVersion string) ApiCount
 
 func (r ApiCountWebTemplatesAsyncRequest) XApiVersion(xApiVersion string) ApiCountWebTemplatesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountWebTemplatesAsyncRequest) WebTemplateDtoCollectionQueryParameters(webTemplateDtoCollectionQueryParameters WebTemplateDtoCollectionQueryParameters) ApiCountWebTemplatesAsyncRequest {
+	r.webTemplateDtoCollectionQueryParameters = &webTemplateDtoCollectionQueryParameters
 	return r
 }
 
@@ -95,7 +101,7 @@ func (a *WebTemplatesAPIService) CountWebTemplatesAsyncExecute(r ApiCountWebTemp
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -114,6 +120,8 @@ func (a *WebTemplatesAPIService) CountWebTemplatesAsyncExecute(r ApiCountWebTemp
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.webTemplateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -620,6 +628,7 @@ type ApiGetWebTemplatesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	webTemplateDtoCollectionQueryParameters *WebTemplateDtoCollectionQueryParameters
 }
 
 func (r ApiGetWebTemplatesAsyncRequest) TenantId(tenantId string) ApiGetWebTemplatesAsyncRequest {
@@ -634,6 +643,11 @@ func (r ApiGetWebTemplatesAsyncRequest) ApiVersion(apiVersion string) ApiGetWebT
 
 func (r ApiGetWebTemplatesAsyncRequest) XApiVersion(xApiVersion string) ApiGetWebTemplatesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWebTemplatesAsyncRequest) WebTemplateDtoCollectionQueryParameters(webTemplateDtoCollectionQueryParameters WebTemplateDtoCollectionQueryParameters) ApiGetWebTemplatesAsyncRequest {
+	r.webTemplateDtoCollectionQueryParameters = &webTemplateDtoCollectionQueryParameters
 	return r
 }
 
@@ -685,7 +699,7 @@ func (a *WebTemplatesAPIService) GetWebTemplatesAsyncExecute(r ApiGetWebTemplate
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -704,6 +718,8 @@ func (a *WebTemplatesAPIService) GetWebTemplatesAsyncExecute(r ApiGetWebTemplate
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.webTemplateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -770,7 +786,7 @@ type ApiPatchWebTemplateAsyncRequest struct {
 	webTemplateId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchWebTemplateAsyncRequest) TenantId(tenantId string) ApiPatchWebTemplateAsyncRequest {
@@ -788,8 +804,8 @@ func (r ApiPatchWebTemplateAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchWebTemplateAsyncRequest) Operation(operation []Operation) ApiPatchWebTemplateAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchWebTemplateAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWebTemplateAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -862,7 +878,7 @@ func (a *WebTemplatesAPIService) PatchWebTemplateAsyncExecute(r ApiPatchWebTempl
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

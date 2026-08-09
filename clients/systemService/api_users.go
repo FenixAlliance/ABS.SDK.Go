@@ -752,6 +752,7 @@ type ApiGetExtendedUsersAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	extendedUserDtoCollectionQueryParameters *ExtendedUserDtoCollectionQueryParameters
 }
 
 func (r ApiGetExtendedUsersAsyncRequest) ApiVersion(apiVersion string) ApiGetExtendedUsersAsyncRequest {
@@ -761,6 +762,11 @@ func (r ApiGetExtendedUsersAsyncRequest) ApiVersion(apiVersion string) ApiGetExt
 
 func (r ApiGetExtendedUsersAsyncRequest) XApiVersion(xApiVersion string) ApiGetExtendedUsersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetExtendedUsersAsyncRequest) ExtendedUserDtoCollectionQueryParameters(extendedUserDtoCollectionQueryParameters ExtendedUserDtoCollectionQueryParameters) ApiGetExtendedUsersAsyncRequest {
+	r.extendedUserDtoCollectionQueryParameters = &extendedUserDtoCollectionQueryParameters
 	return r
 }
 
@@ -808,7 +814,7 @@ func (a *UsersAPIService) GetExtendedUsersAsyncExecute(r ApiGetExtendedUsersAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -827,6 +833,8 @@ func (a *UsersAPIService) GetExtendedUsersAsyncExecute(r ApiGetExtendedUsersAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.extendedUserDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -891,6 +899,7 @@ type ApiGetExtendedUsersCountAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	extendedUserDtoCollectionQueryParameters *ExtendedUserDtoCollectionQueryParameters
 }
 
 func (r ApiGetExtendedUsersCountAsyncRequest) ApiVersion(apiVersion string) ApiGetExtendedUsersCountAsyncRequest {
@@ -900,6 +909,11 @@ func (r ApiGetExtendedUsersCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetExtendedUsersCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetExtendedUsersCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetExtendedUsersCountAsyncRequest) ExtendedUserDtoCollectionQueryParameters(extendedUserDtoCollectionQueryParameters ExtendedUserDtoCollectionQueryParameters) ApiGetExtendedUsersCountAsyncRequest {
+	r.extendedUserDtoCollectionQueryParameters = &extendedUserDtoCollectionQueryParameters
 	return r
 }
 
@@ -943,6 +957,161 @@ func (a *UsersAPIService) GetExtendedUsersCountAsyncExecute(r ApiGetExtendedUser
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.extendedUserDtoCollectionQueryParameters
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetUserAdminDetailAsyncRequest struct {
+	ctx context.Context
+	ApiService *UsersAPIService
+	userId string
+	tenantId *string
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiGetUserAdminDetailAsyncRequest) TenantId(tenantId string) ApiGetUserAdminDetailAsyncRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetUserAdminDetailAsyncRequest) ApiVersion(apiVersion string) ApiGetUserAdminDetailAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiGetUserAdminDetailAsyncRequest) XApiVersion(xApiVersion string) ApiGetUserAdminDetailAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetUserAdminDetailAsyncRequest) Execute() (*UserAdminDetailDtoEnvelope, *http.Response, error) {
+	return r.ApiService.GetUserAdminDetailAsyncExecute(r)
+}
+
+/*
+GetUserAdminDetailAsync Retrieve the admin detail aggregate for a user
+
+Returns the user's orders, external logins, and — for the supplied tenant — the enrollment with its granted roles/permissions and the tenant role/permission catalogs. Global administrators only.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId
+ @return ApiGetUserAdminDetailAsyncRequest
+*/
+func (a *UsersAPIService) GetUserAdminDetailAsync(ctx context.Context, userId string) ApiGetUserAdminDetailAsyncRequest {
+	return ApiGetUserAdminDetailAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		userId: userId,
+	}
+}
+
+// Execute executes the request
+//  @return UserAdminDetailDtoEnvelope
+func (a *UsersAPIService) GetUserAdminDetailAsyncExecute(r ApiGetUserAdminDetailAsyncRequest) (*UserAdminDetailDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UserAdminDetailDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserAdminDetailAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SystemService/Users/{userId}/AdminDetail"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.apiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
@@ -1173,6 +1342,7 @@ type ApiGetUsersAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	userDtoCollectionQueryParameters *UserDtoCollectionQueryParameters
 }
 
 func (r ApiGetUsersAsyncRequest) ApiVersion(apiVersion string) ApiGetUsersAsyncRequest {
@@ -1182,6 +1352,11 @@ func (r ApiGetUsersAsyncRequest) ApiVersion(apiVersion string) ApiGetUsersAsyncR
 
 func (r ApiGetUsersAsyncRequest) XApiVersion(xApiVersion string) ApiGetUsersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetUsersAsyncRequest) UserDtoCollectionQueryParameters(userDtoCollectionQueryParameters UserDtoCollectionQueryParameters) ApiGetUsersAsyncRequest {
+	r.userDtoCollectionQueryParameters = &userDtoCollectionQueryParameters
 	return r
 }
 
@@ -1229,7 +1404,7 @@ func (a *UsersAPIService) GetUsersAsyncExecute(r ApiGetUsersAsyncRequest) (*User
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1248,6 +1423,8 @@ func (a *UsersAPIService) GetUsersAsyncExecute(r ApiGetUsersAsyncRequest) (*User
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.userDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1312,6 +1489,7 @@ type ApiGetUsersCountAsyncRequest struct {
 	ApiService *UsersAPIService
 	apiVersion *string
 	xApiVersion *string
+	userDtoCollectionQueryParameters *UserDtoCollectionQueryParameters
 }
 
 func (r ApiGetUsersCountAsyncRequest) ApiVersion(apiVersion string) ApiGetUsersCountAsyncRequest {
@@ -1321,6 +1499,11 @@ func (r ApiGetUsersCountAsyncRequest) ApiVersion(apiVersion string) ApiGetUsersC
 
 func (r ApiGetUsersCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetUsersCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetUsersCountAsyncRequest) UserDtoCollectionQueryParameters(userDtoCollectionQueryParameters UserDtoCollectionQueryParameters) ApiGetUsersCountAsyncRequest {
+	r.userDtoCollectionQueryParameters = &userDtoCollectionQueryParameters
 	return r
 }
 
@@ -1368,7 +1551,7 @@ func (a *UsersAPIService) GetUsersCountAsyncExecute(r ApiGetUsersCountAsyncReque
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1387,6 +1570,8 @@ func (a *UsersAPIService) GetUsersCountAsyncExecute(r ApiGetUsersCountAsyncReque
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.userDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1452,7 +1637,7 @@ type ApiPatchAccountHolderAsyncRequest struct {
 	userId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAccountHolderAsyncRequest) ApiVersion(apiVersion string) ApiPatchAccountHolderAsyncRequest {
@@ -1465,8 +1650,8 @@ func (r ApiPatchAccountHolderAsyncRequest) XApiVersion(xApiVersion string) ApiPa
 	return r
 }
 
-func (r ApiPatchAccountHolderAsyncRequest) Operation(operation []Operation) ApiPatchAccountHolderAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchAccountHolderAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAccountHolderAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1537,7 +1722,320 @@ func (a *UsersAPIService) PatchAccountHolderAsyncExecute(r ApiPatchAccountHolder
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiSetUserPasswordAsyncRequest struct {
+	ctx context.Context
+	ApiService *UsersAPIService
+	userId string
+	apiVersion *string
+	xApiVersion *string
+	setUserPasswordDto *SetUserPasswordDto
+}
+
+func (r ApiSetUserPasswordAsyncRequest) ApiVersion(apiVersion string) ApiSetUserPasswordAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiSetUserPasswordAsyncRequest) XApiVersion(xApiVersion string) ApiSetUserPasswordAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiSetUserPasswordAsyncRequest) SetUserPasswordDto(setUserPasswordDto SetUserPasswordDto) ApiSetUserPasswordAsyncRequest {
+	r.setUserPasswordDto = &setUserPasswordDto
+	return r
+}
+
+func (r ApiSetUserPasswordAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.SetUserPasswordAsyncExecute(r)
+}
+
+/*
+SetUserPasswordAsync Set a user's password
+
+Replaces the user's password with the supplied value. Global administrators only.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId
+ @return ApiSetUserPasswordAsyncRequest
+*/
+func (a *UsersAPIService) SetUserPasswordAsync(ctx context.Context, userId string) ApiSetUserPasswordAsyncRequest {
+	return ApiSetUserPasswordAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		userId: userId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *UsersAPIService) SetUserPasswordAsyncExecute(r ApiSetUserPasswordAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.SetUserPasswordAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SystemService/Users/{userId}/Password"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.setUserPasswordDto
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateAccountHolderAdminProfileAsyncRequest struct {
+	ctx context.Context
+	ApiService *UsersAPIService
+	userId string
+	apiVersion *string
+	xApiVersion *string
+	userAdminUpdateDto *UserAdminUpdateDto
+}
+
+func (r ApiUpdateAccountHolderAdminProfileAsyncRequest) ApiVersion(apiVersion string) ApiUpdateAccountHolderAdminProfileAsyncRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiUpdateAccountHolderAdminProfileAsyncRequest) XApiVersion(xApiVersion string) ApiUpdateAccountHolderAdminProfileAsyncRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiUpdateAccountHolderAdminProfileAsyncRequest) UserAdminUpdateDto(userAdminUpdateDto UserAdminUpdateDto) ApiUpdateAccountHolderAdminProfileAsyncRequest {
+	r.userAdminUpdateDto = &userAdminUpdateDto
+	return r
+}
+
+func (r ApiUpdateAccountHolderAdminProfileAsyncRequest) Execute() (*EmptyEnvelope, *http.Response, error) {
+	return r.ApiService.UpdateAccountHolderAdminProfileAsyncExecute(r)
+}
+
+/*
+UpdateAccountHolderAdminProfileAsync Update a user's admin-managed profile
+
+Updates the identity fields (email/username, re-normalized by Identity) and display fields a global administrator may change on a user, and toggles two-factor and lockout. Normalized email/username and the access-failed count are never accepted. This action is only available for global administrators.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId
+ @return ApiUpdateAccountHolderAdminProfileAsyncRequest
+*/
+func (a *UsersAPIService) UpdateAccountHolderAdminProfileAsync(ctx context.Context, userId string) ApiUpdateAccountHolderAdminProfileAsyncRequest {
+	return ApiUpdateAccountHolderAdminProfileAsyncRequest{
+		ApiService: a,
+		ctx: ctx,
+		userId: userId,
+	}
+}
+
+// Execute executes the request
+//  @return EmptyEnvelope
+func (a *UsersAPIService) UpdateAccountHolderAdminProfileAsyncExecute(r ApiUpdateAccountHolderAdminProfileAsyncRequest) (*EmptyEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmptyEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.UpdateAccountHolderAdminProfileAsync")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SystemService/Users/{userId}/AdminProfile"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.userAdminUpdateDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

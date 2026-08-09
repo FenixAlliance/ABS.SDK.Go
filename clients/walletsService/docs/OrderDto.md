@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **CityId** | Pointer to **NullableString** |  | [optional] 
 **CustomerNotes** | Pointer to **NullableString** |  | [optional] 
 **TaxCalculationMethod** | Pointer to **string** |  | [optional] 
+**CostCalculationMethod** | Pointer to **string** |  | [optional] 
 **ForexRate** | Pointer to **float64** |  | [optional] 
 **ForexRatesSnapshot** | Pointer to **NullableString** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
@@ -79,7 +80,6 @@ Name | Type | Description | Notes
 **QualifiedIdentifier** | Pointer to **NullableString** |  | [optional] 
 **SellerBillingProfileId** | Pointer to **NullableString** |  | [optional] 
 **BuyerBillingProfileId** | Pointer to **NullableString** |  | [optional] 
-**CostCalculationMethod** | Pointer to **string** |  | [optional] 
 **FreightTerms** | Pointer to **string** |  | [optional] 
 **OrderStatus** | Pointer to **string** |  | [optional] 
 **RequestedDeliveryDate** | Pointer to **time.Time** |  | [optional] 
@@ -966,6 +966,31 @@ SetTaxCalculationMethod sets TaxCalculationMethod field to given value.
 `func (o *OrderDto) HasTaxCalculationMethod() bool`
 
 HasTaxCalculationMethod returns a boolean if a field has been set.
+
+### GetCostCalculationMethod
+
+`func (o *OrderDto) GetCostCalculationMethod() string`
+
+GetCostCalculationMethod returns the CostCalculationMethod field if non-nil, zero value otherwise.
+
+### GetCostCalculationMethodOk
+
+`func (o *OrderDto) GetCostCalculationMethodOk() (*string, bool)`
+
+GetCostCalculationMethodOk returns a tuple with the CostCalculationMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostCalculationMethod
+
+`func (o *OrderDto) SetCostCalculationMethod(v string)`
+
+SetCostCalculationMethod sets CostCalculationMethod field to given value.
+
+### HasCostCalculationMethod
+
+`func (o *OrderDto) HasCostCalculationMethod() bool`
+
+HasCostCalculationMethod returns a boolean if a field has been set.
 
 ### GetForexRate
 
@@ -2457,31 +2482,6 @@ HasBuyerBillingProfileId returns a boolean if a field has been set.
 `func (o *OrderDto) UnsetBuyerBillingProfileId()`
 
 UnsetBuyerBillingProfileId ensures that no value is present for BuyerBillingProfileId, not even an explicit nil
-### GetCostCalculationMethod
-
-`func (o *OrderDto) GetCostCalculationMethod() string`
-
-GetCostCalculationMethod returns the CostCalculationMethod field if non-nil, zero value otherwise.
-
-### GetCostCalculationMethodOk
-
-`func (o *OrderDto) GetCostCalculationMethodOk() (*string, bool)`
-
-GetCostCalculationMethodOk returns a tuple with the CostCalculationMethod field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCostCalculationMethod
-
-`func (o *OrderDto) SetCostCalculationMethod(v string)`
-
-SetCostCalculationMethod sets CostCalculationMethod field to given value.
-
-### HasCostCalculationMethod
-
-`func (o *OrderDto) HasCostCalculationMethod() bool`
-
-HasCostCalculationMethod returns a boolean if a field has been set.
-
 ### GetFreightTerms
 
 `func (o *OrderDto) GetFreightTerms() string`

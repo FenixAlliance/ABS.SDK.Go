@@ -493,6 +493,7 @@ type ApiGetTenantSizesRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantSizeDtoCollectionQueryParameters *TenantSizeDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantSizesRequest) TenantId(tenantId string) ApiGetTenantSizesRequest {
@@ -507,6 +508,11 @@ func (r ApiGetTenantSizesRequest) ApiVersion(apiVersion string) ApiGetTenantSize
 
 func (r ApiGetTenantSizesRequest) XApiVersion(xApiVersion string) ApiGetTenantSizesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantSizesRequest) TenantSizeDtoCollectionQueryParameters(tenantSizeDtoCollectionQueryParameters TenantSizeDtoCollectionQueryParameters) ApiGetTenantSizesRequest {
+	r.tenantSizeDtoCollectionQueryParameters = &tenantSizeDtoCollectionQueryParameters
 	return r
 }
 
@@ -558,7 +564,7 @@ func (a *SizesAPIService) GetTenantSizesExecute(r ApiGetTenantSizesRequest) (*Te
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -577,6 +583,8 @@ func (a *SizesAPIService) GetTenantSizesExecute(r ApiGetTenantSizesRequest) (*Te
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantSizeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetTenantSizesCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantSizeDtoCollectionQueryParameters *TenantSizeDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantSizesCountRequest) TenantId(tenantId string) ApiGetTenantSizesCountRequest {
@@ -656,6 +665,11 @@ func (r ApiGetTenantSizesCountRequest) ApiVersion(apiVersion string) ApiGetTenan
 
 func (r ApiGetTenantSizesCountRequest) XApiVersion(xApiVersion string) ApiGetTenantSizesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantSizesCountRequest) TenantSizeDtoCollectionQueryParameters(tenantSizeDtoCollectionQueryParameters TenantSizeDtoCollectionQueryParameters) ApiGetTenantSizesCountRequest {
+	r.tenantSizeDtoCollectionQueryParameters = &tenantSizeDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *SizesAPIService) GetTenantSizesCountExecute(r ApiGetTenantSizesCountReq
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *SizesAPIService) GetTenantSizesCountExecute(r ApiGetTenantSizesCountReq
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantSizeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchTenantSizeRequest struct {
 	tenantSizeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTenantSizeRequest) TenantId(tenantId string) ApiPatchTenantSizeRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchTenantSizeRequest) XApiVersion(xApiVersion string) ApiPatchTenan
 	return r
 }
 
-func (r ApiPatchTenantSizeRequest) Operation(operation []Operation) ApiPatchTenantSizeRequest {
-	r.operation = &operation
+func (r ApiPatchTenantSizeRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTenantSizeRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *SizesAPIService) PatchTenantSizeExecute(r ApiPatchTenantSizeRequest) (*
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

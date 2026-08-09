@@ -427,6 +427,7 @@ type ApiGetFiscalYearsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	fiscalYearDtoCollectionQueryParameters *FiscalYearDtoCollectionQueryParameters
 }
 
 func (r ApiGetFiscalYearsAsyncRequest) TenantId(tenantId string) ApiGetFiscalYearsAsyncRequest {
@@ -441,6 +442,11 @@ func (r ApiGetFiscalYearsAsyncRequest) ApiVersion(apiVersion string) ApiGetFisca
 
 func (r ApiGetFiscalYearsAsyncRequest) XApiVersion(xApiVersion string) ApiGetFiscalYearsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFiscalYearsAsyncRequest) FiscalYearDtoCollectionQueryParameters(fiscalYearDtoCollectionQueryParameters FiscalYearDtoCollectionQueryParameters) ApiGetFiscalYearsAsyncRequest {
+	r.fiscalYearDtoCollectionQueryParameters = &fiscalYearDtoCollectionQueryParameters
 	return r
 }
 
@@ -492,7 +498,7 @@ func (a *FiscalYearsAPIService) GetFiscalYearsAsyncExecute(r ApiGetFiscalYearsAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -511,6 +517,8 @@ func (a *FiscalYearsAPIService) GetFiscalYearsAsyncExecute(r ApiGetFiscalYearsAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.fiscalYearDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -554,6 +562,7 @@ type ApiGetFiscalYearsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	fiscalYearDtoCollectionQueryParameters *FiscalYearDtoCollectionQueryParameters
 }
 
 func (r ApiGetFiscalYearsCountAsyncRequest) TenantId(tenantId string) ApiGetFiscalYearsCountAsyncRequest {
@@ -568,6 +577,11 @@ func (r ApiGetFiscalYearsCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetFiscalYearsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetFiscalYearsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFiscalYearsCountAsyncRequest) FiscalYearDtoCollectionQueryParameters(fiscalYearDtoCollectionQueryParameters FiscalYearDtoCollectionQueryParameters) ApiGetFiscalYearsCountAsyncRequest {
+	r.fiscalYearDtoCollectionQueryParameters = &fiscalYearDtoCollectionQueryParameters
 	return r
 }
 
@@ -619,7 +633,7 @@ func (a *FiscalYearsAPIService) GetFiscalYearsCountAsyncExecute(r ApiGetFiscalYe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -638,6 +652,8 @@ func (a *FiscalYearsAPIService) GetFiscalYearsCountAsyncExecute(r ApiGetFiscalYe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.fiscalYearDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -682,7 +698,7 @@ type ApiPatchFiscalYearAsyncRequest struct {
 	fiscalYearId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchFiscalYearAsyncRequest) TenantId(tenantId string) ApiPatchFiscalYearAsyncRequest {
@@ -700,8 +716,8 @@ func (r ApiPatchFiscalYearAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchFiscalYearAsyncRequest) Operation(operation []Operation) ApiPatchFiscalYearAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchFiscalYearAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchFiscalYearAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -776,7 +792,7 @@ func (a *FiscalYearsAPIService) PatchFiscalYearAsyncExecute(r ApiPatchFiscalYear
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

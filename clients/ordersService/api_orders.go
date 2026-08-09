@@ -792,10 +792,16 @@ type ApiGetExtendedOrdersRequest struct {
 	ctx context.Context
 	ApiService *OrdersAPIService
 	tenantId *string
+	extendedOrderDtoCollectionQueryParameters *ExtendedOrderDtoCollectionQueryParameters
 }
 
 func (r ApiGetExtendedOrdersRequest) TenantId(tenantId string) ApiGetExtendedOrdersRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetExtendedOrdersRequest) ExtendedOrderDtoCollectionQueryParameters(extendedOrderDtoCollectionQueryParameters ExtendedOrderDtoCollectionQueryParameters) ApiGetExtendedOrdersRequest {
+	r.extendedOrderDtoCollectionQueryParameters = &extendedOrderDtoCollectionQueryParameters
 	return r
 }
 
@@ -844,7 +850,7 @@ func (a *OrdersAPIService) GetExtendedOrdersExecute(r ApiGetExtendedOrdersReques
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -860,6 +866,8 @@ func (a *OrdersAPIService) GetExtendedOrdersExecute(r ApiGetExtendedOrdersReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.extendedOrderDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1166,6 +1174,7 @@ type ApiGetOrderLinesRequest struct {
 	tenantId *string
 	orderId string
 	itemId *string
+	orderLineDtoCollectionQueryParameters *OrderLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetOrderLinesRequest) TenantId(tenantId string) ApiGetOrderLinesRequest {
@@ -1175,6 +1184,11 @@ func (r ApiGetOrderLinesRequest) TenantId(tenantId string) ApiGetOrderLinesReque
 
 func (r ApiGetOrderLinesRequest) ItemId(itemId string) ApiGetOrderLinesRequest {
 	r.itemId = &itemId
+	return r
+}
+
+func (r ApiGetOrderLinesRequest) OrderLineDtoCollectionQueryParameters(orderLineDtoCollectionQueryParameters OrderLineDtoCollectionQueryParameters) ApiGetOrderLinesRequest {
+	r.orderLineDtoCollectionQueryParameters = &orderLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -1229,7 +1243,7 @@ func (a *OrdersAPIService) GetOrderLinesExecute(r ApiGetOrderLinesRequest) (*Ord
 		parameterAddToHeaderOrQuery(localVarQueryParams, "itemId", r.itemId, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1245,6 +1259,8 @@ func (a *OrdersAPIService) GetOrderLinesExecute(r ApiGetOrderLinesRequest) (*Ord
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.orderLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1298,10 +1314,16 @@ type ApiGetOrderLinesCountRequest struct {
 	ApiService *OrdersAPIService
 	tenantId *string
 	orderId string
+	orderLineDtoCollectionQueryParameters *OrderLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetOrderLinesCountRequest) TenantId(tenantId string) ApiGetOrderLinesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetOrderLinesCountRequest) OrderLineDtoCollectionQueryParameters(orderLineDtoCollectionQueryParameters OrderLineDtoCollectionQueryParameters) ApiGetOrderLinesCountRequest {
+	r.orderLineDtoCollectionQueryParameters = &orderLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -1353,7 +1375,7 @@ func (a *OrdersAPIService) GetOrderLinesCountExecute(r ApiGetOrderLinesCountRequ
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1369,6 +1391,8 @@ func (a *OrdersAPIService) GetOrderLinesCountExecute(r ApiGetOrderLinesCountRequ
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.orderLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1421,10 +1445,16 @@ type ApiGetOrdersRequest struct {
 	ctx context.Context
 	ApiService *OrdersAPIService
 	tenantId *string
+	orderDtoCollectionQueryParameters *OrderDtoCollectionQueryParameters
 }
 
 func (r ApiGetOrdersRequest) TenantId(tenantId string) ApiGetOrdersRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetOrdersRequest) OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters OrderDtoCollectionQueryParameters) ApiGetOrdersRequest {
+	r.orderDtoCollectionQueryParameters = &orderDtoCollectionQueryParameters
 	return r
 }
 
@@ -1473,7 +1503,7 @@ func (a *OrdersAPIService) GetOrdersExecute(r ApiGetOrdersRequest) (*OrderDtoLis
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1489,6 +1519,8 @@ func (a *OrdersAPIService) GetOrdersExecute(r ApiGetOrdersRequest) (*OrderDtoLis
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.orderDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1541,10 +1573,16 @@ type ApiGetOrdersCountRequest struct {
 	ctx context.Context
 	ApiService *OrdersAPIService
 	tenantId *string
+	orderDtoCollectionQueryParameters *OrderDtoCollectionQueryParameters
 }
 
 func (r ApiGetOrdersCountRequest) TenantId(tenantId string) ApiGetOrdersCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetOrdersCountRequest) OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters OrderDtoCollectionQueryParameters) ApiGetOrdersCountRequest {
+	r.orderDtoCollectionQueryParameters = &orderDtoCollectionQueryParameters
 	return r
 }
 
@@ -1593,7 +1631,7 @@ func (a *OrdersAPIService) GetOrdersCountExecute(r ApiGetOrdersCountRequest) (*I
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1609,6 +1647,8 @@ func (a *OrdersAPIService) GetOrdersCountExecute(r ApiGetOrdersCountRequest) (*I
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.orderDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1662,7 +1702,7 @@ type ApiPatchOrderRequest struct {
 	ApiService *OrdersAPIService
 	tenantId *string
 	orderId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchOrderRequest) TenantId(tenantId string) ApiPatchOrderRequest {
@@ -1670,8 +1710,8 @@ func (r ApiPatchOrderRequest) TenantId(tenantId string) ApiPatchOrderRequest {
 	return r
 }
 
-func (r ApiPatchOrderRequest) Operation(operation []Operation) ApiPatchOrderRequest {
-	r.operation = &operation
+func (r ApiPatchOrderRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchOrderRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1740,7 +1780,7 @@ func (a *OrdersAPIService) PatchOrderExecute(r ApiPatchOrderRequest) (*EmptyEnve
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1795,7 +1835,7 @@ type ApiPatchOrderLineRequest struct {
 	tenantId *string
 	orderId string
 	orderLineId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchOrderLineRequest) TenantId(tenantId string) ApiPatchOrderLineRequest {
@@ -1803,8 +1843,8 @@ func (r ApiPatchOrderLineRequest) TenantId(tenantId string) ApiPatchOrderLineReq
 	return r
 }
 
-func (r ApiPatchOrderLineRequest) Operation(operation []Operation) ApiPatchOrderLineRequest {
-	r.operation = &operation
+func (r ApiPatchOrderLineRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchOrderLineRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1876,7 +1916,7 @@ func (a *OrdersAPIService) PatchOrderLineExecute(r ApiPatchOrderLineRequest) (*E
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

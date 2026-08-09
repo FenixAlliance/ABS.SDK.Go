@@ -462,6 +462,7 @@ type ApiGetSystemPortalsRequest struct {
 	ApiService *PortalsAPIService
 	apiVersion *string
 	xApiVersion *string
+	webPortalDtoCollectionQueryParameters *WebPortalDtoCollectionQueryParameters
 }
 
 func (r ApiGetSystemPortalsRequest) ApiVersion(apiVersion string) ApiGetSystemPortalsRequest {
@@ -471,6 +472,11 @@ func (r ApiGetSystemPortalsRequest) ApiVersion(apiVersion string) ApiGetSystemPo
 
 func (r ApiGetSystemPortalsRequest) XApiVersion(xApiVersion string) ApiGetSystemPortalsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSystemPortalsRequest) WebPortalDtoCollectionQueryParameters(webPortalDtoCollectionQueryParameters WebPortalDtoCollectionQueryParameters) ApiGetSystemPortalsRequest {
+	r.webPortalDtoCollectionQueryParameters = &webPortalDtoCollectionQueryParameters
 	return r
 }
 
@@ -518,7 +524,7 @@ func (a *PortalsAPIService) GetSystemPortalsExecute(r ApiGetSystemPortalsRequest
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -537,6 +543,8 @@ func (a *PortalsAPIService) GetSystemPortalsExecute(r ApiGetSystemPortalsRequest
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.webPortalDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -601,6 +609,7 @@ type ApiGetSystemPortalsCountRequest struct {
 	ApiService *PortalsAPIService
 	apiVersion *string
 	xApiVersion *string
+	webPortalDtoCollectionQueryParameters *WebPortalDtoCollectionQueryParameters
 }
 
 func (r ApiGetSystemPortalsCountRequest) ApiVersion(apiVersion string) ApiGetSystemPortalsCountRequest {
@@ -610,6 +619,11 @@ func (r ApiGetSystemPortalsCountRequest) ApiVersion(apiVersion string) ApiGetSys
 
 func (r ApiGetSystemPortalsCountRequest) XApiVersion(xApiVersion string) ApiGetSystemPortalsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSystemPortalsCountRequest) WebPortalDtoCollectionQueryParameters(webPortalDtoCollectionQueryParameters WebPortalDtoCollectionQueryParameters) ApiGetSystemPortalsCountRequest {
+	r.webPortalDtoCollectionQueryParameters = &webPortalDtoCollectionQueryParameters
 	return r
 }
 
@@ -657,7 +671,7 @@ func (a *PortalsAPIService) GetSystemPortalsCountExecute(r ApiGetSystemPortalsCo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -676,6 +690,8 @@ func (a *PortalsAPIService) GetSystemPortalsCountExecute(r ApiGetSystemPortalsCo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.webPortalDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -741,7 +757,7 @@ type ApiPatchSystemPortalRequest struct {
 	portalId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSystemPortalRequest) ApiVersion(apiVersion string) ApiPatchSystemPortalRequest {
@@ -754,8 +770,8 @@ func (r ApiPatchSystemPortalRequest) XApiVersion(xApiVersion string) ApiPatchSys
 	return r
 }
 
-func (r ApiPatchSystemPortalRequest) Operation(operation []Operation) ApiPatchSystemPortalRequest {
-	r.operation = &operation
+func (r ApiPatchSystemPortalRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSystemPortalRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -826,7 +842,7 @@ func (a *PortalsAPIService) PatchSystemPortalExecute(r ApiPatchSystemPortalReque
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

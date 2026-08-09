@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## CreateFeedPostAsync
 
-> SocialFeedPostDtoEnvelope CreateFeedPostAsync(ctx, socialFeedId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialFeedPostCreateDto(socialFeedPostCreateDto).Execute()
+> StringEnvelope CreateFeedPostAsync(ctx, socialFeedId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialFeedPostCreateDto(socialFeedPostCreateDto).Execute()
 
 Create a social feed post
 
@@ -51,7 +51,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialFeedsAPI.CreateFeedPostAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateFeedPostAsync`: SocialFeedPostDtoEnvelope
+	// response from `CreateFeedPostAsync`: StringEnvelope
 	fmt.Fprintf(os.Stdout, "Response from `SocialFeedsAPI.CreateFeedPostAsync`: %v\n", resp)
 }
 ```
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SocialFeedPostDtoEnvelope**](SocialFeedPostDtoEnvelope.md)
+[**StringEnvelope**](StringEnvelope.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ No authorization required
 
 ## GetFeedNotifications
 
-> SocialFeedDtoListEnvelope GetFeedNotifications(ctx).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SocialFeedDtoListEnvelope GetFeedNotifications(ctx).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialFeedDtoCollectionQueryParameters(socialFeedDtoCollectionQueryParameters).Execute()
 
 Get social feeds
 
@@ -198,10 +198,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialFeedDtoCollectionQueryParameters := *openapiclient.NewSocialFeedDtoCollectionQueryParameters() // SocialFeedDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialFeedsAPI.GetFeedNotifications(context.Background()).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialFeedsAPI.GetFeedNotifications(context.Background()).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialFeedDtoCollectionQueryParameters(socialFeedDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialFeedsAPI.GetFeedNotifications``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -225,6 +226,7 @@ Name | Type | Description  | Notes
  **socialProfileId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialFeedDtoCollectionQueryParameters** | [**SocialFeedDtoCollectionQueryParameters**](SocialFeedDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -236,7 +238,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -325,7 +327,7 @@ No authorization required
 
 ## GetFeedPostsAsync
 
-> SocialFeedPostDtoListEnvelope GetFeedPostsAsync(ctx, socialFeedId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SocialFeedPostDtoListEnvelope GetFeedPostsAsync(ctx, socialFeedId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialFeedPostDtoCollectionQueryParameters(socialFeedPostDtoCollectionQueryParameters).Execute()
 
 Get social feed posts
 
@@ -348,10 +350,11 @@ func main() {
 	socialFeedId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialFeedPostDtoCollectionQueryParameters := *openapiclient.NewSocialFeedPostDtoCollectionQueryParameters() // SocialFeedPostDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialFeedsAPI.GetFeedPostsAsync(context.Background(), socialFeedId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialFeedsAPI.GetFeedPostsAsync(context.Background(), socialFeedId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialFeedPostDtoCollectionQueryParameters(socialFeedPostDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialFeedsAPI.GetFeedPostsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -380,6 +383,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialFeedPostDtoCollectionQueryParameters** | [**SocialFeedPostDtoCollectionQueryParameters**](SocialFeedPostDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -391,7 +395,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -401,7 +405,7 @@ No authorization required
 
 ## GetFeedPostsCountAsync
 
-> Int32Envelope GetFeedPostsCountAsync(ctx, socialFeedId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetFeedPostsCountAsync(ctx, socialFeedId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialFeedPostDtoCollectionQueryParameters(socialFeedPostDtoCollectionQueryParameters).Execute()
 
 Count social feed posts
 
@@ -424,10 +428,11 @@ func main() {
 	socialFeedId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialFeedPostDtoCollectionQueryParameters := *openapiclient.NewSocialFeedPostDtoCollectionQueryParameters() // SocialFeedPostDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialFeedsAPI.GetFeedPostsCountAsync(context.Background(), socialFeedId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialFeedsAPI.GetFeedPostsCountAsync(context.Background(), socialFeedId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialFeedPostDtoCollectionQueryParameters(socialFeedPostDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialFeedsAPI.GetFeedPostsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -456,6 +461,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialFeedPostDtoCollectionQueryParameters** | [**SocialFeedPostDtoCollectionQueryParameters**](SocialFeedPostDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -467,7 +473,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -553,7 +559,7 @@ No authorization required
 
 ## GetNotificationsCountAsync
 
-> Int32Envelope GetNotificationsCountAsync(ctx).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetNotificationsCountAsync(ctx).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialFeedDtoCollectionQueryParameters(socialFeedDtoCollectionQueryParameters).Execute()
 
 Count social feeds
 
@@ -575,10 +581,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialFeedDtoCollectionQueryParameters := *openapiclient.NewSocialFeedDtoCollectionQueryParameters() // SocialFeedDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialFeedsAPI.GetNotificationsCountAsync(context.Background()).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialFeedsAPI.GetNotificationsCountAsync(context.Background()).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialFeedDtoCollectionQueryParameters(socialFeedDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialFeedsAPI.GetNotificationsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -602,6 +609,7 @@ Name | Type | Description  | Notes
  **socialProfileId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialFeedDtoCollectionQueryParameters** | [**SocialFeedDtoCollectionQueryParameters**](SocialFeedDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -613,7 +621,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -623,7 +631,7 @@ No authorization required
 
 ## PatchFeedPostAsync
 
-> EmptyEnvelope PatchFeedPostAsync(ctx, socialFeedId, feedPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchFeedPostAsync(ctx, socialFeedId, feedPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a social feed post
 
@@ -647,11 +655,11 @@ func main() {
 	feedPostId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialFeedsAPI.PatchFeedPostAsync(context.Background(), socialFeedId, feedPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.SocialFeedsAPI.PatchFeedPostAsync(context.Background(), socialFeedId, feedPostId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialFeedsAPI.PatchFeedPostAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -682,7 +690,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

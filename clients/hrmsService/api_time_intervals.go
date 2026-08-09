@@ -515,6 +515,7 @@ type ApiGetTimeIntervalsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	timeIntervalDtoCollectionQueryParameters *TimeIntervalDtoCollectionQueryParameters
 }
 
 func (r ApiGetTimeIntervalsAsyncRequest) TenantId(tenantId string) ApiGetTimeIntervalsAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetTimeIntervalsAsyncRequest) ApiVersion(apiVersion string) ApiGetTim
 
 func (r ApiGetTimeIntervalsAsyncRequest) XApiVersion(xApiVersion string) ApiGetTimeIntervalsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTimeIntervalsAsyncRequest) TimeIntervalDtoCollectionQueryParameters(timeIntervalDtoCollectionQueryParameters TimeIntervalDtoCollectionQueryParameters) ApiGetTimeIntervalsAsyncRequest {
+	r.timeIntervalDtoCollectionQueryParameters = &timeIntervalDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *TimeIntervalsAPIService) GetTimeIntervalsAsyncExecute(r ApiGetTimeInter
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *TimeIntervalsAPIService) GetTimeIntervalsAsyncExecute(r ApiGetTimeInter
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.timeIntervalDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetTimeIntervalsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	timeIntervalDtoCollectionQueryParameters *TimeIntervalDtoCollectionQueryParameters
 }
 
 func (r ApiGetTimeIntervalsCountAsyncRequest) TenantId(tenantId string) ApiGetTimeIntervalsCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetTimeIntervalsCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetTimeIntervalsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetTimeIntervalsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTimeIntervalsCountAsyncRequest) TimeIntervalDtoCollectionQueryParameters(timeIntervalDtoCollectionQueryParameters TimeIntervalDtoCollectionQueryParameters) ApiGetTimeIntervalsCountAsyncRequest {
+	r.timeIntervalDtoCollectionQueryParameters = &timeIntervalDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *TimeIntervalsAPIService) GetTimeIntervalsCountAsyncExecute(r ApiGetTime
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *TimeIntervalsAPIService) GetTimeIntervalsCountAsyncExecute(r ApiGetTime
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.timeIntervalDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchTimeIntervalAsyncRequest struct {
 	timeIntervalId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTimeIntervalAsyncRequest) TenantId(tenantId string) ApiPatchTimeIntervalAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchTimeIntervalAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchTimeIntervalAsyncRequest) Operation(operation []Operation) ApiPatchTimeIntervalAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchTimeIntervalAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTimeIntervalAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *TimeIntervalsAPIService) PatchTimeIntervalAsyncExecute(r ApiPatchTimeIn
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

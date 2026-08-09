@@ -311,6 +311,7 @@ type ApiGetItemGoogleCategoriesAsyncRequest struct {
 	ApiService *ItemGoogleCategoriesAPIService
 	apiVersion *string
 	xApiVersion *string
+	itemGoogleCategoryDtoCollectionQueryParameters *ItemGoogleCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemGoogleCategoriesAsyncRequest) ApiVersion(apiVersion string) ApiGetItemGoogleCategoriesAsyncRequest {
@@ -320,6 +321,11 @@ func (r ApiGetItemGoogleCategoriesAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetItemGoogleCategoriesAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemGoogleCategoriesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemGoogleCategoriesAsyncRequest) ItemGoogleCategoryDtoCollectionQueryParameters(itemGoogleCategoryDtoCollectionQueryParameters ItemGoogleCategoryDtoCollectionQueryParameters) ApiGetItemGoogleCategoriesAsyncRequest {
+	r.itemGoogleCategoryDtoCollectionQueryParameters = &itemGoogleCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -367,7 +373,7 @@ func (a *ItemGoogleCategoriesAPIService) GetItemGoogleCategoriesAsyncExecute(r A
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -386,6 +392,8 @@ func (a *ItemGoogleCategoriesAPIService) GetItemGoogleCategoriesAsyncExecute(r A
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemGoogleCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -450,6 +458,7 @@ type ApiGetItemGoogleCategoriesCountAsyncRequest struct {
 	ApiService *ItemGoogleCategoriesAPIService
 	apiVersion *string
 	xApiVersion *string
+	itemGoogleCategoryDtoCollectionQueryParameters *ItemGoogleCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemGoogleCategoriesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetItemGoogleCategoriesCountAsyncRequest {
@@ -459,6 +468,11 @@ func (r ApiGetItemGoogleCategoriesCountAsyncRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetItemGoogleCategoriesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemGoogleCategoriesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemGoogleCategoriesCountAsyncRequest) ItemGoogleCategoryDtoCollectionQueryParameters(itemGoogleCategoryDtoCollectionQueryParameters ItemGoogleCategoryDtoCollectionQueryParameters) ApiGetItemGoogleCategoriesCountAsyncRequest {
+	r.itemGoogleCategoryDtoCollectionQueryParameters = &itemGoogleCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -506,7 +520,7 @@ func (a *ItemGoogleCategoriesAPIService) GetItemGoogleCategoriesCountAsyncExecut
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -525,6 +539,8 @@ func (a *ItemGoogleCategoriesAPIService) GetItemGoogleCategoriesCountAsyncExecut
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemGoogleCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -668,7 +668,7 @@ No authorization required
 
 ## GetIncomingPaymentsAsync
 
-> PaymentDtoListEnvelope GetIncomingPaymentsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> PaymentDtoListEnvelope GetIncomingPaymentsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 
 Get Incoming Payments
 
@@ -690,10 +690,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentDtoCollectionQueryParameters := *openapiclient.NewPaymentDtoCollectionQueryParameters() // PaymentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetIncomingPaymentsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetIncomingPaymentsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetIncomingPaymentsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -721,6 +722,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -732,7 +734,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -742,7 +744,7 @@ No authorization required
 
 ## GetIncomingPaymentsCountAsync
 
-> Int32Envelope GetIncomingPaymentsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetIncomingPaymentsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 
 Get Incoming Payments Count
 
@@ -764,10 +766,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentDtoCollectionQueryParameters := *openapiclient.NewPaymentDtoCollectionQueryParameters() // PaymentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetIncomingPaymentsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetIncomingPaymentsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetIncomingPaymentsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -795,6 +798,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -806,7 +810,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -816,7 +820,7 @@ No authorization required
 
 ## GetIncomingWalletInvoicesAsync
 
-> InvoiceDtoListEnvelope GetIncomingWalletInvoicesAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> InvoiceDtoListEnvelope GetIncomingWalletInvoicesAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 
 Get Incoming Wallet Invoices
 
@@ -838,10 +842,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	invoiceDtoCollectionQueryParameters := *openapiclient.NewInvoiceDtoCollectionQueryParameters() // InvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetIncomingWalletInvoicesAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetIncomingWalletInvoicesAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetIncomingWalletInvoicesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -869,6 +874,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -880,7 +886,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -890,7 +896,7 @@ No authorization required
 
 ## GetIncomingWalletInvoicesCountAsync
 
-> Int32Envelope GetIncomingWalletInvoicesCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetIncomingWalletInvoicesCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 
 Get Incoming Wallet Invoices Count
 
@@ -912,10 +918,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	invoiceDtoCollectionQueryParameters := *openapiclient.NewInvoiceDtoCollectionQueryParameters() // InvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetIncomingWalletInvoicesCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetIncomingWalletInvoicesCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetIncomingWalletInvoicesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -943,6 +950,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -954,7 +962,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1041,7 +1049,7 @@ No authorization required
 
 ## GetLocationsForWalletAsync
 
-> LocationDtoListEnvelope GetLocationsForWalletAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> LocationDtoListEnvelope GetLocationsForWalletAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 
 Get Wallet Locations
 
@@ -1063,10 +1071,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	locationDtoCollectionQueryParameters := *openapiclient.NewLocationDtoCollectionQueryParameters() // LocationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetLocationsForWalletAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetLocationsForWalletAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetLocationsForWalletAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1094,6 +1103,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1105,7 +1115,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1115,7 +1125,7 @@ No authorization required
 
 ## GetLocationsForWalletCountAsync
 
-> Int32Envelope GetLocationsForWalletCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetLocationsForWalletCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 
 Get Wallet Locations Count
 
@@ -1137,10 +1147,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	locationDtoCollectionQueryParameters := *openapiclient.NewLocationDtoCollectionQueryParameters() // LocationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetLocationsForWalletCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetLocationsForWalletCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetLocationsForWalletCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1168,6 +1179,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1179,7 +1191,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1189,7 +1201,7 @@ No authorization required
 
 ## GetOutgoingPaymentsAsync
 
-> PaymentDtoListEnvelope GetOutgoingPaymentsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> PaymentDtoListEnvelope GetOutgoingPaymentsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 
 Get Outgoing Payments
 
@@ -1211,10 +1223,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentDtoCollectionQueryParameters := *openapiclient.NewPaymentDtoCollectionQueryParameters() // PaymentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetOutgoingPaymentsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetOutgoingPaymentsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetOutgoingPaymentsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1242,6 +1255,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1253,7 +1267,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1263,7 +1277,7 @@ No authorization required
 
 ## GetOutgoingPaymentsCountAsync
 
-> Int32Envelope GetOutgoingPaymentsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetOutgoingPaymentsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 
 Get Outgoing Payments Count
 
@@ -1285,10 +1299,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentDtoCollectionQueryParameters := *openapiclient.NewPaymentDtoCollectionQueryParameters() // PaymentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetOutgoingPaymentsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetOutgoingPaymentsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetOutgoingPaymentsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1316,6 +1331,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1327,7 +1343,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1337,7 +1353,7 @@ No authorization required
 
 ## GetOutgoingWalletInvoicesAsync
 
-> InvoiceDtoListEnvelope GetOutgoingWalletInvoicesAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> InvoiceDtoListEnvelope GetOutgoingWalletInvoicesAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 
 Get Outgoing Wallet Invoices
 
@@ -1359,10 +1375,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	invoiceDtoCollectionQueryParameters := *openapiclient.NewInvoiceDtoCollectionQueryParameters() // InvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetOutgoingWalletInvoicesAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetOutgoingWalletInvoicesAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetOutgoingWalletInvoicesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1390,6 +1407,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1401,7 +1419,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1411,7 +1429,7 @@ No authorization required
 
 ## GetOutgoingWalletInvoicesCountAsync
 
-> Int32Envelope GetOutgoingWalletInvoicesCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetOutgoingWalletInvoicesCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 
 Get Outgoing Wallet Invoices Count
 
@@ -1433,10 +1451,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	invoiceDtoCollectionQueryParameters := *openapiclient.NewInvoiceDtoCollectionQueryParameters() // InvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetOutgoingWalletInvoicesCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetOutgoingWalletInvoicesCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetOutgoingWalletInvoicesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1464,6 +1483,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1475,7 +1495,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1562,7 +1582,7 @@ No authorization required
 
 ## GetWalletBankAccountsAsync
 
-> BankAccountDtoListEnvelope GetWalletBankAccountsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BankAccountDtoListEnvelope GetWalletBankAccountsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters).Execute()
 
 Get Wallet Bank Accounts
 
@@ -1584,10 +1604,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bankAccountDtoCollectionQueryParameters := *openapiclient.NewBankAccountDtoCollectionQueryParameters() // BankAccountDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletBankAccountsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletBankAccountsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletBankAccountsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1615,6 +1636,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1626,7 +1648,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1636,7 +1658,7 @@ No authorization required
 
 ## GetWalletBankAccountsCountAsync
 
-> Int32Envelope GetWalletBankAccountsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWalletBankAccountsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters).Execute()
 
 Get Wallet Bank Accounts Count
 
@@ -1658,10 +1680,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bankAccountDtoCollectionQueryParameters := *openapiclient.NewBankAccountDtoCollectionQueryParameters() // BankAccountDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletBankAccountsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletBankAccountsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletBankAccountsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1689,6 +1712,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1700,7 +1724,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1710,7 +1734,7 @@ No authorization required
 
 ## GetWalletChargebacksAsync
 
-> PaymentChargebackDtoListEnvelope GetWalletChargebacksAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> PaymentChargebackDtoListEnvelope GetWalletChargebacksAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentChargebackDtoCollectionQueryParameters(paymentChargebackDtoCollectionQueryParameters).Execute()
 
 Get Wallet Chargebacks
 
@@ -1732,10 +1756,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentChargebackDtoCollectionQueryParameters := *openapiclient.NewPaymentChargebackDtoCollectionQueryParameters() // PaymentChargebackDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletChargebacksAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletChargebacksAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentChargebackDtoCollectionQueryParameters(paymentChargebackDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletChargebacksAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1763,6 +1788,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentChargebackDtoCollectionQueryParameters** | [**PaymentChargebackDtoCollectionQueryParameters**](PaymentChargebackDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1774,7 +1800,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1784,7 +1810,7 @@ No authorization required
 
 ## GetWalletChargebacksCountAsync
 
-> Int32Envelope GetWalletChargebacksCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWalletChargebacksCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentChargebackDtoCollectionQueryParameters(paymentChargebackDtoCollectionQueryParameters).Execute()
 
 Get Wallet Chargebacks Count
 
@@ -1806,10 +1832,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentChargebackDtoCollectionQueryParameters := *openapiclient.NewPaymentChargebackDtoCollectionQueryParameters() // PaymentChargebackDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletChargebacksCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletChargebacksCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentChargebackDtoCollectionQueryParameters(paymentChargebackDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletChargebacksCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1837,6 +1864,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentChargebackDtoCollectionQueryParameters** | [**PaymentChargebackDtoCollectionQueryParameters**](PaymentChargebackDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1848,7 +1876,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1932,7 +1960,7 @@ No authorization required
 
 ## GetWalletExtendedOrdersAsync
 
-> ExtendedOrderDtoListEnvelope GetWalletExtendedOrdersAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ExtendedOrderDtoListEnvelope GetWalletExtendedOrdersAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedOrderDtoCollectionQueryParameters(extendedOrderDtoCollectionQueryParameters).Execute()
 
 Get Wallet Extended Orders
 
@@ -1954,10 +1982,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	extendedOrderDtoCollectionQueryParameters := *openapiclient.NewExtendedOrderDtoCollectionQueryParameters() // ExtendedOrderDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletExtendedOrdersAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletExtendedOrdersAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedOrderDtoCollectionQueryParameters(extendedOrderDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletExtendedOrdersAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1985,6 +2014,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **extendedOrderDtoCollectionQueryParameters** | [**ExtendedOrderDtoCollectionQueryParameters**](ExtendedOrderDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1996,7 +2026,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2006,7 +2036,7 @@ No authorization required
 
 ## GetWalletInvoicesAsync
 
-> InvoiceDtoListEnvelope GetWalletInvoicesAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> InvoiceDtoListEnvelope GetWalletInvoicesAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 
 Get Wallet Invoices
 
@@ -2028,10 +2058,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	invoiceDtoCollectionQueryParameters := *openapiclient.NewInvoiceDtoCollectionQueryParameters() // InvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletInvoicesAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletInvoicesAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletInvoicesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2059,6 +2090,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2070,7 +2102,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2080,7 +2112,7 @@ No authorization required
 
 ## GetWalletInvoicesCountAsync
 
-> Int32Envelope GetWalletInvoicesCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWalletInvoicesCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 
 Get Wallet Invoices Count
 
@@ -2102,10 +2134,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	invoiceDtoCollectionQueryParameters := *openapiclient.NewInvoiceDtoCollectionQueryParameters() // InvoiceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletInvoicesCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletInvoicesCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletInvoicesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2133,6 +2166,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2144,7 +2178,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2154,7 +2188,7 @@ No authorization required
 
 ## GetWalletOrdersAsync
 
-> OrderDtoListEnvelope GetWalletOrdersAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> OrderDtoListEnvelope GetWalletOrdersAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters).Execute()
 
 Get Wallet Orders
 
@@ -2176,10 +2210,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	orderDtoCollectionQueryParameters := *openapiclient.NewOrderDtoCollectionQueryParameters() // OrderDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletOrdersAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletOrdersAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletOrdersAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2207,6 +2242,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2218,7 +2254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2228,7 +2264,7 @@ No authorization required
 
 ## GetWalletOrdersCountAsync
 
-> Int32Envelope GetWalletOrdersCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWalletOrdersCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters).Execute()
 
 Get Wallet Orders Count
 
@@ -2250,10 +2286,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	orderDtoCollectionQueryParameters := *openapiclient.NewOrderDtoCollectionQueryParameters() // OrderDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletOrdersCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletOrdersCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletOrdersCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2281,6 +2318,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2292,7 +2330,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2302,7 +2340,7 @@ No authorization required
 
 ## GetWalletPaymentsAsync
 
-> PaymentDtoListEnvelope GetWalletPaymentsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> PaymentDtoListEnvelope GetWalletPaymentsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 
 Get Wallet Payments
 
@@ -2324,10 +2362,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentDtoCollectionQueryParameters := *openapiclient.NewPaymentDtoCollectionQueryParameters() // PaymentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletPaymentsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletPaymentsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletPaymentsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2355,6 +2394,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2366,7 +2406,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2376,7 +2416,7 @@ No authorization required
 
 ## GetWalletPaymentsCountAsync
 
-> Int32Envelope GetWalletPaymentsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWalletPaymentsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 
 Get Wallet Payments Count
 
@@ -2398,10 +2438,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentDtoCollectionQueryParameters := *openapiclient.NewPaymentDtoCollectionQueryParameters() // PaymentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletPaymentsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletPaymentsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletPaymentsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2429,6 +2470,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2440,7 +2482,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2450,7 +2492,7 @@ No authorization required
 
 ## GetWalletQuotesAsync
 
-> QuoteDtoListEnvelope GetWalletQuotesAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> QuoteDtoListEnvelope GetWalletQuotesAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters).Execute()
 
 Get Wallet Quotes
 
@@ -2472,10 +2514,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	quoteDtoCollectionQueryParameters := *openapiclient.NewQuoteDtoCollectionQueryParameters() // QuoteDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletQuotesAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletQuotesAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletQuotesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2503,6 +2546,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2514,7 +2558,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2524,7 +2568,7 @@ No authorization required
 
 ## GetWalletQuotesCountAsync
 
-> Int32Envelope GetWalletQuotesCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWalletQuotesCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters).Execute()
 
 Get Wallet Quotes Count
 
@@ -2546,10 +2590,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	quoteDtoCollectionQueryParameters := *openapiclient.NewQuoteDtoCollectionQueryParameters() // QuoteDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletQuotesCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletQuotesCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletQuotesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2577,6 +2622,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2588,7 +2634,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2598,7 +2644,7 @@ No authorization required
 
 ## GetWalletRefundsAsync
 
-> PaymentRefundDtoListEnvelope GetWalletRefundsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> PaymentRefundDtoListEnvelope GetWalletRefundsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentRefundDtoCollectionQueryParameters(paymentRefundDtoCollectionQueryParameters).Execute()
 
 Get Wallet Refunds
 
@@ -2620,10 +2666,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentRefundDtoCollectionQueryParameters := *openapiclient.NewPaymentRefundDtoCollectionQueryParameters() // PaymentRefundDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletRefundsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletRefundsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentRefundDtoCollectionQueryParameters(paymentRefundDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletRefundsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2651,6 +2698,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentRefundDtoCollectionQueryParameters** | [**PaymentRefundDtoCollectionQueryParameters**](PaymentRefundDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2662,7 +2710,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2672,7 +2720,7 @@ No authorization required
 
 ## GetWalletRefundsCountAsync
 
-> Int32Envelope GetWalletRefundsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWalletRefundsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentRefundDtoCollectionQueryParameters(paymentRefundDtoCollectionQueryParameters).Execute()
 
 Get Wallet Refunds Count
 
@@ -2694,10 +2742,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentRefundDtoCollectionQueryParameters := *openapiclient.NewPaymentRefundDtoCollectionQueryParameters() // PaymentRefundDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletRefundsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletRefundsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentRefundDtoCollectionQueryParameters(paymentRefundDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletRefundsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2725,6 +2774,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentRefundDtoCollectionQueryParameters** | [**PaymentRefundDtoCollectionQueryParameters**](PaymentRefundDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2736,7 +2786,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2823,7 +2873,7 @@ No authorization required
 
 ## GetWalletTokensAsync
 
-> PaymentTokenDtoListEnvelope GetWalletTokensAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> PaymentTokenDtoListEnvelope GetWalletTokensAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentTokenDtoCollectionQueryParameters(paymentTokenDtoCollectionQueryParameters).Execute()
 
 Get Wallet Tokens
 
@@ -2845,10 +2895,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentTokenDtoCollectionQueryParameters := *openapiclient.NewPaymentTokenDtoCollectionQueryParameters() // PaymentTokenDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletTokensAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletTokensAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentTokenDtoCollectionQueryParameters(paymentTokenDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletTokensAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2876,6 +2927,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentTokenDtoCollectionQueryParameters** | [**PaymentTokenDtoCollectionQueryParameters**](PaymentTokenDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2887,7 +2939,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2897,7 +2949,7 @@ No authorization required
 
 ## GetWalletTokensCountAsync
 
-> Int32Envelope GetWalletTokensCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWalletTokensCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentTokenDtoCollectionQueryParameters(paymentTokenDtoCollectionQueryParameters).Execute()
 
 Get Wallet Tokens Count
 
@@ -2919,10 +2971,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	paymentTokenDtoCollectionQueryParameters := *openapiclient.NewPaymentTokenDtoCollectionQueryParameters() // PaymentTokenDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletTokensCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletTokensCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PaymentTokenDtoCollectionQueryParameters(paymentTokenDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletTokensCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2950,6 +3003,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **paymentTokenDtoCollectionQueryParameters** | [**PaymentTokenDtoCollectionQueryParameters**](PaymentTokenDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -2961,7 +3015,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2971,7 +3025,7 @@ No authorization required
 
 ## GetWalletWithdrawRequestsAsync
 
-> WalletWithdrawRequestDtoListEnvelope GetWalletWithdrawRequestsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> WalletWithdrawRequestDtoListEnvelope GetWalletWithdrawRequestsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WalletWithdrawRequestDtoCollectionQueryParameters(walletWithdrawRequestDtoCollectionQueryParameters).Execute()
 
 Get Wallet Withdraw Requests
 
@@ -2993,10 +3047,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	walletWithdrawRequestDtoCollectionQueryParameters := *openapiclient.NewWalletWithdrawRequestDtoCollectionQueryParameters() // WalletWithdrawRequestDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletWithdrawRequestsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletWithdrawRequestsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WalletWithdrawRequestDtoCollectionQueryParameters(walletWithdrawRequestDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletWithdrawRequestsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3024,6 +3079,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **walletWithdrawRequestDtoCollectionQueryParameters** | [**WalletWithdrawRequestDtoCollectionQueryParameters**](WalletWithdrawRequestDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -3035,7 +3091,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3045,7 +3101,7 @@ No authorization required
 
 ## GetWalletWithdrawRequestsCountAsync
 
-> Int32Envelope GetWalletWithdrawRequestsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWalletWithdrawRequestsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WalletWithdrawRequestDtoCollectionQueryParameters(walletWithdrawRequestDtoCollectionQueryParameters).Execute()
 
 Get Wallet Withdraw Requests Count
 
@@ -3067,10 +3123,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	walletWithdrawRequestDtoCollectionQueryParameters := *openapiclient.NewWalletWithdrawRequestDtoCollectionQueryParameters() // WalletWithdrawRequestDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletWithdrawRequestsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletWithdrawRequestsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WalletWithdrawRequestDtoCollectionQueryParameters(walletWithdrawRequestDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletWithdrawRequestsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3098,6 +3155,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **walletWithdrawRequestDtoCollectionQueryParameters** | [**WalletWithdrawRequestDtoCollectionQueryParameters**](WalletWithdrawRequestDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -3109,7 +3167,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3119,7 +3177,7 @@ No authorization required
 
 ## GetWalletWithdrawsAsync
 
-> WalletWithdrawDtoListEnvelope GetWalletWithdrawsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> WalletWithdrawDtoListEnvelope GetWalletWithdrawsAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WalletWithdrawDtoCollectionQueryParameters(walletWithdrawDtoCollectionQueryParameters).Execute()
 
 Get Wallet Withdraws
 
@@ -3141,10 +3199,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	walletWithdrawDtoCollectionQueryParameters := *openapiclient.NewWalletWithdrawDtoCollectionQueryParameters() // WalletWithdrawDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletWithdrawsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletWithdrawsAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WalletWithdrawDtoCollectionQueryParameters(walletWithdrawDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletWithdrawsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3172,6 +3231,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **walletWithdrawDtoCollectionQueryParameters** | [**WalletWithdrawDtoCollectionQueryParameters**](WalletWithdrawDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -3183,7 +3243,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3193,7 +3253,7 @@ No authorization required
 
 ## GetWalletWithdrawsCountAsync
 
-> Int32Envelope GetWalletWithdrawsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetWalletWithdrawsCountAsync(ctx, walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WalletWithdrawDtoCollectionQueryParameters(walletWithdrawDtoCollectionQueryParameters).Execute()
 
 Get Wallet Withdraws Count
 
@@ -3215,10 +3275,11 @@ func main() {
 	walletId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	walletWithdrawDtoCollectionQueryParameters := *openapiclient.NewWalletWithdrawDtoCollectionQueryParameters() // WalletWithdrawDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.GetWalletWithdrawsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.WalletsAPI.GetWalletWithdrawsCountAsync(context.Background(), walletId).ApiVersion(apiVersion).XApiVersion(xApiVersion).WalletWithdrawDtoCollectionQueryParameters(walletWithdrawDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.GetWalletWithdrawsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3246,6 +3307,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **walletWithdrawDtoCollectionQueryParameters** | [**WalletWithdrawDtoCollectionQueryParameters**](WalletWithdrawDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -3257,7 +3319,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3267,7 +3329,7 @@ No authorization required
 
 ## PatchWalletBankAccountAsync
 
-> EmptyEnvelope PatchWalletBankAccountAsync(ctx, walletId, bankAccountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchWalletBankAccountAsync(ctx, walletId, bankAccountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch Wallet Bank Account
 
@@ -3290,11 +3352,11 @@ func main() {
 	bankAccountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.PatchWalletBankAccountAsync(context.Background(), walletId, bankAccountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.WalletsAPI.PatchWalletBankAccountAsync(context.Background(), walletId, bankAccountId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.PatchWalletBankAccountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3324,7 +3386,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -3346,7 +3408,7 @@ No authorization required
 
 ## PatchWalletTokenAsync
 
-> EmptyEnvelope PatchWalletTokenAsync(ctx, walletId, tokenId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchWalletTokenAsync(ctx, walletId, tokenId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch Wallet Token
 
@@ -3369,11 +3431,11 @@ func main() {
 	tokenId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WalletsAPI.PatchWalletTokenAsync(context.Background(), walletId, tokenId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.WalletsAPI.PatchWalletTokenAsync(context.Background(), walletId, tokenId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WalletsAPI.PatchWalletTokenAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3403,7 +3465,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

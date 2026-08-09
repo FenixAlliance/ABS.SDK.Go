@@ -460,6 +460,7 @@ type ApiGetItemRetainSamplesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemRetainSampleDtoCollectionQueryParameters *ItemRetainSampleDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemRetainSamplesAsyncRequest) TenantId(tenantId string) ApiGetItemRetainSamplesAsyncRequest {
@@ -474,6 +475,11 @@ func (r ApiGetItemRetainSamplesAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetItemRetainSamplesAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemRetainSamplesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemRetainSamplesAsyncRequest) ItemRetainSampleDtoCollectionQueryParameters(itemRetainSampleDtoCollectionQueryParameters ItemRetainSampleDtoCollectionQueryParameters) ApiGetItemRetainSamplesAsyncRequest {
+	r.itemRetainSampleDtoCollectionQueryParameters = &itemRetainSampleDtoCollectionQueryParameters
 	return r
 }
 
@@ -525,7 +531,7 @@ func (a *ItemRetainSamplesAPIService) GetItemRetainSamplesAsyncExecute(r ApiGetI
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -544,6 +550,8 @@ func (a *ItemRetainSamplesAPIService) GetItemRetainSamplesAsyncExecute(r ApiGetI
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemRetainSampleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetItemRetainSamplesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemRetainSampleDtoCollectionQueryParameters *ItemRetainSampleDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemRetainSamplesCountAsyncRequest) TenantId(tenantId string) ApiGetItemRetainSamplesCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetItemRetainSamplesCountAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetItemRetainSamplesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemRetainSamplesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemRetainSamplesCountAsyncRequest) ItemRetainSampleDtoCollectionQueryParameters(itemRetainSampleDtoCollectionQueryParameters ItemRetainSampleDtoCollectionQueryParameters) ApiGetItemRetainSamplesCountAsyncRequest {
+	r.itemRetainSampleDtoCollectionQueryParameters = &itemRetainSampleDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *ItemRetainSamplesAPIService) GetItemRetainSamplesCountAsyncExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *ItemRetainSamplesAPIService) GetItemRetainSamplesCountAsyncExecute(r Ap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemRetainSampleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -737,7 +753,7 @@ type ApiPatchItemRetainSampleAsyncRequest struct {
 	retainSampleId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemRetainSampleAsyncRequest) TenantId(tenantId string) ApiPatchItemRetainSampleAsyncRequest {
@@ -755,8 +771,8 @@ func (r ApiPatchItemRetainSampleAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchItemRetainSampleAsyncRequest) Operation(operation []Operation) ApiPatchItemRetainSampleAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemRetainSampleAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemRetainSampleAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -831,7 +847,7 @@ func (a *ItemRetainSamplesAPIService) PatchItemRetainSampleAsyncExecute(r ApiPat
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

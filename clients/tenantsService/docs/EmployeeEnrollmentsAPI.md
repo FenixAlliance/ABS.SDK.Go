@@ -240,7 +240,7 @@ No authorization required
 
 ## GetTenantEmployeeEnrollments
 
-> TenantTeamEmployeeEnrollmentDtoListEnvelope GetTenantEmployeeEnrollments(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TenantTeamEmployeeEnrollmentDtoListEnvelope GetTenantEmployeeEnrollments(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters(tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of tenant employee enrollments
 
@@ -262,10 +262,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters := *openapiclient.NewTenantTeamEmployeeEnrollmentDtoCollectionQueryParameters() // TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmployeeEnrollmentsAPI.GetTenantEmployeeEnrollments(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.EmployeeEnrollmentsAPI.GetTenantEmployeeEnrollments(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters(tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmployeeEnrollmentsAPI.GetTenantEmployeeEnrollments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -289,6 +290,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters** | [**TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters**](TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -300,7 +302,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -310,7 +312,7 @@ No authorization required
 
 ## GetTenantEmployeeEnrollmentsCount
 
-> Int32Envelope GetTenantEmployeeEnrollmentsCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetTenantEmployeeEnrollmentsCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters(tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters).Execute()
 
 Get the count of tenant employee enrollments
 
@@ -332,10 +334,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters := *openapiclient.NewTenantTeamEmployeeEnrollmentDtoCollectionQueryParameters() // TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmployeeEnrollmentsAPI.GetTenantEmployeeEnrollmentsCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.EmployeeEnrollmentsAPI.GetTenantEmployeeEnrollmentsCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters(tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmployeeEnrollmentsAPI.GetTenantEmployeeEnrollmentsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -359,6 +362,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **tenantTeamEmployeeEnrollmentDtoCollectionQueryParameters** | [**TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters**](TenantTeamEmployeeEnrollmentDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -370,7 +374,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -380,7 +384,7 @@ No authorization required
 
 ## PatchTenantEmployeeEnrollmentAsync
 
-> EmptyEnvelope PatchTenantEmployeeEnrollmentAsync(ctx, tenantEmployeeEnrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchTenantEmployeeEnrollmentAsync(ctx, tenantEmployeeEnrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a tenant employee enrollment
 
@@ -403,11 +407,11 @@ func main() {
 	tenantEmployeeEnrollmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EmployeeEnrollmentsAPI.PatchTenantEmployeeEnrollmentAsync(context.Background(), tenantEmployeeEnrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.EmployeeEnrollmentsAPI.PatchTenantEmployeeEnrollmentAsync(context.Background(), tenantEmployeeEnrollmentId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EmployeeEnrollmentsAPI.PatchTenantEmployeeEnrollmentAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -436,7 +440,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

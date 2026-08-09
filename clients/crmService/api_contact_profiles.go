@@ -471,6 +471,7 @@ type ApiGetContactProfilesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	contactProfileDtoCollectionQueryParameters *ContactProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetContactProfilesAsyncRequest) TenantId(tenantId string) ApiGetContactProfilesAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetContactProfilesAsyncRequest) ApiVersion(apiVersion string) ApiGetC
 
 func (r ApiGetContactProfilesAsyncRequest) XApiVersion(xApiVersion string) ApiGetContactProfilesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetContactProfilesAsyncRequest) ContactProfileDtoCollectionQueryParameters(contactProfileDtoCollectionQueryParameters ContactProfileDtoCollectionQueryParameters) ApiGetContactProfilesAsyncRequest {
+	r.contactProfileDtoCollectionQueryParameters = &contactProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *ContactProfilesAPIService) GetContactProfilesAsyncExecute(r ApiGetConta
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *ContactProfilesAPIService) GetContactProfilesAsyncExecute(r ApiGetConta
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.contactProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetContactProfilesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	contactProfileDtoCollectionQueryParameters *ContactProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetContactProfilesCountAsyncRequest) TenantId(tenantId string) ApiGetContactProfilesCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetContactProfilesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetContactProfilesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetContactProfilesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetContactProfilesCountAsyncRequest) ContactProfileDtoCollectionQueryParameters(contactProfileDtoCollectionQueryParameters ContactProfileDtoCollectionQueryParameters) ApiGetContactProfilesCountAsyncRequest {
+	r.contactProfileDtoCollectionQueryParameters = &contactProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *ContactProfilesAPIService) GetContactProfilesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *ContactProfilesAPIService) GetContactProfilesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.contactProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -747,6 +763,7 @@ type ApiGetPartnerProfilesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	contactProfileDtoCollectionQueryParameters *ContactProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetPartnerProfilesCountAsyncRequest) TenantId(tenantId string) ApiGetPartnerProfilesCountAsyncRequest {
@@ -761,6 +778,11 @@ func (r ApiGetPartnerProfilesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetPartnerProfilesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetPartnerProfilesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPartnerProfilesCountAsyncRequest) ContactProfileDtoCollectionQueryParameters(contactProfileDtoCollectionQueryParameters ContactProfileDtoCollectionQueryParameters) ApiGetPartnerProfilesCountAsyncRequest {
+	r.contactProfileDtoCollectionQueryParameters = &contactProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -812,7 +834,7 @@ func (a *ContactProfilesAPIService) GetPartnerProfilesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -831,6 +853,8 @@ func (a *ContactProfilesAPIService) GetPartnerProfilesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.contactProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -885,6 +909,7 @@ type ApiGetPatientProfilesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	contactProfileDtoCollectionQueryParameters *ContactProfileDtoCollectionQueryParameters
 }
 
 func (r ApiGetPatientProfilesCountAsyncRequest) TenantId(tenantId string) ApiGetPatientProfilesCountAsyncRequest {
@@ -899,6 +924,11 @@ func (r ApiGetPatientProfilesCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetPatientProfilesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetPatientProfilesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPatientProfilesCountAsyncRequest) ContactProfileDtoCollectionQueryParameters(contactProfileDtoCollectionQueryParameters ContactProfileDtoCollectionQueryParameters) ApiGetPatientProfilesCountAsyncRequest {
+	r.contactProfileDtoCollectionQueryParameters = &contactProfileDtoCollectionQueryParameters
 	return r
 }
 
@@ -950,7 +980,7 @@ func (a *ContactProfilesAPIService) GetPatientProfilesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -969,6 +999,8 @@ func (a *ContactProfilesAPIService) GetPatientProfilesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.contactProfileDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1024,7 +1056,7 @@ type ApiPatchContactProfileAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchContactProfileAsyncRequest) TenantId(tenantId string) ApiPatchContactProfileAsyncRequest {
@@ -1042,8 +1074,8 @@ func (r ApiPatchContactProfileAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchContactProfileAsyncRequest) Operation(operation []Operation) ApiPatchContactProfileAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchContactProfileAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchContactProfileAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1118,7 +1150,7 @@ func (a *ContactProfilesAPIService) PatchContactProfileAsyncExecute(r ApiPatchCo
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

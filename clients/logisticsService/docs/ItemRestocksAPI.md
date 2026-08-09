@@ -404,7 +404,7 @@ No authorization required
 
 ## GetItemRestockEntriesAsync
 
-> ItemRestockEntryDtoListEnvelope GetItemRestockEntriesAsync(ctx, restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemRestockEntryDtoListEnvelope GetItemRestockEntriesAsync(ctx, restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemRestockEntryDtoCollectionQueryParameters(itemRestockEntryDtoCollectionQueryParameters).Execute()
 
 Get restock entries
 
@@ -427,10 +427,11 @@ func main() {
 	restockId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemRestockEntryDtoCollectionQueryParameters := *openapiclient.NewItemRestockEntryDtoCollectionQueryParameters() // ItemRestockEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemRestocksAPI.GetItemRestockEntriesAsync(context.Background(), restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemRestocksAPI.GetItemRestockEntriesAsync(context.Background(), restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemRestockEntryDtoCollectionQueryParameters(itemRestockEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemRestocksAPI.GetItemRestockEntriesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -459,6 +460,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemRestockEntryDtoCollectionQueryParameters** | [**ItemRestockEntryDtoCollectionQueryParameters**](ItemRestockEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -470,7 +472,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -480,7 +482,7 @@ No authorization required
 
 ## GetItemRestockEntriesCountAsync
 
-> Int32Envelope GetItemRestockEntriesCountAsync(ctx, restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetItemRestockEntriesCountAsync(ctx, restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemRestockEntryDtoCollectionQueryParameters(itemRestockEntryDtoCollectionQueryParameters).Execute()
 
 Get restock entries count
 
@@ -503,10 +505,11 @@ func main() {
 	restockId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemRestockEntryDtoCollectionQueryParameters := *openapiclient.NewItemRestockEntryDtoCollectionQueryParameters() // ItemRestockEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemRestocksAPI.GetItemRestockEntriesCountAsync(context.Background(), restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemRestocksAPI.GetItemRestockEntriesCountAsync(context.Background(), restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemRestockEntryDtoCollectionQueryParameters(itemRestockEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemRestocksAPI.GetItemRestockEntriesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -535,6 +538,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemRestockEntryDtoCollectionQueryParameters** | [**ItemRestockEntryDtoCollectionQueryParameters**](ItemRestockEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -546,7 +550,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -635,7 +639,7 @@ No authorization required
 
 ## GetItemRestocksAsync
 
-> ItemRestockDtoListEnvelope GetItemRestocksAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemRestockDtoListEnvelope GetItemRestocksAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemRestockDtoCollectionQueryParameters(itemRestockDtoCollectionQueryParameters).Execute()
 
 Get all item restocks
 
@@ -657,10 +661,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemRestockDtoCollectionQueryParameters := *openapiclient.NewItemRestockDtoCollectionQueryParameters() // ItemRestockDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemRestocksAPI.GetItemRestocksAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemRestocksAPI.GetItemRestocksAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemRestockDtoCollectionQueryParameters(itemRestockDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemRestocksAPI.GetItemRestocksAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -684,6 +689,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemRestockDtoCollectionQueryParameters** | [**ItemRestockDtoCollectionQueryParameters**](ItemRestockDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -695,7 +701,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -705,7 +711,7 @@ No authorization required
 
 ## GetItemRestocksCountAsync
 
-> Int32Envelope GetItemRestocksCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetItemRestocksCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemRestockDtoCollectionQueryParameters(itemRestockDtoCollectionQueryParameters).Execute()
 
 Get item restocks count
 
@@ -727,10 +733,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemRestockDtoCollectionQueryParameters := *openapiclient.NewItemRestockDtoCollectionQueryParameters() // ItemRestockDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemRestocksAPI.GetItemRestocksCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemRestocksAPI.GetItemRestocksCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemRestockDtoCollectionQueryParameters(itemRestockDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemRestocksAPI.GetItemRestocksCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -754,6 +761,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemRestockDtoCollectionQueryParameters** | [**ItemRestockDtoCollectionQueryParameters**](ItemRestockDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -765,7 +773,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -775,7 +783,7 @@ No authorization required
 
 ## PatchItemRestockAsync
 
-> EmptyEnvelope PatchItemRestockAsync(ctx, restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchItemRestockAsync(ctx, restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an item restock
 
@@ -798,11 +806,11 @@ func main() {
 	restockId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemRestocksAPI.PatchItemRestockAsync(context.Background(), restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ItemRestocksAPI.PatchItemRestockAsync(context.Background(), restockId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemRestocksAPI.PatchItemRestockAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -831,7 +839,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -853,7 +861,7 @@ No authorization required
 
 ## PatchItemRestockEntryAsync
 
-> EmptyEnvelope PatchItemRestockEntryAsync(ctx, restockId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchItemRestockEntryAsync(ctx, restockId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a restock entry
 
@@ -877,11 +885,11 @@ func main() {
 	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemRestocksAPI.PatchItemRestockEntryAsync(context.Background(), restockId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ItemRestocksAPI.PatchItemRestockEntryAsync(context.Background(), restockId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemRestocksAPI.PatchItemRestockEntryAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -912,7 +920,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

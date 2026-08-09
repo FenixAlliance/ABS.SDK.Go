@@ -499,6 +499,7 @@ type ApiGetInvoiceEnumerationRangesRequest struct {
 	authorityId string
 	apiVersion *string
 	xApiVersion *string
+	invoiceEnumerationRangeDtoCollectionQueryParameters *InvoiceEnumerationRangeDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceEnumerationRangesRequest) TenantId(tenantId string) ApiGetInvoiceEnumerationRangesRequest {
@@ -518,6 +519,11 @@ func (r ApiGetInvoiceEnumerationRangesRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetInvoiceEnumerationRangesRequest) XApiVersion(xApiVersion string) ApiGetInvoiceEnumerationRangesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetInvoiceEnumerationRangesRequest) InvoiceEnumerationRangeDtoCollectionQueryParameters(invoiceEnumerationRangeDtoCollectionQueryParameters InvoiceEnumerationRangeDtoCollectionQueryParameters) ApiGetInvoiceEnumerationRangesRequest {
+	r.invoiceEnumerationRangeDtoCollectionQueryParameters = &invoiceEnumerationRangeDtoCollectionQueryParameters
 	return r
 }
 
@@ -576,7 +582,7 @@ func (a *FiscalEnumerationRangesAPIService) GetInvoiceEnumerationRangesExecute(r
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -595,6 +601,8 @@ func (a *FiscalEnumerationRangesAPIService) GetInvoiceEnumerationRangesExecute(r
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.invoiceEnumerationRangeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -661,6 +669,7 @@ type ApiGetInvoiceEnumerationRangesCountRequest struct {
 	fiscalAuthorityId string
 	apiVersion *string
 	xApiVersion *string
+	invoiceEnumerationRangeDtoCollectionQueryParameters *InvoiceEnumerationRangeDtoCollectionQueryParameters
 }
 
 func (r ApiGetInvoiceEnumerationRangesCountRequest) TenantId(tenantId string) ApiGetInvoiceEnumerationRangesCountRequest {
@@ -675,6 +684,11 @@ func (r ApiGetInvoiceEnumerationRangesCountRequest) ApiVersion(apiVersion string
 
 func (r ApiGetInvoiceEnumerationRangesCountRequest) XApiVersion(xApiVersion string) ApiGetInvoiceEnumerationRangesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetInvoiceEnumerationRangesCountRequest) InvoiceEnumerationRangeDtoCollectionQueryParameters(invoiceEnumerationRangeDtoCollectionQueryParameters InvoiceEnumerationRangeDtoCollectionQueryParameters) ApiGetInvoiceEnumerationRangesCountRequest {
+	r.invoiceEnumerationRangeDtoCollectionQueryParameters = &invoiceEnumerationRangeDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *FiscalEnumerationRangesAPIService) GetInvoiceEnumerationRangesCountExec
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *FiscalEnumerationRangesAPIService) GetInvoiceEnumerationRangesCountExec
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.invoiceEnumerationRangeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchFiscalEnumerationRangeAsyncRequest struct {
 	enumerationRangeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchFiscalEnumerationRangeAsyncRequest) TenantId(tenantId string) ApiPatchFiscalEnumerationRangeAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchFiscalEnumerationRangeAsyncRequest) XApiVersion(xApiVersion stri
 	return r
 }
 
-func (r ApiPatchFiscalEnumerationRangeAsyncRequest) Operation(operation []Operation) ApiPatchFiscalEnumerationRangeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchFiscalEnumerationRangeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchFiscalEnumerationRangeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *FiscalEnumerationRangesAPIService) PatchFiscalEnumerationRangeAsyncExec
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

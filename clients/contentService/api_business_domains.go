@@ -507,6 +507,7 @@ type ApiGetBusinessDomainsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	businessDomainDtoCollectionQueryParameters *BusinessDomainDtoCollectionQueryParameters
 }
 
 func (r ApiGetBusinessDomainsAsyncRequest) TenantId(tenantId string) ApiGetBusinessDomainsAsyncRequest {
@@ -521,6 +522,11 @@ func (r ApiGetBusinessDomainsAsyncRequest) ApiVersion(apiVersion string) ApiGetB
 
 func (r ApiGetBusinessDomainsAsyncRequest) XApiVersion(xApiVersion string) ApiGetBusinessDomainsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBusinessDomainsAsyncRequest) BusinessDomainDtoCollectionQueryParameters(businessDomainDtoCollectionQueryParameters BusinessDomainDtoCollectionQueryParameters) ApiGetBusinessDomainsAsyncRequest {
+	r.businessDomainDtoCollectionQueryParameters = &businessDomainDtoCollectionQueryParameters
 	return r
 }
 
@@ -572,7 +578,7 @@ func (a *BusinessDomainsAPIService) GetBusinessDomainsAsyncExecute(r ApiGetBusin
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -591,6 +597,8 @@ func (a *BusinessDomainsAPIService) GetBusinessDomainsAsyncExecute(r ApiGetBusin
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.businessDomainDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -656,6 +664,7 @@ type ApiGetBusinessDomainsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	businessDomainDtoCollectionQueryParameters *BusinessDomainDtoCollectionQueryParameters
 }
 
 func (r ApiGetBusinessDomainsCountAsyncRequest) TenantId(tenantId string) ApiGetBusinessDomainsCountAsyncRequest {
@@ -670,6 +679,11 @@ func (r ApiGetBusinessDomainsCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetBusinessDomainsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetBusinessDomainsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBusinessDomainsCountAsyncRequest) BusinessDomainDtoCollectionQueryParameters(businessDomainDtoCollectionQueryParameters BusinessDomainDtoCollectionQueryParameters) ApiGetBusinessDomainsCountAsyncRequest {
+	r.businessDomainDtoCollectionQueryParameters = &businessDomainDtoCollectionQueryParameters
 	return r
 }
 
@@ -721,7 +735,7 @@ func (a *BusinessDomainsAPIService) GetBusinessDomainsCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -740,6 +754,8 @@ func (a *BusinessDomainsAPIService) GetBusinessDomainsCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.businessDomainDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

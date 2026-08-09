@@ -493,6 +493,7 @@ type ApiGetTenantSegmentsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantSegmentDtoCollectionQueryParameters *TenantSegmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantSegmentsRequest) TenantId(tenantId string) ApiGetTenantSegmentsRequest {
@@ -507,6 +508,11 @@ func (r ApiGetTenantSegmentsRequest) ApiVersion(apiVersion string) ApiGetTenantS
 
 func (r ApiGetTenantSegmentsRequest) XApiVersion(xApiVersion string) ApiGetTenantSegmentsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantSegmentsRequest) TenantSegmentDtoCollectionQueryParameters(tenantSegmentDtoCollectionQueryParameters TenantSegmentDtoCollectionQueryParameters) ApiGetTenantSegmentsRequest {
+	r.tenantSegmentDtoCollectionQueryParameters = &tenantSegmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -558,7 +564,7 @@ func (a *SegmentsAPIService) GetTenantSegmentsExecute(r ApiGetTenantSegmentsRequ
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -577,6 +583,8 @@ func (a *SegmentsAPIService) GetTenantSegmentsExecute(r ApiGetTenantSegmentsRequ
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantSegmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetTenantSegmentsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantSegmentDtoCollectionQueryParameters *TenantSegmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantSegmentsCountRequest) TenantId(tenantId string) ApiGetTenantSegmentsCountRequest {
@@ -656,6 +665,11 @@ func (r ApiGetTenantSegmentsCountRequest) ApiVersion(apiVersion string) ApiGetTe
 
 func (r ApiGetTenantSegmentsCountRequest) XApiVersion(xApiVersion string) ApiGetTenantSegmentsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantSegmentsCountRequest) TenantSegmentDtoCollectionQueryParameters(tenantSegmentDtoCollectionQueryParameters TenantSegmentDtoCollectionQueryParameters) ApiGetTenantSegmentsCountRequest {
+	r.tenantSegmentDtoCollectionQueryParameters = &tenantSegmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *SegmentsAPIService) GetTenantSegmentsCountExecute(r ApiGetTenantSegment
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *SegmentsAPIService) GetTenantSegmentsCountExecute(r ApiGetTenantSegment
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantSegmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchTenantSegmentRequest struct {
 	tenantSegmentId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTenantSegmentRequest) TenantId(tenantId string) ApiPatchTenantSegmentRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchTenantSegmentRequest) XApiVersion(xApiVersion string) ApiPatchTe
 	return r
 }
 
-func (r ApiPatchTenantSegmentRequest) Operation(operation []Operation) ApiPatchTenantSegmentRequest {
-	r.operation = &operation
+func (r ApiPatchTenantSegmentRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTenantSegmentRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *SegmentsAPIService) PatchTenantSegmentExecute(r ApiPatchTenantSegmentRe
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

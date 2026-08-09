@@ -472,6 +472,7 @@ type ApiGetSigningCertificatesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	signingCertificateDtoCollectionQueryParameters *SigningCertificateDtoCollectionQueryParameters
 }
 
 func (r ApiGetSigningCertificatesAsyncRequest) TenantId(tenantId string) ApiGetSigningCertificatesAsyncRequest {
@@ -486,6 +487,11 @@ func (r ApiGetSigningCertificatesAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetSigningCertificatesAsyncRequest) XApiVersion(xApiVersion string) ApiGetSigningCertificatesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSigningCertificatesAsyncRequest) SigningCertificateDtoCollectionQueryParameters(signingCertificateDtoCollectionQueryParameters SigningCertificateDtoCollectionQueryParameters) ApiGetSigningCertificatesAsyncRequest {
+	r.signingCertificateDtoCollectionQueryParameters = &signingCertificateDtoCollectionQueryParameters
 	return r
 }
 
@@ -537,7 +543,7 @@ func (a *SigningCertificatesAPIService) GetSigningCertificatesAsyncExecute(r Api
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -556,6 +562,8 @@ func (a *SigningCertificatesAPIService) GetSigningCertificatesAsyncExecute(r Api
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.signingCertificateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -610,6 +618,7 @@ type ApiGetSigningCertificatesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	signingCertificateDtoCollectionQueryParameters *SigningCertificateDtoCollectionQueryParameters
 }
 
 func (r ApiGetSigningCertificatesCountAsyncRequest) TenantId(tenantId string) ApiGetSigningCertificatesCountAsyncRequest {
@@ -624,6 +633,11 @@ func (r ApiGetSigningCertificatesCountAsyncRequest) ApiVersion(apiVersion string
 
 func (r ApiGetSigningCertificatesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSigningCertificatesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSigningCertificatesCountAsyncRequest) SigningCertificateDtoCollectionQueryParameters(signingCertificateDtoCollectionQueryParameters SigningCertificateDtoCollectionQueryParameters) ApiGetSigningCertificatesCountAsyncRequest {
+	r.signingCertificateDtoCollectionQueryParameters = &signingCertificateDtoCollectionQueryParameters
 	return r
 }
 
@@ -675,7 +689,7 @@ func (a *SigningCertificatesAPIService) GetSigningCertificatesCountAsyncExecute(
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -694,6 +708,8 @@ func (a *SigningCertificatesAPIService) GetSigningCertificatesCountAsyncExecute(
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.signingCertificateDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -944,7 +960,7 @@ type ApiPatchSigningCertificateAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSigningCertificateAsyncRequest) TenantId(tenantId string) ApiPatchSigningCertificateAsyncRequest {
@@ -962,8 +978,8 @@ func (r ApiPatchSigningCertificateAsyncRequest) XApiVersion(xApiVersion string) 
 	return r
 }
 
-func (r ApiPatchSigningCertificateAsyncRequest) Operation(operation []Operation) ApiPatchSigningCertificateAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSigningCertificateAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSigningCertificateAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1038,7 +1054,7 @@ func (a *SigningCertificatesAPIService) PatchSigningCertificateAsyncExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

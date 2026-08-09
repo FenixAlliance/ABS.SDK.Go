@@ -25,6 +25,9 @@ type MarketingAreaDtoEnvelope struct {
 	ErrorMessage NullableString `json:"errorMessage,omitempty"`
 	CorrelationId NullableString `json:"correlationId,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
+	HttpStatus NullableInt32 `json:"httpStatus,omitempty"`
+	ErrorCode NullableString `json:"errorCode,omitempty"`
+	ValidationDetails map[string][]string `json:"validationDetails,omitempty"`
 	ActivityId NullableString `json:"activityId,omitempty"`
 	Result *MarketingAreaDto `json:"result,omitempty"`
 }
@@ -194,6 +197,123 @@ func (o *MarketingAreaDtoEnvelope) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
+// GetHttpStatus returns the HttpStatus field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MarketingAreaDtoEnvelope) GetHttpStatus() int32 {
+	if o == nil || IsNil(o.HttpStatus.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.HttpStatus.Get()
+}
+
+// GetHttpStatusOk returns a tuple with the HttpStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MarketingAreaDtoEnvelope) GetHttpStatusOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HttpStatus.Get(), o.HttpStatus.IsSet()
+}
+
+// HasHttpStatus returns a boolean if a field has been set.
+func (o *MarketingAreaDtoEnvelope) HasHttpStatus() bool {
+	if o != nil && o.HttpStatus.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHttpStatus gets a reference to the given NullableInt32 and assigns it to the HttpStatus field.
+func (o *MarketingAreaDtoEnvelope) SetHttpStatus(v int32) {
+	o.HttpStatus.Set(&v)
+}
+// SetHttpStatusNil sets the value for HttpStatus to be an explicit nil
+func (o *MarketingAreaDtoEnvelope) SetHttpStatusNil() {
+	o.HttpStatus.Set(nil)
+}
+
+// UnsetHttpStatus ensures that no value is present for HttpStatus, not even an explicit nil
+func (o *MarketingAreaDtoEnvelope) UnsetHttpStatus() {
+	o.HttpStatus.Unset()
+}
+
+// GetErrorCode returns the ErrorCode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MarketingAreaDtoEnvelope) GetErrorCode() string {
+	if o == nil || IsNil(o.ErrorCode.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ErrorCode.Get()
+}
+
+// GetErrorCodeOk returns a tuple with the ErrorCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MarketingAreaDtoEnvelope) GetErrorCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ErrorCode.Get(), o.ErrorCode.IsSet()
+}
+
+// HasErrorCode returns a boolean if a field has been set.
+func (o *MarketingAreaDtoEnvelope) HasErrorCode() bool {
+	if o != nil && o.ErrorCode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorCode gets a reference to the given NullableString and assigns it to the ErrorCode field.
+func (o *MarketingAreaDtoEnvelope) SetErrorCode(v string) {
+	o.ErrorCode.Set(&v)
+}
+// SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
+func (o *MarketingAreaDtoEnvelope) SetErrorCodeNil() {
+	o.ErrorCode.Set(nil)
+}
+
+// UnsetErrorCode ensures that no value is present for ErrorCode, not even an explicit nil
+func (o *MarketingAreaDtoEnvelope) UnsetErrorCode() {
+	o.ErrorCode.Unset()
+}
+
+// GetValidationDetails returns the ValidationDetails field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MarketingAreaDtoEnvelope) GetValidationDetails() map[string][]string {
+	if o == nil {
+		var ret map[string][]string
+		return ret
+	}
+	return o.ValidationDetails
+}
+
+// GetValidationDetailsOk returns a tuple with the ValidationDetails field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MarketingAreaDtoEnvelope) GetValidationDetailsOk() (*map[string][]string, bool) {
+	if o == nil || IsNil(o.ValidationDetails) {
+		return nil, false
+	}
+	return &o.ValidationDetails, true
+}
+
+// HasValidationDetails returns a boolean if a field has been set.
+func (o *MarketingAreaDtoEnvelope) HasValidationDetails() bool {
+	if o != nil && !IsNil(o.ValidationDetails) {
+		return true
+	}
+
+	return false
+}
+
+// SetValidationDetails gets a reference to the given map[string][]string and assigns it to the ValidationDetails field.
+func (o *MarketingAreaDtoEnvelope) SetValidationDetails(v map[string][]string) {
+	o.ValidationDetails = v
+}
+
 // GetActivityId returns the ActivityId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MarketingAreaDtoEnvelope) GetActivityId() string {
 	if o == nil || IsNil(o.ActivityId.Get()) {
@@ -289,6 +409,15 @@ func (o MarketingAreaDtoEnvelope) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
+	}
+	if o.HttpStatus.IsSet() {
+		toSerialize["httpStatus"] = o.HttpStatus.Get()
+	}
+	if o.ErrorCode.IsSet() {
+		toSerialize["errorCode"] = o.ErrorCode.Get()
+	}
+	if o.ValidationDetails != nil {
+		toSerialize["validationDetails"] = o.ValidationDetails
 	}
 	if o.ActivityId.IsSet() {
 		toSerialize["activityId"] = o.ActivityId.Get()

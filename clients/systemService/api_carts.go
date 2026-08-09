@@ -315,6 +315,7 @@ type ApiGetSystemCartsRequest struct {
 	ApiService *CartsAPIService
 	apiVersion *string
 	xApiVersion *string
+	cartDtoCollectionQueryParameters *CartDtoCollectionQueryParameters
 }
 
 func (r ApiGetSystemCartsRequest) ApiVersion(apiVersion string) ApiGetSystemCartsRequest {
@@ -324,6 +325,11 @@ func (r ApiGetSystemCartsRequest) ApiVersion(apiVersion string) ApiGetSystemCart
 
 func (r ApiGetSystemCartsRequest) XApiVersion(xApiVersion string) ApiGetSystemCartsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSystemCartsRequest) CartDtoCollectionQueryParameters(cartDtoCollectionQueryParameters CartDtoCollectionQueryParameters) ApiGetSystemCartsRequest {
+	r.cartDtoCollectionQueryParameters = &cartDtoCollectionQueryParameters
 	return r
 }
 
@@ -371,7 +377,7 @@ func (a *CartsAPIService) GetSystemCartsExecute(r ApiGetSystemCartsRequest) (*Ca
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -390,6 +396,8 @@ func (a *CartsAPIService) GetSystemCartsExecute(r ApiGetSystemCartsRequest) (*Ca
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.cartDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -454,6 +462,7 @@ type ApiGetSystemCartsCountRequest struct {
 	ApiService *CartsAPIService
 	apiVersion *string
 	xApiVersion *string
+	cartDtoCollectionQueryParameters *CartDtoCollectionQueryParameters
 }
 
 func (r ApiGetSystemCartsCountRequest) ApiVersion(apiVersion string) ApiGetSystemCartsCountRequest {
@@ -463,6 +472,11 @@ func (r ApiGetSystemCartsCountRequest) ApiVersion(apiVersion string) ApiGetSyste
 
 func (r ApiGetSystemCartsCountRequest) XApiVersion(xApiVersion string) ApiGetSystemCartsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSystemCartsCountRequest) CartDtoCollectionQueryParameters(cartDtoCollectionQueryParameters CartDtoCollectionQueryParameters) ApiGetSystemCartsCountRequest {
+	r.cartDtoCollectionQueryParameters = &cartDtoCollectionQueryParameters
 	return r
 }
 
@@ -501,6 +515,147 @@ func (a *CartsAPIService) GetSystemCartsCountExecute(r ApiGetSystemCartsCountReq
 	}
 
 	localVarPath := localBasePath + "/api/v2/SystemService/Carts/Count"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.apiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiVersion != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.cartDtoCollectionQueryParameters
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorEnvelope
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPurgeSystemGuestCartsRequest struct {
+	ctx context.Context
+	ApiService *CartsAPIService
+	apiVersion *string
+	xApiVersion *string
+}
+
+func (r ApiPurgeSystemGuestCartsRequest) ApiVersion(apiVersion string) ApiPurgeSystemGuestCartsRequest {
+	r.apiVersion = &apiVersion
+	return r
+}
+
+func (r ApiPurgeSystemGuestCartsRequest) XApiVersion(xApiVersion string) ApiPurgeSystemGuestCartsRequest {
+	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiPurgeSystemGuestCartsRequest) Execute() (*GuestCartPurgeResultDtoEnvelope, *http.Response, error) {
+	return r.ApiService.PurgeSystemGuestCartsExecute(r)
+}
+
+/*
+PurgeSystemGuestCarts Purge all guest carts
+
+Deletes every guest cart, cascading its item cart records, compare records and wish lists, and returns the removed-row counts. Idempotent.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPurgeSystemGuestCartsRequest
+*/
+func (a *CartsAPIService) PurgeSystemGuestCarts(ctx context.Context) ApiPurgeSystemGuestCartsRequest {
+	return ApiPurgeSystemGuestCartsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GuestCartPurgeResultDtoEnvelope
+func (a *CartsAPIService) PurgeSystemGuestCartsExecute(r ApiPurgeSystemGuestCartsRequest) (*GuestCartPurgeResultDtoEnvelope, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GuestCartPurgeResultDtoEnvelope
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CartsAPIService.PurgeSystemGuestCarts")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/SystemService/Carts/Guests"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

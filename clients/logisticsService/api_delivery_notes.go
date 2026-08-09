@@ -460,6 +460,7 @@ type ApiGetDeliveryNotesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	deliveryNoteDtoCollectionQueryParameters *DeliveryNoteDtoCollectionQueryParameters
 }
 
 func (r ApiGetDeliveryNotesAsyncRequest) TenantId(tenantId string) ApiGetDeliveryNotesAsyncRequest {
@@ -474,6 +475,11 @@ func (r ApiGetDeliveryNotesAsyncRequest) ApiVersion(apiVersion string) ApiGetDel
 
 func (r ApiGetDeliveryNotesAsyncRequest) XApiVersion(xApiVersion string) ApiGetDeliveryNotesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetDeliveryNotesAsyncRequest) DeliveryNoteDtoCollectionQueryParameters(deliveryNoteDtoCollectionQueryParameters DeliveryNoteDtoCollectionQueryParameters) ApiGetDeliveryNotesAsyncRequest {
+	r.deliveryNoteDtoCollectionQueryParameters = &deliveryNoteDtoCollectionQueryParameters
 	return r
 }
 
@@ -525,7 +531,7 @@ func (a *DeliveryNotesAPIService) GetDeliveryNotesAsyncExecute(r ApiGetDeliveryN
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -544,6 +550,8 @@ func (a *DeliveryNotesAPIService) GetDeliveryNotesAsyncExecute(r ApiGetDeliveryN
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.deliveryNoteDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetDeliveryNotesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	deliveryNoteDtoCollectionQueryParameters *DeliveryNoteDtoCollectionQueryParameters
 }
 
 func (r ApiGetDeliveryNotesCountAsyncRequest) TenantId(tenantId string) ApiGetDeliveryNotesCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetDeliveryNotesCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetDeliveryNotesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetDeliveryNotesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetDeliveryNotesCountAsyncRequest) DeliveryNoteDtoCollectionQueryParameters(deliveryNoteDtoCollectionQueryParameters DeliveryNoteDtoCollectionQueryParameters) ApiGetDeliveryNotesCountAsyncRequest {
+	r.deliveryNoteDtoCollectionQueryParameters = &deliveryNoteDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *DeliveryNotesAPIService) GetDeliveryNotesCountAsyncExecute(r ApiGetDeli
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *DeliveryNotesAPIService) GetDeliveryNotesCountAsyncExecute(r ApiGetDeli
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.deliveryNoteDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

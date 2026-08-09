@@ -316,7 +316,7 @@ No authorization required
 
 ## GetTenantInvitations
 
-> TenantInvitationDtoListEnvelope GetTenantInvitations(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TenantInvitationDtoListEnvelope GetTenantInvitations(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantInvitationDtoCollectionQueryParameters(tenantInvitationDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of tenant invitations
 
@@ -338,10 +338,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	tenantInvitationDtoCollectionQueryParameters := *openapiclient.NewTenantInvitationDtoCollectionQueryParameters() // TenantInvitationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvitationsAPI.GetTenantInvitations(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.InvitationsAPI.GetTenantInvitations(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantInvitationDtoCollectionQueryParameters(tenantInvitationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvitationsAPI.GetTenantInvitations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -365,6 +366,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **tenantInvitationDtoCollectionQueryParameters** | [**TenantInvitationDtoCollectionQueryParameters**](TenantInvitationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -376,7 +378,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -386,7 +388,7 @@ No authorization required
 
 ## GetTenantInvitationsCount
 
-> Int32Envelope GetTenantInvitationsCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetTenantInvitationsCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantInvitationDtoCollectionQueryParameters(tenantInvitationDtoCollectionQueryParameters).Execute()
 
 Get the count of tenant invitations
 
@@ -408,10 +410,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	tenantInvitationDtoCollectionQueryParameters := *openapiclient.NewTenantInvitationDtoCollectionQueryParameters() // TenantInvitationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvitationsAPI.GetTenantInvitationsCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.InvitationsAPI.GetTenantInvitationsCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TenantInvitationDtoCollectionQueryParameters(tenantInvitationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvitationsAPI.GetTenantInvitationsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -435,6 +438,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **tenantInvitationDtoCollectionQueryParameters** | [**TenantInvitationDtoCollectionQueryParameters**](TenantInvitationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -446,7 +450,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

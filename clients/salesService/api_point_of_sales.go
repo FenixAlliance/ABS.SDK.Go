@@ -28,10 +28,16 @@ type ApiCountPointOfSalesAsyncRequest struct {
 	ctx context.Context
 	ApiService *PointOfSalesAPIService
 	tenantId *string
+	pointOfSaleDtoCollectionQueryParameters *PointOfSaleDtoCollectionQueryParameters
 }
 
 func (r ApiCountPointOfSalesAsyncRequest) TenantId(tenantId string) ApiCountPointOfSalesAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiCountPointOfSalesAsyncRequest) PointOfSaleDtoCollectionQueryParameters(pointOfSaleDtoCollectionQueryParameters PointOfSaleDtoCollectionQueryParameters) ApiCountPointOfSalesAsyncRequest {
+	r.pointOfSaleDtoCollectionQueryParameters = &pointOfSaleDtoCollectionQueryParameters
 	return r
 }
 
@@ -80,7 +86,7 @@ func (a *PointOfSalesAPIService) CountPointOfSalesAsyncExecute(r ApiCountPointOf
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -96,6 +102,8 @@ func (a *PointOfSalesAPIService) CountPointOfSalesAsyncExecute(r ApiCountPointOf
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.pointOfSaleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -524,10 +532,16 @@ type ApiGetPointOfSalesAsyncRequest struct {
 	ctx context.Context
 	ApiService *PointOfSalesAPIService
 	tenantId *string
+	pointOfSaleDtoCollectionQueryParameters *PointOfSaleDtoCollectionQueryParameters
 }
 
 func (r ApiGetPointOfSalesAsyncRequest) TenantId(tenantId string) ApiGetPointOfSalesAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetPointOfSalesAsyncRequest) PointOfSaleDtoCollectionQueryParameters(pointOfSaleDtoCollectionQueryParameters PointOfSaleDtoCollectionQueryParameters) ApiGetPointOfSalesAsyncRequest {
+	r.pointOfSaleDtoCollectionQueryParameters = &pointOfSaleDtoCollectionQueryParameters
 	return r
 }
 
@@ -576,7 +590,7 @@ func (a *PointOfSalesAPIService) GetPointOfSalesAsyncExecute(r ApiGetPointOfSale
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -592,6 +606,8 @@ func (a *PointOfSalesAPIService) GetPointOfSalesAsyncExecute(r ApiGetPointOfSale
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.pointOfSaleDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -645,7 +661,7 @@ type ApiPatchPointOfSaleAsyncRequest struct {
 	ApiService *PointOfSalesAPIService
 	tenantId *string
 	pointOfSaleId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchPointOfSaleAsyncRequest) TenantId(tenantId string) ApiPatchPointOfSaleAsyncRequest {
@@ -653,8 +669,8 @@ func (r ApiPatchPointOfSaleAsyncRequest) TenantId(tenantId string) ApiPatchPoint
 	return r
 }
 
-func (r ApiPatchPointOfSaleAsyncRequest) Operation(operation []Operation) ApiPatchPointOfSaleAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchPointOfSaleAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchPointOfSaleAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -723,7 +739,7 @@ func (a *PointOfSalesAPIService) PatchPointOfSaleAsyncExecute(r ApiPatchPointOfS
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

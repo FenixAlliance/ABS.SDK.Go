@@ -515,6 +515,7 @@ type ApiGetLeaveTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	leaveTypeDtoCollectionQueryParameters *LeaveTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetLeaveTypesAsyncRequest) TenantId(tenantId string) ApiGetLeaveTypesAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetLeaveTypesAsyncRequest) ApiVersion(apiVersion string) ApiGetLeaveT
 
 func (r ApiGetLeaveTypesAsyncRequest) XApiVersion(xApiVersion string) ApiGetLeaveTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLeaveTypesAsyncRequest) LeaveTypeDtoCollectionQueryParameters(leaveTypeDtoCollectionQueryParameters LeaveTypeDtoCollectionQueryParameters) ApiGetLeaveTypesAsyncRequest {
+	r.leaveTypeDtoCollectionQueryParameters = &leaveTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *LeaveTypesAPIService) GetLeaveTypesAsyncExecute(r ApiGetLeaveTypesAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *LeaveTypesAPIService) GetLeaveTypesAsyncExecute(r ApiGetLeaveTypesAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.leaveTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetLeaveTypesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	leaveTypeDtoCollectionQueryParameters *LeaveTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetLeaveTypesCountAsyncRequest) TenantId(tenantId string) ApiGetLeaveTypesCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetLeaveTypesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetL
 
 func (r ApiGetLeaveTypesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetLeaveTypesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLeaveTypesCountAsyncRequest) LeaveTypeDtoCollectionQueryParameters(leaveTypeDtoCollectionQueryParameters LeaveTypeDtoCollectionQueryParameters) ApiGetLeaveTypesCountAsyncRequest {
+	r.leaveTypeDtoCollectionQueryParameters = &leaveTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *LeaveTypesAPIService) GetLeaveTypesCountAsyncExecute(r ApiGetLeaveTypes
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *LeaveTypesAPIService) GetLeaveTypesCountAsyncExecute(r ApiGetLeaveTypes
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.leaveTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

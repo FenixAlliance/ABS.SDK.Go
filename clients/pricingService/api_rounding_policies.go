@@ -341,6 +341,7 @@ type ApiGetRoundingPoliciesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	roundingPolicyDtoCollectionQueryParameters *RoundingPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetRoundingPoliciesAsyncRequest) TenantId(tenantId string) ApiGetRoundingPoliciesAsyncRequest {
@@ -355,6 +356,11 @@ func (r ApiGetRoundingPoliciesAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetRoundingPoliciesAsyncRequest) XApiVersion(xApiVersion string) ApiGetRoundingPoliciesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRoundingPoliciesAsyncRequest) RoundingPolicyDtoCollectionQueryParameters(roundingPolicyDtoCollectionQueryParameters RoundingPolicyDtoCollectionQueryParameters) ApiGetRoundingPoliciesAsyncRequest {
+	r.roundingPolicyDtoCollectionQueryParameters = &roundingPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -406,7 +412,7 @@ func (a *RoundingPoliciesAPIService) GetRoundingPoliciesAsyncExecute(r ApiGetRou
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -425,6 +431,8 @@ func (a *RoundingPoliciesAPIService) GetRoundingPoliciesAsyncExecute(r ApiGetRou
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.roundingPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -489,6 +497,7 @@ type ApiGetRoundingPoliciesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	roundingPolicyDtoCollectionQueryParameters *RoundingPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetRoundingPoliciesCountAsyncRequest) TenantId(tenantId string) ApiGetRoundingPoliciesCountAsyncRequest {
@@ -503,6 +512,11 @@ func (r ApiGetRoundingPoliciesCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetRoundingPoliciesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetRoundingPoliciesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetRoundingPoliciesCountAsyncRequest) RoundingPolicyDtoCollectionQueryParameters(roundingPolicyDtoCollectionQueryParameters RoundingPolicyDtoCollectionQueryParameters) ApiGetRoundingPoliciesCountAsyncRequest {
+	r.roundingPolicyDtoCollectionQueryParameters = &roundingPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -554,7 +568,7 @@ func (a *RoundingPoliciesAPIService) GetRoundingPoliciesCountAsyncExecute(r ApiG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -573,6 +587,8 @@ func (a *RoundingPoliciesAPIService) GetRoundingPoliciesCountAsyncExecute(r ApiG
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.roundingPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -790,7 +806,7 @@ type ApiPatchRoundingPolicyAsyncRequest struct {
 	roundingPolicyId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchRoundingPolicyAsyncRequest) TenantId(tenantId string) ApiPatchRoundingPolicyAsyncRequest {
@@ -808,8 +824,8 @@ func (r ApiPatchRoundingPolicyAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchRoundingPolicyAsyncRequest) Operation(operation []Operation) ApiPatchRoundingPolicyAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchRoundingPolicyAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchRoundingPolicyAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -884,7 +900,7 @@ func (a *RoundingPoliciesAPIService) PatchRoundingPolicyAsyncExecute(r ApiPatchR
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -1337,6 +1337,7 @@ type ApiGetProofOfDeliveryLinesAsyncRequest struct {
 	podId string
 	apiVersion *string
 	xApiVersion *string
+	proofOfDeliveryLineDtoCollectionQueryParameters *ProofOfDeliveryLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetProofOfDeliveryLinesAsyncRequest) TenantId(tenantId string) ApiGetProofOfDeliveryLinesAsyncRequest {
@@ -1351,6 +1352,11 @@ func (r ApiGetProofOfDeliveryLinesAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetProofOfDeliveryLinesAsyncRequest) XApiVersion(xApiVersion string) ApiGetProofOfDeliveryLinesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProofOfDeliveryLinesAsyncRequest) ProofOfDeliveryLineDtoCollectionQueryParameters(proofOfDeliveryLineDtoCollectionQueryParameters ProofOfDeliveryLineDtoCollectionQueryParameters) ApiGetProofOfDeliveryLinesAsyncRequest {
+	r.proofOfDeliveryLineDtoCollectionQueryParameters = &proofOfDeliveryLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -1405,7 +1411,7 @@ func (a *ProofsOfDeliveryAPIService) GetProofOfDeliveryLinesAsyncExecute(r ApiGe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1424,6 +1430,8 @@ func (a *ProofsOfDeliveryAPIService) GetProofOfDeliveryLinesAsyncExecute(r ApiGe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.proofOfDeliveryLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1479,6 +1487,7 @@ type ApiGetProofOfDeliveryLinesCountAsyncRequest struct {
 	podId string
 	apiVersion *string
 	xApiVersion *string
+	proofOfDeliveryLineDtoCollectionQueryParameters *ProofOfDeliveryLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetProofOfDeliveryLinesCountAsyncRequest) TenantId(tenantId string) ApiGetProofOfDeliveryLinesCountAsyncRequest {
@@ -1493,6 +1502,11 @@ func (r ApiGetProofOfDeliveryLinesCountAsyncRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetProofOfDeliveryLinesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetProofOfDeliveryLinesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProofOfDeliveryLinesCountAsyncRequest) ProofOfDeliveryLineDtoCollectionQueryParameters(proofOfDeliveryLineDtoCollectionQueryParameters ProofOfDeliveryLineDtoCollectionQueryParameters) ApiGetProofOfDeliveryLinesCountAsyncRequest {
+	r.proofOfDeliveryLineDtoCollectionQueryParameters = &proofOfDeliveryLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -1547,7 +1561,7 @@ func (a *ProofsOfDeliveryAPIService) GetProofOfDeliveryLinesCountAsyncExecute(r 
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1566,6 +1580,8 @@ func (a *ProofsOfDeliveryAPIService) GetProofOfDeliveryLinesCountAsyncExecute(r 
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.proofOfDeliveryLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1620,6 +1636,7 @@ type ApiGetProofsOfDeliveryAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	proofOfDeliveryDtoCollectionQueryParameters *ProofOfDeliveryDtoCollectionQueryParameters
 }
 
 func (r ApiGetProofsOfDeliveryAsyncRequest) TenantId(tenantId string) ApiGetProofsOfDeliveryAsyncRequest {
@@ -1634,6 +1651,11 @@ func (r ApiGetProofsOfDeliveryAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetProofsOfDeliveryAsyncRequest) XApiVersion(xApiVersion string) ApiGetProofsOfDeliveryAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProofsOfDeliveryAsyncRequest) ProofOfDeliveryDtoCollectionQueryParameters(proofOfDeliveryDtoCollectionQueryParameters ProofOfDeliveryDtoCollectionQueryParameters) ApiGetProofsOfDeliveryAsyncRequest {
+	r.proofOfDeliveryDtoCollectionQueryParameters = &proofOfDeliveryDtoCollectionQueryParameters
 	return r
 }
 
@@ -1685,7 +1707,7 @@ func (a *ProofsOfDeliveryAPIService) GetProofsOfDeliveryAsyncExecute(r ApiGetPro
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1704,6 +1726,8 @@ func (a *ProofsOfDeliveryAPIService) GetProofsOfDeliveryAsyncExecute(r ApiGetPro
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.proofOfDeliveryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1769,6 +1793,7 @@ type ApiGetProofsOfDeliveryCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	proofOfDeliveryDtoCollectionQueryParameters *ProofOfDeliveryDtoCollectionQueryParameters
 }
 
 func (r ApiGetProofsOfDeliveryCountAsyncRequest) TenantId(tenantId string) ApiGetProofsOfDeliveryCountAsyncRequest {
@@ -1783,6 +1808,11 @@ func (r ApiGetProofsOfDeliveryCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetProofsOfDeliveryCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetProofsOfDeliveryCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProofsOfDeliveryCountAsyncRequest) ProofOfDeliveryDtoCollectionQueryParameters(proofOfDeliveryDtoCollectionQueryParameters ProofOfDeliveryDtoCollectionQueryParameters) ApiGetProofsOfDeliveryCountAsyncRequest {
+	r.proofOfDeliveryDtoCollectionQueryParameters = &proofOfDeliveryDtoCollectionQueryParameters
 	return r
 }
 
@@ -1834,7 +1864,7 @@ func (a *ProofsOfDeliveryAPIService) GetProofsOfDeliveryCountAsyncExecute(r ApiG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1853,6 +1883,8 @@ func (a *ProofsOfDeliveryAPIService) GetProofsOfDeliveryCountAsyncExecute(r ApiG
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.proofOfDeliveryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1908,7 +1940,7 @@ type ApiPatchProofOfDeliveryAsyncRequest struct {
 	podId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchProofOfDeliveryAsyncRequest) TenantId(tenantId string) ApiPatchProofOfDeliveryAsyncRequest {
@@ -1926,8 +1958,8 @@ func (r ApiPatchProofOfDeliveryAsyncRequest) XApiVersion(xApiVersion string) Api
 	return r
 }
 
-func (r ApiPatchProofOfDeliveryAsyncRequest) Operation(operation []Operation) ApiPatchProofOfDeliveryAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchProofOfDeliveryAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchProofOfDeliveryAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2002,7 +2034,7 @@ func (a *ProofsOfDeliveryAPIService) PatchProofOfDeliveryAsyncExecute(r ApiPatch
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2081,7 +2113,7 @@ type ApiPatchProofOfDeliveryLineAsyncRequest struct {
 	lineId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchProofOfDeliveryLineAsyncRequest) TenantId(tenantId string) ApiPatchProofOfDeliveryLineAsyncRequest {
@@ -2099,8 +2131,8 @@ func (r ApiPatchProofOfDeliveryLineAsyncRequest) XApiVersion(xApiVersion string)
 	return r
 }
 
-func (r ApiPatchProofOfDeliveryLineAsyncRequest) Operation(operation []Operation) ApiPatchProofOfDeliveryLineAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchProofOfDeliveryLineAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchProofOfDeliveryLineAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2178,7 +2210,7 @@ func (a *ProofsOfDeliveryAPIService) PatchProofOfDeliveryLineAsyncExecute(r ApiP
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

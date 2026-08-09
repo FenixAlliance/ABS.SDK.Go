@@ -340,6 +340,7 @@ type ApiGetSupportTicketPrioritiesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	supportTicketPriorityDtoCollectionQueryParameters *SupportTicketPriorityDtoCollectionQueryParameters
 }
 
 func (r ApiGetSupportTicketPrioritiesAsyncRequest) TenantId(tenantId string) ApiGetSupportTicketPrioritiesAsyncRequest {
@@ -354,6 +355,11 @@ func (r ApiGetSupportTicketPrioritiesAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetSupportTicketPrioritiesAsyncRequest) XApiVersion(xApiVersion string) ApiGetSupportTicketPrioritiesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSupportTicketPrioritiesAsyncRequest) SupportTicketPriorityDtoCollectionQueryParameters(supportTicketPriorityDtoCollectionQueryParameters SupportTicketPriorityDtoCollectionQueryParameters) ApiGetSupportTicketPrioritiesAsyncRequest {
+	r.supportTicketPriorityDtoCollectionQueryParameters = &supportTicketPriorityDtoCollectionQueryParameters
 	return r
 }
 
@@ -405,7 +411,7 @@ func (a *SupportTicketPrioritiesAPIService) GetSupportTicketPrioritiesAsyncExecu
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -424,6 +430,8 @@ func (a *SupportTicketPrioritiesAPIService) GetSupportTicketPrioritiesAsyncExecu
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.supportTicketPriorityDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -489,6 +497,7 @@ type ApiGetSupportTicketPrioritiesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	supportTicketPriorityDtoCollectionQueryParameters *SupportTicketPriorityDtoCollectionQueryParameters
 }
 
 func (r ApiGetSupportTicketPrioritiesCountAsyncRequest) TenantId(tenantId string) ApiGetSupportTicketPrioritiesCountAsyncRequest {
@@ -503,6 +512,11 @@ func (r ApiGetSupportTicketPrioritiesCountAsyncRequest) ApiVersion(apiVersion st
 
 func (r ApiGetSupportTicketPrioritiesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSupportTicketPrioritiesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSupportTicketPrioritiesCountAsyncRequest) SupportTicketPriorityDtoCollectionQueryParameters(supportTicketPriorityDtoCollectionQueryParameters SupportTicketPriorityDtoCollectionQueryParameters) ApiGetSupportTicketPrioritiesCountAsyncRequest {
+	r.supportTicketPriorityDtoCollectionQueryParameters = &supportTicketPriorityDtoCollectionQueryParameters
 	return r
 }
 
@@ -554,7 +568,7 @@ func (a *SupportTicketPrioritiesAPIService) GetSupportTicketPrioritiesCountAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -573,6 +587,8 @@ func (a *SupportTicketPrioritiesAPIService) GetSupportTicketPrioritiesCountAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.supportTicketPriorityDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchSupportTicketPriorityAsyncRequest struct {
 	supportTicketPriorityId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSupportTicketPriorityAsyncRequest) TenantId(tenantId string) ApiPatchSupportTicketPriorityAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchSupportTicketPriorityAsyncRequest) XApiVersion(xApiVersion strin
 	return r
 }
 
-func (r ApiPatchSupportTicketPriorityAsyncRequest) Operation(operation []Operation) ApiPatchSupportTicketPriorityAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSupportTicketPriorityAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSupportTicketPriorityAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *SupportTicketPrioritiesAPIService) PatchSupportTicketPriorityAsyncExecu
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

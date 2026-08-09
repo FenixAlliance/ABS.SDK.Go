@@ -793,10 +793,16 @@ type ApiGetDealUnitFlowStagesAsyncRequest struct {
 	ApiService *DealUnitFlowsAPIService
 	tenantId *string
 	dealUnitFlowId string
+	dealUnitFlowStageDtoCollectionQueryParameters *DealUnitFlowStageDtoCollectionQueryParameters
 }
 
 func (r ApiGetDealUnitFlowStagesAsyncRequest) TenantId(tenantId string) ApiGetDealUnitFlowStagesAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetDealUnitFlowStagesAsyncRequest) DealUnitFlowStageDtoCollectionQueryParameters(dealUnitFlowStageDtoCollectionQueryParameters DealUnitFlowStageDtoCollectionQueryParameters) ApiGetDealUnitFlowStagesAsyncRequest {
+	r.dealUnitFlowStageDtoCollectionQueryParameters = &dealUnitFlowStageDtoCollectionQueryParameters
 	return r
 }
 
@@ -848,7 +854,7 @@ func (a *DealUnitFlowsAPIService) GetDealUnitFlowStagesAsyncExecute(r ApiGetDeal
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -864,6 +870,8 @@ func (a *DealUnitFlowsAPIService) GetDealUnitFlowStagesAsyncExecute(r ApiGetDeal
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.dealUnitFlowStageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -917,10 +925,16 @@ type ApiGetDealUnitFlowStagesCountAsyncRequest struct {
 	ApiService *DealUnitFlowsAPIService
 	tenantId *string
 	dealUnitFlowId string
+	dealUnitFlowStageDtoCollectionQueryParameters *DealUnitFlowStageDtoCollectionQueryParameters
 }
 
 func (r ApiGetDealUnitFlowStagesCountAsyncRequest) TenantId(tenantId string) ApiGetDealUnitFlowStagesCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetDealUnitFlowStagesCountAsyncRequest) DealUnitFlowStageDtoCollectionQueryParameters(dealUnitFlowStageDtoCollectionQueryParameters DealUnitFlowStageDtoCollectionQueryParameters) ApiGetDealUnitFlowStagesCountAsyncRequest {
+	r.dealUnitFlowStageDtoCollectionQueryParameters = &dealUnitFlowStageDtoCollectionQueryParameters
 	return r
 }
 
@@ -972,7 +986,7 @@ func (a *DealUnitFlowsAPIService) GetDealUnitFlowStagesCountAsyncExecute(r ApiGe
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -988,6 +1002,8 @@ func (a *DealUnitFlowsAPIService) GetDealUnitFlowStagesCountAsyncExecute(r ApiGe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.dealUnitFlowStageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1040,10 +1056,16 @@ type ApiGetDealUnitFlowsAsyncRequest struct {
 	ctx context.Context
 	ApiService *DealUnitFlowsAPIService
 	tenantId *string
+	dealUnitFlowDtoCollectionQueryParameters *DealUnitFlowDtoCollectionQueryParameters
 }
 
 func (r ApiGetDealUnitFlowsAsyncRequest) TenantId(tenantId string) ApiGetDealUnitFlowsAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetDealUnitFlowsAsyncRequest) DealUnitFlowDtoCollectionQueryParameters(dealUnitFlowDtoCollectionQueryParameters DealUnitFlowDtoCollectionQueryParameters) ApiGetDealUnitFlowsAsyncRequest {
+	r.dealUnitFlowDtoCollectionQueryParameters = &dealUnitFlowDtoCollectionQueryParameters
 	return r
 }
 
@@ -1092,7 +1114,7 @@ func (a *DealUnitFlowsAPIService) GetDealUnitFlowsAsyncExecute(r ApiGetDealUnitF
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1108,6 +1130,8 @@ func (a *DealUnitFlowsAPIService) GetDealUnitFlowsAsyncExecute(r ApiGetDealUnitF
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.dealUnitFlowDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1160,10 +1184,16 @@ type ApiGetDealUnitFlowsCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *DealUnitFlowsAPIService
 	tenantId *string
+	dealUnitFlowDtoCollectionQueryParameters *DealUnitFlowDtoCollectionQueryParameters
 }
 
 func (r ApiGetDealUnitFlowsCountAsyncRequest) TenantId(tenantId string) ApiGetDealUnitFlowsCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetDealUnitFlowsCountAsyncRequest) DealUnitFlowDtoCollectionQueryParameters(dealUnitFlowDtoCollectionQueryParameters DealUnitFlowDtoCollectionQueryParameters) ApiGetDealUnitFlowsCountAsyncRequest {
+	r.dealUnitFlowDtoCollectionQueryParameters = &dealUnitFlowDtoCollectionQueryParameters
 	return r
 }
 
@@ -1212,7 +1242,7 @@ func (a *DealUnitFlowsAPIService) GetDealUnitFlowsCountAsyncExecute(r ApiGetDeal
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1228,6 +1258,8 @@ func (a *DealUnitFlowsAPIService) GetDealUnitFlowsCountAsyncExecute(r ApiGetDeal
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.dealUnitFlowDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1281,7 +1313,7 @@ type ApiPatchDealUnitFlowAsyncRequest struct {
 	ApiService *DealUnitFlowsAPIService
 	tenantId *string
 	dealUnitFlowId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchDealUnitFlowAsyncRequest) TenantId(tenantId string) ApiPatchDealUnitFlowAsyncRequest {
@@ -1289,8 +1321,8 @@ func (r ApiPatchDealUnitFlowAsyncRequest) TenantId(tenantId string) ApiPatchDeal
 	return r
 }
 
-func (r ApiPatchDealUnitFlowAsyncRequest) Operation(operation []Operation) ApiPatchDealUnitFlowAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchDealUnitFlowAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchDealUnitFlowAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1359,7 +1391,7 @@ func (a *DealUnitFlowsAPIService) PatchDealUnitFlowAsyncExecute(r ApiPatchDealUn
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1414,7 +1446,7 @@ type ApiPatchDealUnitFlowStageAsyncRequest struct {
 	tenantId *string
 	dealUnitFlowId string
 	dealUnitFlowStageId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchDealUnitFlowStageAsyncRequest) TenantId(tenantId string) ApiPatchDealUnitFlowStageAsyncRequest {
@@ -1422,8 +1454,8 @@ func (r ApiPatchDealUnitFlowStageAsyncRequest) TenantId(tenantId string) ApiPatc
 	return r
 }
 
-func (r ApiPatchDealUnitFlowStageAsyncRequest) Operation(operation []Operation) ApiPatchDealUnitFlowStageAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchDealUnitFlowStageAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchDealUnitFlowStageAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1495,7 +1527,7 @@ func (a *DealUnitFlowsAPIService) PatchDealUnitFlowStageAsyncExecute(r ApiPatchD
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

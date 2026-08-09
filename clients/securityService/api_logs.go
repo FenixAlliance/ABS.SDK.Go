@@ -29,6 +29,7 @@ type ApiGetLogsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	logDtoCollectionQueryParameters *LogDtoCollectionQueryParameters
 }
 
 func (r ApiGetLogsAsyncRequest) TenantId(tenantId string) ApiGetLogsAsyncRequest {
@@ -43,6 +44,11 @@ func (r ApiGetLogsAsyncRequest) ApiVersion(apiVersion string) ApiGetLogsAsyncReq
 
 func (r ApiGetLogsAsyncRequest) XApiVersion(xApiVersion string) ApiGetLogsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLogsAsyncRequest) LogDtoCollectionQueryParameters(logDtoCollectionQueryParameters LogDtoCollectionQueryParameters) ApiGetLogsAsyncRequest {
+	r.logDtoCollectionQueryParameters = &logDtoCollectionQueryParameters
 	return r
 }
 
@@ -94,7 +100,7 @@ func (a *LogsAPIService) GetLogsAsyncExecute(r ApiGetLogsAsyncRequest) (*LogDtoL
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -113,6 +119,8 @@ func (a *LogsAPIService) GetLogsAsyncExecute(r ApiGetLogsAsyncRequest) (*LogDtoL
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.logDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -178,6 +186,7 @@ type ApiGetLogsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	logDtoCollectionQueryParameters *LogDtoCollectionQueryParameters
 }
 
 func (r ApiGetLogsCountAsyncRequest) TenantId(tenantId string) ApiGetLogsCountAsyncRequest {
@@ -192,6 +201,11 @@ func (r ApiGetLogsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetLogsCou
 
 func (r ApiGetLogsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetLogsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLogsCountAsyncRequest) LogDtoCollectionQueryParameters(logDtoCollectionQueryParameters LogDtoCollectionQueryParameters) ApiGetLogsCountAsyncRequest {
+	r.logDtoCollectionQueryParameters = &logDtoCollectionQueryParameters
 	return r
 }
 
@@ -243,7 +257,7 @@ func (a *LogsAPIService) GetLogsCountAsyncExecute(r ApiGetLogsCountAsyncRequest)
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -262,6 +276,8 @@ func (a *LogsAPIService) GetLogsCountAsyncExecute(r ApiGetLogsCountAsyncRequest)
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.logDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

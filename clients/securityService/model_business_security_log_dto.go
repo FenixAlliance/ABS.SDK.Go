@@ -22,7 +22,7 @@ var _ MappedNullable = &BusinessSecurityLogDto{}
 // BusinessSecurityLogDto struct for BusinessSecurityLogDto
 type BusinessSecurityLogDto struct {
 	Id NullableString `json:"id,omitempty"`
-	Timestamp *time.Time `json:"timestamp,omitempty"`
+	Timestamp NullableTime `json:"timestamp,omitempty"`
 	Type NullableString `json:"type,omitempty"`
 	Message NullableString `json:"message,omitempty"`
 	SecurityEvent NullableString `json:"securityEvent,omitempty"`
@@ -89,36 +89,46 @@ func (o *BusinessSecurityLogDto) UnsetId() {
 	o.Id.Unset()
 }
 
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BusinessSecurityLogDto) GetTimestamp() time.Time {
-	if o == nil || IsNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.Timestamp
+	return *o.Timestamp.Get()
 }
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BusinessSecurityLogDto) GetTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.Timestamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Timestamp, true
+	return o.Timestamp.Get(), o.Timestamp.IsSet()
 }
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *BusinessSecurityLogDto) HasTimestamp() bool {
-	if o != nil && !IsNil(o.Timestamp) {
+	if o != nil && o.Timestamp.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
+// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
 func (o *BusinessSecurityLogDto) SetTimestamp(v time.Time) {
-	o.Timestamp = &v
+	o.Timestamp.Set(&v)
+}
+// SetTimestampNil sets the value for Timestamp to be an explicit nil
+func (o *BusinessSecurityLogDto) SetTimestampNil() {
+	o.Timestamp.Set(nil)
+}
+
+// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+func (o *BusinessSecurityLogDto) UnsetTimestamp() {
+	o.Timestamp.Unset()
 }
 
 // GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -334,8 +344,8 @@ func (o BusinessSecurityLogDto) ToMap() (map[string]interface{}, error) {
 	if o.Id.IsSet() {
 		toSerialize["id"] = o.Id.Get()
 	}
-	if !IsNil(o.Timestamp) {
-		toSerialize["timestamp"] = o.Timestamp
+	if o.Timestamp.IsSet() {
+		toSerialize["timestamp"] = o.Timestamp.Get()
 	}
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()

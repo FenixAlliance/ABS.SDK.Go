@@ -30,6 +30,10 @@ type SocialPostDto struct {
 	SocialProfileAvatarUrl NullableString `json:"socialProfileAvatarUrl,omitempty"`
 	CommentsCount *int32 `json:"commentsCount,omitempty"`
 	ReactionsCount *int32 `json:"reactionsCount,omitempty"`
+	SocialProfileType NullableString `json:"socialProfileType,omitempty"`
+	BodyHtml NullableString `json:"bodyHtml,omitempty"`
+	BodyFormat NullableString `json:"bodyFormat,omitempty"`
+	BackgroundStyle NullableString `json:"backgroundStyle,omitempty"`
 }
 
 // NewSocialPostDto instantiates a new SocialPostDto object
@@ -407,6 +411,174 @@ func (o *SocialPostDto) SetReactionsCount(v int32) {
 	o.ReactionsCount = &v
 }
 
+// GetSocialProfileType returns the SocialProfileType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialPostDto) GetSocialProfileType() string {
+	if o == nil || IsNil(o.SocialProfileType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SocialProfileType.Get()
+}
+
+// GetSocialProfileTypeOk returns a tuple with the SocialProfileType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialPostDto) GetSocialProfileTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SocialProfileType.Get(), o.SocialProfileType.IsSet()
+}
+
+// HasSocialProfileType returns a boolean if a field has been set.
+func (o *SocialPostDto) HasSocialProfileType() bool {
+	if o != nil && o.SocialProfileType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSocialProfileType gets a reference to the given NullableString and assigns it to the SocialProfileType field.
+func (o *SocialPostDto) SetSocialProfileType(v string) {
+	o.SocialProfileType.Set(&v)
+}
+// SetSocialProfileTypeNil sets the value for SocialProfileType to be an explicit nil
+func (o *SocialPostDto) SetSocialProfileTypeNil() {
+	o.SocialProfileType.Set(nil)
+}
+
+// UnsetSocialProfileType ensures that no value is present for SocialProfileType, not even an explicit nil
+func (o *SocialPostDto) UnsetSocialProfileType() {
+	o.SocialProfileType.Unset()
+}
+
+// GetBodyHtml returns the BodyHtml field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialPostDto) GetBodyHtml() string {
+	if o == nil || IsNil(o.BodyHtml.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BodyHtml.Get()
+}
+
+// GetBodyHtmlOk returns a tuple with the BodyHtml field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialPostDto) GetBodyHtmlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BodyHtml.Get(), o.BodyHtml.IsSet()
+}
+
+// HasBodyHtml returns a boolean if a field has been set.
+func (o *SocialPostDto) HasBodyHtml() bool {
+	if o != nil && o.BodyHtml.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBodyHtml gets a reference to the given NullableString and assigns it to the BodyHtml field.
+func (o *SocialPostDto) SetBodyHtml(v string) {
+	o.BodyHtml.Set(&v)
+}
+// SetBodyHtmlNil sets the value for BodyHtml to be an explicit nil
+func (o *SocialPostDto) SetBodyHtmlNil() {
+	o.BodyHtml.Set(nil)
+}
+
+// UnsetBodyHtml ensures that no value is present for BodyHtml, not even an explicit nil
+func (o *SocialPostDto) UnsetBodyHtml() {
+	o.BodyHtml.Unset()
+}
+
+// GetBodyFormat returns the BodyFormat field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialPostDto) GetBodyFormat() string {
+	if o == nil || IsNil(o.BodyFormat.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BodyFormat.Get()
+}
+
+// GetBodyFormatOk returns a tuple with the BodyFormat field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialPostDto) GetBodyFormatOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BodyFormat.Get(), o.BodyFormat.IsSet()
+}
+
+// HasBodyFormat returns a boolean if a field has been set.
+func (o *SocialPostDto) HasBodyFormat() bool {
+	if o != nil && o.BodyFormat.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBodyFormat gets a reference to the given NullableString and assigns it to the BodyFormat field.
+func (o *SocialPostDto) SetBodyFormat(v string) {
+	o.BodyFormat.Set(&v)
+}
+// SetBodyFormatNil sets the value for BodyFormat to be an explicit nil
+func (o *SocialPostDto) SetBodyFormatNil() {
+	o.BodyFormat.Set(nil)
+}
+
+// UnsetBodyFormat ensures that no value is present for BodyFormat, not even an explicit nil
+func (o *SocialPostDto) UnsetBodyFormat() {
+	o.BodyFormat.Unset()
+}
+
+// GetBackgroundStyle returns the BackgroundStyle field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialPostDto) GetBackgroundStyle() string {
+	if o == nil || IsNil(o.BackgroundStyle.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BackgroundStyle.Get()
+}
+
+// GetBackgroundStyleOk returns a tuple with the BackgroundStyle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialPostDto) GetBackgroundStyleOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BackgroundStyle.Get(), o.BackgroundStyle.IsSet()
+}
+
+// HasBackgroundStyle returns a boolean if a field has been set.
+func (o *SocialPostDto) HasBackgroundStyle() bool {
+	if o != nil && o.BackgroundStyle.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBackgroundStyle gets a reference to the given NullableString and assigns it to the BackgroundStyle field.
+func (o *SocialPostDto) SetBackgroundStyle(v string) {
+	o.BackgroundStyle.Set(&v)
+}
+// SetBackgroundStyleNil sets the value for BackgroundStyle to be an explicit nil
+func (o *SocialPostDto) SetBackgroundStyleNil() {
+	o.BackgroundStyle.Set(nil)
+}
+
+// UnsetBackgroundStyle ensures that no value is present for BackgroundStyle, not even an explicit nil
+func (o *SocialPostDto) UnsetBackgroundStyle() {
+	o.BackgroundStyle.Unset()
+}
+
 func (o SocialPostDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -443,6 +615,18 @@ func (o SocialPostDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ReactionsCount) {
 		toSerialize["reactionsCount"] = o.ReactionsCount
+	}
+	if o.SocialProfileType.IsSet() {
+		toSerialize["socialProfileType"] = o.SocialProfileType.Get()
+	}
+	if o.BodyHtml.IsSet() {
+		toSerialize["bodyHtml"] = o.BodyHtml.Get()
+	}
+	if o.BodyFormat.IsSet() {
+		toSerialize["bodyFormat"] = o.BodyFormat.Get()
+	}
+	if o.BackgroundStyle.IsSet() {
+		toSerialize["backgroundStyle"] = o.BackgroundStyle.Get()
 	}
 	return toSerialize, nil
 }

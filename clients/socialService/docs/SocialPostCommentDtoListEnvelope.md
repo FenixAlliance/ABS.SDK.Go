@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **ErrorMessage** | Pointer to **NullableString** |  | [optional] 
 **CorrelationId** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
+**HttpStatus** | Pointer to **NullableInt32** |  | [optional] 
+**ErrorCode** | Pointer to **NullableString** |  | [optional] 
+**ValidationDetails** | Pointer to **map[string][]string** |  | [optional] 
 **ActivityId** | Pointer to **NullableString** |  | [optional] [readonly] 
 **Result** | Pointer to [**[]SocialPostCommentDto**](SocialPostCommentDto.md) |  | [optional] 
 
@@ -150,6 +153,111 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
+### GetHttpStatus
+
+`func (o *SocialPostCommentDtoListEnvelope) GetHttpStatus() int32`
+
+GetHttpStatus returns the HttpStatus field if non-nil, zero value otherwise.
+
+### GetHttpStatusOk
+
+`func (o *SocialPostCommentDtoListEnvelope) GetHttpStatusOk() (*int32, bool)`
+
+GetHttpStatusOk returns a tuple with the HttpStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHttpStatus
+
+`func (o *SocialPostCommentDtoListEnvelope) SetHttpStatus(v int32)`
+
+SetHttpStatus sets HttpStatus field to given value.
+
+### HasHttpStatus
+
+`func (o *SocialPostCommentDtoListEnvelope) HasHttpStatus() bool`
+
+HasHttpStatus returns a boolean if a field has been set.
+
+### SetHttpStatusNil
+
+`func (o *SocialPostCommentDtoListEnvelope) SetHttpStatusNil(b bool)`
+
+ SetHttpStatusNil sets the value for HttpStatus to be an explicit nil
+
+### UnsetHttpStatus
+`func (o *SocialPostCommentDtoListEnvelope) UnsetHttpStatus()`
+
+UnsetHttpStatus ensures that no value is present for HttpStatus, not even an explicit nil
+### GetErrorCode
+
+`func (o *SocialPostCommentDtoListEnvelope) GetErrorCode() string`
+
+GetErrorCode returns the ErrorCode field if non-nil, zero value otherwise.
+
+### GetErrorCodeOk
+
+`func (o *SocialPostCommentDtoListEnvelope) GetErrorCodeOk() (*string, bool)`
+
+GetErrorCodeOk returns a tuple with the ErrorCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorCode
+
+`func (o *SocialPostCommentDtoListEnvelope) SetErrorCode(v string)`
+
+SetErrorCode sets ErrorCode field to given value.
+
+### HasErrorCode
+
+`func (o *SocialPostCommentDtoListEnvelope) HasErrorCode() bool`
+
+HasErrorCode returns a boolean if a field has been set.
+
+### SetErrorCodeNil
+
+`func (o *SocialPostCommentDtoListEnvelope) SetErrorCodeNil(b bool)`
+
+ SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
+
+### UnsetErrorCode
+`func (o *SocialPostCommentDtoListEnvelope) UnsetErrorCode()`
+
+UnsetErrorCode ensures that no value is present for ErrorCode, not even an explicit nil
+### GetValidationDetails
+
+`func (o *SocialPostCommentDtoListEnvelope) GetValidationDetails() map[string][]string`
+
+GetValidationDetails returns the ValidationDetails field if non-nil, zero value otherwise.
+
+### GetValidationDetailsOk
+
+`func (o *SocialPostCommentDtoListEnvelope) GetValidationDetailsOk() (*map[string][]string, bool)`
+
+GetValidationDetailsOk returns a tuple with the ValidationDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidationDetails
+
+`func (o *SocialPostCommentDtoListEnvelope) SetValidationDetails(v map[string][]string)`
+
+SetValidationDetails sets ValidationDetails field to given value.
+
+### HasValidationDetails
+
+`func (o *SocialPostCommentDtoListEnvelope) HasValidationDetails() bool`
+
+HasValidationDetails returns a boolean if a field has been set.
+
+### SetValidationDetailsNil
+
+`func (o *SocialPostCommentDtoListEnvelope) SetValidationDetailsNil(b bool)`
+
+ SetValidationDetailsNil sets the value for ValidationDetails to be an explicit nil
+
+### UnsetValidationDetails
+`func (o *SocialPostCommentDtoListEnvelope) UnsetValidationDetails()`
+
+UnsetValidationDetails ensures that no value is present for ValidationDetails, not even an explicit nil
 ### GetActivityId
 
 `func (o *SocialPostCommentDtoListEnvelope) GetActivityId() string`

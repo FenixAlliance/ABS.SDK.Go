@@ -556,6 +556,7 @@ type ApiGetCurriculumExperiencesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	curriculumExperienceDtoCollectionQueryParameters *CurriculumExperienceDtoCollectionQueryParameters
 }
 
 func (r ApiGetCurriculumExperiencesAsyncRequest) SocialProfileId(socialProfileId string) ApiGetCurriculumExperiencesAsyncRequest {
@@ -575,6 +576,11 @@ func (r ApiGetCurriculumExperiencesAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetCurriculumExperiencesAsyncRequest) XApiVersion(xApiVersion string) ApiGetCurriculumExperiencesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCurriculumExperiencesAsyncRequest) CurriculumExperienceDtoCollectionQueryParameters(curriculumExperienceDtoCollectionQueryParameters CurriculumExperienceDtoCollectionQueryParameters) ApiGetCurriculumExperiencesAsyncRequest {
+	r.curriculumExperienceDtoCollectionQueryParameters = &curriculumExperienceDtoCollectionQueryParameters
 	return r
 }
 
@@ -632,7 +638,7 @@ func (a *CurriculumExperiencesAPIService) GetCurriculumExperiencesAsyncExecute(r
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -651,6 +657,8 @@ func (a *CurriculumExperiencesAPIService) GetCurriculumExperiencesAsyncExecute(r
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.curriculumExperienceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -718,6 +726,7 @@ type ApiGetCurriculumExperiencesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	curriculumExperienceDtoCollectionQueryParameters *CurriculumExperienceDtoCollectionQueryParameters
 }
 
 func (r ApiGetCurriculumExperiencesCountAsyncRequest) SocialProfileId(socialProfileId string) ApiGetCurriculumExperiencesCountAsyncRequest {
@@ -737,6 +746,11 @@ func (r ApiGetCurriculumExperiencesCountAsyncRequest) ApiVersion(apiVersion stri
 
 func (r ApiGetCurriculumExperiencesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetCurriculumExperiencesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCurriculumExperiencesCountAsyncRequest) CurriculumExperienceDtoCollectionQueryParameters(curriculumExperienceDtoCollectionQueryParameters CurriculumExperienceDtoCollectionQueryParameters) ApiGetCurriculumExperiencesCountAsyncRequest {
+	r.curriculumExperienceDtoCollectionQueryParameters = &curriculumExperienceDtoCollectionQueryParameters
 	return r
 }
 
@@ -794,7 +808,7 @@ func (a *CurriculumExperiencesAPIService) GetCurriculumExperiencesCountAsyncExec
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -813,6 +827,8 @@ func (a *CurriculumExperiencesAPIService) GetCurriculumExperiencesCountAsyncExec
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.curriculumExperienceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -881,7 +897,7 @@ type ApiPatchCurriculumExperienceAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCurriculumExperienceAsyncRequest) SocialProfileId(socialProfileId string) ApiPatchCurriculumExperienceAsyncRequest {
@@ -904,8 +920,8 @@ func (r ApiPatchCurriculumExperienceAsyncRequest) XApiVersion(xApiVersion string
 	return r
 }
 
-func (r ApiPatchCurriculumExperienceAsyncRequest) Operation(operation []Operation) ApiPatchCurriculumExperienceAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchCurriculumExperienceAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCurriculumExperienceAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -986,7 +1002,7 @@ func (a *CurriculumExperiencesAPIService) PatchCurriculumExperienceAsyncExecute(
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

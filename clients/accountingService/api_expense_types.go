@@ -496,6 +496,7 @@ type ApiGetExpenseTypesRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	expenseTypeDtoCollectionQueryParameters *ExpenseTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetExpenseTypesRequest) TenantId(tenantId string) ApiGetExpenseTypesRequest {
@@ -510,6 +511,11 @@ func (r ApiGetExpenseTypesRequest) ApiVersion(apiVersion string) ApiGetExpenseTy
 
 func (r ApiGetExpenseTypesRequest) XApiVersion(xApiVersion string) ApiGetExpenseTypesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetExpenseTypesRequest) ExpenseTypeDtoCollectionQueryParameters(expenseTypeDtoCollectionQueryParameters ExpenseTypeDtoCollectionQueryParameters) ApiGetExpenseTypesRequest {
+	r.expenseTypeDtoCollectionQueryParameters = &expenseTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -561,7 +567,7 @@ func (a *ExpenseTypesAPIService) GetExpenseTypesExecute(r ApiGetExpenseTypesRequ
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -580,6 +586,8 @@ func (a *ExpenseTypesAPIService) GetExpenseTypesExecute(r ApiGetExpenseTypesRequ
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.expenseTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -645,6 +653,7 @@ type ApiGetExpenseTypesCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	expenseTypeDtoCollectionQueryParameters *ExpenseTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetExpenseTypesCountRequest) TenantId(tenantId string) ApiGetExpenseTypesCountRequest {
@@ -659,6 +668,11 @@ func (r ApiGetExpenseTypesCountRequest) ApiVersion(apiVersion string) ApiGetExpe
 
 func (r ApiGetExpenseTypesCountRequest) XApiVersion(xApiVersion string) ApiGetExpenseTypesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetExpenseTypesCountRequest) ExpenseTypeDtoCollectionQueryParameters(expenseTypeDtoCollectionQueryParameters ExpenseTypeDtoCollectionQueryParameters) ApiGetExpenseTypesCountRequest {
+	r.expenseTypeDtoCollectionQueryParameters = &expenseTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -710,7 +724,7 @@ func (a *ExpenseTypesAPIService) GetExpenseTypesCountExecute(r ApiGetExpenseType
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -729,6 +743,8 @@ func (a *ExpenseTypesAPIService) GetExpenseTypesCountExecute(r ApiGetExpenseType
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.expenseTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -795,7 +811,7 @@ type ApiPatchExpenseTypeRequest struct {
 	expenseTypeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchExpenseTypeRequest) TenantId(tenantId string) ApiPatchExpenseTypeRequest {
@@ -813,8 +829,8 @@ func (r ApiPatchExpenseTypeRequest) XApiVersion(xApiVersion string) ApiPatchExpe
 	return r
 }
 
-func (r ApiPatchExpenseTypeRequest) Operation(operation []Operation) ApiPatchExpenseTypeRequest {
-	r.operation = &operation
+func (r ApiPatchExpenseTypeRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchExpenseTypeRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -889,7 +905,7 @@ func (a *ExpenseTypesAPIService) PatchExpenseTypeExecute(r ApiPatchExpenseTypeRe
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

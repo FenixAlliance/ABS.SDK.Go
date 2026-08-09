@@ -295,21 +295,6 @@ paths:
           description: OK
       tags:
       - FenixAlliance.ABS.Web
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
   /hello:
     get:
       responses:
@@ -891,8 +876,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -909,6 +900,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -918,19 +924,19 @@ components:
       additionalProperties: false
       example:
         rate:
-          amount: 0.8008281904610115
+          amount: 1.4658129805029452
           currency:
             country: country
             code: code
             value: value
         source:
-          amount: 0.8008281904610115
+          amount: 1.4658129805029452
           currency:
             country: country
             code: code
             value: value
         target:
-          amount: 0.8008281904610115
+          amount: 1.4658129805029452
           currency:
             country: country
             code: code
@@ -948,26 +954,32 @@ components:
       example:
         result:
           rate:
-            amount: 0.8008281904610115
+            amount: 1.4658129805029452
             currency:
               country: country
               code: code
               value: value
           source:
-            amount: 0.8008281904610115
+            amount: 1.4658129805029452
             currency:
               country: country
               code: code
               value: value
           target:
-            amount: 0.8008281904610115
+            amount: 1.4658129805029452
             currency:
               country: country
               code: code
               value: value
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -984,6 +996,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -998,9 +1025,9 @@ components:
         requestTimestamp: 2000-01-23T04:56:07.000+00:00
         success: true
         rates:
-          key: 6.027456183070403
+          key: 1.4658129805029452
         base: base
-        timestamp: 0
+        timestamp: 6
       properties:
         success:
           type: boolean
@@ -1031,12 +1058,18 @@ components:
           requestTimestamp: 2000-01-23T04:56:07.000+00:00
           success: true
           rates:
-            key: 6.027456183070403
+            key: 1.4658129805029452
           base: base
-          timestamp: 0
+          timestamp: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1053,6 +1086,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1157,7 +1205,7 @@ components:
     Money:
       additionalProperties: false
       example:
-        amount: 0.8008281904610115
+        amount: 1.4658129805029452
         currency:
           country: country
           code: code
@@ -1173,14 +1221,20 @@ components:
       additionalProperties: false
       example:
         result:
-          amount: 0.8008281904610115
+          amount: 1.4658129805029452
           currency:
             country: country
             code: code
             value: value
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1197,6 +1251,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

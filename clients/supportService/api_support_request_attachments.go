@@ -493,6 +493,7 @@ type ApiGetSupportRequestAttachmentsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	supportRequestAttachmentDtoCollectionQueryParameters *SupportRequestAttachmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetSupportRequestAttachmentsAsyncRequest) TenantId(tenantId string) ApiGetSupportRequestAttachmentsAsyncRequest {
@@ -507,6 +508,11 @@ func (r ApiGetSupportRequestAttachmentsAsyncRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetSupportRequestAttachmentsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSupportRequestAttachmentsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSupportRequestAttachmentsAsyncRequest) SupportRequestAttachmentDtoCollectionQueryParameters(supportRequestAttachmentDtoCollectionQueryParameters SupportRequestAttachmentDtoCollectionQueryParameters) ApiGetSupportRequestAttachmentsAsyncRequest {
+	r.supportRequestAttachmentDtoCollectionQueryParameters = &supportRequestAttachmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -558,7 +564,7 @@ func (a *SupportRequestAttachmentsAPIService) GetSupportRequestAttachmentsAsyncE
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -577,6 +583,8 @@ func (a *SupportRequestAttachmentsAPIService) GetSupportRequestAttachmentsAsyncE
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.supportRequestAttachmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetSupportRequestAttachmentsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	supportRequestAttachmentDtoCollectionQueryParameters *SupportRequestAttachmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetSupportRequestAttachmentsCountAsyncRequest) TenantId(tenantId string) ApiGetSupportRequestAttachmentsCountAsyncRequest {
@@ -656,6 +665,11 @@ func (r ApiGetSupportRequestAttachmentsCountAsyncRequest) ApiVersion(apiVersion 
 
 func (r ApiGetSupportRequestAttachmentsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSupportRequestAttachmentsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSupportRequestAttachmentsCountAsyncRequest) SupportRequestAttachmentDtoCollectionQueryParameters(supportRequestAttachmentDtoCollectionQueryParameters SupportRequestAttachmentDtoCollectionQueryParameters) ApiGetSupportRequestAttachmentsCountAsyncRequest {
+	r.supportRequestAttachmentDtoCollectionQueryParameters = &supportRequestAttachmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *SupportRequestAttachmentsAPIService) GetSupportRequestAttachmentsCountA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *SupportRequestAttachmentsAPIService) GetSupportRequestAttachmentsCountA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.supportRequestAttachmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchSupportRequestAttachmentAsyncRequest struct {
 	supportRequestAttachmentId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSupportRequestAttachmentAsyncRequest) TenantId(tenantId string) ApiPatchSupportRequestAttachmentAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchSupportRequestAttachmentAsyncRequest) XApiVersion(xApiVersion st
 	return r
 }
 
-func (r ApiPatchSupportRequestAttachmentAsyncRequest) Operation(operation []Operation) ApiPatchSupportRequestAttachmentAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSupportRequestAttachmentAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSupportRequestAttachmentAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *SupportRequestAttachmentsAPIService) PatchSupportRequestAttachmentAsync
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

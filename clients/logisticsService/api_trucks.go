@@ -1487,6 +1487,7 @@ type ApiGetTruckTripsAsyncRequest struct {
 	truckId string
 	apiVersion *string
 	xApiVersion *string
+	truckTripDtoCollectionQueryParameters *TruckTripDtoCollectionQueryParameters
 }
 
 func (r ApiGetTruckTripsAsyncRequest) TenantId(tenantId string) ApiGetTruckTripsAsyncRequest {
@@ -1501,6 +1502,11 @@ func (r ApiGetTruckTripsAsyncRequest) ApiVersion(apiVersion string) ApiGetTruckT
 
 func (r ApiGetTruckTripsAsyncRequest) XApiVersion(xApiVersion string) ApiGetTruckTripsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTruckTripsAsyncRequest) TruckTripDtoCollectionQueryParameters(truckTripDtoCollectionQueryParameters TruckTripDtoCollectionQueryParameters) ApiGetTruckTripsAsyncRequest {
+	r.truckTripDtoCollectionQueryParameters = &truckTripDtoCollectionQueryParameters
 	return r
 }
 
@@ -1555,7 +1561,7 @@ func (a *TrucksAPIService) GetTruckTripsAsyncExecute(r ApiGetTruckTripsAsyncRequ
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1574,6 +1580,8 @@ func (a *TrucksAPIService) GetTruckTripsAsyncExecute(r ApiGetTruckTripsAsyncRequ
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.truckTripDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1629,6 +1637,7 @@ type ApiGetTruckTripsCountAsyncRequest struct {
 	truckId string
 	apiVersion *string
 	xApiVersion *string
+	truckTripDtoCollectionQueryParameters *TruckTripDtoCollectionQueryParameters
 }
 
 func (r ApiGetTruckTripsCountAsyncRequest) TenantId(tenantId string) ApiGetTruckTripsCountAsyncRequest {
@@ -1643,6 +1652,11 @@ func (r ApiGetTruckTripsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetT
 
 func (r ApiGetTruckTripsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetTruckTripsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTruckTripsCountAsyncRequest) TruckTripDtoCollectionQueryParameters(truckTripDtoCollectionQueryParameters TruckTripDtoCollectionQueryParameters) ApiGetTruckTripsCountAsyncRequest {
+	r.truckTripDtoCollectionQueryParameters = &truckTripDtoCollectionQueryParameters
 	return r
 }
 
@@ -1697,7 +1711,7 @@ func (a *TrucksAPIService) GetTruckTripsCountAsyncExecute(r ApiGetTruckTripsCoun
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1716,6 +1730,8 @@ func (a *TrucksAPIService) GetTruckTripsCountAsyncExecute(r ApiGetTruckTripsCoun
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.truckTripDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1770,6 +1786,7 @@ type ApiGetTrucksAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	truckDtoCollectionQueryParameters *TruckDtoCollectionQueryParameters
 }
 
 func (r ApiGetTrucksAsyncRequest) TenantId(tenantId string) ApiGetTrucksAsyncRequest {
@@ -1784,6 +1801,11 @@ func (r ApiGetTrucksAsyncRequest) ApiVersion(apiVersion string) ApiGetTrucksAsyn
 
 func (r ApiGetTrucksAsyncRequest) XApiVersion(xApiVersion string) ApiGetTrucksAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTrucksAsyncRequest) TruckDtoCollectionQueryParameters(truckDtoCollectionQueryParameters TruckDtoCollectionQueryParameters) ApiGetTrucksAsyncRequest {
+	r.truckDtoCollectionQueryParameters = &truckDtoCollectionQueryParameters
 	return r
 }
 
@@ -1835,7 +1857,7 @@ func (a *TrucksAPIService) GetTrucksAsyncExecute(r ApiGetTrucksAsyncRequest) (*T
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1854,6 +1876,8 @@ func (a *TrucksAPIService) GetTrucksAsyncExecute(r ApiGetTrucksAsyncRequest) (*T
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.truckDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1919,6 +1943,7 @@ type ApiGetTrucksCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	truckDtoCollectionQueryParameters *TruckDtoCollectionQueryParameters
 }
 
 func (r ApiGetTrucksCountAsyncRequest) TenantId(tenantId string) ApiGetTrucksCountAsyncRequest {
@@ -1933,6 +1958,11 @@ func (r ApiGetTrucksCountAsyncRequest) ApiVersion(apiVersion string) ApiGetTruck
 
 func (r ApiGetTrucksCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetTrucksCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTrucksCountAsyncRequest) TruckDtoCollectionQueryParameters(truckDtoCollectionQueryParameters TruckDtoCollectionQueryParameters) ApiGetTrucksCountAsyncRequest {
+	r.truckDtoCollectionQueryParameters = &truckDtoCollectionQueryParameters
 	return r
 }
 
@@ -1984,7 +2014,7 @@ func (a *TrucksAPIService) GetTrucksCountAsyncExecute(r ApiGetTrucksCountAsyncRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2003,6 +2033,8 @@ func (a *TrucksAPIService) GetTrucksCountAsyncExecute(r ApiGetTrucksCountAsyncRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.truckDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2058,7 +2090,7 @@ type ApiPatchTruckAsyncRequest struct {
 	truckId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTruckAsyncRequest) TenantId(tenantId string) ApiPatchTruckAsyncRequest {
@@ -2076,8 +2108,8 @@ func (r ApiPatchTruckAsyncRequest) XApiVersion(xApiVersion string) ApiPatchTruck
 	return r
 }
 
-func (r ApiPatchTruckAsyncRequest) Operation(operation []Operation) ApiPatchTruckAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchTruckAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTruckAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2152,7 +2184,7 @@ func (a *TrucksAPIService) PatchTruckAsyncExecute(r ApiPatchTruckAsyncRequest) (
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2231,7 +2263,7 @@ type ApiPatchTruckTripAsyncRequest struct {
 	tripId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTruckTripAsyncRequest) TenantId(tenantId string) ApiPatchTruckTripAsyncRequest {
@@ -2249,8 +2281,8 @@ func (r ApiPatchTruckTripAsyncRequest) XApiVersion(xApiVersion string) ApiPatchT
 	return r
 }
 
-func (r ApiPatchTruckTripAsyncRequest) Operation(operation []Operation) ApiPatchTruckTripAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchTruckTripAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTruckTripAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2328,7 +2360,7 @@ func (a *TrucksAPIService) PatchTruckTripAsyncExecute(r ApiPatchTruckTripAsyncRe
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

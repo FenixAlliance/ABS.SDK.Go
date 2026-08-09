@@ -22,6 +22,7 @@ var _ MappedNullable = &AccountingEntryDto{}
 // AccountingEntryDto struct for AccountingEntryDto
 type AccountingEntryDto struct {
 	Id NullableString `json:"id,omitempty"`
+	Timestamp NullableTime `json:"timestamp,omitempty"`
 	TenantId NullableString `json:"tenantId,omitempty"`
 	EnrollmentId NullableString `json:"enrollmentId,omitempty"`
 	JournalEntryId NullableString `json:"journalEntryId,omitempty"`
@@ -40,7 +41,6 @@ type AccountingEntryDto struct {
 	ForexRatesSnapshot NullableString `json:"forexRatesSnapshot,omitempty"`
 	CostCentreId NullableString `json:"costCentreId,omitempty"`
 	ProjectId NullableString `json:"projectId,omitempty"`
-	Timestamp NullableTime `json:"timestamp,omitempty"`
 	Debit *float64 `json:"debit,omitempty"`
 	Credit *float64 `json:"credit,omitempty"`
 	Amount *Money `json:"amount,omitempty"`
@@ -104,6 +104,48 @@ func (o *AccountingEntryDto) SetIdNil() {
 // UnsetId ensures that no value is present for Id, not even an explicit nil
 func (o *AccountingEntryDto) UnsetId() {
 	o.Id.Unset()
+}
+
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AccountingEntryDto) GetTimestamp() time.Time {
+	if o == nil || IsNil(o.Timestamp.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.Timestamp.Get()
+}
+
+// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AccountingEntryDto) GetTimestampOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Timestamp.Get(), o.Timestamp.IsSet()
+}
+
+// HasTimestamp returns a boolean if a field has been set.
+func (o *AccountingEntryDto) HasTimestamp() bool {
+	if o != nil && o.Timestamp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
+func (o *AccountingEntryDto) SetTimestamp(v time.Time) {
+	o.Timestamp.Set(&v)
+}
+// SetTimestampNil sets the value for Timestamp to be an explicit nil
+func (o *AccountingEntryDto) SetTimestampNil() {
+	o.Timestamp.Set(nil)
+}
+
+// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+func (o *AccountingEntryDto) UnsetTimestamp() {
+	o.Timestamp.Unset()
 }
 
 // GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -802,48 +844,6 @@ func (o *AccountingEntryDto) UnsetProjectId() {
 	o.ProjectId.Unset()
 }
 
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AccountingEntryDto) GetTimestamp() time.Time {
-	if o == nil || IsNil(o.Timestamp.Get()) {
-		var ret time.Time
-		return ret
-	}
-	return *o.Timestamp.Get()
-}
-
-// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AccountingEntryDto) GetTimestampOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Timestamp.Get(), o.Timestamp.IsSet()
-}
-
-// HasTimestamp returns a boolean if a field has been set.
-func (o *AccountingEntryDto) HasTimestamp() bool {
-	if o != nil && o.Timestamp.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
-func (o *AccountingEntryDto) SetTimestamp(v time.Time) {
-	o.Timestamp.Set(&v)
-}
-// SetTimestampNil sets the value for Timestamp to be an explicit nil
-func (o *AccountingEntryDto) SetTimestampNil() {
-	o.Timestamp.Set(nil)
-}
-
-// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-func (o *AccountingEntryDto) UnsetTimestamp() {
-	o.Timestamp.Unset()
-}
-
 // GetDebit returns the Debit field value if set, zero value otherwise.
 func (o *AccountingEntryDto) GetDebit() float64 {
 	if o == nil || IsNil(o.Debit) {
@@ -985,6 +985,9 @@ func (o AccountingEntryDto) ToMap() (map[string]interface{}, error) {
 	if o.Id.IsSet() {
 		toSerialize["id"] = o.Id.Get()
 	}
+	if o.Timestamp.IsSet() {
+		toSerialize["timestamp"] = o.Timestamp.Get()
+	}
 	if o.TenantId.IsSet() {
 		toSerialize["tenantId"] = o.TenantId.Get()
 	}
@@ -1038,9 +1041,6 @@ func (o AccountingEntryDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ProjectId.IsSet() {
 		toSerialize["projectId"] = o.ProjectId.Get()
-	}
-	if o.Timestamp.IsSet() {
-		toSerialize["timestamp"] = o.Timestamp.Get()
 	}
 	if !IsNil(o.Debit) {
 		toSerialize["debit"] = o.Debit

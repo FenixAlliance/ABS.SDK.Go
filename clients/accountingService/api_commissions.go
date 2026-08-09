@@ -809,6 +809,7 @@ type ApiGetCommissionsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	commissionDtoCollectionQueryParameters *CommissionDtoCollectionQueryParameters
 }
 
 func (r ApiGetCommissionsAsyncRequest) TenantId(tenantId string) ApiGetCommissionsAsyncRequest {
@@ -823,6 +824,11 @@ func (r ApiGetCommissionsAsyncRequest) ApiVersion(apiVersion string) ApiGetCommi
 
 func (r ApiGetCommissionsAsyncRequest) XApiVersion(xApiVersion string) ApiGetCommissionsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCommissionsAsyncRequest) CommissionDtoCollectionQueryParameters(commissionDtoCollectionQueryParameters CommissionDtoCollectionQueryParameters) ApiGetCommissionsAsyncRequest {
+	r.commissionDtoCollectionQueryParameters = &commissionDtoCollectionQueryParameters
 	return r
 }
 
@@ -874,7 +880,7 @@ func (a *CommissionsAPIService) GetCommissionsAsyncExecute(r ApiGetCommissionsAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -893,6 +899,8 @@ func (a *CommissionsAPIService) GetCommissionsAsyncExecute(r ApiGetCommissionsAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.commissionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -958,6 +966,7 @@ type ApiGetCommissionsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	commissionDtoCollectionQueryParameters *CommissionDtoCollectionQueryParameters
 }
 
 func (r ApiGetCommissionsCountAsyncRequest) TenantId(tenantId string) ApiGetCommissionsCountAsyncRequest {
@@ -972,6 +981,11 @@ func (r ApiGetCommissionsCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetCommissionsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetCommissionsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCommissionsCountAsyncRequest) CommissionDtoCollectionQueryParameters(commissionDtoCollectionQueryParameters CommissionDtoCollectionQueryParameters) ApiGetCommissionsCountAsyncRequest {
+	r.commissionDtoCollectionQueryParameters = &commissionDtoCollectionQueryParameters
 	return r
 }
 
@@ -1023,7 +1037,7 @@ func (a *CommissionsAPIService) GetCommissionsCountAsyncExecute(r ApiGetCommissi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1042,6 +1056,8 @@ func (a *CommissionsAPIService) GetCommissionsCountAsyncExecute(r ApiGetCommissi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.commissionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1260,6 +1276,7 @@ type ApiGetPaymentCommissionsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	paymentCommissionDtoCollectionQueryParameters *PaymentCommissionDtoCollectionQueryParameters
 }
 
 func (r ApiGetPaymentCommissionsAsyncRequest) TenantId(tenantId string) ApiGetPaymentCommissionsAsyncRequest {
@@ -1274,6 +1291,11 @@ func (r ApiGetPaymentCommissionsAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetPaymentCommissionsAsyncRequest) XApiVersion(xApiVersion string) ApiGetPaymentCommissionsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPaymentCommissionsAsyncRequest) PaymentCommissionDtoCollectionQueryParameters(paymentCommissionDtoCollectionQueryParameters PaymentCommissionDtoCollectionQueryParameters) ApiGetPaymentCommissionsAsyncRequest {
+	r.paymentCommissionDtoCollectionQueryParameters = &paymentCommissionDtoCollectionQueryParameters
 	return r
 }
 
@@ -1325,7 +1347,7 @@ func (a *CommissionsAPIService) GetPaymentCommissionsAsyncExecute(r ApiGetPaymen
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1344,6 +1366,8 @@ func (a *CommissionsAPIService) GetPaymentCommissionsAsyncExecute(r ApiGetPaymen
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentCommissionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1409,6 +1433,7 @@ type ApiGetPaymentCommissionsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	paymentCommissionDtoCollectionQueryParameters *PaymentCommissionDtoCollectionQueryParameters
 }
 
 func (r ApiGetPaymentCommissionsCountAsyncRequest) TenantId(tenantId string) ApiGetPaymentCommissionsCountAsyncRequest {
@@ -1423,6 +1448,11 @@ func (r ApiGetPaymentCommissionsCountAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetPaymentCommissionsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetPaymentCommissionsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPaymentCommissionsCountAsyncRequest) PaymentCommissionDtoCollectionQueryParameters(paymentCommissionDtoCollectionQueryParameters PaymentCommissionDtoCollectionQueryParameters) ApiGetPaymentCommissionsCountAsyncRequest {
+	r.paymentCommissionDtoCollectionQueryParameters = &paymentCommissionDtoCollectionQueryParameters
 	return r
 }
 
@@ -1474,7 +1504,7 @@ func (a *CommissionsAPIService) GetPaymentCommissionsCountAsyncExecute(r ApiGetP
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1493,6 +1523,8 @@ func (a *CommissionsAPIService) GetPaymentCommissionsCountAsyncExecute(r ApiGetP
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentCommissionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1559,7 +1591,7 @@ type ApiPatchCommissionAsyncRequest struct {
 	commissionId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCommissionAsyncRequest) TenantId(tenantId string) ApiPatchCommissionAsyncRequest {
@@ -1577,8 +1609,8 @@ func (r ApiPatchCommissionAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchCommissionAsyncRequest) Operation(operation []Operation) ApiPatchCommissionAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchCommissionAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCommissionAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1653,7 +1685,7 @@ func (a *CommissionsAPIService) PatchCommissionAsyncExecute(r ApiPatchCommission
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1720,7 +1752,7 @@ type ApiPatchPaymentCommissionAsyncRequest struct {
 	paymentCommissionId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchPaymentCommissionAsyncRequest) TenantId(tenantId string) ApiPatchPaymentCommissionAsyncRequest {
@@ -1738,8 +1770,8 @@ func (r ApiPatchPaymentCommissionAsyncRequest) XApiVersion(xApiVersion string) A
 	return r
 }
 
-func (r ApiPatchPaymentCommissionAsyncRequest) Operation(operation []Operation) ApiPatchPaymentCommissionAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchPaymentCommissionAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchPaymentCommissionAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1814,7 +1846,7 @@ func (a *CommissionsAPIService) PatchPaymentCommissionAsyncExecute(r ApiPatchPay
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

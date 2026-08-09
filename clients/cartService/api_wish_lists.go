@@ -1009,7 +1009,7 @@ type ApiPatchWishListRequest struct {
 	wishListId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchWishListRequest) ApiVersion(apiVersion string) ApiPatchWishListRequest {
@@ -1022,8 +1022,8 @@ func (r ApiPatchWishListRequest) XApiVersion(xApiVersion string) ApiPatchWishLis
 	return r
 }
 
-func (r ApiPatchWishListRequest) Operation(operation []Operation) ApiPatchWishListRequest {
-	r.operation = &operation
+func (r ApiPatchWishListRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWishListRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1094,7 +1094,7 @@ func (a *WishListsAPIService) PatchWishListExecute(r ApiPatchWishListRequest) (*
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

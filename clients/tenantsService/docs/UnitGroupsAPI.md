@@ -483,7 +483,7 @@ No authorization required
 
 ## GetUnitGroupsAsync
 
-> UnitGroupDtoListEnvelope GetUnitGroupsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> UnitGroupDtoListEnvelope GetUnitGroupsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).UnitGroupDtoCollectionQueryParameters(unitGroupDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of unit groups
 
@@ -505,10 +505,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	unitGroupDtoCollectionQueryParameters := *openapiclient.NewUnitGroupDtoCollectionQueryParameters() // UnitGroupDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UnitGroupsAPI.GetUnitGroupsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UnitGroupsAPI.GetUnitGroupsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).UnitGroupDtoCollectionQueryParameters(unitGroupDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UnitGroupsAPI.GetUnitGroupsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -532,6 +533,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **unitGroupDtoCollectionQueryParameters** | [**UnitGroupDtoCollectionQueryParameters**](UnitGroupDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -543,7 +545,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -553,7 +555,7 @@ No authorization required
 
 ## GetUnitGroupsCountAsync
 
-> Int32Envelope GetUnitGroupsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetUnitGroupsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).UnitGroupDtoCollectionQueryParameters(unitGroupDtoCollectionQueryParameters).Execute()
 
 Get the count of unit groups
 
@@ -575,10 +577,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	unitGroupDtoCollectionQueryParameters := *openapiclient.NewUnitGroupDtoCollectionQueryParameters() // UnitGroupDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UnitGroupsAPI.GetUnitGroupsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UnitGroupsAPI.GetUnitGroupsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).UnitGroupDtoCollectionQueryParameters(unitGroupDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UnitGroupsAPI.GetUnitGroupsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -602,6 +605,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **unitGroupDtoCollectionQueryParameters** | [**UnitGroupDtoCollectionQueryParameters**](UnitGroupDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -613,7 +617,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -623,7 +627,7 @@ No authorization required
 
 ## GetUnitsAsync
 
-> UnitDtoListEnvelope GetUnitsAsync(ctx, unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> UnitDtoListEnvelope GetUnitsAsync(ctx, unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).UnitDtoCollectionQueryParameters(unitDtoCollectionQueryParameters).Execute()
 
 Retrieve units for a unit group
 
@@ -646,10 +650,11 @@ func main() {
 	unitGroupId := "unitGroupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	unitDtoCollectionQueryParameters := *openapiclient.NewUnitDtoCollectionQueryParameters() // UnitDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UnitGroupsAPI.GetUnitsAsync(context.Background(), unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UnitGroupsAPI.GetUnitsAsync(context.Background(), unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).UnitDtoCollectionQueryParameters(unitDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UnitGroupsAPI.GetUnitsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -678,6 +683,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **unitDtoCollectionQueryParameters** | [**UnitDtoCollectionQueryParameters**](UnitDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -689,7 +695,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -699,7 +705,7 @@ No authorization required
 
 ## GetUnitsCountAsync
 
-> Int32Envelope GetUnitsCountAsync(ctx, unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetUnitsCountAsync(ctx, unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).UnitDtoCollectionQueryParameters(unitDtoCollectionQueryParameters).Execute()
 
 Get the count of units in a unit group
 
@@ -722,10 +728,11 @@ func main() {
 	unitGroupId := "unitGroupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	unitDtoCollectionQueryParameters := *openapiclient.NewUnitDtoCollectionQueryParameters() // UnitDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UnitGroupsAPI.GetUnitsCountAsync(context.Background(), unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UnitGroupsAPI.GetUnitsCountAsync(context.Background(), unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).UnitDtoCollectionQueryParameters(unitDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UnitGroupsAPI.GetUnitsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -754,6 +761,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **unitDtoCollectionQueryParameters** | [**UnitDtoCollectionQueryParameters**](UnitDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -765,7 +773,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -775,7 +783,7 @@ No authorization required
 
 ## PatchUnitAsync
 
-> EmptyEnvelope PatchUnitAsync(ctx, unitGroupId, unitId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchUnitAsync(ctx, unitGroupId, unitId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a unit within a unit group
 
@@ -799,11 +807,11 @@ func main() {
 	unitId := "unitId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UnitGroupsAPI.PatchUnitAsync(context.Background(), unitGroupId, unitId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.UnitGroupsAPI.PatchUnitAsync(context.Background(), unitGroupId, unitId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UnitGroupsAPI.PatchUnitAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -834,7 +842,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -856,7 +864,7 @@ No authorization required
 
 ## PatchUnitGroupAsync
 
-> EmptyEnvelope PatchUnitGroupAsync(ctx, unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchUnitGroupAsync(ctx, unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a unit group
 
@@ -879,11 +887,11 @@ func main() {
 	unitGroupId := "unitGroupId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UnitGroupsAPI.PatchUnitGroupAsync(context.Background(), unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.UnitGroupsAPI.PatchUnitGroupAsync(context.Background(), unitGroupId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UnitGroupsAPI.PatchUnitGroupAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -912,7 +920,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

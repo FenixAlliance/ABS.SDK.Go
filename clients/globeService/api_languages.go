@@ -29,6 +29,7 @@ type ApiCountLanguagesAsyncRequest struct {
 	ApiService *LanguagesAPIService
 	apiVersion *string
 	xApiVersion *string
+	countryLanguageDtoCollectionQueryParameters *CountryLanguageDtoCollectionQueryParameters
 }
 
 func (r ApiCountLanguagesAsyncRequest) ApiVersion(apiVersion string) ApiCountLanguagesAsyncRequest {
@@ -38,6 +39,11 @@ func (r ApiCountLanguagesAsyncRequest) ApiVersion(apiVersion string) ApiCountLan
 
 func (r ApiCountLanguagesAsyncRequest) XApiVersion(xApiVersion string) ApiCountLanguagesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountLanguagesAsyncRequest) CountryLanguageDtoCollectionQueryParameters(countryLanguageDtoCollectionQueryParameters CountryLanguageDtoCollectionQueryParameters) ApiCountLanguagesAsyncRequest {
+	r.countryLanguageDtoCollectionQueryParameters = &countryLanguageDtoCollectionQueryParameters
 	return r
 }
 
@@ -85,7 +91,7 @@ func (a *LanguagesAPIService) CountLanguagesAsyncExecute(r ApiCountLanguagesAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -104,6 +110,8 @@ func (a *LanguagesAPIService) CountLanguagesAsyncExecute(r ApiCountLanguagesAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryLanguageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -311,6 +319,7 @@ type ApiGetLanguagesAsyncRequest struct {
 	ApiService *LanguagesAPIService
 	apiVersion *string
 	xApiVersion *string
+	countryLanguageDtoCollectionQueryParameters *CountryLanguageDtoCollectionQueryParameters
 }
 
 func (r ApiGetLanguagesAsyncRequest) ApiVersion(apiVersion string) ApiGetLanguagesAsyncRequest {
@@ -320,6 +329,11 @@ func (r ApiGetLanguagesAsyncRequest) ApiVersion(apiVersion string) ApiGetLanguag
 
 func (r ApiGetLanguagesAsyncRequest) XApiVersion(xApiVersion string) ApiGetLanguagesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLanguagesAsyncRequest) CountryLanguageDtoCollectionQueryParameters(countryLanguageDtoCollectionQueryParameters CountryLanguageDtoCollectionQueryParameters) ApiGetLanguagesAsyncRequest {
+	r.countryLanguageDtoCollectionQueryParameters = &countryLanguageDtoCollectionQueryParameters
 	return r
 }
 
@@ -367,7 +381,7 @@ func (a *LanguagesAPIService) GetLanguagesAsyncExecute(r ApiGetLanguagesAsyncReq
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -386,6 +400,8 @@ func (a *LanguagesAPIService) GetLanguagesAsyncExecute(r ApiGetLanguagesAsyncReq
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.countryLanguageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

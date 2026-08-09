@@ -30,6 +30,7 @@ type ApiCountWebPageCategoriesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	webPageCategoryDtoCollectionQueryParameters *WebPageCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiCountWebPageCategoriesAsyncRequest) TenantId(tenantId string) ApiCountWebPageCategoriesAsyncRequest {
@@ -44,6 +45,11 @@ func (r ApiCountWebPageCategoriesAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiCountWebPageCategoriesAsyncRequest) XApiVersion(xApiVersion string) ApiCountWebPageCategoriesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountWebPageCategoriesAsyncRequest) WebPageCategoryDtoCollectionQueryParameters(webPageCategoryDtoCollectionQueryParameters WebPageCategoryDtoCollectionQueryParameters) ApiCountWebPageCategoriesAsyncRequest {
+	r.webPageCategoryDtoCollectionQueryParameters = &webPageCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -95,7 +101,7 @@ func (a *WebPageCategoriesAPIService) CountWebPageCategoriesAsyncExecute(r ApiCo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -114,6 +120,8 @@ func (a *WebPageCategoriesAPIService) CountWebPageCategoriesAsyncExecute(r ApiCo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.webPageCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -489,6 +497,7 @@ type ApiGetWebPageCategoriesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	webPageCategoryDtoCollectionQueryParameters *WebPageCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetWebPageCategoriesAsyncRequest) TenantId(tenantId string) ApiGetWebPageCategoriesAsyncRequest {
@@ -503,6 +512,11 @@ func (r ApiGetWebPageCategoriesAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetWebPageCategoriesAsyncRequest) XApiVersion(xApiVersion string) ApiGetWebPageCategoriesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWebPageCategoriesAsyncRequest) WebPageCategoryDtoCollectionQueryParameters(webPageCategoryDtoCollectionQueryParameters WebPageCategoryDtoCollectionQueryParameters) ApiGetWebPageCategoriesAsyncRequest {
+	r.webPageCategoryDtoCollectionQueryParameters = &webPageCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -554,7 +568,7 @@ func (a *WebPageCategoriesAPIService) GetWebPageCategoriesAsyncExecute(r ApiGetW
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -573,6 +587,8 @@ func (a *WebPageCategoriesAPIService) GetWebPageCategoriesAsyncExecute(r ApiGetW
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.webPageCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchWebPageCategoryAsyncRequest struct {
 	webPageCategoryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchWebPageCategoryAsyncRequest) TenantId(tenantId string) ApiPatchWebPageCategoryAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchWebPageCategoryAsyncRequest) XApiVersion(xApiVersion string) Api
 	return r
 }
 
-func (r ApiPatchWebPageCategoryAsyncRequest) Operation(operation []Operation) ApiPatchWebPageCategoryAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchWebPageCategoryAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWebPageCategoryAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *WebPageCategoriesAPIService) PatchWebPageCategoryAsyncExecute(r ApiPatc
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

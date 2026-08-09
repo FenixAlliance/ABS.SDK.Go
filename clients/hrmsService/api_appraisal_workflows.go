@@ -515,6 +515,7 @@ type ApiGetAppraisalWorkflowsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	appraisalWorkflowDtoCollectionQueryParameters *AppraisalWorkflowDtoCollectionQueryParameters
 }
 
 func (r ApiGetAppraisalWorkflowsAsyncRequest) TenantId(tenantId string) ApiGetAppraisalWorkflowsAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetAppraisalWorkflowsAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetAppraisalWorkflowsAsyncRequest) XApiVersion(xApiVersion string) ApiGetAppraisalWorkflowsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAppraisalWorkflowsAsyncRequest) AppraisalWorkflowDtoCollectionQueryParameters(appraisalWorkflowDtoCollectionQueryParameters AppraisalWorkflowDtoCollectionQueryParameters) ApiGetAppraisalWorkflowsAsyncRequest {
+	r.appraisalWorkflowDtoCollectionQueryParameters = &appraisalWorkflowDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *AppraisalWorkflowsAPIService) GetAppraisalWorkflowsAsyncExecute(r ApiGe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *AppraisalWorkflowsAPIService) GetAppraisalWorkflowsAsyncExecute(r ApiGe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.appraisalWorkflowDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetAppraisalWorkflowsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	appraisalWorkflowDtoCollectionQueryParameters *AppraisalWorkflowDtoCollectionQueryParameters
 }
 
 func (r ApiGetAppraisalWorkflowsCountAsyncRequest) TenantId(tenantId string) ApiGetAppraisalWorkflowsCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetAppraisalWorkflowsCountAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetAppraisalWorkflowsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetAppraisalWorkflowsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetAppraisalWorkflowsCountAsyncRequest) AppraisalWorkflowDtoCollectionQueryParameters(appraisalWorkflowDtoCollectionQueryParameters AppraisalWorkflowDtoCollectionQueryParameters) ApiGetAppraisalWorkflowsCountAsyncRequest {
+	r.appraisalWorkflowDtoCollectionQueryParameters = &appraisalWorkflowDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *AppraisalWorkflowsAPIService) GetAppraisalWorkflowsCountAsyncExecute(r 
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *AppraisalWorkflowsAPIService) GetAppraisalWorkflowsCountAsyncExecute(r 
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.appraisalWorkflowDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

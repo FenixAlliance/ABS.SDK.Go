@@ -471,6 +471,7 @@ type ApiGetWorkstationsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	workstationDtoCollectionQueryParameters *WorkstationDtoCollectionQueryParameters
 }
 
 func (r ApiGetWorkstationsAsyncRequest) TenantId(tenantId string) ApiGetWorkstationsAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetWorkstationsAsyncRequest) ApiVersion(apiVersion string) ApiGetWork
 
 func (r ApiGetWorkstationsAsyncRequest) XApiVersion(xApiVersion string) ApiGetWorkstationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWorkstationsAsyncRequest) WorkstationDtoCollectionQueryParameters(workstationDtoCollectionQueryParameters WorkstationDtoCollectionQueryParameters) ApiGetWorkstationsAsyncRequest {
+	r.workstationDtoCollectionQueryParameters = &workstationDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *WorkstationsAPIService) GetWorkstationsAsyncExecute(r ApiGetWorkstation
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *WorkstationsAPIService) GetWorkstationsAsyncExecute(r ApiGetWorkstation
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.workstationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetWorkstationsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	workstationDtoCollectionQueryParameters *WorkstationDtoCollectionQueryParameters
 }
 
 func (r ApiGetWorkstationsCountAsyncRequest) TenantId(tenantId string) ApiGetWorkstationsCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetWorkstationsCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetWorkstationsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWorkstationsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWorkstationsCountAsyncRequest) WorkstationDtoCollectionQueryParameters(workstationDtoCollectionQueryParameters WorkstationDtoCollectionQueryParameters) ApiGetWorkstationsCountAsyncRequest {
+	r.workstationDtoCollectionQueryParameters = &workstationDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *WorkstationsAPIService) GetWorkstationsCountAsyncExecute(r ApiGetWorkst
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *WorkstationsAPIService) GetWorkstationsCountAsyncExecute(r ApiGetWorkst
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.workstationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchWorkstationAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchWorkstationAsyncRequest) TenantId(tenantId string) ApiPatchWorkstationAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchWorkstationAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchWorkstationAsyncRequest) Operation(operation []Operation) ApiPatchWorkstationAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchWorkstationAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWorkstationAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *WorkstationsAPIService) PatchWorkstationAsyncExecute(r ApiPatchWorkstat
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -30,6 +30,7 @@ type ApiCountBlogPostsByAuthorAsyncRequest struct {
 	authorId string
 	apiVersion *string
 	xApiVersion *string
+	blogPostDtoCollectionQueryParameters *BlogPostDtoCollectionQueryParameters
 }
 
 func (r ApiCountBlogPostsByAuthorAsyncRequest) ApiVersion(apiVersion string) ApiCountBlogPostsByAuthorAsyncRequest {
@@ -39,6 +40,11 @@ func (r ApiCountBlogPostsByAuthorAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiCountBlogPostsByAuthorAsyncRequest) XApiVersion(xApiVersion string) ApiCountBlogPostsByAuthorAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountBlogPostsByAuthorAsyncRequest) BlogPostDtoCollectionQueryParameters(blogPostDtoCollectionQueryParameters BlogPostDtoCollectionQueryParameters) ApiCountBlogPostsByAuthorAsyncRequest {
+	r.blogPostDtoCollectionQueryParameters = &blogPostDtoCollectionQueryParameters
 	return r
 }
 
@@ -89,7 +95,7 @@ func (a *BlogPostAuthorsAPIService) CountBlogPostsByAuthorAsyncExecute(r ApiCoun
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -108,6 +114,8 @@ func (a *BlogPostAuthorsAPIService) CountBlogPostsByAuthorAsyncExecute(r ApiCoun
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blogPostDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -294,6 +302,7 @@ type ApiGetBlogAuthorsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	blogAuthorDtoCollectionQueryParameters *BlogAuthorDtoCollectionQueryParameters
 }
 
 func (r ApiGetBlogAuthorsAsyncRequest) TenantId(tenantId string) ApiGetBlogAuthorsAsyncRequest {
@@ -308,6 +317,11 @@ func (r ApiGetBlogAuthorsAsyncRequest) ApiVersion(apiVersion string) ApiGetBlogA
 
 func (r ApiGetBlogAuthorsAsyncRequest) XApiVersion(xApiVersion string) ApiGetBlogAuthorsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBlogAuthorsAsyncRequest) BlogAuthorDtoCollectionQueryParameters(blogAuthorDtoCollectionQueryParameters BlogAuthorDtoCollectionQueryParameters) ApiGetBlogAuthorsAsyncRequest {
+	r.blogAuthorDtoCollectionQueryParameters = &blogAuthorDtoCollectionQueryParameters
 	return r
 }
 
@@ -358,7 +372,7 @@ func (a *BlogPostAuthorsAPIService) GetBlogAuthorsAsyncExecute(r ApiGetBlogAutho
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -377,6 +391,8 @@ func (a *BlogPostAuthorsAPIService) GetBlogAuthorsAsyncExecute(r ApiGetBlogAutho
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blogAuthorDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -431,6 +447,7 @@ type ApiGetBlogPostsByAuthorAsyncRequest struct {
 	authorId string
 	apiVersion *string
 	xApiVersion *string
+	blogPostDtoCollectionQueryParameters *BlogPostDtoCollectionQueryParameters
 }
 
 func (r ApiGetBlogPostsByAuthorAsyncRequest) ApiVersion(apiVersion string) ApiGetBlogPostsByAuthorAsyncRequest {
@@ -440,6 +457,11 @@ func (r ApiGetBlogPostsByAuthorAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetBlogPostsByAuthorAsyncRequest) XApiVersion(xApiVersion string) ApiGetBlogPostsByAuthorAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBlogPostsByAuthorAsyncRequest) BlogPostDtoCollectionQueryParameters(blogPostDtoCollectionQueryParameters BlogPostDtoCollectionQueryParameters) ApiGetBlogPostsByAuthorAsyncRequest {
+	r.blogPostDtoCollectionQueryParameters = &blogPostDtoCollectionQueryParameters
 	return r
 }
 
@@ -490,7 +512,7 @@ func (a *BlogPostAuthorsAPIService) GetBlogPostsByAuthorAsyncExecute(r ApiGetBlo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -509,6 +531,8 @@ func (a *BlogPostAuthorsAPIService) GetBlogPostsByAuthorAsyncExecute(r ApiGetBlo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.blogPostDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

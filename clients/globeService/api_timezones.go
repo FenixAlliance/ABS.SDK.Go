@@ -29,6 +29,7 @@ type ApiCountTimezonesAsyncRequest struct {
 	ApiService *TimezonesAPIService
 	apiVersion *string
 	xApiVersion *string
+	timezoneDtoCollectionQueryParameters *TimezoneDtoCollectionQueryParameters
 }
 
 func (r ApiCountTimezonesAsyncRequest) ApiVersion(apiVersion string) ApiCountTimezonesAsyncRequest {
@@ -38,6 +39,11 @@ func (r ApiCountTimezonesAsyncRequest) ApiVersion(apiVersion string) ApiCountTim
 
 func (r ApiCountTimezonesAsyncRequest) XApiVersion(xApiVersion string) ApiCountTimezonesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountTimezonesAsyncRequest) TimezoneDtoCollectionQueryParameters(timezoneDtoCollectionQueryParameters TimezoneDtoCollectionQueryParameters) ApiCountTimezonesAsyncRequest {
+	r.timezoneDtoCollectionQueryParameters = &timezoneDtoCollectionQueryParameters
 	return r
 }
 
@@ -85,7 +91,7 @@ func (a *TimezonesAPIService) CountTimezonesAsyncExecute(r ApiCountTimezonesAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -104,6 +110,8 @@ func (a *TimezonesAPIService) CountTimezonesAsyncExecute(r ApiCountTimezonesAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.timezoneDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -311,6 +319,7 @@ type ApiGetTimeZonesAsyncRequest struct {
 	ApiService *TimezonesAPIService
 	apiVersion *string
 	xApiVersion *string
+	timezoneDtoCollectionQueryParameters *TimezoneDtoCollectionQueryParameters
 }
 
 func (r ApiGetTimeZonesAsyncRequest) ApiVersion(apiVersion string) ApiGetTimeZonesAsyncRequest {
@@ -320,6 +329,11 @@ func (r ApiGetTimeZonesAsyncRequest) ApiVersion(apiVersion string) ApiGetTimeZon
 
 func (r ApiGetTimeZonesAsyncRequest) XApiVersion(xApiVersion string) ApiGetTimeZonesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTimeZonesAsyncRequest) TimezoneDtoCollectionQueryParameters(timezoneDtoCollectionQueryParameters TimezoneDtoCollectionQueryParameters) ApiGetTimeZonesAsyncRequest {
+	r.timezoneDtoCollectionQueryParameters = &timezoneDtoCollectionQueryParameters
 	return r
 }
 
@@ -367,7 +381,7 @@ func (a *TimezonesAPIService) GetTimeZonesAsyncExecute(r ApiGetTimeZonesAsyncReq
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -386,6 +400,8 @@ func (a *TimezonesAPIService) GetTimeZonesAsyncExecute(r ApiGetTimeZonesAsyncReq
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.timezoneDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

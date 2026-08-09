@@ -803,7 +803,7 @@ No authorization required
 
 ## GetBankAccounts
 
-> BankAccountDtoListEnvelope GetBankAccounts(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BankAccountDtoListEnvelope GetBankAccounts(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters).Execute()
 
 Gets the current tenant bank accounts
 
@@ -826,10 +826,11 @@ func main() {
 	bankId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bankAccountDtoCollectionQueryParameters := *openapiclient.NewBankAccountDtoCollectionQueryParameters() // BankAccountDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.GetBankAccounts(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BankingAPI.GetBankAccounts(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.GetBankAccounts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -858,6 +859,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -869,7 +871,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -879,7 +881,7 @@ No authorization required
 
 ## GetBankAccountsCount
 
-> Int32Envelope GetBankAccountsCount(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetBankAccountsCount(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters).Execute()
 
 Gets the current tenant bank accounts count
 
@@ -902,10 +904,11 @@ func main() {
 	bankId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bankAccountDtoCollectionQueryParameters := *openapiclient.NewBankAccountDtoCollectionQueryParameters() // BankAccountDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.GetBankAccountsCount(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BankingAPI.GetBankAccountsCount(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.GetBankAccountsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -934,6 +937,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -945,7 +949,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1034,7 +1038,7 @@ No authorization required
 
 ## GetBankGuarantees
 
-> BankGuaranteeDtoListEnvelope GetBankGuarantees(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BankGuaranteeDtoListEnvelope GetBankGuarantees(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankGuaranteeDtoCollectionQueryParameters(bankGuaranteeDtoCollectionQueryParameters).Execute()
 
 Gets the current tenant bank guarantees
 
@@ -1057,10 +1061,11 @@ func main() {
 	bankId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bankGuaranteeDtoCollectionQueryParameters := *openapiclient.NewBankGuaranteeDtoCollectionQueryParameters() // BankGuaranteeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.GetBankGuarantees(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BankingAPI.GetBankGuarantees(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankGuaranteeDtoCollectionQueryParameters(bankGuaranteeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.GetBankGuarantees``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1089,6 +1094,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **bankGuaranteeDtoCollectionQueryParameters** | [**BankGuaranteeDtoCollectionQueryParameters**](BankGuaranteeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1100,7 +1106,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1110,7 +1116,7 @@ No authorization required
 
 ## GetBankGuaranteesCount
 
-> Int32Envelope GetBankGuaranteesCount(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetBankGuaranteesCount(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankGuaranteeDtoCollectionQueryParameters(bankGuaranteeDtoCollectionQueryParameters).Execute()
 
 Gets the current tenant bank guarantees count
 
@@ -1133,10 +1139,11 @@ func main() {
 	bankId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bankGuaranteeDtoCollectionQueryParameters := *openapiclient.NewBankGuaranteeDtoCollectionQueryParameters() // BankGuaranteeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.GetBankGuaranteesCount(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BankingAPI.GetBankGuaranteesCount(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankGuaranteeDtoCollectionQueryParameters(bankGuaranteeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.GetBankGuaranteesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1165,6 +1172,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **bankGuaranteeDtoCollectionQueryParameters** | [**BankGuaranteeDtoCollectionQueryParameters**](BankGuaranteeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1176,7 +1184,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1265,7 +1273,7 @@ No authorization required
 
 ## GetBankTransactions
 
-> BankTransactionDtoListEnvelope GetBankTransactions(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BankTransactionDtoListEnvelope GetBankTransactions(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankTransactionDtoCollectionQueryParameters(bankTransactionDtoCollectionQueryParameters).Execute()
 
 Gets the current tenant bank transactions
 
@@ -1288,10 +1296,11 @@ func main() {
 	bankId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bankTransactionDtoCollectionQueryParameters := *openapiclient.NewBankTransactionDtoCollectionQueryParameters() // BankTransactionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.GetBankTransactions(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BankingAPI.GetBankTransactions(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankTransactionDtoCollectionQueryParameters(bankTransactionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.GetBankTransactions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1320,6 +1329,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **bankTransactionDtoCollectionQueryParameters** | [**BankTransactionDtoCollectionQueryParameters**](BankTransactionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1331,7 +1341,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1341,7 +1351,7 @@ No authorization required
 
 ## GetBankTransactionsCount
 
-> Int32Envelope GetBankTransactionsCount(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetBankTransactionsCount(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankTransactionDtoCollectionQueryParameters(bankTransactionDtoCollectionQueryParameters).Execute()
 
 Gets the current tenant bank transactions count
 
@@ -1364,10 +1374,11 @@ func main() {
 	bankId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bankTransactionDtoCollectionQueryParameters := *openapiclient.NewBankTransactionDtoCollectionQueryParameters() // BankTransactionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.GetBankTransactionsCount(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BankingAPI.GetBankTransactionsCount(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankTransactionDtoCollectionQueryParameters(bankTransactionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.GetBankTransactionsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1396,6 +1407,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **bankTransactionDtoCollectionQueryParameters** | [**BankTransactionDtoCollectionQueryParameters**](BankTransactionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1407,7 +1419,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1417,7 +1429,7 @@ No authorization required
 
 ## GetBanks
 
-> BankDtoListEnvelope GetBanks(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> BankDtoListEnvelope GetBanks(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankDtoCollectionQueryParameters(bankDtoCollectionQueryParameters).Execute()
 
 Gets the current tenant banks
 
@@ -1439,10 +1451,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bankDtoCollectionQueryParameters := *openapiclient.NewBankDtoCollectionQueryParameters() // BankDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.GetBanks(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BankingAPI.GetBanks(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankDtoCollectionQueryParameters(bankDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.GetBanks``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1466,6 +1479,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **bankDtoCollectionQueryParameters** | [**BankDtoCollectionQueryParameters**](BankDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1477,7 +1491,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1487,7 +1501,7 @@ No authorization required
 
 ## GetBanksCount
 
-> Int32Envelope GetBanksCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetBanksCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankDtoCollectionQueryParameters(bankDtoCollectionQueryParameters).Execute()
 
 Gets the current tenant banks count
 
@@ -1509,10 +1523,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	bankDtoCollectionQueryParameters := *openapiclient.NewBankDtoCollectionQueryParameters() // BankDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.GetBanksCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BankingAPI.GetBanksCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).BankDtoCollectionQueryParameters(bankDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.GetBanksCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1536,6 +1551,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **bankDtoCollectionQueryParameters** | [**BankDtoCollectionQueryParameters**](BankDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1547,7 +1563,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1557,7 +1573,7 @@ No authorization required
 
 ## PatchBank
 
-> EmptyEnvelope PatchBank(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchBank(ctx, bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patches a bank
 
@@ -1580,11 +1596,11 @@ func main() {
 	bankId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.PatchBank(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.BankingAPI.PatchBank(context.Background(), bankId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.PatchBank``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1613,7 +1629,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1635,7 +1651,7 @@ No authorization required
 
 ## PatchBankAccount
 
-> EmptyEnvelope PatchBankAccount(ctx, bankId, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchBankAccount(ctx, bankId, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patches a bank account
 
@@ -1659,11 +1675,11 @@ func main() {
 	accountId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.PatchBankAccount(context.Background(), bankId, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.BankingAPI.PatchBankAccount(context.Background(), bankId, accountId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.PatchBankAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1694,7 +1710,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1716,7 +1732,7 @@ No authorization required
 
 ## PatchBankGuarantee
 
-> EmptyEnvelope PatchBankGuarantee(ctx, bankId, guaranteeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchBankGuarantee(ctx, bankId, guaranteeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patches a bank guarantee
 
@@ -1740,11 +1756,11 @@ func main() {
 	guaranteeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.PatchBankGuarantee(context.Background(), bankId, guaranteeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.BankingAPI.PatchBankGuarantee(context.Background(), bankId, guaranteeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.PatchBankGuarantee``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1775,7 +1791,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1797,7 +1813,7 @@ No authorization required
 
 ## PatchBankTransaction
 
-> EmptyEnvelope PatchBankTransaction(ctx, bankId, transactionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchBankTransaction(ctx, bankId, transactionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patches a bank transaction
 
@@ -1821,11 +1837,11 @@ func main() {
 	transactionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BankingAPI.PatchBankTransaction(context.Background(), bankId, transactionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.BankingAPI.PatchBankTransaction(context.Background(), bankId, transactionId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BankingAPI.PatchBankTransaction``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1856,7 +1872,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

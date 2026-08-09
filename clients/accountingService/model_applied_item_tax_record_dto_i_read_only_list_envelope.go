@@ -25,6 +25,9 @@ type AppliedItemTaxRecordDtoIReadOnlyListEnvelope struct {
 	ErrorMessage NullableString `json:"errorMessage,omitempty"`
 	CorrelationId NullableString `json:"correlationId,omitempty"`
 	Timestamp *time.Time `json:"timestamp,omitempty"`
+	HttpStatus NullableInt32 `json:"httpStatus,omitempty"`
+	ErrorCode NullableString `json:"errorCode,omitempty"`
+	ValidationDetails map[string][]string `json:"validationDetails,omitempty"`
 	ActivityId NullableString `json:"activityId,omitempty"`
 	Result []AppliedItemTaxRecordDto `json:"result,omitempty"`
 }
@@ -194,6 +197,123 @@ func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) SetTimestamp(v time.Time)
 	o.Timestamp = &v
 }
 
+// GetHttpStatus returns the HttpStatus field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) GetHttpStatus() int32 {
+	if o == nil || IsNil(o.HttpStatus.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.HttpStatus.Get()
+}
+
+// GetHttpStatusOk returns a tuple with the HttpStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) GetHttpStatusOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HttpStatus.Get(), o.HttpStatus.IsSet()
+}
+
+// HasHttpStatus returns a boolean if a field has been set.
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) HasHttpStatus() bool {
+	if o != nil && o.HttpStatus.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHttpStatus gets a reference to the given NullableInt32 and assigns it to the HttpStatus field.
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) SetHttpStatus(v int32) {
+	o.HttpStatus.Set(&v)
+}
+// SetHttpStatusNil sets the value for HttpStatus to be an explicit nil
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) SetHttpStatusNil() {
+	o.HttpStatus.Set(nil)
+}
+
+// UnsetHttpStatus ensures that no value is present for HttpStatus, not even an explicit nil
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) UnsetHttpStatus() {
+	o.HttpStatus.Unset()
+}
+
+// GetErrorCode returns the ErrorCode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) GetErrorCode() string {
+	if o == nil || IsNil(o.ErrorCode.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ErrorCode.Get()
+}
+
+// GetErrorCodeOk returns a tuple with the ErrorCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) GetErrorCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ErrorCode.Get(), o.ErrorCode.IsSet()
+}
+
+// HasErrorCode returns a boolean if a field has been set.
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) HasErrorCode() bool {
+	if o != nil && o.ErrorCode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorCode gets a reference to the given NullableString and assigns it to the ErrorCode field.
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) SetErrorCode(v string) {
+	o.ErrorCode.Set(&v)
+}
+// SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) SetErrorCodeNil() {
+	o.ErrorCode.Set(nil)
+}
+
+// UnsetErrorCode ensures that no value is present for ErrorCode, not even an explicit nil
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) UnsetErrorCode() {
+	o.ErrorCode.Unset()
+}
+
+// GetValidationDetails returns the ValidationDetails field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) GetValidationDetails() map[string][]string {
+	if o == nil {
+		var ret map[string][]string
+		return ret
+	}
+	return o.ValidationDetails
+}
+
+// GetValidationDetailsOk returns a tuple with the ValidationDetails field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) GetValidationDetailsOk() (*map[string][]string, bool) {
+	if o == nil || IsNil(o.ValidationDetails) {
+		return nil, false
+	}
+	return &o.ValidationDetails, true
+}
+
+// HasValidationDetails returns a boolean if a field has been set.
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) HasValidationDetails() bool {
+	if o != nil && !IsNil(o.ValidationDetails) {
+		return true
+	}
+
+	return false
+}
+
+// SetValidationDetails gets a reference to the given map[string][]string and assigns it to the ValidationDetails field.
+func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) SetValidationDetails(v map[string][]string) {
+	o.ValidationDetails = v
+}
+
 // GetActivityId returns the ActivityId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppliedItemTaxRecordDtoIReadOnlyListEnvelope) GetActivityId() string {
 	if o == nil || IsNil(o.ActivityId.Get()) {
@@ -290,6 +410,15 @@ func (o AppliedItemTaxRecordDtoIReadOnlyListEnvelope) ToMap() (map[string]interf
 	}
 	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
+	}
+	if o.HttpStatus.IsSet() {
+		toSerialize["httpStatus"] = o.HttpStatus.Get()
+	}
+	if o.ErrorCode.IsSet() {
+		toSerialize["errorCode"] = o.ErrorCode.Get()
+	}
+	if o.ValidationDetails != nil {
+		toSerialize["validationDetails"] = o.ValidationDetails
 	}
 	if o.ActivityId.IsSet() {
 		toSerialize["activityId"] = o.ActivityId.Get()

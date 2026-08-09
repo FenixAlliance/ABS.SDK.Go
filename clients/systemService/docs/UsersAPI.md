@@ -11,10 +11,13 @@ Method | HTTP request | Description
 [**GetExtendedAccountHolderAsync**](UsersAPI.md#GetExtendedAccountHolderAsync) | **Get** /api/v2/SystemService/Users/{userId}/Extended | Retrieve an extended user by ID
 [**GetExtendedUsersAsync**](UsersAPI.md#GetExtendedUsersAsync) | **Get** /api/v2/SystemService/Users/Extended | Retrieve a list of extended users
 [**GetExtendedUsersCountAsync**](UsersAPI.md#GetExtendedUsersCountAsync) | **Get** /api/v2/SystemService/Users/Extended/Count | Get the count of extended users
+[**GetUserAdminDetailAsync**](UsersAPI.md#GetUserAdminDetailAsync) | **Get** /api/v2/SystemService/Users/{userId}/AdminDetail | Retrieve the admin detail aggregate for a user
 [**GetUserAsync**](UsersAPI.md#GetUserAsync) | **Get** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID
 [**GetUsersAsync**](UsersAPI.md#GetUsersAsync) | **Get** /api/v2/SystemService/Users | Retrieve a list of users
 [**GetUsersCountAsync**](UsersAPI.md#GetUsersCountAsync) | **Get** /api/v2/SystemService/Users/Count | Get the count of users
 [**PatchAccountHolderAsync**](UsersAPI.md#PatchAccountHolderAsync) | **Patch** /api/v2/SystemService/Users/{userId} | Partially update a user
+[**SetUserPasswordAsync**](UsersAPI.md#SetUserPasswordAsync) | **Post** /api/v2/SystemService/Users/{userId}/Password | Set a user&#39;s password
+[**UpdateAccountHolderAdminProfileAsync**](UsersAPI.md#UpdateAccountHolderAdminProfileAsync) | **Put** /api/v2/SystemService/Users/{userId}/AdminProfile | Update a user&#39;s admin-managed profile
 [**UpdateAccountHolderAsync**](UsersAPI.md#UpdateAccountHolderAsync) | **Put** /api/v2/SystemService/Users/{userId} | Update a user
 
 
@@ -389,7 +392,7 @@ No authorization required
 
 ## GetExtendedUsersAsync
 
-> ExtendedUserDtoListEnvelope GetExtendedUsersAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ExtendedUserDtoListEnvelope GetExtendedUsersAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedUserDtoCollectionQueryParameters(extendedUserDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of extended users
 
@@ -410,10 +413,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	extendedUserDtoCollectionQueryParameters := *openapiclient.NewExtendedUserDtoCollectionQueryParameters() // ExtendedUserDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.GetExtendedUsersAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.GetExtendedUsersAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedUserDtoCollectionQueryParameters(extendedUserDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetExtendedUsersAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -436,6 +440,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **extendedUserDtoCollectionQueryParameters** | [**ExtendedUserDtoCollectionQueryParameters**](ExtendedUserDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -447,7 +452,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -457,7 +462,7 @@ No authorization required
 
 ## GetExtendedUsersCountAsync
 
-> Int32Envelope GetExtendedUsersCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetExtendedUsersCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedUserDtoCollectionQueryParameters(extendedUserDtoCollectionQueryParameters).Execute()
 
 Get the count of extended users
 
@@ -478,10 +483,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	extendedUserDtoCollectionQueryParameters := *openapiclient.NewExtendedUserDtoCollectionQueryParameters() // ExtendedUserDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.GetExtendedUsersCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.GetExtendedUsersCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).ExtendedUserDtoCollectionQueryParameters(extendedUserDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetExtendedUsersCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -504,10 +510,87 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **extendedUserDtoCollectionQueryParameters** | [**ExtendedUserDtoCollectionQueryParameters**](ExtendedUserDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUserAdminDetailAsync
+
+> UserAdminDetailDtoEnvelope GetUserAdminDetailAsync(ctx, userId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Retrieve the admin detail aggregate for a user
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	userId := "userId_example" // string | 
+	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserAdminDetailAsync(context.Background(), userId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserAdminDetailAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserAdminDetailAsync`: UserAdminDetailDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserAdminDetailAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUserAdminDetailAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **tenantId** | **string** |  | 
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**UserAdminDetailDtoEnvelope**](UserAdminDetailDtoEnvelope.md)
 
 ### Authorization
 
@@ -599,7 +682,7 @@ No authorization required
 
 ## GetUsersAsync
 
-> UserDtoListEnvelope GetUsersAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> UserDtoListEnvelope GetUsersAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).UserDtoCollectionQueryParameters(userDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of users
 
@@ -620,10 +703,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	userDtoCollectionQueryParameters := *openapiclient.NewUserDtoCollectionQueryParameters() // UserDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.GetUsersAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.GetUsersAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).UserDtoCollectionQueryParameters(userDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUsersAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -646,6 +730,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **userDtoCollectionQueryParameters** | [**UserDtoCollectionQueryParameters**](UserDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -657,7 +742,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -667,7 +752,7 @@ No authorization required
 
 ## GetUsersCountAsync
 
-> Int32Envelope GetUsersCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetUsersCountAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).UserDtoCollectionQueryParameters(userDtoCollectionQueryParameters).Execute()
 
 Get the count of users
 
@@ -688,10 +773,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	userDtoCollectionQueryParameters := *openapiclient.NewUserDtoCollectionQueryParameters() // UserDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.GetUsersCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.UsersAPI.GetUsersCountAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).UserDtoCollectionQueryParameters(userDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUsersCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -714,6 +800,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **userDtoCollectionQueryParameters** | [**UserDtoCollectionQueryParameters**](UserDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -725,7 +812,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -735,7 +822,7 @@ No authorization required
 
 ## PatchAccountHolderAsync
 
-> EmptyEnvelope PatchAccountHolderAsync(ctx, userId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchAccountHolderAsync(ctx, userId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Partially update a user
 
@@ -757,11 +844,11 @@ func main() {
 	userId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.PatchAccountHolderAsync(context.Background(), userId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.UsersAPI.PatchAccountHolderAsync(context.Background(), userId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.PatchAccountHolderAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -789,7 +876,159 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SetUserPasswordAsync
+
+> EmptyEnvelope SetUserPasswordAsync(ctx, userId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SetUserPasswordDto(setUserPasswordDto).Execute()
+
+Set a user's password
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	userId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	setUserPasswordDto := *openapiclient.NewSetUserPasswordDto("NewPassword_example") // SetUserPasswordDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.SetUserPasswordAsync(context.Background(), userId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SetUserPasswordDto(setUserPasswordDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.SetUserPasswordAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SetUserPasswordAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.SetUserPasswordAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSetUserPasswordAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **setUserPasswordDto** | [**SetUserPasswordDto**](SetUserPasswordDto.md) |  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateAccountHolderAdminProfileAsync
+
+> EmptyEnvelope UpdateAccountHolderAdminProfileAsync(ctx, userId).ApiVersion(apiVersion).XApiVersion(xApiVersion).UserAdminUpdateDto(userAdminUpdateDto).Execute()
+
+Update a user's admin-managed profile
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	userId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	userAdminUpdateDto := *openapiclient.NewUserAdminUpdateDto() // UserAdminUpdateDto |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.UpdateAccountHolderAdminProfileAsync(context.Background(), userId).ApiVersion(apiVersion).XApiVersion(xApiVersion).UserAdminUpdateDto(userAdminUpdateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.UpdateAccountHolderAdminProfileAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateAccountHolderAdminProfileAsync`: EmptyEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.UpdateAccountHolderAdminProfileAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateAccountHolderAdminProfileAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **userAdminUpdateDto** | [**UserAdminUpdateDto**](UserAdminUpdateDto.md) |  | 
 
 ### Return type
 

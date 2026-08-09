@@ -30,6 +30,7 @@ type OrderCreateDto struct {
 	IndividualId NullableString `json:"individualId,omitempty"`
 	PaymentTermId NullableString `json:"paymentTermId,omitempty"`
 	OrganizationId NullableString `json:"organizationId,omitempty"`
+	ReceiverTenantId NullableString `json:"receiverTenantId,omitempty"`
 	FirstName NullableString `json:"firstName,omitempty"`
 	LastName NullableString `json:"lastName,omitempty"`
 	CompanyName NullableString `json:"companyName,omitempty"`
@@ -78,7 +79,6 @@ type OrderCreateDto struct {
 	OrderStatus *string `json:"orderStatus,omitempty"`
 	QuoteStatus *string `json:"quoteStatus,omitempty"`
 	FreightTerms *string `json:"freightTerms,omitempty"`
-	ReceiverTenantId NullableString `json:"receiverTenantId,omitempty"`
 	ShippingLocationId NullableString `json:"shippingLocationId,omitempty"`
 	QualifiedIdentifier NullableString `json:"qualifiedIdentifier,omitempty"`
 	TotalTaxesInUsd *float64 `json:"totalTaxesInUsd,omitempty"`
@@ -455,6 +455,48 @@ func (o *OrderCreateDto) SetOrganizationIdNil() {
 // UnsetOrganizationId ensures that no value is present for OrganizationId, not even an explicit nil
 func (o *OrderCreateDto) UnsetOrganizationId() {
 	o.OrganizationId.Unset()
+}
+
+// GetReceiverTenantId returns the ReceiverTenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *OrderCreateDto) GetReceiverTenantId() string {
+	if o == nil || IsNil(o.ReceiverTenantId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ReceiverTenantId.Get()
+}
+
+// GetReceiverTenantIdOk returns a tuple with the ReceiverTenantId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *OrderCreateDto) GetReceiverTenantIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ReceiverTenantId.Get(), o.ReceiverTenantId.IsSet()
+}
+
+// HasReceiverTenantId returns a boolean if a field has been set.
+func (o *OrderCreateDto) HasReceiverTenantId() bool {
+	if o != nil && o.ReceiverTenantId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetReceiverTenantId gets a reference to the given NullableString and assigns it to the ReceiverTenantId field.
+func (o *OrderCreateDto) SetReceiverTenantId(v string) {
+	o.ReceiverTenantId.Set(&v)
+}
+// SetReceiverTenantIdNil sets the value for ReceiverTenantId to be an explicit nil
+func (o *OrderCreateDto) SetReceiverTenantIdNil() {
+	o.ReceiverTenantId.Set(nil)
+}
+
+// UnsetReceiverTenantId ensures that no value is present for ReceiverTenantId, not even an explicit nil
+func (o *OrderCreateDto) UnsetReceiverTenantId() {
+	o.ReceiverTenantId.Unset()
 }
 
 // GetFirstName returns the FirstName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2293,48 +2335,6 @@ func (o *OrderCreateDto) SetFreightTerms(v string) {
 	o.FreightTerms = &v
 }
 
-// GetReceiverTenantId returns the ReceiverTenantId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrderCreateDto) GetReceiverTenantId() string {
-	if o == nil || IsNil(o.ReceiverTenantId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ReceiverTenantId.Get()
-}
-
-// GetReceiverTenantIdOk returns a tuple with the ReceiverTenantId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrderCreateDto) GetReceiverTenantIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ReceiverTenantId.Get(), o.ReceiverTenantId.IsSet()
-}
-
-// HasReceiverTenantId returns a boolean if a field has been set.
-func (o *OrderCreateDto) HasReceiverTenantId() bool {
-	if o != nil && o.ReceiverTenantId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetReceiverTenantId gets a reference to the given NullableString and assigns it to the ReceiverTenantId field.
-func (o *OrderCreateDto) SetReceiverTenantId(v string) {
-	o.ReceiverTenantId.Set(&v)
-}
-// SetReceiverTenantIdNil sets the value for ReceiverTenantId to be an explicit nil
-func (o *OrderCreateDto) SetReceiverTenantIdNil() {
-	o.ReceiverTenantId.Set(nil)
-}
-
-// UnsetReceiverTenantId ensures that no value is present for ReceiverTenantId, not even an explicit nil
-func (o *OrderCreateDto) UnsetReceiverTenantId() {
-	o.ReceiverTenantId.Unset()
-}
-
 // GetShippingLocationId returns the ShippingLocationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *OrderCreateDto) GetShippingLocationId() string {
 	if o == nil || IsNil(o.ShippingLocationId.Get()) {
@@ -2765,6 +2765,9 @@ func (o OrderCreateDto) ToMap() (map[string]interface{}, error) {
 	if o.OrganizationId.IsSet() {
 		toSerialize["organizationId"] = o.OrganizationId.Get()
 	}
+	if o.ReceiverTenantId.IsSet() {
+		toSerialize["receiverTenantId"] = o.ReceiverTenantId.Get()
+	}
 	if o.FirstName.IsSet() {
 		toSerialize["firstName"] = o.FirstName.Get()
 	}
@@ -2908,9 +2911,6 @@ func (o OrderCreateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.FreightTerms) {
 		toSerialize["freightTerms"] = o.FreightTerms
-	}
-	if o.ReceiverTenantId.IsSet() {
-		toSerialize["receiverTenantId"] = o.ReceiverTenantId.Get()
 	}
 	if o.ShippingLocationId.IsSet() {
 		toSerialize["shippingLocationId"] = o.ShippingLocationId.Get()

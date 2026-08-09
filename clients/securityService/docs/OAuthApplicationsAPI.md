@@ -603,7 +603,7 @@ No authorization required
 
 ## PatchOAuthApplicationAsync
 
-> EmptyEnvelope PatchOAuthApplicationAsync(ctx, applicationId).TenantId(tenantId).Operation(operation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> EmptyEnvelope PatchOAuthApplicationAsync(ctx, applicationId).TenantId(tenantId).PatchOperation(patchOperation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 
 Patch an existing OAuth application
 
@@ -624,13 +624,13 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	applicationId := "applicationId_example" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation | 
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OAuthApplicationsAPI.PatchOAuthApplicationAsync(context.Background(), applicationId).TenantId(tenantId).Operation(operation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.OAuthApplicationsAPI.PatchOAuthApplicationAsync(context.Background(), applicationId).TenantId(tenantId).PatchOperation(patchOperation).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OAuthApplicationsAPI.PatchOAuthApplicationAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
 

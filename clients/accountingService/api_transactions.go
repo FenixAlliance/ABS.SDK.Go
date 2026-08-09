@@ -858,6 +858,7 @@ type ApiGetTransactionCategoriesRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	transactionCategoryDtoCollectionQueryParameters *TransactionCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetTransactionCategoriesRequest) TenantId(tenantId string) ApiGetTransactionCategoriesRequest {
@@ -872,6 +873,11 @@ func (r ApiGetTransactionCategoriesRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetTransactionCategoriesRequest) XApiVersion(xApiVersion string) ApiGetTransactionCategoriesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTransactionCategoriesRequest) TransactionCategoryDtoCollectionQueryParameters(transactionCategoryDtoCollectionQueryParameters TransactionCategoryDtoCollectionQueryParameters) ApiGetTransactionCategoriesRequest {
+	r.transactionCategoryDtoCollectionQueryParameters = &transactionCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -923,7 +929,7 @@ func (a *TransactionsAPIService) GetTransactionCategoriesExecute(r ApiGetTransac
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -942,6 +948,8 @@ func (a *TransactionsAPIService) GetTransactionCategoriesExecute(r ApiGetTransac
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.transactionCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1007,6 +1015,7 @@ type ApiGetTransactionCategoriesCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	transactionCategoryDtoCollectionQueryParameters *TransactionCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetTransactionCategoriesCountRequest) TenantId(tenantId string) ApiGetTransactionCategoriesCountRequest {
@@ -1021,6 +1030,11 @@ func (r ApiGetTransactionCategoriesCountRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetTransactionCategoriesCountRequest) XApiVersion(xApiVersion string) ApiGetTransactionCategoriesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTransactionCategoriesCountRequest) TransactionCategoryDtoCollectionQueryParameters(transactionCategoryDtoCollectionQueryParameters TransactionCategoryDtoCollectionQueryParameters) ApiGetTransactionCategoriesCountRequest {
+	r.transactionCategoryDtoCollectionQueryParameters = &transactionCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -1072,7 +1086,7 @@ func (a *TransactionsAPIService) GetTransactionCategoriesCountExecute(r ApiGetTr
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1091,6 +1105,8 @@ func (a *TransactionsAPIService) GetTransactionCategoriesCountExecute(r ApiGetTr
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.transactionCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1320,6 +1336,7 @@ type ApiGetTransactionsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	transactionDtoCollectionQueryParameters *TransactionDtoCollectionQueryParameters
 }
 
 func (r ApiGetTransactionsRequest) TenantId(tenantId string) ApiGetTransactionsRequest {
@@ -1334,6 +1351,11 @@ func (r ApiGetTransactionsRequest) ApiVersion(apiVersion string) ApiGetTransacti
 
 func (r ApiGetTransactionsRequest) XApiVersion(xApiVersion string) ApiGetTransactionsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTransactionsRequest) TransactionDtoCollectionQueryParameters(transactionDtoCollectionQueryParameters TransactionDtoCollectionQueryParameters) ApiGetTransactionsRequest {
+	r.transactionDtoCollectionQueryParameters = &transactionDtoCollectionQueryParameters
 	return r
 }
 
@@ -1385,7 +1407,7 @@ func (a *TransactionsAPIService) GetTransactionsExecute(r ApiGetTransactionsRequ
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1404,6 +1426,8 @@ func (a *TransactionsAPIService) GetTransactionsExecute(r ApiGetTransactionsRequ
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.transactionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1469,6 +1493,7 @@ type ApiGetTransactionsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	transactionDtoCollectionQueryParameters *TransactionDtoCollectionQueryParameters
 }
 
 func (r ApiGetTransactionsCountRequest) TenantId(tenantId string) ApiGetTransactionsCountRequest {
@@ -1483,6 +1508,11 @@ func (r ApiGetTransactionsCountRequest) ApiVersion(apiVersion string) ApiGetTran
 
 func (r ApiGetTransactionsCountRequest) XApiVersion(xApiVersion string) ApiGetTransactionsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTransactionsCountRequest) TransactionDtoCollectionQueryParameters(transactionDtoCollectionQueryParameters TransactionDtoCollectionQueryParameters) ApiGetTransactionsCountRequest {
+	r.transactionDtoCollectionQueryParameters = &transactionDtoCollectionQueryParameters
 	return r
 }
 
@@ -1534,7 +1564,7 @@ func (a *TransactionsAPIService) GetTransactionsCountExecute(r ApiGetTransaction
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1553,6 +1583,8 @@ func (a *TransactionsAPIService) GetTransactionsCountExecute(r ApiGetTransaction
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.transactionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1619,7 +1651,7 @@ type ApiPatchTransactionRequest struct {
 	transactionId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTransactionRequest) TenantId(tenantId string) ApiPatchTransactionRequest {
@@ -1637,8 +1669,8 @@ func (r ApiPatchTransactionRequest) XApiVersion(xApiVersion string) ApiPatchTran
 	return r
 }
 
-func (r ApiPatchTransactionRequest) Operation(operation []Operation) ApiPatchTransactionRequest {
-	r.operation = &operation
+func (r ApiPatchTransactionRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTransactionRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1713,7 +1745,7 @@ func (a *TransactionsAPIService) PatchTransactionExecute(r ApiPatchTransactionRe
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1780,7 +1812,7 @@ type ApiPatchTransactionCategoryRequest struct {
 	categoryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTransactionCategoryRequest) TenantId(tenantId string) ApiPatchTransactionCategoryRequest {
@@ -1798,8 +1830,8 @@ func (r ApiPatchTransactionCategoryRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchTransactionCategoryRequest) Operation(operation []Operation) ApiPatchTransactionCategoryRequest {
-	r.operation = &operation
+func (r ApiPatchTransactionCategoryRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTransactionCategoryRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1874,7 +1906,7 @@ func (a *TransactionsAPIService) PatchTransactionCategoryExecute(r ApiPatchTrans
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

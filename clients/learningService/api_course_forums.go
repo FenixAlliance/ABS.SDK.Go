@@ -439,6 +439,7 @@ type ApiGetCourseForumsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	courseForumDtoCollectionQueryParameters *CourseForumDtoCollectionQueryParameters
 }
 
 func (r ApiGetCourseForumsAsyncRequest) TenantId(tenantId string) ApiGetCourseForumsAsyncRequest {
@@ -453,6 +454,11 @@ func (r ApiGetCourseForumsAsyncRequest) ApiVersion(apiVersion string) ApiGetCour
 
 func (r ApiGetCourseForumsAsyncRequest) XApiVersion(xApiVersion string) ApiGetCourseForumsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCourseForumsAsyncRequest) CourseForumDtoCollectionQueryParameters(courseForumDtoCollectionQueryParameters CourseForumDtoCollectionQueryParameters) ApiGetCourseForumsAsyncRequest {
+	r.courseForumDtoCollectionQueryParameters = &courseForumDtoCollectionQueryParameters
 	return r
 }
 
@@ -504,7 +510,7 @@ func (a *CourseForumsAPIService) GetCourseForumsAsyncExecute(r ApiGetCourseForum
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -523,6 +529,8 @@ func (a *CourseForumsAPIService) GetCourseForumsAsyncExecute(r ApiGetCourseForum
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseForumDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -577,6 +585,7 @@ type ApiGetCourseForumsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	courseForumDtoCollectionQueryParameters *CourseForumDtoCollectionQueryParameters
 }
 
 func (r ApiGetCourseForumsCountAsyncRequest) TenantId(tenantId string) ApiGetCourseForumsCountAsyncRequest {
@@ -591,6 +600,11 @@ func (r ApiGetCourseForumsCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetCourseForumsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetCourseForumsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCourseForumsCountAsyncRequest) CourseForumDtoCollectionQueryParameters(courseForumDtoCollectionQueryParameters CourseForumDtoCollectionQueryParameters) ApiGetCourseForumsCountAsyncRequest {
+	r.courseForumDtoCollectionQueryParameters = &courseForumDtoCollectionQueryParameters
 	return r
 }
 
@@ -642,7 +656,7 @@ func (a *CourseForumsAPIService) GetCourseForumsCountAsyncExecute(r ApiGetCourse
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -661,6 +675,8 @@ func (a *CourseForumsAPIService) GetCourseForumsCountAsyncExecute(r ApiGetCourse
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseForumDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -716,7 +732,7 @@ type ApiPatchCourseForumAsyncRequest struct {
 	forumId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCourseForumAsyncRequest) TenantId(tenantId string) ApiPatchCourseForumAsyncRequest {
@@ -734,8 +750,8 @@ func (r ApiPatchCourseForumAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchCourseForumAsyncRequest) Operation(operation []Operation) ApiPatchCourseForumAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchCourseForumAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCourseForumAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -808,7 +824,7 @@ func (a *CourseForumsAPIService) PatchCourseForumAsyncExecute(r ApiPatchCourseFo
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

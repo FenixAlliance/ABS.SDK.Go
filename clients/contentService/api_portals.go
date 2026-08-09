@@ -187,6 +187,7 @@ type ApiCountPortalsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	webPortalDtoCollectionQueryParameters *WebPortalDtoCollectionQueryParameters
 }
 
 func (r ApiCountPortalsAsyncRequest) TenantId(tenantId string) ApiCountPortalsAsyncRequest {
@@ -201,6 +202,11 @@ func (r ApiCountPortalsAsyncRequest) ApiVersion(apiVersion string) ApiCountPorta
 
 func (r ApiCountPortalsAsyncRequest) XApiVersion(xApiVersion string) ApiCountPortalsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountPortalsAsyncRequest) WebPortalDtoCollectionQueryParameters(webPortalDtoCollectionQueryParameters WebPortalDtoCollectionQueryParameters) ApiCountPortalsAsyncRequest {
+	r.webPortalDtoCollectionQueryParameters = &webPortalDtoCollectionQueryParameters
 	return r
 }
 
@@ -252,7 +258,7 @@ func (a *PortalsAPIService) CountPortalsAsyncExecute(r ApiCountPortalsAsyncReque
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -271,6 +277,8 @@ func (a *PortalsAPIService) CountPortalsAsyncExecute(r ApiCountPortalsAsyncReque
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.webPortalDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -924,6 +932,7 @@ type ApiGetPortalsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	webPortalDtoCollectionQueryParameters *WebPortalDtoCollectionQueryParameters
 }
 
 func (r ApiGetPortalsAsyncRequest) TenantId(tenantId string) ApiGetPortalsAsyncRequest {
@@ -938,6 +947,11 @@ func (r ApiGetPortalsAsyncRequest) ApiVersion(apiVersion string) ApiGetPortalsAs
 
 func (r ApiGetPortalsAsyncRequest) XApiVersion(xApiVersion string) ApiGetPortalsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPortalsAsyncRequest) WebPortalDtoCollectionQueryParameters(webPortalDtoCollectionQueryParameters WebPortalDtoCollectionQueryParameters) ApiGetPortalsAsyncRequest {
+	r.webPortalDtoCollectionQueryParameters = &webPortalDtoCollectionQueryParameters
 	return r
 }
 
@@ -989,7 +1003,7 @@ func (a *PortalsAPIService) GetPortalsAsyncExecute(r ApiGetPortalsAsyncRequest) 
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1008,6 +1022,8 @@ func (a *PortalsAPIService) GetPortalsAsyncExecute(r ApiGetPortalsAsyncRequest) 
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.webPortalDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1805,7 +1821,7 @@ func (r ApiInitializeCurrentWebPortalAsyncRequest) XApiVersion(xApiVersion strin
 	return r
 }
 
-func (r ApiInitializeCurrentWebPortalAsyncRequest) Execute() (*WebPortalDtoEnvelope, *http.Response, error) {
+func (r ApiInitializeCurrentWebPortalAsyncRequest) Execute() (*ExecutionContextEnvelope, *http.Response, error) {
 	return r.ApiService.InitializeCurrentWebPortalAsyncExecute(r)
 }
 
@@ -1825,13 +1841,13 @@ func (a *PortalsAPIService) InitializeCurrentWebPortalAsync(ctx context.Context)
 }
 
 // Execute executes the request
-//  @return WebPortalDtoEnvelope
-func (a *PortalsAPIService) InitializeCurrentWebPortalAsyncExecute(r ApiInitializeCurrentWebPortalAsyncRequest) (*WebPortalDtoEnvelope, *http.Response, error) {
+//  @return ExecutionContextEnvelope
+func (a *PortalsAPIService) InitializeCurrentWebPortalAsyncExecute(r ApiInitializeCurrentWebPortalAsyncRequest) (*ExecutionContextEnvelope, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WebPortalDtoEnvelope
+		localVarReturnValue  *ExecutionContextEnvelope
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortalsAPIService.InitializeCurrentWebPortalAsync")
@@ -1934,7 +1950,7 @@ type ApiPatchWebPortalAsyncRequest struct {
 	portalId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchWebPortalAsyncRequest) TenantId(tenantId string) ApiPatchWebPortalAsyncRequest {
@@ -1952,8 +1968,8 @@ func (r ApiPatchWebPortalAsyncRequest) XApiVersion(xApiVersion string) ApiPatchW
 	return r
 }
 
-func (r ApiPatchWebPortalAsyncRequest) Operation(operation []Operation) ApiPatchWebPortalAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchWebPortalAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWebPortalAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2028,7 +2044,7 @@ func (a *PortalsAPIService) PatchWebPortalAsyncExecute(r ApiPatchWebPortalAsyncR
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

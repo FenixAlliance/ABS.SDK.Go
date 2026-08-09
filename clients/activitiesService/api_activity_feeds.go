@@ -30,6 +30,7 @@ type ApiCountActivityTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	activityTypeDtoCollectionQueryParameters *ActivityTypeDtoCollectionQueryParameters
 }
 
 func (r ApiCountActivityTypesAsyncRequest) TenantId(tenantId string) ApiCountActivityTypesAsyncRequest {
@@ -44,6 +45,11 @@ func (r ApiCountActivityTypesAsyncRequest) ApiVersion(apiVersion string) ApiCoun
 
 func (r ApiCountActivityTypesAsyncRequest) XApiVersion(xApiVersion string) ApiCountActivityTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountActivityTypesAsyncRequest) ActivityTypeDtoCollectionQueryParameters(activityTypeDtoCollectionQueryParameters ActivityTypeDtoCollectionQueryParameters) ApiCountActivityTypesAsyncRequest {
+	r.activityTypeDtoCollectionQueryParameters = &activityTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -95,7 +101,7 @@ func (a *ActivityFeedsAPIService) CountActivityTypesAsyncExecute(r ApiCountActiv
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -114,6 +120,8 @@ func (a *ActivityFeedsAPIService) CountActivityTypesAsyncExecute(r ApiCountActiv
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.activityTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -808,6 +816,7 @@ type ApiGetActivitiesAsyncRequest struct {
 	activityFeedId string
 	apiVersion *string
 	xApiVersion *string
+	activityRecordDtoCollectionQueryParameters *ActivityRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetActivitiesAsyncRequest) TenantId(tenantId string) ApiGetActivitiesAsyncRequest {
@@ -822,6 +831,11 @@ func (r ApiGetActivitiesAsyncRequest) ApiVersion(apiVersion string) ApiGetActivi
 
 func (r ApiGetActivitiesAsyncRequest) XApiVersion(xApiVersion string) ApiGetActivitiesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetActivitiesAsyncRequest) ActivityRecordDtoCollectionQueryParameters(activityRecordDtoCollectionQueryParameters ActivityRecordDtoCollectionQueryParameters) ApiGetActivitiesAsyncRequest {
+	r.activityRecordDtoCollectionQueryParameters = &activityRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -876,7 +890,7 @@ func (a *ActivityFeedsAPIService) GetActivitiesAsyncExecute(r ApiGetActivitiesAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -895,6 +909,8 @@ func (a *ActivityFeedsAPIService) GetActivitiesAsyncExecute(r ApiGetActivitiesAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.activityRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -961,6 +977,7 @@ type ApiGetActivitiesCountAsyncRequest struct {
 	activityFeedId string
 	apiVersion *string
 	xApiVersion *string
+	activityRecordDtoCollectionQueryParameters *ActivityRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetActivitiesCountAsyncRequest) TenantId(tenantId string) ApiGetActivitiesCountAsyncRequest {
@@ -975,6 +992,11 @@ func (r ApiGetActivitiesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetA
 
 func (r ApiGetActivitiesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetActivitiesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetActivitiesCountAsyncRequest) ActivityRecordDtoCollectionQueryParameters(activityRecordDtoCollectionQueryParameters ActivityRecordDtoCollectionQueryParameters) ApiGetActivitiesCountAsyncRequest {
+	r.activityRecordDtoCollectionQueryParameters = &activityRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -1029,7 +1051,7 @@ func (a *ActivityFeedsAPIService) GetActivitiesCountAsyncExecute(r ApiGetActivit
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1048,6 +1070,8 @@ func (a *ActivityFeedsAPIService) GetActivitiesCountAsyncExecute(r ApiGetActivit
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.activityRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1423,6 +1447,7 @@ type ApiGetActivityFeedsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	activityFeedDtoCollectionQueryParameters *ActivityFeedDtoCollectionQueryParameters
 }
 
 func (r ApiGetActivityFeedsAsyncRequest) TenantId(tenantId string) ApiGetActivityFeedsAsyncRequest {
@@ -1437,6 +1462,11 @@ func (r ApiGetActivityFeedsAsyncRequest) ApiVersion(apiVersion string) ApiGetAct
 
 func (r ApiGetActivityFeedsAsyncRequest) XApiVersion(xApiVersion string) ApiGetActivityFeedsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetActivityFeedsAsyncRequest) ActivityFeedDtoCollectionQueryParameters(activityFeedDtoCollectionQueryParameters ActivityFeedDtoCollectionQueryParameters) ApiGetActivityFeedsAsyncRequest {
+	r.activityFeedDtoCollectionQueryParameters = &activityFeedDtoCollectionQueryParameters
 	return r
 }
 
@@ -1488,7 +1518,7 @@ func (a *ActivityFeedsAPIService) GetActivityFeedsAsyncExecute(r ApiGetActivityF
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1507,6 +1537,8 @@ func (a *ActivityFeedsAPIService) GetActivityFeedsAsyncExecute(r ApiGetActivityF
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.activityFeedDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1572,6 +1604,7 @@ type ApiGetActivityFeedsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	activityFeedDtoCollectionQueryParameters *ActivityFeedDtoCollectionQueryParameters
 }
 
 func (r ApiGetActivityFeedsCountAsyncRequest) TenantId(tenantId string) ApiGetActivityFeedsCountAsyncRequest {
@@ -1586,6 +1619,11 @@ func (r ApiGetActivityFeedsCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetActivityFeedsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetActivityFeedsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetActivityFeedsCountAsyncRequest) ActivityFeedDtoCollectionQueryParameters(activityFeedDtoCollectionQueryParameters ActivityFeedDtoCollectionQueryParameters) ApiGetActivityFeedsCountAsyncRequest {
+	r.activityFeedDtoCollectionQueryParameters = &activityFeedDtoCollectionQueryParameters
 	return r
 }
 
@@ -1637,7 +1675,7 @@ func (a *ActivityFeedsAPIService) GetActivityFeedsCountAsyncExecute(r ApiGetActi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1656,6 +1694,8 @@ func (a *ActivityFeedsAPIService) GetActivityFeedsCountAsyncExecute(r ApiGetActi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.activityFeedDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1721,6 +1761,7 @@ type ApiGetActivityRecordsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	activityRecordDtoCollectionQueryParameters *ActivityRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetActivityRecordsCountAsyncRequest) TenantId(tenantId string) ApiGetActivityRecordsCountAsyncRequest {
@@ -1735,6 +1776,11 @@ func (r ApiGetActivityRecordsCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetActivityRecordsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetActivityRecordsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetActivityRecordsCountAsyncRequest) ActivityRecordDtoCollectionQueryParameters(activityRecordDtoCollectionQueryParameters ActivityRecordDtoCollectionQueryParameters) ApiGetActivityRecordsCountAsyncRequest {
+	r.activityRecordDtoCollectionQueryParameters = &activityRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -1786,7 +1832,7 @@ func (a *ActivityFeedsAPIService) GetActivityRecordsCountAsyncExecute(r ApiGetAc
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1805,6 +1851,8 @@ func (a *ActivityFeedsAPIService) GetActivityRecordsCountAsyncExecute(r ApiGetAc
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.activityRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2023,6 +2071,7 @@ type ApiGetActivityTypesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	activityTypeDtoCollectionQueryParameters *ActivityTypeDtoCollectionQueryParameters
 }
 
 func (r ApiGetActivityTypesAsyncRequest) TenantId(tenantId string) ApiGetActivityTypesAsyncRequest {
@@ -2037,6 +2086,11 @@ func (r ApiGetActivityTypesAsyncRequest) ApiVersion(apiVersion string) ApiGetAct
 
 func (r ApiGetActivityTypesAsyncRequest) XApiVersion(xApiVersion string) ApiGetActivityTypesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetActivityTypesAsyncRequest) ActivityTypeDtoCollectionQueryParameters(activityTypeDtoCollectionQueryParameters ActivityTypeDtoCollectionQueryParameters) ApiGetActivityTypesAsyncRequest {
+	r.activityTypeDtoCollectionQueryParameters = &activityTypeDtoCollectionQueryParameters
 	return r
 }
 
@@ -2088,7 +2142,7 @@ func (a *ActivityFeedsAPIService) GetActivityTypesAsyncExecute(r ApiGetActivityT
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2107,6 +2161,8 @@ func (a *ActivityFeedsAPIService) GetActivityTypesAsyncExecute(r ApiGetActivityT
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.activityTypeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2174,7 +2230,7 @@ type ApiPatchActivityAsyncRequest struct {
 	activityId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchActivityAsyncRequest) TenantId(tenantId string) ApiPatchActivityAsyncRequest {
@@ -2192,8 +2248,8 @@ func (r ApiPatchActivityAsyncRequest) XApiVersion(xApiVersion string) ApiPatchAc
 	return r
 }
 
-func (r ApiPatchActivityAsyncRequest) Operation(operation []Operation) ApiPatchActivityAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchActivityAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchActivityAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2271,7 +2327,7 @@ func (a *ActivityFeedsAPIService) PatchActivityAsyncExecute(r ApiPatchActivityAs
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2338,7 +2394,7 @@ type ApiPatchActivityTypeAsyncRequest struct {
 	activityTypeId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchActivityTypeAsyncRequest) TenantId(tenantId string) ApiPatchActivityTypeAsyncRequest {
@@ -2356,8 +2412,8 @@ func (r ApiPatchActivityTypeAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchActivityTypeAsyncRequest) Operation(operation []Operation) ApiPatchActivityTypeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchActivityTypeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchActivityTypeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2432,7 +2488,7 @@ func (a *ActivityFeedsAPIService) PatchActivityTypeAsyncExecute(r ApiPatchActivi
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

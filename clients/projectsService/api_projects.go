@@ -1137,10 +1137,16 @@ type ApiGetProjectTaskCategoriesAsyncRequest struct {
 	ApiService *ProjectsAPIService
 	projectId string
 	tenantId *string
+	taskCategoryDtoCollectionQueryParameters *TaskCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetProjectTaskCategoriesAsyncRequest) TenantId(tenantId string) ApiGetProjectTaskCategoriesAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetProjectTaskCategoriesAsyncRequest) TaskCategoryDtoCollectionQueryParameters(taskCategoryDtoCollectionQueryParameters TaskCategoryDtoCollectionQueryParameters) ApiGetProjectTaskCategoriesAsyncRequest {
+	r.taskCategoryDtoCollectionQueryParameters = &taskCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -1192,7 +1198,7 @@ func (a *ProjectsAPIService) GetProjectTaskCategoriesAsyncExecute(r ApiGetProjec
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1208,6 +1214,8 @@ func (a *ProjectsAPIService) GetProjectTaskCategoriesAsyncExecute(r ApiGetProjec
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.taskCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1272,10 +1280,16 @@ type ApiGetProjectTaskCategoriesCountAsyncRequest struct {
 	ApiService *ProjectsAPIService
 	projectId string
 	tenantId *string
+	taskCategoryDtoCollectionQueryParameters *TaskCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetProjectTaskCategoriesCountAsyncRequest) TenantId(tenantId string) ApiGetProjectTaskCategoriesCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetProjectTaskCategoriesCountAsyncRequest) TaskCategoryDtoCollectionQueryParameters(taskCategoryDtoCollectionQueryParameters TaskCategoryDtoCollectionQueryParameters) ApiGetProjectTaskCategoriesCountAsyncRequest {
+	r.taskCategoryDtoCollectionQueryParameters = &taskCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -1327,7 +1341,7 @@ func (a *ProjectsAPIService) GetProjectTaskCategoriesCountAsyncExecute(r ApiGetP
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1343,6 +1357,8 @@ func (a *ProjectsAPIService) GetProjectTaskCategoriesCountAsyncExecute(r ApiGetP
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.taskCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1407,10 +1423,16 @@ type ApiGetProjectTimeLogsCountAsyncRequest struct {
 	ApiService *ProjectsAPIService
 	projectId string
 	tenantId *string
+	projectTimeLogDtoCollectionQueryParameters *ProjectTimeLogDtoCollectionQueryParameters
 }
 
 func (r ApiGetProjectTimeLogsCountAsyncRequest) TenantId(tenantId string) ApiGetProjectTimeLogsCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetProjectTimeLogsCountAsyncRequest) ProjectTimeLogDtoCollectionQueryParameters(projectTimeLogDtoCollectionQueryParameters ProjectTimeLogDtoCollectionQueryParameters) ApiGetProjectTimeLogsCountAsyncRequest {
+	r.projectTimeLogDtoCollectionQueryParameters = &projectTimeLogDtoCollectionQueryParameters
 	return r
 }
 
@@ -1462,7 +1484,7 @@ func (a *ProjectsAPIService) GetProjectTimeLogsCountAsyncExecute(r ApiGetProject
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1478,6 +1500,8 @@ func (a *ProjectsAPIService) GetProjectTimeLogsCountAsyncExecute(r ApiGetProject
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.projectTimeLogDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1541,10 +1565,16 @@ type ApiGetProjectsByTenantIdAsyncRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	tenantId *string
+	projectDtoCollectionQueryParameters *ProjectDtoCollectionQueryParameters
 }
 
 func (r ApiGetProjectsByTenantIdAsyncRequest) TenantId(tenantId string) ApiGetProjectsByTenantIdAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetProjectsByTenantIdAsyncRequest) ProjectDtoCollectionQueryParameters(projectDtoCollectionQueryParameters ProjectDtoCollectionQueryParameters) ApiGetProjectsByTenantIdAsyncRequest {
+	r.projectDtoCollectionQueryParameters = &projectDtoCollectionQueryParameters
 	return r
 }
 
@@ -1593,7 +1623,7 @@ func (a *ProjectsAPIService) GetProjectsByTenantIdAsyncExecute(r ApiGetProjectsB
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1609,6 +1639,8 @@ func (a *ProjectsAPIService) GetProjectsByTenantIdAsyncExecute(r ApiGetProjectsB
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.projectDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1672,10 +1704,16 @@ type ApiGetProjectsCountByTenantIdAsyncRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	tenantId *string
+	projectDtoCollectionQueryParameters *ProjectDtoCollectionQueryParameters
 }
 
 func (r ApiGetProjectsCountByTenantIdAsyncRequest) TenantId(tenantId string) ApiGetProjectsCountByTenantIdAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetProjectsCountByTenantIdAsyncRequest) ProjectDtoCollectionQueryParameters(projectDtoCollectionQueryParameters ProjectDtoCollectionQueryParameters) ApiGetProjectsCountByTenantIdAsyncRequest {
+	r.projectDtoCollectionQueryParameters = &projectDtoCollectionQueryParameters
 	return r
 }
 
@@ -1724,7 +1762,7 @@ func (a *ProjectsAPIService) GetProjectsCountByTenantIdAsyncExecute(r ApiGetProj
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1740,6 +1778,8 @@ func (a *ProjectsAPIService) GetProjectsCountByTenantIdAsyncExecute(r ApiGetProj
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.projectDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1804,10 +1844,16 @@ type ApiGetTasksForProjectAsyncRequest struct {
 	ApiService *ProjectsAPIService
 	projectId string
 	tenantId *string
+	projectTaskDtoCollectionQueryParameters *ProjectTaskDtoCollectionQueryParameters
 }
 
 func (r ApiGetTasksForProjectAsyncRequest) TenantId(tenantId string) ApiGetTasksForProjectAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetTasksForProjectAsyncRequest) ProjectTaskDtoCollectionQueryParameters(projectTaskDtoCollectionQueryParameters ProjectTaskDtoCollectionQueryParameters) ApiGetTasksForProjectAsyncRequest {
+	r.projectTaskDtoCollectionQueryParameters = &projectTaskDtoCollectionQueryParameters
 	return r
 }
 
@@ -1859,7 +1905,7 @@ func (a *ProjectsAPIService) GetTasksForProjectAsyncExecute(r ApiGetTasksForProj
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1875,6 +1921,8 @@ func (a *ProjectsAPIService) GetTasksForProjectAsyncExecute(r ApiGetTasksForProj
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.projectTaskDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1939,10 +1987,16 @@ type ApiGetTasksForProjectCountAsyncRequest struct {
 	ApiService *ProjectsAPIService
 	projectId string
 	tenantId *string
+	projectTaskDtoCollectionQueryParameters *ProjectTaskDtoCollectionQueryParameters
 }
 
 func (r ApiGetTasksForProjectCountAsyncRequest) TenantId(tenantId string) ApiGetTasksForProjectCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetTasksForProjectCountAsyncRequest) ProjectTaskDtoCollectionQueryParameters(projectTaskDtoCollectionQueryParameters ProjectTaskDtoCollectionQueryParameters) ApiGetTasksForProjectCountAsyncRequest {
+	r.projectTaskDtoCollectionQueryParameters = &projectTaskDtoCollectionQueryParameters
 	return r
 }
 
@@ -1994,7 +2048,7 @@ func (a *ProjectsAPIService) GetTasksForProjectCountAsyncExecute(r ApiGetTasksFo
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2010,6 +2064,8 @@ func (a *ProjectsAPIService) GetTasksForProjectCountAsyncExecute(r ApiGetTasksFo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.projectTaskDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2074,10 +2130,16 @@ type ApiGetTimeLogsForProjectAsyncRequest struct {
 	ApiService *ProjectsAPIService
 	projectId string
 	tenantId *string
+	projectTimeLogDtoCollectionQueryParameters *ProjectTimeLogDtoCollectionQueryParameters
 }
 
 func (r ApiGetTimeLogsForProjectAsyncRequest) TenantId(tenantId string) ApiGetTimeLogsForProjectAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetTimeLogsForProjectAsyncRequest) ProjectTimeLogDtoCollectionQueryParameters(projectTimeLogDtoCollectionQueryParameters ProjectTimeLogDtoCollectionQueryParameters) ApiGetTimeLogsForProjectAsyncRequest {
+	r.projectTimeLogDtoCollectionQueryParameters = &projectTimeLogDtoCollectionQueryParameters
 	return r
 }
 
@@ -2129,7 +2191,7 @@ func (a *ProjectsAPIService) GetTimeLogsForProjectAsyncExecute(r ApiGetTimeLogsF
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2145,6 +2207,8 @@ func (a *ProjectsAPIService) GetTimeLogsForProjectAsyncExecute(r ApiGetTimeLogsF
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.projectTimeLogDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2209,7 +2273,7 @@ type ApiPatchProjectAsyncRequest struct {
 	ApiService *ProjectsAPIService
 	projectId string
 	tenantId *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchProjectAsyncRequest) TenantId(tenantId string) ApiPatchProjectAsyncRequest {
@@ -2217,8 +2281,8 @@ func (r ApiPatchProjectAsyncRequest) TenantId(tenantId string) ApiPatchProjectAs
 	return r
 }
 
-func (r ApiPatchProjectAsyncRequest) Operation(operation []Operation) ApiPatchProjectAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchProjectAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchProjectAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2287,7 +2351,7 @@ func (a *ProjectsAPIService) PatchProjectAsyncExecute(r ApiPatchProjectAsyncRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2353,7 +2417,7 @@ type ApiPatchProjectPeriodAsyncRequest struct {
 	projectId string
 	projectPeriodId string
 	tenantId *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchProjectPeriodAsyncRequest) TenantId(tenantId string) ApiPatchProjectPeriodAsyncRequest {
@@ -2361,8 +2425,8 @@ func (r ApiPatchProjectPeriodAsyncRequest) TenantId(tenantId string) ApiPatchPro
 	return r
 }
 
-func (r ApiPatchProjectPeriodAsyncRequest) Operation(operation []Operation) ApiPatchProjectPeriodAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchProjectPeriodAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchProjectPeriodAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2434,7 +2498,7 @@ func (a *ProjectsAPIService) PatchProjectPeriodAsyncExecute(r ApiPatchProjectPer
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2500,7 +2564,7 @@ type ApiPatchTaskForProjectAsyncRequest struct {
 	projectId string
 	projectTaskId string
 	tenantId *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTaskForProjectAsyncRequest) TenantId(tenantId string) ApiPatchTaskForProjectAsyncRequest {
@@ -2508,8 +2572,8 @@ func (r ApiPatchTaskForProjectAsyncRequest) TenantId(tenantId string) ApiPatchTa
 	return r
 }
 
-func (r ApiPatchTaskForProjectAsyncRequest) Operation(operation []Operation) ApiPatchTaskForProjectAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchTaskForProjectAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTaskForProjectAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2581,7 +2645,7 @@ func (a *ProjectsAPIService) PatchTaskForProjectAsyncExecute(r ApiPatchTaskForPr
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -246,7 +246,7 @@ No authorization required
 
 ## GetCurriculumsAsync
 
-> CurriculumDtoListEnvelope GetCurriculumsAsync(ctx).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CurriculumDtoListEnvelope GetCurriculumsAsync(ctx).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CurriculumDtoCollectionQueryParameters(curriculumDtoCollectionQueryParameters).Execute()
 
 Get curricula
 
@@ -269,10 +269,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	curriculumDtoCollectionQueryParameters := *openapiclient.NewCurriculumDtoCollectionQueryParameters() // CurriculumDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CurriculumsAPI.GetCurriculumsAsync(context.Background()).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CurriculumsAPI.GetCurriculumsAsync(context.Background()).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CurriculumDtoCollectionQueryParameters(curriculumDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CurriculumsAPI.GetCurriculumsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -297,6 +298,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **curriculumDtoCollectionQueryParameters** | [**CurriculumDtoCollectionQueryParameters**](CurriculumDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -308,7 +310,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -318,7 +320,7 @@ No authorization required
 
 ## GetCurriculumsCountAsync
 
-> Int32Envelope GetCurriculumsCountAsync(ctx).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetCurriculumsCountAsync(ctx).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CurriculumDtoCollectionQueryParameters(curriculumDtoCollectionQueryParameters).Execute()
 
 Count curricula
 
@@ -341,10 +343,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	curriculumDtoCollectionQueryParameters := *openapiclient.NewCurriculumDtoCollectionQueryParameters() // CurriculumDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CurriculumsAPI.GetCurriculumsCountAsync(context.Background()).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CurriculumsAPI.GetCurriculumsCountAsync(context.Background()).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CurriculumDtoCollectionQueryParameters(curriculumDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CurriculumsAPI.GetCurriculumsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -369,6 +372,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **curriculumDtoCollectionQueryParameters** | [**CurriculumDtoCollectionQueryParameters**](CurriculumDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -380,7 +384,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -390,7 +394,7 @@ No authorization required
 
 ## PatchCurriculumAsync
 
-> EmptyEnvelope PatchCurriculumAsync(ctx, curriculumId).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchCurriculumAsync(ctx, curriculumId).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a curriculum
 
@@ -414,11 +418,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CurriculumsAPI.PatchCurriculumAsync(context.Background(), curriculumId).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.CurriculumsAPI.PatchCurriculumAsync(context.Background(), curriculumId).SocialProfileId(socialProfileId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CurriculumsAPI.PatchCurriculumAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -448,7 +452,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

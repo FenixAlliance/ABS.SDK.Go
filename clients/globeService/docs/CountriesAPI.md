@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 ## CountCallingCodesByCountryAsync
 
-> Int32Envelope CountCallingCodesByCountryAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCallingCodesByCountryAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryCallingCodeDtoCollectionQueryParameters(countryCallingCodeDtoCollectionQueryParameters).Execute()
 
 Count calling codes for a country
 
@@ -47,10 +47,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryCallingCodeDtoCollectionQueryParameters := *openapiclient.NewCountryCallingCodeDtoCollectionQueryParameters() // CountryCallingCodeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.CountCallingCodesByCountryAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.CountCallingCodesByCountryAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryCallingCodeDtoCollectionQueryParameters(countryCallingCodeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountCallingCodesByCountryAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -78,6 +79,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryCallingCodeDtoCollectionQueryParameters** | [**CountryCallingCodeDtoCollectionQueryParameters**](CountryCallingCodeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -89,7 +91,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -99,7 +101,7 @@ No authorization required
 
 ## CountCitiesByStateAsync
 
-> Int32Envelope CountCitiesByStateAsync(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCitiesByStateAsync(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CityDtoCollectionQueryParameters(cityDtoCollectionQueryParameters).Execute()
 
 Count cities for a state
 
@@ -122,10 +124,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	cityDtoCollectionQueryParameters := *openapiclient.NewCityDtoCollectionQueryParameters() // CityDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.CountCitiesByStateAsync(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.CountCitiesByStateAsync(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CityDtoCollectionQueryParameters(cityDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountCitiesByStateAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -155,6 +158,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **cityDtoCollectionQueryParameters** | [**CityDtoCollectionQueryParameters**](CityDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -166,7 +170,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -176,7 +180,7 @@ No authorization required
 
 ## CountCountries
 
-> Int32Envelope CountCountries(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCountries(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryDtoCollectionQueryParameters(countryDtoCollectionQueryParameters).Execute()
 
 Count countries
 
@@ -197,10 +201,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryDtoCollectionQueryParameters := *openapiclient.NewCountryDtoCollectionQueryParameters() // CountryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.CountCountries(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.CountCountries(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryDtoCollectionQueryParameters(countryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountCountries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -223,6 +228,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryDtoCollectionQueryParameters** | [**CountryDtoCollectionQueryParameters**](CountryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -234,7 +240,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -244,7 +250,7 @@ No authorization required
 
 ## CountCountryStatesAsync
 
-> Int32Envelope CountCountryStatesAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountCountryStatesAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryStateDtoCollectionQueryParameters(countryStateDtoCollectionQueryParameters).Execute()
 
 Count states for a country
 
@@ -266,10 +272,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryStateDtoCollectionQueryParameters := *openapiclient.NewCountryStateDtoCollectionQueryParameters() // CountryStateDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.CountCountryStatesAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.CountCountryStatesAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryStateDtoCollectionQueryParameters(countryStateDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountCountryStatesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -297,6 +304,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -308,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -318,7 +326,7 @@ No authorization required
 
 ## CountTimezonesByCountryAsync
 
-> Int32Envelope CountTimezonesByCountryAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountTimezonesByCountryAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TimezoneDtoCollectionQueryParameters(timezoneDtoCollectionQueryParameters).Execute()
 
 Count timezones for a country
 
@@ -340,10 +348,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	timezoneDtoCollectionQueryParameters := *openapiclient.NewTimezoneDtoCollectionQueryParameters() // TimezoneDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.CountTimezonesByCountryAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.CountTimezonesByCountryAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TimezoneDtoCollectionQueryParameters(timezoneDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountTimezonesByCountryAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -371,6 +380,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **timezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -382,7 +392,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -392,7 +402,7 @@ No authorization required
 
 ## CountTopLevelDomainsByCountryAsync
 
-> Int32Envelope CountTopLevelDomainsByCountryAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountTopLevelDomainsByCountryAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryTopLevelDomainDtoCollectionQueryParameters(countryTopLevelDomainDtoCollectionQueryParameters).Execute()
 
 Count top-level domains for a country
 
@@ -414,10 +424,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryTopLevelDomainDtoCollectionQueryParameters := *openapiclient.NewCountryTopLevelDomainDtoCollectionQueryParameters() // CountryTopLevelDomainDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.CountTopLevelDomainsByCountryAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.CountTopLevelDomainsByCountryAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryTopLevelDomainDtoCollectionQueryParameters(countryTopLevelDomainDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.CountTopLevelDomainsByCountryAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -445,6 +456,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryTopLevelDomainDtoCollectionQueryParameters** | [**CountryTopLevelDomainDtoCollectionQueryParameters**](CountryTopLevelDomainDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -456,7 +468,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -466,7 +478,7 @@ No authorization required
 
 ## GetAllCountries
 
-> CountryDtoListEnvelope GetAllCountries(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CountryDtoListEnvelope GetAllCountries(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryDtoCollectionQueryParameters(countryDtoCollectionQueryParameters).Execute()
 
 Get all countries
 
@@ -487,10 +499,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryDtoCollectionQueryParameters := *openapiclient.NewCountryDtoCollectionQueryParameters() // CountryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.GetAllCountries(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetAllCountries(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryDtoCollectionQueryParameters(countryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetAllCountries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -513,6 +526,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryDtoCollectionQueryParameters** | [**CountryDtoCollectionQueryParameters**](CountryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -524,7 +538,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -534,7 +548,7 @@ No authorization required
 
 ## GetCallingCodesByCountryIdAsync
 
-> CountryCallingCodeDtoListEnvelope GetCallingCodesByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CountryCallingCodeDtoListEnvelope GetCallingCodesByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryCallingCodeDtoCollectionQueryParameters(countryCallingCodeDtoCollectionQueryParameters).Execute()
 
 Get calling codes for a country
 
@@ -556,10 +570,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryCallingCodeDtoCollectionQueryParameters := *openapiclient.NewCountryCallingCodeDtoCollectionQueryParameters() // CountryCallingCodeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.GetCallingCodesByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetCallingCodesByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryCallingCodeDtoCollectionQueryParameters(countryCallingCodeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetCallingCodesByCountryIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -587,6 +602,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryCallingCodeDtoCollectionQueryParameters** | [**CountryCallingCodeDtoCollectionQueryParameters**](CountryCallingCodeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -598,7 +614,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -608,7 +624,7 @@ No authorization required
 
 ## GetCitiesByCountryStateIdAsync
 
-> CityDtoListEnvelope GetCitiesByCountryStateIdAsync(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CityDtoListEnvelope GetCitiesByCountryStateIdAsync(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CityDtoCollectionQueryParameters(cityDtoCollectionQueryParameters).Execute()
 
 Get cities for a state
 
@@ -631,10 +647,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	cityDtoCollectionQueryParameters := *openapiclient.NewCityDtoCollectionQueryParameters() // CityDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.GetCitiesByCountryStateIdAsync(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetCitiesByCountryStateIdAsync(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CityDtoCollectionQueryParameters(cityDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetCitiesByCountryStateIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -664,6 +681,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **cityDtoCollectionQueryParameters** | [**CityDtoCollectionQueryParameters**](CityDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -675,7 +693,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -759,7 +777,7 @@ No authorization required
 
 ## GetCountryStateByIdAsync
 
-> CountryStateDtoEnvelope GetCountryStateByIdAsync(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CountryStateDtoEnvelope GetCountryStateByIdAsync(ctx, countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryStateDtoCollectionQueryParameters(countryStateDtoCollectionQueryParameters).Execute()
 
 Get state by ID
 
@@ -782,10 +800,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryStateDtoCollectionQueryParameters := *openapiclient.NewCountryStateDtoCollectionQueryParameters() // CountryStateDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.GetCountryStateByIdAsync(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetCountryStateByIdAsync(context.Background(), countryStateId, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryStateDtoCollectionQueryParameters(countryStateDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetCountryStateByIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -815,6 +834,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -826,7 +846,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -836,7 +856,7 @@ No authorization required
 
 ## GetCountryStatesAsync
 
-> CountryStateDtoListEnvelope GetCountryStatesAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CountryStateDtoListEnvelope GetCountryStatesAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryStateDtoCollectionQueryParameters(countryStateDtoCollectionQueryParameters).Execute()
 
 Get states for a country
 
@@ -858,10 +878,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryStateDtoCollectionQueryParameters := *openapiclient.NewCountryStateDtoCollectionQueryParameters() // CountryStateDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.GetCountryStatesAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetCountryStatesAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryStateDtoCollectionQueryParameters(countryStateDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetCountryStatesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -889,6 +910,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -900,7 +922,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -910,7 +932,7 @@ No authorization required
 
 ## GetEnabledCurrenciesByCountryIdAsync
 
-> CurrencyDtoListEnvelope GetEnabledCurrenciesByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CurrencyDtoListEnvelope GetEnabledCurrenciesByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CurrencyDtoCollectionQueryParameters(currencyDtoCollectionQueryParameters).Execute()
 
 Get currencies for a country
 
@@ -932,10 +954,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	currencyDtoCollectionQueryParameters := *openapiclient.NewCurrencyDtoCollectionQueryParameters() // CurrencyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.GetEnabledCurrenciesByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetEnabledCurrenciesByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CurrencyDtoCollectionQueryParameters(currencyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetEnabledCurrenciesByCountryIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -963,6 +986,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **currencyDtoCollectionQueryParameters** | [**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -974,7 +998,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -984,7 +1008,7 @@ No authorization required
 
 ## GetTimeZonesByCountryIdAsync
 
-> TimezoneDtoListEnvelope GetTimeZonesByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TimezoneDtoListEnvelope GetTimeZonesByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TimezoneDtoCollectionQueryParameters(timezoneDtoCollectionQueryParameters).Execute()
 
 Get timezones for a country
 
@@ -1006,10 +1030,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	timezoneDtoCollectionQueryParameters := *openapiclient.NewTimezoneDtoCollectionQueryParameters() // TimezoneDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.GetTimeZonesByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetTimeZonesByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TimezoneDtoCollectionQueryParameters(timezoneDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetTimeZonesByCountryIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1037,6 +1062,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **timezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1048,7 +1074,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1058,7 +1084,7 @@ No authorization required
 
 ## GetTopLevelDomainsByCountryIdAsync
 
-> CountryTopLevelDomainDtoListEnvelope GetTopLevelDomainsByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CountryTopLevelDomainDtoListEnvelope GetTopLevelDomainsByCountryIdAsync(ctx, countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryTopLevelDomainDtoCollectionQueryParameters(countryTopLevelDomainDtoCollectionQueryParameters).Execute()
 
 Get top-level domains for a country
 
@@ -1080,10 +1106,11 @@ func main() {
 	countryId := "countryId_example" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	countryTopLevelDomainDtoCollectionQueryParameters := *openapiclient.NewCountryTopLevelDomainDtoCollectionQueryParameters() // CountryTopLevelDomainDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CountriesAPI.GetTopLevelDomainsByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CountriesAPI.GetTopLevelDomainsByCountryIdAsync(context.Background(), countryId).ApiVersion(apiVersion).XApiVersion(xApiVersion).CountryTopLevelDomainDtoCollectionQueryParameters(countryTopLevelDomainDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CountriesAPI.GetTopLevelDomainsByCountryIdAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1111,6 +1138,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **countryTopLevelDomainDtoCollectionQueryParameters** | [**CountryTopLevelDomainDtoCollectionQueryParameters**](CountryTopLevelDomainDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1122,7 +1150,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

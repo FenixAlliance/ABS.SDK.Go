@@ -571,7 +571,7 @@ No authorization required
 
 ## GetAppliedTaxPolicyRecords
 
-> AppliedTaxPolicyRecordDtoListEnvelope GetAppliedTaxPolicyRecords(ctx, taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AppliedTaxPolicyRecordDtoListEnvelope GetAppliedTaxPolicyRecords(ctx, taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AppliedTaxPolicyRecordDtoCollectionQueryParameters(appliedTaxPolicyRecordDtoCollectionQueryParameters).Execute()
 
 Get applied tax policy records
 
@@ -594,10 +594,11 @@ func main() {
 	taxPolicyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	appliedTaxPolicyRecordDtoCollectionQueryParameters := *openapiclient.NewAppliedTaxPolicyRecordDtoCollectionQueryParameters() // AppliedTaxPolicyRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxPoliciesAPI.GetAppliedTaxPolicyRecords(context.Background(), taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TaxPoliciesAPI.GetAppliedTaxPolicyRecords(context.Background(), taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AppliedTaxPolicyRecordDtoCollectionQueryParameters(appliedTaxPolicyRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaxPoliciesAPI.GetAppliedTaxPolicyRecords``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -626,6 +627,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **appliedTaxPolicyRecordDtoCollectionQueryParameters** | [**AppliedTaxPolicyRecordDtoCollectionQueryParameters**](AppliedTaxPolicyRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -637,7 +639,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -647,7 +649,7 @@ No authorization required
 
 ## GetAppliedTaxPolicyRecordsCount
 
-> Int32Envelope GetAppliedTaxPolicyRecordsCount(ctx, taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetAppliedTaxPolicyRecordsCount(ctx, taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AppliedTaxPolicyRecordDtoCollectionQueryParameters(appliedTaxPolicyRecordDtoCollectionQueryParameters).Execute()
 
 Get applied tax policy records count
 
@@ -670,10 +672,11 @@ func main() {
 	taxPolicyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	appliedTaxPolicyRecordDtoCollectionQueryParameters := *openapiclient.NewAppliedTaxPolicyRecordDtoCollectionQueryParameters() // AppliedTaxPolicyRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxPoliciesAPI.GetAppliedTaxPolicyRecordsCount(context.Background(), taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TaxPoliciesAPI.GetAppliedTaxPolicyRecordsCount(context.Background(), taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AppliedTaxPolicyRecordDtoCollectionQueryParameters(appliedTaxPolicyRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaxPoliciesAPI.GetAppliedTaxPolicyRecordsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -702,6 +705,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **appliedTaxPolicyRecordDtoCollectionQueryParameters** | [**AppliedTaxPolicyRecordDtoCollectionQueryParameters**](AppliedTaxPolicyRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -713,7 +717,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -802,7 +806,7 @@ No authorization required
 
 ## GetItemTaxPolicyRecords
 
-> ItemTaxPolicyRecordDtoListEnvelope GetItemTaxPolicyRecords(ctx, taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemTaxPolicyRecordDtoListEnvelope GetItemTaxPolicyRecords(ctx, taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemTaxPolicyRecordDtoCollectionQueryParameters(itemTaxPolicyRecordDtoCollectionQueryParameters).Execute()
 
 Get item tax policy records
 
@@ -825,10 +829,11 @@ func main() {
 	taxPolicyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemTaxPolicyRecordDtoCollectionQueryParameters := *openapiclient.NewItemTaxPolicyRecordDtoCollectionQueryParameters() // ItemTaxPolicyRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxPoliciesAPI.GetItemTaxPolicyRecords(context.Background(), taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TaxPoliciesAPI.GetItemTaxPolicyRecords(context.Background(), taxPolicyId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemTaxPolicyRecordDtoCollectionQueryParameters(itemTaxPolicyRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaxPoliciesAPI.GetItemTaxPolicyRecords``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -857,6 +862,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemTaxPolicyRecordDtoCollectionQueryParameters** | [**ItemTaxPolicyRecordDtoCollectionQueryParameters**](ItemTaxPolicyRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -868,7 +874,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -878,7 +884,7 @@ No authorization required
 
 ## GetTaxPolicies
 
-> TaxPolicyDtoListEnvelope GetTaxPolicies(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TaxPolicyDtoListEnvelope GetTaxPolicies(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TaxPolicyDtoCollectionQueryParameters(taxPolicyDtoCollectionQueryParameters).Execute()
 
 Get all tax policies for a tenant
 
@@ -900,10 +906,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	taxPolicyDtoCollectionQueryParameters := *openapiclient.NewTaxPolicyDtoCollectionQueryParameters() // TaxPolicyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxPoliciesAPI.GetTaxPolicies(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TaxPoliciesAPI.GetTaxPolicies(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TaxPolicyDtoCollectionQueryParameters(taxPolicyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaxPoliciesAPI.GetTaxPolicies``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -927,6 +934,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **taxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -938,7 +946,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -948,7 +956,7 @@ No authorization required
 
 ## GetTaxPoliciesByAuthority
 
-> TaxPolicyDtoListEnvelope GetTaxPoliciesByAuthority(ctx, authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TaxPolicyDtoListEnvelope GetTaxPoliciesByAuthority(ctx, authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TaxPolicyDtoCollectionQueryParameters(taxPolicyDtoCollectionQueryParameters).Execute()
 
 Get tax policies by fiscal authority
 
@@ -971,10 +979,11 @@ func main() {
 	authorityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	taxPolicyDtoCollectionQueryParameters := *openapiclient.NewTaxPolicyDtoCollectionQueryParameters() // TaxPolicyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxPoliciesAPI.GetTaxPoliciesByAuthority(context.Background(), authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TaxPoliciesAPI.GetTaxPoliciesByAuthority(context.Background(), authorityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TaxPolicyDtoCollectionQueryParameters(taxPolicyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaxPoliciesAPI.GetTaxPoliciesByAuthority``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1003,6 +1012,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **taxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1014,7 +1024,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1024,7 +1034,7 @@ No authorization required
 
 ## GetTaxPoliciesCount
 
-> Int32Envelope GetTaxPoliciesCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetTaxPoliciesCount(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TaxPolicyDtoCollectionQueryParameters(taxPolicyDtoCollectionQueryParameters).Execute()
 
 Get tax policies count
 
@@ -1046,10 +1056,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	taxPolicyDtoCollectionQueryParameters := *openapiclient.NewTaxPolicyDtoCollectionQueryParameters() // TaxPolicyDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxPoliciesAPI.GetTaxPoliciesCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.TaxPoliciesAPI.GetTaxPoliciesCount(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TaxPolicyDtoCollectionQueryParameters(taxPolicyDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaxPoliciesAPI.GetTaxPoliciesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1073,6 +1084,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **taxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1084,7 +1096,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1170,7 +1182,7 @@ No authorization required
 
 ## PatchAppliedTaxPolicyRecord
 
-> EmptyEnvelope PatchAppliedTaxPolicyRecord(ctx, taxPolicyId, appliedTaxPolicyRecordId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchAppliedTaxPolicyRecord(ctx, taxPolicyId, appliedTaxPolicyRecordId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an applied tax policy record
 
@@ -1194,11 +1206,11 @@ func main() {
 	appliedTaxPolicyRecordId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxPoliciesAPI.PatchAppliedTaxPolicyRecord(context.Background(), taxPolicyId, appliedTaxPolicyRecordId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.TaxPoliciesAPI.PatchAppliedTaxPolicyRecord(context.Background(), taxPolicyId, appliedTaxPolicyRecordId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaxPoliciesAPI.PatchAppliedTaxPolicyRecord``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1229,7 +1241,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1251,7 +1263,7 @@ No authorization required
 
 ## PatchItemTaxPolicyRecord
 
-> EmptyEnvelope PatchItemTaxPolicyRecord(ctx, taxPolicyId, itemTaxPolicyRecordId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchItemTaxPolicyRecord(ctx, taxPolicyId, itemTaxPolicyRecordId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an item tax policy record
 
@@ -1275,11 +1287,11 @@ func main() {
 	itemTaxPolicyRecordId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxPoliciesAPI.PatchItemTaxPolicyRecord(context.Background(), taxPolicyId, itemTaxPolicyRecordId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.TaxPoliciesAPI.PatchItemTaxPolicyRecord(context.Background(), taxPolicyId, itemTaxPolicyRecordId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaxPoliciesAPI.PatchItemTaxPolicyRecord``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1310,7 +1322,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1332,7 +1344,7 @@ No authorization required
 
 ## PatchTaxPolicy
 
-> EmptyEnvelope PatchTaxPolicy(ctx, id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchTaxPolicy(ctx, id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a tax policy
 
@@ -1355,11 +1367,11 @@ func main() {
 	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxPoliciesAPI.PatchTaxPolicy(context.Background(), id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.TaxPoliciesAPI.PatchTaxPolicy(context.Background(), id).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaxPoliciesAPI.PatchTaxPolicy``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1388,7 +1400,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

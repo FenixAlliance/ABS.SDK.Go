@@ -340,6 +340,7 @@ type ApiGetTenantTerritoriesRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantTerritoryDtoCollectionQueryParameters *TenantTerritoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantTerritoriesRequest) TenantId(tenantId string) ApiGetTenantTerritoriesRequest {
@@ -354,6 +355,11 @@ func (r ApiGetTenantTerritoriesRequest) ApiVersion(apiVersion string) ApiGetTena
 
 func (r ApiGetTenantTerritoriesRequest) XApiVersion(xApiVersion string) ApiGetTenantTerritoriesRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantTerritoriesRequest) TenantTerritoryDtoCollectionQueryParameters(tenantTerritoryDtoCollectionQueryParameters TenantTerritoryDtoCollectionQueryParameters) ApiGetTenantTerritoriesRequest {
+	r.tenantTerritoryDtoCollectionQueryParameters = &tenantTerritoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -405,7 +411,7 @@ func (a *TerritoriesAPIService) GetTenantTerritoriesExecute(r ApiGetTenantTerrit
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -424,6 +430,8 @@ func (a *TerritoriesAPIService) GetTenantTerritoriesExecute(r ApiGetTenantTerrit
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantTerritoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -489,6 +497,7 @@ type ApiGetTenantTerritoriesCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantTerritoryDtoCollectionQueryParameters *TenantTerritoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantTerritoriesCountRequest) TenantId(tenantId string) ApiGetTenantTerritoriesCountRequest {
@@ -503,6 +512,11 @@ func (r ApiGetTenantTerritoriesCountRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetTenantTerritoriesCountRequest) XApiVersion(xApiVersion string) ApiGetTenantTerritoriesCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantTerritoriesCountRequest) TenantTerritoryDtoCollectionQueryParameters(tenantTerritoryDtoCollectionQueryParameters TenantTerritoryDtoCollectionQueryParameters) ApiGetTenantTerritoriesCountRequest {
+	r.tenantTerritoryDtoCollectionQueryParameters = &tenantTerritoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -554,7 +568,7 @@ func (a *TerritoriesAPIService) GetTenantTerritoriesCountExecute(r ApiGetTenantT
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -573,6 +587,8 @@ func (a *TerritoriesAPIService) GetTenantTerritoriesCountExecute(r ApiGetTenantT
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantTerritoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchTenantTerritoryRequest struct {
 	tenantTerritoryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTenantTerritoryRequest) TenantId(tenantId string) ApiPatchTenantTerritoryRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchTenantTerritoryRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchTenantTerritoryRequest) Operation(operation []Operation) ApiPatchTenantTerritoryRequest {
-	r.operation = &operation
+func (r ApiPatchTenantTerritoryRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTenantTerritoryRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *TerritoriesAPIService) PatchTenantTerritoryExecute(r ApiPatchTenantTerr
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

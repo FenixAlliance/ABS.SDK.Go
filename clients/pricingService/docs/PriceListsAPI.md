@@ -459,7 +459,7 @@ No authorization required
 
 ## GetPriceListPricesAsync
 
-> ItemPriceDtoListEnvelope GetPriceListPricesAsync(ctx, priceListId).TenantId(tenantId).ItemId(itemId).Execute()
+> ItemPriceDtoListEnvelope GetPriceListPricesAsync(ctx, priceListId).TenantId(tenantId).ItemId(itemId).ItemPriceDtoCollectionQueryParameters(itemPriceDtoCollectionQueryParameters).Execute()
 
 Retrieves prices in a price list
 
@@ -481,10 +481,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	itemPriceDtoCollectionQueryParameters := *openapiclient.NewItemPriceDtoCollectionQueryParameters() // ItemPriceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.GetPriceListPricesAsync(context.Background(), priceListId).TenantId(tenantId).ItemId(itemId).Execute()
+	resp, r, err := apiClient.PriceListsAPI.GetPriceListPricesAsync(context.Background(), priceListId).TenantId(tenantId).ItemId(itemId).ItemPriceDtoCollectionQueryParameters(itemPriceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.GetPriceListPricesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -512,6 +513,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
  **itemId** | **string** |  | 
+ **itemPriceDtoCollectionQueryParameters** | [**ItemPriceDtoCollectionQueryParameters**](ItemPriceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -523,7 +525,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -533,7 +535,7 @@ No authorization required
 
 ## GetPriceListPricesCountAsync
 
-> Int32Envelope GetPriceListPricesCountAsync(ctx, priceListId).TenantId(tenantId).Execute()
+> Int32Envelope GetPriceListPricesCountAsync(ctx, priceListId).TenantId(tenantId).ItemPriceDtoCollectionQueryParameters(itemPriceDtoCollectionQueryParameters).Execute()
 
 Counts prices in a price list
 
@@ -554,10 +556,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	itemPriceDtoCollectionQueryParameters := *openapiclient.NewItemPriceDtoCollectionQueryParameters() // ItemPriceDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.GetPriceListPricesCountAsync(context.Background(), priceListId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.PriceListsAPI.GetPriceListPricesCountAsync(context.Background(), priceListId).TenantId(tenantId).ItemPriceDtoCollectionQueryParameters(itemPriceDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.GetPriceListPricesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -584,6 +587,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **itemPriceDtoCollectionQueryParameters** | [**ItemPriceDtoCollectionQueryParameters**](ItemPriceDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -595,7 +599,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -605,7 +609,7 @@ No authorization required
 
 ## GetPriceListsAsync
 
-> PriceListDtoListEnvelope GetPriceListsAsync(ctx).TenantId(tenantId).Execute()
+> PriceListDtoListEnvelope GetPriceListsAsync(ctx).TenantId(tenantId).PriceListDtoCollectionQueryParameters(priceListDtoCollectionQueryParameters).Execute()
 
 Retrieves all price lists
 
@@ -625,10 +629,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	priceListDtoCollectionQueryParameters := *openapiclient.NewPriceListDtoCollectionQueryParameters() // PriceListDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.GetPriceListsAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.PriceListsAPI.GetPriceListsAsync(context.Background()).TenantId(tenantId).PriceListDtoCollectionQueryParameters(priceListDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.GetPriceListsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -650,6 +655,7 @@ Other parameters are passed through a pointer to a apiGetPriceListsAsyncRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **priceListDtoCollectionQueryParameters** | [**PriceListDtoCollectionQueryParameters**](PriceListDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -661,7 +667,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -671,7 +677,7 @@ No authorization required
 
 ## GetPriceListsCountAsync
 
-> Int32Envelope GetPriceListsCountAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetPriceListsCountAsync(ctx).TenantId(tenantId).PriceListDtoCollectionQueryParameters(priceListDtoCollectionQueryParameters).Execute()
 
 Counts price lists
 
@@ -691,10 +697,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	priceListDtoCollectionQueryParameters := *openapiclient.NewPriceListDtoCollectionQueryParameters() // PriceListDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.GetPriceListsCountAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.PriceListsAPI.GetPriceListsCountAsync(context.Background()).TenantId(tenantId).PriceListDtoCollectionQueryParameters(priceListDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.GetPriceListsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -716,6 +723,7 @@ Other parameters are passed through a pointer to a apiGetPriceListsCountAsyncReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **priceListDtoCollectionQueryParameters** | [**PriceListDtoCollectionQueryParameters**](PriceListDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -727,7 +735,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -737,7 +745,7 @@ No authorization required
 
 ## PatchPriceListAsync
 
-> EmptyEnvelope PatchPriceListAsync(ctx, priceListId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchPriceListAsync(ctx, priceListId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patches a price list
 
@@ -758,11 +766,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.PatchPriceListAsync(context.Background(), priceListId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.PriceListsAPI.PatchPriceListAsync(context.Background(), priceListId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.PatchPriceListAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -789,7 +797,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -811,7 +819,7 @@ No authorization required
 
 ## PatchPriceListPriceAsync
 
-> EmptyEnvelope PatchPriceListPriceAsync(ctx, priceListId, priceId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchPriceListPriceAsync(ctx, priceListId, priceId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patches a price list entry
 
@@ -833,11 +841,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceListId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	priceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PriceListsAPI.PatchPriceListPriceAsync(context.Background(), priceListId, priceId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.PriceListsAPI.PatchPriceListPriceAsync(context.Background(), priceListId, priceId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PriceListsAPI.PatchPriceListPriceAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -866,7 +874,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

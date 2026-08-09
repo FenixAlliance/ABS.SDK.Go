@@ -903,6 +903,7 @@ type ApiGetBillOfLadingLinesAsyncRequest struct {
 	billOfLadingId string
 	apiVersion *string
 	xApiVersion *string
+	billOfLadingLineDtoCollectionQueryParameters *BillOfLadingLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetBillOfLadingLinesAsyncRequest) TenantId(tenantId string) ApiGetBillOfLadingLinesAsyncRequest {
@@ -917,6 +918,11 @@ func (r ApiGetBillOfLadingLinesAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetBillOfLadingLinesAsyncRequest) XApiVersion(xApiVersion string) ApiGetBillOfLadingLinesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBillOfLadingLinesAsyncRequest) BillOfLadingLineDtoCollectionQueryParameters(billOfLadingLineDtoCollectionQueryParameters BillOfLadingLineDtoCollectionQueryParameters) ApiGetBillOfLadingLinesAsyncRequest {
+	r.billOfLadingLineDtoCollectionQueryParameters = &billOfLadingLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -971,7 +977,7 @@ func (a *BillsOfLadingAPIService) GetBillOfLadingLinesAsyncExecute(r ApiGetBillO
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -990,6 +996,8 @@ func (a *BillsOfLadingAPIService) GetBillOfLadingLinesAsyncExecute(r ApiGetBillO
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.billOfLadingLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1045,6 +1053,7 @@ type ApiGetBillOfLadingLinesCountAsyncRequest struct {
 	billOfLadingId string
 	apiVersion *string
 	xApiVersion *string
+	billOfLadingLineDtoCollectionQueryParameters *BillOfLadingLineDtoCollectionQueryParameters
 }
 
 func (r ApiGetBillOfLadingLinesCountAsyncRequest) TenantId(tenantId string) ApiGetBillOfLadingLinesCountAsyncRequest {
@@ -1059,6 +1068,11 @@ func (r ApiGetBillOfLadingLinesCountAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetBillOfLadingLinesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetBillOfLadingLinesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBillOfLadingLinesCountAsyncRequest) BillOfLadingLineDtoCollectionQueryParameters(billOfLadingLineDtoCollectionQueryParameters BillOfLadingLineDtoCollectionQueryParameters) ApiGetBillOfLadingLinesCountAsyncRequest {
+	r.billOfLadingLineDtoCollectionQueryParameters = &billOfLadingLineDtoCollectionQueryParameters
 	return r
 }
 
@@ -1113,7 +1127,7 @@ func (a *BillsOfLadingAPIService) GetBillOfLadingLinesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1132,6 +1146,8 @@ func (a *BillsOfLadingAPIService) GetBillOfLadingLinesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.billOfLadingLineDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1175,6 +1191,7 @@ type ApiGetBillsOfLadingAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	billOfLadingDtoCollectionQueryParameters *BillOfLadingDtoCollectionQueryParameters
 }
 
 func (r ApiGetBillsOfLadingAsyncRequest) TenantId(tenantId string) ApiGetBillsOfLadingAsyncRequest {
@@ -1189,6 +1206,11 @@ func (r ApiGetBillsOfLadingAsyncRequest) ApiVersion(apiVersion string) ApiGetBil
 
 func (r ApiGetBillsOfLadingAsyncRequest) XApiVersion(xApiVersion string) ApiGetBillsOfLadingAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBillsOfLadingAsyncRequest) BillOfLadingDtoCollectionQueryParameters(billOfLadingDtoCollectionQueryParameters BillOfLadingDtoCollectionQueryParameters) ApiGetBillsOfLadingAsyncRequest {
+	r.billOfLadingDtoCollectionQueryParameters = &billOfLadingDtoCollectionQueryParameters
 	return r
 }
 
@@ -1240,7 +1262,7 @@ func (a *BillsOfLadingAPIService) GetBillsOfLadingAsyncExecute(r ApiGetBillsOfLa
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1259,6 +1281,8 @@ func (a *BillsOfLadingAPIService) GetBillsOfLadingAsyncExecute(r ApiGetBillsOfLa
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.billOfLadingDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1324,6 +1348,7 @@ type ApiGetBillsOfLadingCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	billOfLadingDtoCollectionQueryParameters *BillOfLadingDtoCollectionQueryParameters
 }
 
 func (r ApiGetBillsOfLadingCountAsyncRequest) TenantId(tenantId string) ApiGetBillsOfLadingCountAsyncRequest {
@@ -1338,6 +1363,11 @@ func (r ApiGetBillsOfLadingCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetBillsOfLadingCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetBillsOfLadingCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetBillsOfLadingCountAsyncRequest) BillOfLadingDtoCollectionQueryParameters(billOfLadingDtoCollectionQueryParameters BillOfLadingDtoCollectionQueryParameters) ApiGetBillsOfLadingCountAsyncRequest {
+	r.billOfLadingDtoCollectionQueryParameters = &billOfLadingDtoCollectionQueryParameters
 	return r
 }
 
@@ -1389,7 +1419,7 @@ func (a *BillsOfLadingAPIService) GetBillsOfLadingCountAsyncExecute(r ApiGetBill
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1408,6 +1438,8 @@ func (a *BillsOfLadingAPIService) GetBillsOfLadingCountAsyncExecute(r ApiGetBill
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.billOfLadingDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1463,7 +1495,7 @@ type ApiPatchBillOfLadingAsyncRequest struct {
 	billOfLadingId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBillOfLadingAsyncRequest) TenantId(tenantId string) ApiPatchBillOfLadingAsyncRequest {
@@ -1481,8 +1513,8 @@ func (r ApiPatchBillOfLadingAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchBillOfLadingAsyncRequest) Operation(operation []Operation) ApiPatchBillOfLadingAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBillOfLadingAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBillOfLadingAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1557,7 +1589,7 @@ func (a *BillsOfLadingAPIService) PatchBillOfLadingAsyncExecute(r ApiPatchBillOf
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1636,7 +1668,7 @@ type ApiPatchBillOfLadingLineAsyncRequest struct {
 	lineId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchBillOfLadingLineAsyncRequest) TenantId(tenantId string) ApiPatchBillOfLadingLineAsyncRequest {
@@ -1654,8 +1686,8 @@ func (r ApiPatchBillOfLadingLineAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchBillOfLadingLineAsyncRequest) Operation(operation []Operation) ApiPatchBillOfLadingLineAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchBillOfLadingLineAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchBillOfLadingLineAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1733,7 +1765,7 @@ func (a *BillsOfLadingAPIService) PatchBillOfLadingLineAsyncExecute(r ApiPatchBi
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

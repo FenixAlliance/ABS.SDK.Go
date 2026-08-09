@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## GetProvidersAsync
 
-> TrustSigningProviderDescriptorDtoListEnvelope GetProvidersAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> TrustSigningProviderDescriptorDtoListEnvelope GetProvidersAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TrustSigningProviderDescriptorDtoCollectionQueryParameters(trustSigningProviderDescriptorDtoCollectionQueryParameters).Execute()
 
 List signing providers
 
@@ -34,10 +34,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	trustSigningProviderDescriptorDtoCollectionQueryParameters := *openapiclient.NewTrustSigningProviderDescriptorDtoCollectionQueryParameters() // TrustSigningProviderDescriptorDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SigningEngineAPI.GetProvidersAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SigningEngineAPI.GetProvidersAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TrustSigningProviderDescriptorDtoCollectionQueryParameters(trustSigningProviderDescriptorDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SigningEngineAPI.GetProvidersAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,6 +62,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **trustSigningProviderDescriptorDtoCollectionQueryParameters** | [**TrustSigningProviderDescriptorDtoCollectionQueryParameters**](TrustSigningProviderDescriptorDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -72,7 +74,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -82,7 +84,7 @@ No authorization required
 
 ## GetProvidersCountAsync
 
-> Int32Envelope GetProvidersCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetProvidersCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TrustSigningProviderDescriptorDtoCollectionQueryParameters(trustSigningProviderDescriptorDtoCollectionQueryParameters).Execute()
 
 Count signing providers
 
@@ -104,10 +106,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	trustSigningProviderDescriptorDtoCollectionQueryParameters := *openapiclient.NewTrustSigningProviderDescriptorDtoCollectionQueryParameters() // TrustSigningProviderDescriptorDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SigningEngineAPI.GetProvidersCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SigningEngineAPI.GetProvidersCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).TrustSigningProviderDescriptorDtoCollectionQueryParameters(trustSigningProviderDescriptorDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SigningEngineAPI.GetProvidersCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -131,6 +134,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **trustSigningProviderDescriptorDtoCollectionQueryParameters** | [**TrustSigningProviderDescriptorDtoCollectionQueryParameters**](TrustSigningProviderDescriptorDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -142,7 +146,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

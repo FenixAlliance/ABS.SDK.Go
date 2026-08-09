@@ -172,7 +172,7 @@ No authorization required
 
 ## GetBillableLineTaxes
 
-> AppliedItemTaxRecordDtoIReadOnlyListEnvelope GetBillableLineTaxes(ctx, billableLineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> AppliedItemTaxRecordDtoIReadOnlyListEnvelope GetBillableLineTaxes(ctx, billableLineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AppliedItemTaxRecordDtoCollectionQueryParameters(appliedItemTaxRecordDtoCollectionQueryParameters).Execute()
 
 Get taxes for a billable line.
 
@@ -195,10 +195,11 @@ func main() {
 	billableLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	appliedItemTaxRecordDtoCollectionQueryParameters := *openapiclient.NewAppliedItemTaxRecordDtoCollectionQueryParameters() // AppliedItemTaxRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillableLineTaxesAPI.GetBillableLineTaxes(context.Background(), billableLineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BillableLineTaxesAPI.GetBillableLineTaxes(context.Background(), billableLineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AppliedItemTaxRecordDtoCollectionQueryParameters(appliedItemTaxRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BillableLineTaxesAPI.GetBillableLineTaxes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -227,6 +228,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **appliedItemTaxRecordDtoCollectionQueryParameters** | [**AppliedItemTaxRecordDtoCollectionQueryParameters**](AppliedItemTaxRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -238,7 +240,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -248,7 +250,7 @@ No authorization required
 
 ## GetBillableLineTaxesCount
 
-> Int32Envelope GetBillableLineTaxesCount(ctx, billableLineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetBillableLineTaxesCount(ctx, billableLineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AppliedItemTaxRecordDtoCollectionQueryParameters(appliedItemTaxRecordDtoCollectionQueryParameters).Execute()
 
 Get the count of taxes for a billable line.
 
@@ -271,10 +273,11 @@ func main() {
 	billableLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	appliedItemTaxRecordDtoCollectionQueryParameters := *openapiclient.NewAppliedItemTaxRecordDtoCollectionQueryParameters() // AppliedItemTaxRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillableLineTaxesAPI.GetBillableLineTaxesCount(context.Background(), billableLineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.BillableLineTaxesAPI.GetBillableLineTaxesCount(context.Background(), billableLineId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).AppliedItemTaxRecordDtoCollectionQueryParameters(appliedItemTaxRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BillableLineTaxesAPI.GetBillableLineTaxesCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -303,6 +306,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **appliedItemTaxRecordDtoCollectionQueryParameters** | [**AppliedItemTaxRecordDtoCollectionQueryParameters**](AppliedItemTaxRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -314,7 +318,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -324,7 +328,7 @@ No authorization required
 
 ## PatchBillableLineTaxAsync
 
-> EmptyEnvelope PatchBillableLineTaxAsync(ctx, billableLineId, taxId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchBillableLineTaxAsync(ctx, billableLineId, taxId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a billable line tax
 
@@ -348,11 +352,11 @@ func main() {
 	taxId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillableLineTaxesAPI.PatchBillableLineTaxAsync(context.Background(), billableLineId, taxId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.BillableLineTaxesAPI.PatchBillableLineTaxAsync(context.Background(), billableLineId, taxId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BillableLineTaxesAPI.PatchBillableLineTaxAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -383,7 +387,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

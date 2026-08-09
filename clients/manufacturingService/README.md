@@ -83,7 +83,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebAPI* | [**AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebAPI.md#accountmanagedownloadpersonaldatapost) | **Post** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebAPI* | [**AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountmanagelinkexternalloginpost) | **Post** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebAPI* | [**AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountperformexternalloginpost) | **Post** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebAPI* | [**ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebAPI.md#apiv2aiserviceagentsagentidaguipost) | **Post** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABSWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
 *FenixAllianceABSWebAPI* | [**HealthGet**](docs/FenixAllianceABSWebAPI.md#healthget) | **Get** /health | 
 *FenixAllianceABSWebAPI* | [**HelloGet**](docs/FenixAllianceABSWebAPI.md#helloget) | **Get** /hello | 
@@ -138,9 +137,10 @@ Class | Method | HTTP request | Description
  - [InfoResponse](docs/InfoResponse.md)
  - [Int32Envelope](docs/Int32Envelope.md)
  - [LoginRequest](docs/LoginRequest.md)
- - [Operation](docs/Operation.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [ProductionPlanCreateDto](docs/ProductionPlanCreateDto.md)
  - [ProductionPlanDto](docs/ProductionPlanDto.md)
+ - [ProductionPlanDtoCollectionQueryParameters](docs/ProductionPlanDtoCollectionQueryParameters.md)
  - [ProductionPlanDtoListEnvelope](docs/ProductionPlanDtoListEnvelope.md)
  - [ProductionPlanUpdateDto](docs/ProductionPlanUpdateDto.md)
  - [RefreshRequest](docs/RefreshRequest.md)
@@ -151,14 +151,17 @@ Class | Method | HTTP request | Description
  - [TwoFactorResponse](docs/TwoFactorResponse.md)
  - [WorkOrderCreateDto](docs/WorkOrderCreateDto.md)
  - [WorkOrderDto](docs/WorkOrderDto.md)
+ - [WorkOrderDtoCollectionQueryParameters](docs/WorkOrderDtoCollectionQueryParameters.md)
  - [WorkOrderDtoListEnvelope](docs/WorkOrderDtoListEnvelope.md)
  - [WorkOrderTypeCreateDto](docs/WorkOrderTypeCreateDto.md)
  - [WorkOrderTypeDto](docs/WorkOrderTypeDto.md)
+ - [WorkOrderTypeDtoCollectionQueryParameters](docs/WorkOrderTypeDtoCollectionQueryParameters.md)
  - [WorkOrderTypeDtoListEnvelope](docs/WorkOrderTypeDtoListEnvelope.md)
  - [WorkOrderTypeUpdateDto](docs/WorkOrderTypeUpdateDto.md)
  - [WorkOrderUpdateDto](docs/WorkOrderUpdateDto.md)
  - [WorkstationCreateDto](docs/WorkstationCreateDto.md)
  - [WorkstationDto](docs/WorkstationDto.md)
+ - [WorkstationDtoCollectionQueryParameters](docs/WorkstationDtoCollectionQueryParameters.md)
  - [WorkstationDtoListEnvelope](docs/WorkstationDtoListEnvelope.md)
  - [WorkstationUpdateDto](docs/WorkstationUpdateDto.md)
 

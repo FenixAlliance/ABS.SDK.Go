@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**GetMessagesAsync**](SocialProfilesAPI.md#GetMessagesAsync) | **Get** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages
 [**GetNotificationByIdAsync**](SocialProfilesAPI.md#GetNotificationByIdAsync) | **Get** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification
 [**GetNotificationsAsync**](SocialProfilesAPI.md#GetNotificationsAsync) | **Get** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications
+[**GetOrCreateDirectConversationAsync**](SocialProfilesAPI.md#GetOrCreateDirectConversationAsync) | **Post** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct | Get or Create Direct Conversation
 [**GetSocialProfileAsync**](SocialProfilesAPI.md#GetSocialProfileAsync) | **Get** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile
 [**GetSocialProfilesAsync**](SocialProfilesAPI.md#GetSocialProfilesAsync) | **Get** /api/v2/SocialService/SocialProfiles | Get Social Profiles
 [**UnfollowAsync**](SocialProfilesAPI.md#UnfollowAsync) | **Delete** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/{followedSocialProfileId} | Unfollow
@@ -34,7 +35,7 @@ Method | HTTP request | Description
 
 ## CountConversationsAsync
 
-> Int32Envelope CountConversationsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountConversationsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ConversationDtoCollectionQueryParameters(conversationDtoCollectionQueryParameters).Execute()
 
 Count Conversations
 
@@ -56,10 +57,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	conversationDtoCollectionQueryParameters := *openapiclient.NewConversationDtoCollectionQueryParameters() // ConversationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.CountConversationsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.CountConversationsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ConversationDtoCollectionQueryParameters(conversationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.CountConversationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -87,6 +89,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **conversationDtoCollectionQueryParameters** | [**ConversationDtoCollectionQueryParameters**](ConversationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -98,7 +101,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -108,7 +111,7 @@ No authorization required
 
 ## CountFollowedProfilesAsync
 
-> Int32Envelope CountFollowedProfilesAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountFollowedProfilesAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 
 Count Followed Profiles
 
@@ -130,10 +133,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialProfileDtoCollectionQueryParameters := *openapiclient.NewSocialProfileDtoCollectionQueryParameters() // SocialProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.CountFollowedProfilesAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.CountFollowedProfilesAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.CountFollowedProfilesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -161,6 +165,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -172,7 +177,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -182,7 +187,7 @@ No authorization required
 
 ## CountFollowerProfilesAsync
 
-> Int32Envelope CountFollowerProfilesAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountFollowerProfilesAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 
 Count Follower Profiles
 
@@ -204,10 +209,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialProfileDtoCollectionQueryParameters := *openapiclient.NewSocialProfileDtoCollectionQueryParameters() // SocialProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.CountFollowerProfilesAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.CountFollowerProfilesAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.CountFollowerProfilesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -235,6 +241,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -246,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -256,7 +263,7 @@ No authorization required
 
 ## CountFollowersAsync
 
-> Int32Envelope CountFollowersAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountFollowersAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 
 Count Followers
 
@@ -278,10 +285,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	followRecordDtoCollectionQueryParameters := *openapiclient.NewFollowRecordDtoCollectionQueryParameters() // FollowRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.CountFollowersAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.CountFollowersAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.CountFollowersAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -309,6 +317,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -320,7 +329,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -330,7 +339,7 @@ No authorization required
 
 ## CountFollowsAsync
 
-> Int32Envelope CountFollowsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountFollowsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 
 Count Follows
 
@@ -352,10 +361,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	followRecordDtoCollectionQueryParameters := *openapiclient.NewFollowRecordDtoCollectionQueryParameters() // FollowRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.CountFollowsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.CountFollowsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.CountFollowsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -383,6 +393,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -394,7 +405,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -404,7 +415,7 @@ No authorization required
 
 ## CountMessagesAsync
 
-> Int32Envelope CountMessagesAsync(ctx, conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountMessagesAsync(ctx, conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PrivateMessageDtoCollectionQueryParameters(privateMessageDtoCollectionQueryParameters).Execute()
 
 Count Messages
 
@@ -427,10 +438,11 @@ func main() {
 	conversationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	privateMessageDtoCollectionQueryParameters := *openapiclient.NewPrivateMessageDtoCollectionQueryParameters() // PrivateMessageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.CountMessagesAsync(context.Background(), conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.CountMessagesAsync(context.Background(), conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PrivateMessageDtoCollectionQueryParameters(privateMessageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.CountMessagesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -459,6 +471,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **privateMessageDtoCollectionQueryParameters** | [**PrivateMessageDtoCollectionQueryParameters**](PrivateMessageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -470,7 +483,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -480,7 +493,7 @@ No authorization required
 
 ## CountNotificationsAsync
 
-> Int32Envelope CountNotificationsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountNotificationsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters).Execute()
 
 Count Notifications
 
@@ -502,10 +515,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	notificationDtoCollectionQueryParameters := *openapiclient.NewNotificationDtoCollectionQueryParameters() // NotificationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.CountNotificationsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.CountNotificationsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.CountNotificationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -533,6 +547,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -544,7 +559,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -554,7 +569,7 @@ No authorization required
 
 ## CountSocialProfilesAsync
 
-> Int32Envelope CountSocialProfilesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountSocialProfilesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 
 Count Social Profiles
 
@@ -575,10 +590,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialProfileDtoCollectionQueryParameters := *openapiclient.NewSocialProfileDtoCollectionQueryParameters() // SocialProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.CountSocialProfilesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.CountSocialProfilesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.CountSocialProfilesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -601,6 +617,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -612,7 +629,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1009,7 +1026,7 @@ No authorization required
 
 ## GetConversationsAsync
 
-> ConversationDtoListEnvelope GetConversationsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ConversationDtoListEnvelope GetConversationsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ConversationDtoCollectionQueryParameters(conversationDtoCollectionQueryParameters).Execute()
 
 Get Conversations
 
@@ -1031,10 +1048,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	conversationDtoCollectionQueryParameters := *openapiclient.NewConversationDtoCollectionQueryParameters() // ConversationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.GetConversationsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.GetConversationsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ConversationDtoCollectionQueryParameters(conversationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetConversationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1062,6 +1080,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **conversationDtoCollectionQueryParameters** | [**ConversationDtoCollectionQueryParameters**](ConversationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1073,7 +1092,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1083,7 +1102,7 @@ No authorization required
 
 ## GetFollowedProfilesAsync
 
-> SocialProfileDtoListEnvelope GetFollowedProfilesAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SocialProfileDtoListEnvelope GetFollowedProfilesAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 
 Get Followed Profiles
 
@@ -1105,10 +1124,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialProfileDtoCollectionQueryParameters := *openapiclient.NewSocialProfileDtoCollectionQueryParameters() // SocialProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.GetFollowedProfilesAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.GetFollowedProfilesAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetFollowedProfilesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1136,6 +1156,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1147,7 +1168,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1157,7 +1178,7 @@ No authorization required
 
 ## GetFollowerProfilesAsync
 
-> SocialProfileDtoListEnvelope GetFollowerProfilesAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SocialProfileDtoListEnvelope GetFollowerProfilesAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 
 Get Follower Profiles
 
@@ -1179,10 +1200,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialProfileDtoCollectionQueryParameters := *openapiclient.NewSocialProfileDtoCollectionQueryParameters() // SocialProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.GetFollowerProfilesAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.GetFollowerProfilesAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetFollowerProfilesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1210,6 +1232,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1221,7 +1244,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1231,7 +1254,7 @@ No authorization required
 
 ## GetFollowersAsync
 
-> FollowRecordDtoListEnvelope GetFollowersAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FollowRecordDtoListEnvelope GetFollowersAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 
 Get Followers
 
@@ -1253,10 +1276,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	followRecordDtoCollectionQueryParameters := *openapiclient.NewFollowRecordDtoCollectionQueryParameters() // FollowRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.GetFollowersAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.GetFollowersAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetFollowersAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1284,6 +1308,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1295,7 +1320,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1305,7 +1330,7 @@ No authorization required
 
 ## GetFollowsAsync
 
-> FollowRecordDtoListEnvelope GetFollowsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> FollowRecordDtoListEnvelope GetFollowsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 
 Get Follows
 
@@ -1327,10 +1352,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	followRecordDtoCollectionQueryParameters := *openapiclient.NewFollowRecordDtoCollectionQueryParameters() // FollowRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.GetFollowsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.GetFollowsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).FollowRecordDtoCollectionQueryParameters(followRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetFollowsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1358,6 +1384,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1369,7 +1396,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1379,7 +1406,7 @@ No authorization required
 
 ## GetMessagesAsync
 
-> PrivateMessageDtoListEnvelope GetMessagesAsync(ctx, conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> PrivateMessageDtoListEnvelope GetMessagesAsync(ctx, conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PrivateMessageDtoCollectionQueryParameters(privateMessageDtoCollectionQueryParameters).Execute()
 
 Get Messages
 
@@ -1402,10 +1429,11 @@ func main() {
 	conversationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	privateMessageDtoCollectionQueryParameters := *openapiclient.NewPrivateMessageDtoCollectionQueryParameters() // PrivateMessageDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.GetMessagesAsync(context.Background(), conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.GetMessagesAsync(context.Background(), conversationId).SocialProfileId(socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PrivateMessageDtoCollectionQueryParameters(privateMessageDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetMessagesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1434,6 +1462,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **privateMessageDtoCollectionQueryParameters** | [**PrivateMessageDtoCollectionQueryParameters**](PrivateMessageDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1445,7 +1474,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1532,7 +1561,7 @@ No authorization required
 
 ## GetNotificationsAsync
 
-> NotificationDtoListEnvelope GetNotificationsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> NotificationDtoListEnvelope GetNotificationsAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters).Execute()
 
 Get Notifications
 
@@ -1554,10 +1583,11 @@ func main() {
 	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	notificationDtoCollectionQueryParameters := *openapiclient.NewNotificationDtoCollectionQueryParameters() // NotificationDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.GetNotificationsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.GetNotificationsAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetNotificationsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1585,6 +1615,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1596,7 +1627,83 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOrCreateDirectConversationAsync
+
+> ConversationDtoEnvelope GetOrCreateDirectConversationAsync(ctx, socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+
+Get or Create Direct Conversation
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	socialProfileId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+	body := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialProfilesAPI.GetOrCreateDirectConversationAsync(context.Background(), socialProfileId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetOrCreateDirectConversationAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetOrCreateDirectConversationAsync`: ConversationDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `SocialProfilesAPI.GetOrCreateDirectConversationAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**socialProfileId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetOrCreateDirectConversationAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+ **body** | **string** |  | 
+
+### Return type
+
+[**ConversationDtoEnvelope**](ConversationDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1680,7 +1787,7 @@ No authorization required
 
 ## GetSocialProfilesAsync
 
-> SocialProfileDtoListEnvelope GetSocialProfilesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> SocialProfileDtoListEnvelope GetSocialProfilesAsync(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 
 Get Social Profiles
 
@@ -1701,10 +1808,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	socialProfileDtoCollectionQueryParameters := *openapiclient.NewSocialProfileDtoCollectionQueryParameters() // SocialProfileDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialProfilesAPI.GetSocialProfilesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.SocialProfilesAPI.GetSocialProfilesAsync(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).SocialProfileDtoCollectionQueryParameters(socialProfileDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialProfilesAPI.GetSocialProfilesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1727,6 +1835,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1738,7 +1847,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

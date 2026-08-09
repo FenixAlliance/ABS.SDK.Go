@@ -228,7 +228,7 @@ No authorization required
 
 ## GetReceiptsAsync
 
-> ReceiptDtoIReadOnlyListEnvelope GetReceiptsAsync(ctx).TenantId(tenantId).Execute()
+> ReceiptDtoIReadOnlyListEnvelope GetReceiptsAsync(ctx).TenantId(tenantId).ReceiptDtoCollectionQueryParameters(receiptDtoCollectionQueryParameters).Execute()
 
 Retrieves tenant receipts
 
@@ -248,10 +248,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	receiptDtoCollectionQueryParameters := *openapiclient.NewReceiptDtoCollectionQueryParameters() // ReceiptDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReceiptsAPI.GetReceiptsAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ReceiptsAPI.GetReceiptsAsync(context.Background()).TenantId(tenantId).ReceiptDtoCollectionQueryParameters(receiptDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReceiptsAPI.GetReceiptsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -273,6 +274,7 @@ Other parameters are passed through a pointer to a apiGetReceiptsAsyncRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **receiptDtoCollectionQueryParameters** | [**ReceiptDtoCollectionQueryParameters**](ReceiptDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -284,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -294,7 +296,7 @@ No authorization required
 
 ## GetReceiptsCountAsync
 
-> Int32Envelope GetReceiptsCountAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetReceiptsCountAsync(ctx).TenantId(tenantId).ReceiptDtoCollectionQueryParameters(receiptDtoCollectionQueryParameters).Execute()
 
 Gets count of tenant receipts
 
@@ -314,10 +316,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	receiptDtoCollectionQueryParameters := *openapiclient.NewReceiptDtoCollectionQueryParameters() // ReceiptDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReceiptsAPI.GetReceiptsCountAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.ReceiptsAPI.GetReceiptsCountAsync(context.Background()).TenantId(tenantId).ReceiptDtoCollectionQueryParameters(receiptDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReceiptsAPI.GetReceiptsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -339,6 +342,7 @@ Other parameters are passed through a pointer to a apiGetReceiptsCountAsyncReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **receiptDtoCollectionQueryParameters** | [**ReceiptDtoCollectionQueryParameters**](ReceiptDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -350,7 +354,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -360,7 +364,7 @@ No authorization required
 
 ## PatchReceiptAsync
 
-> EmptyEnvelope PatchReceiptAsync(ctx, receiptId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchReceiptAsync(ctx, receiptId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patches a receipt
 
@@ -381,11 +385,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	receiptId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReceiptsAPI.PatchReceiptAsync(context.Background(), receiptId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.ReceiptsAPI.PatchReceiptAsync(context.Background(), receiptId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReceiptsAPI.PatchReceiptAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -412,7 +416,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

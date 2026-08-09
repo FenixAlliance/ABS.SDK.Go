@@ -515,6 +515,7 @@ type ApiGetLeaveApplicationsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	leaveApplicationDtoCollectionQueryParameters *LeaveApplicationDtoCollectionQueryParameters
 }
 
 func (r ApiGetLeaveApplicationsAsyncRequest) TenantId(tenantId string) ApiGetLeaveApplicationsAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetLeaveApplicationsAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetLeaveApplicationsAsyncRequest) XApiVersion(xApiVersion string) ApiGetLeaveApplicationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLeaveApplicationsAsyncRequest) LeaveApplicationDtoCollectionQueryParameters(leaveApplicationDtoCollectionQueryParameters LeaveApplicationDtoCollectionQueryParameters) ApiGetLeaveApplicationsAsyncRequest {
+	r.leaveApplicationDtoCollectionQueryParameters = &leaveApplicationDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *LeaveApplicationsAPIService) GetLeaveApplicationsAsyncExecute(r ApiGetL
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *LeaveApplicationsAPIService) GetLeaveApplicationsAsyncExecute(r ApiGetL
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.leaveApplicationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetLeaveApplicationsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	leaveApplicationDtoCollectionQueryParameters *LeaveApplicationDtoCollectionQueryParameters
 }
 
 func (r ApiGetLeaveApplicationsCountAsyncRequest) TenantId(tenantId string) ApiGetLeaveApplicationsCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetLeaveApplicationsCountAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetLeaveApplicationsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetLeaveApplicationsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLeaveApplicationsCountAsyncRequest) LeaveApplicationDtoCollectionQueryParameters(leaveApplicationDtoCollectionQueryParameters LeaveApplicationDtoCollectionQueryParameters) ApiGetLeaveApplicationsCountAsyncRequest {
+	r.leaveApplicationDtoCollectionQueryParameters = &leaveApplicationDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *LeaveApplicationsAPIService) GetLeaveApplicationsCountAsyncExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *LeaveApplicationsAPIService) GetLeaveApplicationsCountAsyncExecute(r Ap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.leaveApplicationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchLeaveApplicationAsyncRequest struct {
 	leaveApplicationId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchLeaveApplicationAsyncRequest) TenantId(tenantId string) ApiPatchLeaveApplicationAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchLeaveApplicationAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchLeaveApplicationAsyncRequest) Operation(operation []Operation) ApiPatchLeaveApplicationAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchLeaveApplicationAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchLeaveApplicationAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *LeaveApplicationsAPIService) PatchLeaveApplicationAsyncExecute(r ApiPat
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

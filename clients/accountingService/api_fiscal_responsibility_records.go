@@ -503,6 +503,7 @@ type ApiGetFiscalResponsibilityRecordsRequest struct {
 	fiscalResponsibilityId string
 	apiVersion *string
 	xApiVersion *string
+	fiscalResponsibilityRecordDtoCollectionQueryParameters *FiscalResponsibilityRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetFiscalResponsibilityRecordsRequest) TenantId(tenantId string) ApiGetFiscalResponsibilityRecordsRequest {
@@ -517,6 +518,11 @@ func (r ApiGetFiscalResponsibilityRecordsRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetFiscalResponsibilityRecordsRequest) XApiVersion(xApiVersion string) ApiGetFiscalResponsibilityRecordsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFiscalResponsibilityRecordsRequest) FiscalResponsibilityRecordDtoCollectionQueryParameters(fiscalResponsibilityRecordDtoCollectionQueryParameters FiscalResponsibilityRecordDtoCollectionQueryParameters) ApiGetFiscalResponsibilityRecordsRequest {
+	r.fiscalResponsibilityRecordDtoCollectionQueryParameters = &fiscalResponsibilityRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -574,7 +580,7 @@ func (a *FiscalResponsibilityRecordsAPIService) GetFiscalResponsibilityRecordsEx
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -593,6 +599,8 @@ func (a *FiscalResponsibilityRecordsAPIService) GetFiscalResponsibilityRecordsEx
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.fiscalResponsibilityRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -660,6 +668,7 @@ type ApiGetFiscalResponsibilityRecordsCountRequest struct {
 	fiscalResponsibilityId string
 	apiVersion *string
 	xApiVersion *string
+	fiscalResponsibilityRecordDtoCollectionQueryParameters *FiscalResponsibilityRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetFiscalResponsibilityRecordsCountRequest) TenantId(tenantId string) ApiGetFiscalResponsibilityRecordsCountRequest {
@@ -674,6 +683,11 @@ func (r ApiGetFiscalResponsibilityRecordsCountRequest) ApiVersion(apiVersion str
 
 func (r ApiGetFiscalResponsibilityRecordsCountRequest) XApiVersion(xApiVersion string) ApiGetFiscalResponsibilityRecordsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFiscalResponsibilityRecordsCountRequest) FiscalResponsibilityRecordDtoCollectionQueryParameters(fiscalResponsibilityRecordDtoCollectionQueryParameters FiscalResponsibilityRecordDtoCollectionQueryParameters) ApiGetFiscalResponsibilityRecordsCountRequest {
+	r.fiscalResponsibilityRecordDtoCollectionQueryParameters = &fiscalResponsibilityRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -731,7 +745,7 @@ func (a *FiscalResponsibilityRecordsAPIService) GetFiscalResponsibilityRecordsCo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -750,6 +764,8 @@ func (a *FiscalResponsibilityRecordsAPIService) GetFiscalResponsibilityRecordsCo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.fiscalResponsibilityRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -816,7 +832,7 @@ type ApiPatchFiscalResponsibilityRecordAsyncRequest struct {
 	fiscalResponsibilityRecordId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchFiscalResponsibilityRecordAsyncRequest) TenantId(tenantId string) ApiPatchFiscalResponsibilityRecordAsyncRequest {
@@ -834,8 +850,8 @@ func (r ApiPatchFiscalResponsibilityRecordAsyncRequest) XApiVersion(xApiVersion 
 	return r
 }
 
-func (r ApiPatchFiscalResponsibilityRecordAsyncRequest) Operation(operation []Operation) ApiPatchFiscalResponsibilityRecordAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchFiscalResponsibilityRecordAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchFiscalResponsibilityRecordAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -910,7 +926,7 @@ func (a *FiscalResponsibilityRecordsAPIService) PatchFiscalResponsibilityRecordA
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

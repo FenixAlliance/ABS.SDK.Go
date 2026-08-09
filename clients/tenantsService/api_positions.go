@@ -493,6 +493,7 @@ type ApiGetTenantPositionsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantPositionDtoCollectionQueryParameters *TenantPositionDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantPositionsRequest) TenantId(tenantId string) ApiGetTenantPositionsRequest {
@@ -507,6 +508,11 @@ func (r ApiGetTenantPositionsRequest) ApiVersion(apiVersion string) ApiGetTenant
 
 func (r ApiGetTenantPositionsRequest) XApiVersion(xApiVersion string) ApiGetTenantPositionsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantPositionsRequest) TenantPositionDtoCollectionQueryParameters(tenantPositionDtoCollectionQueryParameters TenantPositionDtoCollectionQueryParameters) ApiGetTenantPositionsRequest {
+	r.tenantPositionDtoCollectionQueryParameters = &tenantPositionDtoCollectionQueryParameters
 	return r
 }
 
@@ -558,7 +564,7 @@ func (a *PositionsAPIService) GetTenantPositionsExecute(r ApiGetTenantPositionsR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -577,6 +583,8 @@ func (a *PositionsAPIService) GetTenantPositionsExecute(r ApiGetTenantPositionsR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantPositionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetTenantPositionsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantPositionDtoCollectionQueryParameters *TenantPositionDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantPositionsCountRequest) TenantId(tenantId string) ApiGetTenantPositionsCountRequest {
@@ -656,6 +665,11 @@ func (r ApiGetTenantPositionsCountRequest) ApiVersion(apiVersion string) ApiGetT
 
 func (r ApiGetTenantPositionsCountRequest) XApiVersion(xApiVersion string) ApiGetTenantPositionsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantPositionsCountRequest) TenantPositionDtoCollectionQueryParameters(tenantPositionDtoCollectionQueryParameters TenantPositionDtoCollectionQueryParameters) ApiGetTenantPositionsCountRequest {
+	r.tenantPositionDtoCollectionQueryParameters = &tenantPositionDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *PositionsAPIService) GetTenantPositionsCountExecute(r ApiGetTenantPosit
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *PositionsAPIService) GetTenantPositionsCountExecute(r ApiGetTenantPosit
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantPositionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchTenantPositionRequest struct {
 	tenantPositionId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTenantPositionRequest) TenantId(tenantId string) ApiPatchTenantPositionRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchTenantPositionRequest) XApiVersion(xApiVersion string) ApiPatchT
 	return r
 }
 
-func (r ApiPatchTenantPositionRequest) Operation(operation []Operation) ApiPatchTenantPositionRequest {
-	r.operation = &operation
+func (r ApiPatchTenantPositionRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTenantPositionRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *PositionsAPIService) PatchTenantPositionExecute(r ApiPatchTenantPositio
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -493,6 +493,7 @@ type ApiGetSupportEntitlementsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	supportEntitlementDtoCollectionQueryParameters *SupportEntitlementDtoCollectionQueryParameters
 }
 
 func (r ApiGetSupportEntitlementsAsyncRequest) TenantId(tenantId string) ApiGetSupportEntitlementsAsyncRequest {
@@ -507,6 +508,11 @@ func (r ApiGetSupportEntitlementsAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetSupportEntitlementsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSupportEntitlementsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSupportEntitlementsAsyncRequest) SupportEntitlementDtoCollectionQueryParameters(supportEntitlementDtoCollectionQueryParameters SupportEntitlementDtoCollectionQueryParameters) ApiGetSupportEntitlementsAsyncRequest {
+	r.supportEntitlementDtoCollectionQueryParameters = &supportEntitlementDtoCollectionQueryParameters
 	return r
 }
 
@@ -558,7 +564,7 @@ func (a *SupportEntitlementsAPIService) GetSupportEntitlementsAsyncExecute(r Api
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -577,6 +583,8 @@ func (a *SupportEntitlementsAPIService) GetSupportEntitlementsAsyncExecute(r Api
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.supportEntitlementDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetSupportEntitlementsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	supportEntitlementDtoCollectionQueryParameters *SupportEntitlementDtoCollectionQueryParameters
 }
 
 func (r ApiGetSupportEntitlementsCountAsyncRequest) TenantId(tenantId string) ApiGetSupportEntitlementsCountAsyncRequest {
@@ -656,6 +665,11 @@ func (r ApiGetSupportEntitlementsCountAsyncRequest) ApiVersion(apiVersion string
 
 func (r ApiGetSupportEntitlementsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSupportEntitlementsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSupportEntitlementsCountAsyncRequest) SupportEntitlementDtoCollectionQueryParameters(supportEntitlementDtoCollectionQueryParameters SupportEntitlementDtoCollectionQueryParameters) ApiGetSupportEntitlementsCountAsyncRequest {
+	r.supportEntitlementDtoCollectionQueryParameters = &supportEntitlementDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *SupportEntitlementsAPIService) GetSupportEntitlementsCountAsyncExecute(
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *SupportEntitlementsAPIService) GetSupportEntitlementsCountAsyncExecute(
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.supportEntitlementDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchSupportEntitlementAsyncRequest struct {
 	supportEntitlementId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSupportEntitlementAsyncRequest) TenantId(tenantId string) ApiPatchSupportEntitlementAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchSupportEntitlementAsyncRequest) XApiVersion(xApiVersion string) 
 	return r
 }
 
-func (r ApiPatchSupportEntitlementAsyncRequest) Operation(operation []Operation) ApiPatchSupportEntitlementAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSupportEntitlementAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSupportEntitlementAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *SupportEntitlementsAPIService) PatchSupportEntitlementAsyncExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

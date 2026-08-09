@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
-**Message** | **string** |  | 
+**Message** | Pointer to **NullableString** |  | [optional] 
 **BodyHtml** | Pointer to **NullableString** |  | [optional] 
 **BodyFormat** | Pointer to **NullableString** |  | [optional] 
 **ParentCommentId** | Pointer to **NullableString** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewSocialPostCommentCreateDto
 
-`func NewSocialPostCommentCreateDto(message string, ) *SocialPostCommentCreateDto`
+`func NewSocialPostCommentCreateDto() *SocialPostCommentCreateDto`
 
 NewSocialPostCommentCreateDto instantiates a new SocialPostCommentCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -102,7 +102,22 @@ and a boolean to check if the value has been set.
 
 SetMessage sets Message field to given value.
 
+### HasMessage
 
+`func (o *SocialPostCommentCreateDto) HasMessage() bool`
+
+HasMessage returns a boolean if a field has been set.
+
+### SetMessageNil
+
+`func (o *SocialPostCommentCreateDto) SetMessageNil(b bool)`
+
+ SetMessageNil sets the value for Message to be an explicit nil
+
+### UnsetMessage
+`func (o *SocialPostCommentCreateDto) UnsetMessage()`
+
+UnsetMessage ensures that no value is present for Message, not even an explicit nil
 ### GetBodyHtml
 
 `func (o *SocialPostCommentCreateDto) GetBodyHtml() string`

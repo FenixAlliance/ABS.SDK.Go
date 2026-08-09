@@ -31,6 +31,8 @@ type JournalDto struct {
 	FiscalYearId NullableString `json:"fiscalYearId,omitempty"`
 	JournalTypeId NullableString `json:"journalTypeId,omitempty"`
 	ParentJournalId NullableString `json:"parentJournalId,omitempty"`
+	FinancialBookId NullableString `json:"financialBookId,omitempty"`
+	Code NullableString `json:"code,omitempty"`
 }
 
 // NewJournalDto instantiates a new JournalDto object
@@ -470,6 +472,90 @@ func (o *JournalDto) UnsetParentJournalId() {
 	o.ParentJournalId.Unset()
 }
 
+// GetFinancialBookId returns the FinancialBookId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalDto) GetFinancialBookId() string {
+	if o == nil || IsNil(o.FinancialBookId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.FinancialBookId.Get()
+}
+
+// GetFinancialBookIdOk returns a tuple with the FinancialBookId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalDto) GetFinancialBookIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.FinancialBookId.Get(), o.FinancialBookId.IsSet()
+}
+
+// HasFinancialBookId returns a boolean if a field has been set.
+func (o *JournalDto) HasFinancialBookId() bool {
+	if o != nil && o.FinancialBookId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFinancialBookId gets a reference to the given NullableString and assigns it to the FinancialBookId field.
+func (o *JournalDto) SetFinancialBookId(v string) {
+	o.FinancialBookId.Set(&v)
+}
+// SetFinancialBookIdNil sets the value for FinancialBookId to be an explicit nil
+func (o *JournalDto) SetFinancialBookIdNil() {
+	o.FinancialBookId.Set(nil)
+}
+
+// UnsetFinancialBookId ensures that no value is present for FinancialBookId, not even an explicit nil
+func (o *JournalDto) UnsetFinancialBookId() {
+	o.FinancialBookId.Unset()
+}
+
+// GetCode returns the Code field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *JournalDto) GetCode() string {
+	if o == nil || IsNil(o.Code.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Code.Get()
+}
+
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *JournalDto) GetCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Code.Get(), o.Code.IsSet()
+}
+
+// HasCode returns a boolean if a field has been set.
+func (o *JournalDto) HasCode() bool {
+	if o != nil && o.Code.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCode gets a reference to the given NullableString and assigns it to the Code field.
+func (o *JournalDto) SetCode(v string) {
+	o.Code.Set(&v)
+}
+// SetCodeNil sets the value for Code to be an explicit nil
+func (o *JournalDto) SetCodeNil() {
+	o.Code.Set(nil)
+}
+
+// UnsetCode ensures that no value is present for Code, not even an explicit nil
+func (o *JournalDto) UnsetCode() {
+	o.Code.Unset()
+}
+
 func (o JournalDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -509,6 +595,12 @@ func (o JournalDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ParentJournalId.IsSet() {
 		toSerialize["parentJournalId"] = o.ParentJournalId.Get()
+	}
+	if o.FinancialBookId.IsSet() {
+		toSerialize["financialBookId"] = o.FinancialBookId.Get()
+	}
+	if o.Code.IsSet() {
+		toSerialize["code"] = o.Code.Get()
 	}
 	return toSerialize, nil
 }

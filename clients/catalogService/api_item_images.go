@@ -481,6 +481,7 @@ type ApiGetItemImagesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemImageDtoCollectionQueryParameters *ItemImageDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemImagesAsyncRequest) TenantId(tenantId string) ApiGetItemImagesAsyncRequest {
@@ -495,6 +496,11 @@ func (r ApiGetItemImagesAsyncRequest) ApiVersion(apiVersion string) ApiGetItemIm
 
 func (r ApiGetItemImagesAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemImagesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemImagesAsyncRequest) ItemImageDtoCollectionQueryParameters(itemImageDtoCollectionQueryParameters ItemImageDtoCollectionQueryParameters) ApiGetItemImagesAsyncRequest {
+	r.itemImageDtoCollectionQueryParameters = &itemImageDtoCollectionQueryParameters
 	return r
 }
 
@@ -545,7 +551,7 @@ func (a *ItemImagesAPIService) GetItemImagesAsyncExecute(r ApiGetItemImagesAsync
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -564,6 +570,8 @@ func (a *ItemImagesAPIService) GetItemImagesAsyncExecute(r ApiGetItemImagesAsync
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemImageDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -630,7 +638,7 @@ type ApiPatchItemImageAsyncRequest struct {
 	itemImageId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemImageAsyncRequest) TenantId(tenantId string) ApiPatchItemImageAsyncRequest {
@@ -648,8 +656,8 @@ func (r ApiPatchItemImageAsyncRequest) XApiVersion(xApiVersion string) ApiPatchI
 	return r
 }
 
-func (r ApiPatchItemImageAsyncRequest) Operation(operation []Operation) ApiPatchItemImageAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemImageAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemImageAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -722,7 +730,7 @@ func (a *ItemImagesAPIService) PatchItemImageAsyncExecute(r ApiPatchItemImageAsy
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

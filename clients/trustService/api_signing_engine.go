@@ -29,6 +29,7 @@ type ApiGetProvidersAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	trustSigningProviderDescriptorDtoCollectionQueryParameters *TrustSigningProviderDescriptorDtoCollectionQueryParameters
 }
 
 func (r ApiGetProvidersAsyncRequest) TenantId(tenantId string) ApiGetProvidersAsyncRequest {
@@ -43,6 +44,11 @@ func (r ApiGetProvidersAsyncRequest) ApiVersion(apiVersion string) ApiGetProvide
 
 func (r ApiGetProvidersAsyncRequest) XApiVersion(xApiVersion string) ApiGetProvidersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProvidersAsyncRequest) TrustSigningProviderDescriptorDtoCollectionQueryParameters(trustSigningProviderDescriptorDtoCollectionQueryParameters TrustSigningProviderDescriptorDtoCollectionQueryParameters) ApiGetProvidersAsyncRequest {
+	r.trustSigningProviderDescriptorDtoCollectionQueryParameters = &trustSigningProviderDescriptorDtoCollectionQueryParameters
 	return r
 }
 
@@ -94,7 +100,7 @@ func (a *SigningEngineAPIService) GetProvidersAsyncExecute(r ApiGetProvidersAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -113,6 +119,8 @@ func (a *SigningEngineAPIService) GetProvidersAsyncExecute(r ApiGetProvidersAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.trustSigningProviderDescriptorDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -167,6 +175,7 @@ type ApiGetProvidersCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	trustSigningProviderDescriptorDtoCollectionQueryParameters *TrustSigningProviderDescriptorDtoCollectionQueryParameters
 }
 
 func (r ApiGetProvidersCountAsyncRequest) TenantId(tenantId string) ApiGetProvidersCountAsyncRequest {
@@ -181,6 +190,11 @@ func (r ApiGetProvidersCountAsyncRequest) ApiVersion(apiVersion string) ApiGetPr
 
 func (r ApiGetProvidersCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetProvidersCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetProvidersCountAsyncRequest) TrustSigningProviderDescriptorDtoCollectionQueryParameters(trustSigningProviderDescriptorDtoCollectionQueryParameters TrustSigningProviderDescriptorDtoCollectionQueryParameters) ApiGetProvidersCountAsyncRequest {
+	r.trustSigningProviderDescriptorDtoCollectionQueryParameters = &trustSigningProviderDescriptorDtoCollectionQueryParameters
 	return r
 }
 
@@ -232,7 +246,7 @@ func (a *SigningEngineAPIService) GetProvidersCountAsyncExecute(r ApiGetProvider
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -251,6 +265,8 @@ func (a *SigningEngineAPIService) GetProvidersCountAsyncExecute(r ApiGetProvider
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.trustSigningProviderDescriptorDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

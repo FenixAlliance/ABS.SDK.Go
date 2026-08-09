@@ -495,6 +495,7 @@ type ApiGetSystemTenantOptionsRequest struct {
 	portalId *string
 	apiVersion *string
 	xApiVersion *string
+	optionDtoCollectionQueryParameters *OptionDtoCollectionQueryParameters
 }
 
 func (r ApiGetSystemTenantOptionsRequest) PortalId(portalId string) ApiGetSystemTenantOptionsRequest {
@@ -509,6 +510,11 @@ func (r ApiGetSystemTenantOptionsRequest) ApiVersion(apiVersion string) ApiGetSy
 
 func (r ApiGetSystemTenantOptionsRequest) XApiVersion(xApiVersion string) ApiGetSystemTenantOptionsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSystemTenantOptionsRequest) OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters OptionDtoCollectionQueryParameters) ApiGetSystemTenantOptionsRequest {
+	r.optionDtoCollectionQueryParameters = &optionDtoCollectionQueryParameters
 	return r
 }
 
@@ -562,7 +568,7 @@ func (a *TenantOptionsAPIService) GetSystemTenantOptionsExecute(r ApiGetSystemTe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -581,6 +587,8 @@ func (a *TenantOptionsAPIService) GetSystemTenantOptionsExecute(r ApiGetSystemTe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.optionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -647,6 +655,7 @@ type ApiGetSystemTenantOptionsCountRequest struct {
 	portalId *string
 	apiVersion *string
 	xApiVersion *string
+	optionDtoCollectionQueryParameters *OptionDtoCollectionQueryParameters
 }
 
 func (r ApiGetSystemTenantOptionsCountRequest) PortalId(portalId string) ApiGetSystemTenantOptionsCountRequest {
@@ -661,6 +670,11 @@ func (r ApiGetSystemTenantOptionsCountRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetSystemTenantOptionsCountRequest) XApiVersion(xApiVersion string) ApiGetSystemTenantOptionsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSystemTenantOptionsCountRequest) OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters OptionDtoCollectionQueryParameters) ApiGetSystemTenantOptionsCountRequest {
+	r.optionDtoCollectionQueryParameters = &optionDtoCollectionQueryParameters
 	return r
 }
 
@@ -714,7 +728,7 @@ func (a *TenantOptionsAPIService) GetSystemTenantOptionsCountExecute(r ApiGetSys
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -733,6 +747,8 @@ func (a *TenantOptionsAPIService) GetSystemTenantOptionsCountExecute(r ApiGetSys
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.optionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -799,7 +815,7 @@ type ApiPatchSystemTenantOptionRequest struct {
 	optionId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSystemTenantOptionRequest) ApiVersion(apiVersion string) ApiPatchSystemTenantOptionRequest {
@@ -812,8 +828,8 @@ func (r ApiPatchSystemTenantOptionRequest) XApiVersion(xApiVersion string) ApiPa
 	return r
 }
 
-func (r ApiPatchSystemTenantOptionRequest) Operation(operation []Operation) ApiPatchSystemTenantOptionRequest {
-	r.operation = &operation
+func (r ApiPatchSystemTenantOptionRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSystemTenantOptionRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -887,7 +903,7 @@ func (a *TenantOptionsAPIService) PatchSystemTenantOptionExecute(r ApiPatchSyste
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Timestamp** | Pointer to **time.Time** |  | [optional] 
+**Closed** | Pointer to **bool** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **PriceListId** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
@@ -23,6 +24,7 @@ Name | Type | Description | Notes
 **CountryId** | Pointer to **NullableString** |  | [optional] 
 **StateId** | Pointer to **NullableString** |  | [optional] 
 **CityId** | Pointer to **NullableString** |  | [optional] 
+**ForexRate** | Pointer to **float64** |  | [optional] 
 **CurrencyId** | Pointer to **NullableString** |  | [optional] 
 **TotalDetail** | Pointer to **float64** |  | [optional] 
 **TotalDetailCurrencyId** | Pointer to **NullableString** |  | [optional] 
@@ -51,10 +53,8 @@ Name | Type | Description | Notes
 **CostCalculationMethod** | Pointer to **string** |  | [optional] 
 **TaxCalculationMethod** | Pointer to **string** |  | [optional] 
 **PaymentId** | Pointer to **NullableString** |  | [optional] 
-**ForexRate** | Pointer to **float64** |  | [optional] 
 **TotalAmount** | Pointer to **float64** |  | [optional] 
 **TotalAmountInUSD** | Pointer to **float64** |  | [optional] 
-**Closed** | Pointer to **bool** |  | [optional] 
 **ContactId** | Pointer to **NullableString** |  | [optional] 
 **ReceiptType** | Pointer to **string** |  | [optional] 
 **OrderId** | Pointer to **NullableString** |  | [optional] 
@@ -128,6 +128,31 @@ SetTimestamp sets Timestamp field to given value.
 `func (o *ReceiptCreateDto) HasTimestamp() bool`
 
 HasTimestamp returns a boolean if a field has been set.
+
+### GetClosed
+
+`func (o *ReceiptCreateDto) GetClosed() bool`
+
+GetClosed returns the Closed field if non-nil, zero value otherwise.
+
+### GetClosedOk
+
+`func (o *ReceiptCreateDto) GetClosedOk() (*bool, bool)`
+
+GetClosedOk returns a tuple with the Closed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClosed
+
+`func (o *ReceiptCreateDto) SetClosed(v bool)`
+
+SetClosed sets Closed field to given value.
+
+### HasClosed
+
+`func (o *ReceiptCreateDto) HasClosed() bool`
+
+HasClosed returns a boolean if a field has been set.
 
 ### GetTitle
 
@@ -724,6 +749,31 @@ HasCityId returns a boolean if a field has been set.
 `func (o *ReceiptCreateDto) UnsetCityId()`
 
 UnsetCityId ensures that no value is present for CityId, not even an explicit nil
+### GetForexRate
+
+`func (o *ReceiptCreateDto) GetForexRate() float64`
+
+GetForexRate returns the ForexRate field if non-nil, zero value otherwise.
+
+### GetForexRateOk
+
+`func (o *ReceiptCreateDto) GetForexRateOk() (*float64, bool)`
+
+GetForexRateOk returns a tuple with the ForexRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexRate
+
+`func (o *ReceiptCreateDto) SetForexRate(v float64)`
+
+SetForexRate sets ForexRate field to given value.
+
+### HasForexRate
+
+`func (o *ReceiptCreateDto) HasForexRate() bool`
+
+HasForexRate returns a boolean if a field has been set.
+
 ### GetCurrencyId
 
 `func (o *ReceiptCreateDto) GetCurrencyId() string`
@@ -1564,31 +1614,6 @@ HasPaymentId returns a boolean if a field has been set.
 `func (o *ReceiptCreateDto) UnsetPaymentId()`
 
 UnsetPaymentId ensures that no value is present for PaymentId, not even an explicit nil
-### GetForexRate
-
-`func (o *ReceiptCreateDto) GetForexRate() float64`
-
-GetForexRate returns the ForexRate field if non-nil, zero value otherwise.
-
-### GetForexRateOk
-
-`func (o *ReceiptCreateDto) GetForexRateOk() (*float64, bool)`
-
-GetForexRateOk returns a tuple with the ForexRate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetForexRate
-
-`func (o *ReceiptCreateDto) SetForexRate(v float64)`
-
-SetForexRate sets ForexRate field to given value.
-
-### HasForexRate
-
-`func (o *ReceiptCreateDto) HasForexRate() bool`
-
-HasForexRate returns a boolean if a field has been set.
-
 ### GetTotalAmount
 
 `func (o *ReceiptCreateDto) GetTotalAmount() float64`
@@ -1638,31 +1663,6 @@ SetTotalAmountInUSD sets TotalAmountInUSD field to given value.
 `func (o *ReceiptCreateDto) HasTotalAmountInUSD() bool`
 
 HasTotalAmountInUSD returns a boolean if a field has been set.
-
-### GetClosed
-
-`func (o *ReceiptCreateDto) GetClosed() bool`
-
-GetClosed returns the Closed field if non-nil, zero value otherwise.
-
-### GetClosedOk
-
-`func (o *ReceiptCreateDto) GetClosedOk() (*bool, bool)`
-
-GetClosedOk returns a tuple with the Closed field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetClosed
-
-`func (o *ReceiptCreateDto) SetClosed(v bool)`
-
-SetClosed sets Closed field to given value.
-
-### HasClosed
-
-`func (o *ReceiptCreateDto) HasClosed() bool`
-
-HasClosed returns a boolean if a field has been set.
 
 ### GetContactId
 

@@ -404,7 +404,7 @@ No authorization required
 
 ## GetItemPackingSlipEntriesAsync
 
-> ItemPackingSlipEntryDtoListEnvelope GetItemPackingSlipEntriesAsync(ctx, packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemPackingSlipEntryDtoListEnvelope GetItemPackingSlipEntriesAsync(ctx, packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPackingSlipEntryDtoCollectionQueryParameters(itemPackingSlipEntryDtoCollectionQueryParameters).Execute()
 
 Get packing slip entries
 
@@ -427,10 +427,11 @@ func main() {
 	packingSlipId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemPackingSlipEntryDtoCollectionQueryParameters := *openapiclient.NewItemPackingSlipEntryDtoCollectionQueryParameters() // ItemPackingSlipEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPackingSlipsAPI.GetItemPackingSlipEntriesAsync(context.Background(), packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemPackingSlipsAPI.GetItemPackingSlipEntriesAsync(context.Background(), packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPackingSlipEntryDtoCollectionQueryParameters(itemPackingSlipEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPackingSlipsAPI.GetItemPackingSlipEntriesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -459,6 +460,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemPackingSlipEntryDtoCollectionQueryParameters** | [**ItemPackingSlipEntryDtoCollectionQueryParameters**](ItemPackingSlipEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -470,7 +472,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -480,7 +482,7 @@ No authorization required
 
 ## GetItemPackingSlipEntriesCountAsync
 
-> Int32Envelope GetItemPackingSlipEntriesCountAsync(ctx, packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetItemPackingSlipEntriesCountAsync(ctx, packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPackingSlipEntryDtoCollectionQueryParameters(itemPackingSlipEntryDtoCollectionQueryParameters).Execute()
 
 Get packing slip entries count
 
@@ -503,10 +505,11 @@ func main() {
 	packingSlipId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemPackingSlipEntryDtoCollectionQueryParameters := *openapiclient.NewItemPackingSlipEntryDtoCollectionQueryParameters() // ItemPackingSlipEntryDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPackingSlipsAPI.GetItemPackingSlipEntriesCountAsync(context.Background(), packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemPackingSlipsAPI.GetItemPackingSlipEntriesCountAsync(context.Background(), packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPackingSlipEntryDtoCollectionQueryParameters(itemPackingSlipEntryDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPackingSlipsAPI.GetItemPackingSlipEntriesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -535,6 +538,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemPackingSlipEntryDtoCollectionQueryParameters** | [**ItemPackingSlipEntryDtoCollectionQueryParameters**](ItemPackingSlipEntryDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -546,7 +550,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -635,7 +639,7 @@ No authorization required
 
 ## GetItemPackingSlipsAsync
 
-> ItemPackingSlipDtoListEnvelope GetItemPackingSlipsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ItemPackingSlipDtoListEnvelope GetItemPackingSlipsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPackingSlipDtoCollectionQueryParameters(itemPackingSlipDtoCollectionQueryParameters).Execute()
 
 Get all item packing slips
 
@@ -657,10 +661,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemPackingSlipDtoCollectionQueryParameters := *openapiclient.NewItemPackingSlipDtoCollectionQueryParameters() // ItemPackingSlipDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPackingSlipsAPI.GetItemPackingSlipsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemPackingSlipsAPI.GetItemPackingSlipsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPackingSlipDtoCollectionQueryParameters(itemPackingSlipDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPackingSlipsAPI.GetItemPackingSlipsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -684,6 +689,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemPackingSlipDtoCollectionQueryParameters** | [**ItemPackingSlipDtoCollectionQueryParameters**](ItemPackingSlipDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -695,7 +701,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -705,7 +711,7 @@ No authorization required
 
 ## GetItemPackingSlipsCountAsync
 
-> Int32Envelope GetItemPackingSlipsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetItemPackingSlipsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPackingSlipDtoCollectionQueryParameters(itemPackingSlipDtoCollectionQueryParameters).Execute()
 
 Get item packing slips count
 
@@ -727,10 +733,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	itemPackingSlipDtoCollectionQueryParameters := *openapiclient.NewItemPackingSlipDtoCollectionQueryParameters() // ItemPackingSlipDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPackingSlipsAPI.GetItemPackingSlipsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ItemPackingSlipsAPI.GetItemPackingSlipsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ItemPackingSlipDtoCollectionQueryParameters(itemPackingSlipDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPackingSlipsAPI.GetItemPackingSlipsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -754,6 +761,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **itemPackingSlipDtoCollectionQueryParameters** | [**ItemPackingSlipDtoCollectionQueryParameters**](ItemPackingSlipDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -765,7 +773,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -775,7 +783,7 @@ No authorization required
 
 ## PatchItemPackingSlipAsync
 
-> EmptyEnvelope PatchItemPackingSlipAsync(ctx, packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchItemPackingSlipAsync(ctx, packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an item packing slip
 
@@ -798,11 +806,11 @@ func main() {
 	packingSlipId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPackingSlipsAPI.PatchItemPackingSlipAsync(context.Background(), packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ItemPackingSlipsAPI.PatchItemPackingSlipAsync(context.Background(), packingSlipId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPackingSlipsAPI.PatchItemPackingSlipAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -831,7 +839,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -853,7 +861,7 @@ No authorization required
 
 ## PatchItemPackingSlipEntryAsync
 
-> EmptyEnvelope PatchItemPackingSlipEntryAsync(ctx, packingSlipId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchItemPackingSlipEntryAsync(ctx, packingSlipId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a packing slip entry
 
@@ -877,11 +885,11 @@ func main() {
 	entryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ItemPackingSlipsAPI.PatchItemPackingSlipEntryAsync(context.Background(), packingSlipId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ItemPackingSlipsAPI.PatchItemPackingSlipEntryAsync(context.Background(), packingSlipId, entryId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemPackingSlipsAPI.PatchItemPackingSlipEntryAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -912,7 +920,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

@@ -1872,10 +1872,16 @@ type ApiGetAssetAssetCategoriesRequest struct {
 	ctx context.Context
 	ApiService *AssetsAPIService
 	tenantId *string
+	assetCategoryDtoCollectionQueryParameters *AssetCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetAssetCategoriesRequest) TenantId(tenantId string) ApiGetAssetAssetCategoriesRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetAssetCategoriesRequest) AssetCategoryDtoCollectionQueryParameters(assetCategoryDtoCollectionQueryParameters AssetCategoryDtoCollectionQueryParameters) ApiGetAssetAssetCategoriesRequest {
+	r.assetCategoryDtoCollectionQueryParameters = &assetCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -1924,7 +1930,7 @@ func (a *AssetsAPIService) GetAssetAssetCategoriesExecute(r ApiGetAssetAssetCate
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1940,6 +1946,8 @@ func (a *AssetsAPIService) GetAssetAssetCategoriesExecute(r ApiGetAssetAssetCate
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2003,10 +2011,16 @@ type ApiGetAssetAssetCategoriesCountRequest struct {
 	ctx context.Context
 	ApiService *AssetsAPIService
 	tenantId *string
+	assetCategoryDtoCollectionQueryParameters *AssetCategoryDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetAssetCategoriesCountRequest) TenantId(tenantId string) ApiGetAssetAssetCategoriesCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetAssetCategoriesCountRequest) AssetCategoryDtoCollectionQueryParameters(assetCategoryDtoCollectionQueryParameters AssetCategoryDtoCollectionQueryParameters) ApiGetAssetAssetCategoriesCountRequest {
+	r.assetCategoryDtoCollectionQueryParameters = &assetCategoryDtoCollectionQueryParameters
 	return r
 }
 
@@ -2055,7 +2069,7 @@ func (a *AssetsAPIService) GetAssetAssetCategoriesCountExecute(r ApiGetAssetAsse
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2071,6 +2085,8 @@ func (a *AssetsAPIService) GetAssetAssetCategoriesCountExecute(r ApiGetAssetAsse
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetCategoryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2420,10 +2436,16 @@ type ApiGetAssetDepreciationRecordsRequest struct {
 	ApiService *AssetsAPIService
 	tenantId *string
 	assetId string
+	assetDepreciationRecordDtoCollectionQueryParameters *AssetDepreciationRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetDepreciationRecordsRequest) TenantId(tenantId string) ApiGetAssetDepreciationRecordsRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetDepreciationRecordsRequest) AssetDepreciationRecordDtoCollectionQueryParameters(assetDepreciationRecordDtoCollectionQueryParameters AssetDepreciationRecordDtoCollectionQueryParameters) ApiGetAssetDepreciationRecordsRequest {
+	r.assetDepreciationRecordDtoCollectionQueryParameters = &assetDepreciationRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -2475,7 +2497,7 @@ func (a *AssetsAPIService) GetAssetDepreciationRecordsExecute(r ApiGetAssetDepre
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2491,6 +2513,8 @@ func (a *AssetsAPIService) GetAssetDepreciationRecordsExecute(r ApiGetAssetDepre
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetDepreciationRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2555,10 +2579,16 @@ type ApiGetAssetDepreciationRecordsCountRequest struct {
 	ApiService *AssetsAPIService
 	tenantId *string
 	assetId string
+	assetDepreciationRecordDtoCollectionQueryParameters *AssetDepreciationRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetDepreciationRecordsCountRequest) TenantId(tenantId string) ApiGetAssetDepreciationRecordsCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetDepreciationRecordsCountRequest) AssetDepreciationRecordDtoCollectionQueryParameters(assetDepreciationRecordDtoCollectionQueryParameters AssetDepreciationRecordDtoCollectionQueryParameters) ApiGetAssetDepreciationRecordsCountRequest {
+	r.assetDepreciationRecordDtoCollectionQueryParameters = &assetDepreciationRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -2610,7 +2640,7 @@ func (a *AssetsAPIService) GetAssetDepreciationRecordsCountExecute(r ApiGetAsset
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2626,6 +2656,8 @@ func (a *AssetsAPIService) GetAssetDepreciationRecordsCountExecute(r ApiGetAsset
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetDepreciationRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2829,10 +2861,16 @@ type ApiGetAssetRepairsRequest struct {
 	ApiService *AssetsAPIService
 	tenantId *string
 	assetId string
+	assetRepairDtoCollectionQueryParameters *AssetRepairDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetRepairsRequest) TenantId(tenantId string) ApiGetAssetRepairsRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetRepairsRequest) AssetRepairDtoCollectionQueryParameters(assetRepairDtoCollectionQueryParameters AssetRepairDtoCollectionQueryParameters) ApiGetAssetRepairsRequest {
+	r.assetRepairDtoCollectionQueryParameters = &assetRepairDtoCollectionQueryParameters
 	return r
 }
 
@@ -2884,7 +2922,7 @@ func (a *AssetsAPIService) GetAssetRepairsExecute(r ApiGetAssetRepairsRequest) (
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2900,6 +2938,8 @@ func (a *AssetsAPIService) GetAssetRepairsExecute(r ApiGetAssetRepairsRequest) (
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetRepairDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2964,10 +3004,16 @@ type ApiGetAssetRepairsCountRequest struct {
 	ApiService *AssetsAPIService
 	tenantId *string
 	assetId string
+	assetRepairDtoCollectionQueryParameters *AssetRepairDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetRepairsCountRequest) TenantId(tenantId string) ApiGetAssetRepairsCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetRepairsCountRequest) AssetRepairDtoCollectionQueryParameters(assetRepairDtoCollectionQueryParameters AssetRepairDtoCollectionQueryParameters) ApiGetAssetRepairsCountRequest {
+	r.assetRepairDtoCollectionQueryParameters = &assetRepairDtoCollectionQueryParameters
 	return r
 }
 
@@ -3019,7 +3065,7 @@ func (a *AssetsAPIService) GetAssetRepairsCountExecute(r ApiGetAssetRepairsCount
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3035,6 +3081,8 @@ func (a *AssetsAPIService) GetAssetRepairsCountExecute(r ApiGetAssetRepairsCount
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetRepairDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3238,10 +3286,16 @@ type ApiGetAssetTransfersRequest struct {
 	ApiService *AssetsAPIService
 	tenantId *string
 	assetId string
+	assetTransferDtoCollectionQueryParameters *AssetTransferDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetTransfersRequest) TenantId(tenantId string) ApiGetAssetTransfersRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetTransfersRequest) AssetTransferDtoCollectionQueryParameters(assetTransferDtoCollectionQueryParameters AssetTransferDtoCollectionQueryParameters) ApiGetAssetTransfersRequest {
+	r.assetTransferDtoCollectionQueryParameters = &assetTransferDtoCollectionQueryParameters
 	return r
 }
 
@@ -3293,7 +3347,7 @@ func (a *AssetsAPIService) GetAssetTransfersExecute(r ApiGetAssetTransfersReques
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3309,6 +3363,8 @@ func (a *AssetsAPIService) GetAssetTransfersExecute(r ApiGetAssetTransfersReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetTransferDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3373,10 +3429,16 @@ type ApiGetAssetTransfersCountRequest struct {
 	ApiService *AssetsAPIService
 	tenantId *string
 	assetId string
+	assetTransferDtoCollectionQueryParameters *AssetTransferDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetTransfersCountRequest) TenantId(tenantId string) ApiGetAssetTransfersCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetTransfersCountRequest) AssetTransferDtoCollectionQueryParameters(assetTransferDtoCollectionQueryParameters AssetTransferDtoCollectionQueryParameters) ApiGetAssetTransfersCountRequest {
+	r.assetTransferDtoCollectionQueryParameters = &assetTransferDtoCollectionQueryParameters
 	return r
 }
 
@@ -3428,7 +3490,7 @@ func (a *AssetsAPIService) GetAssetTransfersCountExecute(r ApiGetAssetTransfersC
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3444,6 +3506,8 @@ func (a *AssetsAPIService) GetAssetTransfersCountExecute(r ApiGetAssetTransfersC
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetTransferDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3647,10 +3711,16 @@ type ApiGetAssetValueAmendsRequest struct {
 	ApiService *AssetsAPIService
 	tenantId *string
 	assetId string
+	assetValueAmendDtoCollectionQueryParameters *AssetValueAmendDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetValueAmendsRequest) TenantId(tenantId string) ApiGetAssetValueAmendsRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetValueAmendsRequest) AssetValueAmendDtoCollectionQueryParameters(assetValueAmendDtoCollectionQueryParameters AssetValueAmendDtoCollectionQueryParameters) ApiGetAssetValueAmendsRequest {
+	r.assetValueAmendDtoCollectionQueryParameters = &assetValueAmendDtoCollectionQueryParameters
 	return r
 }
 
@@ -3702,7 +3772,7 @@ func (a *AssetsAPIService) GetAssetValueAmendsExecute(r ApiGetAssetValueAmendsRe
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3718,6 +3788,8 @@ func (a *AssetsAPIService) GetAssetValueAmendsExecute(r ApiGetAssetValueAmendsRe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetValueAmendDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3782,10 +3854,16 @@ type ApiGetAssetValueAmendsCountRequest struct {
 	ApiService *AssetsAPIService
 	tenantId *string
 	assetId string
+	assetValueAmendDtoCollectionQueryParameters *AssetValueAmendDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetValueAmendsCountRequest) TenantId(tenantId string) ApiGetAssetValueAmendsCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetValueAmendsCountRequest) AssetValueAmendDtoCollectionQueryParameters(assetValueAmendDtoCollectionQueryParameters AssetValueAmendDtoCollectionQueryParameters) ApiGetAssetValueAmendsCountRequest {
+	r.assetValueAmendDtoCollectionQueryParameters = &assetValueAmendDtoCollectionQueryParameters
 	return r
 }
 
@@ -3837,7 +3915,7 @@ func (a *AssetsAPIService) GetAssetValueAmendsCountExecute(r ApiGetAssetValueAme
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3853,6 +3931,8 @@ func (a *AssetsAPIService) GetAssetValueAmendsCountExecute(r ApiGetAssetValueAme
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetValueAmendDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3916,10 +3996,16 @@ type ApiGetAssetsRequest struct {
 	ctx context.Context
 	ApiService *AssetsAPIService
 	tenantId *string
+	assetDtoCollectionQueryParameters *AssetDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetsRequest) TenantId(tenantId string) ApiGetAssetsRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetsRequest) AssetDtoCollectionQueryParameters(assetDtoCollectionQueryParameters AssetDtoCollectionQueryParameters) ApiGetAssetsRequest {
+	r.assetDtoCollectionQueryParameters = &assetDtoCollectionQueryParameters
 	return r
 }
 
@@ -3968,7 +4054,7 @@ func (a *AssetsAPIService) GetAssetsExecute(r ApiGetAssetsRequest) (*AssetDtoLis
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3984,6 +4070,8 @@ func (a *AssetsAPIService) GetAssetsExecute(r ApiGetAssetsRequest) (*AssetDtoLis
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4047,10 +4135,16 @@ type ApiGetAssetsCountRequest struct {
 	ctx context.Context
 	ApiService *AssetsAPIService
 	tenantId *string
+	assetDtoCollectionQueryParameters *AssetDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetsCountRequest) TenantId(tenantId string) ApiGetAssetsCountRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetsCountRequest) AssetDtoCollectionQueryParameters(assetDtoCollectionQueryParameters AssetDtoCollectionQueryParameters) ApiGetAssetsCountRequest {
+	r.assetDtoCollectionQueryParameters = &assetDtoCollectionQueryParameters
 	return r
 }
 
@@ -4099,7 +4193,7 @@ func (a *AssetsAPIService) GetAssetsCountExecute(r ApiGetAssetsCountRequest) (*I
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4115,6 +4209,8 @@ func (a *AssetsAPIService) GetAssetsCountExecute(r ApiGetAssetsCountRequest) (*I
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4179,7 +4275,7 @@ type ApiPatchAssetRequest struct {
 	ApiService *AssetsAPIService
 	tenantId *string
 	assetId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAssetRequest) TenantId(tenantId string) ApiPatchAssetRequest {
@@ -4187,8 +4283,8 @@ func (r ApiPatchAssetRequest) TenantId(tenantId string) ApiPatchAssetRequest {
 	return r
 }
 
-func (r ApiPatchAssetRequest) Operation(operation []Operation) ApiPatchAssetRequest {
-	r.operation = &operation
+func (r ApiPatchAssetRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAssetRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -4257,7 +4353,7 @@ func (a *AssetsAPIService) PatchAssetExecute(r ApiPatchAssetRequest) (*EmptyEnve
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4344,7 +4440,7 @@ type ApiPatchAssetAssetCategoryRequest struct {
 	ApiService *AssetsAPIService
 	tenantId *string
 	categoryId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAssetAssetCategoryRequest) TenantId(tenantId string) ApiPatchAssetAssetCategoryRequest {
@@ -4352,8 +4448,8 @@ func (r ApiPatchAssetAssetCategoryRequest) TenantId(tenantId string) ApiPatchAss
 	return r
 }
 
-func (r ApiPatchAssetAssetCategoryRequest) Operation(operation []Operation) ApiPatchAssetAssetCategoryRequest {
-	r.operation = &operation
+func (r ApiPatchAssetAssetCategoryRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAssetAssetCategoryRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -4422,7 +4518,7 @@ func (a *AssetsAPIService) PatchAssetAssetCategoryExecute(r ApiPatchAssetAssetCa
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4510,7 +4606,7 @@ type ApiPatchAssetDepreciationRecordRequest struct {
 	tenantId *string
 	assetId string
 	recordId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAssetDepreciationRecordRequest) TenantId(tenantId string) ApiPatchAssetDepreciationRecordRequest {
@@ -4518,8 +4614,8 @@ func (r ApiPatchAssetDepreciationRecordRequest) TenantId(tenantId string) ApiPat
 	return r
 }
 
-func (r ApiPatchAssetDepreciationRecordRequest) Operation(operation []Operation) ApiPatchAssetDepreciationRecordRequest {
-	r.operation = &operation
+func (r ApiPatchAssetDepreciationRecordRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAssetDepreciationRecordRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -4591,7 +4687,7 @@ func (a *AssetsAPIService) PatchAssetDepreciationRecordExecute(r ApiPatchAssetDe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4679,7 +4775,7 @@ type ApiPatchAssetRepairRequest struct {
 	tenantId *string
 	assetId string
 	repairId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAssetRepairRequest) TenantId(tenantId string) ApiPatchAssetRepairRequest {
@@ -4687,8 +4783,8 @@ func (r ApiPatchAssetRepairRequest) TenantId(tenantId string) ApiPatchAssetRepai
 	return r
 }
 
-func (r ApiPatchAssetRepairRequest) Operation(operation []Operation) ApiPatchAssetRepairRequest {
-	r.operation = &operation
+func (r ApiPatchAssetRepairRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAssetRepairRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -4760,7 +4856,7 @@ func (a *AssetsAPIService) PatchAssetRepairExecute(r ApiPatchAssetRepairRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4848,7 +4944,7 @@ type ApiPatchAssetTransferRequest struct {
 	tenantId *string
 	assetId string
 	transferId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAssetTransferRequest) TenantId(tenantId string) ApiPatchAssetTransferRequest {
@@ -4856,8 +4952,8 @@ func (r ApiPatchAssetTransferRequest) TenantId(tenantId string) ApiPatchAssetTra
 	return r
 }
 
-func (r ApiPatchAssetTransferRequest) Operation(operation []Operation) ApiPatchAssetTransferRequest {
-	r.operation = &operation
+func (r ApiPatchAssetTransferRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAssetTransferRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -4929,7 +5025,7 @@ func (a *AssetsAPIService) PatchAssetTransferExecute(r ApiPatchAssetTransferRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5017,7 +5113,7 @@ type ApiPatchAssetValueAmendRequest struct {
 	tenantId *string
 	assetId string
 	amendId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAssetValueAmendRequest) TenantId(tenantId string) ApiPatchAssetValueAmendRequest {
@@ -5025,8 +5121,8 @@ func (r ApiPatchAssetValueAmendRequest) TenantId(tenantId string) ApiPatchAssetV
 	return r
 }
 
-func (r ApiPatchAssetValueAmendRequest) Operation(operation []Operation) ApiPatchAssetValueAmendRequest {
-	r.operation = &operation
+func (r ApiPatchAssetValueAmendRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAssetValueAmendRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -5098,7 +5194,7 @@ func (a *AssetsAPIService) PatchAssetValueAmendExecute(r ApiPatchAssetValueAmend
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

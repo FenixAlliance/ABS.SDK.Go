@@ -481,6 +481,7 @@ type ApiGetItemTagsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemTagDtoCollectionQueryParameters *ItemTagDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemTagsAsyncRequest) TenantId(tenantId string) ApiGetItemTagsAsyncRequest {
@@ -495,6 +496,11 @@ func (r ApiGetItemTagsAsyncRequest) ApiVersion(apiVersion string) ApiGetItemTags
 
 func (r ApiGetItemTagsAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemTagsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemTagsAsyncRequest) ItemTagDtoCollectionQueryParameters(itemTagDtoCollectionQueryParameters ItemTagDtoCollectionQueryParameters) ApiGetItemTagsAsyncRequest {
+	r.itemTagDtoCollectionQueryParameters = &itemTagDtoCollectionQueryParameters
 	return r
 }
 
@@ -545,7 +551,7 @@ func (a *ItemTagsAPIService) GetItemTagsAsyncExecute(r ApiGetItemTagsAsyncReques
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -564,6 +570,8 @@ func (a *ItemTagsAPIService) GetItemTagsAsyncExecute(r ApiGetItemTagsAsyncReques
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemTagDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -630,7 +638,7 @@ type ApiPatchItemTagAsyncRequest struct {
 	itemTagId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemTagAsyncRequest) TenantId(tenantId string) ApiPatchItemTagAsyncRequest {
@@ -648,8 +656,8 @@ func (r ApiPatchItemTagAsyncRequest) XApiVersion(xApiVersion string) ApiPatchIte
 	return r
 }
 
-func (r ApiPatchItemTagAsyncRequest) Operation(operation []Operation) ApiPatchItemTagAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemTagAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemTagAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -722,7 +730,7 @@ func (a *ItemTagsAPIService) PatchItemTagAsyncExecute(r ApiPatchItemTagAsyncRequ
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

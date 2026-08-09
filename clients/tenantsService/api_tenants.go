@@ -2778,6 +2778,7 @@ type ApiGetTenantNotificationsAsyncRequest struct {
 	tenantId string
 	apiVersion *string
 	xApiVersion *string
+	notificationDtoCollectionQueryParameters *NotificationDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantNotificationsAsyncRequest) ApiVersion(apiVersion string) ApiGetTenantNotificationsAsyncRequest {
@@ -2787,6 +2788,11 @@ func (r ApiGetTenantNotificationsAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetTenantNotificationsAsyncRequest) XApiVersion(xApiVersion string) ApiGetTenantNotificationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantNotificationsAsyncRequest) NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters NotificationDtoCollectionQueryParameters) ApiGetTenantNotificationsAsyncRequest {
+	r.notificationDtoCollectionQueryParameters = &notificationDtoCollectionQueryParameters
 	return r
 }
 
@@ -2837,7 +2843,7 @@ func (a *TenantsAPIService) GetTenantNotificationsAsyncExecute(r ApiGetTenantNot
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2856,6 +2862,8 @@ func (a *TenantsAPIService) GetTenantNotificationsAsyncExecute(r ApiGetTenantNot
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.notificationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2921,6 +2929,7 @@ type ApiGetTenantNotificationsCountAsyncRequest struct {
 	tenantId string
 	apiVersion *string
 	xApiVersion *string
+	notificationDtoCollectionQueryParameters *NotificationDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantNotificationsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetTenantNotificationsCountAsyncRequest {
@@ -2930,6 +2939,11 @@ func (r ApiGetTenantNotificationsCountAsyncRequest) ApiVersion(apiVersion string
 
 func (r ApiGetTenantNotificationsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetTenantNotificationsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantNotificationsCountAsyncRequest) NotificationDtoCollectionQueryParameters(notificationDtoCollectionQueryParameters NotificationDtoCollectionQueryParameters) ApiGetTenantNotificationsCountAsyncRequest {
+	r.notificationDtoCollectionQueryParameters = &notificationDtoCollectionQueryParameters
 	return r
 }
 
@@ -2980,7 +2994,7 @@ func (a *TenantsAPIService) GetTenantNotificationsCountAsyncExecute(r ApiGetTena
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2999,6 +3013,8 @@ func (a *TenantsAPIService) GetTenantNotificationsCountAsyncExecute(r ApiGetTena
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.notificationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4065,7 +4081,7 @@ type ApiPatchTenantAsyncRequest struct {
 	tenantId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTenantAsyncRequest) ApiVersion(apiVersion string) ApiPatchTenantAsyncRequest {
@@ -4078,8 +4094,8 @@ func (r ApiPatchTenantAsyncRequest) XApiVersion(xApiVersion string) ApiPatchTena
 	return r
 }
 
-func (r ApiPatchTenantAsyncRequest) Operation(operation []Operation) ApiPatchTenantAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchTenantAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTenantAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -4150,7 +4166,7 @@ func (a *TenantsAPIService) PatchTenantAsyncExecute(r ApiPatchTenantAsyncRequest
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

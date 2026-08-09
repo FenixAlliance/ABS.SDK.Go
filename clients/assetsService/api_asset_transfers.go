@@ -437,10 +437,16 @@ type ApiGetAssetTransfersAsyncRequest struct {
 	ctx context.Context
 	ApiService *AssetTransfersAPIService
 	tenantId *string
+	assetTransferDtoCollectionQueryParameters *AssetTransferDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetTransfersAsyncRequest) TenantId(tenantId string) ApiGetAssetTransfersAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetTransfersAsyncRequest) AssetTransferDtoCollectionQueryParameters(assetTransferDtoCollectionQueryParameters AssetTransferDtoCollectionQueryParameters) ApiGetAssetTransfersAsyncRequest {
+	r.assetTransferDtoCollectionQueryParameters = &assetTransferDtoCollectionQueryParameters
 	return r
 }
 
@@ -489,7 +495,7 @@ func (a *AssetTransfersAPIService) GetAssetTransfersAsyncExecute(r ApiGetAssetTr
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -505,6 +511,8 @@ func (a *AssetTransfersAPIService) GetAssetTransfersAsyncExecute(r ApiGetAssetTr
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetTransferDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -568,10 +576,16 @@ type ApiGetAssetTransfersCountAsyncRequest struct {
 	ctx context.Context
 	ApiService *AssetTransfersAPIService
 	tenantId *string
+	assetTransferDtoCollectionQueryParameters *AssetTransferDtoCollectionQueryParameters
 }
 
 func (r ApiGetAssetTransfersCountAsyncRequest) TenantId(tenantId string) ApiGetAssetTransfersCountAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetAssetTransfersCountAsyncRequest) AssetTransferDtoCollectionQueryParameters(assetTransferDtoCollectionQueryParameters AssetTransferDtoCollectionQueryParameters) ApiGetAssetTransfersCountAsyncRequest {
+	r.assetTransferDtoCollectionQueryParameters = &assetTransferDtoCollectionQueryParameters
 	return r
 }
 
@@ -620,7 +634,7 @@ func (a *AssetTransfersAPIService) GetAssetTransfersCountAsyncExecute(r ApiGetAs
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -636,6 +650,8 @@ func (a *AssetTransfersAPIService) GetAssetTransfersCountAsyncExecute(r ApiGetAs
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.assetTransferDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -700,7 +716,7 @@ type ApiPatchAssetTransferAsyncRequest struct {
 	ApiService *AssetTransfersAPIService
 	tenantId *string
 	transferId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchAssetTransferAsyncRequest) TenantId(tenantId string) ApiPatchAssetTransferAsyncRequest {
@@ -708,8 +724,8 @@ func (r ApiPatchAssetTransferAsyncRequest) TenantId(tenantId string) ApiPatchAss
 	return r
 }
 
-func (r ApiPatchAssetTransferAsyncRequest) Operation(operation []Operation) ApiPatchAssetTransferAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchAssetTransferAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchAssetTransferAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -778,7 +794,7 @@ func (a *AssetTransfersAPIService) PatchAssetTransferAsyncExecute(r ApiPatchAsse
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

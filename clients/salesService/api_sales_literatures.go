@@ -28,10 +28,16 @@ type ApiCountSalesLiteraturesAsyncRequest struct {
 	ctx context.Context
 	ApiService *SalesLiteraturesAPIService
 	tenantId *string
+	salesLiteratureDtoCollectionQueryParameters *SalesLiteratureDtoCollectionQueryParameters
 }
 
 func (r ApiCountSalesLiteraturesAsyncRequest) TenantId(tenantId string) ApiCountSalesLiteraturesAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiCountSalesLiteraturesAsyncRequest) SalesLiteratureDtoCollectionQueryParameters(salesLiteratureDtoCollectionQueryParameters SalesLiteratureDtoCollectionQueryParameters) ApiCountSalesLiteraturesAsyncRequest {
+	r.salesLiteratureDtoCollectionQueryParameters = &salesLiteratureDtoCollectionQueryParameters
 	return r
 }
 
@@ -80,7 +86,7 @@ func (a *SalesLiteraturesAPIService) CountSalesLiteraturesAsyncExecute(r ApiCoun
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -96,6 +102,8 @@ func (a *SalesLiteraturesAPIService) CountSalesLiteraturesAsyncExecute(r ApiCoun
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.salesLiteratureDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -400,10 +408,16 @@ type ApiGetExtendedSalesLiteraturesAsyncRequest struct {
 	ctx context.Context
 	ApiService *SalesLiteraturesAPIService
 	tenantId *string
+	extendedSalesLiteratureDtoCollectionQueryParameters *ExtendedSalesLiteratureDtoCollectionQueryParameters
 }
 
 func (r ApiGetExtendedSalesLiteraturesAsyncRequest) TenantId(tenantId string) ApiGetExtendedSalesLiteraturesAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetExtendedSalesLiteraturesAsyncRequest) ExtendedSalesLiteratureDtoCollectionQueryParameters(extendedSalesLiteratureDtoCollectionQueryParameters ExtendedSalesLiteratureDtoCollectionQueryParameters) ApiGetExtendedSalesLiteraturesAsyncRequest {
+	r.extendedSalesLiteratureDtoCollectionQueryParameters = &extendedSalesLiteratureDtoCollectionQueryParameters
 	return r
 }
 
@@ -452,7 +466,7 @@ func (a *SalesLiteraturesAPIService) GetExtendedSalesLiteraturesAsyncExecute(r A
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -468,6 +482,8 @@ func (a *SalesLiteraturesAPIService) GetExtendedSalesLiteraturesAsyncExecute(r A
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.extendedSalesLiteratureDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -644,10 +660,16 @@ type ApiGetSalesLiteraturesAsyncRequest struct {
 	ctx context.Context
 	ApiService *SalesLiteraturesAPIService
 	tenantId *string
+	salesLiteratureDtoCollectionQueryParameters *SalesLiteratureDtoCollectionQueryParameters
 }
 
 func (r ApiGetSalesLiteraturesAsyncRequest) TenantId(tenantId string) ApiGetSalesLiteraturesAsyncRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiGetSalesLiteraturesAsyncRequest) SalesLiteratureDtoCollectionQueryParameters(salesLiteratureDtoCollectionQueryParameters SalesLiteratureDtoCollectionQueryParameters) ApiGetSalesLiteraturesAsyncRequest {
+	r.salesLiteratureDtoCollectionQueryParameters = &salesLiteratureDtoCollectionQueryParameters
 	return r
 }
 
@@ -696,7 +718,7 @@ func (a *SalesLiteraturesAPIService) GetSalesLiteraturesAsyncExecute(r ApiGetSal
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -712,6 +734,8 @@ func (a *SalesLiteraturesAPIService) GetSalesLiteraturesAsyncExecute(r ApiGetSal
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.salesLiteratureDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -765,7 +789,7 @@ type ApiPatchSalesLiteratureAsyncRequest struct {
 	ApiService *SalesLiteraturesAPIService
 	tenantId *string
 	salesLiteratureId string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSalesLiteratureAsyncRequest) TenantId(tenantId string) ApiPatchSalesLiteratureAsyncRequest {
@@ -773,8 +797,8 @@ func (r ApiPatchSalesLiteratureAsyncRequest) TenantId(tenantId string) ApiPatchS
 	return r
 }
 
-func (r ApiPatchSalesLiteratureAsyncRequest) Operation(operation []Operation) ApiPatchSalesLiteratureAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSalesLiteratureAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSalesLiteratureAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -843,7 +867,7 @@ func (a *SalesLiteraturesAPIService) PatchSalesLiteratureAsyncExecute(r ApiPatch
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 ## CountActivityTypesAsync
 
-> Int32Envelope CountActivityTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope CountActivityTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityTypeDtoCollectionQueryParameters(activityTypeDtoCollectionQueryParameters).Execute()
 
 Count Activity Types
 
@@ -49,10 +49,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	activityTypeDtoCollectionQueryParameters := *openapiclient.NewActivityTypeDtoCollectionQueryParameters() // ActivityTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ActivityFeedsAPI.CountActivityTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ActivityFeedsAPI.CountActivityTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityTypeDtoCollectionQueryParameters(activityTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ActivityFeedsAPI.CountActivityTypesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -76,6 +77,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **activityTypeDtoCollectionQueryParameters** | [**ActivityTypeDtoCollectionQueryParameters**](ActivityTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -87,7 +89,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -402,7 +404,7 @@ No authorization required
 
 ## GetActivitiesAsync
 
-> ActivityRecordDtoListEnvelope GetActivitiesAsync(ctx, activityFeedId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ActivityRecordDtoListEnvelope GetActivitiesAsync(ctx, activityFeedId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityRecordDtoCollectionQueryParameters(activityRecordDtoCollectionQueryParameters).Execute()
 
 Get activities
 
@@ -425,10 +427,11 @@ func main() {
 	activityFeedId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	activityRecordDtoCollectionQueryParameters := *openapiclient.NewActivityRecordDtoCollectionQueryParameters() // ActivityRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ActivityFeedsAPI.GetActivitiesAsync(context.Background(), activityFeedId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ActivityFeedsAPI.GetActivitiesAsync(context.Background(), activityFeedId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityRecordDtoCollectionQueryParameters(activityRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ActivityFeedsAPI.GetActivitiesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -457,6 +460,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **activityRecordDtoCollectionQueryParameters** | [**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -468,7 +472,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -478,7 +482,7 @@ No authorization required
 
 ## GetActivitiesCountAsync
 
-> Int32Envelope GetActivitiesCountAsync(ctx, activityFeedId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetActivitiesCountAsync(ctx, activityFeedId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityRecordDtoCollectionQueryParameters(activityRecordDtoCollectionQueryParameters).Execute()
 
 Count activities
 
@@ -501,10 +505,11 @@ func main() {
 	activityFeedId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	activityRecordDtoCollectionQueryParameters := *openapiclient.NewActivityRecordDtoCollectionQueryParameters() // ActivityRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ActivityFeedsAPI.GetActivitiesCountAsync(context.Background(), activityFeedId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ActivityFeedsAPI.GetActivitiesCountAsync(context.Background(), activityFeedId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityRecordDtoCollectionQueryParameters(activityRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ActivityFeedsAPI.GetActivitiesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -533,6 +538,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **activityRecordDtoCollectionQueryParameters** | [**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -544,7 +550,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -709,7 +715,7 @@ No authorization required
 
 ## GetActivityFeedsAsync
 
-> ActivityFeedDtoListEnvelope GetActivityFeedsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ActivityFeedDtoListEnvelope GetActivityFeedsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityFeedDtoCollectionQueryParameters(activityFeedDtoCollectionQueryParameters).Execute()
 
 Get activity feeds
 
@@ -731,10 +737,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	activityFeedDtoCollectionQueryParameters := *openapiclient.NewActivityFeedDtoCollectionQueryParameters() // ActivityFeedDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ActivityFeedsAPI.GetActivityFeedsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ActivityFeedsAPI.GetActivityFeedsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityFeedDtoCollectionQueryParameters(activityFeedDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ActivityFeedsAPI.GetActivityFeedsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -758,6 +765,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **activityFeedDtoCollectionQueryParameters** | [**ActivityFeedDtoCollectionQueryParameters**](ActivityFeedDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -769,7 +777,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -779,7 +787,7 @@ No authorization required
 
 ## GetActivityFeedsCountAsync
 
-> Int32Envelope GetActivityFeedsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetActivityFeedsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityFeedDtoCollectionQueryParameters(activityFeedDtoCollectionQueryParameters).Execute()
 
 Count activity feeds
 
@@ -801,10 +809,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	activityFeedDtoCollectionQueryParameters := *openapiclient.NewActivityFeedDtoCollectionQueryParameters() // ActivityFeedDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ActivityFeedsAPI.GetActivityFeedsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ActivityFeedsAPI.GetActivityFeedsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityFeedDtoCollectionQueryParameters(activityFeedDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ActivityFeedsAPI.GetActivityFeedsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -828,6 +837,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **activityFeedDtoCollectionQueryParameters** | [**ActivityFeedDtoCollectionQueryParameters**](ActivityFeedDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -839,7 +849,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -849,7 +859,7 @@ No authorization required
 
 ## GetActivityRecordsCountAsync
 
-> Int32Envelope GetActivityRecordsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetActivityRecordsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityRecordDtoCollectionQueryParameters(activityRecordDtoCollectionQueryParameters).Execute()
 
 Count activity records
 
@@ -871,10 +881,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	activityRecordDtoCollectionQueryParameters := *openapiclient.NewActivityRecordDtoCollectionQueryParameters() // ActivityRecordDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ActivityFeedsAPI.GetActivityRecordsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ActivityFeedsAPI.GetActivityRecordsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityRecordDtoCollectionQueryParameters(activityRecordDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ActivityFeedsAPI.GetActivityRecordsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -898,6 +909,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **activityRecordDtoCollectionQueryParameters** | [**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -909,7 +921,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -995,7 +1007,7 @@ No authorization required
 
 ## GetActivityTypesAsync
 
-> ActivityTypeDtoListEnvelope GetActivityTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> ActivityTypeDtoListEnvelope GetActivityTypesAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityTypeDtoCollectionQueryParameters(activityTypeDtoCollectionQueryParameters).Execute()
 
 Get Activity Types
 
@@ -1017,10 +1029,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	activityTypeDtoCollectionQueryParameters := *openapiclient.NewActivityTypeDtoCollectionQueryParameters() // ActivityTypeDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ActivityFeedsAPI.GetActivityTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.ActivityFeedsAPI.GetActivityTypesAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).ActivityTypeDtoCollectionQueryParameters(activityTypeDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ActivityFeedsAPI.GetActivityTypesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1044,6 +1057,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **activityTypeDtoCollectionQueryParameters** | [**ActivityTypeDtoCollectionQueryParameters**](ActivityTypeDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1055,7 +1069,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1065,7 +1079,7 @@ No authorization required
 
 ## PatchActivityAsync
 
-> EmptyEnvelope PatchActivityAsync(ctx, activityFeedId, activityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchActivityAsync(ctx, activityFeedId, activityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch an activity
 
@@ -1089,11 +1103,11 @@ func main() {
 	activityId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ActivityFeedsAPI.PatchActivityAsync(context.Background(), activityFeedId, activityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ActivityFeedsAPI.PatchActivityAsync(context.Background(), activityFeedId, activityId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ActivityFeedsAPI.PatchActivityAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1124,7 +1138,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1146,7 +1160,7 @@ No authorization required
 
 ## PatchActivityTypeAsync
 
-> EmptyEnvelope PatchActivityTypeAsync(ctx, activityTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchActivityTypeAsync(ctx, activityTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch Activity Type
 
@@ -1169,11 +1183,11 @@ func main() {
 	activityTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ActivityFeedsAPI.PatchActivityTypeAsync(context.Background(), activityTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.ActivityFeedsAPI.PatchActivityTypeAsync(context.Background(), activityTypeId).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ActivityFeedsAPI.PatchActivityTypeAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1202,7 +1216,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

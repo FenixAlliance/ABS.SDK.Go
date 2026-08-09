@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSystemCartById**](CartsAPI.md#GetSystemCartById) | **Get** /api/v2/SystemService/Carts/{cartId} | Retrieve a single system cart by its ID
 [**GetSystemCarts**](CartsAPI.md#GetSystemCarts) | **Get** /api/v2/SystemService/Carts | Retrieve a list of system carts
 [**GetSystemCartsCount**](CartsAPI.md#GetSystemCartsCount) | **Get** /api/v2/SystemService/Carts/Count | Get the count of system carts
+[**PurgeSystemGuestCarts**](CartsAPI.md#PurgeSystemGuestCarts) | **Delete** /api/v2/SystemService/Carts/Guests | Purge all guest carts
 
 
 
@@ -161,7 +162,7 @@ No authorization required
 
 ## GetSystemCarts
 
-> CartDtoListEnvelope GetSystemCarts(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> CartDtoListEnvelope GetSystemCarts(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CartDtoCollectionQueryParameters(cartDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of system carts
 
@@ -182,10 +183,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	cartDtoCollectionQueryParameters := *openapiclient.NewCartDtoCollectionQueryParameters() // CartDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CartsAPI.GetSystemCarts(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CartsAPI.GetSystemCarts(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CartDtoCollectionQueryParameters(cartDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CartsAPI.GetSystemCarts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -208,6 +210,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **cartDtoCollectionQueryParameters** | [**CartDtoCollectionQueryParameters**](CartDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -219,7 +222,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -229,7 +232,7 @@ No authorization required
 
 ## GetSystemCartsCount
 
-> Int32Envelope GetSystemCartsCount(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetSystemCartsCount(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).CartDtoCollectionQueryParameters(cartDtoCollectionQueryParameters).Execute()
 
 Get the count of system carts
 
@@ -250,10 +253,11 @@ import (
 func main() {
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	cartDtoCollectionQueryParameters := *openapiclient.NewCartDtoCollectionQueryParameters() // CartDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CartsAPI.GetSystemCartsCount(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.CartsAPI.GetSystemCartsCount(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).CartDtoCollectionQueryParameters(cartDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CartsAPI.GetSystemCartsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -276,10 +280,79 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **cartDtoCollectionQueryParameters** | [**CartDtoCollectionQueryParameters**](CartDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PurgeSystemGuestCarts
+
+> GuestCartPurgeResultDtoEnvelope PurgeSystemGuestCarts(ctx).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+
+Purge all guest carts
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	apiVersion := "apiVersion_example" // string |  (optional)
+	xApiVersion := "xApiVersion_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CartsAPI.PurgeSystemGuestCarts(context.Background()).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CartsAPI.PurgeSystemGuestCarts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PurgeSystemGuestCarts`: GuestCartPurgeResultDtoEnvelope
+	fmt.Fprintf(os.Stdout, "Response from `CartsAPI.PurgeSystemGuestCarts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPurgeSystemGuestCartsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiVersion** | **string** |  | 
+ **xApiVersion** | **string** |  | 
+
+### Return type
+
+[**GuestCartPurgeResultDtoEnvelope**](GuestCartPurgeResultDtoEnvelope.md)
 
 ### Authorization
 

@@ -30,7 +30,15 @@ type SocialFeedPostDto struct {
 	SocialProfileAvatarUrl NullableString `json:"socialProfileAvatarUrl,omitempty"`
 	CommentsCount *int32 `json:"commentsCount,omitempty"`
 	ReactionsCount *int32 `json:"reactionsCount,omitempty"`
+	SocialProfileType NullableString `json:"socialProfileType,omitempty"`
+	BodyHtml NullableString `json:"bodyHtml,omitempty"`
+	BodyFormat NullableString `json:"bodyFormat,omitempty"`
+	BackgroundStyle NullableString `json:"backgroundStyle,omitempty"`
 	SocialFeedId NullableString `json:"socialFeedId,omitempty"`
+	Facepile []SocialPostReactionFacepileDto `json:"facepile,omitempty"`
+	Attachments []SocialPostAttachmentRefDto `json:"attachments,omitempty"`
+	MyReaction NullableString `json:"myReaction,omitempty"`
+	MyReactionId NullableString `json:"myReactionId,omitempty"`
 }
 
 // NewSocialFeedPostDto instantiates a new SocialFeedPostDto object
@@ -408,6 +416,174 @@ func (o *SocialFeedPostDto) SetReactionsCount(v int32) {
 	o.ReactionsCount = &v
 }
 
+// GetSocialProfileType returns the SocialProfileType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialFeedPostDto) GetSocialProfileType() string {
+	if o == nil || IsNil(o.SocialProfileType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SocialProfileType.Get()
+}
+
+// GetSocialProfileTypeOk returns a tuple with the SocialProfileType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialFeedPostDto) GetSocialProfileTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SocialProfileType.Get(), o.SocialProfileType.IsSet()
+}
+
+// HasSocialProfileType returns a boolean if a field has been set.
+func (o *SocialFeedPostDto) HasSocialProfileType() bool {
+	if o != nil && o.SocialProfileType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSocialProfileType gets a reference to the given NullableString and assigns it to the SocialProfileType field.
+func (o *SocialFeedPostDto) SetSocialProfileType(v string) {
+	o.SocialProfileType.Set(&v)
+}
+// SetSocialProfileTypeNil sets the value for SocialProfileType to be an explicit nil
+func (o *SocialFeedPostDto) SetSocialProfileTypeNil() {
+	o.SocialProfileType.Set(nil)
+}
+
+// UnsetSocialProfileType ensures that no value is present for SocialProfileType, not even an explicit nil
+func (o *SocialFeedPostDto) UnsetSocialProfileType() {
+	o.SocialProfileType.Unset()
+}
+
+// GetBodyHtml returns the BodyHtml field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialFeedPostDto) GetBodyHtml() string {
+	if o == nil || IsNil(o.BodyHtml.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BodyHtml.Get()
+}
+
+// GetBodyHtmlOk returns a tuple with the BodyHtml field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialFeedPostDto) GetBodyHtmlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BodyHtml.Get(), o.BodyHtml.IsSet()
+}
+
+// HasBodyHtml returns a boolean if a field has been set.
+func (o *SocialFeedPostDto) HasBodyHtml() bool {
+	if o != nil && o.BodyHtml.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBodyHtml gets a reference to the given NullableString and assigns it to the BodyHtml field.
+func (o *SocialFeedPostDto) SetBodyHtml(v string) {
+	o.BodyHtml.Set(&v)
+}
+// SetBodyHtmlNil sets the value for BodyHtml to be an explicit nil
+func (o *SocialFeedPostDto) SetBodyHtmlNil() {
+	o.BodyHtml.Set(nil)
+}
+
+// UnsetBodyHtml ensures that no value is present for BodyHtml, not even an explicit nil
+func (o *SocialFeedPostDto) UnsetBodyHtml() {
+	o.BodyHtml.Unset()
+}
+
+// GetBodyFormat returns the BodyFormat field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialFeedPostDto) GetBodyFormat() string {
+	if o == nil || IsNil(o.BodyFormat.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BodyFormat.Get()
+}
+
+// GetBodyFormatOk returns a tuple with the BodyFormat field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialFeedPostDto) GetBodyFormatOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BodyFormat.Get(), o.BodyFormat.IsSet()
+}
+
+// HasBodyFormat returns a boolean if a field has been set.
+func (o *SocialFeedPostDto) HasBodyFormat() bool {
+	if o != nil && o.BodyFormat.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBodyFormat gets a reference to the given NullableString and assigns it to the BodyFormat field.
+func (o *SocialFeedPostDto) SetBodyFormat(v string) {
+	o.BodyFormat.Set(&v)
+}
+// SetBodyFormatNil sets the value for BodyFormat to be an explicit nil
+func (o *SocialFeedPostDto) SetBodyFormatNil() {
+	o.BodyFormat.Set(nil)
+}
+
+// UnsetBodyFormat ensures that no value is present for BodyFormat, not even an explicit nil
+func (o *SocialFeedPostDto) UnsetBodyFormat() {
+	o.BodyFormat.Unset()
+}
+
+// GetBackgroundStyle returns the BackgroundStyle field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialFeedPostDto) GetBackgroundStyle() string {
+	if o == nil || IsNil(o.BackgroundStyle.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BackgroundStyle.Get()
+}
+
+// GetBackgroundStyleOk returns a tuple with the BackgroundStyle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialFeedPostDto) GetBackgroundStyleOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BackgroundStyle.Get(), o.BackgroundStyle.IsSet()
+}
+
+// HasBackgroundStyle returns a boolean if a field has been set.
+func (o *SocialFeedPostDto) HasBackgroundStyle() bool {
+	if o != nil && o.BackgroundStyle.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBackgroundStyle gets a reference to the given NullableString and assigns it to the BackgroundStyle field.
+func (o *SocialFeedPostDto) SetBackgroundStyle(v string) {
+	o.BackgroundStyle.Set(&v)
+}
+// SetBackgroundStyleNil sets the value for BackgroundStyle to be an explicit nil
+func (o *SocialFeedPostDto) SetBackgroundStyleNil() {
+	o.BackgroundStyle.Set(nil)
+}
+
+// UnsetBackgroundStyle ensures that no value is present for BackgroundStyle, not even an explicit nil
+func (o *SocialFeedPostDto) UnsetBackgroundStyle() {
+	o.BackgroundStyle.Unset()
+}
+
 // GetSocialFeedId returns the SocialFeedId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SocialFeedPostDto) GetSocialFeedId() string {
 	if o == nil || IsNil(o.SocialFeedId.Get()) {
@@ -450,6 +626,156 @@ func (o *SocialFeedPostDto) UnsetSocialFeedId() {
 	o.SocialFeedId.Unset()
 }
 
+// GetFacepile returns the Facepile field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialFeedPostDto) GetFacepile() []SocialPostReactionFacepileDto {
+	if o == nil {
+		var ret []SocialPostReactionFacepileDto
+		return ret
+	}
+	return o.Facepile
+}
+
+// GetFacepileOk returns a tuple with the Facepile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialFeedPostDto) GetFacepileOk() ([]SocialPostReactionFacepileDto, bool) {
+	if o == nil || IsNil(o.Facepile) {
+		return nil, false
+	}
+	return o.Facepile, true
+}
+
+// HasFacepile returns a boolean if a field has been set.
+func (o *SocialFeedPostDto) HasFacepile() bool {
+	if o != nil && !IsNil(o.Facepile) {
+		return true
+	}
+
+	return false
+}
+
+// SetFacepile gets a reference to the given []SocialPostReactionFacepileDto and assigns it to the Facepile field.
+func (o *SocialFeedPostDto) SetFacepile(v []SocialPostReactionFacepileDto) {
+	o.Facepile = v
+}
+
+// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialFeedPostDto) GetAttachments() []SocialPostAttachmentRefDto {
+	if o == nil {
+		var ret []SocialPostAttachmentRefDto
+		return ret
+	}
+	return o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialFeedPostDto) GetAttachmentsOk() ([]SocialPostAttachmentRefDto, bool) {
+	if o == nil || IsNil(o.Attachments) {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// HasAttachments returns a boolean if a field has been set.
+func (o *SocialFeedPostDto) HasAttachments() bool {
+	if o != nil && !IsNil(o.Attachments) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachments gets a reference to the given []SocialPostAttachmentRefDto and assigns it to the Attachments field.
+func (o *SocialFeedPostDto) SetAttachments(v []SocialPostAttachmentRefDto) {
+	o.Attachments = v
+}
+
+// GetMyReaction returns the MyReaction field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialFeedPostDto) GetMyReaction() string {
+	if o == nil || IsNil(o.MyReaction.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.MyReaction.Get()
+}
+
+// GetMyReactionOk returns a tuple with the MyReaction field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialFeedPostDto) GetMyReactionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MyReaction.Get(), o.MyReaction.IsSet()
+}
+
+// HasMyReaction returns a boolean if a field has been set.
+func (o *SocialFeedPostDto) HasMyReaction() bool {
+	if o != nil && o.MyReaction.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMyReaction gets a reference to the given NullableString and assigns it to the MyReaction field.
+func (o *SocialFeedPostDto) SetMyReaction(v string) {
+	o.MyReaction.Set(&v)
+}
+// SetMyReactionNil sets the value for MyReaction to be an explicit nil
+func (o *SocialFeedPostDto) SetMyReactionNil() {
+	o.MyReaction.Set(nil)
+}
+
+// UnsetMyReaction ensures that no value is present for MyReaction, not even an explicit nil
+func (o *SocialFeedPostDto) UnsetMyReaction() {
+	o.MyReaction.Unset()
+}
+
+// GetMyReactionId returns the MyReactionId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SocialFeedPostDto) GetMyReactionId() string {
+	if o == nil || IsNil(o.MyReactionId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.MyReactionId.Get()
+}
+
+// GetMyReactionIdOk returns a tuple with the MyReactionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SocialFeedPostDto) GetMyReactionIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MyReactionId.Get(), o.MyReactionId.IsSet()
+}
+
+// HasMyReactionId returns a boolean if a field has been set.
+func (o *SocialFeedPostDto) HasMyReactionId() bool {
+	if o != nil && o.MyReactionId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMyReactionId gets a reference to the given NullableString and assigns it to the MyReactionId field.
+func (o *SocialFeedPostDto) SetMyReactionId(v string) {
+	o.MyReactionId.Set(&v)
+}
+// SetMyReactionIdNil sets the value for MyReactionId to be an explicit nil
+func (o *SocialFeedPostDto) SetMyReactionIdNil() {
+	o.MyReactionId.Set(nil)
+}
+
+// UnsetMyReactionId ensures that no value is present for MyReactionId, not even an explicit nil
+func (o *SocialFeedPostDto) UnsetMyReactionId() {
+	o.MyReactionId.Unset()
+}
+
 func (o SocialFeedPostDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -487,8 +813,32 @@ func (o SocialFeedPostDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ReactionsCount) {
 		toSerialize["reactionsCount"] = o.ReactionsCount
 	}
+	if o.SocialProfileType.IsSet() {
+		toSerialize["socialProfileType"] = o.SocialProfileType.Get()
+	}
+	if o.BodyHtml.IsSet() {
+		toSerialize["bodyHtml"] = o.BodyHtml.Get()
+	}
+	if o.BodyFormat.IsSet() {
+		toSerialize["bodyFormat"] = o.BodyFormat.Get()
+	}
+	if o.BackgroundStyle.IsSet() {
+		toSerialize["backgroundStyle"] = o.BackgroundStyle.Get()
+	}
 	if o.SocialFeedId.IsSet() {
 		toSerialize["socialFeedId"] = o.SocialFeedId.Get()
+	}
+	if o.Facepile != nil {
+		toSerialize["facepile"] = o.Facepile
+	}
+	if o.Attachments != nil {
+		toSerialize["attachments"] = o.Attachments
+	}
+	if o.MyReaction.IsSet() {
+		toSerialize["myReaction"] = o.MyReaction.Get()
+	}
+	if o.MyReactionId.IsSet() {
+		toSerialize["myReactionId"] = o.MyReactionId.Get()
 	}
 	return toSerialize, nil
 }

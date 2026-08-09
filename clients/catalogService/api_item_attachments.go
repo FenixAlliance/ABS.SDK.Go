@@ -492,6 +492,7 @@ type ApiGetItemAttachmentsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemAttachmentDtoCollectionQueryParameters *ItemAttachmentDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemAttachmentsAsyncRequest) TenantId(tenantId string) ApiGetItemAttachmentsAsyncRequest {
@@ -506,6 +507,11 @@ func (r ApiGetItemAttachmentsAsyncRequest) ApiVersion(apiVersion string) ApiGetI
 
 func (r ApiGetItemAttachmentsAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemAttachmentsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemAttachmentsAsyncRequest) ItemAttachmentDtoCollectionQueryParameters(itemAttachmentDtoCollectionQueryParameters ItemAttachmentDtoCollectionQueryParameters) ApiGetItemAttachmentsAsyncRequest {
+	r.itemAttachmentDtoCollectionQueryParameters = &itemAttachmentDtoCollectionQueryParameters
 	return r
 }
 
@@ -556,7 +562,7 @@ func (a *ItemAttachmentsAPIService) GetItemAttachmentsAsyncExecute(r ApiGetItemA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -575,6 +581,8 @@ func (a *ItemAttachmentsAPIService) GetItemAttachmentsAsyncExecute(r ApiGetItemA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemAttachmentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -641,7 +649,7 @@ type ApiPatchItemAttachmentAsyncRequest struct {
 	itemAttachmentId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemAttachmentAsyncRequest) TenantId(tenantId string) ApiPatchItemAttachmentAsyncRequest {
@@ -659,8 +667,8 @@ func (r ApiPatchItemAttachmentAsyncRequest) XApiVersion(xApiVersion string) ApiP
 	return r
 }
 
-func (r ApiPatchItemAttachmentAsyncRequest) Operation(operation []Operation) ApiPatchItemAttachmentAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemAttachmentAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemAttachmentAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -735,7 +743,7 @@ func (a *ItemAttachmentsAPIService) PatchItemAttachmentAsyncExecute(r ApiPatchIt
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

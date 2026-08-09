@@ -362,6 +362,7 @@ type ApiGetSalariesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	salaryDtoCollectionQueryParameters *SalaryDtoCollectionQueryParameters
 }
 
 func (r ApiGetSalariesAsyncRequest) TenantId(tenantId string) ApiGetSalariesAsyncRequest {
@@ -376,6 +377,11 @@ func (r ApiGetSalariesAsyncRequest) ApiVersion(apiVersion string) ApiGetSalaries
 
 func (r ApiGetSalariesAsyncRequest) XApiVersion(xApiVersion string) ApiGetSalariesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSalariesAsyncRequest) SalaryDtoCollectionQueryParameters(salaryDtoCollectionQueryParameters SalaryDtoCollectionQueryParameters) ApiGetSalariesAsyncRequest {
+	r.salaryDtoCollectionQueryParameters = &salaryDtoCollectionQueryParameters
 	return r
 }
 
@@ -427,7 +433,7 @@ func (a *SalariesAPIService) GetSalariesAsyncExecute(r ApiGetSalariesAsyncReques
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -446,6 +452,8 @@ func (a *SalariesAPIService) GetSalariesAsyncExecute(r ApiGetSalariesAsyncReques
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.salaryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -511,6 +519,7 @@ type ApiGetSalariesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	salaryDtoCollectionQueryParameters *SalaryDtoCollectionQueryParameters
 }
 
 func (r ApiGetSalariesCountAsyncRequest) TenantId(tenantId string) ApiGetSalariesCountAsyncRequest {
@@ -525,6 +534,11 @@ func (r ApiGetSalariesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetSal
 
 func (r ApiGetSalariesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSalariesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSalariesCountAsyncRequest) SalaryDtoCollectionQueryParameters(salaryDtoCollectionQueryParameters SalaryDtoCollectionQueryParameters) ApiGetSalariesCountAsyncRequest {
+	r.salaryDtoCollectionQueryParameters = &salaryDtoCollectionQueryParameters
 	return r
 }
 
@@ -576,7 +590,7 @@ func (a *SalariesAPIService) GetSalariesCountAsyncExecute(r ApiGetSalariesCountA
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -595,6 +609,8 @@ func (a *SalariesAPIService) GetSalariesCountAsyncExecute(r ApiGetSalariesCountA
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.salaryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +830,7 @@ type ApiPatchSalaryAsyncRequest struct {
 	salaryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSalaryAsyncRequest) TenantId(tenantId string) ApiPatchSalaryAsyncRequest {
@@ -832,8 +848,8 @@ func (r ApiPatchSalaryAsyncRequest) XApiVersion(xApiVersion string) ApiPatchSala
 	return r
 }
 
-func (r ApiPatchSalaryAsyncRequest) Operation(operation []Operation) ApiPatchSalaryAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSalaryAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSalaryAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -908,7 +924,7 @@ func (a *SalariesAPIService) PatchSalaryAsyncExecute(r ApiPatchSalaryAsyncReques
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

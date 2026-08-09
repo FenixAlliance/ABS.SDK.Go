@@ -239,7 +239,7 @@ No authorization required
 
 ## GetNewsletterSubscriptionsAsync
 
-> NewsletterSubscriptionDtoListEnvelope GetNewsletterSubscriptionsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> NewsletterSubscriptionDtoListEnvelope GetNewsletterSubscriptionsAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).NewsletterSubscriptionDtoCollectionQueryParameters(newsletterSubscriptionDtoCollectionQueryParameters).Execute()
 
 Get newsletter subscriptions
 
@@ -261,10 +261,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	newsletterSubscriptionDtoCollectionQueryParameters := *openapiclient.NewNewsletterSubscriptionDtoCollectionQueryParameters() // NewsletterSubscriptionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NewsletterSubscriptionsAPI.GetNewsletterSubscriptionsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.NewsletterSubscriptionsAPI.GetNewsletterSubscriptionsAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).NewsletterSubscriptionDtoCollectionQueryParameters(newsletterSubscriptionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NewsletterSubscriptionsAPI.GetNewsletterSubscriptionsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -288,6 +289,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **newsletterSubscriptionDtoCollectionQueryParameters** | [**NewsletterSubscriptionDtoCollectionQueryParameters**](NewsletterSubscriptionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -299,7 +301,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -309,7 +311,7 @@ No authorization required
 
 ## GetNewsletterSubscriptionsCountAsync
 
-> Int32Envelope GetNewsletterSubscriptionsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetNewsletterSubscriptionsCountAsync(ctx).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).NewsletterSubscriptionDtoCollectionQueryParameters(newsletterSubscriptionDtoCollectionQueryParameters).Execute()
 
 Get newsletter subscriptions count
 
@@ -331,10 +333,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	newsletterSubscriptionDtoCollectionQueryParameters := *openapiclient.NewNewsletterSubscriptionDtoCollectionQueryParameters() // NewsletterSubscriptionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NewsletterSubscriptionsAPI.GetNewsletterSubscriptionsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.NewsletterSubscriptionsAPI.GetNewsletterSubscriptionsCountAsync(context.Background()).TenantId(tenantId).ApiVersion(apiVersion).XApiVersion(xApiVersion).NewsletterSubscriptionDtoCollectionQueryParameters(newsletterSubscriptionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NewsletterSubscriptionsAPI.GetNewsletterSubscriptionsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -358,6 +361,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **newsletterSubscriptionDtoCollectionQueryParameters** | [**NewsletterSubscriptionDtoCollectionQueryParameters**](NewsletterSubscriptionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -369,7 +373,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

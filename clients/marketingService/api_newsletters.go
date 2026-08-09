@@ -529,6 +529,7 @@ type ApiGetNewsletterODataAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	newsletterDtoCollectionQueryParameters *NewsletterDtoCollectionQueryParameters
 }
 
 func (r ApiGetNewsletterODataAsyncRequest) TenantId(tenantId string) ApiGetNewsletterODataAsyncRequest {
@@ -543,6 +544,11 @@ func (r ApiGetNewsletterODataAsyncRequest) ApiVersion(apiVersion string) ApiGetN
 
 func (r ApiGetNewsletterODataAsyncRequest) XApiVersion(xApiVersion string) ApiGetNewsletterODataAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetNewsletterODataAsyncRequest) NewsletterDtoCollectionQueryParameters(newsletterDtoCollectionQueryParameters NewsletterDtoCollectionQueryParameters) ApiGetNewsletterODataAsyncRequest {
+	r.newsletterDtoCollectionQueryParameters = &newsletterDtoCollectionQueryParameters
 	return r
 }
 
@@ -592,7 +598,7 @@ func (a *NewslettersAPIService) GetNewsletterODataAsyncExecute(r ApiGetNewslette
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -611,6 +617,8 @@ func (a *NewslettersAPIService) GetNewsletterODataAsyncExecute(r ApiGetNewslette
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.newsletterDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -677,6 +685,7 @@ type ApiGetNewslettersCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	newsletterDtoCollectionQueryParameters *NewsletterDtoCollectionQueryParameters
 }
 
 func (r ApiGetNewslettersCountAsyncRequest) TenantId(tenantId string) ApiGetNewslettersCountAsyncRequest {
@@ -691,6 +700,11 @@ func (r ApiGetNewslettersCountAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetNewslettersCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetNewslettersCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetNewslettersCountAsyncRequest) NewsletterDtoCollectionQueryParameters(newsletterDtoCollectionQueryParameters NewsletterDtoCollectionQueryParameters) ApiGetNewslettersCountAsyncRequest {
+	r.newsletterDtoCollectionQueryParameters = &newsletterDtoCollectionQueryParameters
 	return r
 }
 
@@ -742,7 +756,7 @@ func (a *NewslettersAPIService) GetNewslettersCountAsyncExecute(r ApiGetNewslett
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -761,6 +775,8 @@ func (a *NewslettersAPIService) GetNewslettersCountAsyncExecute(r ApiGetNewslett
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.newsletterDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -838,7 +854,7 @@ type ApiPatchNewsletterAsyncRequest struct {
 	newsletterId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchNewsletterAsyncRequest) TenantId(tenantId string) ApiPatchNewsletterAsyncRequest {
@@ -856,8 +872,8 @@ func (r ApiPatchNewsletterAsyncRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchNewsletterAsyncRequest) Operation(operation []Operation) ApiPatchNewsletterAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchNewsletterAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchNewsletterAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -932,7 +948,7 @@ func (a *NewslettersAPIService) PatchNewsletterAsyncExecute(r ApiPatchNewsletter
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

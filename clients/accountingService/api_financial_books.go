@@ -529,6 +529,7 @@ type ApiGetFinancialBooksAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	financialBookDtoCollectionQueryParameters *FinancialBookDtoCollectionQueryParameters
 }
 
 func (r ApiGetFinancialBooksAsyncRequest) TenantId(tenantId string) ApiGetFinancialBooksAsyncRequest {
@@ -543,6 +544,11 @@ func (r ApiGetFinancialBooksAsyncRequest) ApiVersion(apiVersion string) ApiGetFi
 
 func (r ApiGetFinancialBooksAsyncRequest) XApiVersion(xApiVersion string) ApiGetFinancialBooksAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFinancialBooksAsyncRequest) FinancialBookDtoCollectionQueryParameters(financialBookDtoCollectionQueryParameters FinancialBookDtoCollectionQueryParameters) ApiGetFinancialBooksAsyncRequest {
+	r.financialBookDtoCollectionQueryParameters = &financialBookDtoCollectionQueryParameters
 	return r
 }
 
@@ -594,7 +600,7 @@ func (a *FinancialBooksAPIService) GetFinancialBooksAsyncExecute(r ApiGetFinanci
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -613,6 +619,8 @@ func (a *FinancialBooksAPIService) GetFinancialBooksAsyncExecute(r ApiGetFinanci
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.financialBookDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -689,6 +697,7 @@ type ApiGetFinancialBooksCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	financialBookDtoCollectionQueryParameters *FinancialBookDtoCollectionQueryParameters
 }
 
 func (r ApiGetFinancialBooksCountAsyncRequest) TenantId(tenantId string) ApiGetFinancialBooksCountAsyncRequest {
@@ -703,6 +712,11 @@ func (r ApiGetFinancialBooksCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetFinancialBooksCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetFinancialBooksCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetFinancialBooksCountAsyncRequest) FinancialBookDtoCollectionQueryParameters(financialBookDtoCollectionQueryParameters FinancialBookDtoCollectionQueryParameters) ApiGetFinancialBooksCountAsyncRequest {
+	r.financialBookDtoCollectionQueryParameters = &financialBookDtoCollectionQueryParameters
 	return r
 }
 
@@ -754,7 +768,7 @@ func (a *FinancialBooksAPIService) GetFinancialBooksCountAsyncExecute(r ApiGetFi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -773,6 +787,8 @@ func (a *FinancialBooksAPIService) GetFinancialBooksCountAsyncExecute(r ApiGetFi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.financialBookDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -850,7 +866,7 @@ type ApiPatchFinancialBookAsyncRequest struct {
 	financialBookId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchFinancialBookAsyncRequest) TenantId(tenantId string) ApiPatchFinancialBookAsyncRequest {
@@ -868,8 +884,8 @@ func (r ApiPatchFinancialBookAsyncRequest) XApiVersion(xApiVersion string) ApiPa
 	return r
 }
 
-func (r ApiPatchFinancialBookAsyncRequest) Operation(operation []Operation) ApiPatchFinancialBookAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchFinancialBookAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchFinancialBookAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -944,7 +960,7 @@ func (a *FinancialBooksAPIService) PatchFinancialBookAsyncExecute(r ApiPatchFina
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

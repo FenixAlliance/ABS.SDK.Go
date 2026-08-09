@@ -101,7 +101,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebAPI* | [**AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebAPI.md#accountmanagedownloadpersonaldatapost) | **Post** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebAPI* | [**AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountmanagelinkexternalloginpost) | **Post** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebAPI* | [**AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebAPI.md#accountperformexternalloginpost) | **Post** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebAPI* | [**ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebAPI.md#apiv2aiserviceagentsagentidaguipost) | **Post** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebAPI* | [**ForgotPasswordPost**](docs/FenixAllianceABSWebAPI.md#forgotpasswordpost) | **Post** /forgotPassword | 
 *FenixAllianceABSWebAPI* | [**HealthGet**](docs/FenixAllianceABSWebAPI.md#healthget) | **Get** /health | 
 *FenixAllianceABSWebAPI* | [**HelloGet**](docs/FenixAllianceABSWebAPI.md#helloget) | **Get** /hello | 
@@ -121,15 +120,18 @@ Class | Method | HTTP request | Description
 
  - [AccessTokenResponse](docs/AccessTokenResponse.md)
  - [ActivityFeedDto](docs/ActivityFeedDto.md)
+ - [ActivityFeedDtoCollectionQueryParameters](docs/ActivityFeedDtoCollectionQueryParameters.md)
  - [ActivityFeedDtoEnvelope](docs/ActivityFeedDtoEnvelope.md)
  - [ActivityFeedDtoListEnvelope](docs/ActivityFeedDtoListEnvelope.md)
  - [ActivityRecordCreateDto](docs/ActivityRecordCreateDto.md)
  - [ActivityRecordDto](docs/ActivityRecordDto.md)
+ - [ActivityRecordDtoCollectionQueryParameters](docs/ActivityRecordDtoCollectionQueryParameters.md)
  - [ActivityRecordDtoEnvelope](docs/ActivityRecordDtoEnvelope.md)
  - [ActivityRecordDtoListEnvelope](docs/ActivityRecordDtoListEnvelope.md)
  - [ActivityRecordUpdateDto](docs/ActivityRecordUpdateDto.md)
  - [ActivityTypeCreateDto](docs/ActivityTypeCreateDto.md)
  - [ActivityTypeDto](docs/ActivityTypeDto.md)
+ - [ActivityTypeDtoCollectionQueryParameters](docs/ActivityTypeDtoCollectionQueryParameters.md)
  - [ActivityTypeDtoEnvelope](docs/ActivityTypeDtoEnvelope.md)
  - [ActivityTypeDtoListEnvelope](docs/ActivityTypeDtoListEnvelope.md)
  - [ActivityTypeUpdateDto](docs/ActivityTypeUpdateDto.md)
@@ -142,7 +144,7 @@ Class | Method | HTTP request | Description
  - [InfoResponse](docs/InfoResponse.md)
  - [Int32Envelope](docs/Int32Envelope.md)
  - [LoginRequest](docs/LoginRequest.md)
- - [Operation](docs/Operation.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [RefreshRequest](docs/RefreshRequest.md)
  - [RegisterRequest](docs/RegisterRequest.md)
  - [ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

@@ -757,6 +757,7 @@ type ApiGetItemRestockEntriesAsyncRequest struct {
 	restockId string
 	apiVersion *string
 	xApiVersion *string
+	itemRestockEntryDtoCollectionQueryParameters *ItemRestockEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemRestockEntriesAsyncRequest) TenantId(tenantId string) ApiGetItemRestockEntriesAsyncRequest {
@@ -771,6 +772,11 @@ func (r ApiGetItemRestockEntriesAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetItemRestockEntriesAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemRestockEntriesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemRestockEntriesAsyncRequest) ItemRestockEntryDtoCollectionQueryParameters(itemRestockEntryDtoCollectionQueryParameters ItemRestockEntryDtoCollectionQueryParameters) ApiGetItemRestockEntriesAsyncRequest {
+	r.itemRestockEntryDtoCollectionQueryParameters = &itemRestockEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -825,7 +831,7 @@ func (a *ItemRestocksAPIService) GetItemRestockEntriesAsyncExecute(r ApiGetItemR
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -844,6 +850,8 @@ func (a *ItemRestocksAPIService) GetItemRestockEntriesAsyncExecute(r ApiGetItemR
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemRestockEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -888,6 +896,7 @@ type ApiGetItemRestockEntriesCountAsyncRequest struct {
 	restockId string
 	apiVersion *string
 	xApiVersion *string
+	itemRestockEntryDtoCollectionQueryParameters *ItemRestockEntryDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemRestockEntriesCountAsyncRequest) TenantId(tenantId string) ApiGetItemRestockEntriesCountAsyncRequest {
@@ -902,6 +911,11 @@ func (r ApiGetItemRestockEntriesCountAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetItemRestockEntriesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemRestockEntriesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemRestockEntriesCountAsyncRequest) ItemRestockEntryDtoCollectionQueryParameters(itemRestockEntryDtoCollectionQueryParameters ItemRestockEntryDtoCollectionQueryParameters) ApiGetItemRestockEntriesCountAsyncRequest {
+	r.itemRestockEntryDtoCollectionQueryParameters = &itemRestockEntryDtoCollectionQueryParameters
 	return r
 }
 
@@ -956,7 +970,7 @@ func (a *ItemRestocksAPIService) GetItemRestockEntriesCountAsyncExecute(r ApiGet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -975,6 +989,8 @@ func (a *ItemRestocksAPIService) GetItemRestockEntriesCountAsyncExecute(r ApiGet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemRestockEntryDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1164,6 +1180,7 @@ type ApiGetItemRestocksAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemRestockDtoCollectionQueryParameters *ItemRestockDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemRestocksAsyncRequest) TenantId(tenantId string) ApiGetItemRestocksAsyncRequest {
@@ -1178,6 +1195,11 @@ func (r ApiGetItemRestocksAsyncRequest) ApiVersion(apiVersion string) ApiGetItem
 
 func (r ApiGetItemRestocksAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemRestocksAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemRestocksAsyncRequest) ItemRestockDtoCollectionQueryParameters(itemRestockDtoCollectionQueryParameters ItemRestockDtoCollectionQueryParameters) ApiGetItemRestocksAsyncRequest {
+	r.itemRestockDtoCollectionQueryParameters = &itemRestockDtoCollectionQueryParameters
 	return r
 }
 
@@ -1229,7 +1251,7 @@ func (a *ItemRestocksAPIService) GetItemRestocksAsyncExecute(r ApiGetItemRestock
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1248,6 +1270,8 @@ func (a *ItemRestocksAPIService) GetItemRestocksAsyncExecute(r ApiGetItemRestock
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemRestockDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1313,6 +1337,7 @@ type ApiGetItemRestocksCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	itemRestockDtoCollectionQueryParameters *ItemRestockDtoCollectionQueryParameters
 }
 
 func (r ApiGetItemRestocksCountAsyncRequest) TenantId(tenantId string) ApiGetItemRestocksCountAsyncRequest {
@@ -1327,6 +1352,11 @@ func (r ApiGetItemRestocksCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetItemRestocksCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetItemRestocksCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetItemRestocksCountAsyncRequest) ItemRestockDtoCollectionQueryParameters(itemRestockDtoCollectionQueryParameters ItemRestockDtoCollectionQueryParameters) ApiGetItemRestocksCountAsyncRequest {
+	r.itemRestockDtoCollectionQueryParameters = &itemRestockDtoCollectionQueryParameters
 	return r
 }
 
@@ -1378,7 +1408,7 @@ func (a *ItemRestocksAPIService) GetItemRestocksCountAsyncExecute(r ApiGetItemRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1397,6 +1427,8 @@ func (a *ItemRestocksAPIService) GetItemRestocksCountAsyncExecute(r ApiGetItemRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemRestockDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1441,7 +1473,7 @@ type ApiPatchItemRestockAsyncRequest struct {
 	restockId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemRestockAsyncRequest) TenantId(tenantId string) ApiPatchItemRestockAsyncRequest {
@@ -1459,8 +1491,8 @@ func (r ApiPatchItemRestockAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchItemRestockAsyncRequest) Operation(operation []Operation) ApiPatchItemRestockAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemRestockAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemRestockAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1535,7 +1567,7 @@ func (a *ItemRestocksAPIService) PatchItemRestockAsyncExecute(r ApiPatchItemRest
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1592,7 +1624,7 @@ type ApiPatchItemRestockEntryAsyncRequest struct {
 	entryId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchItemRestockEntryAsyncRequest) TenantId(tenantId string) ApiPatchItemRestockEntryAsyncRequest {
@@ -1610,8 +1642,8 @@ func (r ApiPatchItemRestockEntryAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchItemRestockEntryAsyncRequest) Operation(operation []Operation) ApiPatchItemRestockEntryAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchItemRestockEntryAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchItemRestockEntryAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -1689,7 +1721,7 @@ func (a *ItemRestocksAPIService) PatchItemRestockEntryAsyncExecute(r ApiPatchIte
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

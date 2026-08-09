@@ -460,6 +460,7 @@ type ApiGetVesselsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	vesselDtoCollectionQueryParameters *VesselDtoCollectionQueryParameters
 }
 
 func (r ApiGetVesselsAsyncRequest) TenantId(tenantId string) ApiGetVesselsAsyncRequest {
@@ -474,6 +475,11 @@ func (r ApiGetVesselsAsyncRequest) ApiVersion(apiVersion string) ApiGetVesselsAs
 
 func (r ApiGetVesselsAsyncRequest) XApiVersion(xApiVersion string) ApiGetVesselsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetVesselsAsyncRequest) VesselDtoCollectionQueryParameters(vesselDtoCollectionQueryParameters VesselDtoCollectionQueryParameters) ApiGetVesselsAsyncRequest {
+	r.vesselDtoCollectionQueryParameters = &vesselDtoCollectionQueryParameters
 	return r
 }
 
@@ -525,7 +531,7 @@ func (a *VesselsAPIService) GetVesselsAsyncExecute(r ApiGetVesselsAsyncRequest) 
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -544,6 +550,8 @@ func (a *VesselsAPIService) GetVesselsAsyncExecute(r ApiGetVesselsAsyncRequest) 
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.vesselDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetVesselsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	vesselDtoCollectionQueryParameters *VesselDtoCollectionQueryParameters
 }
 
 func (r ApiGetVesselsCountAsyncRequest) TenantId(tenantId string) ApiGetVesselsCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetVesselsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetVess
 
 func (r ApiGetVesselsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetVesselsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetVesselsCountAsyncRequest) VesselDtoCollectionQueryParameters(vesselDtoCollectionQueryParameters VesselDtoCollectionQueryParameters) ApiGetVesselsCountAsyncRequest {
+	r.vesselDtoCollectionQueryParameters = &vesselDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *VesselsAPIService) GetVesselsCountAsyncExecute(r ApiGetVesselsCountAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *VesselsAPIService) GetVesselsCountAsyncExecute(r ApiGetVesselsCountAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.vesselDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchVesselAsyncRequest struct {
 	vesselId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchVesselAsyncRequest) TenantId(tenantId string) ApiPatchVesselAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchVesselAsyncRequest) XApiVersion(xApiVersion string) ApiPatchVess
 	return r
 }
 
-func (r ApiPatchVesselAsyncRequest) Operation(operation []Operation) ApiPatchVesselAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchVesselAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchVesselAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *VesselsAPIService) PatchVesselAsyncExecute(r ApiPatchVesselAsyncRequest
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

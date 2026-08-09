@@ -31,6 +31,7 @@ type ApiCountItemShippingPoliciesAsyncRequest struct {
 	itemId *string
 	apiVersion *string
 	xApiVersion *string
+	itemShippingPolicyDtoCollectionQueryParameters *ItemShippingPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiCountItemShippingPoliciesAsyncRequest) TenantId(tenantId string) ApiCountItemShippingPoliciesAsyncRequest {
@@ -50,6 +51,11 @@ func (r ApiCountItemShippingPoliciesAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiCountItemShippingPoliciesAsyncRequest) XApiVersion(xApiVersion string) ApiCountItemShippingPoliciesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiCountItemShippingPoliciesAsyncRequest) ItemShippingPolicyDtoCollectionQueryParameters(itemShippingPolicyDtoCollectionQueryParameters ItemShippingPolicyDtoCollectionQueryParameters) ApiCountItemShippingPoliciesAsyncRequest {
+	r.itemShippingPolicyDtoCollectionQueryParameters = &itemShippingPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -103,7 +109,7 @@ func (a *ItemShippingPoliciesAPIService) CountItemShippingPoliciesAsyncExecute(r
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -122,6 +128,8 @@ func (a *ItemShippingPoliciesAPIService) CountItemShippingPoliciesAsyncExecute(r
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemShippingPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -188,6 +196,7 @@ type ApiGetCatalogItemShippingPoliciesAsyncRequest struct {
 	itemId *string
 	apiVersion *string
 	xApiVersion *string
+	itemShippingPolicyDtoCollectionQueryParameters *ItemShippingPolicyDtoCollectionQueryParameters
 }
 
 func (r ApiGetCatalogItemShippingPoliciesAsyncRequest) TenantId(tenantId string) ApiGetCatalogItemShippingPoliciesAsyncRequest {
@@ -207,6 +216,11 @@ func (r ApiGetCatalogItemShippingPoliciesAsyncRequest) ApiVersion(apiVersion str
 
 func (r ApiGetCatalogItemShippingPoliciesAsyncRequest) XApiVersion(xApiVersion string) ApiGetCatalogItemShippingPoliciesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCatalogItemShippingPoliciesAsyncRequest) ItemShippingPolicyDtoCollectionQueryParameters(itemShippingPolicyDtoCollectionQueryParameters ItemShippingPolicyDtoCollectionQueryParameters) ApiGetCatalogItemShippingPoliciesAsyncRequest {
+	r.itemShippingPolicyDtoCollectionQueryParameters = &itemShippingPolicyDtoCollectionQueryParameters
 	return r
 }
 
@@ -260,7 +274,7 @@ func (a *ItemShippingPoliciesAPIService) GetCatalogItemShippingPoliciesAsyncExec
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -279,6 +293,8 @@ func (a *ItemShippingPoliciesAPIService) GetCatalogItemShippingPoliciesAsyncExec
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.itemShippingPolicyDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -535,7 +535,7 @@ No authorization required
 
 ## GetDealUnitLinesAsync
 
-> DealUnitLineDtoListEnvelope GetDealUnitLinesAsync(ctx, dealUnitId).TenantId(tenantId).ItemId(itemId).Execute()
+> DealUnitLineDtoListEnvelope GetDealUnitLinesAsync(ctx, dealUnitId).TenantId(tenantId).ItemId(itemId).DealUnitLineDtoCollectionQueryParameters(dealUnitLineDtoCollectionQueryParameters).Execute()
 
 Get deal unit lines
 
@@ -557,10 +557,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	dealUnitId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	itemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	dealUnitLineDtoCollectionQueryParameters := *openapiclient.NewDealUnitLineDtoCollectionQueryParameters() // DealUnitLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitsAPI.GetDealUnitLinesAsync(context.Background(), dealUnitId).TenantId(tenantId).ItemId(itemId).Execute()
+	resp, r, err := apiClient.DealUnitsAPI.GetDealUnitLinesAsync(context.Background(), dealUnitId).TenantId(tenantId).ItemId(itemId).DealUnitLineDtoCollectionQueryParameters(dealUnitLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitsAPI.GetDealUnitLinesAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -588,6 +589,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
  **itemId** | **string** |  | 
+ **dealUnitLineDtoCollectionQueryParameters** | [**DealUnitLineDtoCollectionQueryParameters**](DealUnitLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -599,7 +601,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -609,7 +611,7 @@ No authorization required
 
 ## GetDealUnitLinesCountAsync
 
-> Int32Envelope GetDealUnitLinesCountAsync(ctx, dealUnitId).TenantId(tenantId).Execute()
+> Int32Envelope GetDealUnitLinesCountAsync(ctx, dealUnitId).TenantId(tenantId).DealUnitLineDtoCollectionQueryParameters(dealUnitLineDtoCollectionQueryParameters).Execute()
 
 Get deal unit lines count
 
@@ -630,10 +632,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	dealUnitId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitLineDtoCollectionQueryParameters := *openapiclient.NewDealUnitLineDtoCollectionQueryParameters() // DealUnitLineDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitsAPI.GetDealUnitLinesCountAsync(context.Background(), dealUnitId).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DealUnitsAPI.GetDealUnitLinesCountAsync(context.Background(), dealUnitId).TenantId(tenantId).DealUnitLineDtoCollectionQueryParameters(dealUnitLineDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitsAPI.GetDealUnitLinesCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -660,6 +663,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
+ **dealUnitLineDtoCollectionQueryParameters** | [**DealUnitLineDtoCollectionQueryParameters**](DealUnitLineDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -671,7 +675,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -756,7 +760,7 @@ No authorization required
 
 ## GetDealUnitsAsync
 
-> DealUnitDtoListEnvelope GetDealUnitsAsync(ctx).TenantId(tenantId).Execute()
+> DealUnitDtoListEnvelope GetDealUnitsAsync(ctx).TenantId(tenantId).DealUnitDtoCollectionQueryParameters(dealUnitDtoCollectionQueryParameters).Execute()
 
 Get deal units
 
@@ -776,10 +780,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitDtoCollectionQueryParameters := *openapiclient.NewDealUnitDtoCollectionQueryParameters() // DealUnitDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitsAPI.GetDealUnitsAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DealUnitsAPI.GetDealUnitsAsync(context.Background()).TenantId(tenantId).DealUnitDtoCollectionQueryParameters(dealUnitDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitsAPI.GetDealUnitsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -801,6 +806,7 @@ Other parameters are passed through a pointer to a apiGetDealUnitsAsyncRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **dealUnitDtoCollectionQueryParameters** | [**DealUnitDtoCollectionQueryParameters**](DealUnitDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -812,7 +818,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -822,7 +828,7 @@ No authorization required
 
 ## GetDealUnitsCountAsync
 
-> Int32Envelope GetDealUnitsCountAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope GetDealUnitsCountAsync(ctx).TenantId(tenantId).DealUnitDtoCollectionQueryParameters(dealUnitDtoCollectionQueryParameters).Execute()
 
 Get deal units count
 
@@ -842,10 +848,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	dealUnitDtoCollectionQueryParameters := *openapiclient.NewDealUnitDtoCollectionQueryParameters() // DealUnitDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitsAPI.GetDealUnitsCountAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DealUnitsAPI.GetDealUnitsCountAsync(context.Background()).TenantId(tenantId).DealUnitDtoCollectionQueryParameters(dealUnitDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitsAPI.GetDealUnitsCountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -867,6 +874,7 @@ Other parameters are passed through a pointer to a apiGetDealUnitsCountAsyncRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **dealUnitDtoCollectionQueryParameters** | [**DealUnitDtoCollectionQueryParameters**](DealUnitDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -878,7 +886,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -960,7 +968,7 @@ No authorization required
 
 ## GetExtendedDealUnitsAsync
 
-> ExtendedDealUnitDtoListEnvelope GetExtendedDealUnitsAsync(ctx).TenantId(tenantId).Execute()
+> ExtendedDealUnitDtoListEnvelope GetExtendedDealUnitsAsync(ctx).TenantId(tenantId).ExtendedDealUnitDtoCollectionQueryParameters(extendedDealUnitDtoCollectionQueryParameters).Execute()
 
 Get extended deal units
 
@@ -980,10 +988,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	extendedDealUnitDtoCollectionQueryParameters := *openapiclient.NewExtendedDealUnitDtoCollectionQueryParameters() // ExtendedDealUnitDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitsAPI.GetExtendedDealUnitsAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.DealUnitsAPI.GetExtendedDealUnitsAsync(context.Background()).TenantId(tenantId).ExtendedDealUnitDtoCollectionQueryParameters(extendedDealUnitDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitsAPI.GetExtendedDealUnitsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1005,6 +1014,7 @@ Other parameters are passed through a pointer to a apiGetExtendedDealUnitsAsyncR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **extendedDealUnitDtoCollectionQueryParameters** | [**ExtendedDealUnitDtoCollectionQueryParameters**](ExtendedDealUnitDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -1016,7 +1026,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1026,7 +1036,7 @@ No authorization required
 
 ## PatchDealUnitAsync
 
-> EmptyEnvelope PatchDealUnitAsync(ctx, dealUnitId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchDealUnitAsync(ctx, dealUnitId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a deal unit
 
@@ -1047,11 +1057,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	dealUnitId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitsAPI.PatchDealUnitAsync(context.Background(), dealUnitId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.DealUnitsAPI.PatchDealUnitAsync(context.Background(), dealUnitId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitsAPI.PatchDealUnitAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1078,7 +1088,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 
@@ -1100,7 +1110,7 @@ No authorization required
 
 ## PatchDealUnitLineAsync
 
-> EmptyEnvelope PatchDealUnitLineAsync(ctx, dealUnitId, dealUnitLineId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchDealUnitLineAsync(ctx, dealUnitId, dealUnitLineId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a deal unit line
 
@@ -1122,11 +1132,11 @@ func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	dealUnitId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	dealUnitLineId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DealUnitsAPI.PatchDealUnitLineAsync(context.Background(), dealUnitId, dealUnitLineId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.DealUnitsAPI.PatchDealUnitLineAsync(context.Background(), dealUnitId, dealUnitLineId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DealUnitsAPI.PatchDealUnitLineAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1155,7 +1165,7 @@ Name | Type | Description  | Notes
  **tenantId** | **string** |  | 
 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

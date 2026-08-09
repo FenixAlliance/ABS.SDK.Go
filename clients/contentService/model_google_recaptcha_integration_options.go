@@ -25,6 +25,9 @@ type GoogleRecaptchaIntegrationOptions struct {
 	SiteKey NullableString `json:"siteKey,omitempty"`
 	SecretKey NullableString `json:"secretKey,omitempty"`
 	Version NullableString `json:"version,omitempty"`
+	ProjectId NullableString `json:"projectId,omitempty"`
+	ApiKey NullableString `json:"apiKey,omitempty"`
+	ScoreThreshold NullableFloat64 `json:"scoreThreshold,omitempty"`
 }
 
 // NewGoogleRecaptchaIntegrationOptions instantiates a new GoogleRecaptchaIntegrationOptions object
@@ -244,6 +247,132 @@ func (o *GoogleRecaptchaIntegrationOptions) UnsetVersion() {
 	o.Version.Unset()
 }
 
+// GetProjectId returns the ProjectId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GoogleRecaptchaIntegrationOptions) GetProjectId() string {
+	if o == nil || IsNil(o.ProjectId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ProjectId.Get()
+}
+
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GoogleRecaptchaIntegrationOptions) GetProjectIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProjectId.Get(), o.ProjectId.IsSet()
+}
+
+// HasProjectId returns a boolean if a field has been set.
+func (o *GoogleRecaptchaIntegrationOptions) HasProjectId() bool {
+	if o != nil && o.ProjectId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given NullableString and assigns it to the ProjectId field.
+func (o *GoogleRecaptchaIntegrationOptions) SetProjectId(v string) {
+	o.ProjectId.Set(&v)
+}
+// SetProjectIdNil sets the value for ProjectId to be an explicit nil
+func (o *GoogleRecaptchaIntegrationOptions) SetProjectIdNil() {
+	o.ProjectId.Set(nil)
+}
+
+// UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
+func (o *GoogleRecaptchaIntegrationOptions) UnsetProjectId() {
+	o.ProjectId.Unset()
+}
+
+// GetApiKey returns the ApiKey field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GoogleRecaptchaIntegrationOptions) GetApiKey() string {
+	if o == nil || IsNil(o.ApiKey.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ApiKey.Get()
+}
+
+// GetApiKeyOk returns a tuple with the ApiKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GoogleRecaptchaIntegrationOptions) GetApiKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ApiKey.Get(), o.ApiKey.IsSet()
+}
+
+// HasApiKey returns a boolean if a field has been set.
+func (o *GoogleRecaptchaIntegrationOptions) HasApiKey() bool {
+	if o != nil && o.ApiKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetApiKey gets a reference to the given NullableString and assigns it to the ApiKey field.
+func (o *GoogleRecaptchaIntegrationOptions) SetApiKey(v string) {
+	o.ApiKey.Set(&v)
+}
+// SetApiKeyNil sets the value for ApiKey to be an explicit nil
+func (o *GoogleRecaptchaIntegrationOptions) SetApiKeyNil() {
+	o.ApiKey.Set(nil)
+}
+
+// UnsetApiKey ensures that no value is present for ApiKey, not even an explicit nil
+func (o *GoogleRecaptchaIntegrationOptions) UnsetApiKey() {
+	o.ApiKey.Unset()
+}
+
+// GetScoreThreshold returns the ScoreThreshold field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GoogleRecaptchaIntegrationOptions) GetScoreThreshold() float64 {
+	if o == nil || IsNil(o.ScoreThreshold.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.ScoreThreshold.Get()
+}
+
+// GetScoreThresholdOk returns a tuple with the ScoreThreshold field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GoogleRecaptchaIntegrationOptions) GetScoreThresholdOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ScoreThreshold.Get(), o.ScoreThreshold.IsSet()
+}
+
+// HasScoreThreshold returns a boolean if a field has been set.
+func (o *GoogleRecaptchaIntegrationOptions) HasScoreThreshold() bool {
+	if o != nil && o.ScoreThreshold.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetScoreThreshold gets a reference to the given NullableFloat64 and assigns it to the ScoreThreshold field.
+func (o *GoogleRecaptchaIntegrationOptions) SetScoreThreshold(v float64) {
+	o.ScoreThreshold.Set(&v)
+}
+// SetScoreThresholdNil sets the value for ScoreThreshold to be an explicit nil
+func (o *GoogleRecaptchaIntegrationOptions) SetScoreThresholdNil() {
+	o.ScoreThreshold.Set(nil)
+}
+
+// UnsetScoreThreshold ensures that no value is present for ScoreThreshold, not even an explicit nil
+func (o *GoogleRecaptchaIntegrationOptions) UnsetScoreThreshold() {
+	o.ScoreThreshold.Unset()
+}
+
 func (o GoogleRecaptchaIntegrationOptions) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -268,6 +397,15 @@ func (o GoogleRecaptchaIntegrationOptions) ToMap() (map[string]interface{}, erro
 	}
 	if o.Version.IsSet() {
 		toSerialize["version"] = o.Version.Get()
+	}
+	if o.ProjectId.IsSet() {
+		toSerialize["projectId"] = o.ProjectId.Get()
+	}
+	if o.ApiKey.IsSet() {
+		toSerialize["apiKey"] = o.ApiKey.Get()
+	}
+	if o.ScoreThreshold.IsSet() {
+		toSerialize["scoreThreshold"] = o.ScoreThreshold.Get()
 	}
 	return toSerialize, nil
 }

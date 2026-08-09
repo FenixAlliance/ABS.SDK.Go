@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## CountLoyaltyProgramsAsync
 
-> Int32Envelope CountLoyaltyProgramsAsync(ctx).TenantId(tenantId).Execute()
+> Int32Envelope CountLoyaltyProgramsAsync(ctx).TenantId(tenantId).LoyaltyProgramDtoCollectionQueryParameters(loyaltyProgramDtoCollectionQueryParameters).Execute()
 
 Get loyalty programs count
 
@@ -36,10 +36,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	loyaltyProgramDtoCollectionQueryParameters := *openapiclient.NewLoyaltyProgramDtoCollectionQueryParameters() // LoyaltyProgramDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LoyaltyProgramsAPI.CountLoyaltyProgramsAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.LoyaltyProgramsAPI.CountLoyaltyProgramsAsync(context.Background()).TenantId(tenantId).LoyaltyProgramDtoCollectionQueryParameters(loyaltyProgramDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LoyaltyProgramsAPI.CountLoyaltyProgramsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,6 +62,7 @@ Other parameters are passed through a pointer to a apiCountLoyaltyProgramsAsyncR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **loyaltyProgramDtoCollectionQueryParameters** | [**LoyaltyProgramDtoCollectionQueryParameters**](LoyaltyProgramDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -72,7 +74,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -294,7 +296,7 @@ No authorization required
 
 ## GetLoyaltyProgramsAsync
 
-> LoyaltyProgramDtoListEnvelope GetLoyaltyProgramsAsync(ctx).TenantId(tenantId).Execute()
+> LoyaltyProgramDtoListEnvelope GetLoyaltyProgramsAsync(ctx).TenantId(tenantId).LoyaltyProgramDtoCollectionQueryParameters(loyaltyProgramDtoCollectionQueryParameters).Execute()
 
 Get loyalty programs
 
@@ -314,10 +316,11 @@ import (
 
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	loyaltyProgramDtoCollectionQueryParameters := *openapiclient.NewLoyaltyProgramDtoCollectionQueryParameters() // LoyaltyProgramDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LoyaltyProgramsAPI.GetLoyaltyProgramsAsync(context.Background()).TenantId(tenantId).Execute()
+	resp, r, err := apiClient.LoyaltyProgramsAPI.GetLoyaltyProgramsAsync(context.Background()).TenantId(tenantId).LoyaltyProgramDtoCollectionQueryParameters(loyaltyProgramDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LoyaltyProgramsAPI.GetLoyaltyProgramsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -339,6 +342,7 @@ Other parameters are passed through a pointer to a apiGetLoyaltyProgramsAsyncReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **loyaltyProgramDtoCollectionQueryParameters** | [**LoyaltyProgramDtoCollectionQueryParameters**](LoyaltyProgramDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -350,7 +354,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -360,7 +364,7 @@ No authorization required
 
 ## PatchLoyaltyProgramAsync
 
-> EmptyEnvelope PatchLoyaltyProgramAsync(ctx, loyaltyProgramId).TenantId(tenantId).Operation(operation).Execute()
+> EmptyEnvelope PatchLoyaltyProgramAsync(ctx, loyaltyProgramId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 
 Patch a loyalty program
 
@@ -381,11 +385,11 @@ import (
 func main() {
 	tenantId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	loyaltyProgramId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LoyaltyProgramsAPI.PatchLoyaltyProgramAsync(context.Background(), loyaltyProgramId).TenantId(tenantId).Operation(operation).Execute()
+	resp, r, err := apiClient.LoyaltyProgramsAPI.PatchLoyaltyProgramAsync(context.Background(), loyaltyProgramId).TenantId(tenantId).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LoyaltyProgramsAPI.PatchLoyaltyProgramAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -412,7 +416,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

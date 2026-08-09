@@ -112,6 +112,8 @@ type APIClient struct {
 
 	LoansAPI *LoansAPIService
 
+	PostingExecutionsAPI *PostingExecutionsAPIService
+
 	ReceiptsAPI *ReceiptsAPIService
 
 	ReportsAPI *ReportsAPIService
@@ -174,6 +176,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.LedgerTypesAPI = (*LedgerTypesAPIService)(&c.common)
 	c.LedgersAPI = (*LedgersAPIService)(&c.common)
 	c.LoansAPI = (*LoansAPIService)(&c.common)
+	c.PostingExecutionsAPI = (*PostingExecutionsAPIService)(&c.common)
 	c.ReceiptsAPI = (*ReceiptsAPIService)(&c.common)
 	c.ReportsAPI = (*ReportsAPIService)(&c.common)
 	c.SharesAPI = (*SharesAPIService)(&c.common)

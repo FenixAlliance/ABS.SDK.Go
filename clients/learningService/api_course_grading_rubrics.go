@@ -428,6 +428,7 @@ type ApiGetCourseGradingRubricsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	courseGradingRubricDtoCollectionQueryParameters *CourseGradingRubricDtoCollectionQueryParameters
 }
 
 func (r ApiGetCourseGradingRubricsAsyncRequest) TenantId(tenantId string) ApiGetCourseGradingRubricsAsyncRequest {
@@ -442,6 +443,11 @@ func (r ApiGetCourseGradingRubricsAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetCourseGradingRubricsAsyncRequest) XApiVersion(xApiVersion string) ApiGetCourseGradingRubricsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCourseGradingRubricsAsyncRequest) CourseGradingRubricDtoCollectionQueryParameters(courseGradingRubricDtoCollectionQueryParameters CourseGradingRubricDtoCollectionQueryParameters) ApiGetCourseGradingRubricsAsyncRequest {
+	r.courseGradingRubricDtoCollectionQueryParameters = &courseGradingRubricDtoCollectionQueryParameters
 	return r
 }
 
@@ -493,7 +499,7 @@ func (a *CourseGradingRubricsAPIService) GetCourseGradingRubricsAsyncExecute(r A
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -512,6 +518,8 @@ func (a *CourseGradingRubricsAPIService) GetCourseGradingRubricsAsyncExecute(r A
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseGradingRubricDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -566,6 +574,7 @@ type ApiGetCourseGradingRubricsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	courseGradingRubricDtoCollectionQueryParameters *CourseGradingRubricDtoCollectionQueryParameters
 }
 
 func (r ApiGetCourseGradingRubricsCountAsyncRequest) TenantId(tenantId string) ApiGetCourseGradingRubricsCountAsyncRequest {
@@ -580,6 +589,11 @@ func (r ApiGetCourseGradingRubricsCountAsyncRequest) ApiVersion(apiVersion strin
 
 func (r ApiGetCourseGradingRubricsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetCourseGradingRubricsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCourseGradingRubricsCountAsyncRequest) CourseGradingRubricDtoCollectionQueryParameters(courseGradingRubricDtoCollectionQueryParameters CourseGradingRubricDtoCollectionQueryParameters) ApiGetCourseGradingRubricsCountAsyncRequest {
+	r.courseGradingRubricDtoCollectionQueryParameters = &courseGradingRubricDtoCollectionQueryParameters
 	return r
 }
 
@@ -631,7 +645,7 @@ func (a *CourseGradingRubricsAPIService) GetCourseGradingRubricsCountAsyncExecut
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -650,6 +664,8 @@ func (a *CourseGradingRubricsAPIService) GetCourseGradingRubricsCountAsyncExecut
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.courseGradingRubricDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -705,7 +721,7 @@ type ApiPatchCourseGradingRubricAsyncRequest struct {
 	rubricId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCourseGradingRubricAsyncRequest) TenantId(tenantId string) ApiPatchCourseGradingRubricAsyncRequest {
@@ -723,8 +739,8 @@ func (r ApiPatchCourseGradingRubricAsyncRequest) XApiVersion(xApiVersion string)
 	return r
 }
 
-func (r ApiPatchCourseGradingRubricAsyncRequest) Operation(operation []Operation) ApiPatchCourseGradingRubricAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchCourseGradingRubricAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCourseGradingRubricAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -797,7 +813,7 @@ func (a *CourseGradingRubricsAPIService) PatchCourseGradingRubricAsyncExecute(r 
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

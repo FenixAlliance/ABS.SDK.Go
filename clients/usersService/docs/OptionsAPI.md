@@ -316,7 +316,7 @@ No authorization required
 
 ## GetUserOptions
 
-> OptionDtoListEnvelope GetUserOptions(ctx).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> OptionDtoListEnvelope GetUserOptions(ctx).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 
 Retrieve a list of user options
 
@@ -338,10 +338,11 @@ func main() {
 	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	optionDtoCollectionQueryParameters := *openapiclient.NewOptionDtoCollectionQueryParameters() // OptionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OptionsAPI.GetUserOptions(context.Background()).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.OptionsAPI.GetUserOptions(context.Background()).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.GetUserOptions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -365,6 +366,7 @@ Name | Type | Description  | Notes
  **portalId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -376,7 +378,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -386,7 +388,7 @@ No authorization required
 
 ## GetUserOptionsCount
 
-> Int32Envelope GetUserOptionsCount(ctx).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+> Int32Envelope GetUserOptionsCount(ctx).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 
 Get the count of user options
 
@@ -408,10 +410,11 @@ func main() {
 	portalId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
+	optionDtoCollectionQueryParameters := *openapiclient.NewOptionDtoCollectionQueryParameters() // OptionDtoCollectionQueryParameters |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OptionsAPI.GetUserOptionsCount(context.Background()).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Execute()
+	resp, r, err := apiClient.OptionsAPI.GetUserOptionsCount(context.Background()).PortalId(portalId).ApiVersion(apiVersion).XApiVersion(xApiVersion).OptionDtoCollectionQueryParameters(optionDtoCollectionQueryParameters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.GetUserOptionsCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -435,6 +438,7 @@ Name | Type | Description  | Notes
  **portalId** | **string** |  | 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
+ **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md) |  | 
 
 ### Return type
 
@@ -446,7 +450,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -456,7 +460,7 @@ No authorization required
 
 ## PatchUserOption
 
-> EmptyEnvelope PatchUserOption(ctx, optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+> EmptyEnvelope PatchUserOption(ctx, optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 
 Patch a user option
 
@@ -478,11 +482,11 @@ func main() {
 	optionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	apiVersion := "apiVersion_example" // string |  (optional)
 	xApiVersion := "xApiVersion_example" // string |  (optional)
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	patchOperation := []openapiclient.PatchOperation{*openapiclient.NewPatchOperation()} // []PatchOperation |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OptionsAPI.PatchUserOption(context.Background(), optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).Operation(operation).Execute()
+	resp, r, err := apiClient.OptionsAPI.PatchUserOption(context.Background(), optionId).ApiVersion(apiVersion).XApiVersion(xApiVersion).PatchOperation(patchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.PatchUserOption``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -510,7 +514,7 @@ Name | Type | Description  | Notes
 
  **apiVersion** | **string** |  | 
  **xApiVersion** | **string** |  | 
- **operation** | [**[]Operation**](Operation.md) |  | 
+ **patchOperation** | [**[]PatchOperation**](PatchOperation.md) |  | 
 
 ### Return type
 

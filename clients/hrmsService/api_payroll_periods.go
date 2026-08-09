@@ -515,6 +515,7 @@ type ApiGetPayrollPeriodsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	payrollPeriodDtoCollectionQueryParameters *PayrollPeriodDtoCollectionQueryParameters
 }
 
 func (r ApiGetPayrollPeriodsAsyncRequest) TenantId(tenantId string) ApiGetPayrollPeriodsAsyncRequest {
@@ -529,6 +530,11 @@ func (r ApiGetPayrollPeriodsAsyncRequest) ApiVersion(apiVersion string) ApiGetPa
 
 func (r ApiGetPayrollPeriodsAsyncRequest) XApiVersion(xApiVersion string) ApiGetPayrollPeriodsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPayrollPeriodsAsyncRequest) PayrollPeriodDtoCollectionQueryParameters(payrollPeriodDtoCollectionQueryParameters PayrollPeriodDtoCollectionQueryParameters) ApiGetPayrollPeriodsAsyncRequest {
+	r.payrollPeriodDtoCollectionQueryParameters = &payrollPeriodDtoCollectionQueryParameters
 	return r
 }
 
@@ -580,7 +586,7 @@ func (a *PayrollPeriodsAPIService) GetPayrollPeriodsAsyncExecute(r ApiGetPayroll
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -599,6 +605,8 @@ func (a *PayrollPeriodsAPIService) GetPayrollPeriodsAsyncExecute(r ApiGetPayroll
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.payrollPeriodDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -664,6 +672,7 @@ type ApiGetPayrollPeriodsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	payrollPeriodDtoCollectionQueryParameters *PayrollPeriodDtoCollectionQueryParameters
 }
 
 func (r ApiGetPayrollPeriodsCountAsyncRequest) TenantId(tenantId string) ApiGetPayrollPeriodsCountAsyncRequest {
@@ -678,6 +687,11 @@ func (r ApiGetPayrollPeriodsCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetPayrollPeriodsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetPayrollPeriodsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetPayrollPeriodsCountAsyncRequest) PayrollPeriodDtoCollectionQueryParameters(payrollPeriodDtoCollectionQueryParameters PayrollPeriodDtoCollectionQueryParameters) ApiGetPayrollPeriodsCountAsyncRequest {
+	r.payrollPeriodDtoCollectionQueryParameters = &payrollPeriodDtoCollectionQueryParameters
 	return r
 }
 
@@ -729,7 +743,7 @@ func (a *PayrollPeriodsAPIService) GetPayrollPeriodsCountAsyncExecute(r ApiGetPa
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,6 +762,8 @@ func (a *PayrollPeriodsAPIService) GetPayrollPeriodsCountAsyncExecute(r ApiGetPa
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.payrollPeriodDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

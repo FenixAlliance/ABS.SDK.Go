@@ -60,5 +60,4 @@ model_reset_password_request.go
 model_two_factor_request.go
 model_two_factor_response.go
 response.go
-test/api_editor_assets_test.go
 utils.go

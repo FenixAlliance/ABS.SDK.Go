@@ -1275,6 +1275,7 @@ type ApiGetCostCentreBudgetsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	costCentreBudgetDtoCollectionQueryParameters *CostCentreBudgetDtoCollectionQueryParameters
 }
 
 func (r ApiGetCostCentreBudgetsRequest) TenantId(tenantId string) ApiGetCostCentreBudgetsRequest {
@@ -1289,6 +1290,11 @@ func (r ApiGetCostCentreBudgetsRequest) ApiVersion(apiVersion string) ApiGetCost
 
 func (r ApiGetCostCentreBudgetsRequest) XApiVersion(xApiVersion string) ApiGetCostCentreBudgetsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCostCentreBudgetsRequest) CostCentreBudgetDtoCollectionQueryParameters(costCentreBudgetDtoCollectionQueryParameters CostCentreBudgetDtoCollectionQueryParameters) ApiGetCostCentreBudgetsRequest {
+	r.costCentreBudgetDtoCollectionQueryParameters = &costCentreBudgetDtoCollectionQueryParameters
 	return r
 }
 
@@ -1340,7 +1346,7 @@ func (a *CostCentresAPIService) GetCostCentreBudgetsExecute(r ApiGetCostCentreBu
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1359,6 +1365,8 @@ func (a *CostCentresAPIService) GetCostCentreBudgetsExecute(r ApiGetCostCentreBu
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.costCentreBudgetDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1577,6 +1585,7 @@ type ApiGetCostCentreGroupsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	costCentreGroupDtoCollectionQueryParameters *CostCentreGroupDtoCollectionQueryParameters
 }
 
 func (r ApiGetCostCentreGroupsRequest) TenantId(tenantId string) ApiGetCostCentreGroupsRequest {
@@ -1591,6 +1600,11 @@ func (r ApiGetCostCentreGroupsRequest) ApiVersion(apiVersion string) ApiGetCostC
 
 func (r ApiGetCostCentreGroupsRequest) XApiVersion(xApiVersion string) ApiGetCostCentreGroupsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCostCentreGroupsRequest) CostCentreGroupDtoCollectionQueryParameters(costCentreGroupDtoCollectionQueryParameters CostCentreGroupDtoCollectionQueryParameters) ApiGetCostCentreGroupsRequest {
+	r.costCentreGroupDtoCollectionQueryParameters = &costCentreGroupDtoCollectionQueryParameters
 	return r
 }
 
@@ -1642,7 +1656,7 @@ func (a *CostCentresAPIService) GetCostCentreGroupsExecute(r ApiGetCostCentreGro
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1661,6 +1675,8 @@ func (a *CostCentresAPIService) GetCostCentreGroupsExecute(r ApiGetCostCentreGro
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.costCentreGroupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1726,6 +1742,7 @@ type ApiGetCostCentreGroupsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	costCentreGroupDtoCollectionQueryParameters *CostCentreGroupDtoCollectionQueryParameters
 }
 
 func (r ApiGetCostCentreGroupsCountRequest) TenantId(tenantId string) ApiGetCostCentreGroupsCountRequest {
@@ -1740,6 +1757,11 @@ func (r ApiGetCostCentreGroupsCountRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetCostCentreGroupsCountRequest) XApiVersion(xApiVersion string) ApiGetCostCentreGroupsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCostCentreGroupsCountRequest) CostCentreGroupDtoCollectionQueryParameters(costCentreGroupDtoCollectionQueryParameters CostCentreGroupDtoCollectionQueryParameters) ApiGetCostCentreGroupsCountRequest {
+	r.costCentreGroupDtoCollectionQueryParameters = &costCentreGroupDtoCollectionQueryParameters
 	return r
 }
 
@@ -1791,7 +1813,7 @@ func (a *CostCentresAPIService) GetCostCentreGroupsCountExecute(r ApiGetCostCent
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1810,6 +1832,8 @@ func (a *CostCentresAPIService) GetCostCentreGroupsCountExecute(r ApiGetCostCent
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.costCentreGroupDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1875,6 +1899,7 @@ type ApiGetCostCentresRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	costCentreDtoCollectionQueryParameters *CostCentreDtoCollectionQueryParameters
 }
 
 func (r ApiGetCostCentresRequest) TenantId(tenantId string) ApiGetCostCentresRequest {
@@ -1889,6 +1914,11 @@ func (r ApiGetCostCentresRequest) ApiVersion(apiVersion string) ApiGetCostCentre
 
 func (r ApiGetCostCentresRequest) XApiVersion(xApiVersion string) ApiGetCostCentresRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCostCentresRequest) CostCentreDtoCollectionQueryParameters(costCentreDtoCollectionQueryParameters CostCentreDtoCollectionQueryParameters) ApiGetCostCentresRequest {
+	r.costCentreDtoCollectionQueryParameters = &costCentreDtoCollectionQueryParameters
 	return r
 }
 
@@ -1940,7 +1970,7 @@ func (a *CostCentresAPIService) GetCostCentresExecute(r ApiGetCostCentresRequest
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1959,6 +1989,8 @@ func (a *CostCentresAPIService) GetCostCentresExecute(r ApiGetCostCentresRequest
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.costCentreDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2024,6 +2056,7 @@ type ApiGetCostCentresCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	costCentreDtoCollectionQueryParameters *CostCentreDtoCollectionQueryParameters
 }
 
 func (r ApiGetCostCentresCountRequest) TenantId(tenantId string) ApiGetCostCentresCountRequest {
@@ -2038,6 +2071,11 @@ func (r ApiGetCostCentresCountRequest) ApiVersion(apiVersion string) ApiGetCostC
 
 func (r ApiGetCostCentresCountRequest) XApiVersion(xApiVersion string) ApiGetCostCentresCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetCostCentresCountRequest) CostCentreDtoCollectionQueryParameters(costCentreDtoCollectionQueryParameters CostCentreDtoCollectionQueryParameters) ApiGetCostCentresCountRequest {
+	r.costCentreDtoCollectionQueryParameters = &costCentreDtoCollectionQueryParameters
 	return r
 }
 
@@ -2089,7 +2127,7 @@ func (a *CostCentresAPIService) GetCostCentresCountExecute(r ApiGetCostCentresCo
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2108,6 +2146,8 @@ func (a *CostCentresAPIService) GetCostCentresCountExecute(r ApiGetCostCentresCo
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.costCentreDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2174,7 +2214,7 @@ type ApiPatchCostCentreRequest struct {
 	costCentreId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCostCentreRequest) TenantId(tenantId string) ApiPatchCostCentreRequest {
@@ -2192,8 +2232,8 @@ func (r ApiPatchCostCentreRequest) XApiVersion(xApiVersion string) ApiPatchCostC
 	return r
 }
 
-func (r ApiPatchCostCentreRequest) Operation(operation []Operation) ApiPatchCostCentreRequest {
-	r.operation = &operation
+func (r ApiPatchCostCentreRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCostCentreRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2268,7 +2308,7 @@ func (a *CostCentresAPIService) PatchCostCentreExecute(r ApiPatchCostCentreReque
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2335,7 +2375,7 @@ type ApiPatchCostCentreBudgetRequest struct {
 	budgetId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCostCentreBudgetRequest) TenantId(tenantId string) ApiPatchCostCentreBudgetRequest {
@@ -2353,8 +2393,8 @@ func (r ApiPatchCostCentreBudgetRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchCostCentreBudgetRequest) Operation(operation []Operation) ApiPatchCostCentreBudgetRequest {
-	r.operation = &operation
+func (r ApiPatchCostCentreBudgetRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCostCentreBudgetRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2429,7 +2469,7 @@ func (a *CostCentresAPIService) PatchCostCentreBudgetExecute(r ApiPatchCostCentr
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2496,7 +2536,7 @@ type ApiPatchCostCentreGroupRequest struct {
 	groupId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchCostCentreGroupRequest) TenantId(tenantId string) ApiPatchCostCentreGroupRequest {
@@ -2514,8 +2554,8 @@ func (r ApiPatchCostCentreGroupRequest) XApiVersion(xApiVersion string) ApiPatch
 	return r
 }
 
-func (r ApiPatchCostCentreGroupRequest) Operation(operation []Operation) ApiPatchCostCentreGroupRequest {
-	r.operation = &operation
+func (r ApiPatchCostCentreGroupRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchCostCentreGroupRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -2590,7 +2630,7 @@ func (a *CostCentresAPIService) PatchCostCentreGroupExecute(r ApiPatchCostCentre
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

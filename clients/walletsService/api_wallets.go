@@ -1226,6 +1226,7 @@ type ApiGetIncomingPaymentsAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentDtoCollectionQueryParameters *PaymentDtoCollectionQueryParameters
 }
 
 func (r ApiGetIncomingPaymentsAsyncRequest) ApiVersion(apiVersion string) ApiGetIncomingPaymentsAsyncRequest {
@@ -1235,6 +1236,11 @@ func (r ApiGetIncomingPaymentsAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetIncomingPaymentsAsyncRequest) XApiVersion(xApiVersion string) ApiGetIncomingPaymentsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetIncomingPaymentsAsyncRequest) PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters PaymentDtoCollectionQueryParameters) ApiGetIncomingPaymentsAsyncRequest {
+	r.paymentDtoCollectionQueryParameters = &paymentDtoCollectionQueryParameters
 	return r
 }
 
@@ -1285,7 +1291,7 @@ func (a *WalletsAPIService) GetIncomingPaymentsAsyncExecute(r ApiGetIncomingPaym
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1304,6 +1310,8 @@ func (a *WalletsAPIService) GetIncomingPaymentsAsyncExecute(r ApiGetIncomingPaym
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1369,6 +1377,7 @@ type ApiGetIncomingPaymentsCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentDtoCollectionQueryParameters *PaymentDtoCollectionQueryParameters
 }
 
 func (r ApiGetIncomingPaymentsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetIncomingPaymentsCountAsyncRequest {
@@ -1378,6 +1387,11 @@ func (r ApiGetIncomingPaymentsCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetIncomingPaymentsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetIncomingPaymentsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetIncomingPaymentsCountAsyncRequest) PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters PaymentDtoCollectionQueryParameters) ApiGetIncomingPaymentsCountAsyncRequest {
+	r.paymentDtoCollectionQueryParameters = &paymentDtoCollectionQueryParameters
 	return r
 }
 
@@ -1428,7 +1442,7 @@ func (a *WalletsAPIService) GetIncomingPaymentsCountAsyncExecute(r ApiGetIncomin
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1447,6 +1461,8 @@ func (a *WalletsAPIService) GetIncomingPaymentsCountAsyncExecute(r ApiGetIncomin
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1512,6 +1528,7 @@ type ApiGetIncomingWalletInvoicesAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	invoiceDtoCollectionQueryParameters *InvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetIncomingWalletInvoicesAsyncRequest) ApiVersion(apiVersion string) ApiGetIncomingWalletInvoicesAsyncRequest {
@@ -1521,6 +1538,11 @@ func (r ApiGetIncomingWalletInvoicesAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetIncomingWalletInvoicesAsyncRequest) XApiVersion(xApiVersion string) ApiGetIncomingWalletInvoicesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetIncomingWalletInvoicesAsyncRequest) InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters InvoiceDtoCollectionQueryParameters) ApiGetIncomingWalletInvoicesAsyncRequest {
+	r.invoiceDtoCollectionQueryParameters = &invoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -1571,7 +1593,7 @@ func (a *WalletsAPIService) GetIncomingWalletInvoicesAsyncExecute(r ApiGetIncomi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1590,6 +1612,8 @@ func (a *WalletsAPIService) GetIncomingWalletInvoicesAsyncExecute(r ApiGetIncomi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.invoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1655,6 +1679,7 @@ type ApiGetIncomingWalletInvoicesCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	invoiceDtoCollectionQueryParameters *InvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetIncomingWalletInvoicesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetIncomingWalletInvoicesCountAsyncRequest {
@@ -1664,6 +1689,11 @@ func (r ApiGetIncomingWalletInvoicesCountAsyncRequest) ApiVersion(apiVersion str
 
 func (r ApiGetIncomingWalletInvoicesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetIncomingWalletInvoicesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetIncomingWalletInvoicesCountAsyncRequest) InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters InvoiceDtoCollectionQueryParameters) ApiGetIncomingWalletInvoicesCountAsyncRequest {
+	r.invoiceDtoCollectionQueryParameters = &invoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -1714,7 +1744,7 @@ func (a *WalletsAPIService) GetIncomingWalletInvoicesCountAsyncExecute(r ApiGetI
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1733,6 +1763,8 @@ func (a *WalletsAPIService) GetIncomingWalletInvoicesCountAsyncExecute(r ApiGetI
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.invoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1945,6 +1977,7 @@ type ApiGetLocationsForWalletAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	locationDtoCollectionQueryParameters *LocationDtoCollectionQueryParameters
 }
 
 func (r ApiGetLocationsForWalletAsyncRequest) ApiVersion(apiVersion string) ApiGetLocationsForWalletAsyncRequest {
@@ -1954,6 +1987,11 @@ func (r ApiGetLocationsForWalletAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetLocationsForWalletAsyncRequest) XApiVersion(xApiVersion string) ApiGetLocationsForWalletAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLocationsForWalletAsyncRequest) LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters LocationDtoCollectionQueryParameters) ApiGetLocationsForWalletAsyncRequest {
+	r.locationDtoCollectionQueryParameters = &locationDtoCollectionQueryParameters
 	return r
 }
 
@@ -2004,7 +2042,7 @@ func (a *WalletsAPIService) GetLocationsForWalletAsyncExecute(r ApiGetLocationsF
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2023,6 +2061,8 @@ func (a *WalletsAPIService) GetLocationsForWalletAsyncExecute(r ApiGetLocationsF
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.locationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2088,6 +2128,7 @@ type ApiGetLocationsForWalletCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	locationDtoCollectionQueryParameters *LocationDtoCollectionQueryParameters
 }
 
 func (r ApiGetLocationsForWalletCountAsyncRequest) ApiVersion(apiVersion string) ApiGetLocationsForWalletCountAsyncRequest {
@@ -2097,6 +2138,11 @@ func (r ApiGetLocationsForWalletCountAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetLocationsForWalletCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetLocationsForWalletCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetLocationsForWalletCountAsyncRequest) LocationDtoCollectionQueryParameters(locationDtoCollectionQueryParameters LocationDtoCollectionQueryParameters) ApiGetLocationsForWalletCountAsyncRequest {
+	r.locationDtoCollectionQueryParameters = &locationDtoCollectionQueryParameters
 	return r
 }
 
@@ -2147,7 +2193,7 @@ func (a *WalletsAPIService) GetLocationsForWalletCountAsyncExecute(r ApiGetLocat
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2166,6 +2212,8 @@ func (a *WalletsAPIService) GetLocationsForWalletCountAsyncExecute(r ApiGetLocat
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.locationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2231,6 +2279,7 @@ type ApiGetOutgoingPaymentsAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentDtoCollectionQueryParameters *PaymentDtoCollectionQueryParameters
 }
 
 func (r ApiGetOutgoingPaymentsAsyncRequest) ApiVersion(apiVersion string) ApiGetOutgoingPaymentsAsyncRequest {
@@ -2240,6 +2289,11 @@ func (r ApiGetOutgoingPaymentsAsyncRequest) ApiVersion(apiVersion string) ApiGet
 
 func (r ApiGetOutgoingPaymentsAsyncRequest) XApiVersion(xApiVersion string) ApiGetOutgoingPaymentsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetOutgoingPaymentsAsyncRequest) PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters PaymentDtoCollectionQueryParameters) ApiGetOutgoingPaymentsAsyncRequest {
+	r.paymentDtoCollectionQueryParameters = &paymentDtoCollectionQueryParameters
 	return r
 }
 
@@ -2290,7 +2344,7 @@ func (a *WalletsAPIService) GetOutgoingPaymentsAsyncExecute(r ApiGetOutgoingPaym
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2309,6 +2363,8 @@ func (a *WalletsAPIService) GetOutgoingPaymentsAsyncExecute(r ApiGetOutgoingPaym
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2374,6 +2430,7 @@ type ApiGetOutgoingPaymentsCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentDtoCollectionQueryParameters *PaymentDtoCollectionQueryParameters
 }
 
 func (r ApiGetOutgoingPaymentsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetOutgoingPaymentsCountAsyncRequest {
@@ -2383,6 +2440,11 @@ func (r ApiGetOutgoingPaymentsCountAsyncRequest) ApiVersion(apiVersion string) A
 
 func (r ApiGetOutgoingPaymentsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetOutgoingPaymentsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetOutgoingPaymentsCountAsyncRequest) PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters PaymentDtoCollectionQueryParameters) ApiGetOutgoingPaymentsCountAsyncRequest {
+	r.paymentDtoCollectionQueryParameters = &paymentDtoCollectionQueryParameters
 	return r
 }
 
@@ -2433,7 +2495,7 @@ func (a *WalletsAPIService) GetOutgoingPaymentsCountAsyncExecute(r ApiGetOutgoin
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2452,6 +2514,8 @@ func (a *WalletsAPIService) GetOutgoingPaymentsCountAsyncExecute(r ApiGetOutgoin
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2517,6 +2581,7 @@ type ApiGetOutgoingWalletInvoicesAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	invoiceDtoCollectionQueryParameters *InvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetOutgoingWalletInvoicesAsyncRequest) ApiVersion(apiVersion string) ApiGetOutgoingWalletInvoicesAsyncRequest {
@@ -2526,6 +2591,11 @@ func (r ApiGetOutgoingWalletInvoicesAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetOutgoingWalletInvoicesAsyncRequest) XApiVersion(xApiVersion string) ApiGetOutgoingWalletInvoicesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetOutgoingWalletInvoicesAsyncRequest) InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters InvoiceDtoCollectionQueryParameters) ApiGetOutgoingWalletInvoicesAsyncRequest {
+	r.invoiceDtoCollectionQueryParameters = &invoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -2576,7 +2646,7 @@ func (a *WalletsAPIService) GetOutgoingWalletInvoicesAsyncExecute(r ApiGetOutgoi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2595,6 +2665,8 @@ func (a *WalletsAPIService) GetOutgoingWalletInvoicesAsyncExecute(r ApiGetOutgoi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.invoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2660,6 +2732,7 @@ type ApiGetOutgoingWalletInvoicesCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	invoiceDtoCollectionQueryParameters *InvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetOutgoingWalletInvoicesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetOutgoingWalletInvoicesCountAsyncRequest {
@@ -2669,6 +2742,11 @@ func (r ApiGetOutgoingWalletInvoicesCountAsyncRequest) ApiVersion(apiVersion str
 
 func (r ApiGetOutgoingWalletInvoicesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetOutgoingWalletInvoicesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetOutgoingWalletInvoicesCountAsyncRequest) InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters InvoiceDtoCollectionQueryParameters) ApiGetOutgoingWalletInvoicesCountAsyncRequest {
+	r.invoiceDtoCollectionQueryParameters = &invoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -2719,7 +2797,7 @@ func (a *WalletsAPIService) GetOutgoingWalletInvoicesCountAsyncExecute(r ApiGetO
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2738,6 +2816,8 @@ func (a *WalletsAPIService) GetOutgoingWalletInvoicesCountAsyncExecute(r ApiGetO
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.invoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2950,6 +3030,7 @@ type ApiGetWalletBankAccountsAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	bankAccountDtoCollectionQueryParameters *BankAccountDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletBankAccountsAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletBankAccountsAsyncRequest {
@@ -2959,6 +3040,11 @@ func (r ApiGetWalletBankAccountsAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetWalletBankAccountsAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletBankAccountsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletBankAccountsAsyncRequest) BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters BankAccountDtoCollectionQueryParameters) ApiGetWalletBankAccountsAsyncRequest {
+	r.bankAccountDtoCollectionQueryParameters = &bankAccountDtoCollectionQueryParameters
 	return r
 }
 
@@ -3009,7 +3095,7 @@ func (a *WalletsAPIService) GetWalletBankAccountsAsyncExecute(r ApiGetWalletBank
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3028,6 +3114,8 @@ func (a *WalletsAPIService) GetWalletBankAccountsAsyncExecute(r ApiGetWalletBank
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.bankAccountDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3093,6 +3181,7 @@ type ApiGetWalletBankAccountsCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	bankAccountDtoCollectionQueryParameters *BankAccountDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletBankAccountsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletBankAccountsCountAsyncRequest {
@@ -3102,6 +3191,11 @@ func (r ApiGetWalletBankAccountsCountAsyncRequest) ApiVersion(apiVersion string)
 
 func (r ApiGetWalletBankAccountsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletBankAccountsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletBankAccountsCountAsyncRequest) BankAccountDtoCollectionQueryParameters(bankAccountDtoCollectionQueryParameters BankAccountDtoCollectionQueryParameters) ApiGetWalletBankAccountsCountAsyncRequest {
+	r.bankAccountDtoCollectionQueryParameters = &bankAccountDtoCollectionQueryParameters
 	return r
 }
 
@@ -3152,7 +3246,7 @@ func (a *WalletsAPIService) GetWalletBankAccountsCountAsyncExecute(r ApiGetWalle
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3171,6 +3265,8 @@ func (a *WalletsAPIService) GetWalletBankAccountsCountAsyncExecute(r ApiGetWalle
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.bankAccountDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3236,6 +3332,7 @@ type ApiGetWalletChargebacksAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentChargebackDtoCollectionQueryParameters *PaymentChargebackDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletChargebacksAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletChargebacksAsyncRequest {
@@ -3245,6 +3342,11 @@ func (r ApiGetWalletChargebacksAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetWalletChargebacksAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletChargebacksAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletChargebacksAsyncRequest) PaymentChargebackDtoCollectionQueryParameters(paymentChargebackDtoCollectionQueryParameters PaymentChargebackDtoCollectionQueryParameters) ApiGetWalletChargebacksAsyncRequest {
+	r.paymentChargebackDtoCollectionQueryParameters = &paymentChargebackDtoCollectionQueryParameters
 	return r
 }
 
@@ -3295,7 +3397,7 @@ func (a *WalletsAPIService) GetWalletChargebacksAsyncExecute(r ApiGetWalletCharg
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3314,6 +3416,8 @@ func (a *WalletsAPIService) GetWalletChargebacksAsyncExecute(r ApiGetWalletCharg
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentChargebackDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3379,6 +3483,7 @@ type ApiGetWalletChargebacksCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentChargebackDtoCollectionQueryParameters *PaymentChargebackDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletChargebacksCountAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletChargebacksCountAsyncRequest {
@@ -3388,6 +3493,11 @@ func (r ApiGetWalletChargebacksCountAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetWalletChargebacksCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletChargebacksCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletChargebacksCountAsyncRequest) PaymentChargebackDtoCollectionQueryParameters(paymentChargebackDtoCollectionQueryParameters PaymentChargebackDtoCollectionQueryParameters) ApiGetWalletChargebacksCountAsyncRequest {
+	r.paymentChargebackDtoCollectionQueryParameters = &paymentChargebackDtoCollectionQueryParameters
 	return r
 }
 
@@ -3438,7 +3548,7 @@ func (a *WalletsAPIService) GetWalletChargebacksCountAsyncExecute(r ApiGetWallet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3457,6 +3567,8 @@ func (a *WalletsAPIService) GetWalletChargebacksCountAsyncExecute(r ApiGetWallet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentChargebackDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3665,6 +3777,7 @@ type ApiGetWalletExtendedOrdersAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	extendedOrderDtoCollectionQueryParameters *ExtendedOrderDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletExtendedOrdersAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletExtendedOrdersAsyncRequest {
@@ -3674,6 +3787,11 @@ func (r ApiGetWalletExtendedOrdersAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetWalletExtendedOrdersAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletExtendedOrdersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletExtendedOrdersAsyncRequest) ExtendedOrderDtoCollectionQueryParameters(extendedOrderDtoCollectionQueryParameters ExtendedOrderDtoCollectionQueryParameters) ApiGetWalletExtendedOrdersAsyncRequest {
+	r.extendedOrderDtoCollectionQueryParameters = &extendedOrderDtoCollectionQueryParameters
 	return r
 }
 
@@ -3724,7 +3842,7 @@ func (a *WalletsAPIService) GetWalletExtendedOrdersAsyncExecute(r ApiGetWalletEx
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3743,6 +3861,8 @@ func (a *WalletsAPIService) GetWalletExtendedOrdersAsyncExecute(r ApiGetWalletEx
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.extendedOrderDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3808,6 +3928,7 @@ type ApiGetWalletInvoicesAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	invoiceDtoCollectionQueryParameters *InvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletInvoicesAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletInvoicesAsyncRequest {
@@ -3817,6 +3938,11 @@ func (r ApiGetWalletInvoicesAsyncRequest) ApiVersion(apiVersion string) ApiGetWa
 
 func (r ApiGetWalletInvoicesAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletInvoicesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletInvoicesAsyncRequest) InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters InvoiceDtoCollectionQueryParameters) ApiGetWalletInvoicesAsyncRequest {
+	r.invoiceDtoCollectionQueryParameters = &invoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -3867,7 +3993,7 @@ func (a *WalletsAPIService) GetWalletInvoicesAsyncExecute(r ApiGetWalletInvoices
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3886,6 +4012,8 @@ func (a *WalletsAPIService) GetWalletInvoicesAsyncExecute(r ApiGetWalletInvoices
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.invoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3951,6 +4079,7 @@ type ApiGetWalletInvoicesCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	invoiceDtoCollectionQueryParameters *InvoiceDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletInvoicesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletInvoicesCountAsyncRequest {
@@ -3960,6 +4089,11 @@ func (r ApiGetWalletInvoicesCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetWalletInvoicesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletInvoicesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletInvoicesCountAsyncRequest) InvoiceDtoCollectionQueryParameters(invoiceDtoCollectionQueryParameters InvoiceDtoCollectionQueryParameters) ApiGetWalletInvoicesCountAsyncRequest {
+	r.invoiceDtoCollectionQueryParameters = &invoiceDtoCollectionQueryParameters
 	return r
 }
 
@@ -4010,7 +4144,7 @@ func (a *WalletsAPIService) GetWalletInvoicesCountAsyncExecute(r ApiGetWalletInv
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4029,6 +4163,8 @@ func (a *WalletsAPIService) GetWalletInvoicesCountAsyncExecute(r ApiGetWalletInv
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.invoiceDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4094,6 +4230,7 @@ type ApiGetWalletOrdersAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	orderDtoCollectionQueryParameters *OrderDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletOrdersAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletOrdersAsyncRequest {
@@ -4103,6 +4240,11 @@ func (r ApiGetWalletOrdersAsyncRequest) ApiVersion(apiVersion string) ApiGetWall
 
 func (r ApiGetWalletOrdersAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletOrdersAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletOrdersAsyncRequest) OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters OrderDtoCollectionQueryParameters) ApiGetWalletOrdersAsyncRequest {
+	r.orderDtoCollectionQueryParameters = &orderDtoCollectionQueryParameters
 	return r
 }
 
@@ -4153,7 +4295,7 @@ func (a *WalletsAPIService) GetWalletOrdersAsyncExecute(r ApiGetWalletOrdersAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4172,6 +4314,8 @@ func (a *WalletsAPIService) GetWalletOrdersAsyncExecute(r ApiGetWalletOrdersAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.orderDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4237,6 +4381,7 @@ type ApiGetWalletOrdersCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	orderDtoCollectionQueryParameters *OrderDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletOrdersCountAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletOrdersCountAsyncRequest {
@@ -4246,6 +4391,11 @@ func (r ApiGetWalletOrdersCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetWalletOrdersCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletOrdersCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletOrdersCountAsyncRequest) OrderDtoCollectionQueryParameters(orderDtoCollectionQueryParameters OrderDtoCollectionQueryParameters) ApiGetWalletOrdersCountAsyncRequest {
+	r.orderDtoCollectionQueryParameters = &orderDtoCollectionQueryParameters
 	return r
 }
 
@@ -4296,7 +4446,7 @@ func (a *WalletsAPIService) GetWalletOrdersCountAsyncExecute(r ApiGetWalletOrder
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4315,6 +4465,8 @@ func (a *WalletsAPIService) GetWalletOrdersCountAsyncExecute(r ApiGetWalletOrder
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.orderDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4380,6 +4532,7 @@ type ApiGetWalletPaymentsAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentDtoCollectionQueryParameters *PaymentDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletPaymentsAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletPaymentsAsyncRequest {
@@ -4389,6 +4542,11 @@ func (r ApiGetWalletPaymentsAsyncRequest) ApiVersion(apiVersion string) ApiGetWa
 
 func (r ApiGetWalletPaymentsAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletPaymentsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletPaymentsAsyncRequest) PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters PaymentDtoCollectionQueryParameters) ApiGetWalletPaymentsAsyncRequest {
+	r.paymentDtoCollectionQueryParameters = &paymentDtoCollectionQueryParameters
 	return r
 }
 
@@ -4439,7 +4597,7 @@ func (a *WalletsAPIService) GetWalletPaymentsAsyncExecute(r ApiGetWalletPayments
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4458,6 +4616,8 @@ func (a *WalletsAPIService) GetWalletPaymentsAsyncExecute(r ApiGetWalletPayments
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4523,6 +4683,7 @@ type ApiGetWalletPaymentsCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentDtoCollectionQueryParameters *PaymentDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletPaymentsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletPaymentsCountAsyncRequest {
@@ -4532,6 +4693,11 @@ func (r ApiGetWalletPaymentsCountAsyncRequest) ApiVersion(apiVersion string) Api
 
 func (r ApiGetWalletPaymentsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletPaymentsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletPaymentsCountAsyncRequest) PaymentDtoCollectionQueryParameters(paymentDtoCollectionQueryParameters PaymentDtoCollectionQueryParameters) ApiGetWalletPaymentsCountAsyncRequest {
+	r.paymentDtoCollectionQueryParameters = &paymentDtoCollectionQueryParameters
 	return r
 }
 
@@ -4582,7 +4748,7 @@ func (a *WalletsAPIService) GetWalletPaymentsCountAsyncExecute(r ApiGetWalletPay
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4601,6 +4767,8 @@ func (a *WalletsAPIService) GetWalletPaymentsCountAsyncExecute(r ApiGetWalletPay
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4666,6 +4834,7 @@ type ApiGetWalletQuotesAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	quoteDtoCollectionQueryParameters *QuoteDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletQuotesAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletQuotesAsyncRequest {
@@ -4675,6 +4844,11 @@ func (r ApiGetWalletQuotesAsyncRequest) ApiVersion(apiVersion string) ApiGetWall
 
 func (r ApiGetWalletQuotesAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletQuotesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletQuotesAsyncRequest) QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters QuoteDtoCollectionQueryParameters) ApiGetWalletQuotesAsyncRequest {
+	r.quoteDtoCollectionQueryParameters = &quoteDtoCollectionQueryParameters
 	return r
 }
 
@@ -4725,7 +4899,7 @@ func (a *WalletsAPIService) GetWalletQuotesAsyncExecute(r ApiGetWalletQuotesAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4744,6 +4918,8 @@ func (a *WalletsAPIService) GetWalletQuotesAsyncExecute(r ApiGetWalletQuotesAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.quoteDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4809,6 +4985,7 @@ type ApiGetWalletQuotesCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	quoteDtoCollectionQueryParameters *QuoteDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletQuotesCountAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletQuotesCountAsyncRequest {
@@ -4818,6 +4995,11 @@ func (r ApiGetWalletQuotesCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetWalletQuotesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletQuotesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletQuotesCountAsyncRequest) QuoteDtoCollectionQueryParameters(quoteDtoCollectionQueryParameters QuoteDtoCollectionQueryParameters) ApiGetWalletQuotesCountAsyncRequest {
+	r.quoteDtoCollectionQueryParameters = &quoteDtoCollectionQueryParameters
 	return r
 }
 
@@ -4868,7 +5050,7 @@ func (a *WalletsAPIService) GetWalletQuotesCountAsyncExecute(r ApiGetWalletQuote
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4887,6 +5069,8 @@ func (a *WalletsAPIService) GetWalletQuotesCountAsyncExecute(r ApiGetWalletQuote
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.quoteDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4952,6 +5136,7 @@ type ApiGetWalletRefundsAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentRefundDtoCollectionQueryParameters *PaymentRefundDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletRefundsAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletRefundsAsyncRequest {
@@ -4961,6 +5146,11 @@ func (r ApiGetWalletRefundsAsyncRequest) ApiVersion(apiVersion string) ApiGetWal
 
 func (r ApiGetWalletRefundsAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletRefundsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletRefundsAsyncRequest) PaymentRefundDtoCollectionQueryParameters(paymentRefundDtoCollectionQueryParameters PaymentRefundDtoCollectionQueryParameters) ApiGetWalletRefundsAsyncRequest {
+	r.paymentRefundDtoCollectionQueryParameters = &paymentRefundDtoCollectionQueryParameters
 	return r
 }
 
@@ -5011,7 +5201,7 @@ func (a *WalletsAPIService) GetWalletRefundsAsyncExecute(r ApiGetWalletRefundsAs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5030,6 +5220,8 @@ func (a *WalletsAPIService) GetWalletRefundsAsyncExecute(r ApiGetWalletRefundsAs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentRefundDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5095,6 +5287,7 @@ type ApiGetWalletRefundsCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentRefundDtoCollectionQueryParameters *PaymentRefundDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletRefundsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletRefundsCountAsyncRequest {
@@ -5104,6 +5297,11 @@ func (r ApiGetWalletRefundsCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetWalletRefundsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletRefundsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletRefundsCountAsyncRequest) PaymentRefundDtoCollectionQueryParameters(paymentRefundDtoCollectionQueryParameters PaymentRefundDtoCollectionQueryParameters) ApiGetWalletRefundsCountAsyncRequest {
+	r.paymentRefundDtoCollectionQueryParameters = &paymentRefundDtoCollectionQueryParameters
 	return r
 }
 
@@ -5154,7 +5352,7 @@ func (a *WalletsAPIService) GetWalletRefundsCountAsyncExecute(r ApiGetWalletRefu
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5173,6 +5371,8 @@ func (a *WalletsAPIService) GetWalletRefundsCountAsyncExecute(r ApiGetWalletRefu
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentRefundDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5385,6 +5585,7 @@ type ApiGetWalletTokensAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentTokenDtoCollectionQueryParameters *PaymentTokenDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletTokensAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletTokensAsyncRequest {
@@ -5394,6 +5595,11 @@ func (r ApiGetWalletTokensAsyncRequest) ApiVersion(apiVersion string) ApiGetWall
 
 func (r ApiGetWalletTokensAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletTokensAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletTokensAsyncRequest) PaymentTokenDtoCollectionQueryParameters(paymentTokenDtoCollectionQueryParameters PaymentTokenDtoCollectionQueryParameters) ApiGetWalletTokensAsyncRequest {
+	r.paymentTokenDtoCollectionQueryParameters = &paymentTokenDtoCollectionQueryParameters
 	return r
 }
 
@@ -5444,7 +5650,7 @@ func (a *WalletsAPIService) GetWalletTokensAsyncExecute(r ApiGetWalletTokensAsyn
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5463,6 +5669,8 @@ func (a *WalletsAPIService) GetWalletTokensAsyncExecute(r ApiGetWalletTokensAsyn
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentTokenDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5528,6 +5736,7 @@ type ApiGetWalletTokensCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	paymentTokenDtoCollectionQueryParameters *PaymentTokenDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletTokensCountAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletTokensCountAsyncRequest {
@@ -5537,6 +5746,11 @@ func (r ApiGetWalletTokensCountAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetWalletTokensCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletTokensCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletTokensCountAsyncRequest) PaymentTokenDtoCollectionQueryParameters(paymentTokenDtoCollectionQueryParameters PaymentTokenDtoCollectionQueryParameters) ApiGetWalletTokensCountAsyncRequest {
+	r.paymentTokenDtoCollectionQueryParameters = &paymentTokenDtoCollectionQueryParameters
 	return r
 }
 
@@ -5587,7 +5801,7 @@ func (a *WalletsAPIService) GetWalletTokensCountAsyncExecute(r ApiGetWalletToken
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5606,6 +5820,8 @@ func (a *WalletsAPIService) GetWalletTokensCountAsyncExecute(r ApiGetWalletToken
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.paymentTokenDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5671,6 +5887,7 @@ type ApiGetWalletWithdrawRequestsAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	walletWithdrawRequestDtoCollectionQueryParameters *WalletWithdrawRequestDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletWithdrawRequestsAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletWithdrawRequestsAsyncRequest {
@@ -5680,6 +5897,11 @@ func (r ApiGetWalletWithdrawRequestsAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetWalletWithdrawRequestsAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletWithdrawRequestsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletWithdrawRequestsAsyncRequest) WalletWithdrawRequestDtoCollectionQueryParameters(walletWithdrawRequestDtoCollectionQueryParameters WalletWithdrawRequestDtoCollectionQueryParameters) ApiGetWalletWithdrawRequestsAsyncRequest {
+	r.walletWithdrawRequestDtoCollectionQueryParameters = &walletWithdrawRequestDtoCollectionQueryParameters
 	return r
 }
 
@@ -5730,7 +5952,7 @@ func (a *WalletsAPIService) GetWalletWithdrawRequestsAsyncExecute(r ApiGetWallet
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5749,6 +5971,8 @@ func (a *WalletsAPIService) GetWalletWithdrawRequestsAsyncExecute(r ApiGetWallet
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.walletWithdrawRequestDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5814,6 +6038,7 @@ type ApiGetWalletWithdrawRequestsCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	walletWithdrawRequestDtoCollectionQueryParameters *WalletWithdrawRequestDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletWithdrawRequestsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletWithdrawRequestsCountAsyncRequest {
@@ -5823,6 +6048,11 @@ func (r ApiGetWalletWithdrawRequestsCountAsyncRequest) ApiVersion(apiVersion str
 
 func (r ApiGetWalletWithdrawRequestsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletWithdrawRequestsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletWithdrawRequestsCountAsyncRequest) WalletWithdrawRequestDtoCollectionQueryParameters(walletWithdrawRequestDtoCollectionQueryParameters WalletWithdrawRequestDtoCollectionQueryParameters) ApiGetWalletWithdrawRequestsCountAsyncRequest {
+	r.walletWithdrawRequestDtoCollectionQueryParameters = &walletWithdrawRequestDtoCollectionQueryParameters
 	return r
 }
 
@@ -5873,7 +6103,7 @@ func (a *WalletsAPIService) GetWalletWithdrawRequestsCountAsyncExecute(r ApiGetW
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -5892,6 +6122,8 @@ func (a *WalletsAPIService) GetWalletWithdrawRequestsCountAsyncExecute(r ApiGetW
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.walletWithdrawRequestDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5957,6 +6189,7 @@ type ApiGetWalletWithdrawsAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	walletWithdrawDtoCollectionQueryParameters *WalletWithdrawDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletWithdrawsAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletWithdrawsAsyncRequest {
@@ -5966,6 +6199,11 @@ func (r ApiGetWalletWithdrawsAsyncRequest) ApiVersion(apiVersion string) ApiGetW
 
 func (r ApiGetWalletWithdrawsAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletWithdrawsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletWithdrawsAsyncRequest) WalletWithdrawDtoCollectionQueryParameters(walletWithdrawDtoCollectionQueryParameters WalletWithdrawDtoCollectionQueryParameters) ApiGetWalletWithdrawsAsyncRequest {
+	r.walletWithdrawDtoCollectionQueryParameters = &walletWithdrawDtoCollectionQueryParameters
 	return r
 }
 
@@ -6016,7 +6254,7 @@ func (a *WalletsAPIService) GetWalletWithdrawsAsyncExecute(r ApiGetWalletWithdra
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -6035,6 +6273,8 @@ func (a *WalletsAPIService) GetWalletWithdrawsAsyncExecute(r ApiGetWalletWithdra
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.walletWithdrawDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6100,6 +6340,7 @@ type ApiGetWalletWithdrawsCountAsyncRequest struct {
 	walletId string
 	apiVersion *string
 	xApiVersion *string
+	walletWithdrawDtoCollectionQueryParameters *WalletWithdrawDtoCollectionQueryParameters
 }
 
 func (r ApiGetWalletWithdrawsCountAsyncRequest) ApiVersion(apiVersion string) ApiGetWalletWithdrawsCountAsyncRequest {
@@ -6109,6 +6350,11 @@ func (r ApiGetWalletWithdrawsCountAsyncRequest) ApiVersion(apiVersion string) Ap
 
 func (r ApiGetWalletWithdrawsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWalletWithdrawsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWalletWithdrawsCountAsyncRequest) WalletWithdrawDtoCollectionQueryParameters(walletWithdrawDtoCollectionQueryParameters WalletWithdrawDtoCollectionQueryParameters) ApiGetWalletWithdrawsCountAsyncRequest {
+	r.walletWithdrawDtoCollectionQueryParameters = &walletWithdrawDtoCollectionQueryParameters
 	return r
 }
 
@@ -6159,7 +6405,7 @@ func (a *WalletsAPIService) GetWalletWithdrawsCountAsyncExecute(r ApiGetWalletWi
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -6178,6 +6424,8 @@ func (a *WalletsAPIService) GetWalletWithdrawsCountAsyncExecute(r ApiGetWalletWi
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.walletWithdrawDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6244,7 +6492,7 @@ type ApiPatchWalletBankAccountAsyncRequest struct {
 	bankAccountId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchWalletBankAccountAsyncRequest) ApiVersion(apiVersion string) ApiPatchWalletBankAccountAsyncRequest {
@@ -6257,8 +6505,8 @@ func (r ApiPatchWalletBankAccountAsyncRequest) XApiVersion(xApiVersion string) A
 	return r
 }
 
-func (r ApiPatchWalletBankAccountAsyncRequest) Operation(operation []Operation) ApiPatchWalletBankAccountAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchWalletBankAccountAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWalletBankAccountAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -6332,7 +6580,7 @@ func (a *WalletsAPIService) PatchWalletBankAccountAsyncExecute(r ApiPatchWalletB
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6399,7 +6647,7 @@ type ApiPatchWalletTokenAsyncRequest struct {
 	tokenId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchWalletTokenAsyncRequest) ApiVersion(apiVersion string) ApiPatchWalletTokenAsyncRequest {
@@ -6412,8 +6660,8 @@ func (r ApiPatchWalletTokenAsyncRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchWalletTokenAsyncRequest) Operation(operation []Operation) ApiPatchWalletTokenAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchWalletTokenAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWalletTokenAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -6487,7 +6735,7 @@ func (a *WalletsAPIService) PatchWalletTokenAsyncExecute(r ApiPatchWalletTokenAs
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

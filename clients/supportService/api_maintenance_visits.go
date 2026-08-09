@@ -421,6 +421,7 @@ type ApiGetMaintenanceVisitsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	maintenanceVisitDtoCollectionQueryParameters *MaintenanceVisitDtoCollectionQueryParameters
 }
 
 func (r ApiGetMaintenanceVisitsAsyncRequest) TenantId(tenantId string) ApiGetMaintenanceVisitsAsyncRequest {
@@ -435,6 +436,11 @@ func (r ApiGetMaintenanceVisitsAsyncRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetMaintenanceVisitsAsyncRequest) XApiVersion(xApiVersion string) ApiGetMaintenanceVisitsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMaintenanceVisitsAsyncRequest) MaintenanceVisitDtoCollectionQueryParameters(maintenanceVisitDtoCollectionQueryParameters MaintenanceVisitDtoCollectionQueryParameters) ApiGetMaintenanceVisitsAsyncRequest {
+	r.maintenanceVisitDtoCollectionQueryParameters = &maintenanceVisitDtoCollectionQueryParameters
 	return r
 }
 
@@ -484,7 +490,7 @@ func (a *MaintenanceVisitsAPIService) GetMaintenanceVisitsAsyncExecute(r ApiGetM
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -503,6 +509,8 @@ func (a *MaintenanceVisitsAPIService) GetMaintenanceVisitsAsyncExecute(r ApiGetM
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.maintenanceVisitDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -546,6 +554,7 @@ type ApiGetMaintenanceVisitsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	maintenanceVisitDtoCollectionQueryParameters *MaintenanceVisitDtoCollectionQueryParameters
 }
 
 func (r ApiGetMaintenanceVisitsCountAsyncRequest) TenantId(tenantId string) ApiGetMaintenanceVisitsCountAsyncRequest {
@@ -560,6 +569,11 @@ func (r ApiGetMaintenanceVisitsCountAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetMaintenanceVisitsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetMaintenanceVisitsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetMaintenanceVisitsCountAsyncRequest) MaintenanceVisitDtoCollectionQueryParameters(maintenanceVisitDtoCollectionQueryParameters MaintenanceVisitDtoCollectionQueryParameters) ApiGetMaintenanceVisitsCountAsyncRequest {
+	r.maintenanceVisitDtoCollectionQueryParameters = &maintenanceVisitDtoCollectionQueryParameters
 	return r
 }
 
@@ -609,7 +623,7 @@ func (a *MaintenanceVisitsAPIService) GetMaintenanceVisitsCountAsyncExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -628,6 +642,8 @@ func (a *MaintenanceVisitsAPIService) GetMaintenanceVisitsCountAsyncExecute(r Ap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.maintenanceVisitDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -672,7 +688,7 @@ type ApiPatchMaintenanceVisitAsyncRequest struct {
 	maintenanceVisitId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchMaintenanceVisitAsyncRequest) TenantId(tenantId string) ApiPatchMaintenanceVisitAsyncRequest {
@@ -690,8 +706,8 @@ func (r ApiPatchMaintenanceVisitAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchMaintenanceVisitAsyncRequest) Operation(operation []Operation) ApiPatchMaintenanceVisitAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchMaintenanceVisitAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchMaintenanceVisitAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -766,7 +782,7 @@ func (a *MaintenanceVisitsAPIService) PatchMaintenanceVisitAsyncExecute(r ApiPat
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

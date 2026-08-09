@@ -471,6 +471,7 @@ type ApiGetWebsiteThemesAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	websiteThemeDtoCollectionQueryParameters *WebsiteThemeDtoCollectionQueryParameters
 }
 
 func (r ApiGetWebsiteThemesAsyncRequest) TenantId(tenantId string) ApiGetWebsiteThemesAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetWebsiteThemesAsyncRequest) ApiVersion(apiVersion string) ApiGetWeb
 
 func (r ApiGetWebsiteThemesAsyncRequest) XApiVersion(xApiVersion string) ApiGetWebsiteThemesAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWebsiteThemesAsyncRequest) WebsiteThemeDtoCollectionQueryParameters(websiteThemeDtoCollectionQueryParameters WebsiteThemeDtoCollectionQueryParameters) ApiGetWebsiteThemesAsyncRequest {
+	r.websiteThemeDtoCollectionQueryParameters = &websiteThemeDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *WebsiteThemesAPIService) GetWebsiteThemesAsyncExecute(r ApiGetWebsiteTh
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *WebsiteThemesAPIService) GetWebsiteThemesAsyncExecute(r ApiGetWebsiteTh
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.websiteThemeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetWebsiteThemesCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	websiteThemeDtoCollectionQueryParameters *WebsiteThemeDtoCollectionQueryParameters
 }
 
 func (r ApiGetWebsiteThemesCountAsyncRequest) TenantId(tenantId string) ApiGetWebsiteThemesCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetWebsiteThemesCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetWebsiteThemesCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetWebsiteThemesCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetWebsiteThemesCountAsyncRequest) WebsiteThemeDtoCollectionQueryParameters(websiteThemeDtoCollectionQueryParameters WebsiteThemeDtoCollectionQueryParameters) ApiGetWebsiteThemesCountAsyncRequest {
+	r.websiteThemeDtoCollectionQueryParameters = &websiteThemeDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *WebsiteThemesAPIService) GetWebsiteThemesCountAsyncExecute(r ApiGetWebs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *WebsiteThemesAPIService) GetWebsiteThemesCountAsyncExecute(r ApiGetWebs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.websiteThemeDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchWebsiteThemeAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchWebsiteThemeAsyncRequest) TenantId(tenantId string) ApiPatchWebsiteThemeAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchWebsiteThemeAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchWebsiteThemeAsyncRequest) Operation(operation []Operation) ApiPatchWebsiteThemeAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchWebsiteThemeAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchWebsiteThemeAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -840,7 +856,7 @@ func (a *WebsiteThemesAPIService) PatchWebsiteThemeAsyncExecute(r ApiPatchWebsit
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

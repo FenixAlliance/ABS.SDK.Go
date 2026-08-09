@@ -493,6 +493,7 @@ type ApiGetTenantTeamRecordsRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantTeamRecordDtoCollectionQueryParameters *TenantTeamRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantTeamRecordsRequest) TenantId(tenantId string) ApiGetTenantTeamRecordsRequest {
@@ -507,6 +508,11 @@ func (r ApiGetTenantTeamRecordsRequest) ApiVersion(apiVersion string) ApiGetTena
 
 func (r ApiGetTenantTeamRecordsRequest) XApiVersion(xApiVersion string) ApiGetTenantTeamRecordsRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantTeamRecordsRequest) TenantTeamRecordDtoCollectionQueryParameters(tenantTeamRecordDtoCollectionQueryParameters TenantTeamRecordDtoCollectionQueryParameters) ApiGetTenantTeamRecordsRequest {
+	r.tenantTeamRecordDtoCollectionQueryParameters = &tenantTeamRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -558,7 +564,7 @@ func (a *TeamRecordsAPIService) GetTenantTeamRecordsExecute(r ApiGetTenantTeamRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -577,6 +583,8 @@ func (a *TeamRecordsAPIService) GetTenantTeamRecordsExecute(r ApiGetTenantTeamRe
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantTeamRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetTenantTeamRecordsCountRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	tenantTeamRecordDtoCollectionQueryParameters *TenantTeamRecordDtoCollectionQueryParameters
 }
 
 func (r ApiGetTenantTeamRecordsCountRequest) TenantId(tenantId string) ApiGetTenantTeamRecordsCountRequest {
@@ -656,6 +665,11 @@ func (r ApiGetTenantTeamRecordsCountRequest) ApiVersion(apiVersion string) ApiGe
 
 func (r ApiGetTenantTeamRecordsCountRequest) XApiVersion(xApiVersion string) ApiGetTenantTeamRecordsCountRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetTenantTeamRecordsCountRequest) TenantTeamRecordDtoCollectionQueryParameters(tenantTeamRecordDtoCollectionQueryParameters TenantTeamRecordDtoCollectionQueryParameters) ApiGetTenantTeamRecordsCountRequest {
+	r.tenantTeamRecordDtoCollectionQueryParameters = &tenantTeamRecordDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *TeamRecordsAPIService) GetTenantTeamRecordsCountExecute(r ApiGetTenantT
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *TeamRecordsAPIService) GetTenantTeamRecordsCountExecute(r ApiGetTenantT
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.tenantTeamRecordDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchTenantTeamRecordRequest struct {
 	tenantTeamRecordId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchTenantTeamRecordRequest) TenantId(tenantId string) ApiPatchTenantTeamRecordRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchTenantTeamRecordRequest) XApiVersion(xApiVersion string) ApiPatc
 	return r
 }
 
-func (r ApiPatchTenantTeamRecordRequest) Operation(operation []Operation) ApiPatchTenantTeamRecordRequest {
-	r.operation = &operation
+func (r ApiPatchTenantTeamRecordRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchTenantTeamRecordRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *TeamRecordsAPIService) PatchTenantTeamRecordExecute(r ApiPatchTenantTea
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

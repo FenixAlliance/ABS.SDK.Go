@@ -493,6 +493,7 @@ type ApiGetSubscriptionsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	subscriptionDtoCollectionQueryParameters *SubscriptionDtoCollectionQueryParameters
 }
 
 func (r ApiGetSubscriptionsAsyncRequest) TenantId(tenantId string) ApiGetSubscriptionsAsyncRequest {
@@ -507,6 +508,11 @@ func (r ApiGetSubscriptionsAsyncRequest) ApiVersion(apiVersion string) ApiGetSub
 
 func (r ApiGetSubscriptionsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSubscriptionsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSubscriptionsAsyncRequest) SubscriptionDtoCollectionQueryParameters(subscriptionDtoCollectionQueryParameters SubscriptionDtoCollectionQueryParameters) ApiGetSubscriptionsAsyncRequest {
+	r.subscriptionDtoCollectionQueryParameters = &subscriptionDtoCollectionQueryParameters
 	return r
 }
 
@@ -558,7 +564,7 @@ func (a *SubscriptionsAPIService) GetSubscriptionsAsyncExecute(r ApiGetSubscript
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -577,6 +583,8 @@ func (a *SubscriptionsAPIService) GetSubscriptionsAsyncExecute(r ApiGetSubscript
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.subscriptionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -642,6 +650,7 @@ type ApiGetSubscriptionsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	subscriptionDtoCollectionQueryParameters *SubscriptionDtoCollectionQueryParameters
 }
 
 func (r ApiGetSubscriptionsCountAsyncRequest) TenantId(tenantId string) ApiGetSubscriptionsCountAsyncRequest {
@@ -656,6 +665,11 @@ func (r ApiGetSubscriptionsCountAsyncRequest) ApiVersion(apiVersion string) ApiG
 
 func (r ApiGetSubscriptionsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSubscriptionsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSubscriptionsCountAsyncRequest) SubscriptionDtoCollectionQueryParameters(subscriptionDtoCollectionQueryParameters SubscriptionDtoCollectionQueryParameters) ApiGetSubscriptionsCountAsyncRequest {
+	r.subscriptionDtoCollectionQueryParameters = &subscriptionDtoCollectionQueryParameters
 	return r
 }
 
@@ -707,7 +721,7 @@ func (a *SubscriptionsAPIService) GetSubscriptionsCountAsyncExecute(r ApiGetSubs
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -726,6 +740,8 @@ func (a *SubscriptionsAPIService) GetSubscriptionsCountAsyncExecute(r ApiGetSubs
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.subscriptionDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -792,7 +808,7 @@ type ApiPatchSubscriptionAsyncRequest struct {
 	subscriptionId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSubscriptionAsyncRequest) TenantId(tenantId string) ApiPatchSubscriptionAsyncRequest {
@@ -810,8 +826,8 @@ func (r ApiPatchSubscriptionAsyncRequest) XApiVersion(xApiVersion string) ApiPat
 	return r
 }
 
-func (r ApiPatchSubscriptionAsyncRequest) Operation(operation []Operation) ApiPatchSubscriptionAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSubscriptionAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSubscriptionAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -886,7 +902,7 @@ func (a *SubscriptionsAPIService) PatchSubscriptionAsyncExecute(r ApiPatchSubscr
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

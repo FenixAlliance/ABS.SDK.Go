@@ -28,6 +28,9 @@ type AuthResult struct {
 	CorrelationId NullableString `json:"correlationId,omitempty"`
 	Scopes []string `json:"scopes,omitempty"`
 	Error NullableString `json:"error,omitempty"`
+	RunAs *string `json:"runAs,omitempty"`
+	PrincipalKind *string `json:"principalKind,omitempty"`
+	Provenance *ExecutionProvenance `json:"provenance,omitempty"`
 }
 
 // NewAuthResult instantiates a new AuthResult object
@@ -324,6 +327,102 @@ func (o *AuthResult) UnsetError() {
 	o.Error.Unset()
 }
 
+// GetRunAs returns the RunAs field value if set, zero value otherwise.
+func (o *AuthResult) GetRunAs() string {
+	if o == nil || IsNil(o.RunAs) {
+		var ret string
+		return ret
+	}
+	return *o.RunAs
+}
+
+// GetRunAsOk returns a tuple with the RunAs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AuthResult) GetRunAsOk() (*string, bool) {
+	if o == nil || IsNil(o.RunAs) {
+		return nil, false
+	}
+	return o.RunAs, true
+}
+
+// HasRunAs returns a boolean if a field has been set.
+func (o *AuthResult) HasRunAs() bool {
+	if o != nil && !IsNil(o.RunAs) {
+		return true
+	}
+
+	return false
+}
+
+// SetRunAs gets a reference to the given string and assigns it to the RunAs field.
+func (o *AuthResult) SetRunAs(v string) {
+	o.RunAs = &v
+}
+
+// GetPrincipalKind returns the PrincipalKind field value if set, zero value otherwise.
+func (o *AuthResult) GetPrincipalKind() string {
+	if o == nil || IsNil(o.PrincipalKind) {
+		var ret string
+		return ret
+	}
+	return *o.PrincipalKind
+}
+
+// GetPrincipalKindOk returns a tuple with the PrincipalKind field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AuthResult) GetPrincipalKindOk() (*string, bool) {
+	if o == nil || IsNil(o.PrincipalKind) {
+		return nil, false
+	}
+	return o.PrincipalKind, true
+}
+
+// HasPrincipalKind returns a boolean if a field has been set.
+func (o *AuthResult) HasPrincipalKind() bool {
+	if o != nil && !IsNil(o.PrincipalKind) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrincipalKind gets a reference to the given string and assigns it to the PrincipalKind field.
+func (o *AuthResult) SetPrincipalKind(v string) {
+	o.PrincipalKind = &v
+}
+
+// GetProvenance returns the Provenance field value if set, zero value otherwise.
+func (o *AuthResult) GetProvenance() ExecutionProvenance {
+	if o == nil || IsNil(o.Provenance) {
+		var ret ExecutionProvenance
+		return ret
+	}
+	return *o.Provenance
+}
+
+// GetProvenanceOk returns a tuple with the Provenance field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AuthResult) GetProvenanceOk() (*ExecutionProvenance, bool) {
+	if o == nil || IsNil(o.Provenance) {
+		return nil, false
+	}
+	return o.Provenance, true
+}
+
+// HasProvenance returns a boolean if a field has been set.
+func (o *AuthResult) HasProvenance() bool {
+	if o != nil && !IsNil(o.Provenance) {
+		return true
+	}
+
+	return false
+}
+
+// SetProvenance gets a reference to the given ExecutionProvenance and assigns it to the Provenance field.
+func (o *AuthResult) SetProvenance(v ExecutionProvenance) {
+	o.Provenance = &v
+}
+
 func (o AuthResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -357,6 +456,15 @@ func (o AuthResult) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Error.IsSet() {
 		toSerialize["error"] = o.Error.Get()
+	}
+	if !IsNil(o.RunAs) {
+		toSerialize["runAs"] = o.RunAs
+	}
+	if !IsNil(o.PrincipalKind) {
+		toSerialize["principalKind"] = o.PrincipalKind
+	}
+	if !IsNil(o.Provenance) {
+		toSerialize["provenance"] = o.Provenance
 	}
 	return toSerialize, nil
 }

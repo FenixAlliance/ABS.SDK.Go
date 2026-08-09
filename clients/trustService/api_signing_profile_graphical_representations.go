@@ -471,6 +471,7 @@ type ApiGetSigningProfileGraphicalRepresentationsAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	signingProfileGraphicalRepresentationDtoCollectionQueryParameters *SigningProfileGraphicalRepresentationDtoCollectionQueryParameters
 }
 
 func (r ApiGetSigningProfileGraphicalRepresentationsAsyncRequest) TenantId(tenantId string) ApiGetSigningProfileGraphicalRepresentationsAsyncRequest {
@@ -485,6 +486,11 @@ func (r ApiGetSigningProfileGraphicalRepresentationsAsyncRequest) ApiVersion(api
 
 func (r ApiGetSigningProfileGraphicalRepresentationsAsyncRequest) XApiVersion(xApiVersion string) ApiGetSigningProfileGraphicalRepresentationsAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSigningProfileGraphicalRepresentationsAsyncRequest) SigningProfileGraphicalRepresentationDtoCollectionQueryParameters(signingProfileGraphicalRepresentationDtoCollectionQueryParameters SigningProfileGraphicalRepresentationDtoCollectionQueryParameters) ApiGetSigningProfileGraphicalRepresentationsAsyncRequest {
+	r.signingProfileGraphicalRepresentationDtoCollectionQueryParameters = &signingProfileGraphicalRepresentationDtoCollectionQueryParameters
 	return r
 }
 
@@ -536,7 +542,7 @@ func (a *SigningProfileGraphicalRepresentationsAPIService) GetSigningProfileGrap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -555,6 +561,8 @@ func (a *SigningProfileGraphicalRepresentationsAPIService) GetSigningProfileGrap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.signingProfileGraphicalRepresentationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -609,6 +617,7 @@ type ApiGetSigningProfileGraphicalRepresentationsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	signingProfileGraphicalRepresentationDtoCollectionQueryParameters *SigningProfileGraphicalRepresentationDtoCollectionQueryParameters
 }
 
 func (r ApiGetSigningProfileGraphicalRepresentationsCountAsyncRequest) TenantId(tenantId string) ApiGetSigningProfileGraphicalRepresentationsCountAsyncRequest {
@@ -623,6 +632,11 @@ func (r ApiGetSigningProfileGraphicalRepresentationsCountAsyncRequest) ApiVersio
 
 func (r ApiGetSigningProfileGraphicalRepresentationsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSigningProfileGraphicalRepresentationsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSigningProfileGraphicalRepresentationsCountAsyncRequest) SigningProfileGraphicalRepresentationDtoCollectionQueryParameters(signingProfileGraphicalRepresentationDtoCollectionQueryParameters SigningProfileGraphicalRepresentationDtoCollectionQueryParameters) ApiGetSigningProfileGraphicalRepresentationsCountAsyncRequest {
+	r.signingProfileGraphicalRepresentationDtoCollectionQueryParameters = &signingProfileGraphicalRepresentationDtoCollectionQueryParameters
 	return r
 }
 
@@ -674,7 +688,7 @@ func (a *SigningProfileGraphicalRepresentationsAPIService) GetSigningProfileGrap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -693,6 +707,8 @@ func (a *SigningProfileGraphicalRepresentationsAPIService) GetSigningProfileGrap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.signingProfileGraphicalRepresentationDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -748,7 +764,7 @@ type ApiPatchSigningProfileGraphicalRepresentationAsyncRequest struct {
 	id string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSigningProfileGraphicalRepresentationAsyncRequest) TenantId(tenantId string) ApiPatchSigningProfileGraphicalRepresentationAsyncRequest {
@@ -766,8 +782,8 @@ func (r ApiPatchSigningProfileGraphicalRepresentationAsyncRequest) XApiVersion(x
 	return r
 }
 
-func (r ApiPatchSigningProfileGraphicalRepresentationAsyncRequest) Operation(operation []Operation) ApiPatchSigningProfileGraphicalRepresentationAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSigningProfileGraphicalRepresentationAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSigningProfileGraphicalRepresentationAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -842,7 +858,7 @@ func (a *SigningProfileGraphicalRepresentationsAPIService) PatchSigningProfileGr
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

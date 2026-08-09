@@ -529,6 +529,7 @@ type ApiGetSocialPostBucketsCountAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	socialPostBucketDtoCollectionQueryParameters *SocialPostBucketDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialPostBucketsCountAsyncRequest) TenantId(tenantId string) ApiGetSocialPostBucketsCountAsyncRequest {
@@ -543,6 +544,11 @@ func (r ApiGetSocialPostBucketsCountAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetSocialPostBucketsCountAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialPostBucketsCountAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialPostBucketsCountAsyncRequest) SocialPostBucketDtoCollectionQueryParameters(socialPostBucketDtoCollectionQueryParameters SocialPostBucketDtoCollectionQueryParameters) ApiGetSocialPostBucketsCountAsyncRequest {
+	r.socialPostBucketDtoCollectionQueryParameters = &socialPostBucketDtoCollectionQueryParameters
 	return r
 }
 
@@ -594,7 +600,7 @@ func (a *SocialPostBucketsAPIService) GetSocialPostBucketsCountAsyncExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -613,6 +619,8 @@ func (a *SocialPostBucketsAPIService) GetSocialPostBucketsCountAsyncExecute(r Ap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialPostBucketDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -689,6 +697,7 @@ type ApiGetSocialPostBucketsODataAsyncRequest struct {
 	tenantId *string
 	apiVersion *string
 	xApiVersion *string
+	socialPostBucketDtoCollectionQueryParameters *SocialPostBucketDtoCollectionQueryParameters
 }
 
 func (r ApiGetSocialPostBucketsODataAsyncRequest) TenantId(tenantId string) ApiGetSocialPostBucketsODataAsyncRequest {
@@ -703,6 +712,11 @@ func (r ApiGetSocialPostBucketsODataAsyncRequest) ApiVersion(apiVersion string) 
 
 func (r ApiGetSocialPostBucketsODataAsyncRequest) XApiVersion(xApiVersion string) ApiGetSocialPostBucketsODataAsyncRequest {
 	r.xApiVersion = &xApiVersion
+	return r
+}
+
+func (r ApiGetSocialPostBucketsODataAsyncRequest) SocialPostBucketDtoCollectionQueryParameters(socialPostBucketDtoCollectionQueryParameters SocialPostBucketDtoCollectionQueryParameters) ApiGetSocialPostBucketsODataAsyncRequest {
+	r.socialPostBucketDtoCollectionQueryParameters = &socialPostBucketDtoCollectionQueryParameters
 	return r
 }
 
@@ -754,7 +768,7 @@ func (a *SocialPostBucketsAPIService) GetSocialPostBucketsODataAsyncExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "api-version", r.apiVersion, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -773,6 +787,8 @@ func (a *SocialPostBucketsAPIService) GetSocialPostBucketsODataAsyncExecute(r Ap
 	if r.xApiVersion != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
+	// body params
+	localVarPostBody = r.socialPostBucketDtoCollectionQueryParameters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -839,7 +855,7 @@ type ApiPatchSocialPostBucketAsyncRequest struct {
 	socialpostbucketId string
 	apiVersion *string
 	xApiVersion *string
-	operation *[]Operation
+	patchOperation *[]PatchOperation
 }
 
 func (r ApiPatchSocialPostBucketAsyncRequest) TenantId(tenantId string) ApiPatchSocialPostBucketAsyncRequest {
@@ -857,8 +873,8 @@ func (r ApiPatchSocialPostBucketAsyncRequest) XApiVersion(xApiVersion string) Ap
 	return r
 }
 
-func (r ApiPatchSocialPostBucketAsyncRequest) Operation(operation []Operation) ApiPatchSocialPostBucketAsyncRequest {
-	r.operation = &operation
+func (r ApiPatchSocialPostBucketAsyncRequest) PatchOperation(patchOperation []PatchOperation) ApiPatchSocialPostBucketAsyncRequest {
+	r.patchOperation = &patchOperation
 	return r
 }
 
@@ -933,7 +949,7 @@ func (a *SocialPostBucketsAPIService) PatchSocialPostBucketAsyncExecute(r ApiPat
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", r.xApiVersion, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.operation
+	localVarPostBody = r.patchOperation
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
