@@ -76,7 +76,7 @@ func (a *CompletionsAPIService) ApiV2AiServiceCompletionsCompleteGetExecute(r Ap
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v2/AiService/Completions/Complete"
+	localVarPath := localBasePath + "/api/v2/IntelligenceService/Completions/Complete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
